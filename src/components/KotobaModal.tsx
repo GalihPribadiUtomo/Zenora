@@ -11,6 +11,7 @@ import { KotobaItem } from '../types';
 import { speakJapanese, sound } from '../utils/audio';
 import { getKotobaSentences } from '../data/kotobaSentencesData';
 import { SentenceCard } from './SentenceCard';
+import { FuriganaText } from './FuriganaText';
 
 interface KotobaModalProps {
   word: KotobaItem | null;
@@ -121,8 +122,8 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
                 <span className="text-xs font-bold text-[#8FB4E3] font-mono tracking-wider block mb-1">
                   {word.kana}
                 </span>
-                <h1 className="kanji-font text-4xl sm:text-5xl font-black text-[#EEF1F6] tracking-tight drop-shadow-sm">
-                  {word.kanji || word.kana}
+                <h1 className="kanji-font text-4xl sm:text-5xl font-black text-[#EEF1F6] tracking-tight drop-shadow-sm leading-relaxed">
+                  <FuriganaText text={word.kanji || word.kana} reading={word.kana} />
                 </h1>
                 <p className="text-sm font-mono text-[#8793A8] mt-1">
                   {word.romaji}

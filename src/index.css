@@ -226,6 +226,28 @@ body::before {
   font-weight: 700;
 }
 
+/* ========== FURIGANA (RUBY) STYLING ========== */
+ruby.ruby-furigana {
+  ruby-position: over;
+  display: inline-flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  vertical-align: bottom;
+  margin: 0 1px;
+  line-height: 1;
+}
+
+ruby.ruby-furigana rt.ruby-rt {
+  font-size: 0.55em;
+  line-height: 1.1;
+  color: #8FB4E3; /* Biru Perak */
+  font-weight: 700;
+  text-align: center;
+  user-select: none;
+  font-family: inherit;
+  margin-bottom: 2px;
+}
+
 /* ========== SECTION HEADER ========== */
 .section-hero {
   background: linear-gradient(135deg, #0C1B33 0%, #16294A 60%, #1F3760 100%);

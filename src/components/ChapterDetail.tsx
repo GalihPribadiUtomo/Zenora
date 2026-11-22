@@ -27,6 +27,7 @@ import { KotobaModal } from './KotobaModal';
 import { KotobaEditModal } from './KotobaEditModal';
 import { KotobaDeleteModal } from './KotobaDeleteModal';
 import { ChapterExerciseSection } from './ChapterExerciseSection';
+import { FuriganaText } from './FuriganaText';
 import { persistKotobaEdit, persistKotobaDelete, applyCustomKotoba } from '../utils/kotobaStorage';
 
 interface ChapterDetailProps {
@@ -345,7 +346,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                         {item.point}
                       </span>
                       <h2 className="text-xl sm:text-2xl font-black text-[#EEF1F6] font-['Manrope']">
-                        {item.title}
+                        <FuriganaText text={item.title} />
                       </h2>
                     </div>
                   </div>
@@ -356,7 +357,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                       <span className="px-2 py-0.5 rounded-md bg-[#1F3760] text-[#EEF1F6] text-[11px] uppercase tracking-wider border border-[#8FB4E3]/30">
                         Pola
                       </span>
-                      <span>{item.polaFormat}</span>
+                      <span><FuriganaText text={item.polaFormat} /></span>
                     </div>
                   )}
 
@@ -378,8 +379,8 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                             className="p-3.5 rounded-2xl bg-[#0C1B33]/60 border border-[#8FB4E3]/15 flex items-start justify-between gap-3 group hover:border-[#8FB4E3]/40 transition-all"
                           >
                             <div className="space-y-1">
-                              <p className="text-base font-bold text-[#EEF1F6] japanese-text">
-                                {ex.japanese}
+                              <p className="text-base font-bold text-[#EEF1F6] japanese-text leading-relaxed">
+                                <FuriganaText text={ex.japanese} />
                               </p>
                               <p className="text-xs text-[#8FB4E3] font-mono">
                                 {ex.romaji}
@@ -466,8 +467,8 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                         <Volume2 className="w-4 h-4" />
                       </button>
                     </div>
-                    <p className="text-lg font-bold text-[#EEF1F6] japanese-text">
-                      {pola.japanese}
+                    <p className="text-lg font-bold text-[#EEF1F6] japanese-text leading-relaxed">
+                      <FuriganaText text={pola.japanese} />
                     </p>
                     <p className="text-xs text-[#8FB4E3] font-mono">
                       {pola.romaji}
@@ -501,15 +502,15 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                       {ex.question && (
                         <div className="flex items-start gap-2">
                           <span className="text-xs font-black text-[#8FB4E3] font-mono mt-0.5">Q:</span>
-                          <p className="text-base font-bold text-[#EEF1F6] japanese-text">
-                            {ex.question}
+                          <p className="text-base font-bold text-[#EEF1F6] japanese-text leading-relaxed">
+                            <FuriganaText text={ex.question} />
                           </p>
                         </div>
                       )}
                       <div className="flex items-start gap-2">
                         <span className="text-xs font-black text-emerald-400 font-mono mt-0.5">A:</span>
-                        <p className="text-base font-bold text-[#EEF1F6] japanese-text">
-                          {ex.answer}
+                        <p className="text-base font-bold text-[#EEF1F6] japanese-text leading-relaxed">
+                          <FuriganaText text={ex.answer} />
                         </p>
                       </div>
                       <p className="text-xs text-[#8FB4E3] font-mono pl-5">
@@ -545,8 +546,8 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                   <span className="text-xs font-mono font-bold text-[#8FB4E3] uppercase tracking-wider block mb-1">
                     Percakapan Otentik Minna no Nihongo
                   </span>
-                  <h2 className="text-2xl font-black text-[#EEF1F6] font-['Manrope']">
-                    {lesson.percakapan.title}
+                  <h2 className="text-2xl font-black text-[#EEF1F6] font-['Manrope'] leading-relaxed">
+                    <FuriganaText text={lesson.percakapan.title} />
                   </h2>
                   {lesson.percakapan.situasi && (
                     <p className="text-xs text-[#8793A8] mt-1 italic">
@@ -582,7 +583,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                     <div className="flex-1 space-y-1">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-bold text-[#EEF1F6]">
-                          {dialog.speaker}
+                          <FuriganaText text={dialog.speaker} />
                         </span>
                         {dialog.role && (
                           <span className="text-[10px] text-[#8793A8]">
@@ -590,8 +591,8 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                           </span>
                         )}
                       </div>
-                      <p className="text-base font-bold text-[#EEF1F6] japanese-text">
-                        {dialog.japanese}
+                      <p className="text-base font-bold text-[#EEF1F6] japanese-text leading-relaxed pt-1">
+                        <FuriganaText text={dialog.japanese} />
                       </p>
                       <p className="text-xs text-[#8FB4E3] font-mono">
                         {dialog.romaji}
@@ -732,8 +733,8 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                       </div>
 
                       <div className="my-2">
-                        <h3 className="text-2xl font-black text-[#EEF1F6] japanese-text">
-                          {word.kanji}
+                        <h3 className="text-2xl font-black text-[#EEF1F6] japanese-text leading-relaxed">
+                          <FuriganaText text={word.kanji} reading={word.kana} />
                         </h3>
                         <p className="text-xs text-[#8FB4E3] font-bold mt-0.5">
                           {word.kana} · <span className="font-mono">{word.romaji}</span>
@@ -833,7 +834,9 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                         className="hover:bg-white/5 cursor-pointer transition-colors"
                       >
                         <td className="p-4 font-mono font-bold text-[#8793A8]">#{word.no}</td>
-                        <td className="p-4 font-bold text-[#EEF1F6] text-base japanese-text">{word.kanji}</td>
+                        <td className="p-4 font-bold text-[#EEF1F6] text-base japanese-text leading-relaxed">
+                          <FuriganaText text={word.kanji} reading={word.kana} />
+                        </td>
                         <td className="p-4 text-[#8FB4E3] font-mono text-xs">{word.kana} ({word.romaji})</td>
                         <td className="p-4 text-[#EEF1F6]">{word.arti}</td>
                         <td className="p-4 text-xs text-[#8793A8]">{word.kategori}</td>
@@ -867,8 +870,8 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                     <span className="text-xs font-mono text-[#8793A8] uppercase tracking-wider block">
                       Klik kartu untuk melihat arti
                     </span>
-                    <h2 className="text-5xl font-black text-[#EEF1F6] japanese-text">
-                      {currentFlashcard.kanji}
+                    <h2 className="text-5xl font-black text-[#EEF1F6] japanese-text leading-relaxed">
+                      <FuriganaText text={currentFlashcard.kanji} reading={currentFlashcard.kana} />
                     </h2>
                     <p className="text-lg font-bold text-[#8FB4E3]">
                       {currentFlashcard.kana}
