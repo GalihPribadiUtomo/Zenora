@@ -185,18 +185,18 @@ Kedua bagian ini dihubungkan oleh koordinasi suara yang tegas dan saling menyahu
       sectorId: 'food_service',
       category: 'kosakata',
       chapterNumber: 2,
-      title: 'Kosakata Dapur, Bumbu Dashi & 7 Bahan Alergen Wajib',
-      japaneseTitle: '厨房器具・調味料・特定原材料（アレルギー7品目）',
+      title: 'Kosakata Dapur, Bumbu Dashi & 8 Bahan Alergen Wajib',
+      japaneseTitle: '厨房器具・調味料・特定原材料（アレルギー8品目）',
       estimatedMinutes: 30,
       objectives: [
-        'Menghafal 7 Bahan Alergen Wajib (Tokutei Genzairyou 7 Hinmoku) yang dapat berakibat fatal jika terkonsumsi oleh tamu yang memiliki alergi.',
+        'Menghafal 8 Bahan Alergen Wajib (Tokutei Genzairyou 8 Hinmoku) yang dapat berakibat fatal jika terkonsumsi oleh tamu yang memiliki alergi.',
         'Menguasai nama-nama alat memasak, pisau dapur, dan perlengkapan saji restoran.',
         'Mengenal kosakata teknik memasak dasar Jepang (Kiru, Niru, Yaku, Musu, Ageru).'
       ],
       contentExplanation: `
 Dalam industri makanan di Jepang, penanganan **Alergi Makanan (食物アレルギー - Shokumotsu Arerugii)** adalah masalah hidup dan mati (*anaphylactic shock*). 
 
-Hukum Standar Pangan Jepang menetapkan **7 Bahan Baku Spesifik (特定原材料 - Tokutei Genzairyou 7 Hinmoku)** yang WAJIB dicantumkan dan diwaspadai:
+Hukum Standar Pelabelan Pangan Jepang menetapkan **8 Bahan Baku Spesifik (特定原材料 - Tokutei Genzairyou 8 Hinmoku)** yang WAJIB dicantumkan dan diwaspadai:
 1. **Telur (卵 - Tamago)**
 2. **Susu (乳 - Nyuu / Miruku)**
 3. **Gandum (小麦 - Komugi)**
@@ -204,7 +204,9 @@ Hukum Standar Pangan Jepang menetapkan **7 Bahan Baku Spesifik (特定原材料 
 5. **Kacang Tanah (落花生 / ピーナッツ - Rakkasei / Piinattsu)**
 6. **Udang (えび - Ebi)**
 7. **Kepiting (かに - Kani)**
-*(Catatan: Walnut / Kurumi baru-baru ini ditambahkan ke daftar wajib oleh pemerintah Jepang).*
+8. **Kenari / Walnut (くるみ - Kurumi)** *(Resmi ditetapkan sebagai bahan wajib ke-8 sejak revisi regulasi CAA / OTAFF 2023–2024)*.
+
+Selain 8 bahan wajib di atas, terdapat **20 Bahan Rekomendasi (特定原材料に準ずるもの 20品目)** seperti kedelai (大豆), daging sapi (牛肉), daging ayam (鶏肉), daging babi (豚肉), salmon (さけ), apel (りんご), pisang (バナナ), dsb.
 
 Jika pelanggan bertanya: *"Apakah saus ini mengandung udang atau gandum?"*, staf hall **DILARANG KERAS MENEBAK-NEBAK**. Selalu katakan: *"Kashikomarimashita. Chuubou no tantousha ni kakunin itashimasu"* (Baik, saya akan konfirmasikan ke penanggung jawab dapur), lalu periksa buku resep alergen resmi restoran (*arerugii hyou*).
 
@@ -227,8 +229,8 @@ Selain itu, staf dapur wajib menguasai 5 metode dasar memasak Jepang yang dising
           japanese: '特定原材料',
           kana: 'とくていげんざいりょう',
           romaji: 'tokutei genzairyou',
-          indonesian: 'Bahan pangan alergen wajib berlabel (7 bahan)',
-          note: 'Wajib dihafal untuk ujian OTAFF: Telur, Susu, Gandum, Soba, Kacang, Udang, Kepiting.'
+          indonesian: 'Bahan pangan alergen wajib berlabel (8 bahan)',
+          note: 'Wajib dihafal untuk ujian OTAFF: Telur, Susu, Gandum, Soba, Kacang tanah, Udang, Kepiting, dan Walnut (Kenari).'
         },
         {
           japanese: '包丁',
@@ -276,7 +278,7 @@ Selain itu, staf dapur wajib menguasai 5 metode dasar memasak Jepang yang dising
         takeaway: 'Jangan pernah mengatakan "Mungkin aman kok" (Daijoubu da to omoimasu). Ketidakpastian dalam alergen makanan adalah bahaya pidana di Jepang.'
       },
       visualDiagram: {
-        title: '7 Bahan Alergen Pangan Wajib di Jepang (Tokutei Genzairyou)',
+        title: '8 Bahan Alergen Pangan Wajib di Jepang (Tokutei Genzairyou)',
         type: 'grid',
         items: [
           { label: '1. Tamago (卵)', description: 'Telur ayam & produk olahan telur.' },
@@ -285,30 +287,31 @@ Selain itu, staf dapur wajib menguasai 5 metode dasar memasak Jepang yang dising
           { label: '4. Soba (そば)', description: 'Gandum soba (alergen fatal reaksi cepat).' },
           { label: '5. Rakkasei (落花生)', description: 'Kacang tanah / selai kacang.' },
           { label: '6. Ebi (えび)', description: 'Udang dan olahan bumbu krustasea.' },
-          { label: '7. Kani (かに)', description: 'Kepiting laut & kepiting air tawar.' }
+          { label: '7. Kani (かに)', description: 'Kepiting laut & kepiting air tawar.' },
+          { label: '8. Kurumi (くるみ)', description: 'Kacang kenari / walnut (wajib resmi sejak 2023).' }
         ]
       },
       importantPoints: [
-        'Hafalkan 7 bahan alergen wajib di luar kepala karena selalu muncul di minimal 3 nomor soal ujian OTAFF.',
+        'Hafalkan 8 bahan alergen wajib di luar kepala karena selalu muncul di minimal 3 nomor soal ujian OTAFF.',
         'Minyak bekas menggoreng udang tidak boleh digunakan kembali untuk menggoreng makanan bagi tamu alergi makanan laut.',
         'Urutan bumbu Sa-Shi-Su-Se-So: Gula dimasukkan lebih dulu karena molekulnya lebih besar daripada garam.'
       ],
-      summary: 'Pemahaman mendalam mengenai bahan baku, peralatan dapur, dan kepatuhan mutlak terhadap 7 alergen wajib melindungi keselamatan nyawa pelanggan restoran.',
+      summary: 'Pemahaman mendalam mengenai bahan baku, peralatan dapur, dan kepatuhan mutlak terhadap 8 alergen wajib melindungi keselamatan nyawa pelanggan restoran.',
       practiceQuestions: [
         {
           id: 'food_ch2_q1',
           questionNumber: 1,
-          questionText: '日本の食品表示法で、パッケージやメニュー等への表示が義務付けられている「特定原材料（7品目）」に含まれないものを一つ選びなさい。',
-          situation: 'Bahan yang BUKAN merupakan salah satu dari 7 Alergen Wajib di Jepang.',
+          questionText: '日本の食品表示法で、パッケージやメニュー等への表示が義務付けられている「特定原材料（8品目）」に含まれないものを一つ選びなさい。',
+          situation: 'Bahan yang BUKAN merupakan salah satu dari 8 Alergen Wajib di Jepang.',
           options: [
             'そば（蕎麦）',
             '落花生（ピーナッツ）',
             '大豆（だいず）',
-            'えび（海老）'
+            'くるみ（胡桃）'
           ],
           correctAnswerIndex: 2,
-          explanation: 'Pilihan 3 benar. Daizu (kedelai) termasuk dalam kategori "Bahan Rekomendasi 21 Bahan (特定原材料に準ずるもの)", BUKAN 7 Bahan Wajib. 7 Bahan Wajib hukum adalah: Telur, Susu, Gandum, Soba, Kacang tanah, Udang, dan Kepiting.',
-          translation: 'Pilihlah satu bahan yang TIDAK termasuk dalam 7 Bahan Baku Spesifik Wajib (Tokutei Genzairyou 7 Hinmoku).'
+          explanation: 'Pilihan 3 benar. Daizu (kedelai) termasuk dalam kategori "Bahan Rekomendasi 20 Bahan (特定原材料に準ずるもの)", BUKAN 8 Bahan Wajib. 8 Bahan Wajib hukum adalah: Telur, Susu, Gandum, Soba, Kacang tanah, Udang, Kepiting, dan Kenari (くるみ).',
+          translation: 'Pilihlah satu bahan yang TIDAK termasuk dalam 8 Bahan Baku Spesifik Wajib (Tokutei Genzairyou 8 Hinmoku).'
         }
       ],
       officialReference: {
@@ -702,7 +705,7 @@ Kunci sukses kelulusan: Soal-soal manajemen kebersihan (HACCP) memiliki tingkat 
         'Wajib memeriksa waktu timer CBT di pojok kanan atas layar komputer Prometric.',
         'Jika ragu menjawab nomor tertentu, gunakan fitur "Flag / Review" untuk menandai dan mengecek ulang sebelum submit final.'
       ],
-      summary: 'Kelulusan ujian OTAFF Food Service dapat diraih dengan memahami 3 prinsip pencegahan keracunan makanan, karakteristik bakteri patogen, 7 bahan alergen wajib, serta 7 frasa sakti pelayanan tamu.',
+      summary: 'Kelulusan ujian OTAFF Food Service dapat diraih dengan memahami 3 prinsip pencegahan keracunan makanan, karakteristik bakteri patogen, 8 bahan alergen wajib, serta 7 frasa sakti pelayanan tamu.',
       practiceQuestions: [
         {
           id: 'food_ch5_q1',

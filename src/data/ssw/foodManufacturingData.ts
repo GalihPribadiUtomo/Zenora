@@ -6,38 +6,39 @@ export const FOOD_MANUFACTURING_SECTOR_DATA: SswSectorData = {
   japaneseName: '飲食料品製造業',
   romajiName: 'Inshokuryouhin Seizougyou',
   iconName: 'Factory',
-  tagline: 'Menguasai operasional lini conveyor, manajemen higienitas HACCP, dan pengendalian mutu industri pengolahan pangan berstandar Jepang.',
+  tagline: 'Menguasai operasional lini produksi, manajemen sanitasi umum 5S, sistem keamanan pangan HACCP, dan keselamatan kerja (K3) pabrik berstandar resmi Jepang.',
   badge: 'Banyak Lowongan',
   badgeColor: 'text-blue-400 bg-blue-500/15 border-blue-500/30',
   overview: {
-    workEnvironment: 'Bekerja di pabrik pengolahan makanan berskala industri di seluruh Jepang (pabrik bento konbini, bakery, makanan beku/frozen food, pengolahan daging/unggas, produk olahan laut/seafood, dan delicatessen/souzai) yang menerapkan otomatisasi lini conveyor serta standar sanitasi ketat.',
+    workEnvironment: 'Bekerja di pabrik pengolahan makanan berskala industri di seluruh Jepang (pabrik bento konbini, bakery/roti, makanan beku olahan/frozen food, pengolahan daging/unggas, produk olahan laut/seafood, delicatessen/souzai, bumbu dapur, dan minuman) yang menerapkan otomatisasi lini conveyor, sistem zonasi sanitasi (zonasi steril), dan standar keamanan pangan HACCP yang ketat.',
     mainDuties: [
-      'Operasional lini produksi (persiapan bahan baku, penimbangan presisi/keiryō, pencampuran/chōgō, dan pengisian/jūten).',
-      'Pengoperasian mesin pengemas otomatis (mesin heat sealer, pembungkus vakum, mesin pelabel tanggal kedaluwarsa).',
-      'Pengendalian mutu dan inspeksi keamanan pangan (metal detector, X-ray foreign body detector, weight checker).',
-      'Sterilisasi termal (retort pouch, perebusan, oven) dan pemantauan rantai dingin (cold chain).',
-      'Pembersihan dan sanitasi area pabrik harian sesuai regulasi HACCP serta penerapan prinsip 5S (Seiri, Seiton, Seisou, Seiketsu, Shitsuke).'
+      'Penerimaan bahan baku (ukere-ire kensa), pemilahan bahan, dan manajemen penyimpanan rantai dingin sesuai suhu standar.',
+      'Operasional lini pemrosesan (pemotongan/saidan, penimbangan/keiryou, pencampuran/chougou, pemasakan termal/kanetsu, dan pendinginan cepat/reikyaku).',
+      'Pengoperasian mesin pengemas otomatis (packing, heat sealer, vacuum packaging, dan mesin pencetak tanggal kadaluwarsa).',
+      'Pengendalian mutu & deteksi benda asing (metal detector kalibrasi test piece, X-ray foreign body detector, dan weight checker).',
+      'Sanitasi menyeluruh fasilitas dan mesin pabrik (bongkar pasang/bunkai senjou, disinfeksi sodium hipoklorit, pembersihan drainase/haisuikou) sesuai prinsip 5S dan 7 Prinsip HACCP.',
+      'Penerapan keselamatan dan kesehatan kerja (K3), penggunaan APD khusus (sarung tangan mexcel & rantai, boot anti-minyak berpenutup), serta pencegahan insiden melalui KYT dan Hiyari-Hatto.'
     ],
-    technicalExamName: 'Food Manufacturing Skills Measurement Test (飲食料品製造業技能測定試験)',
+    technicalExamName: 'Food and Beverage Manufacturing Skills Measurement Test (飲食料品製造業技能測定試験)',
     examOrganizer: 'OTAFF (一般社団法人外国人食品産業技能評価機構) & MAFF (農林水産省)',
-    passRequirement: 'Lulus ujian tertulis teori (学科試験) dan ujian praktik berbasis gambar/situasi (実技試験 / 判断等試験) dengan skor minimal 65% + sertifikat bahasa Jepang JFT-Basic A2 atau JLPT N4.',
+    passRequirement: 'Lulus Ujian Teori Akademik (学科試験 - 30 soal) dan Ujian Praktik/Penilaian Gambar Situasi (実技試験 / 判断等試験 - 15 soal) dengan skor minimal 65% + sertifikat kemahiran bahasa Jepang (JFT-Basic A2 atau JLPT N4).',
     salaryInsight: 'Gaji pokok berkisar antara ¥190.000 hingga ¥255.000/bulan (di luar tunjangan shift malam / koutai teate, lembur, dan bonus tahunan).'
   },
   officialReferences: [
     {
-      title: 'Food and Beverage Manufacturing Skills Measurement Test Textbook (飲食料品製造業技能測定試験学習用テキスト)',
-      agency: 'OTAFF & Ministry of Agriculture, Forestry and Fisheries (MAFF / 農林水産省)',
-      description: 'Buku panduan resmi kurikulum pengolahan bahan pangan industri, sanitasi pabrik, kontrol suhu mikroorganisme, dan keselamatan kerja K3.'
+      title: 'Food and Beverage Manufacturing Skills Measurement Test Textbook 4th Edition (飲食料品製造業技能測定試験学習用テキスト 第4版 - 2024年2月)',
+      agency: 'OTAFF (一般社団法人 外国人食品産業技能評価機構)',
+      description: 'Buku teks kurikulum resmi terbaru untuk pekerja Specified Skilled Worker (SSW Tokutei Ginou 1) bidang pengolahan makanan dan minuman di Jepang.'
     },
     {
       title: 'Standards for Manufacturing and Processing Foods and Food Additives (食品等の製造・加工に関する基準)',
-      agency: 'Ministry of Health, Labour and Welfare (MHLW / 厚生労働省)',
-      description: 'Pedoman standar hukum keamanan pangan nasional, pencegahan kontaminasi silang mikrobiologi, dan regulasi pelabelan alergen.'
+      agency: 'Ministry of Health, Labour and Welfare (MHLW / 厚生労働省) & MAFF (農林水産省)',
+      description: 'Pedoman standar hukum nasional keamanan pangan, regulasi kewajiban pelabelan 8 alergen utama, dan keselamatan kerja industri manufaktur.'
     }
   ],
   chapters: [
     // ------------------------------------------------------------------------
-    // BAB 1: PENGENALAN BIDANG & LINGKUNGAN KERJA PABRIK PANGAN
+    // BAB 1: PENGENALAN BIDANG & BUDAYA KERJA PABRIK PANGAN
     // ------------------------------------------------------------------------
     {
       id: 'mfg_ch1',
@@ -46,1062 +47,1732 @@ export const FOOD_MANUFACTURING_SECTOR_DATA: SswSectorData = {
       chapterNumber: 1,
       title: 'Ekosistem Industri Manufaktur Pangan & Budaya Kerja Pabrik Jepang',
       japaneseTitle: '飲食料品製造業の概要と工場の就業ルール',
-      estimatedMinutes: 25,
+      estimatedMinutes: 30,
       objectives: [
-        'Memahami peta sub-sektor industri manufaktur pangan di Jepang (bento/souzai, bakery, frozen food, olahan daging/seafood).',
-        'Mengenal sistem pembagian zona sanitasi pabrik (Zōningu: Osen-ku, Jun-seiketsu-ku, dan Seiketsu-ku).',
-        'Menguasai sistem kerja shift (Kōtai-sei) serta kewajiban pemeriksaan kesehatan harian (Kenkō Kanri).'
+        'Memahami profil dan skala industri pengolahan pangan Jepang senilai 37 triliun yen serta ragam subsektor produksinya.',
+        'Menguasai dua pilar kompetensi inti pekerja SSW: Higiene Makanan (食品衛生 - melindungi nyawa) dan Keselamatan Kerja (労働安全 - melindungi pekerja).',
+        'Menerapkan prosedur pemeriksaan kesehatan mandiri sebelum bekerja (健康チェック) dan pelaporan kondisi tubuh.',
+        'Mempraktikkan standar pemakaian seragam kerja steril (作業服), larangan membawa benda asing/pribadi, dan prosedur cuci tangan resmi 5 tahap.'
       ],
-      contentExplanation: `
-Industri Pengolahan Makanan dan Minuman (**飲食料品製造業 - Inshokuryōhin Seizōgyō**) merupakan salah satu pilar industri manufaktur terbesar dan paling esensial di Jepang. Industri ini menopang kebutuhan konsumsi harian masyarakat modern, memasok ratusan ribu toko serba ada (*konbini* seperti 7-Eleven, Lawson, FamilyMart), jaringan supermarket, hingga rantai restoran keluarga di seantero negeri.
+      contentExplanation: `### 1. Skala Industri & Ragam Subsektor Manufaktur Pangan Jepang
 
-Sub-sektor utama dalam industri ini meliputi:
-1. **Pabrik Bento & Delicatessen (弁当・そうざい製造業)**: Memproduksi bento harian, onigiri, sushi siap saji, dan aneka lauk pauk basah (*souzai*). Memiliki ritme produksi super cepat dengan batas waktu kedaluwarsa pendek dalam hitungan jam.
-2. **Pabrik Roti & Biskuit (パン・菓子製造業)**: Mengolah tepung terigu, proses fermentasi ragi otomatis, pemanggangan terowongan kontinu (*tunnel oven*), hingga pengemasan kedap udara.
-3. **Pabrik Makanan Beku (冷凍食品製造業)**: Menggunakan teknologi pembekuan cepat individu (*IQF - Individual Quick Freezing*) untuk memproduksi gyoza, karaage, kentang beku, dan udon beku.
-4. **Pabrik Pengolahan Daging & Unggas (食肉・食鳥肉加工業)**: Proses pemotongan presisi, pembuatan sosis, ham, daging burger dengan standar ketat pencegahan cemaran *Salmonella* dan *Campylobacter*.
-5. **Pabrik Pengolahan Hasil Laut (水産加工業)**: Fillet ikan, produksi pasta ikan (*surimi/kamaboko*), pengeringan rumput laut (*nori*), dan pengolahan udang/cumi beku.
+Industri manufaktur makanan dan minuman (**飲食料品製造業 - Inshokuryouhin Seizougyou**) adalah sektor vital penopang kehidupan masyarakat Jepang. Berdasarkan data statistik Kementerian Pertanian, Kehutanan, dan Perikanan Jepang (MAFF / 農林水産省), nilai produksi dalam negeri industri pengolahan pangan mencapai sekitar **37 triliun yen** (sekitar 36,5 triliun yen pada tahun Reiwa 3).
 
-### Sistem Zonasi Sanitasi (ゾーニング - Zōningu)
-Untuk menjamin keamanan pangan dari kontaminasi silang (*cross-contamination*), ruang pabrik makanan di Jepang dibagi menjadi 3 zona fisik yang ketat:
-- **Zona Terkontaminasi (汚染区 - Osen-ku)**: Area penerimaan bahan mentah kotor, pembuangan kardus luar, pencucian awal sayuran bertanah, dan ruang penanganan sisa limbah (*zansa*).
-- **Zona Semi-Bersih (準清潔区 - Jun-seiketsu-ku)**: Area pemanasan/pemasakan (*heating*), penimbangan bumbu, perebusan, penggorengan, dan pengeringan.
-- **Zona Bersih (清潔区 - Seiketsu-ku)**: Area perakitan makanan matang, pemotongan bahan siap santap, pendinginan cepat, dan pengemasan primer (*packaging*). Ruangan ini memiliki ventilasi bertekanan udara positif agar udara luar yang kotor tidak masuk ke dalam.
+Sektor ini mencakup berbagai bidang pabrik pengolahan bahan pangan dan minuman:
+- **Minuman (飲料品 - Inryouhin)**: 3,8 triliun yen (10%) — teh kemasan, jus buah, kopi, air mineral botol.
+- **Produk Peternakan (畜産食料品 - Chikusan Shokuryouhin)**: 3,5 triliun yen (10%) — ham, sosis, daging asap (bacon).
+- **Kudapan & Biskuit (菓子類 - Kashirui)**: 3,3 triliun yen (9%) — snack, kue basah, permen, biskuit.
+- **Produk Pengolahan Laut (水産食料品 - Suisan Shokuryouhin)**: 2,9 triliun yen (8%) — ikan beku olahan, surimi, kamaboko.
+- **Lauk Bento & Delicatessen (そう菜・すし・弁当 - Souzai, Sushi, Bento)**: 2,8 triliun yen (8%) — bento konbini, onigiri siap saji, lauk kemasan.
+- **Daging Olahan (食肉 - Shokuniku)**: 2,6 triliun yen (7%) — potongan daging segar siap masak.
+- **Penggilingan Padi & Tepung (精穀・製粉 - Seikoku, Seifun)**: 2,4 triliun yen (7%) — beras poles, tepung terigu industri.
+- **Roti & Bakery (パン類 - Panrui)**: 1,9 triliun yen (5%) — roti tawar, roti manis industri.
+- **Bumbu Masak (調味料 - Choumiryou)**: 1,8 triliun yen (5%) — miso, shoyu, saus, bumbu cair.
+- **Mie Industri (めん類 - Menrui)**: 1,0 triliun yen (3%) — mie basah ramen, udon, soba kemasan.
+- **Makanan Beku Siap Masak (冷凍調理食品 - Reitou Chouri Shokuhin)**: 0,6 triliun yen (2%) — gyoza beku, korokke beku, karaage beku.
+- **Makanan Retort (レトルト食品 - Retoruto Shokuhin)**: 0,2 triliun yen (kari siap saji, pasta pouch).
+- **Subsektor lainnya**: 9,6 triliun yen (26%).
 
-### Kedisiplinan Kerja Shift & Pemeriksaan Kesehatan
-Mayoritas pabrik beroperasi 24 jam dengan sistem kerja shift (**交代制 - Kōtai-sei**), umumnya dibagi menjadi shift pagi/siang (*nikkin*) dan shift malam (*yakin*). 
-Setiap staf wajib hadir minimal 10-15 menit sebelum jam kerja untuk melakukan pemeriksaan kesehatan mandiri (**健康管理チェック - Kenkō Kanri Chekku**). Jika mengalami gangguan pencernaan (diare/muntah) atau memiliki luka terbuka di jari tangan, staf dilarang keras memasuki lini pengemasan makanan matang demi mencegah risiko penularan *Norovirus* dan bakteri *Staphylococcus aureus*.
-      `,
+---
+
+### 2. Dua Keterampilan Inti Pekerja SSW: Higiene Pangan & Keselamatan Kerja
+
+Pekerja dengan status izin tinggal Tokutei Ginou 1 di pabrik manufaktur pangan wajib menguasai dua fondasi mendasar:
+
+1. **Higiene Pangan (食品衛生 - Shokuhin Eisei)**:
+   - Kata **"衛生" (Eisei)** secara harfiah bermakna *"menjaga nyawa/kehidupan"* (生命を衛る / いのちをまもる).
+   - "食品衛生" berarti memastikan bahwa **orang yang memakan makanan tersebut tidak jatuh sakit dan tidak mengalami cedera**.
+   - Menghasilkan makanan yang aman melalui sanitasi ketat disebut **"衛生管理" (Manajemen Higiene)**. Jika makanan tercemar atau tidak aman dikonsumsi hingga menyebabkan keracunan atau luka, konsumen akan sakit, pabrik akan dituntut, dan perusahaan akan **kehilangan kredibilitas serta kepercayaan publik (信用をなくす - Shinyou wo nakusu)**.
+
+2. **Keselamatan Kerja (労働安全 - Roudou Anzen)**:
+   - "労働安全" bermakna **melindungi keselamatan fisik dan kesehatan para pekerja** di pabrik (作業者の安全と健康を守る).
+   - Pekerja wajib mengenakan seragam kerja dan alat pelindung diri (APD / 安全保護具) secara benar, serta mematuhi **Manual Prosedur Operasional (作業手順書 - Sagyou Tejunsho)** dan peraturan pabrik (工場のルール).
+
+---
+
+### 3. Pemeriksaan Kesehatan Diri Mandiri (健康チェック - Kenkou Chekku)
+
+Sebelum memulai shift kerja di tempat produksi pangan, setiap pekerja wajib menjalani dan mengisi lembar **Pemeriksaan Kesehatan (健康チェック)**:
+- **Gejala Saluran Cerna**: Memastikan tidak mengalami sakit perut (腹痛), diare (下痢), mual (吐き気), maupun muntah (嘔吐).
+- **Gejala Fisik Lain**: Memastikan tidak mengalami demam (発熱) atau gejala flu/batuk.
+- **Kondisi Tangan & Jari**: Memastikan tidak ada luka sayat, goresan, lecet (手や指の傷), atau bisul bernanah pada jari tangan. Luka terbuka merupakan sarang utama bakteri *Staphylococcus aureus* (黄色ブドウ球菌) yang dapat mencemari makanan.
+- **Kewajiban Pelaporan**: Jika mengalami salah satu gejala di atas, pekerja **DILARANG MERAHASIAKANNYA** dan **WAJIB MELAPOR KEPADA PENANGGUNG JAWAB (責任者へ報告)**. Jika di tengah shift mendadak merasa sakit perut atau jari tergores, segera hentikan pekerjaan dan lapor.
+- **Pemeriksaan Berkala**: Pekerja wajib menjalani Uji Sampel Feses (検便 - Kenben) berkala bulanan untuk deteksi Salmonella, Shigella, dan EHEC O157, serta General Medical Check-up (定期健康診断).
+
+---
+
+### 4. Standar Pemakaian Seragam Kerja Pabrik (作業服の着用) & Larangan Benda Asing
+
+Untuk mencegah kontaminasi debu, kotoran, rambut, dan mikroorganisme ke dalam bahan pangan, seragam pabrik dirancang dengan spesifikasi khusus dan wajib dipakai di **ruang ganti (更衣室 - Kouishitsu)**:
+- **Desain Pakaian Kerja**: Wajib memilih pakaian bersih sesuai ukuran tubuh. Seragam pabrik pangan **TIDAK BOLEH MEMILIKI KANTONG / SAKU LUAR (ポケットなし)** dan **TIDAK BOLEH MENGGUNAKAN KANCING LUAR (ボタンなし)** guna mencegah barang jatuh atau kancing terlepas ke makanan. Lengan dan pergelangan kaki menggunakan karet elastis rapat (ゴム絞り).
+- **Pakaian Bagian Dalam**: Kaos dalam tidak boleh berkancing, dan ujung pakaian dalam/kemeja harus dimasukkan rapi ke dalam celana (ズボンの中に入れる).
+- **Larangan Aksesoris & Kosmetik**: Dilarang memakai cincin (指輪), gelang (腕輪), jam tangan (腕時計), anting/tindik (ピアス・イヤリング), kalung, jepit rambut (ヘアピン), dan bulu mata palsu (つけまつげ). Kuku wajib selalu dipotong pendek; dilarang menggunakan kuku palsu atau cat kuku (マニキュア).
+- **Larangan Benda Pribadi & Parfum**: Dilarang membawa smartphone, dompet, kunci, koin, rokok, atau makanan/minuman ke ruang produksi. Dilarang membawa dokumen yang berstaples/klip kertas, serta pensil/pulpen dengan per atau isi mudah patah. Parfum dan minyak wangi **DILARANG KERAS** karena aromanya dapat mencemari cita rasa produk dan menutupi bau busuk bahan pangan.
+- **Urutan Resmi Mengenakan Seragam**:
+  1. *Brushing (ブラッシング)*: Menyisir dan menyikat rambut kepala secara menyeluruh.
+  2. *Hairnet (ヘアーネット)*: Mengenakan jaring rambut hingga seluruh helaian rambut tertutup rapat di dalamnya.
+  3. *Topi Pabrik (帽子)*: Mengenakan topi penutup kepala dan mengencangkannya. Topi dimasukkan ke dalam kerah seragam.
+  4. *Seragam Kerja (作業服)*: Mengenakan seragam, menaikkan ritsleting kerah berdiri (縦襟) hingga batas dagu.
+  5. *Masker (マスク)*: Menutup hidung hingga bawah dagu, kawat hidung ditekan rapat agar tidak ada celah.
+  6. *Konfirmasi Cermin (鏡で確認)*: Memeriksa diri di depan cermin ukuran penuh memastikan tidak ada rambut mencuat, masker rapat, dan kerah terkancing.
+
+---
+
+### 5. Prosedur Pembersihan Partikel & Cuci Tangan 5 Tahap Resmi
+
+Sebelum melangkah dari ruang ganti ke koridor produksi, pekerja wajib melalui proses pembersihan fisik:
+- **Rol Perekat (粘着ローラー - Nenchaku Rouraa)**: Menggulung rol berperekat di seluruh permukaan seragam (bahu, dada, punggung, lengan, paha) berpasangan atau mandiri untuk mengangkat rambut dan serat benang yang menempel.
+- **Pancuran Udara (エアーシャワー - Air Shower)**: Masuk ke bilik semprotan angin bertekanan tinggi sambil mengangkat kedua tangan dan memutar badan selama 15–20 detik agar sisa partikel debu terhembus keluar.
+- **Alas Kaki Khusus (履き替え - Hakikae)**: Mengganti sepatu luar dengan sepatu kerja pabrik (作業靴). Ketika ke toilet, wajib mengganti sepatu kerja dengan sandal/bakiak khusus toilet (トイレ用の履物) agar tidak membawa bakteri kotoran manusia (seperti Norovirus) ke area kerja.
+
+**SOP Cuci Tangan Standar Sanitasi (5 Tahap Resmi OTAFF)**:
+1. **Basahi dengan air mengalir (流水)**: Bersihkan kotoran kasar awal pada kedua tangan.
+2. **Sabun cuci tangan (せっけん)**: Cuci tangan, telapak, punggung tangan, pergelangan tangan, sela-sela jari, ujung jari, dan bawah kuku menggunakan sikat kuku selama **30 detik**.
+3. **Bilas air mengalir (流水で洗い流す)**: Bilas busa sabun hingga benar-benar bersih selama **20 detik**.
+4. **Keringkan tangan**: Gunakan kertas tisu sekali pakai (ペーパータオル) atau mesin pengering udara (エアータオル). Dilarang menyeka tangan pada baju kerja!
+5. **Disinfeksi alkohol (消毒用アルコール)**: Semprotkan alkohol cair ke kedua telapak tangan lalu usap dan gosokkan merata ke sela-sela jari hingga kering alami.`,
       keyTerms: [
         {
           japanese: '飲食料品製造業',
           kana: 'いんしょくりょうひんせいぞうぎょう',
           romaji: 'inshokuryouhin seizougyou',
-          indonesian: 'Industri pengolahan makanan dan minuman',
-          note: 'Sektor SSW dengan kuota penerimaan tenaga kerja asing sangat besar di Jepang.'
+          indonesian: 'Industri manufaktur makanan dan minuman (skala pabrik industri Jepang).'
         },
         {
-          japanese: '清潔区 / 汚染区',
-          kana: 'せいけつく / おせんく',
-          romaji: 'seiketsu-ku / osen-ku',
-          indonesian: 'Zona bersih / Zona terkontaminasi',
-          note: 'Pemisahan fisik wajib di pabrik pangan untuk mencegah kontaminasi mikroba.'
+          japanese: '食品衛生',
+          kana: 'しょくひんえいせい',
+          romaji: 'shokuhin eisei',
+          indonesian: 'Higiene pangan / kebersihan makanan (menjaga nyawa konsumen agar tidak sakit/cedera).'
         },
         {
-          japanese: '交代制',
-          kana: 'こうたいせい',
-          romaji: 'koutaisei',
-          indonesian: 'Sistem kerja shift bergilir',
-          note: 'Terdiri dari nikkin (shift siang) dan yakin (shift malam).'
+          japanese: '労働安全',
+          kana: 'ろうどうあんぜん',
+          romaji: 'roudou anzen',
+          indonesian: 'Keselamatan & kesehatan kerja (K3) untuk melindungi keselamatan fisik dan jiwa pekerja.'
         },
         {
-          japanese: '健康管理チェック',
-          kana: 'けんこうかんりちぇっく',
-          romaji: 'kenkou kanri chekku',
-          indonesian: 'Pemeriksaan kondisi kesehatan sebelum masuk kerja',
-          note: 'Pemeriksaan wajib harian mencakup gejala diare, demam, flu, dan luka di tangan.'
+          japanese: '健康チェック',
+          kana: 'けんこうちぇっく',
+          romaji: 'kenkou chekku',
+          indonesian: 'Pemeriksaan kesehatan mandiri harian sebelum shift (diare, demam, mual, luka jari).'
         },
         {
-          japanese: '残渣',
-          kana: 'ざんさ',
-          romaji: 'zansa',
-          indonesian: 'Sisa limbah bahan makanan (ampas/kulit/potongan reject)',
-          note: 'Harus segera dibuang ke wadah tertutup di zona terkontaminasi agar tidak membusuk.'
+          japanese: '検便',
+          kana: 'けんべん',
+          romaji: 'kenben',
+          indonesian: 'Uji feses berkala pekerja pabrik untuk mendeteksi bakteri usus patogen (Salmonella, O157).'
+        },
+        {
+          japanese: '作業服',
+          kana: 'さぎょうふく',
+          romaji: 'sagyoufuku',
+          indonesian: 'Pakaian seragam kerja steril pabrik (tanpa saku luar, tanpa kancing luar).'
+        },
+        {
+          japanese: 'ヘアーネット',
+          kana: 'へあーねっと',
+          romaji: 'heaanetto',
+          indonesian: 'Jaring rambut khusus yang membungkus seluruh helaian rambut di dalam topi kerja.'
+        },
+        {
+          japanese: '粘着ローラー',
+          kana: 'ねんちゃくろーらー',
+          romaji: 'nenchaku rouraa',
+          indonesian: 'Rol berperekat untuk mengangkat rambut, bulu, dan debu halus dari seragam.'
+        },
+        {
+          japanese: 'エアーシャワー',
+          kana: 'えあーしゃわー',
+          romaji: 'eaashawaa',
+          indonesian: 'Bilik pancuran angin bertekanan tinggi untuk menghembuskan partikel debu sebelum masuk lini.'
+        },
+        {
+          japanese: '手洗い',
+          kana: 'てあらい',
+          romaji: 'tearai',
+          indonesian: 'Prosedur cuci tangan higienis (30 detik sabun + 20 detik bilas air mengalir).'
+        },
+        {
+          japanese: '消毒用アルコール',
+          kana: 'しょうどくようあるこーる',
+          romaji: 'shoudokuyou arukooru',
+          indonesian: 'Cairan alkohol disinfektan untuk sterilisasi tangan dan alat pemroses pangan.'
+        },
+        {
+          japanese: '作業手順書',
+          kana: 'さぎょうてじゅんしょ',
+          romaji: 'sagyou tejunsho',
+          indonesian: 'Manual prosedur kerja resmi / Standard Operating Procedure (SOP) pabrik.'
+        },
+        {
+          japanese: '信用',
+          kana: 'しんよう',
+          romaji: 'shinyou',
+          indonesian: 'Kepercayaan dan kredibilitas konsumen/mitra bisnis terhadap produsen pangan.'
+        },
+        {
+          japanese: '履き替え',
+          kana: 'はきかえ',
+          romaji: 'hakikae',
+          indonesian: 'Penggantian alas kaki khusus (sepatu kerja, sandal toilet) untuk mencegah cemaran silang.'
+        },
+        {
+          japanese: '更衣室',
+          kana: 'こういしつ',
+          romaji: 'kouishitsu',
+          indonesian: 'Ruang ganti pakaian steril pekerja pabrik untuk memisahkan baju harian dan seragam kerja.'
         }
       ],
       workplaceCaseStudy: {
-        title: 'Kasus: Mengalami Diare di Pagi Hari Sebelum Shift Pabrik Bento',
-        scenario: 'Rian, pekerja SSW di pabrik bento shift pagi, terbangun pukul 05.00 dengan kondisi perut mulas dan telah diare sebanyak 2 kali. Ia tahu hari itu pesanan bento akhir pekan sedang melonjak tinggi. Rian bimbang apakah ia harus minum obat pereda diare lalu diam-diam berangkat kerja, atau segera melapor kepada Line Leader.',
+        title: 'Kasus Lapangan: Pekerja Mengalami Luka Gores pada Jari dan Diare di Pagi Hari',
+        scenario: 'Rian, seorang pekerja baru di pabrik pengolahan bento, bangun pagi dengan kondisi perut mulas dan diare ringan. Saat mempersiapkan diri di ruang ganti, ia juga menyadari ada luka gores kecil di jari telunjuk kanannya akibat terkena tepi kaleng tadi malam di asrama. Karena takut dipotong gaji dan merasa shift produksi sedang padat, Rian berniat langsung memakai sarung tangan karet dan diam-diam mulai bekerja di lini topping.',
         dialogue: [
           {
-            speaker: 'Rian (Pekerja SSW)',
-            role: 'Staf Lini Produksi',
-            japanese: 'お疲れ様です。小林リーダー、本日の朝から下痢の症状が2回ありました。出勤してもよろしいでしょうか。',
-            kana: 'おつかれさまです。こばやしリーダー、ほんじつの あさから げりの しょうじょうが にかい ありました。しゅっきんしても よろしいでしょうか。',
-            romaji: 'Otsukaresama desu. Kobayashi-riidaa, honjitsu no asa kara geri no shoujou ga nikai arimashita. Shukkin shitemo yoroshii deshou ka.',
-            indonesian: 'Selamat pagi Leader Kobayashi. Pagi ini saya mengalami diare sebanyak dua kali. Apakah saya tetap diperbolehkan masuk kerja?'
+            speaker: 'リーダー (Leader Sato)',
+            role: 'Line Leader',
+            japanese: 'リアンさん、おはようございます。健康チェックシートを確認しましたか？手の傷や下痢の症状はありませんか？',
+            kana: 'リアンさん、おはようございます。けんこうちぇっくしーとをかくにんしましたか？てのきずやげりのしょうじょうはありませんか？',
+            romaji: 'Rian-san, ohayou gozaimasu. Kenkou chekku shiito wo kakunin shimashita ka? Te no kizu ya geri no shoujou wa arimasen ka?',
+            indonesian: 'Rian, selamat pagi. Sudah memeriksa lembar cek kesehatan? Apakah ada luka di tangan atau gejala diare?'
           },
           {
-            speaker: 'Kobayashi (Line Leader)',
-            role: 'Penanggung Jawab Lini',
-            japanese: 'リアンさん、正直にすぐ報告してくれてありがとう。ノロウイルスなどの食中毒の危険があるから、下痢の症状がある時は絶対に製造ラインに入ってはいけません。本日は自宅待機して、病院で検査を受けてください。',
-            kana: 'リアンさん、しょうじきに すぐ ほうこくしてくれて ありがとう。のろういるす などの しょくちゅうどくの きけんが あるから、げりの しょうじょうが あるときは ぜったいに せいぞうらいんに はいってはいけません。ほんじつは じたくたいきして、びょういんで けんさを うけてください。',
-            romaji: 'Rian-san, shoujiki ni sugu houkoku shite kurete arigatou. Norouirusu nado no shokuchuudoku no kiken ga aru kara, geri no shoujou ga aru toki wa zettai ni seizou rain ni haitte wa ikemasen. Honjitsu wa jitaku taiki shite, byouin de kensa wo ukete kudasai.',
-            indonesian: 'Rian, terima kasih sudah jujur dan langsung melapor. Karena ada risiko keracunan makanan seperti Norovirus, saat ada gejala diare sama sekali tidak boleh masuk lini produksi. Hari ini istirahatlah di rumah dan periksakan diri ke klinik.'
+            speaker: 'リアン (Rian)',
+            role: 'Pekerja SSW',
+            japanese: '実は…今朝から少しお腹が痛くて下痢があります。それに、昨夜指に小さな傷を作ってしまいました。',
+            kana: 'じつは…けさからすこしおなかがいたくてげりがあります。それに、さくやゆびにちいさなきずをつくってしまいました。',
+            romaji: 'Jitsu wa... kesa kara sukoshi onaka ga itakute geri ga arimasu. Sore ni, sakuya yubi ni chiisana kizu wo tsukutte shimaimashita.',
+            indonesian: 'Sebenarnya... sejak pagi ini perut saya agak sakit dan diare. Selain itu, tadi malam jari saya terluka gores kecil.'
           },
           {
-            speaker: 'Rian (Pekerja SSW)',
-            role: 'Staf Lini Produksi',
-            japanese: 'ご迷惑をおかけして大変申し訳ありません。病院の検査結果が出ましたら、すぐに改めてご連絡いたします。',
-            kana: 'ごめいわくをおかけして たいへん もうしわけありません。びょういんの けんさけっかが でましたら、すぐに あらためて ごれんらくいたします。',
-            romaji: 'Gomeiwaku wo okake shite taihen moushiwake arimasen. Byouin no kensa kekka ga demashitara, sugu ni aratamete gorenraku itashimasu.',
-            indonesian: 'Mohon maaf sebesar-besarnya atas ketidaknyamanan ini. Begitu hasil pemeriksaan dokter keluar, saya akan segera melapor kembali.'
+            speaker: 'リーダー (Leader Sato)',
+            role: 'Line Leader',
+            japanese: '正直に報告してくれて助かりました。手指の傷口には黄色ブドウ球菌、下痢にはノロウイルスや他の病原菌のリスクがあります。食品に直接触れる作業はできません。今日は加熱ラインの段ボール梱包作業に交代しましょう。傷口は救急箱で消毒・専用フィルムで保護してください。',
+            kana: 'しょうじきにほうこくしてくれたすかりました。てゆびのきずぐちにはおうしょくぶどうきゅうきん、げりにはのろういるすやほかのびょうげんきんのりすくがあります。しょくひんにちょくせつふれるさぎょうはできません。きょうはかねつらいんのだんぼーるこんぽうさぎょうにこうたいしましょう。きずぐちはきゅうきゅうばこでしょうどく・せんようふぃるむでほごしてください。',
+            romaji: 'Shoujiki ni houkoku shite kurete tasakarimashita. Teyubi no kizuguchi ni wa oushoku budoukyuukin, geri ni wa norouirusu ya hoka no byougenkin no risuku ga arimasu. Shokuhin ni chokusetsu fureru sagyou wa dekimasen. Kyou wa kanetsu rain no danbooru konpou sagyou ni koutai shimashou. Kizuguchi wa kyuukyuubako de shoudoku, senyou firumu de hogo shite kudasai.',
+            indonesian: 'Terima kasih telah melapor dengan jujur. Luka pada jari berisiko bakteri Staphylococcus aureus, dan diare berisiko Norovirus atau patogen lain. Anda tidak boleh menyentuh makanan langsung hari ini. Kita alihkan tugas Anda ke pengemasan kardus luar produk matang. Segera obati luka di kotak P3K dengan disinfektan dan tutup dengan plester kedap air tahan detektor.'
           }
         ],
-        takeaway: 'Kejujuran melapor gangguan pencernaan (terutama diare dan muntah) adalah hukum mutlak di industri makanan Jepang. Memaksakan diri masuk lini produksi dapat berakibat fatal menularkan wabah Norovirus ke ribuan konsumen.'
+        takeaway: 'Kejujuran dalam mengisi lembar cek kesehatan harian adalah kewajiban mutlak di pabrik Jepang. Menyembunyikan diare atau luka gores dapat menyebabkan keracunan makanan massal yang mematikan dan menghancurkan reputasi pabrik.'
       },
       visualDiagram: {
-        title: 'Sistem Zonasi Sanitasi Pabrik Pangan Jepang (ゾーニング)',
-        subtitle: 'Pemisahan Area Kerja untuk Mencegah Kontaminasi Silang Mikroorganisme',
+        title: '5 Tahap Cuci Tangan Higienis Resmi Pabrik Pangan Jepang',
+        subtitle: 'Standar OTAFF untuk Membasmi Mikroorganisme Patogen Sebelum Masuk Area Produksi',
         type: 'steps',
         items: [
           {
-            label: '1. Osen-ku (汚染区 - Zona Terkontaminasi)',
-            description: 'Penerimaan bahan mentah mentah, gudang kardus kotor, pemotongan awal daging/ikan segar, dan ruang pembuangan limbah sisa.',
-            badge: 'Tekanan Udara Normal'
+            label: 'Tahap 1: Pembasahan Air Mengalir',
+            description: 'Basahi kedua tangan dengan air bersih mengalir untuk melarutkan debu dan kotoran permukaan kasar.',
+            highlight: 'Air Mengalir (流水)'
           },
           {
-            label: '2. Jun-seiketsu-ku (準清潔区 - Zona Semi-Bersih)',
-            description: 'Area pengolahan termal: perebusan, penggorengan, penimbangan bumbu adonan, dan oven pemanggangan.',
-            badge: 'Pemanasan & Persiapan'
+            label: 'Tahap 2: Penyabunan Mendalam (30 Detik)',
+            description: 'Gunakan sabun antiseptik cair. Gosok telapak, punggung tangan, sela-sela jari, ibu jari, pergelangan tangan, dan sikat bawah kuku.',
+            highlight: '30 Detik Penuh'
           },
           {
-            label: '3. Seiketsu-ku (清潔区 - Zona Bersih Steril)',
-            description: 'Pendinginan cepat, perakitan lauk bento matang, pemotongan bahan siap konsumsi, dan penyegelan kemasan primer.',
-            badge: 'Tekanan Udara Positif (+)'
+            label: 'Tahap 3: Pembilasan Tuntas (20 Detik)',
+            description: 'Bilas seluruh busa sabun di bawah air mengalir hingga tidak ada sisa licin deterjen sedikit pun.',
+            highlight: '20 Detik Pembilasan'
           },
           {
-            label: '4. Shukka-ku (出荷区 - Zona Pengiriman Produk)',
-            description: 'Pengepakan ke wadah distribusi (orikon/karton sekunder), penyimpanan suhu dingin, dan pemuatan ke truk logistik.',
-            badge: 'Distribusi Akhir'
+            label: 'Tahap 4: Pengeringan Sekali Pakai',
+            description: 'Keringkan tangan menggunakan paper towel sekali pakai atau air shower dryer. DILARANG mengeringkan pada seragam baju kerja!',
+            highlight: 'Paper Towel / Air Dryer'
+          },
+          {
+            label: 'Tahap 5: Disinfeksi Alkohol 70%+',
+            description: 'Semprotkan alkohol disinfektan ke kedua tangan dan gosokkan merata ke seluruh jari hingga mengering sendiri.',
+            highlight: 'Alkohol Disinfektan'
           }
         ]
       },
       importantPoints: [
-        'Dilarang berpindah langsung dari Zona Terkontaminasi (Osen-ku) ke Zona Bersih (Seiketsu-ku) tanpa melalui ruang ganti dan sterilisasi ulang.',
-        'Pekerja wajib melapor jika mengalami demam, flu, muntah, diare, atau luka iris di tangan sebelum menyentuh lini produksi.',
-        'Masuk kerja tepat waktu berarti sudah selesai memakai seragam steril lengkap dan siap di posisi lini saat bel berbunyi.',
-        'Pahami alur pergerakan barang satu arah (One-way flow) agar bahan mentah tidak berpapasan dengan produk matang.'
+        'Nilai produksi industri pengolahan pangan Jepang mencapai sekitar 37 triliun yen dengan subsektor terbesar minuman (10%) dan produk peternakan (10%).',
+        'Kata "衛生" (Eisei) bermakna menjaga nyawa/kehidupan (生命をまもる). Makanan aman memastikan konsumen tidak sakit atau terluka.',
+        'Pekerja wajib mengisi lembar cek kesehatan mandiri (健康チェック) harian: diare, muntah, demam, dan luka pada jari tangan wajib dilaporkan.',
+        'Seragam pabrik pangan TIDAK BOLEH memiliki kantong luar (ポケットなし) dan kancing luar (ボタンなし) untuk mencegah kontaminasi benda asing.',
+        'Pekerja dilarang memakai cincin, jam tangan, anting, cat kuku, serta dilarang membawa HP, rokok, staples, klip, atau parfum beraroma menyengat.',
+        'Saat ke toilet, pekerja wajib mengganti sepatu kerja dengan sandal khusus toilet (トイレ用の履物に履き替え) guna memutus penularan Norovirus.'
       ],
-      summary: 'Industri pengolahan makanan Jepang menjamin keamanan pangan nasional melalui kedisiplinan pembagian zona sanitasi (Zōningu) dan sistem kerja shift yang ketat. Kepatuhan terhadap pemeriksaan kesehatan mandiri adalah tanggung jawab moral pertama setiap pekerja.',
+      summary: 'Industri manufaktur makanan dan minuman Jepang (飲食料品製造業) bernilai 37 triliun yen dan menuntut standar tertinggi dalam Higiene Makanan (食品衛生 - melindungi nyawa konsumen) dan Keselamatan Kerja (労働安全 - melindungi pekerja). Setiap pekerja wajib mematuhi SOP (作業手順書), mengisi cek kesehatan mandiri tanpa menutup-nutupi luka atau gejala diare, mengenakan seragam pabrik tanpa saku/kancing luar, serta menerapkan prosedur cuci tangan 5 tahap (30 detik sabun + 20 detik bilas + alkohol) sebelum memasuki lini produksi.',
       practiceQuestions: [
         {
           id: 'mfg_ch1_q1',
           questionNumber: 1,
-          questionText: '食品製造工場における「ゾーニング（区域区分）」の目的として、最も適切なものを一つ選びなさい。',
-          situation: 'Tujuan utama pembagian zona sanitasi (Zōningu) di dalam pabrik makanan.',
+          questionText: 'Pernyataan manakah yang PALING BENAR mengenai aturan berpakaian kerja (作業服) di pabrik pengolahan pangan Jepang berdasarkan standar resmi OTAFF?',
+          situation: 'Persiapan memasuki area pengolahan makanan di ruang ganti (更衣室).',
           options: [
-            '従業員が工場の中で迷子にならないようにするため。',
-            '原材料の汚れや微生物が、加熱後の清潔な製品に付着する「交差汚染」を防ぐため。',
-            '機械の電気代を節約するために、部屋を細かく仕切るため。',
-            '製品の味付けを濃くして、賞味期限を長くするため。'
+            'Baju kerja boleh memiliki saku luar yang banyak asalkan digunakan untuk menyimpan pulpen mekanik dan telepon genggam.',
+            'Baju kerja tidak boleh memiliki saku luar dan kancing luar, rambut harus tertutup jaring (heaanetto) di dalam topi, dan masker menutupi hidung hingga dagu.',
+            'Jika suhu ruangan produksi terasa sangat panas, pekerja diperbolehkan menggulung lengan baju dan melepas topi kerja.',
+            'Pekerja wanita diperbolehkan menggunakan cat kuku berwarna bening dan perhiasan cincin kawin di dalam pabrik.'
           ],
           correctAnswerIndex: 1,
-          explanation: 'Pilihan 2 benar. Tujuan mendasar dari zonasi (ゾーニング) adalah mencegah terjadinya kontaminasi silang (交差汚染 - kousa osen), yaitu perpindahan kotoran, bakteri, atau virus dari bahan mentah di area kotor (汚染区) ke makanan matang di area bersih (清潔区).',
-          translation: 'Pilihlah satu tujuan yang paling tepat dari "Zonasi Sanitasi" di pabrik pengolahan makanan.'
+          explanation: 'Berdasarkan buku panduan OTAFF Edisi ke-4 (halaman 19-23), pakaian kerja pabrik makanan wajib tanpa saku/kantong luar (ポケットなし) dan tanpa kancing luar (ボタンなし) guna mencegah benda jatuh ke produk. Seluruh rambut harus dimasukkan ke jaring (ヘアーネット) di bawah topi, masker menutup hidung hingga dagu, serta dilarang memakai perhiasan, cat kuku, atau menggulung lengan baju.',
+          translation: 'Pilihlah pernyataan yang benar mengenai aturan pemakaian seragam kerja di pabrik pangan.'
         },
         {
           id: 'mfg_ch1_q2',
           questionNumber: 2,
-          questionText: '出勤前の健康管理について、適切な対応をしているものを一つ選びなさい。',
-          situation: 'Tindakan yang benar terkait manajemen kesehatan sebelum mulai bekerja di pabrik makanan.',
+          questionText: 'Pekerja pabrik makanan bangun tidur dan mendapati dirinya mengalami diare serta terdapat luka gores di jarinya. Tindakan apakah yang WAJIB dilakukan sebelum shift dimulai?',
+          situation: 'Pemeriksaan kesehatan mandiri sebelum bekerja (健康チェック).',
           options: [
-            '下痢の症状があったが、ラインが忙しいので下痢止め薬を飲んで黙って作業に入った。',
-            '手に切り傷ができたので、個人の柄付き絆創膏を貼ってそのまま食品に素手で触れた。',
-            '朝から吐き気と下痢があったため、出勤前に責任者に電話で正直に状況を報告した。',
-            '熱が38度あったが、マスクを二重にすれば誰にも気づかれないので出勤した。'
+            'Minum obat diare, memakai sarung tangan karet ganda, dan langsung bekerja di lini topping bento tanpa memberi tahu siapa pun.',
+            'Langsung pulang ke asrama tanpa memberitahukan ketidakhadirannya kepada pihak manajemen pabrik.',
+            'Melaporkan kondisi diare dan luka jari dengan jujur kepada penanggung jawab (責任者へ報告) dan mematuhi arahan pengalihan tugas atau perawatan medis.',
+            'Menutupi luka jari dengan plester biasa dan tetap bekerja menyentuh makanan olahan siap saji.'
           ],
           correctAnswerIndex: 2,
-          explanation: 'Pilihan 3 benar. Jika mengalami mual, muntah, atau diare, pekerja wajib melapor secara jujur kepada atasan sebelum bekerja demi mencegah penularan Norovirus. Pilihan 1, 2, dan 4 adalah pelanggaran fatal standar sanitasi pabrik makanan Jepang.',
-          translation: 'Pilihlah tindakan yang tepat mengenai manajemen kesehatan sebelum masuk kerja.'
+          explanation: 'Pekerja pabrik pangan wajib melaporkan secara jujur kondisi diare (risiko Norovirus/Salmonella) dan luka jari (sarang Staphylococcus aureus) kepada penanggung jawab (責任者). Penanggung jawab akan mengalihkan tugas ke area non-kontak makanan atau menginstruksikan pengobatan sesuai SOP.',
+          translation: 'Pilihlah tindakan yang benar ketika pekerja mengalami diare dan luka jari sebelum bekerja.'
         }
       ],
       officialReference: {
-        source: 'OTAFF & MAFF Specified Skilled Worker Food Manufacturing Curriculum',
-        agency: 'Organization for Technical Skill Assessment of Foreign Workers in Food Industry (OTAFF)',
-        documentTitle: '飲食料品製造業技能測定試験 学習用テキスト 第1章 工場就業の基本ルール (Bab 1 Aturan Dasar Bekerja di Pabrik)'
+        source: 'Buku Teks Pembelajaran Ujian Keterampilan Manufaktur Makanan & Minuman (第4版, Halaman 1-5, 18-26)',
+        agency: 'OTAFF (一般社団法人 外国人食品産業技能評価機構)',
+        documentTitle: 'Bab 1: 飲食料品製造業で必要な技能 & Bab 2: 一般衛生管理 (作業者の衛生管理)'
       }
     },
 
     // ------------------------------------------------------------------------
-    // BAB 2: KOSAKATA MESIN, SISTEM PACKAGING, LABELING & HACCP
+    // BAB 2: MANAJEMEN HIGIENITAS PANGAN & PENGENDALIAN BAHAYA (KOSAKATA)
     // ------------------------------------------------------------------------
     {
       id: 'mfg_ch2',
       sectorId: 'manufacturing',
       category: 'kosakata',
       chapterNumber: 2,
-      title: 'Kosakata Mesin Conveyor, Sistem Packaging, Labeling & Bahan Baku',
-      japaneseTitle: '製造機械・包装・表示ラベル・原材料の専門用語',
-      estimatedMinutes: 30,
+      title: 'Manajemen Higienitas Pangan, Klasifikasi 3 Bahaya & Pengendalian Alergen',
+      japaneseTitle: '食品衛生・3大危害要因の制御・アレルゲン管理',
+      estimatedMinutes: 35,
       objectives: [
-        'Menguasai nama dan fungsi mesin-mesin utama di lini produksi makanan (conveyor, sealer, metal detector, checkweigher).',
-        'Membedakan secara akurat antara Shōmi Kigen (賞味期限) dan Shōhi Kigen (消費期限).',
-        'Mengenal kosakata bahan baku, bahan tambahan pangan (aditif), dan bahan kimia pembersih/sanitasi.',
-        'Memahami istilah pencegahan benda asing (Ibutsu Konnyū) dan penerapan 5S di lingkungan pabrik.'
+        'Menguasai klasifikasi 3 Bahaya Pangan (危害要因): Bahaya Fisik (物理的), Bahaya Kimia (化学的), dan Bahaya Biologis (生物的).',
+        'Menghafal 8 Bahan Baku Spesifik Wajib (特定原材料 8品目 - termasuk Walnut / くるみ) dan 20 Bahan Rekomendasi di Jepang.',
+        'Memahami karakteristik bakteri patogen utama, pembentukan spora tahan panas (芽胞), serta 3 Prinsip Pencegahan Keracunan Bakteri.',
+        'Menguasai penanganan khusus Norovirus (4 Prinsip Pencegahan) dan parasit Anisakis pada ikan laut.'
       ],
-      contentExplanation: `
-Operasional sehari-hari di pabrik pengolahan pangan Jepang bergantung pada mesin-mesin industri otomatis berkecepatan tinggi. Memahami istilah teknis peralatan ini sangat penting demi kelancaran operasional dan keselamatan diri:
+      contentExplanation: `### 1. Klasifikasi 3 Bahaya Pangan (危害要因 - Kigai Youin / Hazards)
 
-### 1. Mesin Pemroses & Pengemas
-- **ベルトコンベア (Beruto konbea - Conveyor Belt)**: Ban berjalan yang membawa produk makanan melintasi setiap stasiun kerja.
-- **攪拌機 / ミキサー (Kakuhanki / Mikisā - Industrial Mixer)**: Mesin pengaduk adonan tepung, saus, atau daging cincang kapasitas besar.
-- **スライサー (Suraisā - Slicer Machine)**: Mesin pemotong daging beku, sayuran, atau keju dengan tingkat ketebalan presisi.
-- **真空包装機 (Shinkū hōsōki - Vacuum Packaging Machine)**: Mesin penyedot udara hampa dan penyegel kemasan untuk memperpanjang masa simpan produk tanpa merusak tekstur.
-- **シール機 / シーラー (Shīruki / Shīrā - Heat Sealer)**: Mesin penyegel panas kantong plastik film penutup makanan.
+Dalam industri pengolahan makanan Jepang, segala faktor yang berpotensi menyebabkan penyakit, keracunan, atau cedera pada konsumen disebut **危害要因 (Kigai Youin / Bahaya Pangan)**. Bahaya ini dibagi menjadi 3 kategori utama:
 
-### 2. Mesin Inspeksi Keamanan & Kontrol Kualitas (QC)
-- **金属検出機 (Kinzoku kenshutsuki - Metal Detector)**: Mesin sensor elektromagnetik untuk mendeteksi kontaminasi serpihan logam besi (*Fe*) dan baja tahan karat (*SUS*) pada kemasan produk.
-- **X線異物検出機 (Ekkusu-sen ibutsu kenshutsuki - X-Ray Inspection System)**: Mesin pendeteksi benda asing non-logam berkepadatan tinggi seperti tulang, batu kecil, pecahan kaca, atau plastik keras.
-- **重量選別機 / ウェイトチェッカー (Jūryō senbetsuki / Weito chekkā - Checkweigher)**: Timbangan otomatis berkecepatan tinggi yang menolak produk dengan berat di bawah standar (*kabusoku*) secara otomatis.
+#### (1) Bahaya Fisik (物理的危害要因 - Butsuriteki Kigai Youin)
+Benda keras atau tajam yang dapat melukai mulut, mematahkan gigi, atau melukai saluran pencernaan konsumen.
+- **Benda Asing Keras (硬質異物 - Koushitsu Ibutsu)**: Pecahan logam (金属片), pecahan kaca (ガラス片), pecahan plastik keras (プラスチック片), batu/kerikil (石).
+- **Benda Asing Lunak / Alami**: Serangga (虫), rambut (髪の毛), sobekan kertas (紙片), cangkang telur (卵の殻), duri atau tulang ikan (骨). Meskipun tidak mematahkan gigi, benda ini menimbulkan rasa jijik konsumen, memicu komplain (**苦情・クレーム - Kureemu**), pengembalian produk (**返品 - Henpin**), dan merusak nama baik perusahaan.
+- **Tindakan Pencegahan**: Sortasi sayuran (選別), pencucian (洗浄), pemotongan akar sayur, pembuangan insang dan tulang ikan, penutupan wadah bahan olahan (**蓋をする - Futa wo suru**), serta inspeksi detektor logam dan X-ray.
 
-### 3. Perbedaan Krusial Label Tanggal Kedaluwarsa
-Di Jepang, undang-undang pelabelan makanan membedakan tanggal kedaluwarsa menjadi dua jenis:
-1. **賞味期限 (Shōmi Kigen - Best-Before Date)**:
-   - "Batas waktu kualitas rasa terbaik".
-   - Digunakan untuk produk yang tidak mudah rusak (misalnya: mie instan, makanan kaleng, snack, saus botol, makanan beku / *frozen food*).
-   - Jika disimpan sesuai petunjuk, setelah melewati tanggal ini makanan masih aman dikonsumsi meskipun kualitas aroma, warna, atau kerenyahannya berangsur menurun.
-2. **消費期限 (Shōhi Kigen - Expiration / Use-By Date)**:
-   - "Batas akhir keamanan konsumsi".
-   - Digunakan untuk makanan yang cepat mengalami pembusukan atau penurunan mutu drastis dalam waktu maksimal 5 hari (misalnya: bento konbini, sandwich, roti isi daging basah, sushi, kue tart krim).
-   - Setelah melewati tanggal dan jam yang tertera, makanan **dilarang keras untuk dikonsumsi atau dijual** karena berpotensi membahayakan kesehatan dan memicu keracunan makanan.
+#### (2) Bahaya Kimia (化学的危害要因 - Kagakuteki Kigai Youin)
+Zat kimia berbahaya atau komponen beracun yang dapat memicu alergi, keracunan akut, atau kematian:
+1. **Alergen Pangan (アレルギー物質 - Arerugii Busshitsu)**:
+   - **8 Bahan Baku Spesifik Wajib Cantum (特定原材料 8品目 - Tokutei Genzairyou 8 Hinmoku)**:
+     Hukum Pelabelan Pangan Jepang menetapkan 8 bahan yang memiliki angka kejadian alergi sangat tinggi atau memicu gejala fatal (*anaphylactic shock*) yang **WAJIB DICANTUMKAN DI LABEL KEMASAN**:
+     1. **Udang (えび - Ebi)**
+     2. **Kepiting (かに - Kani)**
+     3. **Kacang Kenari / Walnut (くるみ - Kurumi)** *(Catatan Resmi: Resmi dinaikkan statusnya dari anjuran menjadi WAJIB sejak 9 Maret 2023 / Buku Teks OTAFF edisi ke-4 Februari 2024)*.
+     4. **Gandum (小麦 - Komugi)**
+     5. **Soba / Gandum Kuda (そば - Soba)**
+     6. **Telur (卵 - Tamago)**
+     7. **Susu (乳 - Nyuu / Miruku)**
+     8. **Kacang Tanah / Peanuts (落花生 / ピーナッツ - Rakkasei / Piinattsu)**
+   - **20 Bahan Rekomendasi / Dianjurkan (特定原材料に準ずるもの 20品目)**:
+     Almond (アーモンド), abalone (あわび), cumi-cumi (いか), telur salmon (いくら), jeruk orange (オレンジ), kacang mete (カシューナッツ), kiwi (キウイフルーツ), daging sapi (牛肉), wijen (ごま), ikan salmon (さけ), ikan makarel/kembung (さば), kacang kedelai (大豆), daging ayam (鶏肉), pisang (バナナ), daging babi (豚肉), jamur matsutake (まつたけ), buah persik (桃 - momo), ubi jepang/yam (やまいも), buah apel (りんご), dan gelatin (ゼラチン).
+   - **SOP Mencegah Kontaminasi Silang Alergen**:
+     - Wadah dan peralatan (pisau, talenan, sendok timbang) wajib dibedakan per bahan dan diberi **kode warna (色分け)**.
+     - Lini produksi yang memproses bahan beralergen harus dibersihkan dan dibilas secara ekstra tuntas.
+     - Jadwalkan pembuatan produk berbahan alergen pada **akhir jam produksi harian (一日の終わりに製造)** agar tidak mencemari batch makanan non-alergen sebelumnya.
 
-### 4. Bahan Baku & Bahan Kimia Sanitasi
-- **原材料 (Genzairyō)**: Bahan baku utama alami (beras, terigu, daging sapi, sayuran).
-- **添加物 (Tenkabutsu)**: Bahan tambahan pangan legal yang diatur ketat pengawasannya (pengawet alami, pengatur keasaman, pewarna, antioksidan).
-- **次亜塩素酸ナトリウム (Jiaensosan natoriumu - Sodium Hypochlorite)**: Larutan disinfektan klorin standar untuk mencuci sayuran mentah, mensterilkan pisau, talenan, dan permukaan bak cuci.
-- **アルコール消毒液 (Arukōru shōdokueki - 75% Ethanol)**: Cairan alkohol semprot cepat kering untuk disinfeksi telapak tangan, sarung tangan, dan permukaan meja kerja steril.
-      `,
+2. **Histamin (ヒスタミン - Hisutamin)**:
+   - Terbentuk pada **ikan berdaging merah (赤身魚 - Akamizakana)** seperti tuna (マグロ), cakalang/tongkol, kembung/makarel (サバ), sarden (イワシ), dan bawal jepang (アジ) jika disimpan pada kondisi suhu buruk (kurang dingin).
+   - Histamin menimbulkan reaksi menyerupai alergi hebat (gatal, muka merah, pusing, mual). **Histamin TAHAN PANAS (加温しても分解されない)** dan tidak akan hilang meskipun dimasak mendidih! Bahan baku ikan merah wajib segera disimpan di lemari pendingin atau dibekukan.
+
+3. **Solanin (ソラニン - Soranin)**:
+   - Racun alami yang terkandung pada **tunas kentang (じゃがいもの芽)** dan **kulit kentang yang berwarna hijau (緑色の皮)**. Menyebabkan muntah, sakit perut hebat, pusing, dan diare. Tunas dan bagian hijau wajib dikupas dan dibuang sampai bersih sebelum diolah.
+
+4. **Residu Bahan Kimia Pembersih & Sanitasi (薬剤・洗剤)**:
+   - Sisa deterjen atau disinfektan (klorin) yang tidak dibilas tuntas dapat meracuni konsumen. Wajib membilas peralatan dengan air bersih mengalir.
+
+---
+
+### 2. Bahaya Biologis (生物的危害要因) & Mikroorganisme Patogen
+
+Bahaya biologis meliputi bakteri peracun makanan (食中毒菌), virus, jamur (カビ), dan parasit (寄生虫):
+
+#### A. Bakteri Patogen Utama (食中毒菌)
+1. **Campylobacter (カンピロバクター属菌)**:
+   - Sumber: Daging unggas mentah/kurang matang (特に鶏肉).
+   - Gejala: Diare hebat, sakit perut melilit, demam tinggi.
+2. **Salmonella (サルモネラ属菌)**:
+   - Sumber: Telur ayam mentah (鶏卵), daging ayam.
+   - Gejala: Diare akut, demam, kram perut.
+3. **Vibrio Parahaemolyticus (腸炎ビブリオ - Chouen Biburio)**:
+   - Sumber: Ikan dan makanan laut mentah (魚介類, sashimi, sushi). Bakteri halofilik (butuh garam).
+   - Gejala: Sakit perut melilit hebat, diare berair parah. Mati oleh air tawar bersih dan panas.
+4. **Enterohemorrhagic E. coli / EHEC (腸管出血性大腸菌 - O157, O111)**:
+   - Sumber: Daging sapi mentah (牛肉), sayuran tercemar, air sumur (井戸水).
+   - Gejala: Memproduksi toksin Shiga di usus, menyebabkan kram perut, diare berdarah (**血便 - Ketsuben**), dan sindrom uremik hemolitik (HUS) yang bisa fatal.
+5. **Staphylococcus aureus (黄色ブドウ球菌 - Oushoku Budoukyuukin)**:
+   - Sumber: Kulit manusia, bisul, jerawat, luka bernanah pada jari tangan (人の皮膚や傷口).
+   - Bahaya Khusus: Tumbuh pada nasi onigiri, bento, dan sandwich. Menghasilkan racun enterotoksin yang **SANGAT TAHAN PANAS (熱に強い毒素)**. Memanaskan makanan yang sudah tercemar racun ini tidak akan mematikan racunnya! Pencegahan utama adalah mencuci tangan dan tidak bekerja saat jari terluka.
+6. **Bakteri Pembentuk Spora Tahan Panas (芽胞菌 - Gahoukin)**:
+   - **Bacillus cereus (セレウス菌)**: Membentuk spora tahan panas. Menyerang produk olahan biji-bijian, nasi goreng (炒飯), pasta.
+   - **Clostridium perfringens (ウェルシュ菌)**: Membentuk spora tahan panas. Berkembang biak di panci kari, sup, dan semur porsi besar yang dibiarkan mendingin perlahan di suhu ruang.
+   - **Clostridium botulinum (ボツリヌス菌)**: Membentuk spora tahan panas, bersifat anaerob (hidup tanpa oksigen). Berkembang di makanan kaleng (缶詰), botol, dan kemasan vakum/retort bertekanan tidak sempurna. Menghasilkan neurotoksin mematikan yang menyebabkan kelumpuhan saraf, muntah, sesak napas (**呼吸困難 - Kokyuu konnan**), hingga kematian.
+
+#### B. Konsep Spora Bakteri (芽胞 - Gahou)
+- Spora adalah selubung perlindungan diri mirip *"cangkang biji"* yang dibentuk oleh beberapa jenis bakteri (*Bacillus*, *Clostridium*) ketika menghadapi kondisi lingkungan ekstrem (panas, kering, atau kekurangan nutrisi).
+- Spora **TIDAK MATI PADA PEMANASAN AIR MENDIDIH 100°C BIASA**.
+- Ketika suhu makanan turun kembali ke zona nyaman (20°C–50°C), spora akan berkecambah (germination) kembali menjadi sel bakteri aktif dan menghasilkan racun.
+- Untuk mematikan spora botulinum, diperlukan pemanasan sterilisasi retort dengan suhu pusat **120°C selama minimal 4 menit**.
+
+#### C. Tiga Prinsip Pencegahan Keracunan Bakteri (食中毒予防の3原則)
+1. **つけない (Tsukenai - Jangan Menempelkan)**: Mencegah perpindahan bakteri ke makanan melalui cuci tangan 5 tahap, kebersihan seragam, dan pemisahan talenan/pisau (mencegah kontaminasi silang).
+2. **増やさない (Fuyasanai - Jangan Memperbanyak)**: Mengendalikan suhu dan waktu. Bakteri memerlukan Suhu (温度), Kelembapan/Air (水分), dan Nutrisi (栄養) untuk tumbuh.
+   - **Zona Bahaya (Danger Zone)**: Bakteri tumbuh paling pesat pada rentang suhu **30°C hingga 40°C** dengan waktu generasi pembelahan sel (**世代交代時間**) sekitar 20 menit (1 bakteri menjadi >1 juta dalam beberapa jam).
+   - Pada suhu **di bawah 10°C**, pertumbuhan bakteri melambat drastis.
+   - Pada suhu **di bawah 4°C**, bakteri hampir tidak dapat bertambah.
+   - Pada suhu **di bawah -15°C**, bakteri berhenti berkembang biak sama sekali (namun tidak mati).
+3. **やっつける (Yattsukeru - Membunuh / Membasmi)**:
+   - Pemanasan termal standar membunuh sebagian besar bakteri peracun makanan jika suhu bagian inti/tengah (**中心温度 - Chuushin Ondo**) mencapai **minimal 75°C selama minimal 1 menit**.
+   - Untuk bakteri pembentuk spora (*Clostridium botulinum*), suhu pusat harus mencapai **120°C selama minimal 4 menit**.
+
+#### D. Virus Pangan: Norovirus (ノロウイルス) & 4 Prinsip Pencegahannya
+- **Karakteristik**: Menyerang saluran pencernaan manusia melalui kerang dwicangkang (**二枚貝 - Nimaigai**) seperti tiram (**牡蠣 - Kaki**), serta melalui kotoran/muntahan orang terinfeksi.
+- **Penting**: Norovirus **TIDAK DAPAT BERKEMBANG BIAK DI DALAM MAKANAN** (hanya membelah di usus manusia). Oleh karena itu, prinsip *"Jangan Memperbanyak (増やさない)"* **TIDAK EFEKTIF** untuk Norovirus.
+- **Ketahanan**: Norovirus **TIDAK MATI DENGAN ALKOHOL BIASA**. Mematikan Norovirus membutuhkan:
+  - Pemanasan termal: Suhu pusat **85°C hingga 90°C selama minimal 90 detik**.
+  - Disinfektan kimia: Larutan Sodium Hipoklorit (**次亜塩素酸ナトリウム**) konsentrasi **200 ppm**.
+- **4 Prinsip Pencegahan Norovirus (ノロウイルス予防の4原則)**:
+  1. **持ち込まない (Mochikomanai - Jangan Membawa Masuk)**: Skrining kesehatan pekerja, melarang pekerja bergejala diare/muntah masuk pabrik.
+  2. **つけない (Tsukenai - Jangan Menempelkan)**: Mencuci tangan ketat dengan sabun dan air mengalir setelah dari toilet.
+  3. **やっつける (Yattsukeru - Membunuh)**: Pemanasan inti 85–90°C selama ≥ 90 detik atau klorin 200 ppm.
+  4. **拡げない (Hirogenai - Jangan Menyebarkan)**: Menangani muntahan dengan kit APD khusus, masker, sarung tangan, dan larutan disinfektan klorin agar partikel aerosol virus tidak menyebar di udara pabrik.
+
+#### E. Parasit: Anisakis (アニサキス)
+- Parasit cacing putih berukuran 2–3 cm yang hidup di dalam daging ikan laut seperti saba (サバ), sarden (イワシ), salmon (サケ), aji (アジ), dan cumi (イカ).
+- Jika tertelan hidup-hidup, cacing menusuk lambung/usus menyebabkan nyeri kram perut yang luar biasa (**激しい腹痛**).
+- **Metode Pembasmian Anisakis**:
+  - Pemanasan: Suhu **≥ 70°C seketika**, atau pemanasan **60°C selama minimal 1 menit**.
+  - Pembekuan: Dibekukan pada suhu **-20°C atau lebih rendah selama minimal 24 jam**.`,
       keyTerms: [
         {
-          japanese: '金属検出機',
-          kana: 'きんぞくけんしゅつき',
-          romaji: 'kinzoku kenshutsuki',
-          indonesian: 'Mesin detektor logam',
-          note: 'Wajib diverifikasi berkala menggunakan test piece standar Fe dan SUS.'
+          japanese: '危害要因',
+          kana: 'きがいよういん',
+          romaji: 'kigai youin',
+          indonesian: 'Faktor bahaya keamanan pangan (Hazard: fisik, kimiawi, biologis).'
         },
         {
-          japanese: '賞味期限',
-          kana: 'しょうみきげん',
-          romaji: 'shoumi kigen',
-          indonesian: 'Batas tanggal mutu terbaik (Best-before date)',
-          note: 'Berlaku untuk makanan awet; menjamin rasa lezat selama kemasan belum dibuka.'
+          japanese: '物理的危害要因',
+          kana: 'ぶつりてききがいよういん',
+          romaji: 'butsuriteki kigai youin',
+          indonesian: 'Bahaya fisik (benda tajam/keras: pecahan logam, kaca, batu, plastik keras).'
         },
         {
-          japanese: '消費期限',
-          kana: 'しょうひきげん',
-          romaji: 'shouhi kigen',
-          indonesian: 'Batas tanggal kedaluwarsa konsumsi (Use-by date)',
-          note: 'Berlaku untuk makanan cepat rusak (bento, sandwich); lewat tanggal dilarang makan.'
+          japanese: '化学的危害要因',
+          kana: 'かがくてききがいよういん',
+          romaji: 'kagakuteki kigai youin',
+          indonesian: 'Bahaya kimiawi (alergen, histamin ikan merah, solanin kentang, sisa deterjen).'
         },
         {
-          japanese: '重量選別機',
-          kana: 'じゅうりょうせんべつき',
-          romaji: 'juuryou senbetsuki',
-          indonesian: 'Mesin timbangan otomatis (Checkweigher)',
-          note: 'Mendorong produk keluar jalur jika gramaturnya kurang atau berlebih dari batas toleransi.'
+          japanese: '生物的危害要因',
+          kana: 'せいぶつてききがいよういん',
+          romaji: 'seibutsuteki kigai youin',
+          indonesian: 'Bahaya biologis (bakteri patogen, virus pangan, jamur, parasit cacing).'
         },
         {
-          japanese: '次亜塩素酸ナトリウム',
-          kana: 'じあえんそさんなとりうむ',
-          romaji: 'jiaensosan natoriumu',
-          indonesian: 'Natrium hipoklorit (disinfektan klorin)',
-          note: 'Bahan sanitasi utama untuk membunuh kuman pada sayuran mentah dan peralatan pabrik.'
+          japanese: '硬質異物',
+          kana: 'こうしついぶつ',
+          romaji: 'koushitsu ibutsu',
+          indonesian: 'Benda asing keras yang berisiko merusak gigi atau melukai mulut/saluran cerna.'
         },
         {
-          japanese: '異物混入',
-          kana: 'いぶつこんにゅう',
-          romaji: 'ibutsu konnyuu',
-          indonesian: 'Kontaminasi benda asing pada produk makanan',
-          note: 'Termasuk rambut, serpihan plastik, serangga, dan pecahan logam.'
+          japanese: '特定原材料',
+          kana: 'とくていげんざいりょう',
+          romaji: 'tokutei genzairyou',
+          indonesian: '8 Bahan Baku Alergen Wajib Cantum (udang, kepiting, kenari/walnut, gandum, soba, telur, susu, kacang tanah).'
+        },
+        {
+          japanese: 'くるみ',
+          kana: 'くるみ',
+          romaji: 'kurumi',
+          indonesian: 'Kacang kenari (walnut): RESMI ditetapkan menjadi bahan alergen WAJIB ke-8 sejak 2023/2024.'
+        },
+        {
+          japanese: 'ヒスタミン',
+          kana: 'ひすたみん',
+          romaji: 'hisutamin',
+          indonesian: 'Senyawa toksin alergi pada ikan daging merah (tuna, sarden, makarel) yang tahan panas.'
+        },
+        {
+          japanese: 'ソラニン',
+          kana: 'そらにん',
+          romaji: 'soranin',
+          indonesian: 'Racun alami pada tunas kentang dan kulit kentang hijau yang wajib dibuang tuntas.'
+        },
+        {
+          japanese: '食中毒菌',
+          kana: 'しょくちゅうどくきん',
+          romaji: 'shokuchuudokukin',
+          indonesian: 'Bakteri patogen penyebab keracunan makanan (Campylobacter, Salmonella, O157, dll).'
+        },
+        {
+          japanese: '芽胞',
+          kana: 'がほう',
+          romaji: 'gahou',
+          indonesian: 'Spora bakteri: selubung pelindung tahan panas 100°C yang butuh 120°C untuk dimatikan.'
+        },
+        {
+          japanese: '中心温度',
+          kana: 'ちゅうしんおんど',
+          romaji: 'chuushin ondo',
+          indonesian: 'Suhu bagian inti/tengah makanan saat proses pemanasan sterilisasi termal.'
+        },
+        {
+          japanese: '食中毒予防の3原則',
+          kana: 'しょくちゅうどくよぼうのさんげんそく',
+          romaji: 'shokuchuudoku yobou no san gensoku',
+          indonesian: '3 Prinsip pencegahan keracunan bakteri: Jangan menempelkan, Jangan perbanyak, Basmi.'
+        },
+        {
+          japanese: 'ノロウイルス',
+          kana: 'のろういるす',
+          romaji: 'norouirusu',
+          indonesian: 'Norovirus: virus patogen sangat menular dari kerang bivalvia/tiram dan muntahan.'
+        },
+        {
+          japanese: 'ノロウイルス予防の4原則',
+          kana: 'のろういるすよぼうのよんげんそく',
+          romaji: 'norouirusu yobou no yon gensoku',
+          indonesian: '4 Prinsip Norovirus: Jangan bawa masuk, Jangan tempelkan, Basmi (85-90°C), Jangan sebar.'
+        },
+        {
+          japanese: 'アニサキス',
+          kana: 'あにさきす',
+          romaji: 'anisakis',
+          indonesian: 'Parasit cacing usus pada ikan laut (mati pada suhu ≥70°C atau pembekuan -20°C 24 jam).'
+        },
+        {
+          japanese: '世代交代時間',
+          kana: 'せだいこうたいじかん',
+          romaji: 'sedai koutai jikan',
+          indonesian: 'Waktu penggandaan sel mikroorganisme (sekitar 20 menit pada suhu 30°C–40°C).'
+        },
+        {
+          japanese: '交差汚染',
+          kana: 'こうさおせん',
+          romaji: 'kousa osen',
+          indonesian: 'Kontaminasi silang: perpindahan bahaya mikroba/alergen dari bahan kotor ke bahan bersih.'
         }
       ],
       workplaceCaseStudy: {
-        title: 'Kasus: Sirine Mesin Metal Detector Berbunyi di Lini Pengemasan',
-        scenario: 'Dewi bertugas menjaga ujung lini pengemasan nugget ayam beku. Tiba-tiba mesin metal detector membunyikan sirine kuning dan lengan penolak otomatis (reject flipper) mendorong keluar satu kantong nugget ke boks terkunci.',
+        title: 'Kasus: Mengidentifikasi Potensi Bahaya Spora Clostridium Perfringens pada Lini Sup Kari',
+        scenario: 'Sebuah pabrik makanan deli memasak 500 liter kuah kari daging sapi dalam ketel uap besar hingga mendidih (100°C). Setelah matang pada pukul 11.00 siang, operator mematikan api dan membiarkan panci raksasa tersebut mendingin sendiri di suhu ruangan pabrik (28°C) hingga pukul 16.00 sebelum dimasukkan ke dalam wadah kemasan bento.',
         dialogue: [
           {
-            speaker: 'Dewi (Pekerja SSW)',
-            role: 'Operator Inspeksi Kemasan',
-            japanese: '田中リーダー、金属検出機がブザーを鳴らして、製品がリジェクトボックスに排出されました！',
-            kana: 'たなかリーダー、きんぞくけんしゅつきが ブザーを ならして、せいひんが リジェクトボックスに はいしゅつされました！',
-            romaji: 'Tanaka-riidaa, kinzoku kenshutsuki ga buzaa wo narashite, seihin ga rijekuto bokkusu ni haishutsu saremashita!',
-            indonesian: 'Leader Tanaka, metal detector membunyikan alarm dan produk terdorong keluar ke boks reject!'
+            speaker: '品質管理者 (QC Manager)',
+            role: 'Manajer Kontrol Kualitas',
+            japanese: 'ちょっと待ってください！加熱調理後のカレーをそのまま室温でゆっくり冷ましてはいけません。ウェルシュ菌の危険を知っていますか？',
+            kana: 'ちょっとまってください！かねつちょうりごのかれーをそのまましつおんでゆっくりさましてはいけません。うぇるしゅきんのきけんをしっていますか？',
+            romaji: 'Chotto matte kudasai! Kanetsu chourigo no karee wo sono mama shitsuon de yukkuri samashite wa ikemasen. Uerushukin no kiken wo shitte imasu ka?',
+            indonesian: 'Tunggu sebentar! Kari setelah dipanaskan tidak boleh dibiarkan mendingin perlahan di suhu ruang seperti itu. Apakah Anda tahu bahaya Clostridium perfringens?'
           },
           {
-            speaker: 'Tanaka (Line Leader)',
-            role: 'Supervisor QC',
-            japanese: 'デウィさん、素早い確認ありがとう。まずコンベアを一時停止して。そのリジェクト品は絶対に通常ラインに戻さないで、中身をX線検査機と目視で詳しく調べよう。',
-            kana: 'デウィさん、すばやい かくにん ありがとう。まず コンベアを いちじていしして。その リジェクトひんは ぜったいに つうじょうラインに もどさないで、なかみを エックスせんけんさきと もくしで くわしく しらべよう。',
-            romaji: 'Dewi-san, subayai kakunin arigatou. Mazu konbea wo ichiji teishi shite. Sono rijekutohin wa zettai ni tsuujou rain ni modosanaide, nakami wo ekkusu-sen kensaki to mokushi de kuwashiku shirabeyou.',
-            indonesian: 'Dewi, terima kasih atas pengecekan cepatnya. Pertama-tama hentikan sementara conveyor. Produk reject itu sama sekali tidak boleh dikembalikan ke lini normal; mari kita periksa isinya dengan mesin X-ray dan pengamatan mata telanjang.'
+            speaker: '作業員 (Pekerja)',
+            role: 'Operator Pemasakan',
+            japanese: '100℃でしっかり沸騰させたので、細菌は全部死滅したと思っていました…',
+            kana: 'ひゃくどでしっかりふっとうさせたので、さいきんはぜんぶしめつしたとおもっていました…',
+            romaji: 'Hyakudo de shikkari futtou saseta node, saikin wa zenbu shimetsu shita to omotte imashita...',
+            indonesian: 'Karena sudah mendidih kuat pada suhu 100°C, saya kira semua bakteri sudah mati...'
           },
           {
-            speaker: 'Dewi (Pekerja SSW)',
-            role: 'Operator Inspeksi Kemasan',
-            japanese: '承知いたしました。検出機の感度を確認するためのテストピース（Fe・SUS）も準備します。',
-            kana: 'しょうちいたしました。けんしゅつきの かんどを かくにんするための テストピース（Fe・SUS）も じゅんびします。',
-            romaji: 'Shouchi itashimashita. Kenshutsuki no kando wo kakunin suru tame no tesuto pīsu (Fe / SUS) mo junbi shimasu.',
-            indonesian: 'Baik, saya mengerti. Saya juga akan menyiapkan test piece (besi dan stainless steel) untuk menguji kepekaan detektor.'
+            speaker: '品質管理者 (QC Manager)',
+            role: 'Manajer Kontrol Kualitas',
+            japanese: 'ウェルシュ菌やセレウス菌は熱に強い「芽胞」を作ります。100℃の加熱でも芽胞は生き残ります。そして温度が20℃〜50℃に下がっていく間に芽胞が発芽して急速に増殖するのです。加熱後は直ちにブラストチラーや冷水冷却器で、30分以内に20℃、または60分以内に10℃まで急速冷却しなければなりません！',
+            kana: 'うぇるしゅきんやせれうすきんはねつにつよい「がほう」をつくります。ひゃくどのかねつでもがほうはいきのこります。そしておんどがにじゅうどからごじゅうどにさがっていくあいだにがほうがはつがしてきゅうそくにぞうしょくするのです。かねつごはただちにぶらすとちらーやれいすいれいきゃくきで、さんじゅっぷんいないににじゅうど、またはろくじゅっぷんいないにじゅうどまできゅうそくれいきゃくしなければなりません！',
+            romaji: 'Clostridium perfringens dan Bacillus cereus membentuk spora (芽胞) tahan panas. Spora bertahan hidup bahkan pada 100°C. Begitu suhu turun ke 20°C–50°C, spora berkecambah dan membelah sangat cepat. Setelah dimasak, makanan wajib didinginkan cepat dengan pendingin udara/air: turun ke 20°C dalam 30 menit atau ke 10°C dalam 60 menit!',
+            indonesian: 'Clostridium perfringens dan Bacillus cereus membentuk spora tahan panas yang bertahan pada 100°C. Spora akan berkecambah saat suhu turun ke 20-50°C. Makanan harus segera didinginkan cepat menggunakan chiller: mencapai 20°C dalam 30 menit atau 10°C dalam 60 menit!'
           }
         ],
-        takeaway: 'Ketika mesin pendeteksi benda asing berbunyi, jangan pernah mengabaikan atau mengembalikan produk secara sembarangan. Amankan produk tertolak, verifikasi kepekaan sensor dengan test piece, dan laporkan segera ke Leader.'
+        takeaway: 'Pemanasan 100°C tidak mematikan spora bakteri (芽胞菌). Prosedur pendinginan cepat pasca-pemasakan (30 menit ke 20°C atau 60 menit ke 10°C) adalah Critical Control Point (CCP) mutlak untuk mencegah keracunan Clostridium perfringens.'
       },
       visualDiagram: {
-        title: 'Perbandingan Definisi 賞味期限 (Shoumi) vs 消費期限 (Shouhi)',
-        subtitle: 'Pedoman Standar Pelabelan Tanggal Produk Pangan di Jepang',
-        type: 'table',
+        title: 'Daftar Resmi 8 Bahan Alergen Wajib (特定原材料 8品目) di Jepang',
+        subtitle: 'Berdasarkan Hukum Pelabelan Pangan Jepang & Buku Panduan Resmi OTAFF 2024',
+        type: 'grid',
         items: [
           {
-            label: 'Istilah Bahasa Jepang',
-            description: '賞味期限 (しょうみきげん / Shōmi Kigen)',
-            badge: '消費期限 (しょうひきげん / Shōhi Kigen)'
+            label: '1. えび (Ebi)',
+            description: 'Udang dan seluruh produk olahan crustacea laut.',
+            badge: 'Wajib Cantum'
           },
           {
-            label: 'Makna Standar Hukum',
-            description: 'Batas tanggal mutu kualitas rasa dan aroma terbaik (Best-before date).',
-            badge: 'Batas tanggal keamanan konsumsi yang aman (Use-by / Expiration date).'
+            label: '2. かに (Kani)',
+            description: 'Kepiting dan ekstrak bahan kepiting laut.',
+            badge: 'Wajib Cantum'
           },
           {
-            label: 'Karakteristik Produk',
-            description: 'Makanan yang relatif awet dan tidak cepat rusak (makanan beku, kaleng, saus, biskuit, mie kering).',
-            badge: 'Makanan yang cepat membusuk dalam waktu 5 hari (bento, roti lapis isi daging, sushi, salad segar).'
+            label: '3. くるみ (Kurumi)',
+            description: 'Kacang Kenari / Walnut (RESMI menjadi bahan wajib ke-8 sejak 2023/2024).',
+            highlight: 'Paling Baru / Revisi 2024',
+            badge: 'Wajib Cantum'
           },
           {
-            label: 'Jika Lewat Tanggal',
-            description: 'Mutu rasa sedikit berkurang, namun belum tentu berbahaya secara medis jika belum dibuka.',
-            badge: 'DILARANG KERAS dikonsumsi atau dijual karena risiko keracunan mikroorganisme tinggi.'
+            label: '4. 小麦 (Komugi)',
+            description: 'Gandum dan tepung terigu pembuat mie, roti, saus, atau adonan goreng.',
+            badge: 'Wajib Cantum'
+          },
+          {
+            label: '5. そば (Soba)',
+            description: 'Buckwheat / gandum kuda (dapat memicu anafilaktik akut dosis mikro).',
+            badge: 'Wajib Cantum'
+          },
+          {
+            label: '6. 卵 (Tamago)',
+            description: 'Telur ayam, telur bebek, putih telur bubuk, dan mayones.',
+            badge: 'Wajib Cantum'
+          },
+          {
+            label: '7. 乳 (Nyuu / Miruku)',
+            description: 'Susu sapi, mentega, krim keju, kasein, dan susu bubuk skim.',
+            badge: 'Wajib Cantum'
+          },
+          {
+            label: '8. 落花生 (Rakkasei)',
+            description: 'Kacang tanah / peanuts dan minyak kacang tanah murni.',
+            badge: 'Wajib Cantum'
           }
         ]
       },
       importantPoints: [
-        'Hafalkan perbedaan mendasar antara Shōmi Kigen (kualitas rasa) dan Shōhi Kigen (batas keselamatan konsumsi).',
-        'Produk yang tertolak oleh Metal Detector atau Checkweigher tidak boleh dimasukkan kembali ke boks produk lolos QC.',
-        'Sensitivitas Metal Detector harus diuji berkala memakai Test Piece berupa Fe (Besi) dan SUS (Baja Tahan Karat).',
-        'Penerapan 5S (Seiri, Seiton, Seisou, Seiketsu, Shitsuke) mencegah perkakas kerja, baut mesin, atau pulpen jatuh ke makanan.'
+        'Bahaya pangan terbagi 3: Bahaya Fisik (pecahan kaca, logam, batu), Bahaya Kimia (alergen, histamin, solanin), dan Bahaya Biologis (bakteri, virus, parasit).',
+        'Sejak 9 Maret 2023 / edisi 2024, Kacang Kenari (くるみ - Kurumi) resmi menjadi bahan ke-8 dalam daftar Alergen Wajib Cantum (特定原材料 8品目).',
+        'Histamin pada ikan berdaging merah (tuna, sarden, makarel) TIDAK RUSAK OLEH PANAS; pencegahannya adalah penyimpanan rantai dingin segera sejak penerimaan.',
+        'Spora bakteri (芽胞) seperti Clostridium perfringens & botulinum tahan air mendidih 100°C; spora dimatikan dengan panas 120°C minimal 4 menit.',
+        'Pemanasan termal standar pembunuh bakteri patogen umum adalah suhu pusat 75°C selama minimal 1 menit.',
+        'Norovirus tidak membelah di dalam makanan, tahan alkohol, dan dimatikan dengan suhu pusat 85°C–90°C selama ≥ 90 detik atau klorin 200 ppm.',
+        'Parasit Anisakis pada ikan laut dimatikan dengan panas ≥70°C, atau 60°C selama 1 menit, atau pembekuan -20°C selama minimal 24 jam.'
       ],
-      summary: 'Penguasaan kosakata mesin lini otomatis, pemahaman presisi mengenai label tanggal kedaluwarsa, serta pengoperasian detektor benda asing adalah kompetensi inti yang diuji dalam ujian teori dan praktik SSW Pengolahan Makanan.',
+      summary: 'Manajemen higiene pangan pabrik menuntut pengendalian ketat terhadap 3 bahaya: fisik (logam, kaca, batu), kimia (8 alergen wajib termasuk kenari/kurumi, histamin tahan panas ikan merah, racun solanin kentang), dan biologi (bakteri patogen, spora tahan panas, Norovirus, Anisakis). Kepatuhan terhadap 3 prinsip pencegahan bakteri (つけない, 増やさない, やっつける) dan 4 prinsip Norovirus (持ち込まない, つけない, やっつける, 拡げない) adalah kunci utama mutu produk.',
       practiceQuestions: [
         {
           id: 'mfg_ch2_q1',
           questionNumber: 1,
-          questionText: '「消費期限（しょうひきげん）」の説明として、最も適切なものを一つ選びなさい。',
-          situation: 'Definisi resmi istilah batas konsumsi (Shōhi Kigen) pada produk pangan.',
+          questionText: 'Berdasarkan regulasi resmi pelabelan alergen di Jepang (OTAFF Edisi 2024), manakah bahan pangan yang RESMI dinaikkan statusnya menjadi Bahan Baku Spesifik Wajib Cantum (特定原材料 8品目)?',
+          situation: 'Pemeriksaan kepatuhan pelabelan bahan alergen produk olahan pabrik.',
           options: [
-            '美味しく食べることができる期限のことで、過ぎてもすぐに食べられなくなるわけではない。',
-            '未開封で保存方法を守った場合に、安全に食べられる期限のことで、過ぎたものは食べてはいけない。',
-            '工場で原材料を仕入れた日付のこと。',
-            '商品をトラックに積み込んで出荷しなければならない期限のこと。'
+            'Kedelai (大豆 - Daizu)',
+            'Kacang Kenari / Walnut (くるみ - Kurumi)',
+            'Daging Sapi (牛肉 - Gyuuniku)',
+            'Wijen (ごま - Goma)'
           ],
           correctAnswerIndex: 1,
-          explanation: 'Pilihan 2 benar. 消費期限 (Shōhi Kigen) adalah batas akhir keamanan makanan cepat rusak bila disimpan sesuai ketentuan; makanan yang melewati tanggal ini tidak boleh dikonsumsi. Pilihan 1 adalah definisi dari 賞味期限 (Shōmi Kigen).',
-          translation: 'Pilihlah satu penjelasan yang paling tepat mengenai "Shōhi Kigen (消費期限)".'
+          explanation: 'Berdasarkan buku panduan OTAFF edisi ke-4 (Februari 2024, halaman 8-9), kacang kenari (くるみ - Kurumi) secara resmi dipindahkan dari daftar rekomendasi (準ずるもの) menjadi Bahan Baku Spesifik Wajib (特定原材料) ke-8 sejak 9 Maret 2023. Kedelai, sapi, dan wijen masih berstatus anjuran (20品目).',
+          translation: 'Pilihlah bahan pangan yang resmi menjadi alergen wajib ke-8 di Jepang.'
         },
         {
           id: 'mfg_ch2_q2',
           questionNumber: 2,
-          questionText: '金属検出機が作動して製品が排出（リジェクト）されたときの対応として、間違っているものを一つ選びなさい。',
-          situation: 'Tindakan yang KELIRU saat produk tertolak oleh mesin pendeteksi logam.',
+          questionText: 'Bagaimanakah karakteristik penanganan Norovirus yang BENAR di pabrik pengolahan makanan?',
+          situation: 'Pencegahan wabah keracunan akibat kontaminasi virus pangan.',
           options: [
-            '排出された製品をそのまま良品（合格品）の箱に戻して出荷した。',
-            '直ちにコンベアを止めて、担当のリーダーに報告した。',
-            '排出された製品を取り分け、X線異物検査機や目視で異物がないか再確認した。',
-            'テストピースを使って、金属検出機のセンサー感度が正常か確認した。'
+            'Norovirus dapat berkembang biak dengan cepat di dalam makanan pada suhu ruangan 30°C.',
+            'Norovirus mudah dimatikan dengan menyemprotkan alkohol sanitasi biasa ke permukaan talenan.',
+            'Norovirus tidak membelah di makanan, tidak mati dengan alkohol, dan harus dimatikan dengan pemanasan pusat 85°C–90°C selama minimal 90 detik atau sodium hipoklorit 200 ppm.',
+            'Pekerja yang tertular Norovirus cukup mencuci tangan dengan air dingin dan boleh tetap menangani makanan siap saji.'
           ],
-          correctAnswerIndex: 0,
-          explanation: 'Pilihan 1 SALAH (maka ini adalah jawaban yang tepat untuk pertanyaan "yang salah"). Mengembalikan produk reject ke dalam boks produk lolos tanpa investigasi adalah pelanggaran fatal yang berisiko meloloskan serpihan logam berbahaya ke konsumen.',
-          translation: 'Pilihlah satu tindakan yang SALAH ketika mesin metal detector mendeteksi dan menolak produk.'
+          correctAnswerIndex: 2,
+          explanation: 'Sesuai buku teks OTAFF Edisi ke-4 (halaman 13-14), Norovirus tidak berkembang biak di makanan (hanya membelah di usus manusia). Norovirus tidak mempan oleh disinfeksi alkohol, dan wajib dibasmi dengan pemanasan suhu pusat 85°C–90°C selama minimal 90 detik, atau menggunakan disinfektan larutan Sodium Hipoklorit konsentrasi 200 ppm.',
+          translation: 'Pilihlah karakteristik penanganan Norovirus yang benar.'
         }
       ],
       officialReference: {
-        source: 'OTAFF Official Learning Textbook for Food Manufacturing',
-        agency: 'Organization for Technical Skill Assessment of Foreign Workers in Food Industry (OTAFF)',
-        documentTitle: '飲食料品製造業技能測定試験 学習用テキスト 第2章 原材料・製造設備・表示 (Bab 2 Bahan Baku, Mesin Produksi, dan Labeling)'
+        source: 'Buku Teks Pembelajaran Ujian Keterampilan Manufaktur Makanan & Minuman (第4版, Halaman 7-14)',
+        agency: 'OTAFF (一般社団法人 外国人食品産業技能評価機構)',
+        documentTitle: 'Bab 2: 食品衛生 (2. 危害要因: 物理的・化学的・生物的危害要因)'
       }
     },
 
     // ------------------------------------------------------------------------
-    // BAB 3: KOMUNIKASI DI TEMPAT KERJA (INSTRUKSI LINE, CACAT & HO-REN-SO)
+    // BAB 3: PENGENDALIAN PROSES PENGOLAHAN & SANITASI FASILITAS (KOMUNIKASI)
     // ------------------------------------------------------------------------
     {
       id: 'mfg_ch3',
       sectorId: 'manufacturing',
       category: 'komunikasi',
       chapterNumber: 3,
-      title: 'Instruksi Line Leader, Pelaporan Produk Cacat & Budaya Ho-Ren-So Pabrik',
-      japaneseTitle: 'ライン作業の指示受け・不良品報告・申し送りと報連相',
+      title: 'Pengendalian Proses Produksi, Sanitasi Fasilitas 5S & Komunikasi Pabrik',
+      japaneseTitle: '製造工程管理・施設衛生5S・現場のコミュニケーション',
       estimatedMinutes: 30,
       objectives: [
-        'Memahami instruksi operasional Line Leader terkait kecepatan conveyor, penyesuaian porsi/gramatur, dan pergantian wadah.',
-        'Menguasai kosakata pelaporan cacat kemasan (cetakan buram, kamikomi, kebocoran seal, pinhole).',
-        'Melakukan serah terima pergantian shift (Mōshiokuri / Hikitsugi) secara sistematis.',
-        'Memahami prosedur penekanan tombol darurat (Hijō Teishi Botan) dan pelaporan insiden nyaris celaka (Hiyari-Hatto).'
+        'Menguasai sistem zonasi sanitasi pabrik (区分衛生管理 / ゾーニング): Area Bersih, Semi-Bersih, dan Terkontaminasi.',
+        'Memahami tabel suhu penyimpanan resmi bahan baku dan aturan FIFO (先入れ先出し).',
+        'Menguasai 3 metode pencairan bahan beku (解凍) dan penanganan cairan drip (ドリップ).',
+        'Mengoperasikan alat deteksi benda asing (金属探知機 & テストピース, X-ray detector) serta menerapkan budaya komunikasi Ho-Ren-So.'
       ],
-      contentExplanation: `
-Di pabrik manufaktur makanan, pergerakan sabuk conveyor tidak pernah berhenti. Komunikasi antarkerja harus berlangsung secara singkat, padat, jelas (**簡潔 - Kanketsu**), serta menerapkan teknik pengulangan kata (**復唱 - Fukushō**) untuk memastikan instruksi tidak salah dipahami:
+      contentExplanation: `### 1. Sistem Zonasi Sanitasi Pabrik Pangan (区分衛生管理 / ゾーニング)
 
-### 1. Memahami Instruksi Operasional Lini
-Contoh instruksi harian yang sering diberikan oleh pengawas lini (*Line Leader*):
-- *"ラインのスピードを少し落とします"* (Kecepatan ban berjalan akan sedikit diturunkan).
-- *"盛付量を120グラム±2グラムに調整してください"* (Tolong sesuaikan porsi topping menjadi 120g dengan batas toleransi ±2g).
-- *"次のロットから容器が角型（かくがた）に切り替わります"* (Mulai lot berikutnya, jenis wadah kemasan akan berganti ke bentuk persegi).
-- *"フィルムを新しいロールに交換してください"* (Tolong ganti gulungan plastik film kemasan dengan yang baru).
+Untuk mencegah kontaminasi silang (**交差汚染 - Kousa Osen**), area lantai pabrik makanan Jepang dibagi secara ketat ke dalam 3 zona sanitasi (Zoning):
+1. **Area Kerja Terkontaminasi (汚染作業区域 - Osen Sagyou Kuiki)**:
+   - Area penerimaan bahan baku luar (荷受け), gudang kardus karton luar, penanganan sampah/limbah, dan dermaga pengiriman produk akhir (出荷).
+   - *Aturan Ketat*: Kardus karton luar (段ボール箱) atau kontainer kotor dari luar **DILARANG KERAS** dibawa masuk ke area semi-bersih apalagi area bersih karena membawa tanah, debu, dan telur serangga. Pekerja di area kotor dilarang sembarangan melintas ke area bersih.
+2. **Area Kerja Semi-Bersih (準清潔作業区域 - Jun-seiketsu Sagyou Kuiki)**:
+   - Area pemrosesan awal (下処理 - shitashori: pencucian sayur, pemotongan daging/ikan mentah) dan area pemasakan termal (加熱調理 - kanetsu chouri).
+   - Di area ini, bahan pangan yang sedang diolah tidak boleh bersentuhan dengan bahan mentah kotor yang belum disortir.
+3. **Area Kerja Bersih (清潔作業区域 - Seiketsu Sagyou Kuiki)**:
+   - Area penanganan makanan yang sudah matang/disterilisasi: pendinginan, penataan/topping (盛り付け), dan pengemasan akhir (包装).
+   - Menuntut standar sterilisasi tertinggi dengan tekanan udara positif (*positive pressure*) agar udara kotor tidak menyusup masuk.
 
-### 2. Kategori Cacat Produk (不良品 - Furyōhin)
-Pekerja di bagian perakitan, penyusunan bento, maupun pengemasan bertindak sebagai filter mutu (*quality gate*). Cacat yang sering dijumpai meliputi:
-- **印字かすれ / 印字ズレ (Inji kasure / Inji zure)**: Cetakan tanggal kedaluwarsa buram, tidak terbaca jelas, atau posisinya miring/melenceng dari area kotak label.
-- **噛み込み (Kamikomi - Sealing Entrapment)**: Tepi segel plastik menjepit potongan makanan (misalnya selembar daun selada atau saus). Akibatnya kemasan tidak kedap udara dan makanan akan membusuk sebelum waktunya.
-- **ピンホール (Pinhole)**: Lubang jarum mikroskopis pada plastik pembungkus akibat tertusuk bagian makanan yang keras atau gesekan mesin.
-- **形状崩れ / 割れ (Keijō kuzure / Ware)**: Makanan penyok, retak, topping berantakan, atau bentuk bento tidak simetris.
-- **異物混入 (Ibutsu konnyū)**: Terdapat rambut, potongan sarung tangan karet biru, serangga, atau noda karat pada produk.
+---
 
-### 3. Serah Terima Pergantian Shift (申し送り - Mōshiokuri / 引き継ぎ - Hikitsugi)
-Saat pergantian shift (misalnya dari shift siang ke shift malam), tim tidak boleh langsung pulang. Penanggung jawab dan staf wajib menyampaikan:
-1. Nomor lot produksi yang sedang berjalan (*Seizō-chū no rotto bangō*).
-2. Status performa mesin (apakah ada pemanas sealer yang suhunya naik-turun).
-3. Sisa kuota produksi yang belum tercapai.
-4. Sisa stok bahan baku yang siap di area dapur (*shikomi*).
+### 2. Standar Suhu Penyimpanan Bahan Baku Resmi (Tabel Suhu OTAFF Hal. 29)
 
-### 4. Tombol Berhenti Darurat (非常停止ボタン - Hijō Teishi Botan)
-Di setiap stasiun mesin conveyor terdapat tombol jamur merah besar bertuliskan **非常停止 (Hijō Teishi)**. Jika melihat:
-- Pakaian atau tangan rekan kerja mendekati roller yang berputar kencang,
-- Suara dentuman aneh dari dalam mesin pencampur,
-- Benda asing besar jatuh ke dalam tangki saus,
-**Maka siapa pun berhak dan wajib menekan tombol darurat tersebut seketika itu juga tanpa menunggu persetujuan atasan!** Setelah menekan tombol, segera berteriak memberi tahu rekan kerja dan panggil Leader.
-      `,
+Penyimpanan bahan pangan wajib mematuhi standar hukum Sanitasi Pangan Jepang:
+- **Beras & Padi (米穀類 - Beikokurui)**: Disimpan pada suhu **≤ 15°C** (mencegah kutu beras dan jamur).
+- **Olahan Biji-bijian & Tepung (小麦粉, デンプン)**: Suhu ruang kering (**室温・乾燥**).
+- **Bumbu Masak (砂糖, 食塩, 味噌, 醤油, ソース, 食酢)**: Suhu ruang (**室温**).
+- **Daging Segar (食肉 - Shokuniku)**: Suhu **≤ 10°C** (rekomendasi pabrik: 4°C atau lebih rendah).
+- **Produk Daging Olahan (ハム, ソーセージ, ベーコン)**: Suhu **≤ 10°C**.
+- **Daging Beku & Olahan Daging Beku (冷凍食肉)**: Suhu **≤ -15°C**.
+- **Gurita Rebus (ゆでだこ)**: Suhu **≤ 10°C**.
+- **Ikan & Makanan Laut Segar (生鮮魚介類)**: Suhu **≤ 5°C** (sangat rentan bakteri Vibrio).
+- **Produk Perikanan Beku & Makanan Beku Umum**: Suhu **≤ -18°C**.
+- **Telur Utuh Berkutik (殻付き卵)**: Suhu **≤ 10°C**.
+- **Telur Cair Pasteurisasi (液卵 - Ekiran)**: Suhu **≤ 8°C**.
+- **Telur Beku (凍結卵)**: Suhu **≤ -18°C**.
+- **Buah & Sayuran Segar**: Sekitar **10°C** (10℃前後).
+- **Susu, Susu Skim, Krim**: Suhu **≤ 10°C**.
+- **Mentega, Keju, Susu Kental Manis**: Suhu **≤ 15°C**.
+
+**Kaidah Pengoperasian Lemari Es & Freezer**:
+- *Kulkas (冷蔵庫)*: Dilarang menumpuk bahan terlalu padat tanpa celah. Harus disisakan ruang agar sirkulasi udara dingin lancar ke seluruh sudut (suhu standar ≤ 10°C).
+- *Freezer (冷凍庫)*: Sebaliknya, untuk ruang pembeku, mengisi **80% hingga 90% kapasitas (8〜9割詰める)** dengan makanan beku justru membuat produk saling mendinginkan dan menghemat konsumsi listrik (**節電 - Setsuden**) (suhu standar ≤ -15°C / -18°C).
+
+---
+
+### 3. FIFO & 3 Istilah Tanggal Kedaluwarsa
+
+- **Prinsip FIFO (先入れ先出し - Saki-ire Saki-dashi)**: Bahan baku atau produk yang pertama kali diterima/diproduksi wajib dikeluarkan dan digunakan terlebih dahulu karena batas kedaluwarsanya datang lebih awal.
+- **3 Definisi Tanggal pada Kemasan Pangan**:
+  1. **使用期限 (Shiyou Kigen - Batas Penggunaan Bahan Baku)**: Batas tanggal terakhir suatu bahan baku boleh digunakan dalam proses peracikan di pabrik (ditetapkan oleh internal pabrik pengolah).
+  2. **賞味期限 (Shoumi Kigen - Best Before Date)**: Tanggal batas kualitas rasa terbaik jika kemasan belum dibuka dan disimpan sesuai petunjuk. Berlaku untuk makanan awet (biskuit, kaleng, mie instan). Lewat tanggal ini makanan masih aman dikonsumsi, tetapi pabrik makanan tidak menggunakannya.
+  3. **消費期限 (Shouhi Kigen - Expiration Date)**: Tanggal batas aman konsumsi jika kemasan belum dibuka. Berlaku untuk makanan cepat busuk/basi (bento, sandwich, salad, daging segar, kue basah). Jika melewati tanggal ini, produk berisiko tinggi menyebabkan keracunan makanan dan **DILARANG KERAS DIJUAL ATAU DIGUNAKAN!**
+
+---
+
+### 4. Metode Pencairan Bahan Beku & Penanganan Cairan Drip
+
+Pencairan bahan baku beku (**解凍 - Kaitou**) harus dilakukan dengan metode resmi:
+1. **Pencairan Alami (自然解凍 - Shizen Kaitou)**: Diletakkan pada suhu ruang (hanya untuk produk tertentu yang diizinkan SOP).
+2. **Pencairan Kulkas (冷蔵庫解凍 - Reizouko Kaitou)**: Dicairkan perlahan di dalam ruang pendingin suhu rendah (metode paling higienis dan disarankan).
+3. **Pencairan Air Mengalir (流水解凍 - Ryuusui Kaitou)**: Dicairkan di bawah guyuran air keran mengalir. *Wajib*: Memastikan kantong kemasan tertutup rapat tanpa lubang/sobekan agar sari makanan tidak hanyut dan air keran tidak mencemari makanan.
+- **Penanganan Cairan Drip (ドリップ - Dorippu)**: Cairan sari daging/ikan yang keluar saat proses pencairan mengandung protein tinggi dan mikroorganisme. Bahan yang dicairkan wajib ditaruh di nampan berjaring (**網目トレー**) di atas rak pencairan agar cairan drip tertampung atau langsung terbuang ke pipa drainase, **TIDAK BOLEH MENETES** ke bahan baku makanan lainnya!
+- **Disinfeksi Sayuran Segar**: Bahan segar tanpa proses panas (salad sayur) disterilkan menggunakan larutan Sodium Hipoklorit (**次亜塩素酸ナトリウム**) konsentrasi **200 ppm selama 5 menit** atau **100 ppm selama 10 menit**, kemudian dibilas air bersih tuntas.
+
+---
+
+### 5. Pengoperasian Detektor Benda Asing & Komunikasi Ho-Ren-So
+
+- **Detektor Logam (金属探知機 - Kinzoku Tanchiki)**:
+  - Berfungsi mendeteksi pecahan besi dan stainless steel di dalam kemasan makanan.
+  - *SOP Kalibrasi Wajib*: Wajib diuji menggunakan keping benda uji (**テストピース - Test Piece**) sebelum produksi dimulai, secara berkala setiap jam, dan setelah shift produksi selesai. Jika detektor gagal mendeteksi test piece, seluruh produk yang diproses sejak pengecekan terakhir wajib dikarantina dan diperiksa ulang!
+- **Detektor Sinar-X (Ｘ線異物検出機 - Ekkususen Ibutsu Kenshutsuki)**:
+  - Berfungsi mendeteksi benda asing keras berdensitas tinggi seperti batu, kaca, dan serpihan tulang ikan/ayam yang lolos. *Kelemahan*: Sinar-X **sulit mendeteksi serpihan plastik lunak**, sehingga pencegahan plastik masuk bergantung pada kehati-hatian pekerja saat membuka kantong kemasan.
+- **Budaya Komunikasi Ho-Ren-So di Pabrik Pangan**:
+  - **HOUkoku (報告 - Melapor)**: Melaporkan temuan produk rusak, alarm mesin berbunyi, atau jika ada bahan tumpah.
+  - **RENraku (連絡 - Menginformasikan)**: Koordinasi pergantian shift (**申し送り - Moushiokuri**), pergantian batch alergen.
+  - **SOUdan (相談 - Berkonsultasi)**: Bertanya kepada line leader saat ragu mengenai instruksi kerja atau parameter mesin.`,
       keyTerms: [
         {
-          japanese: '不良品 / リジェクト品',
-          kana: 'ふりょうひん / りじぇくとひん',
-          romaji: 'furyouhin / rijekutohin',
-          indonesian: 'Produk cacat / produk tertolak',
-          note: 'Wajib dipisahkan ke wadah khusus bertanda merah agar tidak tercampur produk bagus.'
+          japanese: 'ゾーニング',
+          kana: 'ぞーにんぐ',
+          romaji: 'zooningu',
+          indonesian: 'Zonasi sanitasi pabrik (pemisahan area bersih, semi-bersih, dan terkontaminasi).'
         },
         {
-          japanese: '噛み込み',
-          kana: 'かみこみ',
-          romaji: 'kamikomi',
-          indonesian: 'Terjepit pada segel kemasan',
-          note: 'Potongan makanan yang terjepit pada sambungan segel panas plastik film.'
+          japanese: '清潔作業区域',
+          kana: 'せいけつさぎょうくいき',
+          romaji: 'seiketsu sagyou kuiki',
+          indonesian: 'Area kerja bersih (pengolahan produk matang, penataan bento, pengemasan akhir).'
         },
         {
-          japanese: '非常停止ボタン',
-          kana: 'ひじょうていしぼたん',
-          romaji: 'hijou teishi botan',
-          indonesian: 'Tombol berhenti darurat',
-          note: 'Tombol merah besar penahan daya listrik seketika saat terjadi bahaya mesin.'
+          japanese: '準清潔作業区域',
+          kana: 'じゅんせいけつさぎょうくいき',
+          romaji: 'jun-seiketsu sagyou kuiki',
+          indonesian: 'Area kerja semi-bersih (pre-processing/pemotongan bahan mentah, pemasakan termal).'
         },
         {
-          japanese: '申し送り / 引き継ぎ',
-          kana: 'もうしおくり / ひきつぎ',
-          romaji: 'moushiokuri / hikitsugi',
-          indonesian: 'Serah terima informasi pergantian shift',
-          note: 'Penyampaian catatan operasional, sisa target, dan kendala lini ke shift berikutnya.'
+          japanese: '汚染作業区域',
+          kana: 'おせんさぎょうくいき',
+          romaji: 'osen sagyou kuiki',
+          indonesian: 'Area terkontaminasi (penerimaan bahan mentah, gudang kardus luar, pembuangan sampah).'
         },
         {
-          japanese: 'ヒヤリ・ハット',
-          kana: 'ひやり・はっと',
-          romaji: 'hiyari hatto',
-          indonesian: 'Insiden nyaris celaka (Near-miss incident)',
-          note: 'Kejadian yang membuat kaget/hampir celaka; wajib dicatat untuk mencegah kecelakaan fatal.'
+          japanese: '先入れ先出し',
+          kana: 'さきいれさきだし',
+          romaji: 'saki-ire saki-dashi',
+          indonesian: 'Prinsip FIFO (First-In, First-Out): bahan masuk lebih awal dipakai lebih awal.'
+        },
+        {
+          japanese: '賞味期限',
+          kana: 'しょうみきげん',
+          romaji: 'shoumi kigen',
+          indonesian: 'Best-before date (batas tanggal kualitas rasa terbaik untuk makanan tahan lama).'
+        },
+        {
+          japanese: '消費期限',
+          kana: 'しょうひきげん',
+          romaji: 'shouhi kigen',
+          indonesian: 'Expiration date (batas tanggal keamanan konsumsi untuk makanan segar/cepat basi).'
+        },
+        {
+          japanese: '使用期限',
+          kana: 'しようきげん',
+          romaji: 'shiyou kigen',
+          indonesian: 'Batas waktu penggunaan bahan baku yang ditetapkan oleh pabrik pengolah makanan.'
+        },
+        {
+          japanese: '解凍',
+          kana: 'かいとう',
+          romaji: 'kaitou',
+          indonesian: 'Pencairan bahan pangan beku (metode alami, kulkas, atau air mengalir).'
+        },
+        {
+          japanese: 'ドリップ',
+          kana: 'どりっぷ',
+          romaji: 'dorippu',
+          indonesian: 'Cairan tetesan dari daging/ikan saat dicairkan yang harus ditampung agar tidak mencemari.'
+        },
+        {
+          japanese: '次亜塩素酸ナトリウム',
+          kana: 'じあえんそさんなとりうむ',
+          romaji: 'jiaensosan natoriumu',
+          indonesian: 'Sodium hipoklorit: cairan disinfektan sayuran mentah (200 ppm / 100 ppm) dan sanitasi alat.'
+        },
+        {
+          japanese: '金属探知機',
+          kana: 'きんぞくたんちき',
+          romaji: 'kinzoku tanchiki',
+          indonesian: 'Mesin detektor logam untuk memeriksa kontaminasi serpihan besi/stainless steel.'
+        },
+        {
+          japanese: 'テストピース',
+          kana: 'てすとぴーす',
+          romaji: 'tesuto piisu',
+          indonesian: 'Keping sampel uji kalibrasi logam untuk memastikan kepekaan mesin detektor logam.'
+        },
+        {
+          japanese: 'Ｘ線異物検出機',
+          kana: 'えっくすせんいぶつけんしゅつき',
+          romaji: 'ekkususen ibutsu kenshutsuki',
+          indonesian: 'Mesin inspeksi sinar-X untuk mendeteksi benda asing keras non-logam (batu, kaca, tulang).'
+        },
+        {
+          japanese: '申し送り',
+          kana: 'もうしおくり',
+          romaji: 'moushiokuri',
+          indonesian: 'Operan catatan kerja, kendala lini, dan pesan koordinasi saat pergantian shift.'
+        },
+        {
+          japanese: '始業前点検',
+          kana: 'しぎょうまえてんけん',
+          romaji: 'shigyoumae tenken',
+          indonesian: 'Pemeriksaan kondisi mesin, kebersihan, dan tombol keselamatan sebelum mulai beroperasi.'
+        },
+        {
+          japanese: '分解洗浄',
+          kana: 'ぶんかいせんじょう',
+          romaji: 'bunkai senjou',
+          indonesian: 'Pembongkaran bagian mesin pemotong/pencampur untuk pembersihan menyeluruh harian.'
+        },
+        {
+          japanese: '排水溝',
+          kana: 'はいすいこう',
+          romaji: 'haisuikou',
+          indonesian: 'Saluran pembuangan air lantai pabrik yang tutupnya wajib dibuka dan disikat setiap hari.'
         }
       ],
       workplaceCaseStudy: {
-        title: 'Kasus: Menemukan Kemasan Sandwich yang Terjepit Sayuran (Kamikomi)',
-        scenario: 'Fajar bertugas menyortir kemasan sandwich sebelum dimasukkan ke dalam keranjang lipat distribusi (orikon). Ia melihat sedikit helai daun selada terjepit di sambungan segel pemanas plastik.',
+        title: 'Kasus: Sirine Mesin Detektor Logam Berbunyi pada Batch Produk Bento',
+        scenario: 'Di lini akhir pengemasan bento, mesin detektor logam mendadak membunyikan sirine merah dan lengan pemilah otomatis (flipper rejector) membuang satu kemasan bento ke kotak penampungan barang reject. Operator baru merasa panik dan hendak mengambil bento tersebut untuk dimasukkan kembali ke jalur konveyor tanpa memeriksa penyebabnya.',
         dialogue: [
           {
-            speaker: 'Fajar (Pekerja SSW)',
-            role: 'Staf Sortir Kemasan',
-            japanese: '斉藤リーダー、確認をお願いします。こちらのサンドイッチのフィルムシール部分にレタスが噛み込んでいます！',
-            kana: 'さいとうリーダー、かくにんを おねがいします。こちらの さんどいっちの ふぃるむしーる ぶぶんに れたすが かみこんでいます！',
-            romaji: 'Saitou-riidaa, kakunin wo onegai shimasu. Kochira no sandoitchi no firumu shiiru bubun ni retasu ga kamikonde imasu!',
-            indonesian: 'Leader Saito, mohon pengecekannya. Pada bagian segel film sandwich ini ada selada yang terjepit!'
+            speaker: '先輩 (Senior Tanaka)',
+            role: 'Senior Operator',
+            japanese: 'ストップ！リジェクトされた弁当をそのままラインに戻してはいけません！金属が混入している可能性があります。',
+            kana: 'すとっぷ！りじぇくとされたべんとうをそのままらいんにもどしてはいけません！きんぞくがこんにゅうしているかのうせいがあります。',
+            romaji: 'Sutoppu! Rijekuto sareta bentou wo sono mama rain ni modoshite wa ikemasen! Kinzoku ga konnyuu shite iru kanousei ga arimasu.',
+            indonesian: 'Berhenti! Bento yang dibuang ke kotak reject tidak boleh langsung dikembalikan ke jalur! Ada kemungkinan serpihan logam masuk ke dalamnya.'
           },
           {
-            speaker: 'Saito (Line Leader)',
-            role: 'Pengawas Mutu Lini',
-            japanese: 'ファジャルさん、よく見つけましたね。シールに噛み込みがあると隙間から空気が入って、消費期限前に傷んでしまいます。すぐに不良品箱に入れてください。',
-            kana: 'ファジャルさん、よく みつけましたね。しーるに かみこみが あると すきまから くうきが はいって、しょうひきげんまえに いたんでしまいます。すぐに ふりょうひんばこに いれてください。',
-            romaji: 'Fajar-san, yoku mitsukemashita ne. Shiiru ni kamikomi ga aru to sukima kara kuuki ga haitte, shouhi kigen mae ni itande shimaimasu. Sugu ni furyouhin-bako ni irete kudasai.',
-            indonesian: 'Fajar, cermat sekali kamu menemukannya. Kalau segel terjepit, udara bisa masuk lewat celah dan makanan akan basi sebelum tanggal kedaluwarsa. Tolong segera masukkan ke boks produk cacat.'
+            speaker: '作業員 (Pekerja)',
+            role: 'Operator Lini',
+            japanese: 'すみません！見た目には何も入っていないように見えたので…どうすればいいですか？',
+            kana: 'すみません！みた目にはなにもはいっていないようにみえたので…どうすればいいですか？',
+            romaji: 'Sumimasen! Mita me ni wa nanimo haitte inai you ni mieta node... dou sureba ii desu ka?',
+            indonesian: 'Maafkan saya! Karena dari luar tampak bersih tidak ada apa-apa... apa yang harus saya lakukan?'
           },
           {
-            speaker: 'Fajar (Pekerja SSW)',
-            role: 'Staf Sortir Kemasan',
-            japanese: 'かしこまりました。この直前に包装された5パックについても、シール不良がないか遡って検査します。',
-            kana: 'かしこまりました。この ちょくぜんに ほうそうされた ごぱっく についても、しーるふりょうが ないか さかのぼって けんさします。',
-            romaji: 'Kashikomari mashita. Kono chokuzen ni housou sareta go-pakku ni tsuite mo, shiiru furyou ga nai ka sakanobotte kensa shimasu.',
-            indonesian: 'Baik, saya mengerti. Saya juga akan memeriksa mundur 5 kemasan yang dikemas tepat sebelum ini apakah ada cacat segel serupa.'
+            speaker: '先輩 (Senior Tanaka)',
+            role: 'Senior Operator',
+            japanese: 'まず不良品トレイに隔離して、リーダーに報告（ホウ・レン・ソウ）します。それからテストピース（FeとSUS）を使って、金属探知機が正常に反応するか動作確認を行います。混入が確認された場合、前後の製品も再検査対象になります。勝手な判断は重大な事故につながります！',
+            kana: 'まずふりょうひんとれいにかくりして、りーだーにほうこく（ほう・れん・そう）します。それからてすとぴーす（えふいーとさす）をつかって、きんぞくたんちきがせいじょうにはんのうするかどうさかくにんをおこないます。こんにゅうがかくにんされたばあい、ぜんごのせいひんもさいけんさたいしょうになります。かってなはんだんはじゅうだいなじこにつながります！',
+            romaji: 'Mazu furyouhin torei ni kakuri shite, riidaa ni houkoku (Hou-Ren-Sou) shimasu. Sore kara tesuto piisu (Fe to SUS) wo tsukatte, kinzoku tanchiki ga seijou ni hannou suru ka dousa kakunin wo okonaimasu. Konnyuu ga kakunin sareta baai, zengo no seihin mo saikensa taishou ni narimasu. Katte na handan wa juudai na jiko ni tsunagarimasu!',
+            indonesian: 'Pertama, isolasi produk tersebut di nampan khusus cacat, lalu lapor ke line leader (Ho-Ren-So). Kemudian gunakan test piece (besi dan SUS) untuk mengecek apakah detektor logam berfungsi normal. Jika kontaminasi terkonfirmasi, produk sebelum dan sesudahnya juga wajib diperiksa ulang. Mengambil keputusan sendiri berisiko fatal!'
           }
         ],
-        takeaway: 'Cacat kamikomi merusak kerapatan udara kemasan dan dapat memicu pembusukan dini produk berlabel Shōhi Kigen. Melakukan pengecekan mundur (traceback) adalah langkah proaktif yang mencegah lolosnya produk cacat ke pasaran.'
+        takeaway: 'Produk yang terlempar oleh mesin detektor logam dilarang keras dikembalikan ke lini. Pekerja wajib mengisolasi produk, melapor (Ho-Ren-So), dan menguji ulang mesin dengan test piece kalibrasi.'
       },
       visualDiagram: {
-        title: 'Alur Tindakan Pelaporan Ho-Ren-So Saat Menemukan Masalah Lini',
-        subtitle: 'SOP Respons Cepat Pekerja Pabrik Makanan Saat Mendeteksi Deviasi Mutu',
-        type: 'steps',
+        title: 'Perbandingan Definisi Batas Waktu Produk Pangan di Jepang',
+        subtitle: 'Standar Kementerian Kesehatan, Tenaga Kerja & Kesejahteraan (MHLW) dan MAFF',
+        type: 'table',
         items: [
           {
-            label: '1. Teishi (停止 - Hentikan Aliran)',
-            description: 'Tahan produk yang dicurigai cacat. Jangan biarkan mengalir lebih jauh ke stasiun pengepakan kardus.',
-            badge: 'Tindakan Pertama'
+            label: '使用期限 (Shiyou Kigen)',
+            description: 'Batas akhir waktu pemakaian bahan baku dalam proses racikan pabrik. Ditetapkan oleh standar pabrik.',
+            highlight: 'Bahan Baku Mentah'
           },
           {
-            label: '2. Kakuri (隔離 - Pisahkan Produk)',
-            description: 'Pindahkan produk cacat ke kotak merah berlabel "不良品 (Furyōhin)" agar tidak tercampur produk normal.',
-            badge: 'Pencegahan Campur'
+            label: '賞味期限 (Shoumi Kigen)',
+            description: 'Batas kualitas rasa terbaik (Best-Before) pada kemasan belum dibuka untuk makanan tahan lama (biskuit, mie, kaleng).',
+            highlight: 'Kualitas Rasa Terbaik'
           },
           {
-            label: '3. Houkoku (報告 - Lapor Line Leader)',
-            description: 'Sampaikan kepada atasan jenis cacatnya (inji kasure, kamikomi, berat kurang) beserta nomor lot terkait.',
-            badge: 'Komunikasi Cepat'
-          },
-          {
-            label: '4. Sakanobori Kensa (遡り検査 - Inspeksi Mundur)',
-            description: 'Bersama Leader, periksa beberapa produk sebelum dan sesudahnya untuk memastikan apakah cacat bersifat acak atau sistemik.',
-            badge: 'Verifikasi Mutu'
+            label: '消費期限 (Shouhi Kigen)',
+            description: 'Batas keamanan konsumsi (Expiration Date) untuk makanan segar/cepat basi (bento, sandwich, salad). Lewat tanggal = HARUS DIBUANG!',
+            highlight: 'Batas Keamanan Mutlak'
           }
         ]
       },
       importantPoints: [
-        'Ulangi (Fukushō) setiap instruksi angka porsi gramatur atau kode nomor lot yang diberikan oleh Leader.',
-        'Jangan pernah membuang sendiri produk cacat ke tempat sampah tanpa seizin pengawas lini (harus dicatat di buku QC).',
-        'Tombol darurat (Hijō Teishi Botan) boleh ditekan oleh siapa saja bila melihat potensi kecelakaan mesin fatal.',
-        'Setiap insiden nyaris celaka (Hiyari-Hatto) wajib dilaporkan agar tim maintenance dapat memasang pengaman tambahan.'
+        'Kardus karton luar (段ボール箱) dan wadah kotor dari luar dilarang keras dibawa masuk ke area kerja semi-bersih dan bersih pabrik.',
+        'Suhu penyimpanan standar resmi: Daging segar ≤10°C, Ikan segar ≤5°C, Telur cair ≤8°C, Makanan beku ≤-18°C, Beras ≤15°C.',
+        'Kulkas harus disisakan celah udara sirkulasi; Freezer sebaiknya diisi 80–90% kapasitas makanan beku untuk efisiensi pendinginan dan hemat energi.',
+        'Prinsip 先入れ先出し (FIFO): Produk yang masuk pertama wajib dikeluarkan dan digunakan pertama.',
+        'Produk yang melewati 消費期限 (Shouhi Kigen / Expiration Date) DILARANG KERAS dijual atau dikonsumsi karena berisiko keracunan tinggi.',
+        'Cairan ドリップ (Drip) saat mencairkan daging/ikan beku wajib ditampung di nampan berjaring agar tidak mencemari bahan lainnya.',
+        'Mesin detektor logam wajib diuji sensitivitasnya menggunakan テストピース (Test Piece) sebelum mulai, berkala, dan setelah produksi.',
+        'Sinar-X mampu mendeteksi batu, kaca, dan tulang, tetapi sulit mendeteksi serpihan plastik lunak.'
       ],
-      summary: 'Komunikasi efektif di lantai produksi pabrik makanan bertumpu pada kecepatan pelaporan deviasi (Ho-Ren-So), ketelitian mata mendeteksi cacat kemasan, dan keberanian mengambil tindakan proteksi keselamatan kerja tanpa ragu.',
+      summary: 'Pengendalian proses pengolahan manufaktur pangan diatur oleh pemisahan zonasi sanitasi (汚染・準清潔・清潔作業区域), kepatuhan suhu penyimpanan rantai dingin, prinsip FIFO (先入れ先出し), perbedaan tanggal 賞味 vs 消費期限, teknik pencairan bahan beku tanpa mencemari cairan drip, disinfeksi sodium hipoklorit (200 ppm 5 menit / 100 ppm 10 menit), verifikasi mesin detektor logam dengan test piece, serta komunikasi aktif Ho-Ren-So.',
       practiceQuestions: [
         {
           id: 'mfg_ch3_q1',
           questionNumber: 1,
-          questionText: '包装工程で製品のフィルムシール部分に具材が挟まる「噛み込み（かみこみ）」が発生した場合の問題点として、正しいものを一つ選びなさい。',
-          situation: 'Dampak buruk dari terjadinya cacat sealing "kamikomi" pada kemasan makanan.',
+          questionText: 'Manakah suhu penyimpanan bahan baku yang BENAR berdasarkan tabel standar resmi Kementerian & OTAFF di pabrik makanan Jepang?',
+          situation: 'Pemeriksaan suhu ruang pendingin dan lemari pembeku bahan baku pabrik.',
           options: [
-            '製品の見た目が少し変わるだけで、衛生面や賞味期限には全く影響がない。',
-            'シールが完全に密閉されないため、隙間から微生物や空気が侵入して製品が腐敗する原因になる。',
-            '製品の重さが軽くなりすぎて、工場の利益が増える。',
-            '噛み込んだ具材が乾燥して、より美味しくなる。'
+            'Ikan dan makanan laut segar (生鮮魚介類) disimpan pada suhu di bawah 15°C.',
+            'Makanan beku olahan (冷凍食品) disimpan pada suhu di bawah -18°C, dan ikan segar disimpan pada suhu di bawah 5°C.',
+            'Daging segar (食肉) disimpan pada suhu ruangan 20°C asalkan tertutup rapat.',
+            'Telur cair (液卵) boleh disimpan pada suhu 15°C di samping kompor pemasakan.'
           ],
           correctAnswerIndex: 1,
-          explanation: 'Pilihan 2 benar. Cacat kamikomi (噛み込み) menyebabkan kemasan tidak tertutup rapat secara kedap udara. Udara dan mikroorganisme dari luar akan masuk melalui celah mikroskopis tersebut sehingga memicu pembusukan dini sebelum batas tanggal kedaluwarsa.',
-          translation: 'Pilihlah satu masalah yang benar jika terjadi "kamikomi" (bahan makanan terjepit segel) pada proses pengemasan.'
+          explanation: 'Berdasarkan tabel standar penyimpanan bahan pangan resmi OTAFF Edisi ke-4 (halaman 29), makanan beku (冷凍食品) dan perikanan beku wajib disimpan pada suhu ≤ -18°C, sedangkan ikan/seafood segar (生鮮魚介類) wajib disimpan pada suhu ≤ 5°C. Telur cair (液卵) harus ≤ 8°C dan daging segar ≤ 10°C.',
+          translation: 'Pilihlah suhu penyimpanan bahan baku yang benar sesuai standar pabrik.'
         },
         {
           id: 'mfg_ch3_q2',
           questionNumber: 2,
-          questionText: '作業中にコンベアに手や服が巻き込まれそうになったときの行動として、最も適切なものを一つ選びなさい。',
-          situation: 'Tindakan yang paling tepat jika pakaian atau tangan berisiko tergulung mesin conveyor.',
+          questionText: 'Apakah perbedaan mendasar antara istilah 賞味期限 (Shoumi Kigen) dan 消費期限 (Shouhi Kigen) pada produk pangan olahan di Jepang?',
+          situation: 'Pemberian label batas kedaluwarsa pada kemasan produk makanan jadi.',
           options: [
-            'そのまま引っ張って自力で抜け出せるか試す。',
-            '機械の電源プラグを抜くために遠くの配電盤まで走る。',
-            '直ちに近くにある「非常停止ボタン」を押し、大きな声で周囲やリーダーに助けを求める。',
-            '製品に傷がつかないよう、機械が自然に止まるのを静かに待つ。'
+            'Shoumi kigen adalah batas keamanan mutlak makanan cepat basi, sedangkan Shouhi kigen adalah batas kualitas rasa biskuit.',
+            'Shoumi kigen adalah batas tanggal kualitas rasa terbaik (masih aman dimakan setelahnya jika kemasan utuh), sedangkan Shouhi kigen adalah batas keamanan konsumsi (lewat tanggal dilarang dimakan).',
+            'Kedua istilah tersebut memiliki arti hukum yang persis sama dan dapat digunakan bergantian secara bebas.',
+            'Shouhi kigen hanya digunakan untuk bahan baku mentah sebelum diolah di pabrik makanan.'
           ],
-          correctAnswerIndex: 2,
-          explanation: 'Pilihan 3 benar. Bila terjadi bahaya tergulung mesin (巻き込まれ - makikomare), tindakan pertama dan paling krusial adalah menekan tombol berhenti darurat (非常停止ボタン) seketika itu juga dan berteriak meminta pertolongan rekan kerja di sekitar.',
-          translation: 'Pilihlah tindakan yang paling tepat ketika tangan atau pakaian berisiko tergulung ban berjalan saat bekerja.'
+          correctAnswerIndex: 1,
+          explanation: 'Sesuai buku materi OTAFF Edisi ke-4 (halaman 30-31), 賞味期限 (Best-Before) adalah tanggal batas kualitas kelezatan terbaik pada makanan awet (kaleng, mi, biskuit). Sedangkan 消費期限 (Expiration Date) adalah batas keamanan konsumsi untuk makanan yang cepat mengalami penurunan mutu/basi (bento, sandwich, salad). Jika melewati batas 消費期限, makanan tidak boleh dimakan karena berisiko keracunan tinggi.',
+          translation: 'Pilihlah perbedaan yang benar antara 賞味期限 dan 消費期限.'
         }
       ],
       officialReference: {
-        source: 'OTAFF Specified Skilled Worker Food Manufacturing Guidebook',
-        agency: 'Organization for Technical Skill Assessment of Foreign Workers in Food Industry (OTAFF)',
-        documentTitle: '飲食料品製造業技能測定試験 学習用テキスト 第3章 現場の安全とコミュニケーション (Bab 3 Keselamatan Kerja dan Komunikasi Lapangan)'
+        source: 'Buku Teks Pembelajaran Ujian Keterampilan Manufaktur Makanan & Minuman (第4版, Halaman 16-17, 27-36)',
+        agency: 'OTAFF (一般社団法人 外国人食品産業技能評価機構)',
+        documentTitle: 'Bab 2: 食品衛生 (3. 一般衛生管理: 施設設備管理、原材料・食品の衛生管理)'
       }
     },
 
     // ------------------------------------------------------------------------
-    // BAB 4: KETERAMPILAN KERJA (K3 PABRIK, SOP MASUK, HACCP & ALERGEN)
+    // BAB 4: SISTEM MANAJEMEN KEAMANAN PANGAN HACCP & SANITASI (K3 & SOP)
     // ------------------------------------------------------------------------
     {
       id: 'mfg_ch4',
       sectorId: 'manufacturing',
       category: 'keterampilan',
       chapterNumber: 4,
-      title: 'K3 Pabrik, SOP Masuk Ruang Produksi, Kontrol Suhu HACCP & Alergen',
-      japaneseTitle: '労働安全衛生・衛生管理手順・HACCP重要管理点・アレルゲン管理',
-      estimatedMinutes: 35,
+      title: 'Sistem Manajemen Keamanan Pangan HACCP & Prosedur Sanitasi Pekerja',
+      japaneseTitle: 'ＨＡＣＣＰによる衛生管理・７原則・作業者衛生管理',
+      estimatedMinutes: 30,
       objectives: [
-        'Memahami bahaya K3 utama di pabrik makanan (terjepit mesin, terpeleset lantai basah/berminyak, luka sayat pisau).',
-        'Menguasai urutan 5 langkah SOP masuk ruang produksi bersih (seragam, hair net, sticky roller, cuci tangan 2 tahap, air shower).',
-        'Menguasai standar Titik Kendali Kritis (CCP) HACCP: Suhu pemanasan inti (≥ 75°C selama 1 menit) dan pendinginan cepat.',
-        'Mengenal 8 bahan alergen wajib label di Jepang (Tokutei Genzairyō 8-hinmoku) dan pencegahan kontaminasi silang.'
+        'Memahami konsep dasar HACCP (Hazard Analysis Critical Control Point) dan perbedaannya dengan metode inspeksi sampel akhir konvensional.',
+        'Menguasai 7 Prinsip Resmi HACCP (HACCPの7原則): dari Analisis Bahaya (HA) hingga Pencatatan (記録).',
+        'Mengidentifikasi 5 proses representatif Titik Kendali Kritis (CCP) di pabrik manufaktur pangan.',
+        'Memahami konsep Deviasi (逸脱), Tindakan Perbaikan (改善措置), dan aturan integritas pencatatan real-time.'
       ],
-      contentExplanation: `
-Bekerja di industri pengolahan makanan Jepang menuntut standar disiplin ganda: menjaga **Keselamatan dan Kesehatan Kerja (労働安全衛生 - Rōdō Anzen Eisei)** bagi pekerja, serta menjaga **Keamanan Pangan (食品安全 - Shokuhin Anzen)** bagi jutaan konsumen:
+      contentExplanation: `### 1. Apa itu Sistem HACCP (ＨＡＣＣＰによる衛生管理)?
 
-### 1. Keselamatan Kerja (K3) di Pabrik Pangan
-Tiga tipe kecelakaan kerja yang paling sering terjadi di pabrik makanan:
-1. **巻き込まれ・挟まれ (Makikomare / Hasamare - Terjepit/Tergulung)**:
-   - Terjadi pada roda gigi, rantai conveyor, roller penipis adonan, atau mesin pencampur.
-   - *Aturan Mutlak*: Matikan mesin dan cabut kunci pengaman sebelum membersihkan atau mengambil makanan yang jatuh ke sela mesin. Dilarang memakai pakaian kedodoran, jam tangan, atau perhiasan.
-2. **転倒 (Tentō - Terpeleset Jatuh)**:
-   - Lantai pabrik kerap licin akibat tumpahan air panas, uap kondensasi, atau lapisan lemak minyak.
-   - *Aturan Mutlak*: Wajib memakai sepatu keselamatan anti-selip (*耐滑安全靴 - Taikatsu anzengutsu*), dilarang berlari di lorong pabrik, dan segera bersihkan lantai jika ada genangan minyak.
-3. **切れ・こすれ (Kire / Kosure - Luka Sayat Pisau/Slicer)**:
-   - Penggunaan pisau pemotong atau pembersihan mata pisau mesin slicer.
-   - *Aturan Mutlak*: Wajib memakai sarung tangan rajut kawat anti-potong (*耐切創手袋 - Taiseissō tebukuro*) saat membersihkan pisau mesin.
+**HACCP** merupakan singkatan dari **Hazard Analysis and Critical Control Point** (bahasa Jepang: **危害要因分析重要管理点 - Kigai Youin Bunseki Juuyou Kanriten**).
 
-### 2. SOP 5 Tahap Masuk Ruang Bersih Produksi (入室手順)
-Sebelum menyentuh bahan makanan, setiap pekerja wajib melewati gerbang sanitasi ketat:
-1. **Pemakaian Seragam Bersih (白衣着装 - Hakui Chakusō)**:
-   - Pasang pelindung jaring rambut bagian dalam (*inner net*) menutupi seluruh telinga dan rambut.
-   - Pasang topi pabrik luar, kancingkan baju putih bersih hingga leher, dan masukkan ujung celana ke dalam sepatu boot kerja khusus. Pasang masker menutup hidung hingga dagu rapat-rapat.
-2. **Roller Perekat Pembersih Rambut (粘着ローラー - Nenchaku Rōrā / Korokoro)**:
-   - Menggulung roller perekat di seluruh permukaan seragam selama minimal 60 detik (bahu, dada, punggung, lengan, hingga kaki) untuk mengangkat serpihan rambut atau benang kain.
-3. **Cuci Tangan Dua Tahap (二度洗い - Nido-arai)**:
-   - Basahi tangan dengan air mengalir, ambil sabun antiseptik, gosok telapak, punggung tangan, sela-sela jari, pergelangan tangan hingga siku selama 30 detik.
-   - Gunakan sikat kuku khusus untuk membersihkan bawah kuku. Bilas hingga bersih, lalu ulangi proses penyabunan sekali lagi (total 2 kali pencucian). Keringkan dengan tisu steril sekali pakai atau mesin pengering otomatis.
-4. **Disinfeksi Alkohol 75% (アルコール消毒)**:
-   - Semprotkan cairan alkohol pada kedua telapak tangan dan sarung tangan karet, lalu gosokkan hingga merata dan biarkan menguap kering secara alami di udara.
-5. **Bilik Angin (エアーシャワー - Air Shower)**:
-   - Masuk ke dalam bilik air shower selama 15–20 detik sambil mengangkat kedua tangan dan memutar tubuh secara perlahan agar tiupan hembusan angin berkecepatan tinggi melepaskan seluruh partikel debu mikro dari baju kerja.
+Di pabrik makanan, produk tidak dapat dipastikan 100% aman hanya dengan mengandalkan manajemen kebersihan umum (一般衛生管理). Dibandingkan metode konvensional masa lalu yang hanya memeriksa sedikit sampel di ujung akhir produksi (inspeksi sampel akhir / 抜取検査), **HACCP adalah sistem manajemen keamanan preventif** yang memantau dan mengendalikan titik-titik paling kritis di setiap tahapan (dari penerimaan bahan baku, pengolahan, pemanasan, pendinginan, hingga pengemasan) secara berkelanjutan.
 
-### 3. Titik Kendali Kritis HACCP (CCP - Critical Control Point)
-Prinsip HACCP (*Hazard Analysis Critical Control Point*) berfokus pada titik-titik proses yang dapat membunuh atau mencegah bahaya mikroba berbahaya:
-- **Pemanasan Inti (中心温度 - Chūshin Ondo)**:
-  Untuk mematikan bakteri patogen pembawa keracunan (*Salmonella*, *E. coli* O-157, *Campylobacter*), suhu bagian terdalam makanan yang paling tebal **wajib mencapai minimal 75°C selama 1 menit atau lebih**.
-  *Khusus makanan bivalvia (kerang/oyster)* yang berisiko membawa virus Norovirus: suhu inti wajib mencapai **85°C – 90°C selama minimal 90 detik**.
-- **Pencegahan Zona Bahaya Suhu (危険温度帯 - Kiken Ondotai)**:
-  Bakteri berkembang biak paling pesat pada rentang suhu **20°C hingga 50°C** (dapat membelah diri dua kali lipat setiap 15-20 menit).
-  Makanan matang yang sudah dipanaskan harus segera didinginkan secara cepat (**急速冷却 - Kyūsoku Reikyaku**) melewati zona bahaya ini hingga mencapai suhu di bawah 10°C dalam waktu maksimal 60–90 menit menggunakan mesin pendingin *Blast Chiller*.
+Piramida Keamanan Pangan:
+- **Fondasi (Dasar)**: Manajemen Higiene Umum (**一般衛生管理** berbasis 5S, sanitasi fasilitas, higiene pekerja).
+- **Puncak**: Rencana Pengendalian Titik Kendali Kritis (**HACCPプラン - HACCP Plan**).
 
-### 4. Manajemen Bahan Pemicu Alergi (アレルゲン管理)
-Undang-Undang Pelabelan Makanan Jepang mewajibkan pencantuman label peringatan pada **8 Bahan Baku Khusus (特定原材料 8品目 - Tokutei Genzairyō Hachihinmoku)** yang dapat memicu syok anafilaksis fatal pada penderita alergi:
-1. **卵 (Tamago)**: Telur ayam / produk telur
-2. **乳 (Nyū)**: Susu sapi / produk olahan susu
-3. **小麦 (Komugi)**: Gandum / tepung terigu
-4. **えび (Ebi)**: Udang
-5. **かに (Kani)**: Kepiting
-6. **そば (Soba)**: Soba (gandum kuda hitam / buckwheat)
-7. **落花生 / ピーナッツ (Rakkasei / Pīnattsu)**: Kacang tanah
-8. **くるみ (Kurumi)**: Kacang kenari / walnut *(resmi ditambahkan sebagai bahan wajib ke-8 oleh pemerintah Jepang)*
+---
 
-*Pencegahan Kontaminasi Silang Alergen*:
-Peralatan kerja (pisau, talenan, wadah bahan, baskom) wajib dibedakan berdasarkan kode warna (misalnya: warna merah khusus alergen kacang, warna putih untuk non-alergen) dan dicuci secara terpisah.
-      `,
+### 2. Tujuh Prinsip Resmi HACCP (ＨＡＣＣＰの７原則)
+
+Buku teks resmi OTAFF (halaman 37–41) menetapkan bahwa sistem HACCP dioperasikan berdasarkan **7 Prinsip Resmi**:
+
+1. **Prinsip 1: Analisis Bahaya (危害要因分析 - Hazard Analysis / HA)**:
+   - Memeriksa bahan baku dan seluruh alur proses pembuatan untuk menganalisis bahaya fisik, kimia, dan biologi apa saja yang mungkin timbul, serta menentukan langkah pencegahannya.
+2. **Prinsip 2: Penentuan Titik Kendali Kritis (重要管理点の決定 - CCP)**:
+   - Menetapkan tahapan proses yang paling esensial untuk menghilangkan bahaya atau mereduksinya hingga ke tingkat yang aman. Suatu produk dapat memiliki satu atau lebih CCP.
+3. **Prinsip 3: Penetapan Batas Kritis (管理基準の設定 - Critical Limits / CL)**:
+   - Menetapkan angka batas toleransi aman yang terukur (misal: suhu pemanasan minimal 75°C selama 1 menit; konsentrasi disinfektan 200 ppm; ukuran deteksi logam).
+4. **Prinsip 4: Penetapan Prosedur Pemantauan (監視方法の設定 - Monitoring)**:
+   - Menentukan metode pengawasan berkelanjutan: siapa yang memeriksa, kapan, seberapa sering, dan bagaimana parameternya diukur (misal: mencatat termometer digital setiap batch).
+5. **Prinsip 5: Penetapan Tindakan Perbaikan (改善措置の設定 - Corrective Actions)**:
+   - Menetapkan langkah darurat yang harus diambil jika terjadi penyimpangan dari batas kritis (**管理基準からの逸脱 - Itsudatsu**), serta memutuskan nasib produk yang terlanjur diproses saat deviasi terjadi.
+6. **Prinsip 6: Penetapan Prosedur Verifikasi (検証方法の設定 - Verification)**:
+   - Memeriksa dan memastikan apakah seluruh sistem HACCP berjalan sesuai rencana dan terbukti efektif menghilangkan bahaya pangan.
+7. **Prinsip 7: Penetapan Dokumentasi & Pencatatan (記録 - Record Keeping)**:
+   - Mendokumentasikan seluruh prosedur, lembar monitoring suhu, catatan kalibrasi alat, dan tindakan perbaikan ke dalam arsip resmi sebagai bukti hukum jaminan keamanan pangan.
+
+---
+
+### 3. Lima Proses Utama Titik Kendali Kritis (CCP) di Pabrik Pangan
+
+Buku panduan OTAFF merangkum 5 proses paling umum yang dijadikan CCP di lini produksi manufaktur pangan:
+1. **Sterilisasi Termal (加熱殺菌 - Kanetsu Sakkin)**:
+   - Pemanasan untuk membunuh mikroorganisme patogen. Suhu wajib dikontrol pada bagian tengah/inti bahan (**中心温度**).
+   - *Bakteri Keracunan Umum*: Suhu pusat **75°C selama minimal 1 menit**.
+   - *Norovirus*: Suhu pusat **85°C–90°C selama minimal 90 detik**.
+   - *Bakteri Spora (Clostridium botulinum)*: Suhu pusat **120°C selama minimal 4 menit**.
+2. **Pendinginan Cepat Pasca-Pemanasan (加熱殺菌後の冷却 - Reikyaku)**:
+   - Setelah makanan dipanaskan, spora bakteri yang masih tertinggal dapat berkecambah jika dibiarkan mendingin perlahan di suhu ruang (20°C–50°C).
+   - *Standar Pendinginan Cepat*: Wajib menurunkan suhu inti ke **20°C dalam waktu 30 menit**, ATAU menurunkan ke **10°C dalam waktu 60 menit**.
+   - Metode: Tiupan angin dingin (**風冷 - Fuurei**) atau air pendingin es (**水冷 - Suirei**).
+3. **Sterilisasi Menggunakan Bahan Kimia (薬剤による殺菌 - Yakuzai ni yoru Sakkin)**:
+   - Digunakan untuk bahan mentah yang tidak dipanaskan (salad sayuran segar).
+   - *Dosis Resmi*: Larutan Sodium Hipoklorit konsentrasi **200 ppm selama 5 menit**, ATAU konsentrasi **100 ppm selama 10 menit**. Kemudian dibilas air mengalir bersih.
+4. **Inspeksi Detektor Logam (金属探知機 - Kinzoku Tanchiki)**:
+   - CCP untuk mendeteksi serpihan logam berbahaya sebelum produk dikemas ke kardus akhir.
+5. **Inspeksi Benda Asing Sinar-X (Ｘ線異物検出機 - Ekkususen Ibutsu Kenshutsuki)**:
+   - CCP untuk mendeteksi serpihan batu, kaca, dan tulang keras.
+
+---
+
+### 4. Deviasi dari Batas Kritis (管理基準からの逸脱) & Tindakan Koreksi (改善措置)
+
+- **Apa itu Deviasi (逸脱 - Itsudatsu)?**:
+  Keadaan di mana batas kritis aman yang telah ditetapkan tidak terpenuhi di lapangan.
+  - *Contoh 1*: Suhu inti pemanasan ditetapkan 75°C selama 1 menit, tetapi suhu aktual saat diukur hanya mencapai 70°C selama 1 menit.
+  - *Contoh 2*: Sayuran hanya direndam dalam klorin 100 ppm selama 5 menit (seharusnya 10 menit).
+- **SOP Saat Mendeteksi Deviasi**:
+  1. Pekerja **WAJIB SEGERA MELAPOR KEPADA PENANGGUNG JAWAB (すぐに責任者へ報告)**.
+  2. Menghentikan lini proses jika diperlukan.
+  3. Mengambil **Tindakan Perbaikan (改善措置 - Kaizen Sochi)** sesuai instruksi penanggung jawab:
+     - Mengatur ulang kecepatan mesin conveyor agar pemanasan mencapai suhu yang disyaratkan.
+     - Memutuskan status produk yang terkena deviasi: dipanaskan ulang (**再加熱**), diproses ulang, atau dibuang/dimusnahkan (**破棄 - Haki**).
+
+---
+
+### 5. Integritas Pencatatan & Dokumentasi (記録のルール)
+
+Pencatatan data monitoring suhu, waktu, konsentrasi disinfektan, dan kalibrasi detektor logam adalah bukti autentik keamanan pangan. Aturan mutlak pencatatan di pabrik Jepang:
+- **Catat Real-Time (はかったとき、確認したときにすぐ記録)**: Catat angka seketika saat pengukuran dilakukan.
+- **Dilarang Menunda (後でまとめて記録してはいけない)**: Dilarang keras menunda dan mengisi catatan sekaligus di akhir jam kerja.
+- **Dilarang Mencatat di Awal (はかる前に記録してはいけない)**: Dilarang mengisi angka sebelum alat ukur bekerja dengan asumsi *"karena biasanya suhunya selalu segini"*.
+- **Dilarang Memalsukan / Mengubah Sendiri (事実でないことを記録しない・自分で勝手に修正しない)**: Dilarang mencatat angka fiktif atau mencoret dan mengubah hasil pengukuran tanpa persetujuan resmi supervisor.`,
       keyTerms: [
         {
-          japanese: '中心温度',
-          kana: 'ちゅうしんおんど',
-          romaji: 'chuushin ondo',
-          indonesian: 'Suhu inti (suhu bagian tengah terdalam makanan)',
-          note: 'Standar emas pembunuhan kuman: minimal 75°C dipertahankan selama 1 menit.'
+          japanese: 'ＨＡＣＣＰ',
+          kana: 'はさっぷ',
+          romaji: 'hasappu',
+          indonesian: 'HACCP: Hazard Analysis Critical Control Point (sistem manajemen keamanan pangan preventif).'
         },
         {
-          japanese: 'エアーシャワー',
-          kana: 'えあーしゃわー',
-          romaji: 'eā shawā',
-          indonesian: 'Bilik semprotan udara bertekanan tinggi',
-          note: 'Melepaskan partikel debu dan rambut mikroskopis sebelum masuk ruang bersih.'
+          japanese: 'ＨＡＣＣＰプラン',
+          kana: 'はさっぷぷらん',
+          romaji: 'hasappu puran',
+          indonesian: 'Rencana kerja operasional HACCP yang mendokumentasikan CCP, batas kritis, dan monitoring.'
         },
         {
-          japanese: '特定原材料',
-          kana: 'とくていげんざいりょう',
-          romaji: 'tokutei genzairyou',
-          indonesian: '8 bahan pangan alergen wajib label di Jepang',
-          note: 'Telur, susu, gandum, udang, kepiting, soba, kacang tanah, dan kenari (walnut).'
+          japanese: '危害要因分析',
+          kana: 'きがいよういんぶんせき',
+          romaji: 'kigai youin bunseki',
+          indonesian: 'Hazard Analysis (HA): analisis potensi bahaya fisik, kimia, dan biologi di setiap proses.'
         },
         {
-          japanese: '交差汚染',
-          kana: 'こうさおせん',
-          romaji: 'kousa osen',
-          indonesian: 'Kontaminasi silang mikrobiologi atau alergen',
-          note: 'Pencemaran silang dari bahan mentah ke matang atau antar bahan alergen.'
+          japanese: '重要管理点',
+          kana: 'じゅうようかんりてん',
+          romaji: 'juuyou kanriten',
+          indonesian: 'Critical Control Point (CCP): titik kendali kritis untuk membasmi/mereduksi bahaya ke level aman.'
         },
         {
-          japanese: '巻き込まれ事故',
-          kana: 'まきこまれじこ',
-          romaji: 'makikomare jiko',
-          indonesian: 'Kecelakaan akibat anggota tubuh tergulung mesin berputar',
-          note: 'Bahaya mekanis paling fatal di pabrik; dicegah dengan mematikan mesin saat pembersihan.'
+          japanese: '管理基準',
+          kana: 'かんりきじゅん',
+          romaji: 'kanri kijun',
+          indonesian: 'Critical Limits (CL): batas angka terukur yang memisahkan kondisi aman dan tidak aman.'
+        },
+        {
+          japanese: '逸脱',
+          kana: 'いつだつ',
+          romaji: 'itsudatsu',
+          indonesian: 'Deviasi / penyimpangan parameter operasional aktual dari batas kritis yang ditetapkan.'
+        },
+        {
+          japanese: '改善措置',
+          kana: 'かいぜんそち',
+          romaji: 'kaizen sochi',
+          indonesian: 'Tindakan korektif: perbaikan mesin dan penanganan produk yang terdampak deviasi.'
+        },
+        {
+          japanese: 'モニタリング',
+          kana: 'もにたりんぐ',
+          romaji: 'monitaringu',
+          indonesian: 'Pemantauan berkala dan berkesinambungan terhadap parameter kritis (suhu, waktu, konsentrasi).'
+        },
+        {
+          japanese: '検証',
+          kana: 'けんしょう',
+          romaji: 'kenshou',
+          indonesian: 'Verifikasi: evaluasi pembuktian apakah sistem HACCP berfungsi efektif sesuai rencana.'
+        },
+        {
+          japanese: '記録',
+          kana: 'きろく',
+          romaji: 'kiroku',
+          indonesian: 'Dokumentasi tertulis hasil pemantauan dan tindakan perbaikan (wajib riil dan jujur).'
+        },
+        {
+          japanese: '加熱殺菌',
+          kana: 'かねつさっきん',
+          romaji: 'kanetsu sakkin',
+          indonesian: 'Sterilisasi termal pemanasan (75°C 1 menit untuk bakteri umum, 120°C 4 menit untuk spora).'
+        },
+        {
+          japanese: '冷却',
+          kana: 'れいきゃく',
+          romaji: 'reikyaku',
+          indonesian: 'Pendinginan cepat pasca-masak (turun ke 20°C dalam 30 mnt atau ke 10°C dalam 60 mnt).'
+        },
+        {
+          japanese: '風冷',
+          kana: 'ふうれい',
+          romaji: 'fuurei',
+          indonesian: 'Metode pendinginan cepat menggunakan hembusan udara/angin sejuk steril.'
+        },
+        {
+          japanese: '水冷',
+          kana: 'すいれい',
+          romaji: 'suirei',
+          indonesian: 'Metode pendinginan cepat menggunakan sirkulasi air dingin steril.'
+        },
+        {
+          japanese: '急速冷凍',
+          kana: 'きゅうそくれいとう',
+          romaji: 'kyuusoku reitou',
+          indonesian: 'Pembekuan cepat untuk menjaga tekstur, elastisitas, dan cita rasa makanan olahan.'
         }
       ],
       workplaceCaseStudy: {
-        title: 'Kasus: Mengukur Suhu Inti Ayam Goreng Karaage yang Baru Diangkat',
-        scenario: 'Andi bertugas memantau Titik Kendali Kritis (CCP) di stasiun penggorengan ayam karaage. Begitu keranjang penggorengan diangkat, Andi menusukkan termometer jarum steril ke potongan karaage paling tebal.',
+        title: 'Kasus: Deviasi Suhu Pusat Daging Patty Burger di Mesin Oven Terowongan',
+        scenario: 'Lini pemanggangan daging patty hamburger menetapkan Batas Kritis (CL) suhu pusat minimal 75°C selama 1 menit. Saat operator memeriksa suhu pusat daging yang keluar dari oven terowongan dengan termometer jarum tusuk, jarum menunjukkan angka 71°C. Operator mencatat bahwa konveyor oven bergerak sedikit lebih cepat dari kecepatan normal.',
         dialogue: [
           {
-            speaker: 'Andi (Pekerja SSW)',
-            role: 'Petugas Monitoring CCP',
-            japanese: '松本リーダー、中心温度計で測定したところ、71度しかありません。規定の75度に届いていません！',
-            kana: 'まつもとリーダー、ちゅうしんおんどけいで そくていしたところ、ななじゅういちど しか ありません。きていの ななじゅうごどに とどいていません！',
-            romaji: 'Matsumoto-riidaa, chuushin ondokei de sokutei shita tokoro, nanajuu-ichi do shika arimasen. Kitei no nanajuu-go do ni todoite imasen!',
-            indonesian: 'Leader Matsumoto, saat saya ukur dengan termometer inti, suhunya baru 71 derajat. Belum mencapai ketentuan standar 75 derajat!'
+            speaker: '作業員 (Pekerja)',
+            role: 'Operator Pemanggangan',
+            japanese: 'リーダー！ハンバーグの中心温度を測定したところ、71℃しかありません。管理基準の75℃を下回っています（逸脱）。',
+            kana: 'りーだー！はんばーぐのちゅうしんおんどをそくていしたところ、ななじゅういちどしかありません。かんりきじゅんのななじゅうごどをしたまわっています（いつだつ）。',
+            romaji: 'Riidaa! Hanbaagu no chuushin ondo wo sokutei shita tokoro, nanajuu-ichi do shika arimasen. Kanri kijun no nanajuu-go do wo shitamawatte imasu (itsudatsu).',
+            indonesian: 'Leader! Saat mengukur suhu inti hamburger, hanya tercapai 71°C. Angka ini berada di bawah batas kritis 75°C (terjadi deviasi).'
           },
           {
-            speaker: 'Matsumoto (Line Leader)',
-            role: 'Supervisor Keamanan Pangan',
-            japanese: 'アンディさん、しっかり確認してくれて助かりました。油の温度が投入時に一時的に下がった可能性がありますね。すぐにフライヤーに戻して、追加で45秒揚げ直してください。',
-            kana: 'アンディさん、しっかり かくにんしてくれて たすかりました。あぶらの おんどが とうにゅうじに いちじてきに さがった かのうせいが ありますね。すぐに ふらいやーに もどして、ついかで よんじゅうごびょう あげなおしてください。',
-            romaji: 'Andi-san, shikkari kakunin shite kurete tasakarimashita. Abura no ondo ga tounyuuji ni ichijiteki ni sagatta kanousei ga arimasu ne. Sugu ni furaiyaa ni modoshite, tsuika de yonjuu-go byou agenaoshite kudasai.',
-            indonesian: 'Andi, terima kasih atas ketelitianmu. Kemungkinan suhu minyak sempat turun saat potongan ayam dimasukkan. Segera masukkan kembali ke penggorengan dan goreng tambahan selama 45 detik.'
-          },
-          {
-            speaker: 'Andi (Pekerja SSW)',
-            role: 'Petugas Monitoring CCP',
-            japanese: '了解いたしました。再加熱後、別の大きめのピースで再度中心温度を測り、75度以上1分間維持を確認して記録用紙に記入します。',
-            kana: 'りょうかいいたしました。さいかねつご、べつの おおきめの ピースで さいど ちゅうしんおんどを はかり、ななじゅうごどいじょう いっぷんかん いじを かくにんして きろくようしに きにゅうします。',
-            romaji: 'Ryoukai itashimashita. Saikanetsu-go, betsu no ookime no pīsu de saido chuushin ondo wo hakari, nanajuu-go do ijou ippunkan iji wo kakunin shite kiroku youshi ni kinyuu shimasu.',
-            indonesian: 'Siap dimengerti. Setelah pemanasan ulang, saya akan mengukur kembali suhu inti pada potongan besar lainnya, memastikan 75 derajat atau lebih selama 1 menit, lalu mencatatnya di lembar formulir.'
+            speaker: 'リーダー (Leader Sato)',
+            role: 'Line Leader',
+            japanese: '迅速な報告ありがとう！すぐにコンベアのスピードを落とし、オーブン設定温度を調整してください。そして、71℃で加熱不足となったバッチのハンバーグは直ちにラインから取り除き、専用トレイに隔離してください。再加熱できるか品質管理と判断します。',
+            kana: 'じんそくなほうこくありがとう！すぐにこんべあのすぴーどをおとし、おーぶんせっていおんどをちょうせいしてください。そして、ななじゅういちどでかねつぶそくとなったばっちのはんばーぐはただちにらいんからのぞき、せんようとれいにかくりしてください。さいかねつできるかひんしつかんりとはんだんします。',
+            romaji: 'Jinsoku na houkoku arigatou! Sugu ni konbea no supiido wo otoshi, oobun settei ondo wo chousei shite kudasai. Soshite, nanajuu-ichi do de kanetsu busoku to natta bacchi no hanbaagu wa tadachi ni rain kara torinozoki, senyou torei ni kakuri shite kudasai. Saikanetsu dekiru ka hinshitsu kanri to handan shimasu.',
+            indonesian: 'Terima kasih atas laporan cepatnya! Segera perlambat kecepatan konveyor dan sesuaikan suhu oven. Lalu, seluruh batch hamburger yang kurang panas pada 71°C harus segera disingkirkan dari lini dan diisolasi di nampan khusus. Kita akan putuskan bersama tim QC apakah produk bisa dipanaskan ulang atau harus dibuang.'
           }
         ],
-        takeaway: 'Pengukuran suhu inti (Chūshin Ondo) tidak boleh dikira-kira atau dipalsukan angkanya. Jika belum mencapai standar 75°C selama 1 menit, produk wajib dipanaskan ulang (re-heating) demi memastikan seluruh kuman patogen mati.'
+        takeaway: 'Ketika terjadi deviasi (逸脱) batas kritis, operator wajib segera melapor, menyesuaikan parameter mesin (kecepatan konveyor/suhu), dan mengisolasi seluruh produk yang terdampak agar tidak ada bahaya patogen yang lolos ke konsumen.'
       },
       visualDiagram: {
-        title: '5 Langkah SOP Masuk Ruang Bersih Produksi Pabrik Pangan',
-        subtitle: 'Prosedur Wajib Mengeliminasi Kontaminasi Rambut, Debu, dan Mikroba',
+        title: '7 Prinsip Resmi Sistem HACCP di Pabrik Makanan Jepang',
+        subtitle: 'Berdasarkan Pedoman OTAFF & Codex Alimentarius Standar Internasional',
         type: 'steps',
         items: [
           {
-            label: 'Langkah 1: Seragam Bersih & Inner Hair Net',
-            description: 'Memakai jaring rambut dalam menutup telinga, topi pabrik, masker menutup hidung, dan baju putih bersih.',
-            badge: 'Pakaian Tertutup'
+            label: 'Prinsip 1: Hazard Analysis (危害要因分析)',
+            description: 'Identifikasi seluruh bahaya fisik, kimiawi, dan biologi di setiap tahapan dari bahan baku hingga kemasan.',
+            highlight: 'HA (Analisis Bahaya)'
           },
           {
-            label: 'Langkah 2: Pembersihan Roller Perekat (Korokoro)',
-            description: 'Menggulung roller perekat di seluruh badan minimal 60 detik (bahu, dada, punggung, kaki) untuk mengangkat serpihan rambut.',
-            badge: 'Bebas Rambut'
+            label: 'Prinsip 2: Penentuan CCP (重要管理点の決定)',
+            description: 'Menetapkan titik proses kunci di mana bahaya pangan dapat dibasmi atau diturunkan hingga level aman.',
+            highlight: 'CCP (Titik Kendali Kritis)'
           },
           {
-            label: 'Langkah 3: Cuci Tangan 2 Tahap (Nido-arai) + Sikat Kuku',
-            description: 'Mencuci tangan dengan sabun antibakteri selama 30 detik x 2 kali, menyikat sela kuku, dan mengeringkan dengan tisu steril.',
-            badge: 'Antiseptik'
+            label: 'Prinsip 3: Penetapan Batas Kritis (管理基準の設定)',
+            description: 'Menetapkan batas angka terukur mutlak (suhu ≥75°C 1 menit, klorin 200 ppm, kalibrasi test piece).',
+            highlight: 'CL (Critical Limits)'
           },
           {
-            label: 'Langkah 4: Disinfeksi Semprot Alkohol 75%',
-            description: 'Menyemprotkan alkohol secara merata ke telapak tangan dan sarung tangan karet hingga basah dan menguap kering.',
-            badge: 'Sterilisasi Kuman'
+            label: 'Prinsip 4: Prosedur Monitoring (監視方法の設定)',
+            description: 'Menetapkan siapa, kapan, seberapa sering, dan alat apa yang digunakan untuk memantau parameter CCP.',
+            highlight: 'Pemantauan Berkelanjutan'
           },
           {
-            label: 'Langkah 5: Bilik Air Shower (15–20 Detik)',
-            description: 'Masuk ke bilik semprotan angin bertekanan tinggi sambil memutar badan dan mengangkat kedua tangan.',
-            badge: 'Bebas Debu Mikro'
+            label: 'Prinsip 5: Tindakan Korektif (改善措置の設定)',
+            description: 'Prosedur pemulihan mesin dan penanganan isolasi produk jika terjadi deviasi (逸脱) batas kritis.',
+            highlight: 'Tindakan Koreksi'
+          },
+          {
+            label: 'Prinsip 6: Prosedur Verifikasi (検証方法の設定)',
+            description: 'Evaluasi berkala untuk membuktikan bahwa rencana HACCP berjalan efektif dan akurat.',
+            highlight: 'Verifikasi Sistem'
+          },
+          {
+            label: 'Prinsip 7: Dokumentasi & Catatan (記録の保管)',
+            description: 'Mencatat seluruh data pengukuran secara riil, tepat waktu, jujur, dan mengarsipkan lembar kerja.',
+            highlight: 'Catatan Autentik'
           }
         ]
       },
       importantPoints: [
-        'Suhu inti pemanasan makanan wajib mencapai minimal 75°C selama minimal 1 menit (atau 85–90°C selama 90 detik untuk tiram/kerang).',
-        'Rentang suhu 20°C hingga 50°C adalah zona bahaya perkembangbiakan kuman tercepat; makanan harus didinginkan cepat melampaui suhu ini.',
-        'Hafalkan 8 bahan alergen wajib label di Jepang: Telur, Susu, Gandum, Udang, Kepiting, Soba, Kacang Tanah, dan Walnut (Kurumi).',
-        'Sebelum membersihkan atau mengambil sesuatu dari dalam mesin berputar, selalu matikan mesin dan terapkan prosedur penguncian.'
+        'HACCP adalah metode pengawasan keamanan pangan berkesinambungan di titik kritis (CCP), jauh lebih efektif dibanding inspeksi sampel akhir.',
+        'HACCP terdiri dari 7 Prinsip resmi: Analisis Bahaya (HA), Penentuan CCP, Penetapan Batas Kritis (CL), Monitoring, Tindakan Korektif, Verifikasi, dan Pencatatan.',
+        '5 Contoh CCP utama di pabrik pangan: Pemanasan termal (加熱殺菌), Pendinginan cepat pasca-masak, Disinfeksi kimia bahan mentah, Detektor logam, dan Detektor X-ray.',
+        'Standar pendinginan cepat pasca-pemasakan: Turun ke 20°C dalam 30 menit atau turun ke 10°C dalam 60 menit guna menekan perkecambahan spora Clostridium perfringens.',
+        'Jika terjadi deviasi (管理基準からの逸脱), pekerja wajib segera melapor ke penanggung jawab dan mengambil tindakan perbaikan (改善措置).',
+        'Aturan pencatatan: Catat segera saat pengukuran berlangsung; dilarang mencatat sebelum mengukur, dilarang menunda ke akhir shift, dan dilarang memalsukan angka.'
       ],
-      summary: 'Kepatuhan terhadap standar K3 melindungi pekerja dari insiden fatal mesin conveyor dan lantai licin, sementara pemantauan suhu inti HACCP serta kontrol ketat 8 bahan alergen menjamin keamanan mutlak bagi kesehatan konsumen.',
+      summary: 'Sistem HACCP (危害要因分析重要管理点) menjamin keamanan pangan melalui 7 Prinsip resmi yang berfokus pada titik kendali kritis (CCP) seperti pemanasan termal (75°C 1 mnt), pendinginan cepat (30 mnt ke 20°C), disinfeksi klorin (200 ppm 5 mnt), detektor logam, dan detektor sinar-X. Setiap deviasi (逸脱) wajib dilaporkan seketika untuk tindakan perbaikan (改善措置), dan seluruh data monitoring wajib dicatat secara jujur, akurat, dan real-time.',
       practiceQuestions: [
         {
           id: 'mfg_ch4_q1',
           questionNumber: 1,
-          questionText: 'HACCPの加熱調理工程における「中心温度」と加熱時間の一般的な基準として、最も適切なものを一つ選びなさい。',
-          situation: 'Standar baku pemanasan suhu inti makanan untuk membunuh bakteri patogen umum.',
+          questionText: 'Berapakah standar pendinginan cepat (冷却) pasca-pemanasan yang disyaratkan dalam kurikulum resmi OTAFF untuk mencegah perkecambahan bakteri spora pada makanan?',
+          situation: 'Proses pendinginan makanan matang (kari, semur, sup kental) sebelum pengemasan.',
           options: [
-            '中心温度が50度以上で、10秒間加熱する。',
-            '中心温度が60度以上で、20秒間加熱する。',
-            '中心温度が75度以上で、1分間以上加熱する。',
-            '食品の表面さえ温かければ、中心温度を測る必要はない。'
+            'Dibiarkan di suhu ruangan pabrik selama 3 jam hingga dingin sendiri.',
+            'Diturunkan suhunya ke 20°C dalam waktu 30 menit, atau ke 10°C dalam waktu 60 menit.',
+            'Cukup dimasukkan ke dalam kulkas semalaman tanpa diukur suhunya.',
+            'Didinginkan dengan kipas angin biasa hingga suhu mencapai 40°C.'
           ],
-          correctAnswerIndex: 2,
-          explanation: 'Pilihan 3 benar. Standar baku HACCP untuk membunuh bakteri penyebab keracunan makanan (seperti Salmonella, O-157) adalah memanaskan hingga suhu bagian tengah terdalam (中心温度) mencapai minimal 75°C selama 1 menit atau lebih.',
-          translation: 'Pilihlah satu standar umum yang paling tepat untuk suhu inti dan durasi pemanasan dalam proses memasak HACCP.'
+          correctAnswerIndex: 1,
+          explanation: 'Berdasarkan buku panduan resmi OTAFF Edisi ke-4 (halaman 34), untuk mencegah pertumbuhan mikroorganisme spora seperti Clostridium perfringens dan Bacillus cereus, makanan matang wajib didinginkan cepat: menurunkan suhu inti ke 20°C dalam waktu 30 menit, atau ke 10°C dalam waktu 60 menit (風冷 atau 水冷).',
+          translation: 'Pilihlah standar pendinginan cepat pasca-pemasakan yang benar.'
         },
         {
           id: 'mfg_ch4_q2',
           questionNumber: 2,
-          questionText: '日本の食品表示法において、原材料として含まれている場合に表示が「義務」付けられている特定原材料（8品目）に含まれないものを一つ選びなさい。',
-          situation: 'Bahan makanan yang BUKAN merupakan bagian dari 8 bahan alergen wajib label di Jepang.',
+          questionText: 'Apakah aturan yang PALING BENAR mengenai pengisian lembar pencatatan (記録) parameter HACCP di pabrik pengolahan pangan Jepang?',
+          situation: 'Pencatatan suhu termometer dan hasil kalibrasi detektor logam harian.',
           options: [
-            'えび（海老）',
-            'くるみ（胡桃）',
-            '小麦（こむぎ）',
-            'バナナ'
+            'Boleh mencatat angka perkiraan terlebih dahulu sebelum pengukuran agar pekerjaan lebih cepat selesai.',
+            'Boleh mengumpulkan semua data di kepala lalu mencatatnya sekaligus di akhir jam kerja saat hendak pulang.',
+            'Wajib mencatat angka secara langsung saat pengukuran dilakukan (real-time), dilarang mencatat sebelum mengukur, dan dilarang merekayasa angka sendiri.',
+            'Jika hasil pengukuran tidak sesuai batas kritis, pekerja boleh mengubah angka tersebut agar lembar evaluasi terlihat baik.'
           ],
-          correctAnswerIndex: 3,
-          explanation: 'Pilihan 4 benar. Pisang (バナナ) termasuk dalam kategori bahan anjuran (20 bahan tertentu), BUKAN bahan wajib (8 bahan tertentu). Delapan bahan yang WAJIB dicantumkan adalah: Telur, Susu, Gandum, Soba, Kacang tanah, Udang, Kepiting, dan Kenari/Walnut (くるみ).',
-          translation: 'Pilihlah satu bahan yang TIDAK termasuk dalam 8 bahan baku alergen tertentu yang WAJIB dicantumkan menurut hukum Jepang.'
+          correctAnswerIndex: 2,
+          explanation: 'Sesuai buku teks resmi OTAFF Edisi ke-4 (halaman 40-41), pencatatan wajib dilakukan seketika saat mengukur atau memastikan (はかったとき、確認したときにすぐ記録). Dilarang menunda di akhir hari, dilarang mencatat sebelum mengukur, dan dilarang keras mencatat hal yang tidak benar atau mengubah data tanpa wewenang supervisor.',
+          translation: 'Pilihlah aturan pencatatan parameter HACCP yang benar.'
         }
       ],
       officialReference: {
-        source: 'MHLW Japan Food Sanitation Act & OTAFF Text',
-        agency: 'Ministry of Health, Labour and Welfare (厚生労働省)',
-        documentTitle: 'HACCPに沿った衛生管理の制度化およびアレルゲン管理マニュアル (Pedoman Institusionalisasi Manajemen Sanitasi HACCP & Alergen)'
+        source: 'Buku Teks Pembelajaran Ujian Keterampilan Manufaktur Makanan & Minuman (第4版, Halaman 5-6, 37-41)',
+        agency: 'OTAFF (一般社団法人 外国人食品産業技能評価機構)',
+        documentTitle: 'Bab 2: 食品衛生 (4. ＨＡＣＣＰによる衛生管理: ＨＡＣＣＰの７原則、重要管理点、逸脱と改善措置、記録)'
       }
     },
 
     // ------------------------------------------------------------------------
-    // BAB 5: PERSIAPAN UJIAN OTAFF (KISI-KISI, SIMULASI CBT & PEMBAHASAN)
+    // BAB 5: KESELAMATAN KERJA (K3), KYT, APD & PANDUAN UJIAN RESMI
     // ------------------------------------------------------------------------
     {
       id: 'mfg_ch5',
       sectorId: 'manufacturing',
       category: 'persiapan_ujian',
       chapterNumber: 5,
-      title: 'Panduan Lengkap Ujian SSW Pengolahan Makanan (OTAFF CBT)',
-      japaneseTitle: '飲食料品製造業技能測定試験の出題傾向と対策',
-      estimatedMinutes: 30,
+      title: 'Keselamatan & Kesehatan Kerja (K3), Budaya KYT, APD & Simulasi Ujian OTAFF',
+      japaneseTitle: '工場の労働安全衛生・ＫＹＴ・保護具・技能測定試験対策',
+      estimatedMinutes: 35,
       objectives: [
-        'Memahami struktur penilaian ujian OTAFF: Teori (Gakka) dan Praktik Keputusan Gambar (Jitsugi / Handan-tō Shiken).',
-        'Menguasai 3 Prinsip Pencegahan Keracunan Makanan (Shokuchūdoku Yobō no San-gensoku): Tsukenai, Fuyasanai, Yattsukeru.',
-        'Mengetahui karakteristik bakteri berspora (Gahōkin) dan bahaya Norovirus.',
-        'Menguasai strategi menjawab soal berbasis gambar ilustrasi situasi pabrik.'
+        'Memahami profil kecelakaan kerja pabrik makanan di Jepang: pekerja pemula (<3 tahun) menyumbang 50% korban; 3 kecelakaan utama mencakup 60%.',
+        'Menguasai nama dan fungsi Alat Pelindung Diri (APD / 安全保護具) khusus pabrik pangan (sarung tangan mexcel & rantai, boot berpenutup, kacamata pelindung).',
+        'Menerapkan prinsip rekayasa keselamatan mesin: Tombol Berhenti Darurat (非常停止ボタン), Fail-Safe (フェールセーフ), dan Fool-Proof (フールプルーフ).',
+        'Mempraktikkan budaya keselamatan kerja: Pointing and Calling (指差し呼称), Hukum Heinrich (1:29:300), Latihan Prediksi Bahaya KYT ("かもしれない"), dan mengenali rambu keselamatan.',
+        'Menguasai struktur dan strategi lulus ujian resmi OTAFF CBT (Ujian Teori 30 soal & Ujian Praktik 15 soal).'
       ],
-      contentExplanation: `
-Ujian Pengukuran Keterampilan Spesifik Sektor Pengolahan Makanan (**飲食料品製造業技能測定試験**) diselenggarakan secara resmi oleh **OTAFF** di bawah pengawasan Kementerian Pertanian, Kehutanan, dan Perikanan Jepang (MAFF).
+      contentExplanation: `### 1. Karakteristik Kecelakaan Kerja di Pabrik Pangan Jepang
 
-### 1. Struktur & Format Ujian Komputer (CBT)
-Ujian dilaksanakan berbasis komputer (*Computer Based Testing*) di Test Center resmi Prometric di berbagai kota di Jepang dan luar negeri (termasuk Jakarta, Surabaya, dll):
-- **Ujian Teori (学科試験 - Gakka Shiken)**:
-  - Menguji pemahaman manajemen sanitasi umum, HACCP, bahan baku, aditif, alergen, dan K3 pabrik.
-  - Bentuk soal: Pilihan ganda 3 atau 4 opsi.
-- **Ujian Praktik / Penilaian Situasi (実技試験 / 判断等試験 - Jitsugi / Handan-tō Shiken)**:
-  - Menguji kemampuan mengambil keputusan tepat saat menghadapi situasi kerja nyata melalui ilustrasi gambar, grafik pemantauan suhu, dan tabel resep.
-  - Contoh: Menemukan tindakan berbahaya pada gambar pekerja lini, menghitung takaran sanitasi klorin, atau menentukan status kelulusan produk pada checkweigher.
-- **Nilai Kelulusan**:
-  - Skor minimal kelulusan adalah **65%** untuk masing-masing bagian teori dan praktik.
+Berdasarkan data resmi Kementerian Kesehatan, Tenaga Kerja dan Kesejahteraan Jepang (MHLW / 厚生労働省 Reiwa 4) yang dirujuk dalam buku teks OTAFF (halaman 43–44):
+- **Pekerja Belum Berpengalaman (未熟練作業者 - masa kerja < 3 tahun)** menyumbang **sekitar 50% (setengah) dari total seluruh korban meninggal dan cedera** di industri pengolahan pangan. Hal ini disebabkan karena kurangnya pengalaman, belum terbiasa dengan bahaya laten di tempat kerja, dan sering bertindak ceroboh.
+- **Tiga Jenis Kecelakaan Kerja Terbesar di Pabrik Pangan** mencakup **sekitar 60% dari seluruh kecelakaan kerja**:
+  1. **Terpeleset dan Tersandung (転倒 - Tentou)**: **31,3%** (nomor 1 paling sering terjadi akibat lantai basah tergenang air, ceceran minyak, atau tersandung kardus/palet kosong di lorong).
+  2. **Terjepit dan Tergulung Mesin (はさまれ・巻き込まれ - Hasamare / Makikomare)**: **19,2%** (terjadi saat tangan mencoba mengambil barang macet pada konveyor/mesin yang masih beroperasi, atau saat membersihkan roda gigi rantai).
+  3. **Teriris dan Tergores (切れ・こすれ - Kire / Kosure)**: **10,8%** (terkena pisau dapur saat memotong ikan beku tanpa sarung tangan anti-potong, atau terkena pisau mesin slicer saat mendorong roti tanpa papan dorong).
+  - *Kecelakaan lainnya*: Jatuh dari tangga/ketinggian (**墜落・転落**) 8,4%, Luka bakar panas oven/fryer (**やけど**), Sakit pinggang akibat angkat beban salah (**腰痛**), Sengatan panas (**熱中症 - Netchuushou**), dan Tertabrak forklift (**激突 - Gekitotsu**).
 
-### 2. Konsep Kunci yang Selalu Keluar di Ujian OTAFF
-1. **Tiga Prinsip Pencegahan Keracunan Pangan (食中毒予防の3原則)**:
-   - **つけない (Tsukenai - Jangan Mengotori / Menulari)**: Jangan memindahkan mikroba ke makanan. Terapkan cuci tangan 2 tahap, pemisahan alat mentah-matang, dan penggunaan sarung tangan bersih.
-   - **ふやさない (Fuyasanai - Jangan Membiarkan Berkembang Biak)**: Jangan memberi kesempatan mikroba membelah diri. Simpan makanan pada suhu dingin (di bawah 10°C atau beku -18°C) dan dinginkan makanan matang secepat mungkin.
-   - **やっつける (Yattsukeru - Basmi / Bunuh)**: Matikan mikroba dengan pemanasan termal inti yang memadai (75°C selama 1 menit) atau disinfeksi kimia (natrium hipoklorit/alkohol).
-2. **Karakteristik Bakteri Berspora (芽胞菌 - Gahōkin)**:
-   - Bakteri seperti *Clostridium perfringens* (ウェルシュ菌) dan *Bacillus cereus* (セレウス菌) mampu membentuk spora (*gahō*) pelindung keras seperti biji tanaman.
-   - Spora ini **TIDAK MATI dengan perebusan 100°C biasa**. Jika masakan sup kari atau rebusan dibiarkan mendingin perlahan di suhu ruang (20°C - 50°C), spora akan menetas kembali dan menghasilkan racun yang memicu keracunan massal. Oleh karena itu, makanan matang wajib didinginkan cepat melintasi zona bahaya tersebut.
-3. **Ancaman Norovirus (ノロウイルス)**:
-   - Virus menular kuat yang menyebabkan muntah dan diare akut.
-   - Sangat tahan terhadap alkohol biasa. Cara mematikannya adalah dengan pemanasan suhu tinggi (85°C–90°C selama 90 detik) atau pembersihan dengan larutan Natrium Hipoklorit (klorin).
+---
 
-### 3. Tips Menganalisis Soal Gambar Ujian Praktik
-Pada ujian praktik gambar OTAFF, perhatikan detail-detail berikut:
-- Apakah ada rambut yang keluar dari bawah topi pekerja? (Pelanggaran).
-- Apakah pekerja memakai cincin di dalam sarung tangan karet? (Pelanggaran berat).
-- Apakah talenan daging mentah digunakan untuk memotong timun matang? (Kontaminasi silang).
-- Apakah wadah penampung produk reject diletakkan langsung di atas lantai tanpa alas palet? (Pelanggaran sanitasi).
-      `,
+### 2. Alat Pelindung Diri (APD / 安全保護具 - Anzen Hogogu) Khusus Pabrik
+
+Pekerja wajib menggunakan APD yang tepat sesuai jenis pekerjaannya (Buku Teks OTAFF halaman 47):
+- **Helm Pengaman (ヘルメット - Herumetto)**:
+  - Wajib dipakai saat bekerja di ketinggian **2 meter atau lebih (高所作業 - Kousho Sagyou)** seperti menaiki tangga rak gudang, untuk mencegah cedera benturan kepala.
+- **Kacamata Pelindung (保護メガネ - Hogo Megane)**:
+  - Melindungi mata dari percikan cairan kimia sanitasi/klorin, serbuk halus bahan tepung, dan partikel semprotan pembersihan air bertekanan tinggi (高圧洗浄).
+- **Penyumbat Telinga (耳栓 - Mimisen)**:
+  - Wajib dipakai di area mesin bersuara bising tinggi untuk mencegah gangguan pendengaran okupasional / tuli permanen (**難聴 - Nanchou**).
+- **Celemek Tahan Panas (耐熱エプロン) & Sarung Tangan Oven (ミトン手袋)**:
+  - Terbuat dari bahan kain tahan panas dan karet tebal untuk mencegah luka bakar saat menangani loyang oven panas, ketel rebus, dan fryer minyak.
+- **Sarung Tangan Mexcel (メクセル手袋 - Mekuseru Tebukuro)**:
+  - Sarung tangan rajut benang khusus serat berkekuatan tinggi yang **tahan sayatan (耐切創手袋 - Taiseissou Tebukuro)**. Digunakan saat mengoperasikan pisau dapur pada bahan umum.
+- **Sarung Tangan Rantai Kawat Baja (くさり手袋 - Kusari Tebukuro)**:
+  - Terbuat dari anyaman jaring baja tahan karat (*stainless steel wire mesh*). Digunakan saat memotong daging beku keras atau membelah labu parang Jepang (**かぼちゃ - Kabocha**) dengan tenaga besar agar jari tangan tidak terpotong pisau jika tergelincir.
+- **Sepatu Bot Berpenutup Atas (カバー付き長靴 - Kabaatsuki Nagagutsu)**:
+  - Sepatu bot bersol anti-minyak (**耐油 - Taiyu**) dan anti-slip agar tidak mudah terpeleset di lantai basah, dilengkapi penutup fleksibel di bagian atasnya agar cipratan air panas dan bahan kimia tidak masuk ke dalam kaki.
+- **Sepatu Keselamatan (安全靴 - Anzengutsu)**:
+  - Ujung jari dan tumitnya diperkuat pelat baja atau pelat komposit plastik keras untuk menahan timpaan barang berat dan benturan palet.
+
+---
+
+### 3. Prosedur Keselamatan Mesin: Tombol Darurat, Fail-Safe & Fool-Proof
+
+- **Aturan Nomor 1 Mesin Beroperasi**:
+  **DILARANG MEMASUKKAN TANGAN KE DALAM MESIN YANG SEDANG MENYALA / BERJALAN (運転中に手を入れてはいけない)**. Meskipun mesin tampak berhenti karena produk macet, sensor pisau atau ulir sekrup di dalamnya masih dapat berputar mendadak jika sumbatan terlepas.
+- **Tombol Berhenti Darurat (非常停止ボタン - Hijou Teishi Botan)**:
+  - Tombol merah berbentuk jamur di panel kontrol mesin. Setiap pekerja wajib mengetahui letaknya dan siap menekan tombol ini seketika saat terjadi kondisi darurat atau ada rekan yang terjepit.
+- **Prinsip Rekayasa Keselamatan Kerja**:
+  1. **Fail-Safe (フェールセーフ)**:
+     - Mekanisme keselamatan di mana mesin dirancang untuk **otomatis berhenti sendiri jika terjadi kerusakan komponen atau jika pintu pelindung dibuka**. Misalnya pintu penutup konveyor yang dilengkapi interlock sensor; begitu pintu dibuka saat mesin menyala, arus listrik langsung terputus otomatis.
+  2. **Fool-Proof (フールプルーフ)**:
+     - Desain fisik peralatan yang dirancang sedemikian rupa sehingga **meskipun manusia lalai, lupa, atau salah bertindak, kecelakaan tetap tidak akan terjadi**. Contohnya adalah pemasangan penutup pengaman (**安全カバー**) pada rantai gir konveyor sehingga jari tangan fisik tidak akan bisa menjangkau roda gigi yang berputar.
+- **Prosedur Pemeliharaan (点検整備 - Men-tenansu)**:
+  - Sebelum membersihkan atau memperbaiki mesin, matikan saklar listrik utama, gantungkan papan peringatan **"Sedang Diperiksa / Dirawat" (点検整備中)**, dan kunci saklarnya agar tidak dinyalakan oleh orang lain secara keliru.
+
+---
+
+### 4. Budaya Keselamatan Kerja: Pointing & Calling, Heinrich, dan KYT
+
+- **Menunjuk dan Menyebut (指差し呼称 - Shisashi Koshou)**:
+  - Mengarahkan jari telunjuk ke objek kerja (lampu sinyal, saklar, termometer, kran) sambil menyerukan namanya dan statusnya dengan lantang: contoh *"Suhu 85 derajat, Yosh!" (温度85度、よし！)*. Metode ini terbukti secara ilmiah menurunkan tingkat kesalahan manusia (human error) hingga lebih dari 80%.
+- **Penanganan Kecelakaan & Larangan Bencana Sekunder (二次災害 - Niji Saigai)**:
+  - Jika melihat rekan terluka atau pingsan di dekat mesin beroperasi, **JANGAN PANIK DAN JANGAN LANGSUNG MENDEKAT SEMBARANGAN**. Mendekat tanpa mematikan mesin dapat menyebabkan penolong ikut terjepit/tersetrum listrik (**Bencana Sekunder / 二次災害**). Segera tekan Tombol Berhenti Darurat, teriakkan bantuan dengan suara lantang, dan lapor ke penanggung jawab.
+- **Hukum Heinrich (ハインリッヒの法則 - Heinrich's Law)**:
+  - Rasio kecelakaan kerja: **1 : 29 : 300**.
+  - Untuk setiap **1 kecelakaan fatal/berat (重い災害)** yang terjadi, terdapat **29 kecelakaan ringan (軽いケガ)** dengan penyebab yang sama, dan ada **300 insiden nyaris celaka tanpa cedera (ヒヤリ・ハット - Hiyari-Hatto)**.
+  - *Makna Praktis*: Dengan melaporkan dan meniadakan 300 kejadian nyaris celaka (Hiyari-Hatto) melalui perbaikan fasilitas, maka 1 kecelakaan fatal akan dapat dicegah secara total.
+- **Pelatihan Prediksi Bahaya KYT (危険予知訓練 - Kiken Yochi Training)**:
+  - Latihan sebelum mulai kerja untuk membiasakan pekerja berpikir dengan kesadaran **"Jangan-jangan / Bisa Jadi..." (「かもしれない」意識 - Kamoshirenai Ishiki)**:
+    - *"Lantai di depan freezer basah... jangan-jangan ada lapisan es tipis dan saya bisa terpeleset!"*
+    - *"Pintu gudang terbuka... jangan-jangan forklift melaju kencang dan menabrak saya!"*
+    - *"Panci sup baru diangkat... jangan-jangan kuah panas tumpah mengenai kaki jika tidak memakai boot berpenutup!"*
+- **Ergonomi Mengangkat Beban Berat**:
+  - Untuk mencegah nyeri pinggang (**腰痛 - Youtsuu**), dekatkan tubuh ke beban, tekuk kedua lutut (**膝を曲げる**), turunkan pinggul, dekap beban rapat di dada, lalu luruskan lutut perlahan sambil menegakkan punggung. Dilarang membungkukkan punggung saat mengangkat benda berat! Gunakan troli/gerobak (**台車**).
+- **Pencegahan Sengatan Panas (熱中症 - Netchuushou)**:
+  - Di ruang pemasakan yang panas dan lembap, pekerja wajib memakai pakaian berventilasi baik, istirahat teratur di tempat sejuk, serta rutin minum air putih dan asupan garam/minuman isotonik.
+
+---
+
+### 5. Rambu Keselamatan Kerja Pabrik Pangan (安全標識 - Anzen Hyoushiki)
+
+Berdasarkan Lampiran Resmi OTAFF (halaman 63–65):
+1. **Rambu Larangan (禁止標識)**:
+   - **立入禁止 (Tachiiri Kinshi)**: Dilarang Masuk (Do Not Enter).
+   - **走るな (Hashiruna)**: Dilarang Berlari di Lorong Pabrik.
+   - **開放厳禁 (Kaihou Genkin)**: Dilarang Membiarkan Pintu Terbuka (Opening Strictly Prohibited).
+   - **手をふれるな / スイッチを入れるな**: Dilarang Menyentuh / Dilarang Menyalakan Saklar saat mesin sedang dalam perawatan.
+2. **Rambu Peringatan Bahaya (注意標識)**:
+   - **はさまれ注意 (Hasamare Chuui)**: Awas Bahaya Terjepit Mesin / Konveyor.
+   - **高温注意 / やけど注意 (Kouon / Yakedo Chuui)**: Awas Bahaya Permukaan Panas / Luka Bakar.
+   - **足元注意 / 転倒注意 (Ashimoto / Tentou Chuui)**: Awas Lantai Licin / Bahaya Tersandung.
+   - **開口部注意 / 転落注意 (Kaikoubu / Tenraku Chuui)**: Awas Lubang Bukaan / Bahaya Jatuh Tergelincir.
+   - **切断注意 (Setsudan Chuui)**: Awas Bahaya Terpotong / Teriris Pisau Mesin.
+   - **回転物に手を出すな (Kaitenbutsu ni te wo dasuna)**: Awas Benda Berputar / Jangan Menjulurkan Tangan.
+   - **感電注意 (Kanden Chuui)**: Awas Bahaya Sengatan Listrik Bertegangan Tinggi.
+   - **頭上注意 (Zujou Chuui)**: Awas Benturan Kepala / Benda di Atas Kepala.
+3. **Rambu Wajib & Sarana Darurat (指示・緊急標識)**:
+   - **保護メガネ着用 / ゴーグル着用**: Wajib Memakai Kacamata Pelindung / Goggle.
+   - **非常口 (Hijouguchi)**: Pintu Keluar Darurat Evakuasi Kebakaran/Bencana.
+   - **消火器 (Shoukakki)**: Lokasi Tabung Alat Pemadam Api Ringan (APAR).
+
+---
+
+### 6. Struktur & Strategi Ujian Resmi OTAFF CBT
+
+1. **Ujian Teori / Akademik (学科試験 - Gakka Shiken)**:
+   - Jumlah: 30 soal pilihan ganda komputer (CBT).
+   - Materi: Higiene makanan, 3 bahaya pangan, 8 alergen wajib, nama bakteri/virus, suhu penyimpanan, 5S & zonasi, 7 prinsip HACCP, dan K3 pabrik.
+2. **Ujian Praktik / Penilaian Gambar (実技試験 / 判断等試験 - Jitsugi / Handan-tou Shiken)**:
+   - Jumlah: 15 soal berbasis foto/ilustrasi situasi kerja nyata di pabrik.
+   - Menilai kemampuan analisis visual: mengidentifikasi cara pemakaian seragam yang salah, postur mengangkat beban yang salah, penanganan alarm detektor logam, dan tindakan darurat saat terjadi kecelakaan.
+   - **Ambang Kelulusan**: Wajib meraih nilai minimal **65%** pada kedua bagian ujian tersebut.`,
       keyTerms: [
         {
-          japanese: '学科試験 / 実技試験',
-          kana: 'がっかしけん / じつぎしけん',
-          romaji: 'gakka shiken / jitsugi shiken',
-          indonesian: 'Ujian teori / Ujian praktik (penilaian situasi)',
-          note: 'Dua bagian ujian CBT OTAFF; keduanya wajib lulus dengan nilai minimal 65%.'
+          japanese: '労働災害',
+          kana: 'ろうどうさいがい',
+          romaji: 'roudou saigai',
+          indonesian: 'Kecelakaan kerja / penyakit okupasional di lingkungan industri pabrik.'
         },
         {
-          japanese: '食中毒予防の3原則',
-          kana: 'しょくちゅうどくよぼうのさんげんそく',
-          romaji: 'shokuchuudoku yobou no san gensoku',
-          indonesian: 'Tiga prinsip pencegahan keracunan makanan',
-          note: 'Tsukenai (jangan mencemari), Fuyasanai (jangan biarkan tumbuh), Yattsukeru (basmi).'
+          japanese: '未熟練作業者',
+          kana: 'みじゅくれんさぎょうしゃ',
+          romaji: 'mijukuren sagyousha',
+          indonesian: 'Pekerja pemula dengan pengalaman <3 tahun (menyumbang 50% korban kecelakaan).'
         },
         {
-          japanese: '芽胞菌',
-          kana: 'がほうきん',
-          romaji: 'gahoukin',
-          indonesian: 'Bakteri berspora (tahan panas perebusan biasa)',
-          note: 'Contoh: Welchii / Perfringens dan Cereus; butuh pendinginan cepat setelah matang.'
+          japanese: '転倒',
+          kana: 'てんとう',
+          romaji: 'tentou',
+          indonesian: 'Kecelakaan terpeleset dan tersandung (jenis kecelakaan peringkat 1 pabrik: 31,3%).'
         },
         {
-          japanese: '判断等試験',
-          kana: 'はんだんとうしけん',
-          romaji: 'handan-tou shiken',
-          indonesian: 'Ujian evaluasi penilaian berbasis gambar ilustrasi',
-          note: 'Nama resmi bagian ujian praktik CBT pengolahan makanan di Prometric.'
+          japanese: 'はさまれ・巻き込まれ',
+          kana: 'はさまれ・まきこまれ',
+          romaji: 'hasamare, makikomare',
+          indonesian: 'Kecelakaan terjepit dan tergulung mesin/konveyor (peringkat 2: 19,2%).'
         },
         {
-          japanese: 'テストピース',
-          kana: 'てすとぴーす',
-          romaji: 'tesuto pīsu',
-          indonesian: 'Benda uji verifikasi logam (Fe dan SUS)',
-          note: 'Digunakan sebelum shift untuk memastikan detektor logam berfungsi normal.'
+          japanese: '切れ・こすれ',
+          kana: 'きれ・こすれ',
+          romaji: 'kire, kosure',
+          indonesian: 'Kecelakaan teriris pisau dan tergores permukaan mesin (peringkat 3: 10,8%).'
+        },
+        {
+          japanese: '指差し呼称',
+          kana: 'しさしこしょう',
+          romaji: 'shisashi koshou',
+          indonesian: 'Metode menunjuk dan menyebut dengan suara lantang untuk memastikan keamanan.'
+        },
+        {
+          japanese: '非常停止ボタン',
+          kana: 'ひじょうていしぼたん',
+          romaji: 'hijou teishi botan',
+          indonesian: 'Tombol berhenti darurat (Emergency Stop) untuk mematikan mesin seketika saat bahaya.'
+        },
+        {
+          japanese: '安全保護具',
+          kana: 'あんぜんほごぐ',
+          romaji: 'anzen hogogu',
+          indonesian: 'Alat Pelindung Diri (APD) lengkap pabrik (helm, kacamata, sarung tangan, sepatu bot).'
+        },
+        {
+          japanese: 'くさり手袋',
+          kana: 'くさりてぶくろ',
+          romaji: 'kusari tebukuro',
+          indonesian: 'Sarung tangan anyaman kawat stainless steel anti-potong untuk memotong daging keras/labu.'
+        },
+        {
+          japanese: 'メクセル手袋',
+          kana: 'めくせるてぶくろ',
+          romaji: 'mekuseru tebukuro',
+          indonesian: 'Sarung tangan rajut serat berkekuatan tinggi tahan sayatan pisau (耐切創手袋).'
+        },
+        {
+          japanese: 'カバー付き長靴',
+          kana: 'かばーつきながぐつ',
+          romaji: 'kabaatsuki nagagutsu',
+          indonesian: 'Sepatu bot sol anti-minyak/anti-slip berpenutup atas penangkal cairan panas & kimia.'
+        },
+        {
+          japanese: '安全靴',
+          kana: 'あんぜんぐつ',
+          romaji: 'anzengutsu',
+          indonesian: 'Sepatu keselamatan berpelat baja di ujung jari dan tumit pelindung impak berat.'
+        },
+        {
+          japanese: '安全標識',
+          kana: 'あんぜんひょうしき',
+          romaji: 'anzen hyoushiki',
+          indonesian: 'Rambu keselamatan kerja di pabrik (larangan, peringatan bahaya, dan sarana darurat).'
+        },
+        {
+          japanese: 'ハインリッヒの法則',
+          kana: 'はいんりっひのほうそく',
+          romaji: 'hainrihhi no housoku',
+          indonesian: 'Hukum Heinrich: rasio 1 kecelakaan berat : 29 kecelakaan ringan : 300 nyaris celaka.'
+        },
+        {
+          japanese: 'ヒヤリ・ハット',
+          kana: 'ひやり・はっと',
+          romaji: 'hiyari hatto',
+          indonesian: 'Kejadian nyaris celaka (near-miss incident) yang wajib dilaporkan untuk perbaikan.'
+        },
+        {
+          japanese: '危険予知訓練',
+          kana: 'きけんよちくんれん',
+          romaji: 'kiken yochi kunren',
+          indonesian: 'KYT: pelatihan prediksi bahaya sebelum mulai kerja untuk meningkatkan kewaspadaan.'
+        },
+        {
+          japanese: 'かもしれない',
+          kana: 'かもしれない',
+          romaji: 'kamoshirenai',
+          indonesian: 'Pola pikir "bisa jadi/jangan-jangan..." untuk mendeteksi potensi bahaya laten di tempat kerja.'
+        },
+        {
+          japanese: 'フェールセーフ',
+          kana: 'ふぇーるせーふ',
+          romaji: 'feeru seefu',
+          indonesian: 'Prinsip fail-safe: desain mesin otomatis mati aman jika terjadi malfungsi/pintu dibuka.'
+        },
+        {
+          japanese: 'フールプルーフ',
+          kana: 'ふーるぷるーふ',
+          romaji: 'fuuru puruufu',
+          indonesian: 'Prinsip fool-proof: desain pelindung fisik yang mencegah kecelakaan akibat kelalaian manusia.'
+        },
+        {
+          japanese: '二次災害',
+          kana: 'にじさいがい',
+          romaji: 'niji saigai',
+          indonesian: 'Bencana/kecelakaan sekunder yang menimpa penolong akibat menolong secara tergesa-gesa.'
         }
       ],
       workplaceCaseStudy: {
-        title: 'Simulasi Soal Gambar: Menemukan 3 Pelanggaran Sanitasi di Area Pengolahan Bento',
-        scenario: 'Dalam soal bergambar ujian praktis OTAFF, disajikan ilustrasi ruang pengolahan bento dengan seorang pekerja pria sedang memotong mentimun matang.',
+        title: 'Kasus: Penerapan Pola Pikir "Kamoshirenai" dan Penanganan Mesin Konveyor Macet',
+        scenario: 'Lini conveyor pemotong roti tiba-tiba berhenti karena ada tumpukan potongan roti yang tersangkut di bagian roda gigi penarik. Seorang pekerja magang baru hendak langsung memasukkan tangannya untuk menarik roti tersebut karena melihat konveyor sudah tidak bergerak.',
         dialogue: [
           {
-            speaker: 'Soal Ujian OTAFF',
-            role: 'Pertanyaan Praktik CBT',
-            japanese: 'イラストを見て、食品衛生上「不適切」な行動や状態として当てはまるものを全て選びなさい。',
-            kana: 'いらすとを みて、しょくひんえいせいじょう「ふてきせつ」な こうどうや じょうたいとして あてはまるものを すべて えらびなさい。',
-            romaji: 'Irasuto wo mite, shokuhin eiseijou "futekisetsu" na koudou ya joutai toshite atehamaru mono wo subete erabinasai.',
-            indonesian: 'Perhatikan ilustrasi gambar, pilihlah semua tindakan atau kondisi yang "TIDAK TEPAT" secara sanitasi makanan.'
+            speaker: '同僚 (Rekan Kerja)',
+            role: 'Senior Worker',
+            japanese: '危ない！手を引っ込めて！機械が止まって見えても、電源が入ったままだと急に動き出す「かもしれない」んだよ！',
+            kana: 'あぶない！てをひっこめて！きかいがとまってみえても、でんげんがはいったままだときゅうにうごきだす「かもしれない」んだよ！',
+            romaji: 'Abunai! Te wo hikkomete! Kikai ga tomatte miete mo, dengen ga haitta mama da to kyuu ni ugokidasu "kamoshirenai" n da yo!',
+            indonesian: 'Bahaya! Tarik tanganmu! Meskipun mesin tampak berhenti, jika tombol daya masih menyala, bisa jadi mesin mendadak berputar kembali!'
           },
           {
-            speaker: 'Pilihan Jawaban',
-            role: 'Opsi Ujian',
-            japanese: '①前髪が帽子からはみ出している。 ②手袋の下に指輪をはめている。 ③赤色の生肉用まな板で加熱済みの野菜を切っている。',
-            kana: '①まえがみが ぼうしから はみだしている。 ②てぶくろの したに ゆびわを はめている。 ③あかいろの なまにくよう まな板で かねつずみの やさいを きっている。',
-            romaji: '① Maegami ga boushi kara hamidashite iru. ② Tebukuro no shita ni yubiwa wo hamete iru. ③ Akairo no namaniku-you manaita de kanetsuzumi no yasai wo kitte iru.',
-            indonesian: '① Rambut poni keluar dari tepi topi. ② Memakai cincin di bawah sarung tangan karet. ③ Memotong sayur matang menggunakan talenan merah khusus daging mentah.'
+            speaker: '作業員 (Pekerja Baru)',
+            role: 'Pekerja Baru',
+            japanese: 'あっ…すみません！つい焦って手を伸ばしてしまいました。',
+            kana: 'あっ…すみません！ついあせっててをのばしてしまいました。',
+            romaji: 'A... sumimasen! Tsui asette te wo nobashite shimaimashita.',
+            indonesian: 'Ah... maafkan saya! Saya tadi panik dan refleks mengulurkan tangan.'
           },
           {
-            speaker: 'Kunci Pembahasan',
-            role: 'Solusi Jawaban',
-            japanese: '解説：①、②、③のすべてが不適切です。異物混入、黄色ブドウ球菌の繁殖、および交差汚染を引き起こす重大な原因となります。',
-            kana: 'かいせつ：①、②、③の すべてが ふてきせつです。いぶつこんにゅう、おうしょくぶどうきゅうきんの はんしょく、および こうさおせんを ひきおこす じゅうだいな げんいんと なります。',
-            romaji: "Kaisetsu: ①, ②, ③ no subete ga futekisetsu desu. Ibutsu konnyuu, oushoku budoukyuukin no hanshoku, oyobi kousa osen wo hikiokosu juudai na gen'in to narimasu.",
-            indonesian: 'Pembahasan: Ketiganya ①, ②, dan ③ adalah tindakan tidak tepat. Memicu kontaminasi benda asing rambut, perkembangbiakan kuman Staphylococcus aureus dari cincin, serta kontaminasi silang mikroba dari talenan mentah.'
+            speaker: '同僚 (Rekan Kerja)',
+            role: 'Senior Worker',
+            japanese: '詰まった物を取るときは、まず「非常停止ボタン」を押すか主電源を切る。そして「点検中」の札を掛けてから、安全装置のカバーを開けて作業するのが鉄則です。巻き込まれ事故は食品工場で一番重い怪我になるんだから、絶対にルールを守ろう！',
+            kana: 'つまったものをとるときは、まず「ひじょうていしぼたん」をおすかしゅでんげんをきる。そして「てんけんちゅう」のふだをかけてから、あんぜんそうちのかばーをあけてさぎょうするのがてっそくです。まきこまれじこはしょくひんこうじょうでいちばんおもいけがになるんだから、ぜったいにるーるをまもろう！',
+            romaji: 'Tsumatta mono wo toru toki wa, mazu "hijou teishi botan" wo osu ka shudengen wo kiru. Soshite "tenkenchuu" no fuda wo kakete kara, anzen souchi no kabaa wo akete sagyou suru no ga tessoku desu. Makikomare jiko wa shokuhin koujou de ichiban omoi kega ni naru n da kara, zettai ni ruuru wo mamorou!',
+            indonesian: 'Ketika mengambil benda yang tersumbat, aturan mutlaknya adalah: pertama tekan "Tombol Berhenti Darurat" atau matikan daya utama. Kemudian gantungkan label "Sedang Perawatan", baru buka penutup keselamatan dan bersihkan sumbatan. Kecelakaan tergulung mesin adalah cedera paling berat di pabrik pangan, patuhi selalu aturan!'
           }
         ],
-        takeaway: 'Soal ujian gambar OTAFF menuntut kejelian visual yang tajam. Hafalkan seluruh standar pakaian kerja, pemilahan warna alat, dan larangan penggunaan perhiasan kerja.'
+        takeaway: 'Mesin macet yang tampak berhenti menyimpan energi putar mematikan jika saklar masih aktif. Selalu matikan daya/tekan tombol emergency stop, pasang tanda perawatan, dan gunakan pola pikir "kamoshirenai" sebelum mendekati mesin.'
       },
       visualDiagram: {
-        title: '3 Pilar Utama Pencegahan Keracunan Makanan (食中毒予防の3原則)',
-        subtitle: 'Konsep Paling Sering Muncul dalam Ujian Teori & Praktik OTAFF CBT',
-        type: 'cards',
+        title: 'Statistik Kecelakaan Kerja & Rasio Hukum Heinrich di Pabrik Pangan Jepang',
+        subtitle: 'Berdasarkan Data Resmi MHLW (Reiwa 4) & Kurikulum OTAFF 2024',
+        type: 'table',
         items: [
           {
-            label: '1. つけない (Jangan Mencemari / Menulari)',
-            description: 'Cuci tangan 2 tahap, disinfeksi alkohol, pisahkan pisau/talenan mentah dan matang untuk menghindari kontaminasi silang.',
-            badge: 'Pencegahan Silang'
+            label: '1. 転倒 (Terpeleset & Tersandung) — 31,3%',
+            description: 'Kecelakaan nomor 1 terbanyak di pabrik pangan. Terjadi akibat lantai basah tergenang air/minyak dan lorong terhalang.',
+            highlight: 'Paling Sering (31,3%)'
           },
           {
-            label: '2. ふやさない (Jangan Membiarkan Berkembang Biak)',
-            description: 'Simpan bahan pada suhu dingin (< 10°C), dan dinginkan makanan matang secepatnya melewati zona bahaya 20°C–50°C.',
-            badge: 'Kontrol Suhu Dingin'
+            label: '2. はさまれ・巻き込まれ (Terjepit/Tergulung) — 19,2%',
+            description: 'Penyebab cedera berat dan patah tulang terbanyak saat membersihkan atau memperbaiki konveyor yang masih menyala.',
+            highlight: 'Paling Fatal (19,2%)'
           },
           {
-            label: '3. やっつける (Basmi / Bunuh Kuman)',
-            description: 'Lakukan pemanasan inti makanan minimal 75°C selama minimal 1 menit (atau 85–90°C selama 90 detik untuk norovirus).',
-            badge: 'Sterilisasi Termal'
+            label: '3. 切れ・こすれ (Teriris & Tergores) — 10,8%',
+            description: 'Luka sayat akibat pisau pemotong atau mesin pengiris saat bekerja tanpa sarung tangan mexcel/rantai.',
+            highlight: 'Pisau & Slicer (10,8%)'
+          },
+          {
+            label: 'Rasio Heinrich: 1 : 29 : 300',
+            description: 'Untuk setiap 1 kecelakaan fatal/berat, terdapat 29 kecelakaan ringan, dan 300 insiden nyaris celaka (ヒヤリ・ハット). Meniadakan hiyari-hatto akan melenyapkan kecelakaan fatal!',
+            highlight: 'Hukum Heinrich'
           }
         ]
       },
       importantPoints: [
-        'Passing score ujian OTAFF adalah 65% untuk gakka dan 65% untuk jitsugi.',
-        'Spora bakteri (芽胞菌) tidak dapat dibunuh dengan perebusan air mendidih 100°C biasa; kuncinya adalah pendinginan cepat.',
-        'Virus Norovirus tidak efektif dibasmi hanya dengan alkohol biasa; gunakan pemanasan 85–90°C atau larutan klorin natrium hipoklorit.',
-        'Perhatikan kata kunci pertanyaan ujian: apakah meminta mencari yang "Benar" (正しいもの) atau yang "Salah/Tidak Tepat" (誤っているもの / 適切でないもの).'
+        'Pekerja masa kerja kurang dari 3 tahun (未熟練作業者) menyumbang sekitar 50% korban kecelakaan kerja di pabrik pangan.',
+        '3 Kecelakaan utama mencakup 60% total kasus: 転倒 (31,3%), はさまれ・巻き込まれ (19,2%), dan 切れ・こすれ (10,8%).',
+        'Bekerja di ketinggian ≥ 2 meter wajib memakai Helm (ヘルメット). Area bising wajib memakai Penyumbat Telinga (耳栓).',
+        'Memotong labu keras atau daging beku wajib memakai sarung tangan anyaman kawat stainless steel (くさり手袋) atau sarung tangan mexcel (メクセル手袋).',
+        'Prinsip Keselamatan Rekayasa: Fail-Safe (otomatis mati jika rusak/pintu dibuka) dan Fool-Proof (penutup fisik penangkal kelalaian manusia).',
+        'Metode 指差し呼称 (Pointing and Calling): Menunjuk objek dan menyebutkan statusnya dengan suara lantang terbukti memangkas human error >80%.',
+        'Hukum Heinrich 1 : 29 : 300 membuktikan bahwa melaporkan 300 kejadian nyaris celaka (ヒヤリ・ハット) akan mencegah 1 kecelakaan fatal.',
+        'Pola pikir "かもしれない" (Kamoshirenai / Jangan-jangan): Senantiasa mengantisipasi potensi bahaya laten sebelum mulai bekerja.',
+        'Ujian resmi OTAFF CBT terdiri dari 30 soal Teori Akademik dan 15 soal Praktik Gambar dengan passing grade minimal 65%.'
       ],
-      summary: 'Ujian SSW Pengolahan Makanan OTAFF dirancang untuk memastikan kesiapan kerja nyata. Menguasai 3 prinsip pencegahan keracunan makanan, karakteristik bakteri berspora, serta ketelitian mengamati pelanggaran sanitasi gambar adalah kunci utama kelulusan ujian CBT.',
+      summary: 'Keselamatan kerja (労働安全) di pabrik pengolahan pangan Jepang berfokus pada pencegahan 3 kecelakaan utama (転倒 31,3%, はさまれ 19,2%, 切れ 10,8%) yang sering menimpa pekerja pemula. Kepatuhan mutlak terhadap penggunaan APD khusus (sarung tangan rantai, mexcel, boot berpenutup), rekayasa fail-safe dan fool-proof, tombol darurat, metode指差し呼称, hukum Heinrich 1:29:300, serta latihan prediksi bahaya KYT ("かもしれない") adalah kunci kelulusan ujian OTAFF dan keselamatan bekerja di Jepang.',
       practiceQuestions: [
         {
           id: 'mfg_ch5_q1',
           questionNumber: 1,
-          questionText: '食中毒予防の3原則「つけない・ふやさない・やっつける」のうち、「やっつける」に該当する行動として適切なものを一つ選びなさい。',
-          situation: 'Tindakan yang termasuk dalam prinsip "Yattsukeru (Membasmi/Membunuh kuman)".',
+          questionText: 'Berdasarkan data resmi MHLW dalam buku teks OTAFF 2024, jenis kecelakaan kerja apakah yang PALING SERING TERJADI (peringkat 1 dengan persentase 31,3%) di pabrik manufaktur makanan Jepang?',
+          situation: 'Analisis statistik kecelakaan kerja di industri manufaktur pangan.',
           options: [
-            '生肉を切ったまな板で、そのまま加熱しない生野菜サラダを切った。',
-            'ハンバーグの中心温度が75度以上になるまで1分間以上しっかり加熱調理した。',
-            '調理後のカレーを鍋のまま室温（30度）の作業台に半日放置した。',
-            '作業前に手を洗わずに、直接素手で食材を触った。'
+            'Terbakar cairan minyak panas (やけど)',
+            'Terpeleset dan tersandung (転倒 - Tentou)',
+            'Tertabrak kendaraan forklift gudang (激突)',
+            'Tersengat aliran listrik bertegangan tinggi (感電)'
           ],
           correctAnswerIndex: 1,
-          explanation: 'Pilihan 2 benar. Memanaskan daging hingga suhu inti mencapai 75°C selama 1 menit atau lebih adalah bentuk penerapan prinsip やっつける (Yattsukeru / membunuh bakteri patogen). Pilihan 1 melanggar prinsip "Tsukenai", pilihan 3 melanggar prinsip "Fuyasanai".',
-          translation: 'Pilihlah satu tindakan yang sesuai dengan prinsip "Yattsukeru (Membasmi)" dari 3 prinsip pencegahan keracunan makanan.'
+          explanation: 'Berdasarkan data statistik resmi MHLW tahun Reiwa 4 yang tercantum pada diagram lingkaran buku teks OTAFF Edisi ke-4 (halaman 43), jenis kecelakaan kerja nomor 1 terbanyak di pabrik makanan adalah 転倒 (Terpeleset & Tersandung) sebesar 31,3%, disusul oleh はさまれ・巻き込まれ (19,2%) dan 切れ・こすれ (10,8%).',
+          translation: 'Pilihlah jenis kecelakaan kerja nomor 1 terbanyak di pabrik makanan Jepang.'
         },
         {
           id: 'mfg_ch5_q2',
           questionNumber: 2,
-          questionText: '熱に非常に強い「芽胞（がほう）」を作る細菌（ウェルシュ菌やセレウス菌など）による食中毒を防ぐための対策として、最も適切なものを一つ選びなさい。',
-          situation: 'Pencegahan keracunan akibat bakteri pembentuk spora yang tahan panas perebusan.',
+          questionText: 'Di pabrik pengolahan makanan, seorang pekerja hendak memotong labu parang yang sangat keras (かぼちゃ) menggunakan pisau besar. Alat Pelindung Diri (APD) manakah yang WAJIB dikenakan pada tangan yang memegang bahan?',
+          situation: 'Pemotongan bahan baku keras berisiko pisau tergelincir.',
           options: [
-            '100度で1分間加熱すれば芽胞も完全に死滅するため、加熱後はそのまま室温でゆっくり冷ます。',
-            '加熱調理した後は、細菌が増殖しやすい温度帯（20〜50度）に長く留まらないよう、急速冷却して速やかに冷蔵保存する。',
-            '味付けを甘くしておけば、芽胞菌は絶対に増殖しない。',
-            '芽胞菌は冷凍庫の中（-18度）でも急速に増殖するため、冷凍保存は禁止する。'
+            'Sarung tangan plastik tipis sekali pakai (使い捨て手袋)',
+            'Sarung tangan anyaman kawat baja stainless steel (くさり手袋) atau sarung tangan tahan sayat mexcel (メクセル手袋)',
+            'Sarung tangan katun rajut biasa (軍手 - Gunte)',
+            'Cukup memegang dengan tangan kosong asalkan berhati-hati'
           ],
           correctAnswerIndex: 1,
-          explanation: 'Pilihan 2 benar. Spora bakteri tahan terhadap suhu mendidih 100°C biasa. Langkah pencegahan paling efektif adalah mendinginkan makanan secara cepat melewati zona bahaya (20°C - 50°C) agar spora tidak sempat bertunas kembali menjadi bakteri hidup yang aktif memproduksi racun.',
-          translation: 'Pilihlah langkah yang paling tepat untuk mencegah keracunan bakteri pembentuk spora (seperti Welchii atau Cereus).'
+          explanation: 'Berdasarkan buku teks resmi OTAFF Edisi ke-4 (halaman 47), saat memotong daging beku atau sayuran keras seperti labu (かぼちゃ) dengan tenaga kuat, pekerja wajib mengenakan sarung tangan tahan potong jenis jaring baja stainless steel (くさり手袋) atau sarung tangan serat berkekuatan tinggi (メクセル手袋) untuk mencegah cedera amputasi/sayatan jika pisau tergelincir.',
+          translation: 'Pilihlah sarung tangan yang wajib digunakan saat memotong sayuran keras atau daging beku.'
         }
       ],
       officialReference: {
-        source: 'OTAFF Specified Skilled Worker Food Manufacturing Official Exam Syllabus',
-        agency: 'Organization for Technical Skill Assessment of Foreign Workers in Food Industry (OTAFF)',
-        documentTitle: '飲食料品製造業技能測定試験 試験概要およびサンプル問題 (Silabus Resmi & Contoh Soal Ujian Pengolahan Makanan)'
+        source: 'Buku Teks Pembelajaran Ujian Keterampilan Manufaktur Makanan & Minuman (第4版, Halaman 42-65)',
+        agency: 'OTAFF (一般社団法人 外国人食品産業技能評価機構)',
+        documentTitle: 'Bab 3: 労働安全 (1. 主な労働災害、2. 労働災害を無くすために守るべき大切なこと、4. 危険に気がつく力をつける、5. 主な労働災害事例、補足資料: 安全標識)'
       }
     }
   ],
-
-  // --------------------------------------------------------------------------
-  // SIMULASI UJIAN LENGKAP OTAFF (EXAM SIMULATION)
-  // --------------------------------------------------------------------------
   examSimulation: {
-    title: 'Simulasi Resmi Ujian SSW Pengolahan Makanan (OTAFF Manufacturing CBT)',
-    subtitle: 'Standar Ujian Teori & Praktik Penilaian Keputusan Gambar Berdasarkan Silabus Resmi MAFF & OTAFF Jepang (6 Soal Komprehensif)',
-    timeMinutes: 25,
+    title: 'Simulasi Resmi Ujian OTAFF Pengolahan Makanan (飲食料品製造業)',
+    subtitle: 'Standar Ujian Teori Akademik (学科試験) & Ujian Praktik/Penilaian Gambar (実技試験 / 判断等試験) CBT Prometric',
+    timeMinutes: 40,
     passingScorePercentage: 65,
     questions: [
       {
         id: 'mfg_sim_q1',
         questionNumber: 1,
-        questionText: 'HACCPにおける加熱調理工程の管理基準について、一般的な食中毒菌を死滅させるための「中心温度」と「加熱時間」の組み合わせとして、正しいものを一つ選びなさい。',
-        situation: 'Standar baku parameter suhu inti pemanasan masakan untuk mematikan mikroba patogen.',
+        questionText: 'ノロウイルスに汚染された調理台や床、嘔吐物の消毒に使用する薬剤として、最も適切なものを一つ選びなさい。',
+        situation: 'Desinfeksi kontaminasi Norovirus pada fasilitas atau muntahan.',
         options: [
-          '中心温度 65℃で 30秒間以上',
-          '中心温度 75℃で 1分間以上',
-          '中心温度 85℃で 5秒間以上',
-          '表面温度 100℃で 10秒間以上'
+          '消毒用エタノール（アルコールスプレー）',
+          '次亜塩素酸ナトリウム（じあえんそさんなとりうむ）希釈液（200 ppm〜1,000 ppm）',
+          '水道水のみによる水拭き',
+          '中性洗剤（食器用洗剤）の希釈水'
         ],
         correctAnswerIndex: 1,
-        explanation: 'Pilihan 2 benar. Standar baku HACCP di Jepang untuk memastikan bakteri patogen mati adalah suhu bagian terdalam (中心温度 - chūshin ondo) mencapai minimal 75°C selama 1 menit atau lebih. Pengukuran harus dilakukan dengan termometer tusuk steril pada bagian makanan yang paling tebal.',
-        translation: 'Pilihlah satu kombinasi yang benar antara "suhu inti" dan "waktu pemanasan" untuk membunuh bakteri keracunan makanan umum pada proses memasak HACCP.'
+        explanation: 'Pilihan 2 benar. Norovirus tidak memiliki selubung lipid (non-enveloped virus) sehingga kebal terhadap alkohol 70%. Untuk membasmi Norovirus, wajib menggunakan larutan Natrium Hipoklorit (次亜塩素酸ナトリウム) konsentrasi minimal 200 ppm untuk peralatan/lantai atau 1.000 ppm untuk muntahan.',
+        translation: 'Pilihlah disinfektan yang paling tepat untuk sterilisasi fasilitas yang terkontaminasi Norovirus.'
       },
       {
         id: 'mfg_sim_q2',
         questionNumber: 2,
-        questionText: '食中毒予防の3原則「つけない・ふやさない・やっつける」に関する説明として、最も適切なものを一つ選びなさい。',
-        situation: 'Prinsip dasar pencegahan keracunan makanan di pabrik pengolahan pangan Jepang.',
+        questionText: '細菌性食中毒を予防するための「食中毒予防の３原則」の組み合わせとして、正しいものを一つ選びなさい。',
+        situation: 'Tiga prinsip dasar pencegahan keracunan makanan akibat bakteri.',
         options: [
-          '「つけない」とは、細菌を殺すために熱湯に30分間漬けることである。',
-          '「ふやさない」とは、食材を常温の作業台（25℃〜35℃）の上に長時間放置して発酵させることである。',
-          '「つけない」とは、手洗いや器具の使い分けにより、食材に細菌やウイルスを付着させないことである。',
-          '「やっつける」とは、食品添加物を基準値の10倍以上投入してカビを抑えることである。'
+          '「持ち込まない」「拡げない」「やっつける」',
+          '「つけない」「増やさない」「やっつける」',
+          '「整理」「整頓」「清掃」',
+          '「見ない」「聞かない」「言わない」'
         ],
-        correctAnswerIndex: 2,
-        explanation: 'Pilihan 3 benar. Prinsip "つけない (Tsukenai)" berarti mencegah cemaran bakteri/virus menempel ke makanan melalui cuci tangan bersih dan pembedaan alat olah mentah vs matang. Pilihan 1, 2, dan 4 adalah penafsiran yang keliru dan berbahaya.',
-        translation: 'Pilihlah satu penjelasan yang paling tepat mengenai 3 prinsip pencegahan keracunan makanan (つけない・ふやさない・やっつける).'
+        correctAnswerIndex: 1,
+        explanation: 'Pilihan 2 benar. Tiga prinsip dasar pencegahan keracunan makanan bakteri adalah: 1. つけない (Jangan menempelkan / cuci tangan & pemisahan alat), 2. 増やさない (Jangan biarkan berkembang biak / kontrol suhu dingin <10°C & kerja cepat), 3. やっつける (Basmi / pemanasan 75°C 1 menit). Pilihan 1 adalah 4 prinsip Norovirus (持ち込まない、つけない、やっつける、拡げない).',
+        translation: 'Pilihlah kombinasi 3 prinsip pencegahan keracunan makanan bakteri yang benar.'
       },
       {
         id: 'mfg_sim_q3',
         questionNumber: 3,
-        questionText: '金属検出機（きんぞくけんしゅつき）の日常点検において、センサーが正常に動作しているか確認するために使用する器具の名称として、正しいものを一つ選びなさい。',
-        situation: 'Alat uji standar untuk memverifikasi kepekaan sensor mesin detektor logam di lini pengemasan.',
+        questionText: '金属探知機の感度が正常に作動しているか始業前および定期点検で確認するために使用する器具として、正しいものを一つ選びなさい。',
+        situation: 'Alat uji sensitivitas mesin detektor logam pada inspeksi harian.',
         options: [
-          'テストピース（FeやSUSなどの標準試験片）',
-          'アルコールスプレー',
+          'テストピース（鉄 Fe / ステンレス SUS の標準試験片）',
+          'アルコールチェッカー',
           '粘着ローラー（コロコロ）',
-          'デジタル中心温度計'
+          'デジタル芯温計'
         ],
         correctAnswerIndex: 0,
-        explanation: 'Pilihan 1 benar. Untuk memeriksa sensitivitas mesin detektor logam sebelum dan selama jam kerja, operator menggunakan "Test Piece (テストピース)" berupa sampel standar logam besi (Fe) dan baja tahan karat (SUS).',
-        translation: 'Pilihlah nama alat yang benar yang digunakan untuk memeriksa apakah sensor mesin metal detector bekerja normal dalam inspeksi harian.'
+        explanation: 'Pilihan 1 benar. Untuk menguji kepekaan detektor logam (金属探知機), operator melewatkan sampel uji standar (テストピース / Test Piece) berbahan besi (Fe) dan baja tahan karat (SUS). Jika alarm sensor berbunyi dan produk terdorong keluar jalur (reject), mesin bekerja dengan baik.',
+        translation: 'Pilihlah instrumen yang tepat untuk memeriksa sensitivitas mesin pendeteksi logam.'
       },
       {
         id: 'mfg_sim_q4',
         questionNumber: 4,
-        questionText: '食品に表示される「賞味期限」と「消費期限」の違いに関する記述として、正しいものを一つ選びなさい。',
-        situation: 'Perbedaan mendasar antara Shōmi Kigen dan Shōhi Kigen menurut undang-undang pelabelan Jepang.',
+        questionText: '食品表示基準において、容器包装への表示が法律で義務付けられている「特定原材料（8品目）」の組み合わせとして、正しいものを一つ選びなさい。',
+        situation: 'Daftar 8 bahan pangan pemicu alergi yang WAJIB dicantumkan menurut standar resmi Jepang.',
         options: [
-          '「賞味期限」は、おにぎりやサンドイッチなど傷みやすい食品に表示され、過ぎたら絶対に食べてはいけない。',
-          '「消費期限」は、品質が急速に劣化しやすい食品に表示され、安全に食べられる期限を意味するため、過ぎたものは食べてはならない。',
-          '「賞味期限」と「消費期限」は名前が違うだけで、法律上の意味や対象食品は全く同じである。',
-          '「消費期限」が過ぎた食品は、再度加熱調理すれば工場から出荷して販売してもよい。'
+          'えび、かに、小麦、そば、卵、乳、落花生（ピーナッツ）、くるみ',
+          'えび、かに、大豆、米、卵、牛肉、豚肉、鶏肉',
+          '小麦、そば、りんご、バナナ、オレンジ、もも、キウイ、トマト',
+          'サバ、サケ、アワビ、イカ、イクラ、ごま、ゼラチン、カシューナッツ'
         ],
-        correctAnswerIndex: 1,
-        explanation: 'Pilihan 2 benar. 消費期限 (Shōhi Kigen) dicantumkan pada makanan yang cepat busuk (seperti bento, sandwich, sushi) dan menunjukkan batas aman konsumsi. Jika sudah melewati batas tanggal/jam tersebut, makanan dilarang untuk dikonsumsi atau dijual.',
-        translation: 'Pilihlah pernyataan yang benar mengenai perbedaan antara "Shōmi Kigen" dan "Shōhi Kigen" yang tertera pada produk pangan.'
+        correctAnswerIndex: 0,
+        explanation: 'Pilihan 1 benar. Berdasarkan revisi undang-undang standar pelabelan pangan Jepang dan buku teks resmi OTAFF Edisi ke-4 (2024), ada 8 bahan baku spesifik yang WAJIB dicantumkan (特定原材料 8品目): Udang, Kepiting, Gandum, Soba, Telur, Susu, Kacang tanah, dan Kenari/Walnut (くるみ). Pilihan lain memuat bahan rekomendasi/anjuran (20品目).',
+        translation: 'Pilihlah kombinasi yang benar dari 8 bahan baku tertentu (alergen) yang secara hukum wajib dicantumkan.'
       },
       {
         id: 'mfg_sim_q5',
         questionNumber: 5,
-        questionText: '日本の食品表示基準において、アレルギー物質として容器包装への表示が法律で「義務」付けられている特定原材料（8品目）の組み合わせとして、正しいものを一つ選びなさい。',
-        situation: 'Daftar 8 bahan pangan pemicu alergi yang WAJIB dicantumkan pada label kemasan di Jepang.',
+        questionText: '「賞味期限」と「消費期限」の違いに関する記述として、最も適切なものを一つ選びなさい。',
+        situation: 'Perbedaan legal dan fungsi antara Shoumi Kigen dan Shouhi Kigen.',
         options: [
-          'えび、かに、小麦、そば、卵、乳、落花生（ピーナッツ）、くるみ',
-          'えび、かに、大豆、米、卵、牛肉、豚肉、鶏肉',
-          '小麦、そば、リンゴ、バナナ、オレンジ、モモ、キウイ、トマト',
-          'サバ、サケ、アワビ、イカ、イクラ、ゴマ、ゼラチン、カシューナッツ'
+          '「賞味期限」は傷みやすい食品に表示され、期限を過ぎたら絶対に食べてはならない。',
+          '「消費期限」は品質劣化が早い食品（弁当やサンドイッチなど）に表示され、安全に食べられる期限であり、期限を過ぎたものは食べてはならない。',
+          '「賞味期限」と「消費期限」は呼び方が違うだけで法的な意味は全く同じである。',
+          '「消費期限」が過ぎた製品であっても、工場で再加熱殺菌すれば出荷してよい。'
         ],
-        correctAnswerIndex: 0,
-        explanation: 'Pilihan 1 benar. Delapan bahan baku tertentu (特定原材料 8品目) yang WAJIB dicantumkan pada kemasan adalah: Udang (えび), Kepiting (かに), Gandum (小麦), Soba (そば), Telur (卵), Susu (乳), Kacang tanah (落花生), dan Kenari/Walnut (くるみ). Pilihan lain memuat bahan rekomendasi/anjuran (20 bahan).',
-        translation: 'Pilihlah kombinasi yang benar dari 8 bahan baku tertentu (alergen) yang secara hukum WAJIB dicantumkan pada kemasan menurut standar Jepang.'
+        correctAnswerIndex: 1,
+        explanation: 'Pilihan 2 benar. 消費期限 (Shouhi Kigen / Expiration Date) tertera pada produk makanan cepat membusuk (bento konbini, sandwich, sushi segar) dan merupakan batas keselamatan konsumsi. Lewat tanggal ini dilarang dikonsumsi atau dijual. Sebaliknya, 賞味期限 (Shoumi Kigen / Best-before Date) adalah batas kelezatan kualitas prima saat kemasan belum dibuka.',
+        translation: 'Pilihlah pernyataan yang paling tepat mengenai perbedaan antara Shoumi Kigen dan Shouhi Kigen.'
       },
       {
         id: 'mfg_sim_q6',
         questionNumber: 6,
-        questionText: 'ベルトコンベアが稼働している最中に、製品やトレイがレーンから落ちそうになったときの行動として、最も安全で適切なものを一つ選びなさい。',
-        situation: 'Prosedur keselamatan kerja saat barang hendak jatuh dari mesin conveyor yang sedang menyala.',
+        questionText: '稼働中のベルトコンベア上で製品が傾いて詰まりそうになったとき、作業者が取るべき行動として最も安全で正しいものを一つ選びなさい。',
+        situation: 'Tindakan darurat saat produk miring atau macet di conveyor yang sedang berputar.',
         options: [
-          'コンベアを止めずに、素早く手を入れて落ちそうな製品を掴み上げる。',
-          '直ちにコンベアを停止させるか、安全な停止ボタンを押してから、安全を確認して製品を拾い上げる。',
-          '足を使って製品が落ちないようにコンベアの隙間に押し込む。',
-          '誰にも見られないように、落ちた製品をそのまま足で蹴って機械の下に隠す。'
+          'コンベアを止めずに、素早く手を伸ばして製品の傾きを直す。',
+          '非常停止ボタン（または停止スイッチ）を押してコンベアを完全に止めてから製品を直す。',
+          '足や近くの棒を使って動いているコンベアの隙間をこじ開ける。',
+          '監督者に見つからないよう、そのまま製品が床に落ちるのを放置する。'
         ],
         correctAnswerIndex: 1,
-        explanation: 'Pilihan 2 benar. Jangan pernah memasukkan tangan atau anggota tubuh ke dalam mesin conveyor yang masih bergerak karena berisiko fatal tergulung (巻き込まれ事故). Hentikan mesin terlebih dahulu dengan tombol stop/darurat, pastikan mesin benar-benar berhenti diam, barulah mengambil produk yang jatuh.',
-        translation: 'Pilihlah tindakan yang paling aman dan tepat ketika produk atau wadah hendak jatuh dari ban berjalan saat conveyor sedang menyala.'
+        explanation: 'Pilihan 2 benar. Di pabrik makanan, kecelakaan terjepit/tergulung (はさまれ・巻き込まれ) menyumbang 19,2% dari total insiden fatal. Prosedur mutlak: Sebelum menyentuh bagian mesin yang bergerak, WAJIB menghentikan mesin sepenuhnya dengan menekan tombol darurat/stop (非常停止ボタンを押して完全に止める).',
+        translation: 'Pilihlah tindakan paling aman saat produk miring atau macet di atas belt conveyor yang sedang berjalan.'
+      },
+      {
+        id: 'mfg_sim_q7',
+        questionNumber: 7,
+        questionText: '1件の重大な事故の背景には、29件の軽微な事故があり、さらにその背景には300件のヒヤリ・ハット（怪我には至らなかった危険な出来事）が存在するという労働安全の経験則を何というか。',
+        situation: 'Hukum probabilitas keselamatan kerja rasio 1 : 29 : 300.',
+        options: [
+          'パレートの法則（Pareto principle）',
+          'ハインリッヒの法則（Heinrich’s law）',
+          'マーフィーの法則（Murphy’s law）',
+          'ムーアの法則（Moore’s law）'
+        ],
+        correctAnswerIndex: 1,
+        explanation: 'Pilihan 2 benar. Teori Heinrich (ハインリッヒの法則) menyatakan rasio 1 : 29 : 300. Untuk mencegah 1 kecelakaan fatal/berat, pabrik harus melaporkan dan mengeliminasi 300 potensi bahaya kecil (ヒヤリ・ハット / Hiyari-Hatto) melalui aktivitas KYT (Kiken Yochi Kunren).',
+        translation: 'Apakah nama hukum keselamatan kerja yang menyatakan perbandingan 1 insiden berat : 29 insiden ringan : 300 insiden nyaris celaka?'
+      },
+      {
+        id: 'mfg_sim_q8',
+        questionNumber: 8,
+        questionText: '食品工場における「5S活動」の「清潔（せいけつ）」の定義として、最も適切なものを一つ選びなさい。',
+        situation: 'Definisi Seiketsu dalam 5S pabrik makanan.',
+        options: [
+          '必要なものと不要なものを分け、不要なものを捨てること。',
+          '必要なものを誰でもすぐに取り出せるように置き場を決めること。',
+          'ゴミやホコリを取り除き、機械や床をきれいにすること。',
+          '整理・整頓・清掃の「3S」を徹底して維持し、衛生的なきれいな状態を保ち続けること。'
+        ],
+        correctAnswerIndex: 3,
+        explanation: 'Pilihan 4 benar. 清潔 (Seiketsu) berarti memelihara dan menjaga konsistensi kondisi bersih higienis hasil dari 3S pertama (Seiri, Seiton, Seisou). Pilihan 1 adalah Seiri (整理), Pilihan 2 adalah Seiton (整頓), dan Pilihan 3 adalah Seisou (清掃).',
+        translation: 'Pilihlah definisi yang paling tepat mengenai Seiketsu dalam gerakan 5S di pabrik makanan.'
       }
     ]
   }
 };
+
