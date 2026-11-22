@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   BookOpen,
   Sparkles,
@@ -12,14 +12,24 @@ import {
   Cloud,
   LogOut,
   Flame,
-  ChevronDown
+  ChevronDown,
+  Briefcase,
+  Layers,
+  FileText,
+  Menu,
+  X,
+  ShieldCheck,
+  CheckCircle2,
+  ExternalLink
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 import type { User } from '@supabase/supabase-js';
 
+export type MainNavTab = 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan';
+
 interface NavbarProps {
-  activeTab: 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'latihan';
-  setActiveTab: (tab: 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'latihan') => void;
+  activeTab: MainNavTab;
+  setActiveTab: (tab: MainNavTab) => void;
   soundEnabled: boolean;
   setSoundEnabled: (val: boolean) => void;
   onOpenSearch: () => void;
@@ -30,6 +40,8 @@ interface NavbarProps {
   onOpenAuth: () => void;
   onSignOut: () => void;
   isSyncing?: boolean;
+  onNavigateSubMateri?: (sub: 'kana' | 'materi-bab' | 'kanji' | 'kotoba' | 'bunpou') => void;
+  onNavigateSubLatihan?: (sub: '18-modes' | 'jlpt' | 'jft') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -43,88 +55,344 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAuth,
   onSignOut,
   isSyncing = false,
+  onNavigateSubMateri,
+  onNavigateSubLatihan
 }) => {
+  // Dropdown states
+  const [materiDropdownOpen, setMateriDropdownOpen] = useState(false);
+  const [latihanDropdownOpen, setLatihanDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMateriAccordion, setMobileMateriAccordion] = useState(true);
+  const [mobileLatihanAccordion, setMobileLatihanAccordion] = useState(false);
 
-  const handleNav = (tab: 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'latihan') => {
+  const materiDropdownRef = useRef<HTMLDivElement>(null);
+  const latihanDropdownRef = useRef<HTMLDivElement>(null);
+  const userDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (materiDropdownRef.current && !materiDropdownRef.current.contains(target)) {
+        setMateriDropdownOpen(false);
+      }
+      if (latihanDropdownRef.current && !latihanDropdownRef.current.contains(target)) {
+        setLatihanDropdownOpen(false);
+      }
+      if (userDropdownRef.current && !userDropdownRef.current.contains(target)) {
+        setUserDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleNav = (tab: MainNavTab) => {
     if (soundEnabled) sound.playClick();
     setActiveTab(tab);
+    setMateriDropdownOpen(false);
+    setLatihanDropdownOpen(false);
+    setMobileMenuOpen(false);
   };
 
-  const navItems = [
-    { id: 'beranda', label: 'Beranda', icon: Sparkles },
-    { id: 'kana', label: 'Kana', icon: Languages },
-    { id: 'kotoba', label: 'Materi 1–50', icon: BookOpen },
-    { id: 'kanji', label: 'Kanji', icon: PenTool },
-    { id: 'latihan', label: 'Latihan', icon: Award },
-  ] as const;
+  // Sub-menu Materi items (persis seperti diagram)
+  const materiSubItems = [
+    {
+      id: 'kana',
+      title: 'Kana: Hiragana & Katakana',
+      subtitle: 'Pondasi 46 aksara dasar, variasi dakuten & kanvas menulis',
+      icon: Languages,
+      badge: 'Aksara Dasar',
+      action: () => {
+        handleNav('kana');
+        onNavigateSubMateri?.('kana');
+      }
+    },
+    {
+      id: 'materi-bab',
+      title: 'Materi Bab 1–50: Minna no Nihongo',
+      subtitle: 'Kurikulum lengkap Shokyu I & II dengan audio otentik',
+      icon: BookOpen,
+      badge: 'Bab 1–50',
+      action: () => {
+        handleNav('kotoba');
+        onNavigateSubMateri?.('materi-bab');
+      }
+    },
+    {
+      id: 'kanji',
+      title: 'Kanji: N5 & N4 Interaktif',
+      subtitle: '424 Kanji lengkap dengan animasi urutan goresan & makna',
+      icon: PenTool,
+      badge: '424 Kanji',
+      action: () => {
+        handleNav('kanji');
+        onNavigateSubMateri?.('kanji');
+      }
+    },
+    {
+      id: 'kotoba',
+      title: 'Kotoba: Bank Kosakata',
+      subtitle: '2.910 Kosakata esensial dilengkapi audio pelafalan & contoh',
+      icon: Layers,
+      badge: '2.910 Kata',
+      action: () => {
+        handleNav('kotoba');
+        onNavigateSubMateri?.('kotoba');
+      }
+    },
+    {
+      id: 'bunpou',
+      title: 'Bunpou: Tata Bahasa & Pola',
+      subtitle: 'Penjelasan struktur pola kalimat dan aturan tata bahasa',
+      icon: FileText,
+      badge: 'Tata Bahasa',
+      action: () => {
+        handleNav('kotoba');
+        onNavigateSubMateri?.('bunpou');
+      }
+    }
+  ];
+
+  // Sub-menu Latihan items (persis seperti diagram)
+  const latihanSubItems = [
+    {
+      id: '18-modes',
+      title: '18 Mode Latihan Bab',
+      subtitle: 'Pilihan ganda, susun kalimat, listening, dokkai & menulis kanvas',
+      icon: Sparkles,
+      action: () => {
+        handleNav('latihan');
+        onNavigateSubLatihan?.('18-modes');
+      }
+    },
+    {
+      id: 'jlpt',
+      title: 'Simulasi Resmi JLPT N5 & N4',
+      subtitle: 'Format lembar kertas resmi, mark sheet pensil 2B & soal bintang ★',
+      icon: Award,
+      badge: 'N5・N4',
+      badgeColor: 'text-emerald-400 bg-emerald-500/15 border-emerald-500/30',
+      action: () => {
+        handleNav('latihan');
+        onNavigateSubLatihan?.('jlpt');
+      }
+    },
+    {
+      id: 'jft',
+      title: 'Simulasi Resmi JFT-Basic A2',
+      subtitle: 'Format komputer CBT Prometric resmi untuk Visa Tokutei Ginou',
+      icon: ShieldCheck,
+      badge: 'CBT A2',
+      badgeColor: 'text-purple-400 bg-purple-500/15 border-purple-500/30',
+      action: () => {
+        handleNav('latihan');
+        onNavigateSubLatihan?.('jft');
+      }
+    }
+  ];
+
+  const isMateriActive = ['kana', 'kotoba', 'kanji'].includes(activeTab);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0C1B33]/90 backdrop-blur-xl border-b border-[#8FB4E3]/20 shadow-[0_4px_30px_rgba(12,27,51,0.6)]">
+    <header className="sticky top-0 z-40 w-full bg-[#0C1B33]/95 backdrop-blur-xl border-b border-[#8FB4E3]/20 shadow-[0_4px_30px_rgba(12,27,51,0.6)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Top Header Row */}
+        {/* Main Desktop & Tablet Row */}
         <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
 
-          {/* 1. BRAND & LOGO (LEFT) */}
+          {/* 1. BRANDING & LOGO (KIRI - Compact & Elegant) */}
           <div
             onClick={() => handleNav('beranda')}
-            className="flex items-center gap-3 cursor-pointer group select-none shrink-0"
+            className="flex items-center gap-2.5 cursor-pointer group select-none shrink-0"
           >
             <div className="relative flex items-center justify-center">
-              <div className="absolute inset-0 rounded-2xl bg-[#8FB4E3]/15 blur-md group-hover:bg-[#8FB4E3]/25 transition-all"></div>
+              <div className="absolute inset-0 rounded-2xl bg-[#8FB4E3]/15 blur-md group-hover:bg-[#8FB4E3]/30 transition-all"></div>
               <img
                 src="/zenora-icon.png"
                 alt="ZENORA"
                 className="relative w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_2px_8px_rgba(143,180,227,0.35)] group-hover:scale-105 transition-transform"
               />
             </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="font-black text-xl sm:text-2xl tracking-tight font-['Manrope'] bg-gradient-to-r from-[#EEF1F6] via-[#EEF1F6] to-[#8FB4E3] bg-clip-text text-transparent">
-                  ZENORA
-                </span>
-                <span className="inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-bold font-mono tracking-wider bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/30">
-                  日本語
-                </span>
-              </div>
-              <span className="hidden sm:block text-[11px] text-[#8793A8] font-medium tracking-wide">
-                Nihongo Mastery Platform
+            <div className="flex items-center gap-2">
+              <span className="font-black text-xl sm:text-2xl tracking-tight font-['Manrope'] bg-gradient-to-r from-[#EEF1F6] via-[#EEF1F6] to-[#8FB4E3] bg-clip-text text-transparent">
+                ZENORA
+              </span>
+              <span className="inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-bold font-mono tracking-wider bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/30">
+                日本語
               </span>
             </div>
           </div>
 
-          {/* 2. MINIMALIST CENTER NAVIGATION (DESKTOP) */}
+          {/* 2. STRUKTUR 4 PILAR NAVIGASI UTAMA (DESKTOP) */}
           <nav className="hidden lg:flex items-center gap-1.5 p-1.5 bg-[#16294A]/80 rounded-2xl border border-[#8FB4E3]/20 shadow-inner">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => handleNav(item.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
-                    isActive
-                      ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
-                      : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
-                  }`}
-                >
-                  <Icon className={`w-4 h-4 transition-colors ${isActive ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
-                  <span>{item.label}</span>
-                  {item.id === 'latihan' && (
-                    <span className="hidden xl:inline-block text-[9px] font-black px-1.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono">
-                      JLPT/JFT
+            
+            {/* Pilar 1: Beranda */}
+            <button
+              onClick={() => handleNav('beranda')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
+                activeTab === 'beranda'
+                  ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
+                  : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
+              }`}
+            >
+              <Sparkles className={`w-4 h-4 ${activeTab === 'beranda' ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+              <span>Beranda</span>
+            </button>
+
+            {/* Pilar 2: Materi Dropdown (Kana, Bab 1-50, Kanji, Kotoba, Bunpou) */}
+            <div className="relative" ref={materiDropdownRef}>
+              <button
+                onClick={() => {
+                  if (soundEnabled) sound.playClick();
+                  setMateriDropdownOpen(!materiDropdownOpen);
+                  setLatihanDropdownOpen(false);
+                }}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
+                  isMateriActive || materiDropdownOpen
+                    ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
+                    : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
+                }`}
+              >
+                <BookOpen className={`w-4 h-4 ${isMateriActive ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+                <span>Materi</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${materiDropdownOpen ? 'rotate-180 text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+              </button>
+
+              {/* Floating Dropdown Menu Materi */}
+              {materiDropdownOpen && (
+                <div className="absolute left-0 mt-3 w-80 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="px-3 py-2 border-b border-white/10 mb-2">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#8FB4E3] font-mono block">
+                      MODUL PEMBELAJARAN
                     </span>
-                  )}
-                </button>
-              );
-            })}
+                    <span className="text-xs text-[#CBD8EC] block">
+                      Pilih aspek materi bahasa Jepang
+                    </span>
+                  </div>
+
+                  <div className="space-y-1">
+                    {materiSubItems.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={item.action}
+                          className="w-full p-2.5 rounded-2xl hover:bg-[#1F3760] transition-colors flex items-start gap-3 text-left group"
+                        >
+                          <div className="w-8 h-8 rounded-xl bg-[#0C1B33] border border-[#8FB4E3]/20 flex items-center justify-center shrink-0 group-hover:border-[#8FB4E3]/50 transition-colors">
+                            <Icon className="w-4 h-4 text-[#8FB4E3]" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="text-xs font-bold text-[#EEF1F6] group-hover:text-[#8FB4E3] transition-colors truncate">
+                                {item.title}
+                              </span>
+                              <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-md bg-[#0C1B33] text-[#8FB4E3] border border-[#8FB4E3]/20 shrink-0 font-mono">
+                                {item.badge}
+                              </span>
+                            </div>
+                            <p className="text-[11px] text-[#8793A8] line-clamp-1 mt-0.5">
+                              {item.subtitle}
+                            </p>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Pilar 3: SSW Portal */}
+            <button
+              onClick={() => handleNav('ssw')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
+                activeTab === 'ssw'
+                  ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
+                  : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
+              }`}
+            >
+              <Briefcase className={`w-4 h-4 ${activeTab === 'ssw' ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+              <span>SSW</span>
+              <span className="text-[9px] font-black px-1.5 py-0.2 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono">
+                Tokutei
+              </span>
+            </button>
+
+            {/* Pilar 4: Latihan Hub (18 Mode, JLPT, JFT) */}
+            <div className="relative" ref={latihanDropdownRef}>
+              <button
+                onClick={() => {
+                  if (soundEnabled) sound.playClick();
+                  setLatihanDropdownOpen(!latihanDropdownOpen);
+                  setMateriDropdownOpen(false);
+                }}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
+                  activeTab === 'latihan' || latihanDropdownOpen
+                    ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
+                    : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
+                }`}
+              >
+                <Award className={`w-4 h-4 ${activeTab === 'latihan' ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+                <span>Latihan</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${latihanDropdownOpen ? 'rotate-180 text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+              </button>
+
+              {/* Floating Dropdown Menu Latihan */}
+              {latihanDropdownOpen && (
+                <div className="absolute right-0 mt-3 w-80 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="px-3 py-2 border-b border-white/10 mb-2">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#8FB4E3] font-mono block">
+                      HUB EVALUASI & SERTIFIKASI
+                    </span>
+                    <span className="text-xs text-[#CBD8EC] block">
+                      18 Mode per bab & Simulasi Ujian Resmi
+                    </span>
+                  </div>
+
+                  <div className="space-y-1">
+                    {latihanSubItems.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={item.action}
+                          className="w-full p-2.5 rounded-2xl hover:bg-[#1F3760] transition-colors flex items-start gap-3 text-left group"
+                        >
+                          <div className="w-8 h-8 rounded-xl bg-[#0C1B33] border border-[#8FB4E3]/20 flex items-center justify-center shrink-0 group-hover:border-[#8FB4E3]/50 transition-colors">
+                            <Icon className="w-4 h-4 text-[#8FB4E3]" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="text-xs font-bold text-[#EEF1F6] group-hover:text-[#8FB4E3] transition-colors truncate">
+                                {item.title}
+                              </span>
+                              {item.badge && (
+                                <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-md border shrink-0 font-mono ${item.badgeColor || 'bg-[#0C1B33] text-[#8FB4E3] border-[#8FB4E3]/20'}`}>
+                                  {item.badge}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-[11px] text-[#8793A8] line-clamp-1 mt-0.5">
+                              {item.subtitle}
+                            </p>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+
           </nav>
 
-          {/* 3. RIGHT ACTIONS (SEARCH, SOUND, CLOUD SYNC) */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* 3. UTILITY NAVIGATION (KANAN - Minimalist Icon Buttons) */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
 
-            {/* Streak Counter Badge (Desktop) */}
+            {/* Streak Counter Badge (hanya tampil jika streak > 0) */}
             {streakDays > 0 && (
               <div 
                 className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#16294A] border border-amber-400/25 text-amber-300 text-xs font-bold"
@@ -135,56 +403,55 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
             )}
 
-            {/* Quick Search Button */}
+            {/* Compact Search Icon Button */}
             <button
               onClick={onOpenSearch}
-              className="flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#EEF1F6] border border-[#8FB4E3]/20 hover:border-[#8FB4E3]/40 transition-all text-xs font-semibold shadow-xs group"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#8FB4E3] hover:text-[#EEF1F6] border border-[#8FB4E3]/20 hover:border-[#8FB4E3]/40 transition-all flex items-center justify-center shadow-xs group"
               title="Cari Kosakata, Kanji, atau Materi (Ctrl + K)"
+              aria-label="Pencarian"
             >
-              <Search className="w-4 h-4 text-[#8FB4E3] group-hover:scale-110 transition-transform" />
-              <span className="hidden sm:inline text-xs text-[#8793A8] group-hover:text-[#EEF1F6]">Cari</span>
-              <kbd className="hidden sm:inline-flex items-center text-[10px] font-mono bg-[#0C1B33] text-[#8FB4E3] px-1.5 py-0.5 rounded border border-[#8FB4E3]/20">
-                ⌘K
-              </kbd>
+              <Search className="w-4 h-4 group-hover:scale-110 transition-transform" />
             </button>
 
-            {/* Audio Toggle */}
+            {/* Compact Audio Toggle Icon Button */}
             <button
               onClick={() => {
                 const next = !soundEnabled;
                 setSoundEnabled(next);
                 if (next) sound.playClick();
               }}
-              className={`p-2 rounded-xl border transition-all ${
+              className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl border transition-all flex items-center justify-center shadow-xs ${
                 soundEnabled
-                  ? 'bg-[#16294A] text-[#8FB4E3] border-[#8FB4E3]/30 hover:bg-[#1F3760] shadow-xs'
+                  ? 'bg-[#16294A] text-[#8FB4E3] border-[#8FB4E3]/30 hover:bg-[#1F3760]'
                   : 'bg-[#16294A]/60 text-[#8793A8] border-white/10 hover:bg-[#16294A]'
               }`}
               title={soundEnabled ? 'Audio Suara: Aktif' : 'Audio Suara: Hening'}
+              aria-label="Audio Suara"
             >
               {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
             </button>
 
-            {/* Cloud Sync & Account State */}
-            <div className="relative">
+            {/* Compact Cloud Sync Icon Button with Status Dot */}
+            <div className="relative" ref={userDropdownRef}>
               {user ? (
                 <div>
                   <button
                     onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                    className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] border border-[#8FB4E3]/35 text-xs font-bold transition-all shadow-[0_2px_12px_rgba(143,180,227,0.2)]"
+                    className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-2 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#EEF1F6] border border-[#8FB4E3]/30 transition-all shadow-xs"
+                    title={`Tersinkronisasi sebagai ${user.email}`}
                   >
                     <div className="relative">
-                      <Cloud className={`w-3.5 h-3.5 text-[#8FB4E3] ${isSyncing ? 'animate-pulse' : ''}`} />
+                      <Cloud className={`w-4 h-4 text-[#8FB4E3] ${isSyncing ? 'animate-pulse' : ''}`} />
                       <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                     </div>
-                    <span className="max-w-[80px] sm:max-w-[120px] truncate text-xs">
+                    <span className="hidden md:inline max-w-[90px] truncate text-xs font-bold">
                       {user.user_metadata?.full_name || user.email?.split('@')[0]}
                     </span>
-                    <ChevronDown className="w-3.5 h-3.5 text-[#8793A8]" />
+                    <ChevronDown className="w-3 h-3 text-[#8793A8] hidden md:block" />
                   </button>
 
                   {userDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 text-left">
+                    <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-2 z-50 text-left animate-in fade-in zoom-in-95">
                       <div className="px-3.5 py-2.5 border-b border-white/10 mb-1">
                         <span className="text-[10px] text-[#8FB4E3] font-bold block uppercase tracking-wider font-mono">
                           Tersinkronisasi ke Cloud
@@ -219,43 +486,153 @@ export const Navbar: React.FC<NavbarProps> = ({
               ) : (
                 <button
                   onClick={onOpenAuth}
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:from-[#274474] hover:to-[#365c9c] text-[#EEF1F6] border border-[#8FB4E3]/40 text-xs font-bold shadow-[0_2px_14px_rgba(143,180,227,0.2)] transition-all active:scale-95 group"
-                  title="Masuk / Hubungkan Cloud Supabase"
+                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] border border-[#8FB4E3]/30 text-xs font-bold shadow-xs transition-all active:scale-95"
+                  title="Hubungkan Sinkronisasi Cloud Supabase"
                 >
-                  <Cloud className="w-4 h-4 text-[#8FB4E3] group-hover:scale-110 transition-transform" />
-                  <span className="hidden sm:inline">Sinkron Cloud</span>
-                  <span className="sm:hidden text-xs">Sync</span>
+                  <Cloud className="w-4 h-4 text-[#8FB4E3]" />
+                  <span className="hidden sm:inline text-xs">Sync Cloud</span>
                 </button>
               )}
             </div>
+
+            {/* Mobile / Tablet Hamburger Toggle */}
+            <button
+              onClick={() => {
+                if (soundEnabled) sound.playClick();
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
+              className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#EEF1F6] border border-[#8FB4E3]/20 flex items-center justify-center transition-colors"
+              aria-label="Toggle Mobile Menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
 
           </div>
 
         </div>
 
-        {/* 4. MOBILE / TABLET NAVIGATION BAR (SHOWN ON SCREENS < 1024px) */}
-        <div className="flex lg:hidden items-center justify-around py-2.5 border-t border-white/10 gap-1 overflow-x-auto scrollbar-none">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => handleNav(item.id)}
-                className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
-                  isActive
-                    ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/35 shadow-xs'
-                    : 'text-[#8793A8] hover:text-[#EEF1F6]'
-                }`}
-              >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-[#8FB4E3]' : ''}`} />
-                <span>{item.label}</span>
-              </button>
-            );
-          })}
-        </div>
-
       </div>
+
+      {/* 4. MOBILE / TABLET DRAWER ACCORDION PANEL */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden border-t border-[#8FB4E3]/20 bg-[#0C1B33]/98 backdrop-blur-2xl p-4 space-y-3 text-left animate-in slide-in-from-top-2 duration-200 max-h-[80vh] overflow-y-auto">
+          
+          {/* 1. Beranda */}
+          <button
+            onClick={() => handleNav('beranda')}
+            className={`w-full flex items-center gap-3 p-3 rounded-2xl text-sm font-bold transition-all ${
+              activeTab === 'beranda'
+                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40'
+                : 'text-[#CBD8EC] hover:bg-white/5'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-[#8FB4E3]" />
+            <span>Beranda</span>
+          </button>
+
+          {/* 2. Materi (Accordion) */}
+          <div className="rounded-2xl border border-[#8FB4E3]/20 bg-[#16294A]/40 overflow-hidden">
+            <button
+              onClick={() => setMobileMateriAccordion(!mobileMateriAccordion)}
+              className="w-full flex items-center justify-between p-3 text-sm font-bold text-[#EEF1F6]"
+            >
+              <div className="flex items-center gap-3">
+                <BookOpen className="w-4 h-4 text-[#8FB4E3]" />
+                <span>Materi Pembelajaran</span>
+              </div>
+              <ChevronDown className={`w-4 h-4 text-[#8793A8] transition-transform ${mobileMateriAccordion ? 'rotate-180' : ''}`} />
+            </button>
+
+            {mobileMateriAccordion && (
+              <div className="p-2 space-y-1 bg-[#0C1B33]/60 border-t border-[#8FB4E3]/15">
+                {materiSubItems.map((sub) => {
+                  const Icon = sub.icon;
+                  return (
+                    <button
+                      key={sub.id}
+                      onClick={() => {
+                        sub.action();
+                        setMobileMenuOpen(false);
+                      }}
+                      className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-[#1F3760] text-xs font-semibold text-[#CBD8EC] hover:text-[#EEF1F6]"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Icon className="w-3.5 h-3.5 text-[#8FB4E3]" />
+                        <span>{sub.title}</span>
+                      </div>
+                      <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-[#16294A] text-[#8FB4E3] border border-[#8FB4E3]/20">
+                        {sub.badge}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          {/* 3. SSW Portal */}
+          <button
+            onClick={() => handleNav('ssw')}
+            className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-bold transition-all ${
+              activeTab === 'ssw'
+                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40'
+                : 'text-[#CBD8EC] hover:bg-white/5'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <Briefcase className="w-4 h-4 text-[#8FB4E3]" />
+              <span>SSW (Tokutei Ginou)</span>
+            </div>
+            <span className="text-[10px] font-mono font-black px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              Kerja Jepang
+            </span>
+          </button>
+
+          {/* 4. Latihan Hub (Accordion) */}
+          <div className="rounded-2xl border border-[#8FB4E3]/20 bg-[#16294A]/40 overflow-hidden">
+            <button
+              onClick={() => setMobileLatihanAccordion(!mobileLatihanAccordion)}
+              className="w-full flex items-center justify-between p-3 text-sm font-bold text-[#EEF1F6]"
+            >
+              <div className="flex items-center gap-3">
+                <Award className="w-4 h-4 text-[#8FB4E3]" />
+                <span>Latihan & Ujian Resmi</span>
+              </div>
+              <ChevronDown className={`w-4 h-4 text-[#8793A8] transition-transform ${mobileLatihanAccordion ? 'rotate-180' : ''}`} />
+            </button>
+
+            {mobileLatihanAccordion && (
+              <div className="p-2 space-y-1 bg-[#0C1B33]/60 border-t border-[#8FB4E3]/15">
+                {latihanSubItems.map((sub) => {
+                  const Icon = sub.icon;
+                  return (
+                    <button
+                      key={sub.id}
+                      onClick={() => {
+                        sub.action();
+                        setMobileMenuOpen(false);
+                      }}
+                      className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-[#1F3760] text-xs font-semibold text-[#CBD8EC] hover:text-[#EEF1F6]"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Icon className="w-3.5 h-3.5 text-[#8FB4E3]" />
+                        <span>{sub.title}</span>
+                      </div>
+                      {sub.badge && (
+                        <span className={`text-[9px] font-mono font-bold px-1.5 py-0.2 rounded border ${sub.badgeColor || 'bg-[#16294A] text-[#8FB4E3] border-[#8FB4E3]/20'}`}>
+                          {sub.badge}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+        </div>
+      )}
+
     </header>
   );
 };

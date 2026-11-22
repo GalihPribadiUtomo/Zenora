@@ -31,15 +31,17 @@ import { speakJapanese, sound } from '../utils/audio';
 
 interface JlptExamSectionProps {
   onBackToPractice?: () => void;
+  initialPackageId?: string;
 }
 
 // Lingkaran opsi resmi ① ② ③ ④
 const CIRCLED_NUMBERS = ['①', '②', '③', '④'];
 const CBT_LETTERS = ['A', 'B', 'C', 'D'];
 
-export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPractice }) => {
+export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPractice, initialPackageId }) => {
   // Paket aktif
-  const [selectedPackage, setSelectedPackage] = useState<ExamPackage>(JLPT_EXAM_PACKAGES[0]);
+  const defaultPkg = (initialPackageId ? JLPT_EXAM_PACKAGES.find(p => p.id === initialPackageId) : null) || JLPT_EXAM_PACKAGES[0];
+  const [selectedPackage, setSelectedPackage] = useState<ExamPackage>(defaultPkg);
   
   // State alur: 'selection' -> 'cover' -> 'running' -> 'results' -> 'review'
   const [examState, setExamState] = useState<'selection' | 'cover' | 'running' | 'results' | 'review'>('selection');
@@ -49,7 +51,19 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
   const [selectedSectionIdx, setSelectedSectionIdx] = useState<number>(0);
 
   // Gaya antarmuka: 'paper' (Kertas Ujian & Mark Sheet 2B JLPT) atau 'cbt' (Prometric CBT JFT)
-  const [uiTheme, setUiTheme] = useState<'paper' | 'cbt' | 'zenora'>('paper');
+  const [uiTheme, setUiTheme] = useState<'paper' | 'cbt' | 'zenora'>(defaultPkg.id === 'JFT_BASIC_A2' ? 'cbt' : 'paper');
+
+  // Sinkronisasi jika initialPackageId berubah
+  useEffect(() => {
+    if (initialPackageId) {
+      const pkg = JLPT_EXAM_PACKAGES.find(p => p.id === initialPackageId);
+      if (pkg) {
+        setSelectedPackage(pkg);
+        setUiTheme(pkg.id === 'JFT_BASIC_A2' ? 'cbt' : 'paper');
+        setExamState('selection');
+      }
+    }
+  }, [initialPackageId]);
 
   // Nomor pendaftaran & nama peserta (Otentik)
   const [examineeNumber] = useState<string>('24B-01928-10023');

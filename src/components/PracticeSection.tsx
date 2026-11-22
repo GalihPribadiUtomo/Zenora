@@ -25,17 +25,32 @@ interface PracticeSectionProps {
   initialBab?: number | null;
   onRecordResult?: (score: number, total: number, mode: QuizMode, subject: QuizSubject) => void;
   initialPracticeType?: '18-modes' | 'jlpt-jft' | 'classic';
+  initialExamPackageId?: string;
 }
 
 export const PracticeSection: React.FC<PracticeSectionProps> = ({
   initialBab,
   onRecordResult,
-  initialPracticeType = '18-modes'
+  initialPracticeType = '18-modes',
+  initialExamPackageId
 }) => {
   // Setup state
   const [practiceType, setPracticeType] = useState<'18-modes' | 'jlpt-jft' | 'classic'>(initialPracticeType);
   const [activeExerciseBab, setActiveExerciseBab] = useState<number>(initialBab || 1);
   const [exerciseLesson, setExerciseLesson] = useState<ChapterLesson | null>(null);
+  const [examPackageId, setExamPackageId] = useState<string | undefined>(initialExamPackageId);
+
+  useEffect(() => {
+    if (initialPracticeType) {
+      setPracticeType(initialPracticeType);
+    }
+  }, [initialPracticeType]);
+
+  useEffect(() => {
+    if (initialExamPackageId) {
+      setExamPackageId(initialExamPackageId);
+    }
+  }, [initialExamPackageId]);
 
   useEffect(() => {
     loadChapterLesson(activeExerciseBab).then((data) => {
@@ -334,7 +349,10 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
       {/* ── VIEW 0: SIMULASI JLPT & JFT (N5, N4, A2) ── */}
       {practiceType === 'jlpt-jft' && (
-        <JlptExamSection onBackToPractice={() => setPracticeType('18-modes')} />
+        <JlptExamSection 
+          onBackToPractice={() => setPracticeType('18-modes')} 
+          initialPackageId={examPackageId}
+        />
       )}
 
       {/* ── VIEW 1: 18 MODES COMPREHENSIVE PRACTICE WITH BAB SELECTOR ── */}

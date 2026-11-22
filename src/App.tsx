@@ -9,6 +9,7 @@ import { SearchModal } from './components/SearchModal';
 import { AuthModal } from './components/AuthModal';
 import { Footer } from './components/Footer';
 import { KanaSection } from './components/KanaSection';
+import { SswSection } from './components/SswSection';
 import { KanjiItem, QuizMode, QuizSubject } from './types';
 import { getInitialStats, saveStats } from './utils/storage';
 import { supabase, isSupabaseConfigured } from './lib/supabase';
@@ -16,7 +17,7 @@ import { syncAllToCloud, pullAndMergeFromCloud } from './services/syncService';
 import type { User } from '@supabase/supabase-js';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'beranda' | 'kana' | 'kotoba' | 'kanji' | 'latihan'>('beranda');
+  const [activeTab, setActiveTab] = useState<'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan'>('beranda');
   const [soundEnabled, setSoundEnabled] = useState(true);
   
   // Modals state
@@ -27,6 +28,8 @@ export function App() {
   // Selected Bab in Kotoba section
   const [selectedBab, setSelectedBab] = useState<number | null>(null);
   const [practiceBab, setPracticeBab] = useState<number | null>(null);
+  const [practiceType, setPracticeType] = useState<'18-modes' | 'jlpt-jft' | 'classic'>('18-modes');
+  const [practiceExamPackageId, setPracticeExamPackageId] = useState<string | undefined>(undefined);
 
   // User stats & persistence
   const [stats, setStats] = useState(getInitialStats());
@@ -170,7 +173,40 @@ export function App() {
 
   const handleStartQuizFromBab = (bab: number) => {
     setPracticeBab(bab);
+    setPracticeType('18-modes');
     setActiveTab('latihan');
+  };
+
+  const handleNavigateSubMateri = (sub: 'kana' | 'materi-bab' | 'kanji' | 'kotoba' | 'bunpou') => {
+    if (sub === 'kana') {
+      setActiveTab('kana');
+    } else if (sub === 'kanji') {
+      setActiveTab('kanji');
+    } else if (sub === 'materi-bab') {
+      setSelectedBab(null);
+      setActiveTab('kotoba');
+    } else if (sub === 'kotoba') {
+      setSelectedBab(null);
+      setActiveTab('kotoba');
+    } else if (sub === 'bunpou') {
+      setSelectedBab(null);
+      setActiveTab('kotoba');
+    }
+  };
+
+  const handleNavigateSubLatihan = (sub: '18-modes' | 'jlpt' | 'jft') => {
+    if (sub === '18-modes') {
+      setPracticeType('18-modes');
+      setActiveTab('latihan');
+    } else if (sub === 'jlpt') {
+      setPracticeType('jlpt-jft');
+      setPracticeExamPackageId('JLPT_N5');
+      setActiveTab('latihan');
+    } else if (sub === 'jft') {
+      setPracticeType('jlpt-jft');
+      setPracticeExamPackageId('JFT_BASIC_A2');
+      setActiveTab('latihan');
+    }
   };
 
   return (
@@ -190,6 +226,8 @@ export function App() {
         onOpenAuth={() => setAuthOpen(true)}
         onSignOut={handleSignOut}
         isSyncing={isSyncing}
+        onNavigateSubMateri={handleNavigateSubMateri}
+        onNavigateSubLatihan={handleNavigateSubLatihan}
       />
 
       {/* Main Container */}
@@ -238,9 +276,25 @@ export function App() {
           />
         )}
 
+        {activeTab === 'ssw' && (
+          <SswSection
+            onNavigateToJft={() => {
+              setPracticeType('jlpt-jft');
+              setPracticeExamPackageId('JFT_BASIC_A2');
+              setActiveTab('latihan');
+            }}
+            onNavigateToBab={(bab) => {
+              setSelectedBab(bab);
+              setActiveTab('kotoba');
+            }}
+          />
+        )}
+
         {activeTab === 'latihan' && (
           <PracticeSection
             initialBab={practiceBab}
+            initialPracticeType={practiceType}
+            initialExamPackageId={practiceExamPackageId}
             onRecordResult={handleRecordQuizResult}
           />
         )}
