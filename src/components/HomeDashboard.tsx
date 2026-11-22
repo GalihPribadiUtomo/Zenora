@@ -487,101 +487,153 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
       </section>
 
-      {/* QUICK WORKOUT MODES (4 BENTO WORKOUT CARDS) */}
+      {/* 4 PILLARS OF ZENORA (HERO PORTAL CARDS) */}
       <section className="text-left">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
           <div>
-            <h2 className="text-2xl font-black text-[#DCE9FF] font-['Manrope']">4 Cara Berlatih Hafalan</h2>
-            <p className="text-sm text-[#6B85B5]">Pilih metode interaktif yang paling cocok untuk menguji daya ingat Anda.</p>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-[#55B9F5]/30 text-[#55B9F5] text-xs font-mono font-bold uppercase mb-1">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Ekosistem Pembelajaran Zenora</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-white font-['Manrope']">
+              4 Pilar Utama Pembelajaran
+            </h2>
+            <p className="text-xs sm:text-sm text-[#A5BDE8]">
+              Kurikulum terstruktur dari pengenalan aksara, materi komprehensif, kanji beranimasi, hingga 18 mode ujian interaktif.
+            </p>
           </div>
           <button
             onClick={() => onNavigate('latihan')}
-            className="text-xs font-bold text-[#55B9F5] hover:text-[#55B9F5] flex items-center gap-1 transition-colors"
+            className="text-xs font-bold text-[#55B9F5] hover:text-white flex items-center gap-1.5 transition-colors self-start sm:self-auto"
           >
-            <span>Buka Semua Latihan</span>
+            <span>Buka 18 Mode Latihan</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           
-          {/* Card 1: Pilihan Ganda */}
+          {/* Pillar 1: Materi Bab 1-50 */}
           <div 
-            onClick={() => onNavigate('latihan')}
-            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#2457C5] bg-[#0D1830] flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
+            onClick={() => {
+              sound.playClick();
+              onNavigate('kotoba');
+            }}
+            className="group relative overflow-hidden rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#55B9F5]/60 bg-gradient-to-b from-[#0D1830] to-[#0A1224] p-6 flex flex-col justify-between shadow-[0_10px_30px_rgba(16,28,61,0.5)] hover:shadow-[0_15px_40px_rgba(85,185,245,0.25)] hover:-translate-y-1 transition-all duration-300"
           >
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <BookOpen className="w-20 h-20 text-[#55B9F5]" />
+            </div>
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-white/15 border border-[#2457C5]/20 flex items-center justify-center text-[#55B9F5] mb-4">
-                <Award className="w-6 h-6 text-[#55B9F5]" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#2457C5] to-[#55B9F5] flex items-center justify-center text-white mb-4 shadow-[0_0_15px_rgba(85,185,245,0.4)] group-hover:scale-110 transition-transform">
+                <BookOpen className="w-6 h-6" />
               </div>
-              <h4 className="font-black text-base text-[#DCE9FF] mb-1 font-['Manrope']">Pilihan Ganda</h4>
-              <p className="text-xs text-[#6B85B5] leading-relaxed">
-                Pilih arti atau kanji yang tepat dari 4 opsi jawaban dengan timer dan streak point.
+              <span className="text-[10px] font-mono text-[#55B9F5] font-black uppercase tracking-wider block mb-1">
+                Minna no Nihongo I & II
+              </span>
+              <h4 className="font-black text-lg text-white mb-1.5 font-['Manrope'] group-hover:text-[#55B9F5] transition-colors">
+                Materi Bab 1–50
+              </h4>
+              <p className="text-xs text-[#A5BDE8]/80 leading-relaxed">
+                Tata bahasa (Bunpou), pola & contoh kalimat (Bunkei/Reibun), percakapan (Kaiwa), dan 2.910 kosakata.
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#2457C5]/25 flex items-center justify-between text-xs font-bold text-[#55B9F5]">
-              <span>Mulai Kuis</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+            <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#55B9F5]">
+              <span>Buka Materi Bab</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
 
-          {/* Card 2: Kartu Hafalan */}
+          {/* Pillar 2: Aksara Kana */}
           <div 
-            onClick={() => onNavigate('latihan')}
-            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#55B9F5] bg-[#0D1830] flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
+            onClick={() => {
+              sound.playClick();
+              onNavigate('kana');
+            }}
+            className="group relative overflow-hidden rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#55B9F5]/60 bg-gradient-to-b from-[#0D1830] to-[#0A1224] p-6 flex flex-col justify-between shadow-[0_10px_30px_rgba(16,28,61,0.5)] hover:shadow-[0_15px_40px_rgba(85,185,245,0.25)] hover:-translate-y-1 transition-all duration-300"
           >
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Languages className="w-20 h-20 text-[#55B9F5]" />
+            </div>
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-[#2457C5]/12 border border-[#55B9F5]/30 flex items-center justify-center text-[#55B9F5] mb-4">
-                <Layers className="w-6 h-6 text-[#55B9F5]" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#1A3A82] to-[#55B9F5] flex items-center justify-center text-white mb-4 shadow-[0_0_15px_rgba(85,185,245,0.35)] group-hover:scale-110 transition-transform">
+                <Languages className="w-6 h-6" />
               </div>
-              <h4 className="font-black text-base text-[#DCE9FF] mb-1 font-['Manrope']">Kartu Hafalan</h4>
-              <p className="text-xs text-[#6B85B5] leading-relaxed">
-                Balik kartu 3D interaktif, lalu tandai sudah hafal atau belum untuk pengulangan berkala.
+              <span className="text-[10px] font-mono text-[#55B9F5] font-black uppercase tracking-wider block mb-1">
+                Aksara Dasar
+              </span>
+              <h4 className="font-black text-lg text-white mb-1.5 font-['Manrope'] group-hover:text-[#55B9F5] transition-colors">
+                Hiragana & Katakana
+              </h4>
+              <p className="text-xs text-[#A5BDE8]/80 leading-relaxed">
+                312 karakter lengkap: Gojuon, Dakuon, Handakuon, Yoon, serta kanvas menulis interaktif dengan panduan goresan.
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#2457C5]/25 flex items-center justify-between text-xs font-bold text-[#55B9F5]">
-              <span>Buka Flashcard</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+            <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#55B9F5]">
+              <span>Mulai Belajar Kana</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
 
-          {/* Card 3: Menjodohkan */}
+          {/* Pillar 3: Kanji N5 & N4 */}
           <div 
-            onClick={() => onNavigate('latihan')}
-            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#8975E8] bg-[#0D1830] flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
+            onClick={() => {
+              sound.playClick();
+              onNavigate('kanji');
+            }}
+            className="group relative overflow-hidden rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#8975E8]/60 bg-gradient-to-b from-[#0D1830] to-[#0A1224] p-6 flex flex-col justify-between shadow-[0_10px_30px_rgba(16,28,61,0.5)] hover:shadow-[0_15px_40px_rgba(137,117,232,0.25)] hover:-translate-y-1 transition-all duration-300"
           >
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <PenTool className="w-20 h-20 text-[#8975E8]" />
+            </div>
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-white/8 border border-[#8975E8]/30 flex items-center justify-center text-[#8975E8] mb-4">
-                <Shuffle className="w-6 h-6 text-[#8975E8]" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#2457C5] to-[#8975E8] flex items-center justify-center text-white mb-4 shadow-[0_0_15px_rgba(137,117,232,0.35)] group-hover:scale-110 transition-transform">
+                <PenTool className="w-6 h-6" />
               </div>
-              <h4 className="font-black text-base text-[#DCE9FF] mb-1 font-['Manrope']">Menjodohkan</h4>
-              <p className="text-xs text-[#6B85B5] leading-relaxed">
-                Hubungkan kata bahasa Jepang dengan terjemahan artinya secara interaktif.
+              <span className="text-[10px] font-mono text-[#8975E8] font-black uppercase tracking-wider block mb-1">
+                JLPT N5 & N4
+              </span>
+              <h4 className="font-black text-lg text-white mb-1.5 font-['Manrope'] group-hover:text-[#8975E8] transition-colors">
+                Kanji Interaktif
+              </h4>
+              <p className="text-xs text-[#A5BDE8]/80 leading-relaxed">
+                424 Kanji lengkap dengan animasi urutan goresan, kanvas menulis digital, Onyomi & Kunyomi, serta kalimat contoh.
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#2457C5]/25 flex items-center justify-between text-xs font-bold text-[#8975E8]">
-              <span>Mainkan Game</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+            <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#8975E8]">
+              <span>Jelajahi Kanji</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
 
-          {/* Card 4: Ketik Romaji */}
+          {/* Pillar 4: 18 Mode Latihan & Ujian */}
           <div 
-            onClick={() => onNavigate('latihan')}
-            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-emerald-400 bg-[#0D1830] flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
+            onClick={() => {
+              sound.playClick();
+              onNavigate('latihan');
+            }}
+            className="group relative overflow-hidden rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#55B9F5]/60 bg-gradient-to-b from-[#0D1830] to-[#0A1224] p-6 flex flex-col justify-between shadow-[0_10px_30px_rgba(16,28,61,0.5)] hover:shadow-[0_15px_40px_rgba(85,185,245,0.25)] hover:-translate-y-1 transition-all duration-300"
           >
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Award className="w-20 h-20 text-[#55B9F5]" />
+            </div>
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4">
-                <Clock className="w-6 h-6 text-emerald-400" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#2457C5] to-[#55B9F5] flex items-center justify-center text-white mb-4 shadow-[0_0_15px_rgba(85,185,245,0.4)] group-hover:scale-110 transition-transform">
+                <Award className="w-6 h-6" />
               </div>
-              <h4 className="font-black text-base text-[#DCE9FF] mb-1 font-['Manrope']">Ketik Romaji</h4>
-              <p className="text-xs text-[#6B85B5] leading-relaxed">
-                Baca huruf Jepang yang muncul, lalu ketik ejaan romajinya secepat dan setepat mungkin.
+              <span className="text-[10px] font-mono text-[#55B9F5] font-black uppercase tracking-wider block mb-1">
+                Evaluasi Terpadu
+              </span>
+              <h4 className="font-black text-lg text-white mb-1.5 font-['Manrope'] group-hover:text-[#55B9F5] transition-colors">
+                18 Mode Latihan
+              </h4>
+              <p className="text-xs text-[#A5BDE8]/80 leading-relaxed">
+                Pilihan Ganda, Matching, Rumpang, Susun Kalimat, Choukai, Dokkai, Kaiwa, Menulis, Timed Exam, dan Ujian Akhir.
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#2457C5]/25 flex items-center justify-between text-xs font-bold text-emerald-400">
-              <span>Tes Ketik</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+            <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#55B9F5]">
+              <span>Mulai Latihan</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
 
