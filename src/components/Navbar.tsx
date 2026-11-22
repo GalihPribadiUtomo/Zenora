@@ -11,7 +11,8 @@ import {
   Database,
   Cloud,
   LogOut,
-  Check
+  Flame,
+  ChevronDown
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 import type { User } from '@supabase/supabase-js';
@@ -37,6 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   soundEnabled,
   setSoundEnabled,
   onOpenSearch,
+  streakDays,
   user,
   onOpenAuth,
   onSignOut,
@@ -44,153 +46,104 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
-  const handleNav = (
-    tab: 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'latihan'
-  ) => {
+  const handleNav = (tab: 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'latihan') => {
     if (soundEnabled) sound.playClick();
     setActiveTab(tab);
   };
 
-  return (
-    <header className="sticky top-0 z-40 w-full pt-2 sm:pt-3 px-3 sm:px-6">
-      <div className="max-w-7xl mx-auto rounded-2xl sm:rounded-3xl bg-[#101C3D]/95 backdrop-blur-xl border border-[#2457C5]/30 shadow-[0_10px_35px_rgba(16,28,61,0.35)] transition-all">
-        <div className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8 gap-4">
+  const navItems = [
+    { id: 'beranda', label: 'Beranda', icon: Sparkles },
+    { id: 'kana', label: 'Kana', icon: Languages },
+    { id: 'kotoba', label: 'Materi 1–50', icon: BookOpen },
+    { id: 'kanji', label: 'Kanji', icon: PenTool },
+    { id: 'latihan', label: 'Latihan', icon: Award },
+  ] as const;
 
-          {/* Logo & Brand: ZENORA */}
+  return (
+    <header className="sticky top-0 z-40 w-full bg-[#0C1B33]/90 backdrop-blur-xl border-b border-[#8FB4E3]/20 shadow-[0_4px_30px_rgba(12,27,51,0.6)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main Top Header Row */}
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
+
+          {/* 1. BRAND & LOGO (LEFT) */}
           <div
             onClick={() => handleNav('beranda')}
             className="flex items-center gap-3 cursor-pointer group select-none shrink-0"
           >
-            {/* Desktop Brand */}
-            <div className="hidden sm:flex items-center gap-3">
-              <div className="relative">
-                <img
-                  src="/zenora-icon.png"
-                  alt="ZENORA"
-                  className="w-10 h-10 object-contain drop-shadow-[0_0_12px_rgba(85,185,245,0.4)] group-hover:scale-105 transition-transform"
-                />
-                <span className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-[#55B9F5] ring-2 ring-[#101C3D] animate-pulse"></span>
-              </div>
-              <div>
-                <span className="font-black text-2xl tracking-tight font-['Manrope'] bg-gradient-to-r from-white via-[#DCE9FF] to-[#55B9F5] bg-clip-text text-transparent block leading-tight">
-                  ZENORA
-                </span>
-                <span className="text-[10px] text-[#55B9F5] font-bold font-mono tracking-widest block uppercase">
-                  Blue Sakura Future
-                </span>
-              </div>
-            </div>
-
-            {/* Mobile Compact Brand */}
-            <div className="flex sm:hidden items-center gap-2">
+            <div className="relative flex items-center justify-center">
+              <div className="absolute inset-0 rounded-2xl bg-[#8FB4E3]/15 blur-md group-hover:bg-[#8FB4E3]/25 transition-all"></div>
               <img
                 src="/zenora-icon.png"
                 alt="ZENORA"
-                className="w-9 h-9 object-contain drop-shadow-[0_0_8px_rgba(85,185,245,0.4)]"
+                className="relative w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_2px_8px_rgba(143,180,227,0.35)] group-hover:scale-105 transition-transform"
               />
-              <span className="font-black text-lg tracking-tight font-['Manrope'] text-white">
-                ZENORA
+            </div>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="font-black text-xl sm:text-2xl tracking-tight font-['Manrope'] bg-gradient-to-r from-[#EEF1F6] via-[#EEF1F6] to-[#8FB4E3] bg-clip-text text-transparent">
+                  ZENORA
+                </span>
+                <span className="inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-bold font-mono tracking-wider bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/30">
+                  日本語
+                </span>
+              </div>
+              <span className="hidden sm:block text-[11px] text-[#8793A8] font-medium tracking-wide">
+                Nihongo Mastery Platform
               </span>
             </div>
           </div>
 
-          {/* Navigation Tabs - Floating Cyber-Zen Glass Bar */}
-          <nav className="hidden md:flex items-center gap-1.5 p-1.5 bg-[#0B142B]/80 rounded-2xl border border-[#2457C5]/30 shadow-inner">
-
-            {/* Beranda */}
-            <button
-              onClick={() => handleNav('beranda')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'beranda'
-                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
-                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <Sparkles className={`w-4 h-4 ${activeTab === 'beranda' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
-              <span>Beranda</span>
-            </button>
-
-            {/* Aksara Kana */}
-            <button
-              onClick={() => handleNav('kana')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'kana'
-                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
-                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <Languages className={`w-4 h-4 ${activeTab === 'kana' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
-              <span>Kana</span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-[#55B9F5]/20 text-[#55B9F5] border border-[#55B9F5]/30">
-                あ・ア
-              </span>
-            </button>
-
-            {/* Materi Bab 1-50 (Tata Bahasa, Kaiwa, Kotoba, Kanji) */}
-            <button
-              onClick={() => handleNav('kotoba')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'kotoba'
-                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
-                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <BookOpen className={`w-4 h-4 ${activeTab === 'kotoba' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
-              <span>Materi Bab 1–50</span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-[#55B9F5]/20 text-[#55B9F5] border border-[#55B9F5]/30">
-                Bunpou & Kaiwa
-              </span>
-            </button>
-
-            {/* Kanji (N5 & N4) */}
-            <button
-              onClick={() => handleNav('kanji')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'kanji'
-                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
-                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <PenTool className={`w-4 h-4 ${activeTab === 'kanji' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
-              <span>Kanji</span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-[#8975E8]/25 text-[#DCE9FF] border border-[#8975E8]/40">
-                N5–N4
-              </span>
-            </button>
-
-            {/* Mode Latihan */}
-            <button
-              onClick={() => handleNav('latihan')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'latihan'
-                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
-                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <Award className={`w-4 h-4 ${activeTab === 'latihan' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
-              <span>Latihan</span>
-              <span className="w-2 h-2 rounded-full bg-[#55B9F5] shadow-[0_0_8px_#55B9F5]"></span>
-            </button>
-
+          {/* 2. MINIMALIST CENTER NAVIGATION (DESKTOP) */}
+          <nav className="hidden lg:flex items-center gap-1.5 p-1.5 bg-[#16294A]/80 rounded-2xl border border-[#8FB4E3]/20 shadow-inner">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNav(item.id)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
+                      : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
+                  }`}
+                >
+                  <Icon className={`w-4 h-4 transition-colors ${isActive ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+                  <span>{item.label}</span>
+                </button>
+              );
+            })}
           </nav>
 
-          {/* Action Tools: Search, Audio, Database Auth */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* 3. RIGHT ACTIONS (SEARCH, SOUND, CLOUD SYNC) */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
 
-            {/* Quick Search Trigger */}
+            {/* Streak Counter Badge (Desktop) */}
+            {streakDays > 0 && (
+              <div 
+                className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#16294A] border border-amber-400/25 text-amber-300 text-xs font-bold"
+                title={`${streakDays} Hari Belajar Berturut-turut`}
+              >
+                <Flame className="w-4 h-4 text-amber-400 fill-amber-400" />
+                <span>{streakDays}</span>
+              </div>
+            )}
+
+            {/* Quick Search Button */}
             <button
               onClick={onOpenSearch}
-              className="flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-[#DCE9FF] hover:text-white border border-white/15 transition-all text-xs font-semibold shadow-xs"
-              title="Cari (Ctrl + K)"
+              className="flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#EEF1F6] border border-[#8FB4E3]/20 hover:border-[#8FB4E3]/40 transition-all text-xs font-semibold shadow-xs group"
+              title="Cari Kosakata, Kanji, atau Materi (Ctrl + K)"
             >
-              <Search className="w-4 h-4 text-[#55B9F5]" />
-              <span className="hidden lg:inline text-xs">Cari</span>
-              <kbd className="hidden sm:inline-flex items-center text-[10px] font-mono bg-white/10 text-[#DCE9FF] px-1.5 py-0.5 rounded border border-white/10">
+              <Search className="w-4 h-4 text-[#8FB4E3] group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline text-xs text-[#8793A8] group-hover:text-[#EEF1F6]">Cari</span>
+              <kbd className="hidden sm:inline-flex items-center text-[10px] font-mono bg-[#0C1B33] text-[#8FB4E3] px-1.5 py-0.5 rounded border border-[#8FB4E3]/20">
                 ⌘K
               </kbd>
             </button>
 
-            {/* Audio Pronunciation Mute/Unmute */}
+            {/* Audio Toggle */}
             <button
               onClick={() => {
                 const next = !soundEnabled;
@@ -199,36 +152,39 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className={`p-2 rounded-xl border transition-all ${
                 soundEnabled
-                  ? 'bg-white/10 text-[#55B9F5] border-white/15 hover:bg-white/20'
-                  : 'bg-white/5 text-white/40 border-white/10 hover:bg-white/10'
+                  ? 'bg-[#16294A] text-[#8FB4E3] border-[#8FB4E3]/30 hover:bg-[#1F3760] shadow-xs'
+                  : 'bg-[#16294A]/60 text-[#8793A8] border-white/10 hover:bg-[#16294A]'
               }`}
-              title={soundEnabled ? 'Suara Audio Aktif' : 'Suara Dimatikan'}
+              title={soundEnabled ? 'Audio Suara: Aktif' : 'Audio Suara: Hening'}
             >
               {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
             </button>
 
-            {/* Database & Cloud Sync Account Pill */}
+            {/* Cloud Sync & Account State */}
             <div className="relative">
               {user ? (
                 <div>
                   <button
                     onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#2457C5] to-[#163882] text-white border border-[#55B9F5]/40 text-xs font-bold transition-all shadow-[0_0_12px_rgba(85,185,245,0.3)]"
+                    className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] border border-[#8FB4E3]/35 text-xs font-bold transition-all shadow-[0_2px_12px_rgba(143,180,227,0.2)]"
                   >
-                    <Cloud className={`w-3.5 h-3.5 text-[#55B9F5] ${isSyncing ? 'animate-pulse' : ''}`} />
-                    <span className="max-w-[80px] sm:max-w-[120px] truncate">
+                    <div className="relative">
+                      <Cloud className={`w-3.5 h-3.5 text-[#8FB4E3] ${isSyncing ? 'animate-pulse' : ''}`} />
+                      <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    </div>
+                    <span className="max-w-[80px] sm:max-w-[120px] truncate text-xs">
                       {user.user_metadata?.full_name || user.email?.split('@')[0]}
                     </span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <ChevronDown className="w-3.5 h-3.5 text-[#8793A8]" />
                   </button>
 
                   {userDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-[#101C3D] border border-[#2457C5]/40 shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 text-left">
-                      <div className="px-3 py-2 border-b border-white/10 mb-1">
-                        <span className="text-[10px] text-[#55B9F5] font-bold block uppercase tracking-wider font-mono">
-                          Akun Terhubung
+                    <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 text-left">
+                      <div className="px-3.5 py-2.5 border-b border-white/10 mb-1">
+                        <span className="text-[10px] text-[#8FB4E3] font-bold block uppercase tracking-wider font-mono">
+                          Tersinkronisasi ke Cloud
                         </span>
-                        <span className="text-xs font-bold text-white block truncate">
+                        <span className="text-xs font-bold text-[#EEF1F6] block truncate mt-0.5">
                           {user.email}
                         </span>
                       </div>
@@ -237,19 +193,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                           setUserDropdownOpen(false);
                           onOpenAuth();
                         }}
-                        className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-[#DCE9FF] hover:text-white hover:bg-white/10 transition-colors"
+                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-[#EEF1F6] hover:bg-[#1F3760] transition-colors"
                       >
-                        <Database className="w-3.5 h-3.5 text-[#55B9F5]" />
-                        <span>Pengaturan Database</span>
+                        <Database className="w-4 h-4 text-[#8FB4E3]" />
+                        <span>Kelola Database & Cloud</span>
                       </button>
                       <button
                         onClick={() => {
                           setUserDropdownOpen(false);
                           onSignOut();
                         }}
-                        className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-colors"
+                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-rose-300 hover:text-rose-200 hover:bg-rose-500/15 transition-colors"
                       >
-                        <LogOut className="w-3.5 h-3.5" />
+                        <LogOut className="w-4 h-4" />
                         <span>Keluar Akun</span>
                       </button>
                     </div>
@@ -258,10 +214,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               ) : (
                 <button
                   onClick={onOpenAuth}
-                  className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] hover:brightness-110 text-white font-bold text-xs shadow-[0_0_15px_rgba(85,185,245,0.35)] transition-all active:scale-95"
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:from-[#274474] hover:to-[#365c9c] text-[#EEF1F6] border border-[#8FB4E3]/40 text-xs font-bold shadow-[0_2px_14px_rgba(143,180,227,0.2)] transition-all active:scale-95 group"
+                  title="Masuk / Hubungkan Cloud Supabase"
                 >
-                  <Database className="w-3.5 h-3.5 text-white" />
-                  <span className="hidden sm:inline">Database</span>
+                  <Cloud className="w-4 h-4 text-[#8FB4E3] group-hover:scale-110 transition-transform" />
+                  <span className="hidden sm:inline">Sinkron Cloud</span>
+                  <span className="sm:hidden text-xs">Sync</span>
                 </button>
               )}
             </div>
@@ -270,28 +228,22 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         </div>
 
-        {/* Mobile Navigation Row (Bottom Bar in Header for Small Devices) */}
-        <div className="flex md:hidden items-center justify-around py-2 border-t border-white/10 px-2 gap-1 overflow-x-auto">
-          {[
-            { id: 'beranda', label: 'Beranda', icon: Sparkles },
-            { id: 'kana', label: 'Kana', icon: Languages },
-            { id: 'kotoba', label: 'Materi 1–50', icon: BookOpen },
-            { id: 'kanji', label: 'Kanji', icon: PenTool },
-            { id: 'latihan', label: 'Latihan', icon: Award },
-          ].map((item) => {
+        {/* 4. MOBILE / TABLET NAVIGATION BAR (SHOWN ON SCREENS < 1024px) */}
+        <div className="flex lg:hidden items-center justify-around py-2.5 border-t border-white/10 gap-1 overflow-x-auto scrollbar-none">
+          {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
             return (
               <button
                 key={item.id}
-                onClick={() => handleNav(item.id as any)}
-                className={`flex flex-col items-center py-1 px-2.5 rounded-xl text-[11px] font-bold transition-all whitespace-nowrap ${
+                onClick={() => handleNav(item.id)}
+                className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#2457C5] to-[#163882] text-white shadow-xs'
-                    : 'text-[#DCE9FF]/70 hover:text-white'
+                    ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/35 shadow-xs'
+                    : 'text-[#8793A8] hover:text-[#EEF1F6]'
                 }`}
               >
-                <Icon className={`w-4 h-4 mb-0.5 ${isActive ? 'text-[#55B9F5]' : ''}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-[#8FB4E3]' : ''}`} />
                 <span>{item.label}</span>
               </button>
             );

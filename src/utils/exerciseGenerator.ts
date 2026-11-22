@@ -23,7 +23,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Dasar',
     icon: 'CheckSquare',
     description: 'Pilih jawaban yang paling tepat dari 4 opsi pilihan ganda seputar materi bab ini.',
-    tagColor: 'from-[#2457C5] to-[#55B9F5]'
+    tagColor: 'from-[#1F3760] to-[#274474]'
   },
   {
     id: 'matching',
@@ -32,7 +32,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Dasar',
     icon: 'Shuffle',
     description: 'Cocokkan pasangan kata, kanji, atau pola kalimat Jepang dengan terjemahan Indonesia.',
-    tagColor: 'from-[#55B9F5] to-[#8975E8]'
+    tagColor: 'from-[#1F3760] to-[#8FB4E3]'
   },
   {
     id: 'fill-blank',
@@ -41,7 +41,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Tata Bahasa',
     icon: 'Edit3',
     description: 'Lengkapi bagian rumpang dalam kalimat dengan partikel atau bentuk kata kerja yang tepat.',
-    tagColor: 'from-[#8975E8] to-[#2457C5]'
+    tagColor: 'from-[#274474] to-[#8FB4E3]'
   },
   {
     id: 'sentence-arrange',
@@ -50,7 +50,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Tata Bahasa',
     icon: 'AlignLeft',
     description: 'Susun potongan kata-kata acak menjadi kalimat bahasa Jepang yang gramatikal dan benar.',
-    tagColor: 'from-[#2457C5] to-[#8975E8]'
+    tagColor: 'from-[#1F3760] to-[#274474]'
   },
   {
     id: 'writing-practice',
@@ -59,7 +59,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Keterampilan',
     icon: 'PenTool',
     description: 'Latih kemampuan menulis goresan Kanji dan Kana bab ini pada kanvas digital interaktif.',
-    tagColor: 'from-[#55B9F5] to-[#2457C5]'
+    tagColor: 'from-[#274474] to-[#8FB4E3]'
   },
   {
     id: 'listening',
@@ -68,7 +68,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Keterampilan',
     icon: 'Headphones',
     description: 'Dengarkan audio penutur Jepang dan pilih jawaban yang sesuai dengan ujaran yang terdengar.',
-    tagColor: 'from-[#8975E8] to-[#55B9F5]'
+    tagColor: 'from-[#1F3760] to-[#8FB4E3]'
   },
   {
     id: 'reading',
@@ -77,7 +77,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Keterampilan',
     icon: 'BookOpen',
     description: 'Baca teks atau situasi pendek materi bab, lalu jawab pertanyaan pemahaman bacaan.',
-    tagColor: 'from-[#2457C5] to-[#55B9F5]'
+    tagColor: 'from-[#1F3760] to-[#274474]'
   },
   {
     id: 'speaking',
@@ -86,7 +86,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Keterampilan',
     icon: 'Mic',
     description: 'Latih pelafalan dialog kontekstual, dengarkan intonasi asli, dan tirukan secara interaktif.',
-    tagColor: 'from-[#55B9F5] to-[#8975E8]'
+    tagColor: 'from-[#274474] to-[#8FB4E3]'
   },
   {
     id: 'vocab-test',
@@ -95,7 +95,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Ujian & Review',
     icon: 'Layers',
     description: 'Ujian komprehensif kosakata: arti, kanji, kana, dan cara penggunaan kata bab ini.',
-    tagColor: 'from-[#2457C5] to-[#55B9F5]'
+    tagColor: 'from-[#1F3760] to-[#274474]'
   },
   {
     id: 'kanji-test',
@@ -104,7 +104,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Ujian & Review',
     icon: 'Hash',
     description: 'Uji penguasaan Kanji bab ini: Onyomi, Kunyomi, arti, dan kata majemuk (jukugo).',
-    tagColor: 'from-[#8975E8] to-[#2457C5]'
+    tagColor: 'from-[#1F3760] to-[#8FB4E3]'
   },
   {
     id: 'grammar-test',
@@ -113,7 +113,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Tata Bahasa',
     icon: 'FileText',
     description: 'Uji pemahaman rumus pola kalimat (Bunpou) dan aturan partikel Minna no Nihongo.',
-    tagColor: 'from-[#2457C5] to-[#8975E8]'
+    tagColor: 'from-[#274474] to-[#8FB4E3]'
   },
   {
     id: 'translation',
@@ -122,7 +122,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Tata Bahasa',
     icon: 'Languages',
     description: 'Latihan menerjemahkan kalimat: Jepang ke Indonesia dan sebaliknya Indonesia ke Jepang.',
-    tagColor: 'from-[#55B9F5] to-[#2457C5]'
+    tagColor: 'from-[#1F3760] to-[#274474]'
   },
   {
     id: 'error-correction',
@@ -131,7 +131,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Tata Bahasa',
     icon: 'AlertCircle',
     description: 'Temukan bagian kalimat yang salah (partikel/konjugasi) dan pilih koreksi yang tepat.',
-    tagColor: 'from-[#8975E8] to-[#55B9F5]'
+    tagColor: 'from-[#274474] to-[#8FB4E3]'
   },
   {
     id: 'conversation-complete',
@@ -140,7 +140,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Keterampilan',
     icon: 'MessageSquare',
     description: 'Lengkapi dialog percakapan rumpang antar tokoh dengan respon yang paling santun dan logis.',
-    tagColor: 'from-[#2457C5] to-[#55B9F5]'
+    tagColor: 'from-[#1F3760] to-[#8FB4E3]'
   },
   {
     id: 'mixed-review',
@@ -149,7 +149,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Ujian & Review',
     icon: 'RefreshCw',
     description: 'Latihan campuran acak lintas bab (Bab 1 sampai 50) untuk memperkuat daya ingat retensi.',
-    tagColor: 'from-[#55B9F5] to-[#8975E8]'
+    tagColor: 'from-[#1F3760] to-[#274474]'
   },
   {
     id: 'timed-exam',
@@ -158,7 +158,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Ujian & Review',
     icon: 'Clock',
     description: 'Simulasi ujian dengan penghitung waktu mundur per soal untuk melatih kecepatan respon.',
-    tagColor: 'from-[#8975E8] to-[#2457C5]'
+    tagColor: 'from-[#274474] to-[#8FB4E3]'
   },
   {
     id: 'review-mistakes',
@@ -167,7 +167,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Ujian & Review',
     icon: 'RotateCcw',
     description: 'Latih ulang soal-soal yang pernah Anda jawab salah sebelumnya sampai Anda memahaminya.',
-    tagColor: 'from-[#2457C5] to-[#8975E8]'
+    tagColor: 'from-[#1F3760] to-[#8FB4E3]'
   },
   {
     id: 'final-exam',
@@ -176,7 +176,7 @@ export const EXERCISE_MODES_LIST: ExerciseModeMeta[] = [
     category: 'Ujian & Review',
     icon: 'Award',
     description: 'Ujian akhir komprehensif menguji seluruh kompetensi kosakata, kanji, tata bahasa, dan membaca.',
-    tagColor: 'from-[#2457C5] to-[#55B9F5]'
+    tagColor: 'from-[#1F3760] to-[#274474]'
   }
 ];
 

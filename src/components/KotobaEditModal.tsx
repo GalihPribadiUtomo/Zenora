@@ -83,27 +83,27 @@ export const KotobaEditModal: React.FC<KotobaEditModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0C1B33]/85 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg rounded-3xl bg-[#0D1830] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#2457C5]/30 text-[#DCE9FF] overflow-hidden text-left"
+        className="relative w-full max-w-lg rounded-3xl bg-[#16294A] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#8FB4E3]/25 text-[#EEF1F6] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Accent Bar */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#101C3D] via-[#2457C5] to-[#55B9F5]" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-[#0C1B33] via-[#8FB4E3] to-[#EEF1F6]" />
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#2457C5]/25 bg-[#121F3D]/90">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#8FB4E3]/20 bg-[#16294A]/90">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-[#2457C5]/15 text-[#55B9F5] border border-[#2457C5]/25">
+            <div className="p-2 rounded-xl bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/30">
               <Pencil className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-black text-[#DCE9FF] font-['Manrope']">
+              <h3 className="text-base font-black text-[#EEF1F6] font-['Manrope']">
                 Edit Kosakata
               </h3>
-              <p className="text-xs text-[#6B85B5]">
+              <p className="text-xs text-[#8793A8]">
                 Bab {word.bab} · #{word.no} ({word.kanji})
               </p>
             </div>
@@ -111,7 +111,7 @@ export const KotobaEditModal: React.FC<KotobaEditModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl hover:bg-[#0D1830]/15/12 text-[#6B85B5] hover:text-[#DCE9FF] transition-colors"
+            className="p-1.5 rounded-xl hover:bg-[#0C1B33] text-[#8793A8] hover:text-[#EEF1F6] transition-colors"
             aria-label="Tutup modal"
           >
             <X className="w-5 h-5" />
@@ -121,7 +121,7 @@ export const KotobaEditModal: React.FC<KotobaEditModalProps> = ({
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           {errorMsg && (
-            <div className="flex items-center gap-2 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold">
+            <div className="flex items-center gap-2 p-3 rounded-xl bg-red-950/40 border border-red-500/40 text-red-300 text-xs font-semibold">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{errorMsg}</span>
             </div>
@@ -129,7 +129,7 @@ export const KotobaEditModal: React.FC<KotobaEditModalProps> = ({
 
           {/* Kanji */}
           <div>
-            <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-[#EEF1F6] uppercase tracking-wider mb-1.5">
               Kanji / Karakter Jepang Utama
             </label>
             <input
@@ -137,13 +137,13 @@ export const KotobaEditModal: React.FC<KotobaEditModalProps> = ({
               value={kanji}
               onChange={(e) => setKanji(e.target.value)}
               placeholder="Contoh: アクセサリー atau 友達"
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-semibold text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 text-sm font-semibold text-[#EEF1F6] focus:outline-hidden focus:ring-2 focus:ring-[#8FB4E3]/30 focus:border-[#8FB4E3]"
             />
           </div>
 
           {/* Hiragana / Katakana */}
           <div>
-            <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-[#EEF1F6] uppercase tracking-wider mb-1.5">
               Hiragana / Katakana (Furigana / Cara Baca)
             </label>
             <input
@@ -151,13 +151,13 @@ export const KotobaEditModal: React.FC<KotobaEditModalProps> = ({
               value={kana}
               onChange={(e) => setKana(e.target.value)}
               placeholder="Contoh: アクセサリー atau ともだち"
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-semibold text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 text-sm font-semibold text-[#EEF1F6] focus:outline-hidden focus:ring-2 focus:ring-[#8FB4E3]/30 focus:border-[#8FB4E3]"
             />
           </div>
 
           {/* Romaji */}
           <div>
-            <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-[#EEF1F6] uppercase tracking-wider mb-1.5">
               Romaji
             </label>
             <input
@@ -165,13 +165,13 @@ export const KotobaEditModal: React.FC<KotobaEditModalProps> = ({
               value={romaji}
               onChange={(e) => setRomaji(e.target.value)}
               placeholder="Contoh: akusesarii atau tomodachi"
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-mono text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 text-sm font-mono text-[#EEF1F6] focus:outline-hidden focus:ring-2 focus:ring-[#8FB4E3]/30 focus:border-[#8FB4E3]"
             />
           </div>
 
           {/* Arti Bahasa Indonesia */}
           <div>
-            <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-[#EEF1F6] uppercase tracking-wider mb-1.5">
               Arti Bahasa Indonesia
             </label>
             <input
@@ -179,19 +179,19 @@ export const KotobaEditModal: React.FC<KotobaEditModalProps> = ({
               value={arti}
               onChange={(e) => setArti(e.target.value)}
               placeholder="Contoh: Aksesoris, perhiasan"
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-semibold text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 text-sm font-semibold text-[#EEF1F6] focus:outline-hidden focus:ring-2 focus:ring-[#8FB4E3]/30 focus:border-[#8FB4E3]"
             />
           </div>
 
           {/* Kategori */}
           <div>
-            <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-[#EEF1F6] uppercase tracking-wider mb-1.5">
               Kategori Kosakata
             </label>
             <select
               value={kategori}
               onChange={(e) => setKategori(e.target.value as KotobaCategory)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-semibold text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 text-sm font-semibold text-[#EEF1F6] focus:outline-hidden focus:ring-2 focus:ring-[#8FB4E3]/30 focus:border-[#8FB4E3]"
             >
               {CATEGORY_OPTIONS.map((cat) => (
                 <option key={cat} value={cat}>
@@ -202,19 +202,19 @@ export const KotobaEditModal: React.FC<KotobaEditModalProps> = ({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#2457C5]/25">
+          <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#8FB4E3]/20">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl border border-[#2457C5]/25 text-xs font-bold text-[#6B85B5] hover:bg-[#0D1830]/15/10 hover:text-[#DCE9FF] transition-colors"
+              className="px-4 py-2.5 rounded-xl border border-[#8FB4E3]/25 text-xs font-bold text-[#8793A8] hover:bg-[#0C1B33] hover:text-[#EEF1F6] transition-colors"
             >
               Batal
             </button>
             <button
               type="submit"
-              className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#101C3D] to-[#2457C5] hover:brightness-110 text-white text-xs font-bold shadow-md shadow-[#101C3D]/15 transition-all active:scale-95"
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] border border-[#8FB4E3]/40 hover:brightness-110 text-[#EEF1F6] text-xs font-bold shadow-md transition-all active:scale-95"
             >
-              <Check className="w-4 h-4 text-[#55B9F5]" />
+              <Check className="w-4 h-4 text-[#8FB4E3]" />
               <span>Simpan Perubahan</span>
             </button>
           </div>

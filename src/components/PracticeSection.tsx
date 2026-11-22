@@ -274,7 +274,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
       {/* Main Mode Switcher: 18 Modes vs Classic */}
       <div className="flex justify-center">
-        <div className="flex items-center gap-2 p-1.5 bg-[#0D1830] rounded-2xl border border-[#2457C5]/30 max-w-md w-full shadow-lg">
+        <div className="flex items-center gap-2 p-1.5 bg-[#16294A] rounded-2xl border border-[#8FB4E3]/25 max-w-md w-full shadow-lg">
           <button
             onClick={() => {
               sound.playClick();
@@ -283,11 +283,11 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-1.5 ${
               practiceType === '18-modes'
-                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)]'
-                : 'text-[#A5BDE8] hover:text-white'
+                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-[0_0_15px_rgba(143,180,227,0.3)]'
+                : 'text-[#8793A8] hover:text-[#EEF1F6]'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-[#55B9F5]" />
+            <Sparkles className="w-4 h-4 text-[#8FB4E3]" />
             <span>18 Mode Latihan (Bab 1–50)</span>
           </button>
 
@@ -298,11 +298,11 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 ${
               practiceType === 'classic'
-                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)]'
-                : 'text-[#A5BDE8] hover:text-white'
+                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-[0_0_15px_rgba(143,180,227,0.3)]'
+                : 'text-[#8793A8] hover:text-[#EEF1F6]'
             }`}
           >
-            <Layers className="w-4 h-4 text-[#8975E8]" />
+            <Layers className="w-4 h-4 text-[#8FB4E3]" />
             <span>Flashcard & Ketik</span>
           </button>
         </div>
@@ -312,13 +312,13 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
       {practiceType === '18-modes' && (
         <div className="space-y-6">
           {/* Chapter Quick Picker Bar */}
-          <div className="p-4 rounded-2xl bg-[#0D1830] border border-[#2457C5]/30 space-y-3">
+          <div className="p-4 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/25 space-y-3 shadow-xs">
             <div className="flex items-center justify-between gap-4">
-              <span className="text-xs font-bold text-[#55B9F5] uppercase tracking-wider font-mono flex items-center gap-1.5">
+              <span className="text-xs font-bold text-[#8FB4E3] uppercase tracking-wider font-mono flex items-center gap-1.5">
                 <BookOpen className="w-4 h-4" />
                 Pilih Bab Latihan:
               </span>
-              <span className="text-xs font-bold text-white bg-[#2457C5]/30 px-3 py-1 rounded-xl border border-[#2457C5]/50">
+              <span className="text-xs font-bold text-[#EEF1F6] bg-[#0C1B33] px-3 py-1 rounded-xl border border-[#8FB4E3]/30">
                 Sedang Dipilih: 第{activeExerciseBab}課 (Bab {activeExerciseBab})
               </span>
             </div>
@@ -334,8 +334,8 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                   }}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all ${
                     activeExerciseBab === b
-                      ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-md font-black scale-105'
-                      : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
+                      ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-md font-black scale-105'
+                      : 'bg-[#0C1B33]/60 hover:bg-[#1F3760] text-[#8793A8] border border-[#8FB4E3]/15'
                   }`}
                 >
                   Bab {b}
@@ -360,20 +360,20 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
           
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/8 border border-[#55B9F5]/30 text-[#55B9F5] text-xs font-black uppercase tracking-wider font-mono">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#16294A] border border-[#8FB4E3]/30 text-[#8FB4E3] text-xs font-black uppercase tracking-wider font-mono">
               Pusat Latihan Interaktif
             </div>
-            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight font-['Manrope']">
+            <h1 className="text-4xl sm:text-5xl font-black text-[#EEF1F6] tracking-tight font-['Manrope']">
               Latihan Mandiri
             </h1>
-            <p className="text-[#6B85B5] text-sm sm:text-base">
+            <p className="text-[#8793A8] text-sm sm:text-base">
               Uji hafalan Kotoba dan Kanji dengan 4 cara berlatih interaktif.
             </p>
           </div>
 
           {/* Subject Switcher (Kotoba vs Kanji) */}
           <div className="flex justify-center">
-            <div className="flex items-center gap-2 p-1.5 bg-[#0D1830] rounded-2xl border border-[#2457C5]/25 w-full max-w-xs">
+            <div className="flex items-center gap-2 p-1.5 bg-[#16294A] rounded-2xl border border-[#8FB4E3]/25 w-full max-w-xs shadow-xs">
               <button
                 onClick={() => {
                   sound.playClick();
@@ -381,8 +381,8 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 }}
                 className={`flex-1 py-2 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all text-center ${
                   subject === 'kotoba'
-                    ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(36,87,197,0.3)]'
-                    : 'text-[#6B85B5] hover:text-[#DCE9FF]'
+                    ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-[0_0_15px_rgba(143,180,227,0.3)]'
+                    : 'text-[#8793A8] hover:text-[#EEF1F6]'
                 }`}
               >
                 Kotoba
@@ -394,8 +394,8 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 }}
                 className={`flex-1 py-2 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all text-center ${
                   subject === 'kanji'
-                    ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(36,87,197,0.3)]'
-                    : 'text-[#6B85B5] hover:text-[#DCE9FF]'
+                    ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-[0_0_15px_rgba(143,180,227,0.3)]'
+                    : 'text-[#8793A8] hover:text-[#EEF1F6]'
                 }`}
               >
                 Kanji
@@ -412,22 +412,22 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('multiple-choice');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(12,27,51,0.4)] ${
                 mode === 'multiple-choice'
-                  ? 'border-[#2457C5] ring-2 ring-[#2457C5]/30 bg-[#121F3D] shadow-[0_0_20px_rgba(36,87,197,0.15)]'
-                  : 'border-[#2457C5]/25 bg-[#0D1830] hover:border-[#2457C5]/50'
+                  ? 'border-[#8FB4E3] ring-2 ring-[#8FB4E3]/30 bg-[#1F3760] shadow-[0_0_20px_rgba(143,180,227,0.2)]'
+                  : 'border-[#8FB4E3]/20 bg-[#16294A] hover:border-[#8FB4E3]/50'
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#2457C5]/12 border border-[#2457C5]/30 flex items-center justify-center text-[#55B9F5] mb-3">
-                  <Award className="w-6 h-6 text-[#55B9F5]" />
+                <div className="w-12 h-12 rounded-2xl bg-[#0C1B33] border border-[#8FB4E3]/30 flex items-center justify-center text-[#8FB4E3] mb-3">
+                  <Award className="w-6 h-6 text-[#8FB4E3]" />
                 </div>
-                <h3 className="font-extrabold text-base text-[#DCE9FF] mb-1 font-['Manrope']">Pilihan Ganda</h3>
-                <p className="text-xs text-[#6B85B5] leading-relaxed">
+                <h3 className="font-extrabold text-base text-[#EEF1F6] mb-1 font-['Manrope']">Pilihan Ganda</h3>
+                <p className="text-xs text-[#8793A8] leading-relaxed">
                   Pilih arti yang tepat dari 4 pilihan yang disajikan.
                 </p>
               </div>
-              <span className={`text-[11px] font-bold mt-4 ${mode === 'multiple-choice' ? 'text-[#55B9F5]' : 'text-[#4A5B82]'}`}>
+              <span className={`text-[11px] font-bold mt-4 ${mode === 'multiple-choice' ? 'text-[#8FB4E3]' : 'text-[#8793A8]/60'}`}>
                 {mode === 'multiple-choice' ? '✓ Terpilih' : 'Pilih mode'}
               </span>
             </div>
@@ -438,22 +438,22 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('flashcard');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(12,27,51,0.4)] ${
                 mode === 'flashcard'
-                  ? 'border-[#55B9F5] ring-2 ring-[#55B9F5]/30 bg-[#121F3D] shadow-[0_0_20px_rgba(85,185,245,0.15)]'
-                  : 'border-[#2457C5]/25 bg-[#0D1830] hover:border-[#55B9F5]/40'
+                  ? 'border-[#8FB4E3] ring-2 ring-[#8FB4E3]/30 bg-[#1F3760] shadow-[0_0_20px_rgba(143,180,227,0.2)]'
+                  : 'border-[#8FB4E3]/20 bg-[#16294A] hover:border-[#8FB4E3]/50'
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#55B9F5]/10 border border-[#55B9F5]/30 flex items-center justify-center text-[#55B9F5] mb-3">
-                  <Layers className="w-6 h-6 text-[#55B9F5]" />
+                <div className="w-12 h-12 rounded-2xl bg-[#0C1B33] border border-[#8FB4E3]/30 flex items-center justify-center text-[#8FB4E3] mb-3">
+                  <Layers className="w-6 h-6 text-[#8FB4E3]" />
                 </div>
-                <h3 className="font-extrabold text-base text-[#DCE9FF] mb-1 font-['Manrope']">Kartu Hafalan</h3>
-                <p className="text-xs text-[#6B85B5] leading-relaxed">
+                <h3 className="font-extrabold text-base text-[#EEF1F6] mb-1 font-['Manrope']">Kartu Hafalan</h3>
+                <p className="text-xs text-[#8793A8] leading-relaxed">
                   Balik kartu, lalu tandai hafal atau belum untuk spaced repetition.
                 </p>
               </div>
-              <span className={`text-[11px] font-bold mt-4 ${mode === 'flashcard' ? 'text-[#55B9F5]' : 'text-[#4A5B82]'}`}>
+              <span className={`text-[11px] font-bold mt-4 ${mode === 'flashcard' ? 'text-[#8FB4E3]' : 'text-[#8793A8]/60'}`}>
                 {mode === 'flashcard' ? '✓ Terpilih' : 'Pilih mode'}
               </span>
             </div>
@@ -464,22 +464,22 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('matching');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(12,27,51,0.4)] ${
                 mode === 'matching'
-                  ? 'border-[#8975E8] ring-2 ring-[#8975E8]/30 bg-[#121F3D] shadow-[0_0_20px_rgba(137,117,232,0.15)]'
-                  : 'border-[#2457C5]/25 bg-[#0D1830] hover:border-[#8975E8]/40'
+                  ? 'border-[#8FB4E3] ring-2 ring-[#8FB4E3]/30 bg-[#1F3760] shadow-[0_0_20px_rgba(143,180,227,0.2)]'
+                  : 'border-[#8FB4E3]/20 bg-[#16294A] hover:border-[#8FB4E3]/50'
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#8975E8]/12 border border-[#8975E8]/30 flex items-center justify-center text-[#8975E8] mb-3">
-                  <Shuffle className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-[#0C1B33] border border-[#8FB4E3]/30 flex items-center justify-center text-[#8FB4E3] mb-3">
+                  <Shuffle className="w-6 h-6 text-[#8FB4E3]" />
                 </div>
-                <h3 className="font-extrabold text-base text-[#DCE9FF] mb-1 font-['Manrope']">Menjodohkan</h3>
-                <p className="text-xs text-[#6B85B5] leading-relaxed">
+                <h3 className="font-extrabold text-base text-[#EEF1F6] mb-1 font-['Manrope']">Menjodohkan</h3>
+                <p className="text-xs text-[#8793A8] leading-relaxed">
                   Pasangkan kata Jepang dengan terjemahan artinya secara langsung.
                 </p>
               </div>
-              <span className={`text-[11px] font-bold mt-4 ${mode === 'matching' ? 'text-[#8975E8]' : 'text-[#4A5B82]'}`}>
+              <span className={`text-[11px] font-bold mt-4 ${mode === 'matching' ? 'text-[#8FB4E3]' : 'text-[#8793A8]/60'}`}>
                 {mode === 'matching' ? '✓ Terpilih' : 'Pilih mode'}
               </span>
             </div>
@@ -490,22 +490,22 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('typing');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(12,27,51,0.4)] ${
                 mode === 'typing'
-                  ? 'border-emerald-500 ring-2 ring-emerald-500/30 bg-[#121F3D] shadow-[0_0_20px_rgba(16,185,129,0.15)]'
-                  : 'border-[#2457C5]/25 bg-[#0D1830] hover:border-emerald-500/40'
+                  ? 'border-emerald-500 ring-2 ring-emerald-500/30 bg-[#1F3760] shadow-[0_0_20px_rgba(16,185,129,0.2)]'
+                  : 'border-[#8FB4E3]/20 bg-[#16294A] hover:border-emerald-500/40'
               }`}
             >
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-3">
                   <Keyboard className="w-6 h-6" />
                 </div>
-                <h3 className="font-extrabold text-base text-[#DCE9FF] mb-1 font-['Manrope']">Ketik Romaji</h3>
-                <p className="text-xs text-[#6B85B5] leading-relaxed">
+                <h3 className="font-extrabold text-base text-[#EEF1F6] mb-1 font-['Manrope']">Ketik Romaji</h3>
+                <p className="text-xs text-[#8793A8] leading-relaxed">
                   Baca kata Jepang, lalu ketik romajinya untuk melatih kecepatan.
                 </p>
               </div>
-              <span className={`text-[11px] font-bold mt-4 ${mode === 'typing' ? 'text-emerald-400' : 'text-[#4A5B82]'}`}>
+              <span className={`text-[11px] font-bold mt-4 ${mode === 'typing' ? 'text-emerald-400' : 'text-[#8793A8]/60'}`}>
                 {mode === 'typing' ? '✓ Terpilih' : 'Pilih mode'}
               </span>
             </div>
@@ -513,19 +513,19 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
           </div>
 
           {/* Filter Selection Panel */}
-          <div className="p-6 sm:p-7 rounded-3xl border border-[#2457C5]/25 bg-[#0D1830]">
+          <div className="p-6 sm:p-7 rounded-3xl border border-[#8FB4E3]/25 bg-[#16294A] shadow-[0_4px_24px_rgba(12,27,51,0.5)]">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               
               {/* Bab Selector */}
               {subject === 'kotoba' && (
                 <div>
-                  <label className="block text-xs font-bold text-[#6B85B5] uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-bold text-[#8793A8] uppercase tracking-wider mb-2">
                     Bab
                   </label>
                   <select
                     value={selectedBab}
                     onChange={(e) => setSelectedBab(e.target.value === 'ALL' ? 'ALL' : Number(e.target.value))}
-                    className="w-full px-4 py-2.5 rounded-xl border border-[#2457C5]/40 bg-white/8 text-[#DCE9FF] text-sm font-semibold focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/40"
+                    className="w-full px-4 py-2.5 rounded-xl border border-[#8FB4E3]/25 bg-[#0C1B33]/80 text-[#EEF1F6] text-sm font-semibold focus:outline-hidden focus:ring-2 focus:ring-[#8FB4E3]/40"
                   >
                     <option value="ALL">Semua Bab (1–50)</option>
                     {Array.from({ length: 50 }, (_, i) => i + 1).map((b) => (
@@ -537,13 +537,13 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
               {/* Kategori Selector */}
               <div>
-                <label className="block text-xs font-bold text-[#6B85B5] uppercase tracking-wider mb-2">
+                <label className="block text-xs font-bold text-[#8793A8] uppercase tracking-wider mb-2">
                   Kategori
                 </label>
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#2457C5]/40 bg-white/8 text-[#DCE9FF] text-sm font-semibold focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/40"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#8FB4E3]/25 bg-[#0C1B33]/80 text-[#EEF1F6] text-sm font-semibold focus:outline-hidden focus:ring-2 focus:ring-[#8FB4E3]/40"
                 >
                   <option value="ALL">Semua Kategori</option>
                   {subject === 'kotoba' ? (
@@ -573,13 +573,13 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
               {/* Jumlah Soal */}
               <div>
-                <label className="block text-xs font-bold text-[#6B85B5] uppercase tracking-wider mb-2">
+                <label className="block text-xs font-bold text-[#8793A8] uppercase tracking-wider mb-2">
                   Jumlah Soal
                 </label>
                 <select
                   value={questionCount}
                   onChange={(e) => setQuestionCount(Number(e.target.value))}
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#2457C5]/40 bg-white/8 text-[#DCE9FF] text-sm font-semibold focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/40"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#8FB4E3]/25 bg-[#0C1B33]/80 text-[#EEF1F6] text-sm font-semibold focus:outline-hidden focus:ring-2 focus:ring-[#8FB4E3]/40"
                 >
                   <option value={5}>5 Soal Singkat</option>
                   <option value={10}>10 Soal Standar</option>
@@ -590,16 +590,16 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             </div>
 
             {/* Launch Button */}
-            <div className="mt-6 pt-5 border-t border-[#2457C5]/25 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span className="text-xs text-[#6B85B5] font-medium">
+            <div className="mt-6 pt-5 border-t border-[#8FB4E3]/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span className="text-xs text-[#8793A8] font-medium">
                 {subject === 'kotoba' ? '2.910 kata' : `${KANJI_DATA.length} kanji`} siap dijadikan bahan latihan.
               </span>
               <button
                 onClick={generateQuestions}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] hover:brightness-110 text-white font-extrabold text-sm sm:text-base shadow-[0_8px_30px_-5px_rgba(36,87,197,0.4)] transition-all flex items-center justify-center gap-2 active:scale-95"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] border border-[#8FB4E3]/40 font-extrabold text-sm sm:text-base shadow-[0_8px_30px_-5px_rgba(143,180,227,0.3)] transition-all flex items-center justify-center gap-2 active:scale-95"
               >
                 <span>Mulai Latihan</span>
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-5 h-5 text-[#8FB4E3]" />
               </button>
             </div>
           </div>
@@ -615,13 +615,13 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
           <div className="flex items-center justify-between">
             <button
               onClick={() => setIsQuizActive(false)}
-              className="text-xs font-bold text-[#6B85B5] hover:text-[#DCE9FF]"
+              className="text-xs font-bold text-[#8793A8] hover:text-[#EEF1F6]"
             >
               ✕ Keluar Latihan
             </button>
 
             <div className="flex items-center gap-4">
-              <span className="text-xs font-bold text-[#6B85B5]">
+              <span className="text-xs font-bold text-[#8793A8]">
                 Soal {currentIdx + 1} / {questions.length}
               </span>
               <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/12 text-emerald-400 border border-emerald-500/30">
@@ -631,36 +631,36 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
           </div>
 
           {/* Progress bar */}
-          <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+          <div className="w-full h-2 rounded-full bg-[#0C1B33] border border-[#8FB4E3]/20 overflow-hidden">
             <div 
-              className="h-full bg-gradient-to-r from-[#2457C5] via-[#55B9F5] to-[#7DD3FC] transition-all duration-300"
+              className="h-full bg-gradient-to-r from-[#1F3760] via-[#274474] to-[#8FB4E3] transition-all duration-300"
               style={{ width: `${((currentIdx + 1) / questions.length) * 100}%` }}
             ></div>
           </div>
 
           {/* 1. MULTIPLE CHOICE MODE */}
           {mode === 'multiple-choice' && (
-            <div className="p-6 sm:p-8 rounded-3xl border border-[#2457C5]/25 bg-[#0D1830] space-y-6">
+            <div className="p-6 sm:p-8 rounded-3xl border border-[#8FB4E3]/25 bg-[#16294A] space-y-6 shadow-[0_4px_24px_rgba(12,27,51,0.5)]">
               
               {/* Question Header */}
               <div className="text-center py-4 space-y-2">
                 <div className="flex items-center justify-center gap-2">
-                  <h2 className="kanji-font text-5xl sm:text-6xl font-black text-[#DCE9FF]">
+                  <h2 className="kanji-font text-5xl sm:text-6xl font-black text-[#EEF1F6]">
                     {currentQ.question}
                   </h2>
                   <button
                     onClick={() => speakJapanese(currentQ.audioText)}
-                    className="p-2 rounded-xl bg-white/8 hover:bg-white/12 text-[#6B85B5] hover:text-[#DCE9FF] border border-[#2457C5]/30"
+                    className="p-2 rounded-xl bg-[#0C1B33]/80 hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/25"
                   >
                     <Volume2 className="w-5 h-5" />
                   </button>
                 </div>
                 {currentQ.subQuestion && (
-                  <p className="text-sm font-bold text-[#55B9F5]">
+                  <p className="text-sm font-bold text-[#8FB4E3]">
                     {currentQ.subQuestion}
                   </p>
                 )}
-                <p className="text-xs text-[#6B85B5]">Pilih arti yang tepat:</p>
+                <p className="text-xs text-[#8793A8]">Pilih arti yang tepat:</p>
               </div>
 
               {/* 4 Choices */}
@@ -669,14 +669,14 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                   const isSelected = selectedAnswer === opt;
                   const isCorrect = opt === currentQ.correctAnswer;
                   
-                  let btnStyle = 'border-[#2457C5]/25 bg-[#121F3D] hover:bg-[#1A2D55] hover:border-[#2457C5]/50 text-[#DCE9FF]';
+                  let btnStyle = 'border-[#8FB4E3]/20 bg-[#0C1B33]/80 hover:bg-[#1F3760] hover:border-[#8FB4E3]/50 text-[#EEF1F6]';
                   if (isAnswerSubmitted) {
                     if (isCorrect) {
                       btnStyle = 'border-emerald-500 bg-emerald-500/15 text-emerald-400 font-bold shadow-[0_0_15px_rgba(16,185,129,0.15)]';
                     } else if (isSelected) {
-                      btnStyle = 'border-red-500 bg-red-500/15 text-red-400 font-bold shadow-[0_0_15px_rgba(239,68,68,0.15)]';
+                      btnStyle = 'border-rose-500 bg-rose-500/15 text-rose-300 font-bold shadow-[0_0_15px_rgba(244,63,94,0.15)]';
                     } else {
-                      btnStyle = 'border-[#2457C5]/15 opacity-40 text-[#4A5B82]';
+                      btnStyle = 'border-[#8FB4E3]/10 opacity-40 text-[#8793A8]/60';
                     }
                   }
 
@@ -689,7 +689,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                     >
                       <span>{opt}</span>
                       {isAnswerSubmitted && isCorrect && <CheckCircle2 className="w-4 h-4 text-emerald-400" />}
-                      {isAnswerSubmitted && isSelected && !isCorrect && <XCircle className="w-4 h-4 text-red-400" />}
+                      {isAnswerSubmitted && isSelected && !isCorrect && <XCircle className="w-4 h-4 text-rose-400" />}
                     </button>
                   );
                 })}
@@ -697,13 +697,13 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
               {/* Explanation & Next */}
               {isAnswerSubmitted && (
-                <div className="pt-4 border-t border-[#2457C5]/25 flex items-center justify-between">
-                  <span className="text-xs text-[#6B85B5] font-medium">
+                <div className="pt-4 border-t border-[#8FB4E3]/15 flex items-center justify-between">
+                  <span className="text-xs text-[#8793A8] font-medium">
                     {currentQ.explanation}
                   </span>
                   <button
                     onClick={handleNextQuestion}
-                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] hover:brightness-110 text-white font-bold text-xs sm:text-sm shadow-[0_4px_15px_rgba(36,87,197,0.3)] transition-colors"
+                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] border border-[#8FB4E3]/40 font-bold text-xs sm:text-sm shadow-[0_4px_15px_rgba(143,180,227,0.3)] transition-colors"
                   >
                     Lanjut →
                   </button>
@@ -715,23 +715,23 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
           {/* 2. TYPING ROMAJI MODE */}
           {mode === 'typing' && (
-            <div className="p-6 sm:p-8 rounded-3xl border border-[#2457C5]/25 bg-[#0D1830] space-y-6">
+            <div className="p-6 sm:p-8 rounded-3xl border border-[#8FB4E3]/25 bg-[#16294A] space-y-6 shadow-[0_4px_24px_rgba(12,27,51,0.5)]">
               <div className="text-center py-4 space-y-2">
                 <div className="flex items-center justify-center gap-2">
-                  <h2 className="kanji-font text-5xl sm:text-6xl font-black text-[#DCE9FF]">
+                  <h2 className="kanji-font text-5xl sm:text-6xl font-black text-[#EEF1F6]">
                     {currentQ.question}
                   </h2>
                   <button
                     onClick={() => speakJapanese(currentQ.audioText)}
-                    className="p-2 rounded-xl bg-white/8 hover:bg-white/12 text-[#6B85B5] hover:text-[#DCE9FF] border border-[#2457C5]/30"
+                    className="p-2 rounded-xl bg-[#0C1B33]/80 hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/25"
                   >
                     <Volume2 className="w-5 h-5" />
                   </button>
                 </div>
-                <p className="text-sm font-bold text-[#55B9F5]">
+                <p className="text-sm font-bold text-[#8FB4E3]">
                   {currentQ.subQuestion}
                 </p>
-                <p className="text-xs text-[#6B85B5]">Ketik ejaan romaji atau artinya lalu tekan Enter:</p>
+                <p className="text-xs text-[#8793A8]">Ketik ejaan romaji atau artinya lalu tekan Enter:</p>
               </div>
 
               <form onSubmit={handleCheckTyping} className="space-y-4">
@@ -742,13 +742,13 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                     disabled={isAnswerSubmitted}
                     onChange={(e) => setTypedInput(e.target.value)}
                     placeholder="Ketik romaji di sini (contoh: watashi, tabemasu)..."
-                    className="flex-1 px-4 py-3 rounded-2xl border border-[#2457C5]/40 bg-white/8 text-[#DCE9FF] text-base font-mono placeholder-[#4A5B82] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/40"
+                    className="flex-1 px-4 py-3 rounded-2xl border border-[#8FB4E3]/25 bg-[#0C1B33]/80 text-[#EEF1F6] text-base font-mono placeholder-[#8793A8]/60 focus:outline-hidden focus:ring-2 focus:ring-[#8FB4E3]/40"
                     autoFocus
                   />
                   {!isAnswerSubmitted && (
                     <button
                       type="submit"
-                      className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white font-bold text-sm shadow-[0_4px_15px_rgba(36,87,197,0.3)] hover:brightness-110 transition-colors"
+                      className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 font-bold text-sm shadow-[0_4px_15px_rgba(143,180,227,0.3)] hover:brightness-110 transition-colors"
                     >
                       Cek
                     </button>
@@ -757,16 +757,16 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
               </form>
 
               {isAnswerSubmitted && (
-                <div className="pt-4 border-t border-[#2457C5]/25 flex items-center justify-between">
+                <div className="pt-4 border-t border-[#8FB4E3]/15 flex items-center justify-between">
                   <div className="space-y-1">
-                    <span className="text-xs font-bold text-[#DCE9FF] block">
-                      Jawaban Benar: <span className="font-mono text-[#55B9F5]">{currentQ.metadata?.romaji || currentQ.correctAnswer}</span>
+                    <span className="text-xs font-bold text-[#EEF1F6] block">
+                      Jawaban Benar: <span className="font-mono text-[#8FB4E3]">{currentQ.metadata?.romaji || currentQ.correctAnswer}</span>
                     </span>
-                    <span className="text-xs text-[#6B85B5]">{currentQ.explanation}</span>
+                    <span className="text-xs text-[#8793A8]">{currentQ.explanation}</span>
                   </div>
                   <button
                     onClick={handleNextQuestion}
-                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] hover:brightness-110 text-white font-bold text-xs sm:text-sm shadow-[0_4px_15px_rgba(36,87,197,0.3)]"
+                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] border border-[#8FB4E3]/40 font-bold text-xs sm:text-sm shadow-[0_4px_15px_rgba(143,180,227,0.3)]"
                   >
                     Lanjut →
                   </button>
@@ -780,28 +780,28 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             <div className="space-y-6">
               <div
                 onClick={() => setIsCardFlipped(!isCardFlipped)}
-                className="w-full h-80 rounded-3xl cursor-pointer p-8 flex flex-col justify-between text-center bg-[#0D1830] border border-[#2457C5]/25 shadow-[0_20px_60px_-15px_rgba(16,28,61,0.8)]"
+                className="w-full h-80 rounded-3xl cursor-pointer p-8 flex flex-col justify-between text-center bg-[#16294A] border border-[#8FB4E3]/25 shadow-[0_20px_60px_-15px_rgba(12,27,51,0.9)]"
               >
-                <span className="text-xs text-[#6B85B5] font-bold uppercase tracking-wider">
+                <span className="text-xs text-[#8793A8] font-bold uppercase tracking-wider">
                   Klik untuk melihat jawaban
                 </span>
 
                 <div className="my-auto space-y-2">
                   {!isCardFlipped ? (
                     <>
-                      <h2 className="kanji-font text-6xl font-black text-[#DCE9FF]">
+                      <h2 className="kanji-font text-6xl font-black text-[#EEF1F6]">
                         {currentQ.question}
                       </h2>
-                      <p className="text-xl font-bold text-[#55B9F5]">
+                      <p className="text-xl font-bold text-[#8FB4E3]">
                         {currentQ.subQuestion}
                       </p>
                     </>
                   ) : (
                     <>
-                      <h3 className="text-3xl font-extrabold text-[#DCE9FF] font-['Manrope']">
+                      <h3 className="text-3xl font-extrabold text-[#EEF1F6] font-['Manrope']">
                         {currentQ.correctAnswer}
                       </h3>
-                      <p className="text-xs text-[#6B85B5] font-mono">
+                      <p className="text-xs text-[#8793A8] font-mono">
                         {currentQ.explanation}
                       </p>
                     </>
@@ -814,7 +814,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                       e.stopPropagation();
                       speakJapanese(currentQ.audioText);
                     }}
-                    className="p-2 rounded-xl bg-white/8 hover:bg-white/12 text-[#6B85B5] border border-[#2457C5]/30"
+                    className="p-2 rounded-xl bg-[#0C1B33]/80 hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/25"
                   >
                     <Volume2 className="w-4 h-4" />
                   </button>
@@ -827,7 +827,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                     sound.playIncorrect();
                     handleNextQuestion();
                   }}
-                  className="px-5 py-2.5 rounded-xl bg-white/8 hover:bg-white/12 text-[#A5BDE8] hover:text-[#DCE9FF] font-bold text-sm transition-colors border border-[#2457C5]/25"
+                  className="px-5 py-2.5 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#8793A8] hover:text-[#EEF1F6] font-bold text-sm transition-colors border border-[#8FB4E3]/20"
                 >
                   Belum Hafal
                 </button>
@@ -847,8 +847,8 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
           {/* 4. MATCHING GAME VIEW */}
           {mode === 'matching' && (
-            <div className="p-6 sm:p-8 rounded-3xl border border-[#2457C5]/25 bg-[#0D1830] space-y-4">
-              <p className="text-xs font-bold text-[#6B85B5] uppercase tracking-wider text-center">
+            <div className="p-6 sm:p-8 rounded-3xl border border-[#8FB4E3]/25 bg-[#16294A] space-y-4 shadow-[0_4px_24px_rgba(12,27,51,0.5)]">
+              <p className="text-xs font-bold text-[#8793A8] uppercase tracking-wider text-center">
                 Klik kartu kata Jepang di kiri/atas, lalu klik pasangannya artinya
               </p>
 
@@ -856,11 +856,11 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 {matchingPairs.map((card) => {
                   const isSelected = selectedJpCard === card.id || selectedIdCard === card.id;
 
-                  let style = 'bg-[#121F3D] border-[#2457C5]/25 hover:border-[#55B9F5]/50 hover:bg-[#1A2D55] text-[#DCE9FF]';
+                  let style = 'bg-[#0C1B33]/80 border-[#8FB4E3]/20 hover:border-[#8FB4E3]/50 hover:bg-[#1F3760] text-[#EEF1F6]';
                   if (card.matched) {
                     style = 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400 opacity-60 pointer-events-none line-through';
                   } else if (isSelected) {
-                    style = 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] border-[#55B9F5] text-white shadow-[0_0_20px_rgba(85,185,245,0.25)] scale-102';
+                    style = 'bg-gradient-to-r from-[#1F3760] to-[#274474] border-[#8FB4E3] text-[#EEF1F6] shadow-[0_0_20px_rgba(143,180,227,0.3)] scale-102';
                   }
 
                   return (
@@ -882,31 +882,31 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
       {/* Finished Result Screen */}
       {isFinished && (
-        <div className="p-8 sm:p-12 rounded-3xl border border-[#2457C5]/25 bg-[#0D1830] text-center max-w-xl mx-auto space-y-6 shadow-[0_20px_60px_-15px_rgba(16,28,61,0.8)]">
-          <div className="w-20 h-20 mx-auto rounded-3xl bg-[#2457C5]/12 border border-[#2457C5]/30 flex items-center justify-center text-[#55B9F5] shadow-[0_0_30px_rgba(85,185,245,0.15)]">
-            <Sparkles className="w-10 h-10" />
+        <div className="p-8 sm:p-12 rounded-3xl border border-[#8FB4E3]/25 bg-[#16294A] text-center max-w-xl mx-auto space-y-6 shadow-[0_20px_60px_-15px_rgba(12,27,51,0.9)]">
+          <div className="w-20 h-20 mx-auto rounded-3xl bg-[#0C1B33] border border-[#8FB4E3]/30 flex items-center justify-center text-[#8FB4E3] shadow-[0_0_30px_rgba(143,180,227,0.2)]">
+            <Sparkles className="w-10 h-10 text-[#8FB4E3]" />
           </div>
 
           <div>
-            <h2 className="text-3xl font-black text-white tracking-tight font-['Manrope']">
+            <h2 className="text-3xl font-black text-[#EEF1F6] tracking-tight font-['Manrope']">
               Latihan Selesai!
             </h2>
-            <p className="text-[#6B85B5] text-sm mt-1">
+            <p className="text-[#8793A8] text-sm mt-1">
               Bagus sekali! Kamu telah menyelesaikan sesi latihan hafalan ini.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/8 border border-[#2457C5]/25 flex items-center justify-around">
+          <div className="p-6 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/20 flex items-center justify-around">
             <div>
-              <span className="text-xs text-[#6B85B5] font-bold block">Skor Benar</span>
+              <span className="text-xs text-[#8793A8] font-bold block">Skor Benar</span>
               <span className="text-3xl font-black text-emerald-400 font-['Manrope']">
                 {score} / {questions.length}
               </span>
             </div>
-            <div className="h-10 w-px bg-[#2457C5]/25"></div>
+            <div className="h-10 w-px bg-[#8FB4E3]/20"></div>
             <div>
-              <span className="text-xs text-[#6B85B5] font-bold block">Akurasi</span>
-              <span className="text-3xl font-black text-[#55B9F5] font-['Manrope']">
+              <span className="text-xs text-[#8793A8] font-bold block">Akurasi</span>
+              <span className="text-3xl font-black text-[#8FB4E3] font-['Manrope']">
                 {questions.length > 0 ? Math.round((score / questions.length) * 100) : 0}%
               </span>
             </div>
@@ -918,16 +918,16 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setIsQuizActive(false);
               }}
-              className="px-6 py-3 rounded-2xl bg-white/8 hover:bg-white/12 text-[#DCE9FF] font-bold text-sm transition-colors border border-[#2457C5]/25"
+              className="px-6 py-3 rounded-2xl bg-[#0C1B33]/80 hover:bg-[#1F3760] text-[#EEF1F6] font-bold text-sm transition-colors border border-[#8FB4E3]/20"
             >
               Kembali ke Menu
             </button>
 
             <button
               onClick={generateQuestions}
-              className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] hover:brightness-110 text-white font-bold text-sm shadow-[0_4px_15px_rgba(36,87,197,0.3)] transition-all flex items-center gap-2"
+              className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] border border-[#8FB4E3]/40 font-bold text-sm shadow-[0_4px_15px_rgba(143,180,227,0.3)] transition-all flex items-center gap-2"
             >
-              <RotateCcw className="w-4 h-4" />
+              <RotateCcw className="w-4 h-4 text-[#8FB4E3]" />
               Ulangi Latihan
             </button>
           </div>

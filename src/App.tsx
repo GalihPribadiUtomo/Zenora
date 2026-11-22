@@ -174,7 +174,7 @@ export function App() {
   };
 
   return (
-    <div className="app-shell min-h-screen flex flex-col selection:bg-[#2457C5] selection:text-white">
+    <div className="app-shell min-h-screen flex flex-col bg-[#0C1B33] text-[#EEF1F6] selection:bg-[#8FB4E3] selection:text-[#0C1B33]">
       
       {/* Top Navbar */}
       <Navbar
