@@ -23,6 +23,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
   const [selectedBab, setSelectedBab] = useState<number | 'ALL'>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
+  const [kanjiFontStyle, setKanjiFontStyle] = useState<'klee' | 'serif' | 'sans'>('klee');
 
   // JLPT Level cards data with Palet 04 Midnight Navy styling
   const levels = [
@@ -311,9 +312,59 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
 
       {/* KANJI CARDS GRID */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between text-xs font-bold text-[#8793A8]">
-          <span>Menampilkan {filteredKanji.length} Kanji</span>
-          <span>Klik kartu untuk panduan cara nulis & kanvas latihan</span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-bold text-[#8793A8]">
+          <div className="flex items-center gap-2">
+            <span className="text-[#EEF1F6]">Menampilkan {filteredKanji.length} Kanji</span>
+            <span className="text-[#8793A8]/60">•</span>
+            <span className="text-[#8FB4E3]">Klik kartu untuk panduan cara nulis & kanvas latihan</span>
+          </div>
+
+          {/* SAKELAR GAYA FONT KANJI */}
+          <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/25 self-start sm:self-auto shadow-xs">
+            <span className="text-[10px] uppercase font-mono text-[#8FB4E3] px-2 font-black">Font:</span>
+            <button
+              onClick={() => {
+                sound.playClick();
+                setKanjiFontStyle('klee');
+              }}
+              className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all ${
+                kanjiFontStyle === 'klee'
+                  ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-xs'
+                  : 'text-[#8793A8] hover:text-[#EEF1F6]'
+              }`}
+              title="Font Buku Teks Edukasi Jepang (Goresan tangan sangat jelas, presisi dan alami)"
+            >
+              Edukasi (Klee)
+            </button>
+            <button
+              onClick={() => {
+                sound.playClick();
+                setKanjiFontStyle('serif');
+              }}
+              className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all ${
+                kanjiFontStyle === 'serif'
+                  ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-xs'
+                  : 'text-[#8793A8] hover:text-[#EEF1F6]'
+              }`}
+              title="Font Kaligrafi Tradisional Mincho (Tajam, bersudut elegan dan kontras)"
+            >
+              Kaligrafi (Mincho)
+            </button>
+            <button
+              onClick={() => {
+                sound.playClick();
+                setKanjiFontStyle('sans');
+              }}
+              className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all ${
+                kanjiFontStyle === 'sans'
+                  ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-xs'
+                  : 'text-[#8793A8] hover:text-[#EEF1F6]'
+              }`}
+              title="Font Cetak Modern Gothic (Sans-serif tebal)"
+            >
+              Cetak (Gothic)
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3.5 sm:gap-4">
@@ -327,36 +378,40 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                   sound.playClick();
                   onSelectKanji(kanji);
                 }}
-                className={`p-4 sm:p-4 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between group shadow-[0_4px_16px_rgba(12,27,51,0.4)] ${
-                  isLearned ? 'border-emerald-500/30 bg-[#0F3025]' : 'border-[#8FB4E3]/20 bg-[#16294A] hover:border-[#8FB4E3]/50'
+                className={`p-4 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between group shadow-[0_4px_16px_rgba(12,27,51,0.5)] ${
+                  isLearned ? 'border-emerald-500/40 bg-[#0F3025]' : 'border-[#8FB4E3]/25 bg-[#16294A] hover:border-[#8FB4E3]/60 hover:shadow-[0_0_24px_rgba(143,180,227,0.18)]'
                 }`}
               >
                 <div>
                   {/* Top: ID, Bab & Strokes */}
                   <div className="flex items-center justify-between text-[#8793A8] text-xs mb-1">
-                    <span className="font-mono text-[11px] font-bold">#{kanji.id}</span>
+                    <span className="font-mono text-[11px] font-bold text-[#8FB4E3]">#{kanji.id}</span>
                     <div className="flex items-center gap-1">
                       {kanji.bab && (
                         <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#0C1B33] text-[#CBD8EC] border border-[#8FB4E3]/25">
                           Bab {kanji.bab}
                         </span>
                       )}
-                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#0C1B33] text-[#8FB4E3] border border-[#8FB4E3]/20">
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#0C1B33] text-[#8FB4E3] border border-[#8FB4E3]/25 font-mono">
                         {kanji.strokeCount}画
                       </span>
                     </div>
                   </div>
 
-                  {/* Big Kanji Character */}
-                  <div className="py-2 text-center">
-                    <span className="kanji-font text-5xl sm:text-6xl font-black text-[#EEF1F6] group-hover:scale-110 group-hover:text-[#8FB4E3] transition-all inline-block select-none">
+                  {/* Big Kanji Character — Jelas, Tajam, dan Tidak Berhimpitan */}
+                  <div className="py-2.5 text-center flex items-center justify-center min-h-[96px]">
+                    <span className={`text-6xl sm:text-7xl ${
+                      kanjiFontStyle === 'klee' ? 'kanji-font-klee font-semibold' :
+                      kanjiFontStyle === 'serif' ? 'kanji-font-serif font-bold' :
+                      'kanji-font-sans font-bold'
+                    } text-[#FFFFFF] drop-shadow-[0_2px_14px_rgba(143,180,227,0.3)] group-hover:scale-110 group-hover:text-[#8FB4E3] transition-all inline-block select-none leading-none`}>
                       {kanji.kanji}
                     </span>
                   </div>
 
                   {/* Main Reading & Meaning */}
                   <div className="text-center mt-1">
-                    <p className="text-sm font-black text-[#EEF1F6] font-['Manrope']">
+                    <p className="text-base font-extrabold text-[#FFFFFF] font-['Manrope'] tracking-wide">
                       {kanji.reading}
                     </p>
                     <p className="text-xs font-bold text-[#8FB4E3] truncate mt-0.5">
@@ -364,18 +419,18 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                     </p>
                   </div>
 
-                  {/* ONYOMI & KUNYOMI MINI BADGES */}
-                  <div className="mt-2.5 pt-2 border-t border-[#8FB4E3]/15 space-y-1">
+                  {/* ONYOMI & KUNYOMI MINI BADGES (Ditingkatkan kontras & keterbacaannya) */}
+                  <div className="mt-3 pt-2.5 border-t border-[#8FB4E3]/20 space-y-1.5">
                     {kanji.onyomi && kanji.onyomi !== '—' && (
-                      <div className="flex items-center gap-1 text-[10px] text-[#CBD8EC] bg-[#0C1B33] px-1.5 py-0.5 rounded-md font-mono border border-[#8FB4E3]/20" title={`Onyomi: ${kanji.onyomi}`}>
-                        <span className="font-black text-[#8FB4E3]">音</span>
-                        <span className="truncate">{kanji.onyomi}</span>
+                      <div className="flex items-center gap-1.5 text-xs text-[#F1F5F9] bg-[#0C1B33]/90 px-2 py-1 rounded-xl border border-[#8FB4E3]/30 shadow-xs" title={`Onyomi: ${kanji.onyomi}`}>
+                        <span className="font-black text-[10px] px-1 py-0.2 rounded bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/35 shrink-0">音</span>
+                        <span className="font-bold font-['Noto_Sans_JP'] tracking-wider truncate text-[#F1F5F9]">{kanji.onyomi}</span>
                       </div>
                     )}
                     {kanji.kunyomi && kanji.kunyomi !== '—' && (
-                      <div className="flex items-center gap-1 text-[10px] text-[#CBD8EC] bg-[#1F3760]/70 px-1.5 py-0.5 rounded-md font-mono border border-[#8FB4E3]/20" title={`Kunyomi: ${kanji.kunyomi}`}>
-                        <span className="font-black text-[#EEF1F6]">訓</span>
-                        <span className="truncate">{kanji.kunyomi}</span>
+                      <div className="flex items-center gap-1.5 text-xs text-[#F1F5F9] bg-[#1F3760]/80 px-2 py-1 rounded-xl border border-[#8FB4E3]/30 shadow-xs" title={`Kunyomi: ${kanji.kunyomi}`}>
+                        <span className="font-black text-[10px] px-1 py-0.2 rounded bg-[#274474] text-[#A8CEFF] border border-[#8FB4E3]/35 shrink-0">訓</span>
+                        <span className="font-bold font-['Noto_Sans_JP'] tracking-wider truncate text-[#F1F5F9]">{kanji.kunyomi}</span>
                       </div>
                     )}
                   </div>

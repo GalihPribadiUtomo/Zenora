@@ -227,11 +227,42 @@ body::before {
 }
 
 /* ========== JAPANESE & KANJI TYPOGRAPHY ========== */
-.japanese-text, .kanji-font {
+.japanese-text {
   font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
   letter-spacing: 0.02em;
   font-feature-settings: "palt";
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Master Kanji Typography — Mengutamakan Klee One (Buku Teks Edukasi Jepang) & Noto Serif JP agar goresan kanji terlihat sangat jelas, tajam dan tidak saling menumpuk */
+.kanji-font {
+  font-family: 'Klee One', 'Noto Serif JP', 'Noto Sans JP', 'Hiragino Mincho ProN', serif;
+  letter-spacing: 0.03em;
+  font-feature-settings: "palt";
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.kanji-font-klee {
+  font-family: 'Klee One', 'Noto Serif JP', serif;
+  font-feature-settings: "palt";
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.kanji-font-serif {
+  font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-feature-settings: "palt";
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.kanji-font-sans {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  font-feature-settings: "palt";
+  text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 }
 
