@@ -40,7 +40,7 @@ interface NavbarProps {
   onOpenAuth: () => void;
   onSignOut: () => void;
   isSyncing?: boolean;
-  onNavigateSubMateri?: (sub: 'kana' | 'materi-bab' | 'kanji' | 'kotoba' | 'bunpou') => void;
+  onNavigateSubMateri?: (sub: 'kana' | 'materi-bab' | 'kanji' | 'kotoba-bunpou' | 'kotoba' | 'bunpou') => void;
   onNavigateSubLatihan?: (sub: '18-modes' | 'jlpt' | 'jft') => void;
 }
 
@@ -96,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     setMobileMenuOpen(false);
   };
 
-  // Sub-menu Materi items (Disatukan agar tidak dobel/redundant)
+  // Sub-menu Materi items (Tepat 4 Menu: Bunpou & Kotoba disatukan)
   const materiSubItems = [
     {
       id: 'kana',
@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     {
       id: 'materi-bab',
       title: 'Materi Bab 1–50: Minna no Nihongo',
-      subtitle: 'Kurikulum terpadu Tata Bahasa (Bunpou), Kosakata (Kotoba) & Percakapan (Kaiwa)',
+      subtitle: 'Kurikulum lengkap Shokyu I & II dengan audio otentik',
       icon: BookOpen,
       badge: 'Bab 1–50',
       action: () => {
@@ -129,6 +129,17 @@ export const Navbar: React.FC<NavbarProps> = ({
       action: () => {
         handleNav('kanji');
         onNavigateSubMateri?.('kanji');
+      }
+    },
+    {
+      id: 'kotoba-bunpou',
+      title: 'Kotoba & Bunpou: Kosakata & Tata Bahasa',
+      subtitle: '2.910 Kosakata esensial, contoh kalimat, dan kaidah tata bahasa',
+      icon: Layers,
+      badge: 'Kosakata & Pola',
+      action: () => {
+        handleNav('kotoba');
+        onNavigateSubMateri?.('kotoba-bunpou' as any);
       }
     }
   ];

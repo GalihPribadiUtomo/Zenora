@@ -177,18 +177,15 @@ export function App() {
     setActiveTab('latihan');
   };
 
-  const handleNavigateSubMateri = (sub: 'kana' | 'materi-bab' | 'kanji' | 'kotoba' | 'bunpou') => {
+  const handleNavigateSubMateri = (sub: 'kana' | 'materi-bab' | 'kanji' | 'kotoba-bunpou' | 'kotoba' | 'bunpou') => {
     if (sub === 'kana') {
       setActiveTab('kana');
     } else if (sub === 'kanji') {
       setActiveTab('kanji');
-    } else if (sub === 'materi-bab') {
+    } else if (sub === 'materi-bab' || sub === 'kotoba-bunpou') {
       setSelectedBab(null);
       setActiveTab('kotoba');
-    } else if (sub === 'kotoba') {
-      setSelectedBab(null);
-      setActiveTab('kotoba');
-    } else if (sub === 'bunpou') {
+    } else if (sub === 'kotoba' || sub === 'bunpou') {
       setSelectedBab(null);
       setActiveTab('kotoba');
     }
