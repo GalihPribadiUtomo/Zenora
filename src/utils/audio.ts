@@ -149,6 +149,45 @@ class SoundFx {
       // Ignore audio error
     }
   }
+
+  // Official JLPT Broadcast Chime Tone (チャイム音 F4 - A4 - G4 - C4)
+  playJlptChime(onDone?: () => void) {
+    try {
+      this.initCtx();
+      if (!this.ctx) {
+        if (onDone) onDone();
+        return;
+      }
+      const notes = [
+        { freq: 349.23, delay: 0 },    // F4
+        { freq: 440.00, delay: 0.5 },  // A4
+        { freq: 392.00, delay: 1.0 },  // G4
+        { freq: 261.63, delay: 1.5 },  // C4
+      ];
+      notes.forEach(({ freq, delay }) => {
+        if (!this.ctx) return;
+        const now = this.ctx.currentTime + delay;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.14, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.75);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.8);
+      });
+
+      if (onDone) {
+        setTimeout(onDone, 2200);
+      }
+    } catch {
+      if (onDone) onDone();
+    }
+  }
 }
 
 export const sound = new SoundFx();

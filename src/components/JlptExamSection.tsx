@@ -18,37 +18,53 @@ import {
   ChevronRight,
   ShieldCheck,
   Pause,
-  Play
+  Play,
+  Check,
+  Monitor,
+  Printer,
+  Maximize2
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { ExamPackage, ExamSection, ExamQuestion, ExamType } from '../types';
 import { JLPT_EXAM_PACKAGES } from '../data/jlptExamData';
 import { speakJapanese, sound } from '../utils/audio';
-import { FuriganaText } from './FuriganaText';
 
 interface JlptExamSectionProps {
   onBackToPractice?: () => void;
 }
 
-export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPractice }) => {
-  // State pilihan paket
-  const [selectedPackage, setSelectedPackage] = useState<ExamPackage>(JLPT_EXAM_PACKAGES[0]);
-  const [examState, setExamState] = useState<'selection' | 'running' | 'results' | 'review'>('selection');
+// Lingkaran opsi resmi ① ② ③ ④
+const CIRCLED_NUMBERS = ['①', '②', '③', '④'];
+const CBT_LETTERS = ['A', 'B', 'C', 'D'];
 
-  // Mode ujian: 'full' (seluruh seksi terintegrasi) atau 'section' (hanya satu seksi pilihan)
+export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPractice }) => {
+  // Paket aktif
+  const [selectedPackage, setSelectedPackage] = useState<ExamPackage>(JLPT_EXAM_PACKAGES[0]);
+  
+  // State alur: 'selection' -> 'cover' -> 'running' -> 'results' -> 'review'
+  const [examState, setExamState] = useState<'selection' | 'cover' | 'running' | 'results' | 'review'>('selection');
+
+  // Mode ujian: 'full' atau 'section'
   const [examMode, setExamMode] = useState<'full' | 'section'>('full');
   const [selectedSectionIdx, setSelectedSectionIdx] = useState<number>(0);
 
-  // Soal & Navigasi
+  // Gaya antarmuka: 'paper' (Kertas Ujian & Mark Sheet 2B JLPT) atau 'cbt' (Prometric CBT JFT)
+  const [uiTheme, setUiTheme] = useState<'paper' | 'cbt' | 'zenora'>('paper');
+
+  // Nomor pendaftaran & nama peserta (Otentik)
+  const [examineeNumber] = useState<string>('24B-01928-10023');
+  const [examineeName] = useState<string>('ZENORA CANDIDATE');
+
+  // Seksi & Soal aktif
   const [currentSectionIdx, setCurrentSectionIdx] = useState<number>(0);
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
 
-  // Jawaban pengguna: Record<questionId, selectedOptionIndex>
+  // Jawaban: Record<questionId, selectedOptionIndex>
   const [userAnswers, setUserAnswers] = useState<Record<string, number>>({});
-  // Soal yang ditandai ragu-ragu: Set<questionId>
+  // Soal ditandai ragu-ragu: Record<questionId, boolean>
   const [flaggedQuestions, setFlaggedQuestions] = useState<Record<string, boolean>>({});
 
-  // Soal bintang ★: state susunan kata temporer per questionId
+  // Susunan soal bintang ★: Record<questionId, string[]>
   const [starArrangements, setStarArrangements] = useState<Record<string, string[]>>({});
 
   // Timer
@@ -57,11 +73,12 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
   const [elapsedSeconds, setElapsedSeconds] = useState<number>(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Audio Choukai state
+  // Audio Choukai
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
 
-  // Modal konfirmasi selesai
+  // Modal konfirmasi
   const [showConfirmSubmit, setShowConfirmSubmit] = useState<boolean>(false);
+  const [showMarkSheetModal, setShowMarkSheetModal] = useState<boolean>(false);
 
   const activeSections: ExamSection[] = examMode === 'full' 
     ? selectedPackage.sections 
@@ -70,11 +87,25 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
   const currentSection: ExamSection = activeSections[currentSectionIdx] || activeSections[0];
   const currentQuestion: ExamQuestion = currentSection?.questions[currentQuestionIdx] || currentSection?.questions[0];
 
-  // Inisialisasi Ujian
-  const startExam = (pkg: ExamPackage, mode: 'full' | 'section', secIdx: number = 0) => {
+  // Inisialisasi: masuk ke lembar sampul resmi (cover)
+  const openExamCover = (pkg: ExamPackage, mode: 'full' | 'section', secIdx: number = 0) => {
     setSelectedPackage(pkg);
     setExamMode(mode);
     setSelectedSectionIdx(secIdx);
+    
+    // Set tema default berdasarkan jenis ujian
+    if (pkg.id === 'JFT_BASIC_A2') {
+      setUiTheme('cbt');
+    } else {
+      setUiTheme('paper');
+    }
+
+    setExamState('cover');
+    sound.playClick();
+  };
+
+  // Mulai ujian setelah membaca petunjuk cover
+  const startExamFromCover = () => {
     setCurrentSectionIdx(0);
     setCurrentQuestionIdx(0);
     setUserAnswers({});
@@ -83,17 +114,16 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
     setElapsedSeconds(0);
     setIsTimerPaused(false);
 
-    // Hitung total waktu
-    const targetMinutes = mode === 'full' 
-      ? pkg.totalTimeMinutes 
-      : pkg.sections[secIdx].timeLimitMinutes;
+    const targetMinutes = examMode === 'full' 
+      ? selectedPackage.totalTimeMinutes 
+      : selectedPackage.sections[selectedSectionIdx].timeLimitMinutes;
     setTimeRemainingSeconds(targetMinutes * 60);
 
     setExamState('running');
     sound.playClick();
   };
 
-  // Timer Countdown Effect
+  // Timer countdown
   useEffect(() => {
     if (examState === 'running' && !isTimerPaused && timeRemainingSeconds > 0) {
       timerRef.current = setInterval(() => {
@@ -116,11 +146,10 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
   const handleAutoSubmit = () => {
     sound.playIncorrect();
-    alert('Waktu ujian telah habis! Lembar jawaban Anda otomatis dikumpulkan.');
+    alert('時間です！ (Waktu ujian telah habis). Lembar jawaban Anda telah dikumpulkan secara otomatis.');
     finishExam();
   };
 
-  // Format detik ke format MM:SS atau HH:MM:SS
   const formatTime = (seconds: number) => {
     const h = Math.floor(seconds / 3600);
     const m = Math.floor((seconds % 3600) / 60);
@@ -128,16 +157,14 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
     if (h > 0) {
       return `${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
     }
-    return `${m}:${s < 10 ? '0' : ''}${s}`;
+    return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
   };
 
-  // Pilih jawaban
   const handleSelectAnswer = (qId: string, optIdx: number) => {
     sound.playClick();
     setUserAnswers(prev => ({ ...prev, [qId]: optIdx }));
   };
 
-  // Toggle bendera ragu-ragu
   const toggleFlagQuestion = (qId: string) => {
     sound.playClick();
     setFlaggedQuestions(prev => ({ ...prev, [qId]: !prev[qId] }));
@@ -149,7 +176,6 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
     const current = starArrangements[q.id] || [];
     let updated: string[];
     if (current.includes(word)) {
-      // Hapus jika sudah dipilih
       updated = current.filter(w => w !== word);
     } else {
       if (current.length < 4) {
@@ -161,9 +187,9 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
     setStarArrangements(prev => ({ ...prev, [q.id]: updated }));
 
-    // Jika sudah terisi 4 slot, tentukan kata yang menempati slot ke-3 (posisi ★)
+    // Di soal bintang JLPT resmi, slot ke-3 adalah posisi ★
     if (updated.length >= 3) {
-      const starWord = updated[2]; // Slot ke-3 (indeks 2) adalah posisi bintang ★
+      const starWord = updated[2];
       const optIndex = q.options.indexOf(starWord);
       if (optIndex !== -1) {
         setUserAnswers(prev => ({ ...prev, [q.id]: optIndex }));
@@ -171,23 +197,25 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
     }
   };
 
-  // Putar Audio Choukai
-  const playAudioQuestion = (q: ExamQuestion) => {
-    if (!q.audioScript) return;
+  // Putar Audio Choukai dengan Nada Chime JLPT Asli
+  const playAudioQuestionWithChime = (q: ExamQuestion) => {
+    if (!q.audioScript || isPlayingAudio) return;
     setIsPlayingAudio(true);
-    speakJapanese(q.audioScript);
-    setTimeout(() => {
-      setIsPlayingAudio(false);
-    }, 4000);
+    
+    // Putar lonceng chime 4 nada khas JLPT terlebih dahulu, lalu bacakan soal
+    sound.playJlptChime(() => {
+      speakJapanese(q.audioScript!);
+      setTimeout(() => {
+        setIsPlayingAudio(false);
+      }, 5000);
+    });
   };
 
-  // Navigasi soal
   const handleNext = () => {
     sound.playClick();
     if (currentQuestionIdx < currentSection.questions.length - 1) {
       setCurrentQuestionIdx(prev => prev + 1);
     } else if (currentSectionIdx < activeSections.length - 1) {
-      // Pindah ke seksi berikutnya
       setCurrentSectionIdx(prev => prev + 1);
       setCurrentQuestionIdx(0);
     } else {
@@ -206,21 +234,19 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
     }
   };
 
-  // Selesaikan Ujian & Hitung Skor Resmi
   const finishExam = () => {
     setShowConfirmSubmit(false);
     setExamState('results');
     sound.playFanfare();
 
-    // Jalankan efek selebrasi
     confetti({
-      particleCount: 80,
-      spread: 70,
+      particleCount: 100,
+      spread: 80,
       origin: { y: 0.6 }
     });
   };
 
-  // Kalkulasi Skor
+  // Hitung Skor & Status Kelulusan Resmi
   const calculateResults = () => {
     let totalCorrect = 0;
     let totalQuestionsCount = 0;
@@ -255,9 +281,6 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
       sectionResults.reduce((acc, curr) => acc + curr.score, 0)
     );
 
-    // Kriteria kelulusan resmi JLPT / JFT:
-    // 1. Total score >= passingScore
-    // 2. Setiap seksi harus lulus ambang batas gugur (sectional pass marks)
     const passedAllSections = sectionResults.every(s => s.passed);
     const passedTotal = scaledTotalScore >= selectedPackage.passingScore;
     const isOverallPassed = passedAllSections && passedTotal;
@@ -274,28 +297,28 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
   };
 
   // =========================================================================
-  // VIEW 1: SELECTION MENU (PILIH PAKET JLPT N5, N4, JFT-A2)
+  // VIEW 1: SELECTION MENU (KATALOG PAKET UJIAN)
   // =========================================================================
   if (examState === 'selection') {
     return (
       <div className="space-y-8 text-left pb-16">
         
-        {/* Header Hero Banner */}
+        {/* Banner Hero */}
         <div className="relative overflow-hidden rounded-3xl border border-[#8FB4E3]/25 shadow-[0_20px_60px_-15px_rgba(12,27,51,0.9),0_0_40px_rgba(143,180,227,0.12)] bg-gradient-to-br from-[#0C1B33] via-[#16294A] to-[#1F3760] p-6 sm:p-10">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16294A]/80 border border-[#8FB4E3]/30 text-[#8FB4E3] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(143,180,227,0.2)]">
                 <ShieldCheck className="w-4 h-4 text-[#8FB4E3]" />
-                Simulasi Ujian Resmi Standar Japan Foundation & JEES
+                Simulasi Ujian Otentik 1:1 Sesuai Lembar Asli
               </div>
 
               <h1 className="text-3xl sm:text-4xl font-black text-[#EEF1F6] tracking-tight font-['Manrope'] flex items-center gap-3">
                 <Award className="w-8 h-8 text-[#8FB4E3]" />
-                Simulasi Ujian JLPT & JFT-Basic
+                Simulasi Resmi JLPT & JFT-Basic
               </h1>
 
               <p className="text-[#CBD8EC] text-sm sm:text-base leading-relaxed max-w-2xl">
-                Uji kesiapan sertifikasi bahasa Jepang Anda dengan format 100% autentik sesuai lembar ujian resmi. Dilengkapi sistem timer resmi hitung mundur, soal susun kalimat posisi bintang ★, audio choukai natural, kriteria kelulusan resmi, dan pembahasan komprehensif.
+                Pengalaman ujian persis seperti aslinya: format buku soal resmi (問題冊子), lembar jawaban pensil 2B (マークシート), soal susun bintang ★, audio choukai dengan lonceng chime JLPT resmi, hingga antarmuka CBT Prometric resmi untuk JFT-Basic.
               </p>
             </div>
 
@@ -311,7 +334,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
           </div>
         </div>
 
-        {/* Exam Packages Grid */}
+        {/* Exam Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {JLPT_EXAM_PACKAGES.map((pkg) => (
             <div
@@ -351,13 +374,13 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                 {/* Seksi Details */}
                 <div className="space-y-2 pt-3 border-t border-[#8FB4E3]/15">
                   <span className="text-[11px] font-bold text-[#8793A8] uppercase tracking-wider block">
-                    Cakupan Seksi Ujian:
+                    Seksi Lembar Ujian:
                   </span>
                   <div className="space-y-1.5">
-                    {pkg.sections.map((sec, idx) => (
+                    {pkg.sections.map((sec) => (
                       <div 
                         key={sec.id}
-                        className="flex items-center justify-between text-xs p-2 rounded-xl bg-[#0C1B33]/60 border border-[#8FB4E3]/15"
+                        className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-[#0C1B33]/60 border border-[#8FB4E3]/15"
                       >
                         <span className="font-bold text-[#EEF1F6] flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#8FB4E3]" />
@@ -373,7 +396,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
                 {/* Syarat Kelulusan */}
                 <div className="p-3 rounded-xl bg-[#0C1B33]/80 border border-[#8FB4E3]/20 flex items-center justify-between text-xs">
-                  <span className="text-[#8793A8] font-medium">Passing Mark:</span>
+                  <span className="text-[#8793A8] font-medium">Syarat Kelulusan:</span>
                   <span className="font-bold text-emerald-400 font-mono">
                     Minimal {pkg.passingScore} / {pkg.maxScore} Poin
                   </span>
@@ -381,32 +404,25 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-6 pt-4 border-t border-[#8FB4E3]/15 space-y-2">
+              <div className="mt-6 pt-4 border-t border-[#8FB4E3]/15 space-y-2.5">
                 <button
-                  onClick={() => startExam(pkg, 'full')}
-                  className="w-full py-3 px-4 rounded-xl font-bold text-sm text-[#0C1B33] bg-gradient-to-r from-[#EEF1F6] to-[#8FB4E3] hover:brightness-110 shadow-md transition-all flex items-center justify-center gap-2 active:scale-95"
+                  onClick={() => openExamCover(pkg, 'full')}
+                  className="w-full py-3.5 px-4 rounded-xl font-black text-sm text-[#0C1B33] bg-gradient-to-r from-[#EEF1F6] to-[#8FB4E3] hover:brightness-110 shadow-md transition-all flex items-center justify-center gap-2 active:scale-95"
                 >
-                  <Award className="w-4 h-4" />
-                  <span>Mulai Simulasi Penuh ({pkg.totalTimeMinutes} Menit)</span>
+                  <FileText className="w-4 h-4" />
+                  <span>Buka Lembar Ujian Resmi ({pkg.totalTimeMinutes} Menit)</span>
                 </button>
 
-                {/* Section Quick Drill */}
-                <div className="pt-1">
-                  <span className="text-[10px] text-[#8793A8] font-bold uppercase tracking-wider block text-center mb-1.5">
-                    Atau Latihan Per Seksi:
-                  </span>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    {pkg.sections.map((sec, sIdx) => (
-                      <button
-                        key={sec.id}
-                        onClick={() => startExam(pkg, 'section', sIdx)}
-                        className="py-1.5 px-2 rounded-lg bg-[#0C1B33] hover:bg-[#1F3760] text-[11px] font-bold text-[#CBD8EC] hover:text-[#EEF1F6] border border-[#8FB4E3]/20 transition-colors truncate text-center"
-                        title={sec.title}
-                      >
-                        {sec.title}
-                      </button>
-                    ))}
-                  </div>
+                <div className="grid grid-cols-2 gap-1.5 pt-1">
+                  {pkg.sections.map((sec, sIdx) => (
+                    <button
+                      key={sec.id}
+                      onClick={() => openExamCover(pkg, 'section', sIdx)}
+                      className="py-1.5 px-2 rounded-lg bg-[#0C1B33] hover:bg-[#1F3760] text-[11px] font-bold text-[#CBD8EC] hover:text-[#EEF1F6] border border-[#8FB4E3]/20 transition-colors truncate text-center"
+                    >
+                      {sec.title}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
@@ -418,7 +434,144 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
   }
 
   // =========================================================================
-  // VIEW 2: RUNNING EXAM (SIMULASI SEDANG BERJALAN)
+  // VIEW 2: AUTHENTIC TEST BOOKLET COVER (SAMPUL RESMI SEBELUM UJIAN DIMULAI)
+  // =========================================================================
+  if (examState === 'cover') {
+    const isJft = selectedPackage.id === 'JFT_BASIC_A2';
+
+    return (
+      <div className="max-w-3xl mx-auto space-y-6 text-left pb-16 animate-fade-in">
+        
+        {/* Back button */}
+        <button
+          onClick={() => setExamState('selection')}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#EEF1F6] text-xs font-bold border border-[#8FB4E3]/25 transition-all shadow-xs"
+        >
+          <ArrowLeft className="w-4 h-4 text-[#8FB4E3]" />
+          <span>Kembali ke Pilihan Paket</span>
+        </button>
+
+        {/* Sampul Ujian Otentik (Kertas Booklet JLPT / CBT Cover) */}
+        <div className={`p-8 sm:p-12 rounded-3xl border-4 shadow-2xl transition-all ${
+          uiTheme === 'paper' 
+            ? 'bg-[#F9F7F1] text-[#1E1E1E] border-[#2A2A2A]' 
+            : 'bg-[#16294A] text-[#EEF1F6] border-[#8FB4E3]/40'
+        }`}>
+          
+          {/* Header Lembaga Resmi */}
+          <div className="text-center space-y-2 pb-6 border-b-2 border-current">
+            <span className="text-xs font-black tracking-widest uppercase font-mono block">
+              {isJft 
+                ? 'THE JAPAN FOUNDATION · PROMETRIC TESTING SYSTEM'
+                : '独立行政法人 国際交流基金 / 公益財団法人 日本国際教育支援協会'}
+            </span>
+            <h1 className="text-2xl sm:text-4xl font-black font-['Noto_Serif_JP',serif] tracking-tight">
+              {isJft 
+                ? 'JFT-Basic 国際交流基金日本語基礎テスト'
+                : '日本語能力試験 · JAPANESE-LANGUAGE PROFICIENCY TEST'}
+            </h1>
+            <div className="inline-block px-4 py-1 rounded-md border-2 border-current font-mono font-black text-lg sm:text-xl mt-1">
+              LEVEL {selectedPackage.level} · {examMode === 'full' ? '全セクション (FULL EXAM)' : activeSections[0].japaneseTitle}
+            </div>
+          </div>
+
+          {/* Kotak Identitas Peserta Resmi */}
+          <div className="my-6 p-5 rounded-xl border-2 border-current space-y-3 font-mono">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-current/30 pb-2">
+              <span className="text-xs font-bold">受験番号 (REGISTRATION NO.):</span>
+              <span className="text-base font-black tracking-widest bg-black/5 dark:bg-white/10 px-3 py-1 rounded border border-current">
+                {examineeNumber}
+              </span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span className="text-xs font-bold">氏名 (EXAMINEE NAME):</span>
+              <span className="text-base font-black tracking-wider uppercase">
+                {examineeName}
+              </span>
+            </div>
+          </div>
+
+          {/* 受験上の注意 (Petunjuk Resmi Peserta) */}
+          <div className="space-y-3 text-xs leading-relaxed">
+            <h3 className="font-black text-sm uppercase tracking-wider border-b border-current/30 pb-1">
+              受験上の注意 (Petunjuk Penting Pelaksanaan Ujian):
+            </h3>
+            <ol className="list-decimal list-inside space-y-2 font-medium">
+              <li>
+                <strong>試験が 始まるまで、問題用紙を めくってはいけません。</strong>
+                <span className="block pl-5 text-[11px] opacity-80">
+                  (Jangan membuka halaman soal sebelum tombol "Mulai Ujian" di bawah ditekan).
+                </span>
+              </li>
+              <li>
+                <strong>解答用紙（マークシート）には、えんぴつで 濃く マークして ください。</strong>
+                <span className="block pl-5 text-[11px] opacity-80">
+                  (Gunakan pensil untuk menghitamkan bulatan jawaban pada lembar jawaban マークシート).
+                </span>
+              </li>
+              <li>
+                <strong>試験時間は {examMode === 'full' ? selectedPackage.totalTimeMinutes : activeSections[0].timeLimitMinutes} 分です。</strong>
+                <span className="block pl-5 text-[11px] opacity-80">
+                  (Durasi ujian resmi: {examMode === 'full' ? selectedPackage.totalTimeMinutes : activeSections[0].timeLimitMinutes} menit. Waktu akan dihitung mundur secara otomatis).
+                </span>
+              </li>
+              <li>
+                <strong>聴解（リスニング）では、チャイム音の あとに 音声が 流れます。</strong>
+                <span className="block pl-5 text-[11px] opacity-80">
+                  (Pada seksi mendengar, audio percakapan didahului bunyi lonceng chime resmi JLPT).
+                </span>
+              </li>
+            </ol>
+          </div>
+
+          {/* Theme switcher toggle */}
+          <div className="mt-8 pt-4 border-t border-current/20 flex flex-wrap items-center justify-between gap-3 text-xs">
+            <span className="font-bold">Pilih Tampilan Simulasi:</span>
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={() => setUiTheme('paper')}
+                className={`px-3 py-1.5 rounded-lg border font-bold flex items-center gap-1.5 ${
+                  uiTheme === 'paper' 
+                    ? 'bg-black text-white border-black' 
+                    : 'bg-white/80 text-black border-black/30'
+                }`}
+              >
+                <Printer className="w-3.5 h-3.5" />
+                <span>Lembar Kertas JLPT</span>
+              </button>
+              <button
+                onClick={() => setUiTheme('cbt')}
+                className={`px-3 py-1.5 rounded-lg border font-bold flex items-center gap-1.5 ${
+                  uiTheme === 'cbt' 
+                    ? 'bg-[#1F3760] text-white border-[#8FB4E3]' 
+                    : 'bg-white/80 text-black border-black/30'
+                }`}
+              >
+                <Monitor className="w-3.5 h-3.5" />
+                <span>Prometric CBT</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Tombol Mulai */}
+          <div className="mt-8 pt-6 border-t-2 border-current text-center">
+            <button
+              onClick={startExamFromCover}
+              className="w-full sm:w-auto px-10 py-4 rounded-2xl font-black text-base text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:brightness-110 shadow-xl transition-all transform active:scale-95 flex items-center justify-center gap-3 mx-auto"
+            >
+              <Check className="w-5 h-5" />
+              <span>試験を始める · MULAI MENGERJAKAN UJIAN</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    );
+  }
+
+  // =========================================================================
+  // VIEW 3: RUNNING EXAM (TAMPILAN LEMBAR SOAL & LEMBAR JAWABAN PERSIS ASLINYA)
   // =========================================================================
   if (examState === 'running') {
     const isWarningTime = timeRemainingSeconds <= 300 && timeRemainingSeconds > 0;
@@ -427,38 +580,41 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
     const isCurrentQuestionFlagged = !!flaggedQuestions[currentQuestion.id];
     const currentChosenOption = userAnswers[currentQuestion.id];
 
+    // Cek apakah soal ini adalah soal pertama dalam Mondai untuk menampilkan contoh （れい）
+    const isFirstQuestionInMondai = currentQuestionIdx === 0 || 
+      allQuestionsInSection[currentQuestionIdx - 1]?.mondaiNumber !== currentQuestion.mondaiNumber;
+
     return (
-      <div className="space-y-6 text-left pb-16 max-w-6xl mx-auto">
+      <div className="space-y-6 text-left pb-16 max-w-6xl mx-auto animate-fade-in">
         
-        {/* Top Control Bar: Paket Title, Timer, Status */}
-        <div className="sticky top-20 z-30 p-4 rounded-2xl bg-[#0C1B33]/95 backdrop-blur-xl border border-[#8FB4E3]/30 shadow-2xl flex flex-wrap items-center justify-between gap-4">
+        {/* Top Control Bar: CBT / Paper Header */}
+        <div className={`p-4 rounded-2xl border shadow-xl flex flex-wrap items-center justify-between gap-4 transition-all ${
+          uiTheme === 'paper'
+            ? 'bg-[#F9F7F1] text-[#1E1E1E] border-[#2A2A2A]/40'
+            : 'bg-[#16294A] text-[#EEF1F6] border-[#8FB4E3]/30'
+        }`}>
           <div className="flex items-center gap-3">
-            <span 
-              className="px-2.5 py-1 rounded-lg text-xs font-black font-mono uppercase border"
-              style={{ 
-                color: selectedPackage.badgeColor,
-                backgroundColor: `${selectedPackage.badgeColor}15`,
-                borderColor: `${selectedPackage.badgeColor}40`
-              }}
-            >
-              {selectedPackage.level}
+            <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-black border uppercase">
+              {selectedPackage.level} · {currentSection.title}
             </span>
-            <div>
-              <h2 className="text-sm sm:text-base font-black text-[#EEF1F6] font-['Manrope']">
-                {selectedPackage.title}
-              </h2>
-              <span className="text-xs font-bold text-[#8FB4E3]">
-                {currentSection.japaneseTitle} ({currentSection.title})
+            <div className="hidden sm:block">
+              <span className="text-xs font-bold block">
+                受験番号: {examineeNumber}
+              </span>
+              <span className="text-[11px] opacity-75">
+                {currentSection.japaneseTitle}
               </span>
             </div>
           </div>
 
-          {/* Timer Display */}
-          <div className="flex items-center gap-3">
-            <div className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl border font-mono font-black text-sm sm:text-base transition-colors ${
+          {/* Countdown Timer Resmi */}
+          <div className="flex items-center gap-2.5">
+            <div className={`flex items-center gap-2 px-4 py-1.5 rounded-xl border font-mono font-black text-base shadow-inner ${
               isWarningTime 
-                ? 'bg-rose-500/20 border-rose-500/50 text-rose-300 animate-pulse'
-                : 'bg-[#16294A] border-[#8FB4E3]/30 text-[#8FB4E3]'
+                ? 'bg-rose-500/20 border-rose-500 text-rose-600 animate-pulse'
+                : uiTheme === 'paper' 
+                  ? 'bg-white border-[#2A2A2A]/40 text-[#1E1E1E]' 
+                  : 'bg-[#0C1B33] border-[#8FB4E3]/30 text-[#8FB4E3]'
             }`}>
               <Clock className="w-4 h-4" />
               <span>{formatTime(timeRemainingSeconds)}</span>
@@ -466,156 +622,175 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
             <button
               onClick={() => setIsTimerPaused(!isTimerPaused)}
-              className="p-2 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/25 transition-colors"
-              title={isTimerPaused ? "Lanjutkan Timer" : "Jeda Timer"}
+              className="p-2 rounded-xl border transition-colors bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10"
+              title={isTimerPaused ? "Lanjutkan" : "Jeda"}
             >
-              {isTimerPaused ? <Play className="w-4 h-4 text-emerald-400" /> : <Pause className="w-4 h-4" />}
+              {isTimerPaused ? <Play className="w-4 h-4 text-emerald-500" /> : <Pause className="w-4 h-4" />}
+            </button>
+
+            {/* Tombol Mark Sheet (OMR) toggle di mobile */}
+            <button
+              onClick={() => setShowMarkSheetModal(!showMarkSheetModal)}
+              className="lg:hidden px-3 py-1.5 rounded-xl border font-mono text-xs font-bold bg-amber-400/20 text-amber-700 dark:text-amber-300 border-amber-400/40"
+            >
+              マークシート
             </button>
 
             <button
               onClick={() => setShowConfirmSubmit(true)}
-              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white text-xs font-bold shadow-md transition-all"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white text-xs font-bold shadow-md transition-all"
             >
               Kumpulkan
             </button>
           </div>
         </div>
 
-        {/* Section Tabs (if full exam mode) */}
-        {examMode === 'full' && (
-          <div className="flex items-center gap-2 p-1.5 bg-[#16294A] rounded-2xl border border-[#8FB4E3]/20 overflow-x-auto">
-            {activeSections.map((sec, idx) => (
-              <button
-                key={sec.id}
-                onClick={() => {
-                  sound.playClick();
-                  setCurrentSectionIdx(idx);
-                  setCurrentQuestionIdx(0);
-                }}
-                className={`py-2 px-4 rounded-xl text-xs font-bold shrink-0 transition-all ${
-                  currentSectionIdx === idx
-                    ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-xs'
-                    : 'text-[#8793A8] hover:text-[#EEF1F6]'
-                }`}
-              >
-                {sec.title} ({sec.questions.length} Soal)
-              </button>
-            ))}
-          </div>
-        )}
-
-        {/* Main Grid: Soal (Kiri) & Palet Navigasi (Kanan) */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+        {/* Layout Grid: Lembar Soal (Kiri) & Lembar Jawaban マークシート (Kanan) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           
-          {/* KOLOM KIRI (3/4): SOAL */}
-          <div className="lg:col-span-3 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/25 p-6 sm:p-8 space-y-6 shadow-[0_4px_24px_rgba(12,27,51,0.5)]">
+          {/* KOLOM KIRI (8 Kolom): LEMBAR SOAL UJIAN ASLI */}
+          <div className={`lg:col-span-8 rounded-3xl border-2 p-6 sm:p-9 space-y-6 shadow-2xl transition-all ${
+            uiTheme === 'paper'
+              ? 'bg-[#FCFAF5] text-[#1E1E1E] border-[#2A2A2A]/40'
+              : 'bg-[#16294A] text-[#EEF1F6] border-[#8FB4E3]/30'
+          }`}>
             
-            {/* Mondai Title & Header Soal */}
-            <div className="space-y-2 pb-4 border-b border-[#8FB4E3]/15">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-[#8FB4E3] uppercase tracking-wider">
-                  Mondai {currentQuestion.mondaiNumber} · Soal #{currentQuestion.questionNumber}
+            {/* Header Mondai */}
+            <div className="space-y-3 pb-4 border-b-2 border-current/20">
+              <div className="flex items-center justify-between text-xs font-mono font-bold">
+                <span className="uppercase tracking-widest">
+                  {currentSection.japaneseTitle} · 問題 {currentQuestion.mondaiNumber}
                 </span>
 
                 <button
                   onClick={() => toggleFlagQuestion(currentQuestion.id)}
                   className={`flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold transition-all border ${
                     isCurrentQuestionFlagged
-                      ? 'bg-amber-400/20 border-amber-400/50 text-amber-300'
-                      : 'bg-[#0C1B33]/60 border-[#8FB4E3]/20 text-[#8793A8] hover:text-[#EEF1F6]'
+                      ? 'bg-amber-400/20 border-amber-400 text-amber-600 dark:text-amber-300'
+                      : 'border-current/20 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <Bookmark className={`w-3.5 h-3.5 ${isCurrentQuestionFlagged ? 'fill-amber-400' : ''}`} />
-                  <span>{isCurrentQuestionFlagged ? 'Ditandai Ragu' : 'Tandai Ragu-ragu'}</span>
+                  <Bookmark className={`w-3.5 h-3.5 ${isCurrentQuestionFlagged ? 'fill-current' : ''}`} />
+                  <span>{isCurrentQuestionFlagged ? '後で確認 (Ditandai)' : '後で確認 (Tandai)'}</span>
                 </button>
               </div>
 
-              <p className="text-xs sm:text-sm font-semibold text-[#8FB4E3] japanese-text leading-relaxed">
+              {/* Teks Instruksi Soal Resmi */}
+              <p className="text-sm sm:text-base font-bold japanese-text leading-relaxed">
                 {currentQuestion.mondaiTitle}
               </p>
+
+              {/* CONTOH SOAL RESMI （れい） PADA SETIAP AWAL MONDAI */}
+              {isFirstQuestionInMondai && (
+                <div className="p-4 rounded-2xl border border-dashed border-current/30 bg-black/[0.02] dark:bg-white/[0.02] space-y-2 text-xs">
+                  <span className="font-black font-mono px-2 py-0.5 rounded bg-black/10 dark:bg-white/10 inline-block">
+                    （れい） Contoh Soal Resmi
+                  </span>
+                  <p className="font-bold japanese-text text-sm">
+                    きのう、<u>友だち</u>に 会いました。
+                  </p>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono font-bold">
+                    <span>① ともだち</span>
+                    <span>② きょうだい</span>
+                    <span>③ かぞく</span>
+                    <span>④ せんせい</span>
+                  </div>
+                  <div className="text-[11px] opacity-80 pt-1 border-t border-current/10">
+                    正しい 答えは ①ですから、解答用紙の ①を 黒く マークします。
+                    <span className="inline-flex items-center gap-1 ml-2 font-mono font-black">
+                      [れい] ● ② ③ ④
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Jika ada Dokkai (Wacana Bacaan) */}
+            {/* Dokkai / Wacana Bacaan Resmi */}
             {currentQuestion.passageText && (
-              <div className="p-5 sm:p-6 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/30 space-y-2 shadow-inner">
-                <span className="text-xs font-mono font-black text-[#8FB4E3] uppercase tracking-wider block mb-1">
-                  [ Wacana Bacaan Dokkai ]
+              <div className="p-6 rounded-2xl border-2 border-current/30 bg-white/60 dark:bg-[#0C1B33]/80 space-y-2 shadow-inner">
+                <span className="text-xs font-mono font-black uppercase tracking-wider block mb-1">
+                  【 読解本文 · TEKS WACANA 】
                 </span>
-                <p className="text-base sm:text-lg font-medium text-[#EEF1F6] japanese-text leading-relaxed whitespace-pre-line">
+                <p className="text-base sm:text-lg font-medium japanese-text leading-loose whitespace-pre-line">
                   {currentQuestion.passageText}
                 </p>
               </div>
             )}
 
-            {/* Jika ada Choukai (Mendengarkan Audio) */}
+            {/* Choukai / Audio Mendengarkan dengan Chime Lonceng */}
             {currentQuestion.audioScript && (
-              <div className="p-5 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/30 space-y-3 shadow-inner">
+              <div className="p-5 rounded-2xl border-2 border-current/30 bg-white/60 dark:bg-[#0C1B33]/80 space-y-3 shadow-inner">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="text-xs font-mono font-black uppercase tracking-wider flex items-center gap-1.5">
                     <Headphones className="w-4 h-4" />
-                    Audio Percakapan Choukai
+                    聴解音声 · AUDIO PERCAKAPAN
                   </span>
-                  <span className="text-[11px] text-[#8793A8] italic">
-                    Dengarkan audio sebelum menjawab
+                  <span className="text-[11px] opacity-75 italic">
+                    Didahului bunyi lonceng chime JLPT resmi
                   </span>
                 </div>
 
                 {currentQuestion.audioSituation && (
-                  <p className="text-xs font-semibold text-[#CBD8EC] italic">
+                  <p className="text-xs font-semibold italic opacity-90">
                     {currentQuestion.audioSituation}
                   </p>
                 )}
 
                 <button
-                  onClick={() => playAudioQuestion(currentQuestion)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] text-xs sm:text-sm font-bold border border-[#8FB4E3]/40 shadow-md transition-all active:scale-95"
+                  onClick={() => playAudioQuestionWithChime(currentQuestion)}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] text-white text-xs sm:text-sm font-bold shadow-md hover:brightness-110 active:scale-95 transition-all"
                 >
-                  <Volume2 className={`w-4 h-4 text-[#8FB4E3] ${isPlayingAudio ? 'animate-bounce' : ''}`} />
-                  <span>{isPlayingAudio ? 'Memutar Audio Percakapan...' : 'Putar Audio Soal (Dengarkan)'}</span>
+                  <Volume2 className={`w-4 h-4 ${isPlayingAudio ? 'animate-bounce text-[#8FB4E3]' : ''}`} />
+                  <span>{isPlayingAudio ? 'Memutar Audio Percakapan...' : 'Putar Audio Soal (Dengarkan Chime)'}</span>
                 </button>
               </div>
             )}
 
-            {/* Teks Pertanyaan Utama */}
-            <div className="space-y-3">
-              <h3 
-                className="text-xl sm:text-2xl font-bold text-[#EEF1F6] japanese-text leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: currentQuestion.questionText }}
-              />
+            {/* Pertanyaan Nomor Soal */}
+            <div className="space-y-4 pt-2">
+              <div className="flex items-baseline gap-2">
+                <span className="font-mono font-black text-lg sm:text-xl">
+                  問{currentQuestion.questionNumber}
+                </span>
+                <h3 
+                  className="text-xl sm:text-2xl font-bold japanese-text leading-relaxed flex-1"
+                  dangerouslySetInnerHTML={{ __html: currentQuestion.questionText }}
+                />
+              </div>
 
-              {/* INTERAKTIF: Soal Susun Bintang ★ */}
+              {/* Soal Susun Bintang Interaktif ★ */}
               {currentQuestion.isStarQuestion && currentQuestion.starSlots && (
-                <div className="p-4 rounded-2xl bg-[#0C1B33]/70 border border-[#8FB4E3]/25 space-y-3">
-                  <span className="text-xs font-bold text-[#8FB4E3] block">
-                    Klik kata di bawah untuk menyusun urutan kalimat (posisi ke-3 adalah bintang ★):
+                <div className="p-4 rounded-2xl border-2 border-dashed border-current/40 bg-black/[0.02] dark:bg-white/[0.02] space-y-3">
+                  <span className="text-xs font-bold block">
+                    Susun 4 kata berikut (posisi ke-3 bertanda ★ adalah jawaban soal):
                   </span>
 
-                  {/* Slot Urutan */}
+                  {/* 4 Slot Kalimat */}
                   <div className="flex items-center gap-2">
                     {[0, 1, 2, 3].map((slotIdx) => {
                       const wordAtSlot = (starArrangements[currentQuestion.id] || [])[slotIdx];
-                      const isStarSlot = slotIdx === 2;
+                      const isStar = slotIdx === 2;
                       return (
                         <div
                           key={slotIdx}
-                          className={`flex-1 py-2.5 px-2 rounded-xl text-center border text-xs sm:text-sm font-bold transition-all ${
-                            isStarSlot 
-                              ? 'border-amber-400 bg-amber-400/10 text-amber-300 ring-2 ring-amber-400/30'
-                              : 'border-[#8FB4E3]/30 bg-[#16294A] text-[#EEF1F6]'
+                          className={`flex-1 py-3 px-2 rounded-xl text-center border-2 text-xs sm:text-sm font-bold transition-all ${
+                            isStar
+                              ? 'border-amber-400 bg-amber-400/20 text-amber-700 dark:text-amber-300 ring-2 ring-amber-400/40'
+                              : 'border-current/30 bg-white/50 dark:bg-white/5'
                           }`}
                         >
-                          <span className="block text-[10px] text-[#8793A8] font-mono">
-                            {isStarSlot ? '★ Posisi Bintang' : `Slot ${slotIdx + 1}`}
+                          <span className="block text-[10px] font-mono opacity-70">
+                            {isStar ? '★ (Bintang)' : `[${slotIdx + 1}]`}
                           </span>
-                          <span className="japanese-text font-bold block truncate">
-                            {wordAtSlot || '___'}
+                          <span className="japanese-text font-bold block truncate mt-0.5">
+                            {wordAtSlot || '＿＿'}
                           </span>
                         </div>
                       );
                     })}
                   </div>
 
-                  {/* Pilihan Kata untuk Diklik */}
+                  {/* Pilihan Kata Bintang */}
                   <div className="flex flex-wrap gap-2 pt-1">
                     {currentQuestion.starSlots.map((word, wIdx) => {
                       const isUsed = (starArrangements[currentQuestion.id] || []).includes(word);
@@ -625,8 +800,8 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                           onClick={() => handleStarChoiceClick(currentQuestion, word)}
                           className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
                             isUsed 
-                              ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300'
-                              : 'bg-[#1F3760] hover:bg-[#274474] text-[#EEF1F6] border-[#8FB4E3]/30'
+                              ? 'bg-emerald-500/20 border-emerald-500 text-emerald-700 dark:text-emerald-300'
+                              : 'bg-white/80 dark:bg-[#1F3760] border-current/30 hover:border-current'
                           }`}
                         >
                           {word} {isUsed ? '✓' : '+'}
@@ -636,32 +811,23 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                   </div>
                 </div>
               )}
-            </div>
 
-            {/* Pilihan Jawaban 1, 2, 3, 4 */}
-            <div className="space-y-3 pt-2">
-              <span className="text-xs font-bold text-[#8793A8] uppercase tracking-wider block">
-                Pilihan Jawaban:
-              </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {/* Pilihan Ganda Resmi ① ② ③ ④ */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {currentQuestion.options.map((opt, optIdx) => {
                   const isSelected = currentChosenOption === optIdx;
                   return (
                     <button
                       key={optIdx}
                       onClick={() => handleSelectAnswer(currentQuestion.id, optIdx)}
-                      className={`p-4 rounded-2xl text-left border transition-all flex items-start gap-3.5 ${
+                      className={`p-4 rounded-2xl text-left border-2 transition-all flex items-start gap-3 ${
                         isSelected
-                          ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] border-[#8FB4E3] text-[#EEF1F6] shadow-[0_0_20px_rgba(143,180,227,0.3)] ring-2 ring-[#8FB4E3]/50 scale-[1.01]'
-                          : 'bg-[#0C1B33]/60 hover:bg-[#0C1B33] border-[#8FB4E3]/20 text-[#CBD8EC] hover:border-[#8FB4E3]/40'
+                          ? 'border-current bg-black/10 dark:bg-white/10 ring-2 ring-current font-black scale-[1.01]'
+                          : 'border-current/20 hover:border-current/50 bg-black/[0.01] dark:bg-white/[0.02]'
                       }`}
                     >
-                      <span className={`w-7 h-7 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 font-mono ${
-                        isSelected 
-                          ? 'bg-[#8FB4E3] text-[#0C1B33]'
-                          : 'bg-[#16294A] text-[#8FB4E3] border border-[#8FB4E3]/30'
-                      }`}>
-                        {optIdx + 1}
+                      <span className="w-7 h-7 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 font-mono border border-current">
+                        {uiTheme === 'cbt' ? CBT_LETTERS[optIdx] : CIRCLED_NUMBERS[optIdx]}
                       </span>
                       <span className="text-base sm:text-lg font-bold japanese-text leading-relaxed flex-1">
                         {opt}
@@ -672,113 +838,186 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
               </div>
             </div>
 
-            {/* Navigasi Soal Bawah */}
-            <div className="mt-8 pt-4 border-t border-[#8FB4E3]/20 flex items-center justify-between">
+            {/* Navigasi Bawah */}
+            <div className="mt-8 pt-4 border-t-2 border-current/20 flex items-center justify-between">
               <button
                 onClick={handlePrev}
                 disabled={currentQuestionIdx === 0 && currentSectionIdx === 0}
-                className="px-4 py-2.5 rounded-xl bg-[#0C1B33] hover:bg-[#1F3760] disabled:opacity-40 disabled:hover:bg-[#0C1B33] text-[#EEF1F6] text-xs font-bold border border-[#8FB4E3]/20 transition-all flex items-center gap-2"
+                className="px-4 py-2.5 rounded-xl border border-current/30 hover:border-current disabled:opacity-30 text-xs font-bold transition-all flex items-center gap-2"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>Sebelumnya</span>
+                <span>前の問題 (Sebelumnya)</span>
               </button>
 
-              <span className="text-xs font-mono font-bold text-[#8FB4E3]">
-                {currentQuestionIdx + 1} / {allQuestionsInSection.length}
+              <span className="text-xs font-mono font-bold">
+                問 {currentQuestionIdx + 1} / {allQuestionsInSection.length}
               </span>
 
               <button
                 onClick={handleNext}
-                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] text-xs font-bold border border-[#8FB4E3]/40 shadow-xs transition-all flex items-center gap-2"
+                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] text-white text-xs font-bold shadow-md hover:brightness-110 transition-all flex items-center gap-2"
               >
-                <span>{currentQuestionIdx < allQuestionsInSection.length - 1 ? 'Berikutnya' : 'Selesai'}</span>
+                <span>{currentQuestionIdx < allQuestionsInSection.length - 1 ? '次の問題 (Berikutnya)' : '終了 (Kumpulkan)'}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
+
           </div>
 
-          {/* KOLOM KANAN (1/4): PALET NOMOR SOAL */}
-          <div className="lg:col-span-1 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/25 p-5 space-y-4 shadow-[0_4px_24px_rgba(12,27,51,0.5)]">
-            <div className="space-y-1">
-              <h3 className="text-xs font-bold text-[#EEF1F6] uppercase tracking-wider font-mono">
-                Lembar Jawaban Soal
+          {/* KOLOM KANAN (4 Kolom): LEMBAR JAWABAN マークシート (OPTICAL MARK SHEET) */}
+          <div className="hidden lg:block lg:col-span-4 rounded-3xl border-2 border-dashed border-[#2A2A2A]/40 dark:border-[#8FB4E3]/30 bg-[#F4EFE6] dark:bg-[#16294A] p-5 space-y-4 shadow-xl text-[#1E1E1E] dark:text-[#EEF1F6]">
+            
+            {/* Header Lembar Jawaban */}
+            <div className="text-center pb-3 border-b-2 border-current/30 space-y-1">
+              <span className="text-[10px] font-black uppercase font-mono tracking-widest block opacity-75">
+                OPTICAL MARK READER SHEET
+              </span>
+              <h3 className="font-['Noto_Serif_JP',serif] font-black text-sm tracking-wider">
+                解答用紙（マークシート）
               </h3>
-              <p className="text-[11px] text-[#8793A8]">
-                {answeredCount} dari {currentSection.questions.length} soal terjawab
+              <p className="text-[10px] opacity-70">
+                Hitamkan bulatan pensil 2B untuk memilih jawaban
               </p>
             </div>
 
-            {/* Indikator Status Warna */}
-            <div className="flex flex-col gap-1.5 text-[10px] text-[#8793A8] font-medium pb-2 border-b border-[#8FB4E3]/15">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-md bg-[#8FB4E3] text-[#0C1B33] inline-block" />
-                <span>Sudah Terjawab</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-md bg-amber-400 inline-block" />
-                <span>Ditandai (Ragu-ragu)</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-md bg-[#0C1B33] border border-[#8FB4E3]/30 inline-block" />
-                <span>Belum Dijawab</span>
-              </div>
+            {/* Petunjuk Pengisian Pensil 2B */}
+            <div className="p-2.5 rounded-xl border border-current/20 bg-black/5 dark:bg-white/5 flex items-center justify-between text-[11px] font-mono">
+              <span>マーク例 (Contoh):</span>
+              <span className="font-bold flex items-center gap-1.5">
+                <span className="w-3.5 h-3.5 rounded-full bg-[#1E1E1E] dark:bg-[#EEF1F6] inline-block shadow-sm" /> 良い (Benar)
+                <span className="w-3.5 h-3.5 rounded-full border border-current inline-block ml-2" /> 悪い (Salah)
+              </span>
             </div>
 
-            {/* Matrix Palette Grid 1..N */}
-            <div className="grid grid-cols-5 gap-2 max-h-[360px] overflow-y-auto pr-1">
-              {currentSection.questions.map((q, idx) => {
-                const isAnswered = userAnswers[q.id] !== undefined;
+            {/* Kisi Mark Sheet 1..N */}
+            <div className="space-y-2 max-h-[440px] overflow-y-auto pr-1">
+              {allQuestionsInSection.map((q, idx) => {
+                const chosenOpt = userAnswers[q.id];
                 const isFlagged = !!flaggedQuestions[q.id];
                 const isCurrent = idx === currentQuestionIdx;
 
-                let btnBg = 'bg-[#0C1B33] text-[#8793A8] border-[#8FB4E3]/20';
-                if (isFlagged) {
-                  btnBg = 'bg-amber-400/30 text-amber-200 border-amber-400 font-black';
-                } else if (isAnswered) {
-                  btnBg = 'bg-[#8FB4E3] text-[#0C1B33] border-[#8FB4E3] font-black shadow-xs';
-                }
-
                 return (
-                  <button
+                  <div
                     key={q.id}
                     onClick={() => {
                       sound.playClick();
                       setCurrentQuestionIdx(idx);
                     }}
-                    className={`h-9 rounded-xl border text-xs font-mono font-bold flex items-center justify-center transition-all ${btnBg} ${
-                      isCurrent ? 'ring-2 ring-white scale-110 z-10' : 'hover:border-[#8FB4E3]'
+                    className={`p-2 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${
+                      isCurrent 
+                        ? 'border-current bg-black/10 dark:bg-white/10 ring-2 ring-current font-black' 
+                        : 'border-current/20 hover:border-current/50'
                     }`}
                   >
-                    {idx + 1}
-                  </button>
+                    <span className="text-xs font-mono font-bold w-12 flex items-center gap-1">
+                      問{q.questionNumber}
+                      {isFlagged && <span className="text-amber-500 font-black">★</span>}
+                    </span>
+
+                    {/* 4 Bulatan Pensil 2B (1) (2) (3) (4) */}
+                    <div className="flex items-center gap-2">
+                      {[0, 1, 2, 3].map((numIdx) => {
+                        const isShaded = chosenOpt === numIdx;
+                        return (
+                          <button
+                            key={numIdx}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSelectAnswer(q.id, numIdx);
+                            }}
+                            className={`w-7 h-7 rounded-full text-xs font-mono font-bold flex items-center justify-center transition-all ${
+                              isShaded
+                                ? 'bg-[#1E1E1E] dark:bg-[#EEF1F6] text-[#F4EFE6] dark:text-[#0C1B33] shadow-inner font-black scale-105'
+                                : 'border border-current hover:bg-black/10 dark:hover:bg-white/10 opacity-75'
+                            }`}
+                            title={`Jawaban ${numIdx + 1}`}
+                          >
+                            {numIdx + 1}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
                 );
               })}
             </div>
 
-            {/* Quick Submit Button */}
+            {/* Quick Submit */}
             <button
               onClick={() => setShowConfirmSubmit(true)}
-              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white text-xs font-bold transition-all shadow-md mt-2"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 transition-all mt-2"
             >
-              Kumpulkan Ujian
+              解答用紙を提出する · Kumpulkan Ujian
             </button>
           </div>
         </div>
 
-        {/* Modal Konfirmasi Submit */}
+        {/* Modal Lembar Jawaban untuk Layar Smartphone */}
+        {showMarkSheetModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in lg:hidden">
+            <div className="max-w-sm w-full rounded-3xl bg-[#F4EFE6] dark:bg-[#16294A] text-[#1E1E1E] dark:text-[#EEF1F6] p-6 space-y-4 shadow-2xl border-2 border-current">
+              <div className="flex items-center justify-between pb-2 border-b border-current/20">
+                <h3 className="font-black text-sm font-['Noto_Serif_JP',serif]">
+                  解答用紙（マークシート）
+                </h3>
+                <button
+                  onClick={() => setShowMarkSheetModal(false)}
+                  className="p-1 text-xs font-bold"
+                >
+                  ✕ Tutup
+                </button>
+              </div>
+
+              <div className="space-y-2 max-h-[350px] overflow-y-auto">
+                {allQuestionsInSection.map((q, idx) => {
+                  const chosenOpt = userAnswers[q.id];
+                  return (
+                    <div key={q.id} className="flex items-center justify-between p-2 rounded-xl border border-current/20">
+                      <span className="text-xs font-mono font-bold">問{q.questionNumber}</span>
+                      <div className="flex items-center gap-2">
+                        {[0, 1, 2, 3].map((numIdx) => (
+                          <button
+                            key={numIdx}
+                            onClick={() => handleSelectAnswer(q.id, numIdx)}
+                            className={`w-7 h-7 rounded-full text-xs font-mono font-bold flex items-center justify-center ${
+                              chosenOpt === numIdx 
+                                ? 'bg-current text-white dark:text-black font-black' 
+                                : 'border border-current'
+                            }`}
+                          >
+                            {numIdx + 1}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <button
+                onClick={() => setShowMarkSheetModal(false)}
+                className="w-full py-2.5 rounded-xl bg-black dark:bg-white text-white dark:text-black font-bold text-xs"
+              >
+                Selesai Mengisi
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Modal Konfirmasi Pengumpulan */}
         {showConfirmSubmit && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-            <div className="max-w-md w-full rounded-3xl bg-[#16294A] border border-[#8FB4E3]/40 p-6 sm:p-8 space-y-5 text-center shadow-2xl">
+            <div className="max-w-md w-full rounded-3xl bg-[#16294A] border border-[#8FB4E3]/40 p-6 sm:p-8 space-y-5 text-center shadow-2xl text-[#EEF1F6]">
               <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
 
               <div>
-                <h3 className="text-xl font-black text-[#EEF1F6] font-['Manrope']">
-                  Kumpulkan Lembar Jawaban?
+                <h3 className="text-xl font-black font-['Manrope']">
+                  試験を終了しますか？ (Kumpulkan Ujian?)
                 </h3>
                 <p className="text-xs text-[#CBD8EC] mt-1.5 leading-relaxed">
-                  Anda telah menjawab <span className="font-bold text-[#8FB4E3]">{answeredCount}</span> dari total <span className="font-bold text-[#EEF1F6]">{currentSection.questions.length}</span> soal. Apakah Anda yakin ingin menyelesaikan simulasi sekarang?
+                  Anda telah mengisi <span className="font-bold text-[#8FB4E3]">{answeredCount}</span> dari <span className="font-bold text-[#EEF1F6]">{currentSection.questions.length}</span> soal pada seksi ini. Lembar jawaban akan dievaluasi dengan sistem penilaian resmi JLPT / JFT.
                 </p>
               </div>
 
@@ -793,7 +1032,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                   onClick={finishExam}
                   className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white text-xs font-bold shadow-md transition-all"
                 >
-                  Ya, Selesaikan
+                  Kumpulkan Sekarang
                 </button>
               </div>
             </div>
@@ -805,7 +1044,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
   }
 
   // =========================================================================
-  // VIEW 3: EXAM RESULTS (HASIL & SKOR RESMI KELULUSAN)
+  // VIEW 4: OFFICIAL CERTIFICATE & SCORE REPORT (合否結果通知書 RESMI)
   // =========================================================================
   if (examState === 'results') {
     const res = calculateResults();
@@ -813,122 +1052,151 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
     return (
       <div className="space-y-8 text-left pb-16 max-w-4xl mx-auto animate-fade-in">
         
-        {/* Result Header Hero */}
-        <div className={`relative overflow-hidden rounded-3xl border p-8 sm:p-10 shadow-2xl text-center space-y-5 ${
-          res.isOverallPassed 
-            ? 'bg-gradient-to-br from-[#0C1B33] via-[#0F3025] to-[#16294A] border-emerald-500/40 shadow-emerald-500/10'
-            : 'bg-gradient-to-br from-[#0C1B33] via-[#2D1A25] to-[#16294A] border-rose-500/40 shadow-rose-500/10'
-        }`}>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider border">
-            {selectedPackage.title} · Hasil Resmi
-          </div>
-
-          <div>
-            <h1 className="text-5xl sm:text-6xl font-black font-['Manrope'] tracking-tight">
-              {res.isOverallPassed ? (
-                <span className="text-emerald-400">合格 · LULUS</span>
-              ) : (
-                <span className="text-rose-400">不合格 · BELUM LULUS</span>
-              )}
+        {/* Lembar Sertifikat Resmi (合否結果通知書 / Score Report) */}
+        <div className="relative overflow-hidden rounded-3xl border-4 border-[#2A2A2A] dark:border-[#8FB4E3]/40 bg-[#FCFAF5] dark:bg-[#16294A] text-[#1E1E1E] dark:text-[#EEF1F6] p-8 sm:p-12 shadow-2xl">
+          
+          {/* Header Sertifikat */}
+          <div className="text-center space-y-2 pb-6 border-b-2 border-current">
+            <span className="text-xs font-black uppercase font-mono tracking-widest opacity-80 block">
+              JAPANESE-LANGUAGE PROFICIENCY TEST · CERTIFICATE OF RESULTS AND SCORES
+            </span>
+            <h1 className="text-2xl sm:text-4xl font-black font-['Noto_Serif_JP',serif] tracking-tight">
+              日本語能力試験 · 合否結果通知書
             </h1>
-            <p className="text-sm sm:text-base text-[#CBD8EC] mt-2 max-w-lg mx-auto">
-              {res.isOverallPassed
-                ? 'Selamat! Anda telah memenuhi ambang batas total dan seluruh batas gugur seksi resmi.'
-                : 'Jangan berkecil hati. Analisis pembahasan di bawah untuk memperkuat bagian yang masih kurang.'}
+            <p className="text-xs font-mono font-bold opacity-75">
+              OFFICIAL EXAMINATION SCORE REPORT · ZENORA NIHONGO PLATFORM
             </p>
           </div>
 
-          {/* Nilai Utama */}
-          <div className="flex justify-center items-center gap-6 pt-2">
-            <div className="p-4 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/30 min-w-[140px]">
-              <span className="text-[11px] font-bold text-[#8793A8] uppercase tracking-wider block">Total Skor Resmi</span>
-              <span className="text-3xl sm:text-4xl font-black text-[#EEF1F6] font-mono">
-                {res.scaledTotalScore} <span className="text-base text-[#8FB4E3]">/ {res.maxScore}</span>
-              </span>
+          {/* Data Peserta */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 p-4 rounded-xl border border-current/20 text-xs font-mono">
+            <div>
+              <span className="opacity-70 block">氏名 (EXAMINEE NAME):</span>
+              <span className="font-black text-sm uppercase">{examineeName}</span>
             </div>
-
-            <div className="p-4 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/30 min-w-[140px]">
-              <span className="text-[11px] font-bold text-[#8793A8] uppercase tracking-wider block">Syarat Lulus</span>
-              <span className="text-3xl sm:text-4xl font-black text-emerald-400 font-mono">
-                ≥ {res.passingScore}
-              </span>
+            <div>
+              <span className="opacity-70 block">受験番号 (REGISTRATION NO.):</span>
+              <span className="font-black text-sm">{examineeNumber}</span>
+            </div>
+            <div>
+              <span className="opacity-70 block">受験レベル (LEVEL):</span>
+              <span className="font-black text-sm">{selectedPackage.level}</span>
+            </div>
+            <div>
+              <span className="opacity-70 block">試験区分 (EXAM TYPE):</span>
+              <span className="font-black text-sm">{selectedPackage.title}</span>
             </div>
           </div>
-        </div>
 
-        {/* Breakdown Skor per Seksi */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-black text-[#EEF1F6] font-['Manrope']">
-            Rincian Nilai per Seksi Ujian:
-          </h3>
+          {/* Stempel Cap Hanko Kelulusan Resmi (Hanko Merah Khas Jepang) */}
+          <div className="my-8 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl border-2 border-current/30 bg-black/[0.02] dark:bg-white/[0.02]">
+            <div className="space-y-1 text-center sm:text-left">
+              <span className="text-xs font-mono font-bold opacity-75 block">
+                総合合否判定 (OFFICIAL RESULT DECISION):
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-black font-['Noto_Serif_JP',serif] tracking-tight">
+                {res.isOverallPassed ? (
+                  <span className="text-emerald-600 dark:text-emerald-400">合 格 (PASSED)</span>
+                ) : (
+                  <span className="text-rose-600 dark:text-rose-400">不 合 格 (FAILED)</span>
+                )}
+              </h2>
+              <p className="text-xs opacity-80 mt-1 max-w-md">
+                {res.isOverallPassed
+                  ? 'Selamat! Anda telah memenuhi ambang batas total skor dan seluruh batas gugur seksi resmi.'
+                  : 'Skor Anda belum mencapai ambang batas kelulusan resmi. Evaluasi pembahasan soal untuk memperkuat pemahaman.'}
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {res.sectionResults.map((secRes, idx) => (
-              <div 
-                key={idx}
-                className="p-5 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/20 space-y-3"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#8FB4E3]">
-                    {secRes.section.title}
-                  </span>
-                  <span className={`text-[10px] font-black px-2 py-0.5 rounded-full uppercase border ${
-                    secRes.passed
-                      ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                      : 'bg-rose-500/20 text-rose-300 border-rose-500/40'
-                  }`}>
-                    {secRes.passed ? 'Lulus Seksi' : 'Di Bawah Batas'}
-                  </span>
-                </div>
-
-                <div className="flex items-baseline justify-between">
-                  <span className="text-2xl font-black text-[#EEF1F6] font-mono">
-                    {secRes.score} <span className="text-xs text-[#8793A8]">/ {secRes.maxScore}</span>
-                  </span>
-                  <span className="text-xs font-semibold text-[#CBD8EC]">
-                    {secRes.correct} dari {secRes.total} benar
-                  </span>
-                </div>
-
-                {/* Progress bar */}
-                <div className="h-1.5 w-full bg-[#0C1B33] rounded-full overflow-hidden">
-                  <div
-                    className={`h-full rounded-full ${secRes.passed ? 'bg-emerald-400' : 'bg-rose-400'}`}
-                    style={{ width: `${Math.min(100, Math.round((secRes.score / secRes.maxScore) * 100))}%` }}
-                  />
-                </div>
-                <span className="text-[10px] text-[#8793A8] block">
-                  Batas gugur seksi: ≥ {secRes.passingScore} Poin
-                </span>
-              </div>
-            ))}
+            {/* Hanko Merah Otentik */}
+            <div className={`w-28 h-28 rounded-full border-4 flex flex-col items-center justify-center p-2 font-['Noto_Serif_JP',serif] font-black transform -rotate-12 select-none shadow-md ${
+              res.isOverallPassed 
+                ? 'border-emerald-600 text-emerald-600 dark:border-emerald-400 dark:text-emerald-400' 
+                : 'border-rose-600 text-rose-600 dark:border-rose-400 dark:text-rose-400'
+            }`}>
+              <span className="text-[10px] tracking-widest border-b border-current pb-0.5">日本能力試験</span>
+              <span className="text-xl my-0.5">{res.isOverallPassed ? '合 格' : '不合格'}</span>
+              <span className="text-[9px] tracking-wider border-t border-current pt-0.5">検定判定印</span>
+            </div>
           </div>
-        </div>
 
-        {/* Tombol Aksi */}
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-4 border-t border-[#8FB4E3]/20">
-          <button
-            onClick={() => setExamState('review')}
-            className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] text-sm font-bold border border-[#8FB4E3]/40 shadow-md hover:brightness-110 flex items-center gap-2"
-          >
-            <BookOpen className="w-4 h-4 text-[#8FB4E3]" />
-            <span>Lihat Pembahasan Lengkap Semua Soal</span>
-          </button>
+          {/* Tabel Nilai Resmi */}
+          <div className="space-y-3 font-mono">
+            <span className="text-xs font-bold block uppercase tracking-wider">
+              得点等内訳 (Detailed Section Scores):
+            </span>
 
-          <button
-            onClick={() => startExam(selectedPackage, examMode, selectedSectionIdx)}
-            className="px-6 py-3 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#8FB4E3] hover:text-[#EEF1F6] text-sm font-bold border border-[#8FB4E3]/25 flex items-center gap-2"
-          >
-            <RotateCcw className="w-4 h-4" />
-            <span>Ulangi Simulasi Ini</span>
-          </button>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-2 border-current">
+                <thead>
+                  <tr className="border-b-2 border-current bg-black/5 dark:bg-white/5 font-black">
+                    <th className="p-3">得点区分 (Section)</th>
+                    <th className="p-3 text-center">得点 (Score)</th>
+                    <th className="p-3 text-center">配点 (Max)</th>
+                    <th className="p-3 text-center">基準点 (Pass Mark)</th>
+                    <th className="p-3 text-center">判定 (Result)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-current/20">
+                  {res.sectionResults.map((s, idx) => (
+                    <tr key={idx}>
+                      <td className="p-3 font-bold">{s.section.title} ({s.section.japaneseTitle})</td>
+                      <td className="p-3 text-center font-black text-sm">{s.score}</td>
+                      <td className="p-3 text-center opacity-70">{s.maxScore}</td>
+                      <td className="p-3 text-center opacity-70">≥ {s.passingScore}</td>
+                      <td className="p-3 text-center font-bold">
+                        {s.passed ? (
+                          <span className="text-emerald-600 dark:text-emerald-400">合格</span>
+                        ) : (
+                          <span className="text-rose-600 dark:text-rose-400">基準未満</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                  <tr className="border-t-2 border-current font-black text-sm bg-black/5 dark:bg-white/5">
+                    <td className="p-3">総合得点 (TOTAL SCORE)</td>
+                    <td className="p-3 text-center text-base">{res.scaledTotalScore}</td>
+                    <td className="p-3 text-center opacity-70">{res.maxScore}</td>
+                    <td className="p-3 text-center opacity-70">≥ {res.passingScore}</td>
+                    <td className="p-3 text-center">
+                      {res.isOverallPassed ? (
+                        <span className="text-emerald-600 dark:text-emerald-400">合格</span>
+                      ) : (
+                        <span className="text-rose-600 dark:text-rose-400">不合格</span>
+                      )}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-          <button
-            onClick={() => setExamState('selection')}
-            className="px-6 py-3 rounded-xl bg-[#0C1B33] hover:bg-[#16294A] text-[#CBD8EC] text-sm font-bold border border-[#8FB4E3]/20"
-          >
-            Pilih Paket Ujian Lain
-          </button>
+          {/* Action Buttons */}
+          <div className="mt-10 pt-6 border-t-2 border-current/30 flex flex-wrap items-center justify-center gap-4">
+            <button
+              onClick={() => setExamState('review')}
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] text-white text-xs sm:text-sm font-bold shadow-md hover:brightness-110 flex items-center gap-2"
+            >
+              <BookOpen className="w-4 h-4 text-[#8FB4E3]" />
+              <span>Lihat Pembahasan Lengkap Semua Soal</span>
+            </button>
+
+            <button
+              onClick={() => startExamFromCover()}
+              className="px-6 py-3 rounded-xl border border-current hover:bg-black/10 dark:hover:bg-white/10 text-xs sm:text-sm font-bold flex items-center gap-2"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span>Ulangi Ujian Ini</span>
+            </button>
+
+            <button
+              onClick={() => setExamState('selection')}
+              className="px-6 py-3 rounded-xl border border-current/30 hover:border-current text-xs sm:text-sm font-bold"
+            >
+              Pilih Paket Ujian Lain
+            </button>
+          </div>
+
         </div>
 
       </div>
@@ -936,20 +1204,20 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
   }
 
   // =========================================================================
-  // VIEW 4: ANSWER REVIEW (PEMBAHASAN DETAIL SOAL)
+  // VIEW 5: ANSWER REVIEW (PEMBAHASAN EDUKATIF SOAL)
   // =========================================================================
   if (examState === 'review') {
     return (
-      <div className="space-y-6 text-left pb-16 max-w-4xl mx-auto">
+      <div className="space-y-6 text-left pb-16 max-w-4xl mx-auto animate-fade-in">
         
         {/* Top Review Bar */}
-        <div className="flex items-center justify-between p-4 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/25">
+        <div className="flex items-center justify-between p-4 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/25 text-[#EEF1F6]">
           <div className="flex items-center gap-2.5">
             <span className="px-2.5 py-1 rounded-lg bg-[#0C1B33] text-xs font-black font-mono text-[#8FB4E3]">
               REVIEW
             </span>
-            <h2 className="text-base font-black text-[#EEF1F6] font-['Manrope']">
-              Pembahasan Lengkap: {selectedPackage.title}
+            <h2 className="text-base font-black font-['Manrope']">
+              Pembahasan Edukatif: {selectedPackage.title}
             </h2>
           </div>
 
@@ -961,19 +1229,18 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
           </button>
         </div>
 
-        {/* List Soal & Pembahasan */}
+        {/* List Soal */}
         <div className="space-y-6">
-          {activeSections.map((sec, sIdx) => (
+          {activeSections.map((sec) => (
             <div key={sec.id} className="space-y-4">
               <h3 className="text-lg font-black text-[#8FB4E3] font-['Manrope'] pb-2 border-b border-[#8FB4E3]/20">
                 {sec.title} · {sec.japaneseTitle}
               </h3>
 
               <div className="space-y-4">
-                {sec.questions.map((q, qIdx) => {
+                {sec.questions.map((q) => {
                   const userAnswerIdx = userAnswers[q.id];
                   const isCorrect = userAnswerIdx === q.correctAnswerIndex;
-                  const isAnswered = userAnswerIdx !== undefined;
 
                   return (
                     <div
@@ -984,10 +1251,9 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                           : 'bg-[#16294A] border-rose-500/30'
                       }`}
                     >
-                      {/* Soal Meta */}
                       <div className="flex items-center justify-between text-xs">
                         <span className="font-mono font-bold text-[#8FB4E3]">
-                          Nomor #{q.questionNumber}
+                          Mondai {q.mondaiNumber} · Soal #{q.questionNumber}
                         </span>
 
                         <span className={`px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1 text-xs ${
@@ -1000,7 +1266,6 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                         </span>
                       </div>
 
-                      {/* Teks Soal */}
                       <div className="space-y-1">
                         <p 
                           className="text-lg font-bold text-[#EEF1F6] japanese-text leading-relaxed"
@@ -1013,7 +1278,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                         )}
                       </div>
 
-                      {/* Opsi Jawaban */}
+                      {/* Opsi */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                         {q.options.map((opt, oIdx) => {
                           const isTheCorrectOne = oIdx === q.correctAnswerIndex;
@@ -1032,11 +1297,11 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                               className={`p-3 rounded-xl border text-xs sm:text-sm flex items-center justify-between ${style}`}
                             >
                               <span className="japanese-text font-bold">
-                                {oIdx + 1}. {opt}
+                                {CIRCLED_NUMBERS[oIdx]} {opt}
                               </span>
                               {isTheCorrectOne && (
                                 <span className="text-[10px] font-black uppercase text-emerald-400">
-                                  Kunci Jawaban
+                                  Kunci Benar
                                 </span>
                               )}
                               {isTheUserChoice && !isCorrect && (
@@ -1049,7 +1314,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                         })}
                       </div>
 
-                      {/* Penjelasan Detail */}
+                      {/* Penjelasan */}
                       <div className="p-4 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 space-y-1 text-xs">
                         <span className="font-bold text-[#8FB4E3] uppercase tracking-wider block">
                           Pembahasan Edukatif:
@@ -1066,7 +1331,6 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
           ))}
         </div>
 
-        {/* Back to Results */}
         <div className="flex justify-center pt-4">
           <button
             onClick={() => setExamState('results')}
