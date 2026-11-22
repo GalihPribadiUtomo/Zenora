@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ===== SAKURA FUTURE – COOL EDITION ===== */
+    --primary: #29264B;         /* Deep Violet */
+    --secondary: #6555A5;       /* Lavender */
+    --blue: #85B9D1;            /* Sky Blue */
+    --indigo: #6555A5;          /* Lavender */
+    --light-indigo: #F0EBF8;    /* Light Lavender tint */
+    --soft-blue: #EDF5F9;       /* Soft Sky Blue tint */
+    --background: #F8F3FA;      /* Soft White */
+    --card-bg: #FFFFFF;         /* Pure White */
+    --text-primary: #29264B;    /* Deep Violet (headings) */
+    --text-secondary: #77738A;  /* Muted Text */
+    --border: #E9E2F0;          /* Border */
+    --success: #10B981;
+    --warning: #F59E0B;
+    --sakura-accent: #E8A9C0;   /* Sakura Pink – accent only */
+
+    --gradient-primary-btn: linear-gradient(
+      135deg, #29264B 0%, #6555A5 100%
+    );
+
+    --gradient-hero: linear-gradient(
+      135deg, #F0EBF8 0%, #F8F3FA 50%, #EDF5F9 100%
+    );
+
+    --gradient-accent: linear-gradient(
+      135deg, #6555A5 0%, #85B9D1 100%
+    );
+
+    --gradient-page: linear-gradient(
+      160deg, #F8F3FA 0%, #FDFBFF 50%, #F0EBF8 100%
+    );
+  }
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans JP', sans-serif;
+  color: var(--text-primary);
+  background: var(--background);
+  background-attachment: fixed;
+}
+
+/* Subtle futuristic lavender-blue ambient glow */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55rem 45rem at 5% 5%,
+      rgba(133, 185, 209, 0.07), transparent 70%),
+    radial-gradient(ellipse 45rem 40rem at 95% 15%,
+      rgba(101, 85, 165, 0.06), transparent 70%),
+    radial-gradient(ellipse 40rem 35rem at 50% 100%,
+      rgba(240, 235, 248, 0.6), transparent 70%);
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* ========== CARDS ========== */
+.card-soft {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  box-shadow:
+    0 1px 3px rgba(41, 38, 75, 0.04),
+    0 4px 12px -2px rgba(101, 85, 165, 0.05);
+  border-radius: 16px;
+}
+
+.card-soft-hover {
+  transition: transform .25s cubic-bezier(.4,0,.2,1),
+    box-shadow .25s cubic-bezier(.4,0,.2,1),
+    border-color .25s ease;
+}
+
+.card-soft-hover:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 25px -5px rgba(41, 38, 75, 0.1),
+    0 4px 10px -2px rgba(133, 185, 209, 0.08);
+  border-color: rgba(101, 85, 165, 0.35);
+}
+
+/* ========== GRADIENT TEXT ========== */
+.gradient-text-indigo {
+  background: linear-gradient(
+    135deg, #29264B 0%, #6555A5 50%, #85B9D1 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-sakura {
+  background: linear-gradient(
+    135deg, #6555A5 0%, #85B9D1 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========== BUTTONS ========== */
+.btn-gradient-indigo,
+.btn-gradient-sakura {
+  background: var(--gradient-primary-btn) !important;
+  color: #FFFFFF !important;
+  border: 0;
+  font-weight: 700;
+  transition: transform .25s cubic-bezier(.4,0,.2,1),
+    box-shadow .25s cubic-bezier(.4,0,.2,1),
+    filter .25s ease;
+  box-shadow: 0 4px 14px rgba(41, 38, 75, 0.22);
+}
+
+.btn-gradient-indigo:hover,
+.btn-gradient-sakura:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 20px rgba(101, 85, 165, 0.32);
+  transform: translateY(-1px);
+}
+
+/* ========== GRADIENT CARD BORDER ========== */
+.card-gradient-border {
+  position: relative;
+  isolation: isolate;
+}
+
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: var(--gradient-accent);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* ========== JAPANESE FONTS ========== */
+.kanji-font {
+  font-family: 'Noto Sans JP', 'Noto Serif JP', 'Yu Mincho',
+    'Hiragino Mincho ProN', serif;
+}
+
+/* ========== NAVBAR ========== */
+.glass-header {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(41, 38, 75, 0.04);
+}
+
+.glass-header a,
+.glass-header button {
+  font-weight: 600;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Manrope', 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: var(--text-primary);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ========== TEXT OVERRIDES ========== */
+.text-slate-400 { color: #9C98AE !important; }
+.text-slate-500 { color: var(--text-secondary) !important; }
+.text-slate-600 { color: #5E5A73 !important; }
+.text-slate-700 { color: #3D3960 !important; }
+.text-slate-800, .text-slate-900 { color: var(--text-primary) !important; }
+
+.text-indigo-300 { color: #A5C8DB !important; }
+.text-indigo-400 { color: #85B9D1 !important; }
+.text-indigo-500 { color: #6555A5 !important; }
+.text-indigo-600 { color: #6555A5 !important; }
+.text-indigo-700, .text-indigo-800, .text-indigo-900 { color: #29264B !important; }
+
+.text-rose-400 { color: #85B9D1 !important; }
+.text-rose-500, .text-rose-600 { color: #6555A5 !important; }
+
+.text-purple-600 { color: #6555A5 !important; }
+.text-purple-700 { color: #29264B !important; }
+
+nav a, nav button {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.stat-number {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes strokeDraw {
+  0% { stroke-dashoffset: 200; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-stroke {
+  stroke-dasharray: 200;
+  animation: strokeDraw 1.2s ease-out forwards;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(101, 85, 165, 0.25); }
+  50% { box-shadow: 0 0 0 8px rgba(101, 85, 165, 0); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(101, 85, 165, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(41, 38, 75, 0.45);
+}
+
+/* ========== PRINT ========== */
+@media print {
+  body { background: white !important; }
+  body::before { display: none; }
+  .glass-header { display: none; }
+}
+
+/* ========== BUTTON FIX ========== */
+button:disabled { opacity: 0.6 !important; cursor: not-allowed; }
+
+/* ========== DAILY KANJI ORBIT ANIMATION ========== */
+@keyframes zenoraOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes zenoraCounterOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-zenora-orbit {
+  animation: zenoraOrbit 50s linear infinite;
+}
+
+.animate-zenora-counter-orbit {
+  animation: zenoraCounterOrbit 50s linear infinite;
+}
+
+.orbit-container:hover .animate-zenora-orbit,
+.orbit-container:hover .animate-zenora-counter-orbit {
+  animation-play-state: paused;
+}
+
