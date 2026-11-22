@@ -96,6 +96,49 @@ export interface ChapterInfo {
 export type QuizMode = 'multiple-choice' | 'flashcard' | 'matching' | 'typing';
 export type QuizSubject = 'kotoba' | 'kanji';
 
+export type ExerciseMode = 
+  | 'multiple-choice'
+  | 'matching'
+  | 'fill-blank'
+  | 'sentence-arrange'
+  | 'writing-practice'
+  | 'listening'
+  | 'reading'
+  | 'speaking'
+  | 'vocab-test'
+  | 'kanji-test'
+  | 'grammar-test'
+  | 'translation'
+  | 'error-correction'
+  | 'conversation-complete'
+  | 'mixed-review'
+  | 'timed-exam'
+  | 'review-mistakes'
+  | 'final-exam';
+
+export interface ExerciseQuestion {
+  id: string;
+  bab: number;
+  mode: ExerciseMode;
+  title: string;
+  instruction: string;
+  question: string;
+  japaneseText?: string;
+  reading?: string;
+  audioText?: string;
+  options?: string[];
+  correctAnswer: string;
+  explanation?: string;
+  sentenceTokens?: string[]; // for sentence-arrange
+  blankSentence?: string; // for fill-blank
+  readingPassage?: string; // for reading
+  speaker?: string; // for kaiwa/speaking
+  matchingPairs?: { id: string; left: string; right: string }[]; // for matching
+  errorPartIndex?: number; // for error-correction
+  targetWritingChar?: string; // for writing practice
+  timeLimitSeconds?: number; // for timed-exam
+}
+
 export interface QuizQuestion {
   id: string;
   subject: QuizSubject;

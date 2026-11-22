@@ -26,6 +26,7 @@ import { speakJapanese, sound } from '../utils/audio';
 import { KotobaModal } from './KotobaModal';
 import { KotobaEditModal } from './KotobaEditModal';
 import { KotobaDeleteModal } from './KotobaDeleteModal';
+import { ChapterExerciseSection } from './ChapterExerciseSection';
 import { persistKotobaEdit, persistKotobaDelete, applyCustomKotoba } from '../utils/kotobaStorage';
 
 interface ChapterDetailProps {
@@ -54,7 +55,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   onSelectKanji
 }) => {
   // Main Chapter Detail Tabs
-  const [sectionTab, setSectionTab] = useState<'bunpou' | 'bunkei' | 'kaiwa' | 'kotoba' | 'kanji'>('bunpou');
+  const [sectionTab, setSectionTab] = useState<'bunpou' | 'bunkei' | 'kaiwa' | 'kotoba' | 'kanji' | 'latihan'>('bunpou');
 
   // Lesson data loaded lazily
   const [lesson, setLesson] = useState<ChapterLesson | null>(null);
@@ -166,12 +167,12 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           <button
             onClick={() => {
               sound.playClick();
-              onStartQuiz(bab);
+              setSectionTab('latihan');
             }}
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] hover:brightness-110 text-white text-xs sm:text-sm font-bold shadow-[0_4px_15px_rgba(36,87,197,0.4)] transition-all active:scale-95"
           >
             <Award className="w-4 h-4 text-white" />
-            <span>Kuis Bab {bab}</span>
+            <span>Latihan Bab {bab} (18 Mode)</span>
           </button>
 
           {bab < 50 && (
@@ -304,6 +305,21 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           >
             <Sparkles className="w-4 h-4" />
             <span>漢字 Kanji Bab Ini ({chapterKanji.length})</span>
+          </button>
+
+          <button
+            onClick={() => {
+              sound.playClick();
+              setSectionTab('latihan');
+            }}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
+              sectionTab === 'latihan'
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.4)]'
+                : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
+            }`}
+          >
+            <Award className="w-4 h-4 text-[#55B9F5]" />
+            <span>練習 Latihan Bab (18 Mode)</span>
           </button>
         </div>
       </div>
@@ -962,6 +978,16 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
             </div>
           )}
         </div>
+      )}
+
+      {/* ── TAB 6: LATIHAN BAB (18 MODE LENGKAP) ── */}
+      {sectionTab === 'latihan' && (
+        <ChapterExerciseSection
+          bab={bab}
+          lesson={lesson}
+          chapterWords={chapterWords}
+          chapterKanji={chapterKanji}
+        />
       )}
 
       {/* ── Modals: Kotoba Detail, Edit, Delete ── */}

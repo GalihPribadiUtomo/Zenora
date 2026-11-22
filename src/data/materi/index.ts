@@ -1,4 +1,5 @@
 import type { ChapterLesson } from '../../types';
+export type { ChapterLesson } from '../../types';
 
 // In-memory cache to avoid redundant network/disk imports
 const lessonCache = new Map<number, ChapterLesson>();

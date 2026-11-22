@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Award, 
   Layers, 
@@ -9,13 +9,16 @@ import {
   XCircle, 
   RotateCcw, 
   Volume2, 
-  Sparkles 
+  Sparkles,
+  BookOpen
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { KOTOBA_DATA } from '../data/kotobaData';
 import { KANJI_DATA } from '../data/kanjiData';
 import { QuizMode, QuizSubject, QuizQuestion } from '../types';
 import { speakJapanese, sound } from '../utils/audio';
+import { ChapterExerciseSection } from './ChapterExerciseSection';
+import { loadChapterLesson, ChapterLesson } from '../data/materi';
 
 interface PracticeSectionProps {
   initialBab?: number | null;
@@ -27,6 +30,16 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
   onRecordResult
 }) => {
   // Setup state
+  const [practiceType, setPracticeType] = useState<'18-modes' | 'classic'>('18-modes');
+  const [activeExerciseBab, setActiveExerciseBab] = useState<number>(initialBab || 1);
+  const [exerciseLesson, setExerciseLesson] = useState<ChapterLesson | null>(null);
+
+  useEffect(() => {
+    loadChapterLesson(activeExerciseBab).then((data) => {
+      setExerciseLesson(data);
+    });
+  }, [activeExerciseBab]);
+
   const [subject, setSubject] = useState<QuizSubject>('kotoba');
   const [mode, setMode] = useState<QuizMode>('multiple-choice');
   const [selectedBab, setSelectedBab] = useState<number | 'ALL'>(initialBab || 'ALL');
@@ -258,9 +271,91 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
   return (
     <div className="space-y-8 text-left pb-16 max-w-5xl mx-auto">
-      
-      {/* Quiz Setting Screen */}
-      {!isQuizActive && (
+
+      {/* Main Mode Switcher: 18 Modes vs Classic */}
+      <div className="flex justify-center">
+        <div className="flex items-center gap-2 p-1.5 bg-[#0D1830] rounded-2xl border border-[#2457C5]/30 max-w-md w-full shadow-lg">
+          <button
+            onClick={() => {
+              sound.playClick();
+              setPracticeType('18-modes');
+              setIsQuizActive(false);
+            }}
+            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-1.5 ${
+              practiceType === '18-modes'
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)]'
+                : 'text-[#A5BDE8] hover:text-white'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-[#55B9F5]" />
+            <span>18 Mode Latihan (Bab 1–50)</span>
+          </button>
+
+          <button
+            onClick={() => {
+              sound.playClick();
+              setPracticeType('classic');
+            }}
+            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 ${
+              practiceType === 'classic'
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)]'
+                : 'text-[#A5BDE8] hover:text-white'
+            }`}
+          >
+            <Layers className="w-4 h-4 text-[#8975E8]" />
+            <span>Flashcard & Ketik</span>
+          </button>
+        </div>
+      </div>
+
+      {/* ── VIEW 1: 18 MODES COMPREHENSIVE PRACTICE WITH BAB SELECTOR ── */}
+      {practiceType === '18-modes' && (
+        <div className="space-y-6">
+          {/* Chapter Quick Picker Bar */}
+          <div className="p-4 rounded-2xl bg-[#0D1830] border border-[#2457C5]/30 space-y-3">
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-xs font-bold text-[#55B9F5] uppercase tracking-wider font-mono flex items-center gap-1.5">
+                <BookOpen className="w-4 h-4" />
+                Pilih Bab Latihan:
+              </span>
+              <span className="text-xs font-bold text-white bg-[#2457C5]/30 px-3 py-1 rounded-xl border border-[#2457C5]/50">
+                Sedang Dipilih: 第{activeExerciseBab}課 (Bab {activeExerciseBab})
+              </span>
+            </div>
+
+            {/* Horizontal Scrollable Bab Buttons 1..50 */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin">
+              {Array.from({ length: 50 }, (_, i) => i + 1).map((b) => (
+                <button
+                  key={b}
+                  onClick={() => {
+                    sound.playClick();
+                    setActiveExerciseBab(b);
+                  }}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all ${
+                    activeExerciseBab === b
+                      ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-md font-black scale-105'
+                      : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
+                  }`}
+                >
+                  Bab {b}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 18-Mode Exercise Interactive Section */}
+          <ChapterExerciseSection
+            bab={activeExerciseBab}
+            lesson={exerciseLesson}
+            chapterWords={KOTOBA_DATA.filter((k) => k.bab === activeExerciseBab)}
+            chapterKanji={KANJI_DATA.filter((k) => k.bab === activeExerciseBab)}
+          />
+        </div>
+      )}
+
+      {/* ── VIEW 2: CLASSIC FLASHCARD / TYPING / MATCHING ── */}
+      {practiceType === 'classic' && !isQuizActive && (
         <div className="space-y-8">
           
           {/* Header */}
