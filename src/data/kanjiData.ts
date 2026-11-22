@@ -12851,5 +12851,7309 @@ export const KANJI_DATA: KanjiItem[] = [
         "grammarNote": "Partikel de penanda tempat peristiwa, partikel ga penanda subjek alami."
       }
     ]
+  },
+  {
+    "id": 330,
+    "kanji": "世",
+    "reading": "せ・よ",
+    "meaning": "Dunia, Generasi, Masyarakat",
+    "meaningEn": "World, Generation, Society",
+    "strokeCount": 5,
+    "onyomi": "セイ・セ",
+    "kunyomi": "よ",
+    "jlpt": "N4",
+    "category": "Tempat & Bangunan",
+    "strokeRules": "Tulis garis horizontal atas terlebih dahulu, kemudian garis vertikal kiri, tengah, kanan, dan garis penutup.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5"
+    ],
+    "radicals": "一",
+    "examples": [
+      {
+        "word": "世界",
+        "reading": "せかい",
+        "meaning": "Dunia"
+      },
+      {
+        "word": "世の中",
+        "reading": "よのなか",
+        "meaning": "Masyarakat, dunia ini"
+      },
+      {
+        "word": "世話",
+        "reading": "せわ",
+        "meaning": "Perawatan, bantuan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "世界の使い方を授業で詳しく習いました。",
+        "furigana": "世界の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "せかい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '世界' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '世界' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で世界という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で世界という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de せかい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '世界' in daily life.",
+        "indonesian": "Saya sering melihat kata '世界' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "世の中の意味を辞書で調べてノートに書きました。",
+        "furigana": "世の中の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "よのなか no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '世の中' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '世の中' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に世の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に世の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 世 no kanji ga fukumarete imashita.",
+        "english": "The kanji '世' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '世' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 331,
+    "kanji": "丈",
+    "reading": "じょう・たけ",
+    "meaning": "Tinggi, Kuat, Kokoh",
+    "meaningEn": "Stature, Robust, Solid",
+    "strokeCount": 3,
+    "onyomi": "ジョウ",
+    "kunyomi": "たけ",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis garis horizontal atas, garis miring kiri melengkung, lalu garis menyilang ke kanan bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3"
+    ],
+    "radicals": "一",
+    "examples": [
+      {
+        "word": "丈夫",
+        "reading": "じょうぶ",
+        "meaning": "Kuat, kokoh"
+      },
+      {
+        "word": "大丈夫",
+        "reading": "だいじょうぶ",
+        "meaning": "Baik-baik saja"
+      },
+      {
+        "word": "背丈",
+        "reading": "せたけ",
+        "meaning": "Tinggi badan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "丈夫の使い方を授業で詳しく習いました。",
+        "furigana": "丈夫の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "じょうぶ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '丈夫' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '丈夫' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で丈夫という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で丈夫という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de じょうぶ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '丈夫' in daily life.",
+        "indonesian": "Saya sering melihat kata '丈夫' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "大丈夫の意味を辞書で調べてノートに書きました。",
+        "furigana": "大丈夫の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "だいじょうぶ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '大丈夫' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '大丈夫' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に丈の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に丈の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 丈 no kanji ga fukumarete imashita.",
+        "english": "The kanji '丈' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '丈' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 332,
+    "kanji": "了",
+    "reading": "りょう",
+    "meaning": "Selesai, Paham, Tuntas",
+    "meaningEn": "Complete, Understand, Finish",
+    "strokeCount": 2,
+    "onyomi": "リョウ",
+    "kunyomi": "お-わる",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tarik garis horizontal lalu miring kiri, kemudian vertikal berkail di ujung.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2"
+    ],
+    "radicals": "亅",
+    "examples": [
+      {
+        "word": "了解",
+        "reading": "りょうかい",
+        "meaning": "Paham, siap"
+      },
+      {
+        "word": "完了",
+        "reading": "かんりょう",
+        "meaning": "Penyelesaian tuntas"
+      },
+      {
+        "word": "終了",
+        "reading": "しゅうりょう",
+        "meaning": "Selesai, tamat"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "了解の使い方を授業で詳しく習いました。",
+        "furigana": "了解の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "りょうかい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '了解' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '了解' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で了解という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で了解という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de りょうかい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '了解' in daily life.",
+        "indonesian": "Saya sering melihat kata '了解' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "完了の意味を辞書で調べてノートに書きました。",
+        "furigana": "完了の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かんりょう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '完了' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '完了' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に了の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に了の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 了 no kanji ga fukumarete imashita.",
+        "english": "The kanji '了' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '了' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 333,
+    "kanji": "介",
+    "reading": "かい",
+    "meaning": "Perantara, Bantuan, Sisipan",
+    "meaningEn": "Mediate, Assist, Introduce",
+    "strokeCount": 4,
+    "onyomi": "カイ",
+    "kunyomi": "へだ-てる",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis atap orang (kanji hito), kemudian garis vertikal kiri dan vertikal kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "紹介",
+        "reading": "しょうかい",
+        "meaning": "Perkenalan"
+      },
+      {
+        "word": "介護",
+        "reading": "かいご",
+        "meaning": "Perawatan lansia/pasien"
+      },
+      {
+        "word": "介入",
+        "reading": "かいにゅう",
+        "meaning": "Intervensi"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "紹介の使い方を授業で詳しく習いました。",
+        "furigana": "紹介の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "しょうかい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '紹介' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '紹介' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で紹介という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で紹介という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de しょうかい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '紹介' in daily life.",
+        "indonesian": "Saya sering melihat kata '紹介' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "介護の意味を辞書で調べてノートに書きました。",
+        "furigana": "介護の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かいご no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '介護' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '介護' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に介の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に介の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 介 no kanji ga fukumarete imashita.",
+        "english": "The kanji '介' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '介' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 334,
+    "kanji": "仕",
+    "reading": "し・つか-える",
+    "meaning": "Melayani, Bekerja, Tugas",
+    "meaningEn": "Serve, Work, Do",
+    "strokeCount": 5,
+    "onyomi": "シ・ジ",
+    "kunyomi": "つか-える",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis radikal orang (ninben) di kiri, lalu kanji samurai (shi) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "仕事",
+        "reading": "しごと",
+        "meaning": "Pekerjaan"
+      },
+      {
+        "word": "仕方",
+        "reading": "しかた",
+        "meaning": "Cara, metode"
+      },
+      {
+        "word": "仕える",
+        "reading": "つかえる",
+        "meaning": "Melayani, mengabdi"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "仕事の使い方を授業で詳しく習いました。",
+        "furigana": "仕事の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "しごと no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '仕事' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '仕事' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で仕事という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で仕事という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de しごと to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '仕事' in daily life.",
+        "indonesian": "Saya sering melihat kata '仕事' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "仕方の意味を辞書で調べてノートに書きました。",
+        "furigana": "仕方の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "しかた no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '仕方' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '仕方' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に仕の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に仕の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 仕 no kanji ga fukumarete imashita.",
+        "english": "The kanji '仕' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '仕' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 335,
+    "kanji": "仲",
+    "reading": "ちゅう・なか",
+    "meaning": "Hubungan, Teman, Rekan",
+    "meaningEn": "Relationship, Comrade",
+    "strokeCount": 6,
+    "onyomi": "チュウ",
+    "kunyomi": "なか",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis radikal orang (ninben) di kiri, lalu kanji tengah (chuu/naka) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "仲間",
+        "reading": "なかま",
+        "meaning": "Rekan, teman seperjuangan"
+      },
+      {
+        "word": "仲良し",
+        "reading": "なかよし",
+        "meaning": "Teman akrab"
+      },
+      {
+        "word": "仲人",
+        "reading": "なこうど",
+        "meaning": "Perantara jodoh"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "仲間の使い方を授業で詳しく習いました。",
+        "furigana": "仲間の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "なかま no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '仲間' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '仲間' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で仲間という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で仲間という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de なかま to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '仲間' in daily life.",
+        "indonesian": "Saya sering melihat kata '仲間' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "仲良しの意味を辞書で調べてノートに書きました。",
+        "furigana": "仲良しの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "なかよし no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '仲良し' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '仲良し' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に仲の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に仲の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 仲 no kanji ga fukumarete imashita.",
+        "english": "The kanji '仲' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '仲' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 336,
+    "kanji": "位",
+    "reading": "い・くらい",
+    "meaning": "Posisi, Peringkat, Takhta",
+    "meaningEn": "Rank, Position, Degree",
+    "strokeCount": 7,
+    "onyomi": "イ",
+    "kunyomi": "くらい・ぐらい",
+    "jlpt": "N4",
+    "category": "Arah & Posisi",
+    "strokeRules": "Tulis radikal ninben di kiri, lalu kanji berdiri (tatsu) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "位置",
+        "reading": "いち",
+        "meaning": "Lokasi, posisi"
+      },
+      {
+        "word": "地位",
+        "reading": "ちい",
+        "meaning": "Status, kedudukan"
+      },
+      {
+        "word": "第一位",
+        "reading": "だいいちい",
+        "meaning": "Juara pertama"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "位置の使い方を授業で詳しく習いました。",
+        "furigana": "位置の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "いち no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '位置' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '位置' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で位置という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で位置という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de いち to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '位置' in daily life.",
+        "indonesian": "Saya sering melihat kata '位置' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "地位の意味を辞書で調べてノートに書きました。",
+        "furigana": "地位の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ちい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '地位' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '地位' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に位の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に位の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 位 no kanji ga fukumarete imashita.",
+        "english": "The kanji '位' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '位' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 337,
+    "kanji": "住",
+    "reading": "じゅう・す-む",
+    "meaning": "Tinggal, Mendiami, Hunian",
+    "meaningEn": "Reside, Live, Inhabit",
+    "strokeCount": 7,
+    "onyomi": "ジュウ",
+    "kunyomi": "す-む・す-まう",
+    "jlpt": "N4",
+    "category": "Tempat & Bangunan",
+    "strokeRules": "Tulis ninben di kiri, lalu kanji tuan/pokok (nushi) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "住所",
+        "reading": "じゅうしょ",
+        "meaning": "Alamat tempat tinggal"
+      },
+      {
+        "word": "住民",
+        "reading": "じゅうみん",
+        "meaning": "Penduduk, warga"
+      },
+      {
+        "word": "住む",
+        "reading": "すむ",
+        "meaning": "Tinggal, mendiami"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "住所の使い方を授業で詳しく習いました。",
+        "furigana": "住所の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "じゅうしょ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '住所' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '住所' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で住所という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で住所という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de じゅうしょ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '住所' in daily life.",
+        "indonesian": "Saya sering melihat kata '住所' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "住民の意味を辞書で調べてノートに書きました。",
+        "furigana": "住民の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "じゅうみん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '住民' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '住民' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に住の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に住の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 住 no kanji ga fukumarete imashita.",
+        "english": "The kanji '住' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '住' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 338,
+    "kanji": "供",
+    "reading": "きょう・とも・そな-える",
+    "meaning": "Menyertai, Anak, Mempersembahkan",
+    "meaningEn": "Accompany, Child, Offer",
+    "strokeCount": 8,
+    "onyomi": "キョウ・ク",
+    "kunyomi": "とも・そな-える",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis radikal ninben di kiri, lalu bagian kanan kanji tomo (bersama).",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "子供",
+        "reading": "こども",
+        "meaning": "Anak-anak"
+      },
+      {
+        "word": "提供",
+        "reading": "ていきょう",
+        "meaning": "Penyediaan, persembahan"
+      },
+      {
+        "word": "お供",
+        "reading": "おとも",
+        "meaning": "Menemani, pengiring"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "子供の使い方を授業で詳しく習いました。",
+        "furigana": "子供の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "こども no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '子供' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '子供' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で子供という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で子供という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de こども to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '子供' in daily life.",
+        "indonesian": "Saya sering melihat kata '子供' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "提供の意味を辞書で調べてノートに書きました。",
+        "furigana": "提供の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ていきょう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '提供' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '提供' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に供の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に供の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 供 no kanji ga fukumarete imashita.",
+        "english": "The kanji '供' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '供' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 339,
+    "kanji": "価",
+    "reading": "か・あたい",
+    "meaning": "Harga, Nilai, Kualitas",
+    "meaningEn": "Price, Value, Worth",
+    "strokeCount": 8,
+    "onyomi": "カ",
+    "kunyomi": "あたい",
+    "jlpt": "N4",
+    "category": "Warna & Benda",
+    "strokeRules": "Tulis ninben di kiri, lalu bagian nishi (barat) dengan variasi di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "物価",
+        "reading": "ぶっか",
+        "meaning": "Harga barang kebutuhan"
+      },
+      {
+        "word": "価格",
+        "reading": "かかく",
+        "meaning": "Harga jual"
+      },
+      {
+        "word": "価値",
+        "reading": "かち",
+        "meaning": "Nilai, mutu"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "物価の使い方を授業で詳しく習いました。",
+        "furigana": "物価の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ぶっか no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '物価' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '物価' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で物価という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で物価という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ぶっか to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '物価' in daily life.",
+        "indonesian": "Saya sering melihat kata '物価' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "価格の意味を辞書で調べてノートに書きました。",
+        "furigana": "価格の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かかく no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '価格' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '価格' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に価の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に価の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 価 no kanji ga fukumarete imashita.",
+        "english": "The kanji '価' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '価' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 340,
+    "kanji": "側",
+    "reading": "そく・がわ",
+    "meaning": "Sisi, Sebelah, Samping",
+    "meaningEn": "Side, Beside, Flank",
+    "strokeCount": 11,
+    "onyomi": "ソク",
+    "kunyomi": "がわ・そば",
+    "jlpt": "N4",
+    "category": "Arah & Posisi",
+    "strokeRules": "Tulis ninben di kiri, lalu kanji aturan/kaidah (soku) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "内側",
+        "reading": "うちがわ",
+        "meaning": "Bagian dalam"
+      },
+      {
+        "word": "外側",
+        "reading": "そとがわ",
+        "meaning": "Bagian luar"
+      },
+      {
+        "word": "右側",
+        "reading": "みぎがわ",
+        "meaning": "Sisi kanan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "内側の使い方を授業で詳しく習いました。",
+        "furigana": "内側の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "うちがわ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '内側' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '内側' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で内側という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で内側という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de うちがわ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '内側' in daily life.",
+        "indonesian": "Saya sering melihat kata '内側' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "外側の意味を辞書で調べてノートに書きました。",
+        "furigana": "外側の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "そとがわ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '外側' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '外側' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に側の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に側の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 側 no kanji ga fukumarete imashita.",
+        "english": "The kanji '側' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '側' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 341,
+    "kanji": "傘",
+    "reading": "さん・かさ",
+    "meaning": "Payung",
+    "meaningEn": "Umbrella, Parasol",
+    "strokeCount": 12,
+    "onyomi": "サン",
+    "kunyomi": "かさ",
+    "jlpt": "N4",
+    "category": "Warna & Benda",
+    "strokeRules": "Tulis atap orang besar di atas, empat karakter orang kecil di dalamnya, lalu garis vertikal penopang.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "傘",
+        "reading": "かさ",
+        "meaning": "Payung"
+      },
+      {
+        "word": "雨傘",
+        "reading": "あまがさ",
+        "meaning": "Payung hujan"
+      },
+      {
+        "word": "日傘",
+        "reading": "ひがさ",
+        "meaning": "Payung peneduh panas"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "傘の使い方を授業で詳しく習いました。",
+        "furigana": "傘の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かさ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '傘' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '傘' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で傘という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で傘という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かさ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '傘' in daily life.",
+        "indonesian": "Saya sering melihat kata '傘' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "雨傘の意味を辞書で調べてノートに書きました。",
+        "furigana": "雨傘の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "あまがさ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '雨傘' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '雨傘' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に傘の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に傘の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 傘 no kanji ga fukumarete imashita.",
+        "english": "The kanji '傘' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '傘' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 342,
+    "kanji": "億",
+    "reading": "おく",
+    "meaning": "Seratus Juta",
+    "meaningEn": "Hundred Million",
+    "strokeCount": 15,
+    "onyomi": "オク",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Angka & Waktu",
+    "strokeRules": "Tulis ninben di kiri, lalu kanji niat/pikiran (i) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "一億円",
+        "reading": "いちおくえん",
+        "meaning": "Seratus juta yen"
+      },
+      {
+        "word": "巨億",
+        "reading": "きょおく",
+        "meaning": "Jumlah uang sangat besar"
+      },
+      {
+        "word": "億万長者",
+        "reading": "おくまんちょうじゃ",
+        "meaning": "Miliarder"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "一億円の使い方を授業で詳しく習いました。",
+        "furigana": "一億円の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "いちおくえん no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '一億円' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '一億円' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で一億円という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で一億円という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de いちおくえん to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '一億円' in daily life.",
+        "indonesian": "Saya sering melihat kata '一億円' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "巨億の意味を辞書で調べてノートに書きました。",
+        "furigana": "巨億の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "きょおく no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '巨億' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '巨億' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に億の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に億の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 億 no kanji ga fukumarete imashita.",
+        "english": "The kanji '億' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '億' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 343,
+    "kanji": "優",
+    "reading": "ゆう・やさ-しい・すぐ-れる",
+    "meaning": "Ramah, Lembut, Unggul",
+    "meaningEn": "Kind, Gentle, Superior",
+    "strokeCount": 17,
+    "onyomi": "ユウ",
+    "kunyomi": "やさ-しい・すぐ-れる",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis ninben di kiri, bagian tengah atas, hati (kokoro) di bawah, dan goresan penutup.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15",
+      "Goresan 16: Langkah goresan ke-16",
+      "Goresan 17: Langkah goresan ke-17"
+    ],
+    "radicals": "人",
+    "examples": [
+      {
+        "word": "優しい",
+        "reading": "やさしい",
+        "meaning": "Ramah, baik hati"
+      },
+      {
+        "word": "優秀",
+        "reading": "ゆうしゅう",
+        "meaning": "Unggul, berprestasi"
+      },
+      {
+        "word": "優れる",
+        "reading": "すぐれる",
+        "meaning": "Menonjol, unggul"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "優しいの使い方を授業で詳しく習いました。",
+        "furigana": "優しいの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "やさしい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '優しい' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '優しい' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で優しいという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で優しいという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de やさしい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '優しい' in daily life.",
+        "indonesian": "Saya sering melihat kata '優しい' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "優秀の意味を辞書で調べてノートに書きました。",
+        "furigana": "優秀の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ゆうしゅう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '優秀' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '優秀' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に優の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に優の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 優 no kanji ga fukumarete imashita.",
+        "english": "The kanji '優' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '優' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 344,
+    "kanji": "全",
+    "reading": "ぜん・すべ-て",
+    "meaning": "Semua, Seluruh, Lengkap",
+    "meaningEn": "All, Whole, Entire",
+    "strokeCount": 6,
+    "onyomi": "ゼン",
+    "kunyomi": "すべ-て・まった-く",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis atap hito di atas, lalu kanji raja (ou) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6"
+    ],
+    "radicals": "入",
+    "examples": [
+      {
+        "word": "全部",
+        "reading": "ぜんぶ",
+        "meaning": "Semuanya"
+      },
+      {
+        "word": "全て",
+        "reading": "すべて",
+        "meaning": "Seluruhnya"
+      },
+      {
+        "word": "全国",
+        "reading": "ぜんこく",
+        "meaning": "Seluruh negeri"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "全部の使い方を授業で詳しく習いました。",
+        "furigana": "全部の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ぜんぶ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '全部' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '全部' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で全部という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で全部という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ぜんぶ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '全部' in daily life.",
+        "indonesian": "Saya sering melihat kata '全部' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "全ての意味を辞書で調べてノートに書きました。",
+        "furigana": "全ての[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "すべて no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '全て' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '全て' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に全の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に全の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 全 no kanji ga fukumarete imashita.",
+        "english": "The kanji '全' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '全' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 345,
+    "kanji": "写",
+    "reading": "しゃ・うつ-す",
+    "meaning": "Menyalin, Memotret, Menggambarkan",
+    "meaningEn": "Copy, Photograph, Describe",
+    "strokeCount": 5,
+    "onyomi": "シャ",
+    "kunyomi": "うつ-す・うつ-る",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis mahkota wakanmuri di atas, lalu kanji yo di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5"
+    ],
+    "radicals": "冖",
+    "examples": [
+      {
+        "word": "写真",
+        "reading": "しゃしん",
+        "meaning": "Foto"
+      },
+      {
+        "word": "写す",
+        "reading": "うつす",
+        "meaning": "Memotret, menyalin"
+      },
+      {
+        "word": "写生",
+        "reading": "しゃせい",
+        "meaning": "Menggambar sketsa"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "写真の使い方を授業で詳しく習いました。",
+        "furigana": "写真の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "しゃしん no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '写真' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '写真' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で写真という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で写真という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de しゃしん to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '写真' in daily life.",
+        "indonesian": "Saya sering melihat kata '写真' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "写すの意味を辞書で調べてノートに書きました。",
+        "furigana": "写すの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "うつす no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '写す' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '写す' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に写の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に写の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 写 no kanji ga fukumarete imashita.",
+        "english": "The kanji '写' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '写' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 346,
+    "kanji": "利",
+    "reading": "り・き-く",
+    "meaning": "Keuntungan, Praktis, Manfaat",
+    "meaningEn": "Profit, Advantage, Benefit",
+    "strokeCount": 7,
+    "onyomi": "リ",
+    "kunyomi": "き-く",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis padi (nogihen) di kiri, lalu radikal pedang (ritou) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "刀",
+    "examples": [
+      {
+        "word": "便利",
+        "reading": "べんり",
+        "meaning": "Praktis, nyaman"
+      },
+      {
+        "word": "利用",
+        "reading": "りよう",
+        "meaning": "Penggunaan, pemanfaatan"
+      },
+      {
+        "word": "利子",
+        "reading": "りし",
+        "meaning": "Bunga bank"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "便利の使い方を授業で詳しく習いました。",
+        "furigana": "便利の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "べんり no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '便利' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '便利' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で便利という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で便利という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de べんり to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '便利' in daily life.",
+        "indonesian": "Saya sering melihat kata '便利' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "利用の意味を辞書で調べてノートに書きました。",
+        "furigana": "利用の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "りよう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '利用' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '利用' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に利の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に利の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 利 no kanji ga fukumarete imashita.",
+        "english": "The kanji '利' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '利' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 347,
+    "kanji": "務",
+    "reading": "む・つと-める",
+    "meaning": "Tugas, Kewajiban, Urusan",
+    "meaningEn": "Duty, Office, Task",
+    "strokeCount": 11,
+    "onyomi": "ム",
+    "kunyomi": "つと-める",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis tombak dan panah di atas kiri, lalu kekuatan (chikara) di kanan bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11"
+    ],
+    "radicals": "力",
+    "examples": [
+      {
+        "word": "事務所",
+        "reading": "じむしょ",
+        "meaning": "Kantor"
+      },
+      {
+        "word": "公務員",
+        "reading": "こうむいん",
+        "meaning": "Pegawai negeri"
+      },
+      {
+        "word": "義務",
+        "reading": "ぎむ",
+        "meaning": "Kewajiban"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "事務所の使い方を授業で詳しく習いました。",
+        "furigana": "事務所の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "じむしょ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '事務所' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '事務所' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で事務所という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で事務所という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de じむしょ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '事務所' in daily life.",
+        "indonesian": "Saya sering melihat kata '事務所' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "公務員の意味を辞書で調べてノートに書きました。",
+        "furigana": "公務員の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "こうむいん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '公務員' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '公務員' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に務の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に務の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 務 no kanji ga fukumarete imashita.",
+        "english": "The kanji '務' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '務' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 348,
+    "kanji": "化",
+    "reading": "か・け・ば-ける",
+    "meaning": "Berubah, Menjelma, Kimia",
+    "meaningEn": "Transform, Chemical, Culture",
+    "strokeCount": 4,
+    "onyomi": "カ・ケ",
+    "kunyomi": "ば-ける・ば-かす",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis ninben di kiri, lalu sendok (hi) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4"
+    ],
+    "radicals": "匕",
+    "examples": [
+      {
+        "word": "文化",
+        "reading": "ぶんか",
+        "meaning": "Kebudayaan"
+      },
+      {
+        "word": "化学",
+        "reading": "かがく",
+        "meaning": "Ilmu kimia"
+      },
+      {
+        "word": "化粧",
+        "reading": "けしょう",
+        "meaning": "Riasan wajah, kosmetik"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "文化の使い方を授業で詳しく習いました。",
+        "furigana": "文化の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ぶんか no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '文化' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '文化' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で文化という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で文化という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ぶんか to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '文化' in daily life.",
+        "indonesian": "Saya sering melihat kata '文化' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "化学の意味を辞書で調べてノートに書きました。",
+        "furigana": "化学の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かがく no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '化学' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '化学' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に化の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に化の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 化 no kanji ga fukumarete imashita.",
+        "english": "The kanji '化' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '化' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 349,
+    "kanji": "卓",
+    "reading": "たく",
+    "meaning": "Meja, Luar Biasa, Terkemuka",
+    "meaningEn": "Desk, Table, Eminent",
+    "strokeCount": 8,
+    "onyomi": "タク",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Warna & Benda",
+    "strokeRules": "Tulis bentuk pagi atas, lalu kanji sepuluh (juu) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "十",
+    "examples": [
+      {
+        "word": "電卓",
+        "reading": "でんたく",
+        "meaning": "Kalkulator"
+      },
+      {
+        "word": "食卓",
+        "reading": "しょくたく",
+        "meaning": "Meja makan"
+      },
+      {
+        "word": "卓越",
+        "reading": "たくえつ",
+        "meaning": "Keunggulan luar biasa"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "電卓の使い方を授業で詳しく習いました。",
+        "furigana": "電卓の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "でんたく no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '電卓' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '電卓' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で電卓という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で電卓という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de でんたく to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '電卓' in daily life.",
+        "indonesian": "Saya sering melihat kata '電卓' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "食卓の意味を辞書で調べてノートに書きました。",
+        "furigana": "食卓の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "しょくたく no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '食卓' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '食卓' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に卓の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に卓の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 卓 no kanji ga fukumarete imashita.",
+        "english": "The kanji '卓' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '卓' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 350,
+    "kanji": "卵",
+    "reading": "らん・たまご",
+    "meaning": "Telur",
+    "meaningEn": "Egg, Ovum",
+    "strokeCount": 7,
+    "onyomi": "ラン",
+    "kunyomi": "たまご",
+    "jlpt": "N4",
+    "category": "Makanan & Minuman",
+    "strokeRules": "Tulis bentuk simetris melengkung kiri dengan titik, lalu bagian kanan yang mirip berpasangan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "卩",
+    "examples": [
+      {
+        "word": "卵",
+        "reading": "たまご",
+        "meaning": "Telur"
+      },
+      {
+        "word": "生卵",
+        "reading": "なまたまご",
+        "meaning": "Telur mentah"
+      },
+      {
+        "word": "卵焼き",
+        "reading": "たまごやき",
+        "meaning": "Telur dadar gulung"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "卵の使い方を授業で詳しく習いました。",
+        "furigana": "卵の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "たまご no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '卵' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '卵' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で卵という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で卵という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de たまご to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '卵' in daily life.",
+        "indonesian": "Saya sering melihat kata '卵' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "生卵の意味を辞書で調べてノートに書きました。",
+        "furigana": "生卵の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "なまたまご no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '生卵' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '生卵' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に卵の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に卵の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 卵 no kanji ga fukumarete imashita.",
+        "english": "The kanji '卵' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '卵' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 351,
+    "kanji": "参",
+    "reading": "さん・まい-る",
+    "meaning": "Ikut, Mengunjungi, Hadir",
+    "meaningEn": "Participate, Visit, Go",
+    "strokeCount": 8,
+    "onyomi": "サン",
+    "kunyomi": "まい-る",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis tiga atap di atas, garis horizontal tengah, dan tiga garis miring di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "厶",
+    "examples": [
+      {
+        "word": "参加",
+        "reading": "さんか",
+        "meaning": "Partisipasi, ikut serta"
+      },
+      {
+        "word": "参考",
+        "reading": "さんこう",
+        "meaning": "Referensi, rujukan"
+      },
+      {
+        "word": "参る",
+        "reading": "まいる",
+        "meaning": "Pergi/datang (bentuk sopan)"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "参加の使い方を授業で詳しく習いました。",
+        "furigana": "参加の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "さんか no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '参加' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '参加' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で参加という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で参加という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de さんか to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '参加' in daily life.",
+        "indonesian": "Saya sering melihat kata '参加' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "参考の意味を辞書で調べてノートに書きました。",
+        "furigana": "参考の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "さんこう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '参考' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '参考' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に参の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に参の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 参 no kanji ga fukumarete imashita.",
+        "english": "The kanji '参' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '参' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 352,
+    "kanji": "可",
+    "reading": "か",
+    "meaning": "Boleh, Dapat, Mungkin",
+    "meaningEn": "Possible, Approve, Able",
+    "strokeCount": 5,
+    "onyomi": "カ",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis garis horizontal atas, kotak mulut (kuchi) di dalam, lalu kail vertikal kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5"
+    ],
+    "radicals": "口",
+    "examples": [
+      {
+        "word": "可能",
+        "reading": "かのう",
+        "meaning": "Mungkin, berkemungkinan"
+      },
+      {
+        "word": "可愛い",
+        "reading": "かわいい",
+        "meaning": "Lucu, imut"
+      },
+      {
+        "word": "許可",
+        "reading": "きょか",
+        "meaning": "Izin, restu"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "可能の使い方を授業で詳しく習いました。",
+        "furigana": "可能の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かのう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '可能' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '可能' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で可能という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で可能という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かのう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '可能' in daily life.",
+        "indonesian": "Saya sering melihat kata '可能' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "可愛いの意味を辞書で調べてノートに書きました。",
+        "furigana": "可愛いの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かわいい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '可愛い' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '可愛い' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に可の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に可の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 可 no kanji ga fukumarete imashita.",
+        "english": "The kanji '可' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '可' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 353,
+    "kanji": "呂",
+    "reading": "ろ・りょ",
+    "meaning": "Bak Mandi, Tulang Punggung, Nada",
+    "meaningEn": "Bath, Spine, Tone",
+    "strokeCount": 7,
+    "onyomi": "ロ・リョ",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Tempat & Bangunan",
+    "strokeRules": "Tulis kotak mulut di atas, garis penghubung pendek, lalu kotak mulut di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "口",
+    "examples": [
+      {
+        "word": "お風呂",
+        "reading": "おふろ",
+        "meaning": "Bak mandi air panas"
+      },
+      {
+        "word": "風呂場",
+        "reading": "ふろば",
+        "meaning": "Kamar mandi"
+      },
+      {
+        "word": "風呂敷",
+        "reading": "ふろしき",
+        "meaning": "Kain pembungkus kado"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "お風呂の使い方を授業で詳しく習いました。",
+        "furigana": "お風呂の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "おふろ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use 'お風呂' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan 'お風呂' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活でお風呂という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]でお風呂という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de おふろ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word 'お風呂' in daily life.",
+        "indonesian": "Saya sering melihat kata 'お風呂' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "風呂場の意味を辞書で調べてノートに書きました。",
+        "furigana": "風呂場の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ふろば no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '風呂場' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '風呂場' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に呂の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に呂の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 呂 no kanji ga fukumarete imashita.",
+        "english": "The kanji '呂' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '呂' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 354,
+    "kanji": "味",
+    "reading": "み・あじ",
+    "meaning": "Rasa, Selera, Makna",
+    "meaningEn": "Taste, Flavor, Meaning",
+    "strokeCount": 8,
+    "onyomi": "ミ",
+    "kunyomi": "あじ・あじ-わう",
+    "jlpt": "N4",
+    "category": "Makanan & Minuman",
+    "strokeRules": "Tulis radikal mulut (kuchihen) di kiri, lalu belum (hitsuji/mi) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "口",
+    "examples": [
+      {
+        "word": "味",
+        "reading": "あじ",
+        "meaning": "Cita rasa"
+      },
+      {
+        "word": "意味",
+        "reading": "いみ",
+        "meaning": "Arti, maksud"
+      },
+      {
+        "word": "興味",
+        "reading": "きょうみ",
+        "meaning": "Minat, ketertarikan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "味の使い方を授業で詳しく習いました。",
+        "furigana": "味の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "あじ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '味' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '味' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で味という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で味という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de あじ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '味' in daily life.",
+        "indonesian": "Saya sering melihat kata '味' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "意味の意味を辞書で調べてノートに書きました。",
+        "furigana": "意味の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "いみ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '意味' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '意味' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に味の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に味の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 味 no kanji ga fukumarete imashita.",
+        "english": "The kanji '味' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '味' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 355,
+    "kanji": "困",
+    "reading": "こん・こま-る",
+    "meaning": "Kesulitan, Bingung, Repot",
+    "meaningEn": "Trouble, Distressed, Dilemma",
+    "strokeCount": 7,
+    "onyomi": "コン",
+    "kunyomi": "こま-る",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis bingkai kotak pembungkus (kunigamae), lalu masukkan pohon (ki) di dalamnya.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "囗",
+    "examples": [
+      {
+        "word": "困る",
+        "reading": "こまる",
+        "meaning": "Mengalami kesulitan, bingung"
+      },
+      {
+        "word": "困難",
+        "reading": "こんなん",
+        "meaning": "Kesulitan besar"
+      },
+      {
+        "word": "困窮",
+        "reading": "こんきゅう",
+        "meaning": "Kondisi melarat"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "困るの使い方を授業で詳しく習いました。",
+        "furigana": "困るの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "こまる no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '困る' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '困る' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で困るという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で困るという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de こまる to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '困る' in daily life.",
+        "indonesian": "Saya sering melihat kata '困る' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "困難の意味を辞書で調べてノートに書きました。",
+        "furigana": "困難の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "こんなん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '困難' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '困難' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に困の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に困の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 困 no kanji ga fukumarete imashita.",
+        "english": "The kanji '困' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '困' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 356,
+    "kanji": "夫",
+    "reading": "ふ・ふう・おっと",
+    "meaning": "Suami, Pria Dewasa",
+    "meaningEn": "Husband, Man",
+    "strokeCount": 4,
+    "onyomi": "フ・フウ",
+    "kunyomi": "おっと",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis dua garis horizontal sejajar, garis miring ke kiri, dan garis melengkung kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4"
+    ],
+    "radicals": "大",
+    "examples": [
+      {
+        "word": "夫",
+        "reading": "おっと",
+        "meaning": "Suami sendiri"
+      },
+      {
+        "word": "夫婦",
+        "reading": "ふうふ",
+        "meaning": "Pasangan suami istri"
+      },
+      {
+        "word": "丈夫",
+        "reading": "じょうぶ",
+        "meaning": "Kuat, kokoh"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "夫の使い方を授業で詳しく習いました。",
+        "furigana": "夫の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "おっと no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '夫' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '夫' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で夫という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で夫という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de おっと to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '夫' in daily life.",
+        "indonesian": "Saya sering melihat kata '夫' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "夫婦の意味を辞書で調べてノートに書きました。",
+        "furigana": "夫婦の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ふうふ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '夫婦' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '夫婦' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に夫の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に夫の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 夫 no kanji ga fukumarete imashita.",
+        "english": "The kanji '夫' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '夫' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 357,
+    "kanji": "寒",
+    "reading": "かん・さむ-い",
+    "meaning": "Dingin (Suhu Udara)",
+    "meaningEn": "Cold (Weather)",
+    "strokeCount": 12,
+    "onyomi": "カン",
+    "kunyomi": "さむ-い",
+    "jlpt": "N4",
+    "category": "Alam & Cuaca",
+    "strokeRules": "Tulis atap rumah (ukanmuri), lalu tumpukan rumput dan selimut, diakhiri dua titik es di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "宀",
+    "examples": [
+      {
+        "word": "寒い",
+        "reading": "さむい",
+        "meaning": "Dingin"
+      },
+      {
+        "word": "寒気",
+        "reading": "さむけ",
+        "meaning": "Rasa menggigil dingin"
+      },
+      {
+        "word": "寒冷",
+        "reading": "かんれい",
+        "meaning": "Dingin membeku"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "寒いの使い方を授業で詳しく習いました。",
+        "furigana": "寒いの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "さむい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '寒い' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '寒い' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で寒いという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で寒いという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de さむい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '寒い' in daily life.",
+        "indonesian": "Saya sering melihat kata '寒い' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "寒気の意味を辞書で調べてノートに書きました。",
+        "furigana": "寒気の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "さむけ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '寒気' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '寒気' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に寒の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に寒の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 寒 no kanji ga fukumarete imashita.",
+        "english": "The kanji '寒' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '寒' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 358,
+    "kanji": "居",
+    "reading": "きょ・い-る",
+    "meaning": "Tinggal, Menetap, Berada",
+    "meaningEn": "Reside, Inhabit, Exist",
+    "strokeCount": 8,
+    "onyomi": "キョ",
+    "kunyomi": "い-る・お-る",
+    "jlpt": "N4",
+    "category": "Tempat & Bangunan",
+    "strokeRules": "Tulis radikal mayat/atap (shikabane) di atas, lalu kanji kuno (ko) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "尸",
+    "examples": [
+      {
+        "word": "居酒屋",
+        "reading": "いざかや",
+        "meaning": "Kedai minum Jepang"
+      },
+      {
+        "word": "居る",
+        "reading": "いる",
+        "meaning": "Ada, berada"
+      },
+      {
+        "word": "住居",
+        "reading": "じゅうきょ",
+        "meaning": "Tempat tinggal, hunian"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "居酒屋の使い方を授業で詳しく習いました。",
+        "furigana": "居酒屋の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "いざかや no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '居酒屋' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '居酒屋' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で居酒屋という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で居酒屋という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de いざかや to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '居酒屋' in daily life.",
+        "indonesian": "Saya sering melihat kata '居酒屋' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "居るの意味を辞書で調べてノートに書きました。",
+        "furigana": "居るの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "いる no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '居る' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '居る' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に居の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に居の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 居 no kanji ga fukumarete imashita.",
+        "english": "The kanji '居' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '居' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 359,
+    "kanji": "座",
+    "reading": "ざ・すわ-る",
+    "meaning": "Duduk, Kursi, Posisi",
+    "meaningEn": "Seat, Sit, Position",
+    "strokeCount": 10,
+    "onyomi": "ザ",
+    "kunyomi": "すわ-る",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis kanji rumah condong (madare) di luar, masukkan dua orang (hito) dan tanah (tsuchi) di dalam.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "广",
+    "examples": [
+      {
+        "word": "座る",
+        "reading": "すわる",
+        "meaning": "Duduk"
+      },
+      {
+        "word": "座席",
+        "reading": "ざせき",
+        "meaning": "Tempat duduk, kursi"
+      },
+      {
+        "word": "口座",
+        "reading": "こうざ",
+        "meaning": "Rekening bank"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "座るの使い方を授業で詳しく習いました。",
+        "furigana": "座るの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "すわる no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '座る' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '座る' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で座るという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で座るという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de すわる to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '座る' in daily life.",
+        "indonesian": "Saya sering melihat kata '座る' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "座席の意味を辞書で調べてノートに書きました。",
+        "furigana": "座席の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ざせき no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '座席' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '座席' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に座の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に座の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 座 no kanji ga fukumarete imashita.",
+        "english": "The kanji '座' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '座' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 360,
+    "kanji": "弁",
+    "reading": "べん",
+    "meaning": "Dialek, Berbicara, Bekal",
+    "meaningEn": "Speech, Valve, Bento",
+    "strokeCount": 5,
+    "onyomi": "ベン",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Makanan & Minuman",
+    "strokeRules": "Tulis dua titik dan goresan atas, lalu bagian bawah menyerupai tangan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5"
+    ],
+    "radicals": "廾",
+    "examples": [
+      {
+        "word": "弁当",
+        "reading": "べんとう",
+        "meaning": "Kotak bekal makanan"
+      },
+      {
+        "word": "関西弁",
+        "reading": "かんさいべん",
+        "meaning": "Dialek wilayah Kansai"
+      },
+      {
+        "word": "弁護士",
+        "reading": "べんごし",
+        "meaning": "Pengacara"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "弁当の使い方を授業で詳しく習いました。",
+        "furigana": "弁当の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "べんとう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '弁当' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '弁当' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で弁当という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で弁当という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de べんとう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '弁当' in daily life.",
+        "indonesian": "Saya sering melihat kata '弁当' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "関西弁の意味を辞書で調べてノートに書きました。",
+        "furigana": "関西弁の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かんさいべん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '関西弁' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '関西弁' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に弁の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に弁の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 弁 no kanji ga fukumarete imashita.",
+        "english": "The kanji '弁' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '弁' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 361,
+    "kanji": "彼",
+    "reading": "ひ・かれ・かの",
+    "meaning": "Dia, Kekasih, Seberang",
+    "meaningEn": "He, That, Boyfriend",
+    "strokeCount": 8,
+    "onyomi": "ヒ",
+    "kunyomi": "かれ・かの",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis radikal langkah kaki (gyouninben) di kiri, lalu kulit (kawa) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "彳",
+    "examples": [
+      {
+        "word": "彼",
+        "reading": "かれ",
+        "meaning": "Dia laki-laki, pacar"
+      },
+      {
+        "word": "彼女",
+        "reading": "かのじょ",
+        "meaning": "Dia perempuan, pacar"
+      },
+      {
+        "word": "彼氏",
+        "reading": "かれし",
+        "meaning": "Pacar laki-laki"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "彼の使い方を授業で詳しく習いました。",
+        "furigana": "彼の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かれ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '彼' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '彼' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で彼という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で彼という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かれ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '彼' in daily life.",
+        "indonesian": "Saya sering melihat kata '彼' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "彼女の意味を辞書で調べてノートに書きました。",
+        "furigana": "彼女の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かのじょ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '彼女' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '彼女' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に彼の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に彼の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 彼 no kanji ga fukumarete imashita.",
+        "english": "The kanji '彼' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '彼' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 362,
+    "kanji": "恋",
+    "reading": "れん・こい",
+    "meaning": "Cinta, Asmara, Kasih",
+    "meaningEn": "Love, Romance, Affection",
+    "strokeCount": 10,
+    "onyomi": "レン",
+    "kunyomi": "こい・こい-しい",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis bagian atas menyilang ganda, lalu letakkan hati (kokoro) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "心",
+    "examples": [
+      {
+        "word": "恋人",
+        "reading": "こいびと",
+        "meaning": "Kekasih, pacar"
+      },
+      {
+        "word": "恋愛",
+        "reading": "れんあい",
+        "meaning": "Percintaan, asmara"
+      },
+      {
+        "word": "恋しい",
+        "reading": "こいしい",
+        "meaning": "Rindu, kangen"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "恋人の使い方を授業で詳しく習いました。",
+        "furigana": "恋人の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "こいびと no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '恋人' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '恋人' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で恋人という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で恋人という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de こいびと to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '恋人' in daily life.",
+        "indonesian": "Saya sering melihat kata '恋人' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "恋愛の意味を辞書で調べてノートに書きました。",
+        "furigana": "恋愛の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "れんあい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '恋愛' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '恋愛' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に恋の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に恋の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 恋 no kanji ga fukumarete imashita.",
+        "english": "The kanji '恋' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '恋' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 363,
+    "kanji": "愛",
+    "reading": "あい",
+    "meaning": "Cinta, Kasih Sayang",
+    "meaningEn": "Love, Affection, Favorite",
+    "strokeCount": 13,
+    "onyomi": "アイ",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis cakar di atas, atap penutup, hati (kokoro) di tengah, dan langkah kaki di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13"
+    ],
+    "radicals": "心",
+    "examples": [
+      {
+        "word": "愛",
+        "reading": "あい",
+        "meaning": "Cinta, kasih"
+      },
+      {
+        "word": "可愛い",
+        "reading": "かわいい",
+        "meaning": "Lucu, menggemaskan"
+      },
+      {
+        "word": "愛情",
+        "reading": "あいじょう",
+        "meaning": "Kasih sayang hangat"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "愛の使い方を授業で詳しく習いました。",
+        "furigana": "愛の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "あい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '愛' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '愛' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で愛という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で愛という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de あい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '愛' in daily life.",
+        "indonesian": "Saya sering melihat kata '愛' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "可愛いの意味を辞書で調べてノートに書きました。",
+        "furigana": "可愛いの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かわいい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '可愛い' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '可愛い' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に愛の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に愛の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 愛 no kanji ga fukumarete imashita.",
+        "english": "The kanji '愛' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '愛' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 364,
+    "kanji": "感",
+    "reading": "かん",
+    "meaning": "Perasaan, Emosi, Sentimen",
+    "meaningEn": "Feeling, Sensation, Emotion",
+    "strokeCount": 13,
+    "onyomi": "カン",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis kanji tombak/seluruh (kan) di bagian atas, lalu kanji hati (kokoro) di bagian bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13"
+    ],
+    "radicals": "心",
+    "examples": [
+      {
+        "word": "感謝",
+        "reading": "かんしゃ",
+        "meaning": "Rasa syukur, terima kasih"
+      },
+      {
+        "word": "感じる",
+        "reading": "かんじる",
+        "meaning": "Merasakan"
+      },
+      {
+        "word": "感動",
+        "reading": "かんどう",
+        "meaning": "Terharu, tersentuh"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "感謝の使い方を授業で詳しく習いました。",
+        "furigana": "感謝の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かんしゃ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '感謝' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '感謝' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で感謝という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で感謝という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かんしゃ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '感謝' in daily life.",
+        "indonesian": "Saya sering melihat kata '感謝' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "感じるの意味を辞書で調べてノートに書きました。",
+        "furigana": "感じるの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かんじる no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '感じる' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '感じる' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に感の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に感の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 感 no kanji ga fukumarete imashita.",
+        "english": "The kanji '感' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '感' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 365,
+    "kanji": "戻",
+    "reading": "れい・もど-る",
+    "meaning": "Kembali, Memulihkan, Pulang",
+    "meaningEn": "Return, Revert, Restore",
+    "strokeCount": 7,
+    "onyomi": "レイ",
+    "kunyomi": "もど-る・もど-す",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis radikal pintu (todaare) di atas, lalu masukkan anjing (inu) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "戸",
+    "examples": [
+      {
+        "word": "戻る",
+        "reading": "もどる",
+        "meaning": "Kembali ke tempat semula"
+      },
+      {
+        "word": "戻す",
+        "reading": "もどす",
+        "meaning": "Mengembalikan barang"
+      },
+      {
+        "word": "払い戻し",
+        "reading": "はらいもどし",
+        "meaning": "Pengembalian dana (refund)"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "戻るの使い方を授業で詳しく習いました。",
+        "furigana": "戻るの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "もどる no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '戻る' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '戻る' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で戻るという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で戻るという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de もどる to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '戻る' in daily life.",
+        "indonesian": "Saya sering melihat kata '戻る' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "戻すの意味を辞書で調べてノートに書きました。",
+        "furigana": "戻すの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "もどす no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '戻す' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '戻す' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に戻の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に戻の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 戻 no kanji ga fukumarete imashita.",
+        "english": "The kanji '戻' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '戻' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 366,
+    "kanji": "所",
+    "reading": "しょ・ところ",
+    "meaning": "Tempat, Lokasi, Bagian",
+    "meaningEn": "Place, Spot, Location",
+    "strokeCount": 8,
+    "onyomi": "ショ",
+    "kunyomi": "ところ",
+    "jlpt": "N4",
+    "category": "Tempat & Bangunan",
+    "strokeRules": "Tulis radikal pintu (tobean) di kiri, lalu kapak (ono/kin) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "戸",
+    "examples": [
+      {
+        "word": "場所",
+        "reading": "ばしょ",
+        "meaning": "Tempat, lokasi"
+      },
+      {
+        "word": "台所",
+        "reading": "だいどころ",
+        "meaning": "Dapur memasak"
+      },
+      {
+        "word": "近所",
+        "reading": "きんじょ",
+        "meaning": "Lingkungan tetangga dekat"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "場所の使い方を授業で詳しく習いました。",
+        "furigana": "場所の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ばしょ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '場所' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '場所' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で場所という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で場所という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ばしょ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '場所' in daily life.",
+        "indonesian": "Saya sering melihat kata '場所' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "台所の意味を辞書で調べてノートに書きました。",
+        "furigana": "台所の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "だいどころ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '台所' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '台所' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に所の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に所の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 所 no kanji ga fukumarete imashita.",
+        "english": "The kanji '所' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '所' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 367,
+    "kanji": "折",
+    "reading": "せつ・お-る",
+    "meaning": "Melipat, Patah, Kesempatan",
+    "meaningEn": "Fold, Break, Opportunity",
+    "strokeCount": 7,
+    "onyomi": "セツ",
+    "kunyomi": "お-る・お-れる・おり",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis radikal tangan (tehen) di kiri, lalu kapak (kin) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "手",
+    "examples": [
+      {
+        "word": "折り紙",
+        "reading": "おりがみ",
+        "meaning": "Seni melipat kertas"
+      },
+      {
+        "word": "折る",
+        "reading": "おる",
+        "meaning": "Melipat, mematahkan"
+      },
+      {
+        "word": "骨折",
+        "reading": "こっせつ",
+        "meaning": "Patah tulang"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "折り紙の使い方を授業で詳しく習いました。",
+        "furigana": "折り紙の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "おりがみ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '折り紙' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '折り紙' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で折り紙という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で折り紙という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de おりがみ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '折り紙' in daily life.",
+        "indonesian": "Saya sering melihat kata '折り紙' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "折るの意味を辞書で調べてノートに書きました。",
+        "furigana": "折るの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "おる no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '折る' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '折る' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に折の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に折の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 折 no kanji ga fukumarete imashita.",
+        "english": "The kanji '折' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '折' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 368,
+    "kanji": "故",
+    "reading": "こ・ゆえ",
+    "meaning": "Sebab, Kecelakaan, Almarhum",
+    "meaningEn": "Reason, Cause, Accident",
+    "strokeCount": 9,
+    "onyomi": "コ",
+    "kunyomi": "ゆえ",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis kanji kuno (furui) di kiri, lalu radikal pukulan/tindakan (nogome) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9"
+    ],
+    "radicals": "攴",
+    "examples": [
+      {
+        "word": "事故",
+        "reading": "じこ",
+        "meaning": "Kecelakaan lalulintas/kerja"
+      },
+      {
+        "word": "故障",
+        "reading": "こしょう",
+        "meaning": "Kerusakan mesin"
+      },
+      {
+        "word": "故郷",
+        "reading": "こきょう",
+        "meaning": "Kampung halaman"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "事故の使い方を授業で詳しく習いました。",
+        "furigana": "事故の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "じこ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '事故' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '事故' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で事故という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で事故という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de じこ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '事故' in daily life.",
+        "indonesian": "Saya sering melihat kata '事故' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "故障の意味を辞書で調べてノートに書きました。",
+        "furigana": "故障の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "こしょう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '故障' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '故障' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に故の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に故の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 故 no kanji ga fukumarete imashita.",
+        "english": "The kanji '故' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '故' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 369,
+    "kanji": "昨",
+    "reading": "さく",
+    "meaning": "Kemarin, Masa Lampau",
+    "meaningEn": "Yesterday, Past, Previous",
+    "strokeCount": 9,
+    "onyomi": "サク",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Angka & Waktu",
+    "strokeRules": "Tulis radikal matahari (hihen) di kiri, lalu kanji membuat/saku di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9"
+    ],
+    "radicals": "日",
+    "examples": [
+      {
+        "word": "昨日",
+        "reading": "きのう・さくじつ",
+        "meaning": "Kemarin"
+      },
+      {
+        "word": "昨年",
+        "reading": "さくねん",
+        "meaning": "Tahun lalu"
+      },
+      {
+        "word": "昨夜",
+        "reading": "さくや・ゆうべ",
+        "meaning": "Tadi malam"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "昨日の使い方を授業で詳しく習いました。",
+        "furigana": "昨日の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "きのう・さくじつ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '昨日' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '昨日' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で昨日という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で昨日という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de きのう・さくじつ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '昨日' in daily life.",
+        "indonesian": "Saya sering melihat kata '昨日' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "昨年の意味を辞書で調べてノートに書きました。",
+        "furigana": "昨年の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "さくねん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '昨年' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '昨年' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に昨の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に昨の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 昨 no kanji ga fukumarete imashita.",
+        "english": "The kanji '昨' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '昨' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 370,
+    "kanji": "晩",
+    "reading": "ばん",
+    "meaning": "Malam, Petang",
+    "meaningEn": "Night, Evening",
+    "strokeCount": 12,
+    "onyomi": "バン",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Angka & Waktu",
+    "strokeRules": "Tulis radikal matahari (hihen) di kiri, lalu bagian terbebas/menolak di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "日",
+    "examples": [
+      {
+        "word": "今晩",
+        "reading": "こんばん",
+        "meaning": "Malam ini"
+      },
+      {
+        "word": "晩ご飯",
+        "reading": "ばんごはん",
+        "meaning": "Makan malam"
+      },
+      {
+        "word": "毎晩",
+        "reading": "まいばん",
+        "meaning": "Setiap malam"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "今晩の使い方を授業で詳しく習いました。",
+        "furigana": "今晩の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "こんばん no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '今晩' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '今晩' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で今晩という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で今晩という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de こんばん to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '今晩' in daily life.",
+        "indonesian": "Saya sering melihat kata '今晩' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "晩ご飯の意味を辞書で調べてノートに書きました。",
+        "furigana": "晩ご飯の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ばんごはん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '晩ご飯' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '晩ご飯' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に晩の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に晩の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 晩 no kanji ga fukumarete imashita.",
+        "english": "The kanji '晩' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '晩' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 371,
+    "kanji": "普",
+    "reading": "ふ",
+    "meaning": "Umum, Biasa, Merata",
+    "meaningEn": "General, Normal, Universal",
+    "strokeCount": 12,
+    "onyomi": "フ",
+    "kunyomi": "あまね-く",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis berjajar (narabu) di atas, lalu matahari (hi) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "日",
+    "examples": [
+      {
+        "word": "普通",
+        "reading": "ふつう",
+        "meaning": "Biasa, umum, kereta reguler"
+      },
+      {
+        "word": "普段",
+        "reading": "ふだん",
+        "meaning": "Sehari-hari, biasanya"
+      },
+      {
+        "word": "普及",
+        "reading": "ふきゅう",
+        "meaning": "Penyebaran merata"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "普通の使い方を授業で詳しく習いました。",
+        "furigana": "普通の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ふつう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '普通' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '普通' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で普通という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で普通という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ふつう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '普通' in daily life.",
+        "indonesian": "Saya sering melihat kata '普通' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "普段の意味を辞書で調べてノートに書きました。",
+        "furigana": "普段の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ふだん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '普段' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '普段' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に普の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に普の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 普 no kanji ga fukumarete imashita.",
+        "english": "The kanji '普' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '普' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 372,
+    "kanji": "曇",
+    "reading": "どん・くも-る",
+    "meaning": "Berawan, Mendung",
+    "meaningEn": "Cloudy, Overcast",
+    "strokeCount": 16,
+    "onyomi": "ドン",
+    "kunyomi": "くも-る・くもり",
+    "jlpt": "N4",
+    "category": "Alam & Cuaca",
+    "strokeRules": "Tulis radikal matahari (hihen) di kiri atas atau bagian atas, lalu kanji awan (kumo) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15",
+      "Goresan 16: Langkah goresan ke-16"
+    ],
+    "radicals": "日",
+    "examples": [
+      {
+        "word": "曇り",
+        "reading": "くもり",
+        "meaning": "Cuaca berawan/mendung"
+      },
+      {
+        "word": "曇る",
+        "reading": "くもる",
+        "meaning": "Menjadi mendung / berkabut"
+      },
+      {
+        "word": "曇天",
+        "reading": "どんてん",
+        "meaning": "Langit mendung suram"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "曇りの使い方を授業で詳しく習いました。",
+        "furigana": "曇りの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "くもり no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '曇り' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '曇り' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で曇りという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で曇りという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de くもり to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '曇り' in daily life.",
+        "indonesian": "Saya sering melihat kata '曇り' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "曇るの意味を辞書で調べてノートに書きました。",
+        "furigana": "曇るの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "くもる no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '曇る' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '曇る' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に曇の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に曇の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 曇 no kanji ga fukumarete imashita.",
+        "english": "The kanji '曇' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '曇' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 373,
+    "kanji": "歳",
+    "reading": "さい・せい",
+    "meaning": "Usia, Umur, Tahun",
+    "meaningEn": "Age, Years old",
+    "strokeCount": 13,
+    "onyomi": "サイ・セイ",
+    "kunyomi": "とし",
+    "jlpt": "N4",
+    "category": "Angka & Waktu",
+    "strokeRules": "Tulis berhenti (tome) di atas, lalu bagian bulan sabit dan kapak di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13"
+    ],
+    "radicals": "止",
+    "examples": [
+      {
+        "word": "何歳",
+        "reading": "なんさい",
+        "meaning": "Berapa umur"
+      },
+      {
+        "word": "二十歳",
+        "reading": "はたち",
+        "meaning": "Dua puluh tahun"
+      },
+      {
+        "word": "歳月",
+        "reading": "さいげつ",
+        "meaning": "Waktu yang berlalu"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "何歳の使い方を授業で詳しく習いました。",
+        "furigana": "何歳の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "なんさい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '何歳' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '何歳' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で何歳という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で何歳という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de なんさい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '何歳' in daily life.",
+        "indonesian": "Saya sering melihat kata '何歳' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "二十歳の意味を辞書で調べてノートに書きました。",
+        "furigana": "二十歳の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "はたち no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '二十歳' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '二十歳' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に歳の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に歳の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 歳 no kanji ga fukumarete imashita.",
+        "english": "The kanji '歳' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '歳' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 374,
+    "kanji": "氏",
+    "reading": "し・うじ",
+    "meaning": "Marga, Tuan/Nyonya, Klan",
+    "meaningEn": "Family name, Clan, Mr.",
+    "strokeCount": 4,
+    "onyomi": "シ",
+    "kunyomi": "うじ",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis kait diagonal kiri, horizontal tengah, vertikal melengkung dengan ujung berkail.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4"
+    ],
+    "radicals": "氏",
+    "examples": [
+      {
+        "word": "彼氏",
+        "reading": "かれし",
+        "meaning": "Pacar laki-laki"
+      },
+      {
+        "word": "氏名",
+        "reading": "しめい",
+        "meaning": "Nama lengkap"
+      },
+      {
+        "word": "山田氏",
+        "reading": "やまだし",
+        "meaning": "Tuan/Nyonya Yamada"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "彼氏の使い方を授業で詳しく習いました。",
+        "furigana": "彼氏の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かれし no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '彼氏' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '彼氏' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で彼氏という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で彼氏という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かれし to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '彼氏' in daily life.",
+        "indonesian": "Saya sering melihat kata '彼氏' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "氏名の意味を辞書で調べてノートに書きました。",
+        "furigana": "氏名の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "しめい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '氏名' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '氏名' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に氏の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に氏の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 氏 no kanji ga fukumarete imashita.",
+        "english": "The kanji '氏' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '氏' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 375,
+    "kanji": "民",
+    "reading": "みん・たみ",
+    "meaning": "Rakyat, Penduduk, Warga",
+    "meaningEn": "People, Citizens, Nation",
+    "strokeCount": 5,
+    "onyomi": "ミン",
+    "kunyomi": "たみ",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis goresan lengkung atas, horizontal, lalu kotak terhubung dengan goresan miring bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5"
+    ],
+    "radicals": "氏",
+    "examples": [
+      {
+        "word": "住民",
+        "reading": "じゅうみん",
+        "meaning": "Penduduk, warga"
+      },
+      {
+        "word": "国民",
+        "reading": "こくみん",
+        "meaning": "Warga negara"
+      },
+      {
+        "word": "市民",
+        "reading": "しみん",
+        "meaning": "Warga kota"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "住民の使い方を授業で詳しく習いました。",
+        "furigana": "住民の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "じゅうみん no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '住民' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '住民' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で住民という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で住民という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de じゅうみん to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '住民' in daily life.",
+        "indonesian": "Saya sering melihat kata '住民' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "国民の意味を辞書で調べてノートに書きました。",
+        "furigana": "国民の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "こくみん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '国民' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '国民' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に民の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に民の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 民 no kanji ga fukumarete imashita.",
+        "english": "The kanji '民' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '民' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 376,
+    "kanji": "油",
+    "reading": "ゆ・あぶら",
+    "meaning": "Minyak, Lemak",
+    "meaningEn": "Oil, Fat, Grease",
+    "strokeCount": 8,
+    "onyomi": "ユ",
+    "kunyomi": "あぶら",
+    "jlpt": "N4",
+    "category": "Makanan & Minuman",
+    "strokeRules": "Tulis radikal tiga tetes air (sanzui) di kiri, lalu kanji yuu (alasan) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "水",
+    "examples": [
+      {
+        "word": "油",
+        "reading": "あぶら",
+        "meaning": "Minyak goreng/pelumas"
+      },
+      {
+        "word": "石油",
+        "reading": "せきゆ",
+        "meaning": "Minyak bumi"
+      },
+      {
+        "word": "しょう油",
+        "reading": "しょうゆ",
+        "meaning": "Kecap asin Jepang"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "油の使い方を授業で詳しく習いました。",
+        "furigana": "油の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "あぶら no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '油' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '油' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で油という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で油という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de あぶら to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '油' in daily life.",
+        "indonesian": "Saya sering melihat kata '油' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "石油の意味を辞書で調べてノートに書きました。",
+        "furigana": "石油の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "せきゆ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '石油' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '石油' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に油の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に油の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 油 no kanji ga fukumarete imashita.",
+        "english": "The kanji '油' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '油' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 377,
+    "kanji": "法",
+    "reading": "ほう・は・ほ",
+    "meaning": "Hukum, Aturan, Metode",
+    "meaningEn": "Law, Rule, Method",
+    "strokeCount": 8,
+    "onyomi": "ホウ・ハ・ホ",
+    "kunyomi": "のり",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis sanzui di kiri, lalu kanji pergi (saru/iku) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "水",
+    "examples": [
+      {
+        "word": "方法",
+        "reading": "ほうほう",
+        "meaning": "Metode, cara"
+      },
+      {
+        "word": "文法",
+        "reading": "ぶんぽう",
+        "meaning": "Tata bahasa"
+      },
+      {
+        "word": "法律",
+        "reading": "ほうりつ",
+        "meaning": "Undang-undang, hukum"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "方法の使い方を授業で詳しく習いました。",
+        "furigana": "方法の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ほうほう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '方法' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '方法' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で方法という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で方法という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ほうほう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '方法' in daily life.",
+        "indonesian": "Saya sering melihat kata '方法' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "文法の意味を辞書で調べてノートに書きました。",
+        "furigana": "文法の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ぶんぽう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '文法' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '文法' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に法の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に法の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 法 no kanji ga fukumarete imashita.",
+        "english": "The kanji '法' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '法' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 378,
+    "kanji": "泣",
+    "reading": "きゅう・な-く",
+    "meaning": "Menangis, Meratap",
+    "meaningEn": "Cry, Weep, Sob",
+    "strokeCount": 8,
+    "onyomi": "キュウ",
+    "kunyomi": "な-く",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis sanzui di kiri, lalu kanji berdiri (tatsu) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "水",
+    "examples": [
+      {
+        "word": "泣く",
+        "reading": "なく",
+        "meaning": "Menangis"
+      },
+      {
+        "word": "泣き声",
+        "reading": "なきごえ",
+        "meaning": "Suara tangisan"
+      },
+      {
+        "word": "号泣",
+        "reading": "ごうきゅう",
+        "meaning": "Menangis tersedu-sedu"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "泣くの使い方を授業で詳しく習いました。",
+        "furigana": "泣くの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "なく no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '泣く' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '泣く' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で泣くという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で泣くという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de なく to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '泣く' in daily life.",
+        "indonesian": "Saya sering melihat kata '泣く' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "泣き声の意味を辞書で調べてノートに書きました。",
+        "furigana": "泣き声の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "なきごえ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '泣き声' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '泣き声' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に泣の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に泣の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 泣 no kanji ga fukumarete imashita.",
+        "english": "The kanji '泣' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '泣' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 379,
+    "kanji": "泳",
+    "reading": "えい・およ-ぐ",
+    "meaning": "Berenang",
+    "meaningEn": "Swim",
+    "strokeCount": 8,
+    "onyomi": "エイ",
+    "kunyomi": "およ-ぐ",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis sanzui di kiri, lalu kanji selamanya (nagai/ei) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "水",
+    "examples": [
+      {
+        "word": "泳ぐ",
+        "reading": "およぐ",
+        "meaning": "Berenang"
+      },
+      {
+        "word": "水泳",
+        "reading": "すいえい",
+        "meaning": "Olahraga renang"
+      },
+      {
+        "word": "平泳ぎ",
+        "reading": "ひらおよぎ",
+        "meaning": "Gaya dada"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "泳ぐの使い方を授業で詳しく習いました。",
+        "furigana": "泳ぐの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "およぐ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '泳ぐ' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '泳ぐ' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で泳ぐという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で泳ぐという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de およぐ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '泳ぐ' in daily life.",
+        "indonesian": "Saya sering melihat kata '泳ぐ' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "水泳の意味を辞書で調べてノートに書きました。",
+        "furigana": "水泳の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "すいえい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '水泳' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '水泳' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に泳の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に泳の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 泳 no kanji ga fukumarete imashita.",
+        "english": "The kanji '泳' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '泳' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 380,
+    "kanji": "洋",
+    "reading": "よう",
+    "meaning": "Samudra, Gaya Barat, Laut Lepas",
+    "meaningEn": "Ocean, Western style",
+    "strokeCount": 9,
+    "onyomi": "ヨウ",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Tempat & Bangunan",
+    "strokeRules": "Tulis sanzui di kiri, lalu domba (hitsuji) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9"
+    ],
+    "radicals": "水",
+    "examples": [
+      {
+        "word": "洋服",
+        "reading": "ようふく",
+        "meaning": "Pakaian gaya Barat"
+      },
+      {
+        "word": "西洋",
+        "reading": "せいよう",
+        "meaning": "Dunia Barat"
+      },
+      {
+        "word": "太平洋",
+        "reading": "たいへいよう",
+        "meaning": "Samudra Pasifik"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "洋服の使い方を授業で詳しく習いました。",
+        "furigana": "洋服の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ようふく no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '洋服' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '洋服' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で洋服という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で洋服という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ようふく to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '洋服' in daily life.",
+        "indonesian": "Saya sering melihat kata '洋服' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "西洋の意味を辞書で調べてノートに書きました。",
+        "furigana": "西洋の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "せいよう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '西洋' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '西洋' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に洋の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に洋の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 洋 no kanji ga fukumarete imashita.",
+        "english": "The kanji '洋' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '洋' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 381,
+    "kanji": "消",
+    "reading": "しょう・き-える・け-す",
+    "meaning": "Padam, Menghapus, Lenyap",
+    "meaningEn": "Extinguish, Erase, Disappear",
+    "strokeCount": 10,
+    "onyomi": "ショウ",
+    "kunyomi": "き-える・け-す",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis sanzui di kiri, lalu kanji bulan sabit dan kail di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "水",
+    "examples": [
+      {
+        "word": "消す",
+        "reading": "けす",
+        "meaning": "Menghapus, mematikan lampu"
+      },
+      {
+        "word": "消える",
+        "reading": "きえる",
+        "meaning": "Padam, menghilang"
+      },
+      {
+        "word": "消しゴム",
+        "reading": "けしごむ",
+        "meaning": "Penghapus karet"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "消すの使い方を授業で詳しく習いました。",
+        "furigana": "消すの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "けす no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '消す' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '消す' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で消すという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で消すという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de けす to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '消す' in daily life.",
+        "indonesian": "Saya sering melihat kata '消す' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "消えるの意味を辞書で調べてノートに書きました。",
+        "furigana": "消えるの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "きえる no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '消える' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '消える' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に消の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に消の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 消 no kanji ga fukumarete imashita.",
+        "english": "The kanji '消' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '消' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 382,
+    "kanji": "温",
+    "reading": "おん・あたた-かい",
+    "meaning": "Hangat, Suhu, Suam",
+    "meaningEn": "Warm, Temperature",
+    "strokeCount": 12,
+    "onyomi": "オン",
+    "kunyomi": "あたた-かい・あたた-まる",
+    "jlpt": "N4",
+    "category": "Alam & Cuaca",
+    "strokeRules": "Tulis sanzui di kiri, lalu matahari dan piring (sara) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "水",
+    "examples": [
+      {
+        "word": "温度",
+        "reading": "おんど",
+        "meaning": "Suhu udara/benda"
+      },
+      {
+        "word": "気温",
+        "reading": "きおん",
+        "meaning": "Suhu temperatur udara"
+      },
+      {
+        "word": "温かい",
+        "reading": "あたたかい",
+        "meaning": "Hangat"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "温度の使い方を授業で詳しく習いました。",
+        "furigana": "温度の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "おんど no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '温度' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '温度' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で温度という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で温度という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de おんど to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '温度' in daily life.",
+        "indonesian": "Saya sering melihat kata '温度' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "気温の意味を辞書で調べてノートに書きました。",
+        "furigana": "気温の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "きおん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '気温' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '気温' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に温の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に温の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 温 no kanji ga fukumarete imashita.",
+        "english": "The kanji '温' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '温' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 383,
+    "kanji": "無",
+    "reading": "む・ぶ・な-い",
+    "meaning": "Tiada, Tanpa, Kosong",
+    "meaningEn": "Nothing, Nil, Without",
+    "strokeCount": 12,
+    "onyomi": "ム・ブ",
+    "kunyomi": "な-い",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis garis horizontal atas dan tiang ganda, lalu empat titik api (rengo) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "火",
+    "examples": [
+      {
+        "word": "無理",
+        "reading": "むり",
+        "meaning": "Mustahil, berlebihan"
+      },
+      {
+        "word": "無料",
+        "reading": "むりょう",
+        "meaning": "Gratis, tanpa biaya"
+      },
+      {
+        "word": "無し",
+        "reading": "なし",
+        "meaning": "Tanpa, tidak ada"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "無理の使い方を授業で詳しく習いました。",
+        "furigana": "無理の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "むり no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '無理' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '無理' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で無理という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で無理という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de むり to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '無理' in daily life.",
+        "indonesian": "Saya sering melihat kata '無理' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "無料の意味を辞書で調べてノートに書きました。",
+        "furigana": "無料の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "むりょう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '無料' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '無料' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に無の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に無の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 無 no kanji ga fukumarete imashita.",
+        "english": "The kanji '無' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '無' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 384,
+    "kanji": "煙",
+    "reading": "えん・けむり",
+    "meaning": "Asap, Berkabut",
+    "meaningEn": "Smoke, Fumes",
+    "strokeCount": 13,
+    "onyomi": "エン",
+    "kunyomi": "けむり・けむ-い",
+    "jlpt": "N4",
+    "category": "Alam & Cuaca",
+    "strokeRules": "Tulis api (hihen) di kiri, lalu bagian barat dan tanah di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13"
+    ],
+    "radicals": "火",
+    "examples": [
+      {
+        "word": "禁煙",
+        "reading": "きんえん",
+        "meaning": "Dilarang merokok"
+      },
+      {
+        "word": "煙",
+        "reading": "けむり",
+        "meaning": "Kepulan asap"
+      },
+      {
+        "word": "喫煙所",
+        "reading": "きつえんじょ",
+        "meaning": "Area khusus merokok"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "禁煙の使い方を授業で詳しく習いました。",
+        "furigana": "禁煙の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "きんえん no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '禁煙' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '禁煙' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で禁煙という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で禁煙という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de きんえん to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '禁煙' in daily life.",
+        "indonesian": "Saya sering melihat kata '禁煙' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "煙の意味を辞書で調べてノートに書きました。",
+        "furigana": "煙の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "けむり no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '煙' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '煙' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に煙の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に煙の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 煙 no kanji ga fukumarete imashita.",
+        "english": "The kanji '煙' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '煙' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 385,
+    "kanji": "独",
+    "reading": "どく・ひと-り",
+    "meaning": "Sendiri, Tunggal, Lajang",
+    "meaningEn": "Alone, Single, Independent",
+    "strokeCount": 9,
+    "onyomi": "ドク",
+    "kunyomi": "ひと-り",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis radikal anjing (kemonohen) di kiri, lalu kanji ulat/serangga (chuu) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9"
+    ],
+    "radicals": "犬",
+    "examples": [
+      {
+        "word": "独身",
+        "reading": "どくしん",
+        "meaning": "Lajang, belum menikah"
+      },
+      {
+        "word": "独立",
+        "reading": "どくりつ",
+        "meaning": "Kemerdekaan, mandiri"
+      },
+      {
+        "word": "独特",
+        "reading": "どくとく",
+        "meaning": "Unik, khas"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "独身の使い方を授業で詳しく習いました。",
+        "furigana": "独身の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "どくしん no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '独身' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '独身' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で独身という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で独身という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de どくしん to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '独身' in daily life.",
+        "indonesian": "Saya sering melihat kata '独身' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "独立の意味を辞書で調べてノートに書きました。",
+        "furigana": "独立の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "どくりつ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '独立' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '独立' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に独の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に独の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 独 no kanji ga fukumarete imashita.",
+        "english": "The kanji '独' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '独' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 386,
+    "kanji": "猫",
+    "reading": "びょう・ねこ",
+    "meaning": "Kucing",
+    "meaningEn": "Cat, Feline",
+    "strokeCount": 11,
+    "onyomi": "ビョウ",
+    "kunyomi": "ねこ",
+    "jlpt": "N4",
+    "category": "Hewan",
+    "strokeRules": "Tulis radikal kemonohen di kiri, lalu kecambah (nae) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11"
+    ],
+    "radicals": "犬",
+    "examples": [
+      {
+        "word": "猫",
+        "reading": "ねこ",
+        "meaning": "Kucing"
+      },
+      {
+        "word": "子猫",
+        "reading": "こねこ",
+        "meaning": "Anak kucing"
+      },
+      {
+        "word": "愛猫",
+        "reading": "あいびょう",
+        "meaning": "Kucing kesayangan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "猫の使い方を授業で詳しく習いました。",
+        "furigana": "猫の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ねこ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '猫' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '猫' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で猫という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で猫という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ねこ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '猫' in daily life.",
+        "indonesian": "Saya sering melihat kata '猫' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "子猫の意味を辞書で調べてノートに書きました。",
+        "furigana": "子猫の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "こねこ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '子猫' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '子猫' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に猫の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に猫の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 猫 no kanji ga fukumarete imashita.",
+        "english": "The kanji '猫' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '猫' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 387,
+    "kanji": "現",
+    "reading": "げん・あらわ-れる",
+    "meaning": "Nyata, Muncul, Sekarang",
+    "meaningEn": "Appear, Present, Actual",
+    "strokeCount": 11,
+    "onyomi": "ゲン",
+    "kunyomi": "あらわ-れる・あらわ-す",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis radikal permata/raja (ouhen) di kiri, lalu kanji melihat (miru) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11"
+    ],
+    "radicals": "玉",
+    "examples": [
+      {
+        "word": "現場",
+        "reading": "げんば",
+        "meaning": "Tempat kejadian, lokasi proyek"
+      },
+      {
+        "word": "現在",
+        "reading": "げんざい",
+        "meaning": "Saat ini, masa kini"
+      },
+      {
+        "word": "現れる",
+        "reading": "あらわれる",
+        "meaning": "Muncul terlihat"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "現場の使い方を授業で詳しく習いました。",
+        "furigana": "現場の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "げんば no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '現場' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '現場' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で現場という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で現場という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de げんば to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '現場' in daily life.",
+        "indonesian": "Saya sering melihat kata '現場' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "現在の意味を辞書で調べてノートに書きました。",
+        "furigana": "現在の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "げんざい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '現在' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '現在' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に現の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に現の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 現 no kanji ga fukumarete imashita.",
+        "english": "The kanji '現' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '現' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 388,
+    "kanji": "畑",
+    "reading": "はた・はたけ",
+    "meaning": "Ladang, Kebun Sayur",
+    "meaningEn": "Field, Farm, Garden",
+    "strokeCount": 9,
+    "onyomi": "畑",
+    "kunyomi": "はたけ・はた",
+    "jlpt": "N4",
+    "category": "Alam & Cuaca",
+    "strokeRules": "Tulis radikal api (hihen) di kiri, lalu kanji sawah (ta) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9"
+    ],
+    "radicals": "田",
+    "examples": [
+      {
+        "word": "畑",
+        "reading": "はたけ",
+        "meaning": "Ladang pertanian, kebun"
+      },
+      {
+        "word": "麦畑",
+        "reading": "むぎばたけ",
+        "meaning": "Ladang gandum"
+      },
+      {
+        "word": "花畑",
+        "reading": "はなばたけ",
+        "meaning": "Kebun bunga"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "畑の使い方を授業で詳しく習いました。",
+        "furigana": "畑の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "はたけ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '畑' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '畑' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で畑という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で畑という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de はたけ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '畑' in daily life.",
+        "indonesian": "Saya sering melihat kata '畑' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "麦畑の意味を辞書で調べてノートに書きました。",
+        "furigana": "麦畑の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "むぎばたけ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '麦畑' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '麦畑' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に畑の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に畑の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 畑 no kanji ga fukumarete imashita.",
+        "english": "The kanji '畑' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '畑' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 389,
+    "kanji": "眠",
+    "reading": "みん・ねむ-い",
+    "meaning": "Tidur, Mengantuk",
+    "meaningEn": "Sleep, Drowsy, Slumber",
+    "strokeCount": 10,
+    "onyomi": "ミン",
+    "kunyomi": "ねむ-る・ねむ-い",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis radikal mata (mehen) di kiri, lalu kanji sipil/rakyat (min) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "目",
+    "examples": [
+      {
+        "word": "眠い",
+        "reading": "ねむい",
+        "meaning": "Mengantuk"
+      },
+      {
+        "word": "睡眠",
+        "reading": "すいみん",
+        "meaning": "Waktu tidur, istirahat"
+      },
+      {
+        "word": "居眠り",
+        "reading": "いねむり",
+        "meaning": "Tidur ayam, tertidur sejenak"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "眠いの使い方を授業で詳しく習いました。",
+        "furigana": "眠いの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ねむい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '眠い' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '眠い' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で眠いという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で眠いという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ねむい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '眠い' in daily life.",
+        "indonesian": "Saya sering melihat kata '眠い' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "睡眠の意味を辞書で調べてノートに書きました。",
+        "furigana": "睡眠の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "すいみん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '睡眠' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '睡眠' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に眠の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に眠の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 眠 no kanji ga fukumarete imashita.",
+        "english": "The kanji '眠' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '眠' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 390,
+    "kanji": "短",
+    "reading": "たん・みじか-い",
+    "meaning": "Pendek, Singkat",
+    "meaningEn": "Short, Brief, Deficiency",
+    "strokeCount": 12,
+    "onyomi": "タン",
+    "kunyomi": "みじか-い",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis anak panah (yahen) di kiri, lalu kacang (mame) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "矢",
+    "examples": [
+      {
+        "word": "短い",
+        "reading": "みじかい",
+        "meaning": "Pendek, singkat"
+      },
+      {
+        "word": "短所",
+        "reading": "たんしょ",
+        "meaning": "Kekurangan, kelemahan"
+      },
+      {
+        "word": "短時間",
+        "reading": "たんじかん",
+        "meaning": "Waktu singkat"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "短いの使い方を授業で詳しく習いました。",
+        "furigana": "短いの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "みじかい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '短い' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '短い' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で短いという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で短いという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de みじかい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '短い' in daily life.",
+        "indonesian": "Saya sering melihat kata '短い' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "短所の意味を辞書で調べてノートに書きました。",
+        "furigana": "短所の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "たんしょ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '短所' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '短所' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に短の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に短の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 短 no kanji ga fukumarete imashita.",
+        "english": "The kanji '短' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '短' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 391,
+    "kanji": "神",
+    "reading": "しん・じん・かみ",
+    "meaning": "Dewa, Tuhan, Roh Suci",
+    "meaningEn": "God, Deity, Spirit",
+    "strokeCount": 9,
+    "onyomi": "シン・ジン",
+    "kunyomi": "かみ",
+    "jlpt": "N4",
+    "category": "Tempat & Bangunan",
+    "strokeRules": "Tulis radikal altar (shimesuhen) di kiri, lalu kanji petir/lurus (mousu/shin) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9"
+    ],
+    "radicals": "示",
+    "examples": [
+      {
+        "word": "神社",
+        "reading": "じんじゃ",
+        "meaning": "Kuil Shinto"
+      },
+      {
+        "word": "神様",
+        "reading": "かみさま",
+        "meaning": "Tuhan, dewa puja"
+      },
+      {
+        "word": "神経",
+        "reading": "しんけい",
+        "meaning": "Saraf pikiran"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "神社の使い方を授業で詳しく習いました。",
+        "furigana": "神社の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "じんじゃ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '神社' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '神社' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で神社という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で神社という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de じんじゃ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '神社' in daily life.",
+        "indonesian": "Saya sering melihat kata '神社' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "神様の意味を辞書で調べてノートに書きました。",
+        "furigana": "神様の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かみさま no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '神様' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '神様' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に神の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に神の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 神 no kanji ga fukumarete imashita.",
+        "english": "The kanji '神' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '神' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 392,
+    "kanji": "禁",
+    "reading": "きん",
+    "meaning": "Larangan, Pantangan",
+    "meaningEn": "Prohibit, Forbid, Ban",
+    "strokeCount": 13,
+    "onyomi": "キン",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis dua pohon (hayashi) di atas, lalu altar persembahan (shimesu) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13"
+    ],
+    "radicals": "示",
+    "examples": [
+      {
+        "word": "禁止",
+        "reading": "きんし",
+        "meaning": "Larangan tegas"
+      },
+      {
+        "word": "禁煙",
+        "reading": "きんえん",
+        "meaning": "Dilarang merokok"
+      },
+      {
+        "word": "厳禁",
+        "reading": "げんきん",
+        "meaning": "Dilarang keras"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "禁止の使い方を授業で詳しく習いました。",
+        "furigana": "禁止の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "きんし no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '禁止' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '禁止' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で禁止という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で禁止という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de きんし to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '禁止' in daily life.",
+        "indonesian": "Saya sering melihat kata '禁止' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "禁煙の意味を辞書で調べてノートに書きました。",
+        "furigana": "禁煙の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "きんえん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '禁煙' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '禁煙' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に禁の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に禁の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 禁 no kanji ga fukumarete imashita.",
+        "english": "The kanji '禁' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '禁' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 393,
+    "kanji": "笑",
+    "reading": "しょう・わら-う",
+    "meaning": "Tertawa, Tersenyum",
+    "meaningEn": "Laugh, Smile",
+    "strokeCount": 10,
+    "onyomi": "ショウ",
+    "kunyomi": "わら-う・え-む",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis radikal bambu (takekanmuri) di atas, lalu orang muda (waka/ten) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "竹",
+    "examples": [
+      {
+        "word": "笑う",
+        "reading": "わらう",
+        "meaning": "Tertawa"
+      },
+      {
+        "word": "笑顔",
+        "reading": "えがお",
+        "meaning": "Wajah tersenyum manis"
+      },
+      {
+        "word": "苦笑",
+        "reading": "くしょう",
+        "meaning": "Senyum kecut"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "笑うの使い方を授業で詳しく習いました。",
+        "furigana": "笑うの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "わらう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '笑う' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '笑う' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で笑うという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で笑うという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de わらう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '笑う' in daily life.",
+        "indonesian": "Saya sering melihat kata '笑う' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "笑顔の意味を辞書で調べてノートに書きました。",
+        "furigana": "笑顔の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "えがお no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '笑顔' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '笑顔' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に笑の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に笑の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 笑 no kanji ga fukumarete imashita.",
+        "english": "The kanji '笑' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '笑' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 394,
+    "kanji": "絡",
+    "reading": "らく・から-む",
+    "meaning": "Terikat, Terjalin, Menghubungkan",
+    "meaningEn": "Entangle, Connect, Coil",
+    "strokeCount": 12,
+    "onyomi": "ラク",
+    "kunyomi": "から-む・から-まる",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis benang (itohen) di kiri, lalu setiap (kaku) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "糸",
+    "examples": [
+      {
+        "word": "連絡",
+        "reading": "れんらく",
+        "meaning": "Kontak, komunikasi"
+      },
+      {
+        "word": "絡む",
+        "reading": "からむ",
+        "meaning": "Terjerat, melilit"
+      },
+      {
+        "word": "短絡",
+        "reading": "たんらく",
+        "meaning": "Gagasan dangkal, korsleting"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "連絡の使い方を授業で詳しく習いました。",
+        "furigana": "連絡の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "れんらく no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '連絡' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '連絡' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で連絡という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で連絡という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de れんらく to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '連絡' in daily life.",
+        "indonesian": "Saya sering melihat kata '連絡' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "絡むの意味を辞書で調べてノートに書きました。",
+        "furigana": "絡むの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "からむ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '絡む' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '絡む' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に絡の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に絡の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 絡 no kanji ga fukumarete imashita.",
+        "english": "The kanji '絡' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '絡' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 395,
+    "kanji": "能",
+    "reading": "のう",
+    "meaning": "Kemampuan, Bakat, Keterampilan",
+    "meaningEn": "Ability, Talent, Skill",
+    "strokeCount": 10,
+    "onyomi": "ノウ",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis bentuk beruang/kekuatan di kiri, lalu dua belati sejajar (hi) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "肉",
+    "examples": [
+      {
+        "word": "能力",
+        "reading": "のうりょく",
+        "meaning": "Kapasitas, kemampuan"
+      },
+      {
+        "word": "可能",
+        "reading": "かのう",
+        "meaning": "Mungkin terjadi"
+      },
+      {
+        "word": "機能",
+        "reading": "きのう",
+        "meaning": "Fungsi alat"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "能力の使い方を授業で詳しく習いました。",
+        "furigana": "能力の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "のうりょく no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '能力' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '能力' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で能力という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で能力という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de のうりょく to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '能力' in daily life.",
+        "indonesian": "Saya sering melihat kata '能力' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "可能の意味を辞書で調べてノートに書きました。",
+        "furigana": "可能の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "かのう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '可能' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '可能' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に能の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に能の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 能 no kanji ga fukumarete imashita.",
+        "english": "The kanji '能' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '能' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 396,
+    "kanji": "腹",
+    "reading": "ふく・はら",
+    "meaning": "Perut, Niat Batin",
+    "meaningEn": "Belly, Stomach, Mind",
+    "strokeCount": 13,
+    "onyomi": "フク",
+    "kunyomi": "はら",
+    "jlpt": "N4",
+    "category": "Tubuh",
+    "strokeRules": "Tulis radikal daging/bulan (nikuzuki) di kiri, lalu bagian kembalian (fuku) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13"
+    ],
+    "radicals": "肉",
+    "examples": [
+      {
+        "word": "お腹",
+        "reading": "おなか",
+        "meaning": "Perut"
+      },
+      {
+        "word": "腹痛",
+        "reading": "ふくつう",
+        "meaning": "Sakit perut"
+      },
+      {
+        "word": "空腹",
+        "reading": "くうふく",
+        "meaning": "Perut lapar"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "お腹の使い方を授業で詳しく習いました。",
+        "furigana": "お腹の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "おなか no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use 'お腹' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan 'お腹' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活でお腹という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]でお腹という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de おなか to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word 'お腹' in daily life.",
+        "indonesian": "Saya sering melihat kata 'お腹' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "腹痛の意味を辞書で調べてノートに書きました。",
+        "furigana": "腹痛の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ふくつう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '腹痛' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '腹痛' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に腹の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に腹の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 腹 no kanji ga fukumarete imashita.",
+        "english": "The kanji '腹' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '腹' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 397,
+    "kanji": "興",
+    "reading": "こう・きょう・おこ-る",
+    "meaning": "Minat, Ketertarikan, Bangkit",
+    "meaningEn": "Interest, Entertain, Rouse",
+    "strokeCount": 16,
+    "onyomi": "コウ・キョウ",
+    "kunyomi": "おこ-る・おこ-す",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis mortar (usu) di bagian atas mengapit garis, lalu kaki bersama (tomo) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15",
+      "Goresan 16: Langkah goresan ke-16"
+    ],
+    "radicals": "臼",
+    "examples": [
+      {
+        "word": "興味",
+        "reading": "きょうみ",
+        "meaning": "Ketertarikan, minat hobi"
+      },
+      {
+        "word": "興奮",
+        "reading": "こうふん",
+        "meaning": "Gembira bersemangat"
+      },
+      {
+        "word": "復興",
+        "reading": "ふっこう",
+        "meaning": "Rekonstruksi bangkit"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "興味の使い方を授業で詳しく習いました。",
+        "furigana": "興味の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "きょうみ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '興味' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '興味' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で興味という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で興味という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de きょうみ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '興味' in daily life.",
+        "indonesian": "Saya sering melihat kata '興味' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "興奮の意味を辞書で調べてノートに書きました。",
+        "furigana": "興奮の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "こうふん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '興奮' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '興奮' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に興の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に興の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 興 no kanji ga fukumarete imashita.",
+        "english": "The kanji '興' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '興' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 398,
+    "kanji": "良",
+    "reading": "りょう・よ-い",
+    "meaning": "Baik, Bagus, Unggul",
+    "meaningEn": "Good, Fine, Excellent",
+    "strokeCount": 7,
+    "onyomi": "リョウ",
+    "kunyomi": "よ-い・い-い",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis satu titik di puncak, garis melengkung kiri, lalu bagian bawah berimbang.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "艮",
+    "examples": [
+      {
+        "word": "良い",
+        "reading": "よい・いい",
+        "meaning": "Bagus, baik"
+      },
+      {
+        "word": "良心",
+        "reading": "りょうしん",
+        "meaning": "Hati nurani bersih"
+      },
+      {
+        "word": "最良",
+        "reading": "さいりょう",
+        "meaning": "Paling terbaik"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "良いの使い方を授業で詳しく習いました。",
+        "furigana": "良いの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "よい・いい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '良い' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '良い' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で良いという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で良いという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de よい・いい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '良い' in daily life.",
+        "indonesian": "Saya sering melihat kata '良い' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "良心の意味を辞書で調べてノートに書きました。",
+        "furigana": "良心の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "りょうしん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '良心' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '良心' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に良の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に良の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 良 no kanji ga fukumarete imashita.",
+        "english": "The kanji '良' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '良' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 399,
+    "kanji": "苦",
+    "reading": "く・くる-しい・にが-い",
+    "meaning": "Pahit, Berat, Menderita",
+    "meaningEn": "Bitter, Painful, Suffer",
+    "strokeCount": 8,
+    "onyomi": "ク",
+    "kunyomi": "くる-しい・にが-い",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis radikal rumput (kusakanmuri) di atas, lalu kanji kuno (ko/furui) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8"
+    ],
+    "radicals": "艸",
+    "examples": [
+      {
+        "word": "苦い",
+        "reading": "にがい",
+        "meaning": "Pahit rasanya"
+      },
+      {
+        "word": "苦しい",
+        "reading": "くるしい",
+        "meaning": "Menyakitkan, sesak"
+      },
+      {
+        "word": "苦労",
+        "reading": "くろう",
+        "meaning": "Jerih payah, kesulitan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "苦いの使い方を授業で詳しく習いました。",
+        "furigana": "苦いの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "にがい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '苦い' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '苦い' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で苦いという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で苦いという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de にがい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '苦い' in daily life.",
+        "indonesian": "Saya sering melihat kata '苦い' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "苦しいの意味を辞書で調べてノートに書きました。",
+        "furigana": "苦しいの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "くるしい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '苦しい' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '苦しい' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に苦の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に苦の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 苦 no kanji ga fukumarete imashita.",
+        "english": "The kanji '苦' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '苦' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 400,
+    "kanji": "荷",
+    "reading": "か・に",
+    "meaning": "Beban, Barang Bawaan, Kargo",
+    "meaningEn": "Luggage, Cargo, Burden",
+    "strokeCount": 10,
+    "onyomi": "カ",
+    "kunyomi": "に",
+    "jlpt": "N4",
+    "category": "Warna & Benda",
+    "strokeRules": "Tulis kusakanmuri di atas, lalu apa (nani/ka) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "艸",
+    "examples": [
+      {
+        "word": "荷物",
+        "reading": "にもつ",
+        "meaning": "Barang bawaan, paket"
+      },
+      {
+        "word": "重荷",
+        "reading": "おもに",
+        "meaning": "Beban berat"
+      },
+      {
+        "word": "出荷",
+        "reading": "しゅっか",
+        "meaning": "Pengiriman barang"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "荷物の使い方を授業で詳しく習いました。",
+        "furigana": "荷物の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "にもつ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '荷物' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '荷物' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で荷物という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で荷物という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de にもつ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '荷物' in daily life.",
+        "indonesian": "Saya sering melihat kata '荷物' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "重荷の意味を辞書で調べてノートに書きました。",
+        "furigana": "重荷の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "おもに no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '重荷' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '重荷' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に荷の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に荷の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 荷 no kanji ga fukumarete imashita.",
+        "english": "The kanji '荷' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '荷' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 401,
+    "kanji": "菜",
+    "reading": "さい・な",
+    "meaning": "Sayuran, Lauk Hijau",
+    "meaningEn": "Vegetable, Greens, Side dish",
+    "strokeCount": 11,
+    "onyomi": "サイ",
+    "kunyomi": "な",
+    "jlpt": "N4",
+    "category": "Makanan & Minuman",
+    "strokeRules": "Tulis kusakanmuri di atas, lalu memetik (tori/sai) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11"
+    ],
+    "radicals": "艸",
+    "examples": [
+      {
+        "word": "野菜",
+        "reading": "やさい",
+        "meaning": "Sayur-mayur"
+      },
+      {
+        "word": "白菜",
+        "reading": "はくさい",
+        "meaning": "Sawi putih"
+      },
+      {
+        "word": "菜園",
+        "reading": "さいえん",
+        "meaning": "Kebun sayur"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "野菜の使い方を授業で詳しく習いました。",
+        "furigana": "野菜の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "やさい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '野菜' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '野菜' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で野菜という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で野菜という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de やさい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '野菜' in daily life.",
+        "indonesian": "Saya sering melihat kata '野菜' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "白菜の意味を辞書で調べてノートに書きました。",
+        "furigana": "白菜の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "はくさい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '白菜' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '白菜' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に菜の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に菜の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 菜 no kanji ga fukumarete imashita.",
+        "english": "The kanji '菜' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '菜' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 402,
+    "kanji": "虹",
+    "reading": "こう・にじ",
+    "meaning": "Pelangi",
+    "meaningEn": "Rainbow",
+    "strokeCount": 9,
+    "onyomi": "コウ",
+    "kunyomi": "にじ",
+    "jlpt": "N4",
+    "category": "Alam & Cuaca",
+    "strokeRules": "Tulis serangga (mushihen) di kiri, lalu tukang (kou) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9"
+    ],
+    "radicals": "虫",
+    "examples": [
+      {
+        "word": "虹",
+        "reading": "にじ",
+        "meaning": "Pelangi indah"
+      },
+      {
+        "word": "虹色",
+        "reading": "にじいろ",
+        "meaning": "Warna pelangi warna-warni"
+      },
+      {
+        "word": "主虹",
+        "reading": "しゅこう",
+        "meaning": "Busur pelangi utama"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "虹の使い方を授業で詳しく習いました。",
+        "furigana": "虹の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "にじ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '虹' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '虹' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で虹という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で虹という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de にじ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '虹' in daily life.",
+        "indonesian": "Saya sering melihat kata '虹' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "虹色の意味を辞書で調べてノートに書きました。",
+        "furigana": "虹色の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "にじいろ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '虹色' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '虹色' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に虹の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に虹の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 虹 no kanji ga fukumarete imashita.",
+        "english": "The kanji '虹' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '虹' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 403,
+    "kanji": "要",
+    "reading": "よう・い-る",
+    "meaning": "Penting, Butuh, Pokok",
+    "meaningEn": "Need, Important, Essential",
+    "strokeCount": 9,
+    "onyomi": "ヨウ",
+    "kunyomi": "い-る・かなめ",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis penutup nishi di atas, lalu wanita (onna) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9"
+    ],
+    "radicals": "覀",
+    "examples": [
+      {
+        "word": "重要",
+        "reading": "じゅうよう",
+        "meaning": "Sangat penting"
+      },
+      {
+        "word": "必要",
+        "reading": "ひつよう",
+        "meaning": "Dibutuhkan, perlu"
+      },
+      {
+        "word": "要る",
+        "reading": "いる",
+        "meaning": "Memerlukan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "重要の使い方を授業で詳しく習いました。",
+        "furigana": "重要の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "じゅうよう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '重要' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '重要' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で重要という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で重要という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de じゅうよう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '重要' in daily life.",
+        "indonesian": "Saya sering melihat kata '重要' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "必要の意味を辞書で調べてノートに書きました。",
+        "furigana": "必要の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ひつよう no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '必要' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '必要' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に要の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に要の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 要 no kanji ga fukumarete imashita.",
+        "english": "The kanji '要' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '要' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 404,
+    "kanji": "解",
+    "reading": "かい・げ・と-く",
+    "meaning": "Paham, Mengurai, Memecahkan",
+    "meaningEn": "Understand, Solve, Untie",
+    "strokeCount": 13,
+    "onyomi": "カイ・ゲ",
+    "kunyomi": "と-く・と-かす・わか-る",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis tanduk (tsuno) di kiri, lalu pisau (katana) dan sapi (ushi) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13"
+    ],
+    "radicals": "角",
+    "examples": [
+      {
+        "word": "解決",
+        "reading": "かいけつ",
+        "meaning": "Penyelesaian masalah"
+      },
+      {
+        "word": "了解",
+        "reading": "りょうかい",
+        "meaning": "Mengerti"
+      },
+      {
+        "word": "解答",
+        "reading": "かいとう",
+        "meaning": "Jawaban kuis"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "解決の使い方を授業で詳しく習いました。",
+        "furigana": "解決の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かいけつ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '解決' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '解決' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で解決という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で解決という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かいけつ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '解決' in daily life.",
+        "indonesian": "Saya sering melihat kata '解決' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "了解の意味を辞書で調べてノートに書きました。",
+        "furigana": "了解の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "りょうかい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '了解' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '了解' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に解の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に解の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 解 no kanji ga fukumarete imashita.",
+        "english": "The kanji '解' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '解' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 405,
+    "kanji": "謝",
+    "reading": "しゃ・あやま-る",
+    "meaning": "Terima Kasih, Minta Maaf",
+    "meaningEn": "Thank, Apologize, Refuse",
+    "strokeCount": 17,
+    "onyomi": "シャ",
+    "kunyomi": "あやま-る",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis kata (gonben) di kiri, badan (mi) di tengah, dan jengkal (sun) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15",
+      "Goresan 16: Langkah goresan ke-16",
+      "Goresan 17: Langkah goresan ke-17"
+    ],
+    "radicals": "言",
+    "examples": [
+      {
+        "word": "感謝",
+        "reading": "かんしゃ",
+        "meaning": "Rasa terima kasih mendalam"
+      },
+      {
+        "word": "謝る",
+        "reading": "あやまる",
+        "meaning": "Meminta maaf"
+      },
+      {
+        "word": "謝礼",
+        "reading": "しゃれい",
+        "meaning": "Uang imbalan terima kasih"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "感謝の使い方を授業で詳しく習いました。",
+        "furigana": "感謝の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かんしゃ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '感謝' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '感謝' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で感謝という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で感謝という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かんしゃ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '感謝' in daily life.",
+        "indonesian": "Saya sering melihat kata '感謝' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "謝るの意味を辞書で調べてノートに書きました。",
+        "furigana": "謝るの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "あやまる no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '謝る' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '謝る' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に謝の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に謝の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 謝 no kanji ga fukumarete imashita.",
+        "english": "The kanji '謝' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '謝' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 406,
+    "kanji": "護",
+    "reading": "ご・まも-る",
+    "meaning": "Melindungi, Menjaga, Membela",
+    "meaningEn": "Protect, Safeguard, Shield",
+    "strokeCount": 20,
+    "onyomi": "ゴ",
+    "kunyomi": "まも-る",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis gonben di kiri, lalu burung rumput (kaku) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15",
+      "Goresan 16: Langkah goresan ke-16",
+      "Goresan 17: Langkah goresan ke-17",
+      "Goresan 18: Langkah goresan ke-18",
+      "Goresan 19: Langkah goresan ke-19",
+      "Goresan 20: Langkah goresan ke-20"
+    ],
+    "radicals": "言",
+    "examples": [
+      {
+        "word": "介護",
+        "reading": "かいご",
+        "meaning": "Perawatan pendampingan lansia"
+      },
+      {
+        "word": "弁護士",
+        "reading": "べんごし",
+        "meaning": "Pengacara"
+      },
+      {
+        "word": "保護",
+        "reading": "ほご",
+        "meaning": "Perlindungan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "介護の使い方を授業で詳しく習いました。",
+        "furigana": "介護の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かいご no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '介護' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '介護' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で介護という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で介護という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かいご to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '介護' in daily life.",
+        "indonesian": "Saya sering melihat kata '介護' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "弁護士の意味を辞書で調べてノートに書きました。",
+        "furigana": "弁護士の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "べんごし no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '弁護士' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '弁護士' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に護の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に護の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 護 no kanji ga fukumarete imashita.",
+        "english": "The kanji '護' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '護' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 407,
+    "kanji": "豚",
+    "reading": "とん・ぶた",
+    "meaning": "Babi, Daging Babi",
+    "meaningEn": "Pig, Pork",
+    "strokeCount": 11,
+    "onyomi": "トン",
+    "kunyomi": "ぶた",
+    "jlpt": "N4",
+    "category": "Hewan",
+    "strokeRules": "Tulis nikuzuki (bulan daging) di kiri, lalu anak babi/taring di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11"
+    ],
+    "radicals": "肉",
+    "examples": [
+      {
+        "word": "豚肉",
+        "reading": "ぶたにく",
+        "meaning": "Daging babi"
+      },
+      {
+        "word": "子豚",
+        "reading": "こぶた",
+        "meaning": "Anak babi"
+      },
+      {
+        "word": "豚汁",
+        "reading": "とんじる",
+        "meaning": "Sup daging babi isi sayur"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "豚肉の使い方を授業で詳しく習いました。",
+        "furigana": "豚肉の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ぶたにく no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '豚肉' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '豚肉' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で豚肉という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で豚肉という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ぶたにく to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '豚肉' in daily life.",
+        "indonesian": "Saya sering melihat kata '豚肉' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "子豚の意味を辞書で調べてノートに書きました。",
+        "furigana": "子豚の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "こぶた no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '子豚' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '子豚' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に豚の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に豚の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 豚 no kanji ga fukumarete imashita.",
+        "english": "The kanji '豚' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '豚' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 408,
+    "kanji": "踊",
+    "reading": "よう・おど-る",
+    "meaning": "Menari, Berdansa",
+    "meaningEn": "Dance, Leap",
+    "strokeCount": 14,
+    "onyomi": "ヨウ",
+    "kunyomi": "おど-る・おど-り",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis radikal kaki (ashihen) di kiri, lalu berani (yuu) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14"
+    ],
+    "radicals": "足",
+    "examples": [
+      {
+        "word": "踊る",
+        "reading": "おどる",
+        "meaning": "Menari ritmis"
+      },
+      {
+        "word": "踊り",
+        "reading": "おどり",
+        "meaning": "Tarian tradisional"
+      },
+      {
+        "word": "舞踊",
+        "reading": "ぶよう",
+        "meaning": "Seni tari panggung"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "踊るの使い方を授業で詳しく習いました。",
+        "furigana": "踊るの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "おどる no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '踊る' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '踊る' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で踊るという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で踊るという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de おどる to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '踊る' in daily life.",
+        "indonesian": "Saya sering melihat kata '踊る' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "踊りの意味を辞書で調べてノートに書きました。",
+        "furigana": "踊りの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "おどり no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '踊り' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '踊り' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に踊の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に踊の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 踊 no kanji ga fukumarete imashita.",
+        "english": "The kanji '踊' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '踊' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 409,
+    "kanji": "身",
+    "reading": "しん・み",
+    "meaning": "Tubuh, Diri Sendiri, Status",
+    "meaningEn": "Body, Oneself, Person",
+    "strokeCount": 7,
+    "onyomi": "シン",
+    "kunyomi": "み",
+    "jlpt": "N4",
+    "category": "Tubuh",
+    "strokeRules": "Tulis garis miring atas, badan menyamping, garis horizontal tengah melintang.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "身",
+    "examples": [
+      {
+        "word": "自分自身",
+        "reading": "じぶんじしん",
+        "meaning": "Diri sendiri"
+      },
+      {
+        "word": "独身",
+        "reading": "どくしん",
+        "meaning": "Lajang"
+      },
+      {
+        "word": "身体",
+        "reading": "しんたい",
+        "meaning": "Tubuh raga"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "自分自身の使い方を授業で詳しく習いました。",
+        "furigana": "自分自身の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "じぶんじしん no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '自分自身' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '自分自身' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で自分自身という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で自分自身という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de じぶんじしん to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '自分自身' in daily life.",
+        "indonesian": "Saya sering melihat kata '自分自身' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "独身の意味を辞書で調べてノートに書きました。",
+        "furigana": "独身の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "どくしん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '独身' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '独身' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に身の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に身の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 身 no kanji ga fukumarete imashita.",
+        "english": "The kanji '身' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '身' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 410,
+    "kanji": "軽",
+    "reading": "けい・かる-い",
+    "meaning": "Ringan, Remeh, Santai",
+    "meaningEn": "Lightweight, Nimble",
+    "strokeCount": 12,
+    "onyomi": "ケイ",
+    "kunyomi": "かる-い・かろ-やか",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis kereta (kurumahen) di kiri, lalu bagian benang melintang di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "車",
+    "examples": [
+      {
+        "word": "軽い",
+        "reading": "かるい",
+        "meaning": "Ringan timbangannya"
+      },
+      {
+        "word": "軽食",
+        "reading": "けいしょく",
+        "meaning": "Makanan ringan"
+      },
+      {
+        "word": "気軽",
+        "reading": "きがる",
+        "meaning": "Santai tanpa beban"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "軽いの使い方を授業で詳しく習いました。",
+        "furigana": "軽いの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かるい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '軽い' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '軽い' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で軽いという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で軽いという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かるい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '軽い' in daily life.",
+        "indonesian": "Saya sering melihat kata '軽い' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "軽食の意味を辞書で調べてノートに書きました。",
+        "furigana": "軽食の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "けいしょく no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '軽食' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '軽食' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に軽の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に軽の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 軽 no kanji ga fukumarete imashita.",
+        "english": "The kanji '軽' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '軽' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 411,
+    "kanji": "輩",
+    "reading": "はい",
+    "meaning": "Rekan, Kawan, Golongan",
+    "meaningEn": "Comrade, Fellow, Cohort",
+    "strokeCount": 15,
+    "onyomi": "ハイ",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis lawan/bukan (hi) di atas, lalu kereta (kuruma) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15"
+    ],
+    "radicals": "車",
+    "examples": [
+      {
+        "word": "先輩",
+        "reading": "せんぱい",
+        "meaning": "Senior bimbingan"
+      },
+      {
+        "word": "後輩",
+        "reading": "こうはい",
+        "meaning": "Junior rekan"
+      },
+      {
+        "word": "同輩",
+        "reading": "どうはい",
+        "meaning": "Teman sebaya"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "先輩の使い方を授業で詳しく習いました。",
+        "furigana": "先輩の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "せんぱい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '先輩' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '先輩' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で先輩という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で先輩という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de せんぱい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '先輩' in daily life.",
+        "indonesian": "Saya sering melihat kata '先輩' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "後輩の意味を辞書で調べてノートに書きました。",
+        "furigana": "後輩の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "こうはい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '後輩' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '後輩' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に輩の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に輩の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 輩 no kanji ga fukumarete imashita.",
+        "english": "The kanji '輩' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '輩' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 412,
+    "kanji": "辞",
+    "reading": "じ・や-める",
+    "meaning": "Kamus, Kata, Mengundurkan Diri",
+    "meaningEn": "Word, Resign, Dictionary",
+    "strokeCount": 13,
+    "onyomi": "ジ",
+    "kunyomi": "や-める",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis lidah di kiri, lalu rasa pedas (karai) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13"
+    ],
+    "radicals": "辛",
+    "examples": [
+      {
+        "word": "辞書",
+        "reading": "じしょ",
+        "meaning": "Kamus bahasa"
+      },
+      {
+        "word": "辞める",
+        "reading": "やめる",
+        "meaning": "Berhenti, mengundurkan diri"
+      },
+      {
+        "word": "世辞",
+        "reading": "せじ",
+        "meaning": "Pujian diplomatis"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "辞書の使い方を授業で詳しく習いました。",
+        "furigana": "辞書の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "じしょ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '辞書' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '辞書' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で辞書という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で辞書という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de じしょ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '辞書' in daily life.",
+        "indonesian": "Saya sering melihat kata '辞書' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "辞めるの意味を辞書で調べてノートに書きました。",
+        "furigana": "辞めるの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "やめる no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '辞める' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '辞める' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に辞の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に辞の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 辞 no kanji ga fukumarete imashita.",
+        "english": "The kanji '辞' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '辞' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 413,
+    "kanji": "迷",
+    "reading": "めい・まよ-う",
+    "meaning": "Tersesat, Ragu, Bingung",
+    "meaningEn": "Lost, Stray, Hesitate",
+    "strokeCount": 9,
+    "onyomi": "メイ",
+    "kunyomi": "まよ-う",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis beras (kome) di dalam, lalu jalan melangkah (shinnyou) di luar.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9"
+    ],
+    "radicals": "辵",
+    "examples": [
+      {
+        "word": "迷う",
+        "reading": "まよう",
+        "meaning": "Tersesat jalan, ragu bimbang"
+      },
+      {
+        "word": "迷子",
+        "reading": "まいご",
+        "meaning": "Anak tersesat"
+      },
+      {
+        "word": "迷惑",
+        "reading": "めいわく",
+        "meaning": "Merepotkan, gangguan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "迷うの使い方を授業で詳しく習いました。",
+        "furigana": "迷うの[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "まよう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '迷う' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '迷う' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で迷うという言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で迷うという[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de まよう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '迷う' in daily life.",
+        "indonesian": "Saya sering melihat kata '迷う' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "迷子の意味を辞書で調べてノートに書きました。",
+        "furigana": "迷子の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "まいご no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '迷子' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '迷子' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に迷の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に迷の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 迷 no kanji ga fukumarete imashita.",
+        "english": "The kanji '迷' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '迷' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 414,
+    "kanji": "連",
+    "reading": "れん・つ-れる",
+    "meaning": "Menghubungkan, Membawa Serta",
+    "meaningEn": "Connect, Accompany, Lead",
+    "strokeCount": 10,
+    "onyomi": "レン",
+    "kunyomi": "つ-れる・つら-なる",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis kereta (kuruma) di dalam, lalu jalanan shinnyou di luar.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "辵",
+    "examples": [
+      {
+        "word": "連絡",
+        "reading": "れんらく",
+        "meaning": "Hubungan, kabar kontak"
+      },
+      {
+        "word": "連れて行く",
+        "reading": "つれていく",
+        "meaning": "Membawa serta pergi"
+      },
+      {
+        "word": "連続",
+        "reading": "れんぞく",
+        "meaning": "Beruntun, nonstop"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "連絡の使い方を授業で詳しく習いました。",
+        "furigana": "連絡の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "れんらく no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '連絡' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '連絡' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で連絡という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で連絡という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de れんらく to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '連絡' in daily life.",
+        "indonesian": "Saya sering melihat kata '連絡' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "連れて行くの意味を辞書で調べてノートに書きました。",
+        "furigana": "連れて行くの[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "つれていく no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '連れて行く' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '連れて行く' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に連の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に連の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 連 no kanji ga fukumarete imashita.",
+        "english": "The kanji '連' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '連' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 415,
+    "kanji": "配",
+    "reading": "はい・くば-る",
+    "meaning": "Membagikan, Khawatir, Porsi",
+    "meaningEn": "Distribute, Concern, Arrange",
+    "strokeCount": 10,
+    "onyomi": "ハイ",
+    "kunyomi": "くば-る",
+    "jlpt": "N4",
+    "category": "Aktivitas & Kata Kerja",
+    "strokeRules": "Tulis kendi anggur (tori) di kiri, lalu orang bersujud (ki) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "酉",
+    "examples": [
+      {
+        "word": "心配",
+        "reading": "しんぱい",
+        "meaning": "Cemas, khawatir"
+      },
+      {
+        "word": "配達",
+        "reading": "はいたつ",
+        "meaning": "Pengantaran paket"
+      },
+      {
+        "word": "配る",
+        "reading": "くばる",
+        "meaning": "Membagi-bagikan"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "心配の使い方を授業で詳しく習いました。",
+        "furigana": "心配の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "しんぱい no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '心配' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '心配' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で心配という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で心配という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de しんぱい to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '心配' in daily life.",
+        "indonesian": "Saya sering melihat kata '心配' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "配達の意味を辞書で調べてノートに書きました。",
+        "furigana": "配達の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "はいたつ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '配達' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '配達' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に配の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に配の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 配 no kanji ga fukumarete imashita.",
+        "english": "The kanji '配' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '配' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 416,
+    "kanji": "酒",
+    "reading": "しゅ・さけ",
+    "meaning": "Minuman Beralkohol, Sake",
+    "meaningEn": "Sake, Alcohol, Liquor",
+    "strokeCount": 10,
+    "onyomi": "シュ",
+    "kunyomi": "さけ・さか",
+    "jlpt": "N4",
+    "category": "Makanan & Minuman",
+    "strokeRules": "Tulis sanzui di kiri, lalu kendi anggur (tori/sake) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10"
+    ],
+    "radicals": "酉",
+    "examples": [
+      {
+        "word": "お酒",
+        "reading": "おさけ",
+        "meaning": "Minuman beralkohol, sake"
+      },
+      {
+        "word": "居酒屋",
+        "reading": "いざかや",
+        "meaning": "Kedai minum santai"
+      },
+      {
+        "word": "日本酒",
+        "reading": "にほんしゅ",
+        "meaning": "Arak beras Jepang"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "お酒の使い方を授業で詳しく習いました。",
+        "furigana": "お酒の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "おさけ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use 'お酒' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan 'お酒' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活でお酒という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]でお酒という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de おさけ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word 'お酒' in daily life.",
+        "indonesian": "Saya sering melihat kata 'お酒' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "居酒屋の意味を辞書で調べてノートに書きました。",
+        "furigana": "居酒屋の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "いざかや no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '居酒屋' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '居酒屋' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に酒の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に酒の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 酒 no kanji ga fukumarete imashita.",
+        "english": "The kanji '酒' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '酒' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 417,
+    "kanji": "阪",
+    "reading": "はん・さか",
+    "meaning": "Lereng, Tanjakan, Osaka",
+    "meaningEn": "Slope, Incline, Osaka",
+    "strokeCount": 7,
+    "onyomi": "ハン",
+    "kunyomi": "さか",
+    "jlpt": "N4",
+    "category": "Tempat & Bangunan",
+    "strokeRules": "Tulis radikal tebing/bukit (kozatohen) di kiri, lalu kanji membalik (han) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7"
+    ],
+    "radicals": "阜",
+    "examples": [
+      {
+        "word": "大阪",
+        "reading": "おおさか",
+        "meaning": "Kota metropolitan Osaka"
+      },
+      {
+        "word": "阪神",
+        "reading": "はんしん",
+        "meaning": "Wilayah Osaka-Kobe"
+      },
+      {
+        "word": "大阪城",
+        "reading": "おおさかじょう",
+        "meaning": "Kastel megah Osaka"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "大阪の使い方を授業で詳しく習いました。",
+        "furigana": "大阪の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "おおさか no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '大阪' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '大阪' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で大阪という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で大阪という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de おおさか to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '大阪' in daily life.",
+        "indonesian": "Saya sering melihat kata '大阪' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "阪神の意味を辞書で調べてノートに書きました。",
+        "furigana": "阪神の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "はんしん no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '阪神' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '阪神' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に阪の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に阪の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 阪 no kanji ga fukumarete imashita.",
+        "english": "The kanji '阪' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '阪' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 418,
+    "kanji": "陽",
+    "reading": "よう・ひ",
+    "meaning": "Matahari, Cahaya Terang, Hangat",
+    "meaningEn": "Sunshine, Positive, Solar",
+    "strokeCount": 12,
+    "onyomi": "ヨウ",
+    "kunyomi": "ひ",
+    "jlpt": "N4",
+    "category": "Alam & Cuaca",
+    "strokeRules": "Tulis kozatohen di kiri, lalu bagian mudah/cahaya (you) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "阜",
+    "examples": [
+      {
+        "word": "太陽",
+        "reading": "たいよう",
+        "meaning": "Matahari benderang"
+      },
+      {
+        "word": "陽気",
+        "reading": "ようき",
+        "meaning": "Ceria bersahabat / hawa hangat"
+      },
+      {
+        "word": "陽光",
+        "reading": "ようこう",
+        "meaning": "Sinar mentari"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "太陽の使い方を授業で詳しく習いました。",
+        "furigana": "太陽の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "たいよう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '太陽' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '太陽' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で太陽という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で太陽という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de たいよう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '太陽' in daily life.",
+        "indonesian": "Saya sering melihat kata '太陽' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "陽気の意味を辞書で調べてノートに書きました。",
+        "furigana": "陽気の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ようき no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '陽気' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '陽気' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に陽の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に陽の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 陽 no kanji ga fukumarete imashita.",
+        "english": "The kanji '陽' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '陽' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 419,
+    "kanji": "隊",
+    "reading": "たい",
+    "meaning": "Regu, Pasukan, Kelompok",
+    "meaningEn": "Squad, Unit, Troop",
+    "strokeCount": 12,
+    "onyomi": "タイ",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Manusia & Keluarga",
+    "strokeRules": "Tulis kozatohen di kiri, lalu babi hutan (chou) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12"
+    ],
+    "radicals": "阜",
+    "examples": [
+      {
+        "word": "隊員",
+        "reading": "たいいん",
+        "meaning": "Anggota regu / pasukan"
+      },
+      {
+        "word": "軍隊",
+        "reading": "ぐんたい",
+        "meaning": "Tentara angkatan bersenjata"
+      },
+      {
+        "word": "救助隊",
+        "reading": "きゅうじょたい",
+        "meaning": "Regu penolong SAR"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "隊員の使い方を授業で詳しく習いました。",
+        "furigana": "隊員の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "たいいん no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '隊員' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '隊員' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で隊員という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で隊員という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de たいいん to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '隊員' in daily life.",
+        "indonesian": "Saya sering melihat kata '隊員' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "軍隊の意味を辞書で調べてノートに書きました。",
+        "furigana": "軍隊の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ぐんたい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '軍隊' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '軍隊' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に隊の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に隊の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 隊 no kanji ga fukumarete imashita.",
+        "english": "The kanji '隊' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '隊' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 420,
+    "kanji": "雷",
+    "reading": "らい・かみなり",
+    "meaning": "Guruh, Petir, Gelegar",
+    "meaningEn": "Thunder, Lightning",
+    "strokeCount": 13,
+    "onyomi": "ライ",
+    "kunyomi": "かみなり",
+    "jlpt": "N4",
+    "category": "Alam & Cuaca",
+    "strokeRules": "Tulis radikal hujan (amekanmuri) di atas, lalu kanji sawah (ta) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13"
+    ],
+    "radicals": "雨",
+    "examples": [
+      {
+        "word": "雷",
+        "reading": "かみなり",
+        "meaning": "Petir menggelegar"
+      },
+      {
+        "word": "落雷",
+        "reading": "らくらい",
+        "meaning": "Sambaran petir langsung"
+      },
+      {
+        "word": "雷雨",
+        "reading": "らいう",
+        "meaning": "Hujan badai disertai petir"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "雷の使い方を授業で詳しく習いました。",
+        "furigana": "雷の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "かみなり no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '雷' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '雷' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で雷という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で雷という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de かみなり to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '雷' in daily life.",
+        "indonesian": "Saya sering melihat kata '雷' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "落雷の意味を辞書で調べてノートに書きました。",
+        "furigana": "落雷の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "らくらい no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '落雷' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '落雷' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に雷の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に雷の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 雷 no kanji ga fukumarete imashita.",
+        "english": "The kanji '雷' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '雷' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 421,
+    "kanji": "飴",
+    "reading": "い・あめ",
+    "meaning": "Permen Manis, Gula-gula",
+    "meaningEn": "Candy, Sweets",
+    "strokeCount": 14,
+    "onyomi": "イ",
+    "kunyomi": "あめ",
+    "jlpt": "N4",
+    "category": "Makanan & Minuman",
+    "strokeRules": "Tulis radikal makanan (shokuhen) di kiri, lalu kanji meja/kedudukan (tai) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14"
+    ],
+    "radicals": "食",
+    "examples": [
+      {
+        "word": "飴",
+        "reading": "あめ",
+        "meaning": "Gula-gula permen"
+      },
+      {
+        "word": "水飴",
+        "reading": "みずあめ",
+        "meaning": "Sirup glukosa kental"
+      },
+      {
+        "word": "飴玉",
+        "reading": "あめだま",
+        "meaning": "Permen butiran"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "飴の使い方を授業で詳しく習いました。",
+        "furigana": "飴の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "あめ no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '飴' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '飴' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で飴という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で飴という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de あめ to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '飴' in daily life.",
+        "indonesian": "Saya sering melihat kata '飴' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "水飴の意味を辞書で調べてノートに書きました。",
+        "furigana": "水飴の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "みずあめ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '水飴' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '水飴' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に飴の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に飴の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 飴 no kanji ga fukumarete imashita.",
+        "english": "The kanji '飴' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '飴' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 422,
+    "kanji": "駐",
+    "reading": "ちゅう",
+    "meaning": "Memarkir, Singgah, Menetap",
+    "meaningEn": "Park, Station, Reside",
+    "strokeCount": 15,
+    "onyomi": "チュウ",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Tempat & Bangunan",
+    "strokeRules": "Tulis radikal kuda (umahen) di kiri, lalu kanji tuan/pokok (nushi) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15"
+    ],
+    "radicals": "馬",
+    "examples": [
+      {
+        "word": "駐車場",
+        "reading": "ちゅうしゃじょう",
+        "meaning": "Tempat parkir kendaraan"
+      },
+      {
+        "word": "駐車",
+        "reading": "ちゅうしゃ",
+        "meaning": "Memarkir mobil/motor"
+      },
+      {
+        "word": "駐在",
+        "reading": "ちゅうざい",
+        "meaning": "Menetap bertugas"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "駐車場の使い方を授業で詳しく習いました。",
+        "furigana": "駐車場の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "ちゅうしゃじょう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '駐車場' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '駐車場' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で駐車場という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で駐車場という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de ちゅうしゃじょう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '駐車場' in daily life.",
+        "indonesian": "Saya sering melihat kata '駐車場' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "駐車の意味を辞書で調べてノートに書きました。",
+        "furigana": "駐車の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "ちゅうしゃ no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '駐車' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '駐車' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に駐の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に駐の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 駐 no kanji ga fukumarete imashita.",
+        "english": "The kanji '駐' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '駐' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 423,
+    "kanji": "魔",
+    "reading": "ま",
+    "meaning": "Sihir, Iblis, Gaib",
+    "meaningEn": "Demon, Magic, Witchcraft",
+    "strokeCount": 21,
+    "onyomi": "マ",
+    "kunyomi": "",
+    "jlpt": "N4",
+    "category": "Sifat & Keadaan",
+    "strokeRules": "Tulis kanji rami (asa) di atas mengayomi, lalu kanji hantu (oni) di bawah.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15",
+      "Goresan 16: Langkah goresan ke-16",
+      "Goresan 17: Langkah goresan ke-17",
+      "Goresan 18: Langkah goresan ke-18",
+      "Goresan 19: Langkah goresan ke-19",
+      "Goresan 20: Langkah goresan ke-20",
+      "Goresan 21: Langkah goresan ke-21"
+    ],
+    "radicals": "鬼",
+    "examples": [
+      {
+        "word": "魔法",
+        "reading": "まほう",
+        "meaning": "Sihir keajaiban"
+      },
+      {
+        "word": "邪魔",
+        "reading": "じゃま",
+        "meaning": "Gangguan pengacau"
+      },
+      {
+        "word": "悪魔",
+        "reading": "あくま",
+        "meaning": "Iblis jahat"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "魔法の使い方を授業で詳しく習いました。",
+        "furigana": "魔法の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "まほう no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '魔法' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '魔法' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で魔法という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で魔法という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de まほう to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '魔法' in daily life.",
+        "indonesian": "Saya sering melihat kata '魔法' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "邪魔の意味を辞書で調べてノートに書きました。",
+        "furigana": "邪魔の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "じゃま no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '邪魔' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '邪魔' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に魔の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に魔の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 魔 no kanji ga fukumarete imashita.",
+        "english": "The kanji '魔' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '魔' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
+  },
+  {
+    "id": 424,
+    "kanji": "鶏",
+    "reading": "けい・にわとり・とり",
+    "meaning": "Ayam Unggas",
+    "meaningEn": "Chicken, Rooster, Fowl",
+    "strokeCount": 19,
+    "onyomi": "ケイ",
+    "kunyomi": "にわとり・とり",
+    "jlpt": "N4",
+    "category": "Hewan",
+    "strokeRules": "Tulis bagian kiri jumbai cakaran rumit, lalu radikal burung (tori) di kanan.",
+    "strokeOrderGuide": [
+      "Goresan 1: Langkah goresan ke-1",
+      "Goresan 2: Langkah goresan ke-2",
+      "Goresan 3: Langkah goresan ke-3",
+      "Goresan 4: Langkah goresan ke-4",
+      "Goresan 5: Langkah goresan ke-5",
+      "Goresan 6: Langkah goresan ke-6",
+      "Goresan 7: Langkah goresan ke-7",
+      "Goresan 8: Langkah goresan ke-8",
+      "Goresan 9: Langkah goresan ke-9",
+      "Goresan 10: Langkah goresan ke-10",
+      "Goresan 11: Langkah goresan ke-11",
+      "Goresan 12: Langkah goresan ke-12",
+      "Goresan 13: Langkah goresan ke-13",
+      "Goresan 14: Langkah goresan ke-14",
+      "Goresan 15: Langkah goresan ke-15",
+      "Goresan 16: Langkah goresan ke-16",
+      "Goresan 17: Langkah goresan ke-17",
+      "Goresan 18: Langkah goresan ke-18",
+      "Goresan 19: Langkah goresan ke-19"
+    ],
+    "radicals": "鳥",
+    "examples": [
+      {
+        "word": "鶏肉",
+        "reading": "とりにく・けいにく",
+        "meaning": "Daging ayam lezat"
+      },
+      {
+        "word": "鶏",
+        "reading": "にわとり",
+        "meaning": "Ayam peliharaan berkokok"
+      },
+      {
+        "word": "養鶏",
+        "reading": "ようけい",
+        "meaning": "Peternakan ayam"
+      }
+    ],
+    "sentences": [
+      {
+        "sentence": "鶏肉の使い方を授業で詳しく習いました。",
+        "furigana": "鶏肉の[つか]い[かた]を[じゅぎょう]で[くわ]しく[なら]いました。",
+        "romaji": "とりにく・けいにく no tsukaikata o jugyou de kuwashiku naraimashita.",
+        "english": "I learned in detail how to use '鶏肉' in class.",
+        "indonesian": "Saya mempelajari secara mendalam cara penggunaan '鶏肉' di kelas.",
+        "grammarNote": "Pola ~o kuwashiku naraimashita (belajar secara rinci/mendalam)."
+      },
+      {
+        "sentence": "毎日の生活で鶏肉という言葉をよく見かけます。",
+        "furigana": "[まいにち]の[せいかつ]で鶏肉という[ことば]をよく[み]かけます。",
+        "romaji": "Mainichi no seikatsu de とりにく・けいにく to iu kotoba o yoku mikakemasu.",
+        "english": "I often come across the word '鶏肉' in daily life.",
+        "indonesian": "Saya sering melihat kata '鶏肉' dalam kehidupan sehari-hari.",
+        "grammarNote": "Pola ~to iu kotoba (kata yang berbunyi/disebut ~)."
+      },
+      {
+        "sentence": "鶏の意味を辞書で調べてノートに書きました。",
+        "furigana": "鶏の[いみ]を[じしょ]で[しら]べてノートに[か]きました。",
+        "romaji": "にわとり no imi o jisho de shirabete nooto ni kakimashita.",
+        "english": "I looked up the meaning of '鶏' in the dictionary and wrote it in my notebook.",
+        "indonesian": "Saya mencari arti '鶏' di kamus lalu menuliskannya di buku catatan.",
+        "grammarNote": "Bentuk sambung ~te ~mashita menyatakan urutan kegiatan beruntun."
+      },
+      {
+        "sentence": "JLPTの読解問題に鶏の漢字が含まれていました。",
+        "furigana": "JLPTの[どっかい][もんだい]に鶏の[かんじ]が[ふく]まれていました。",
+        "romaji": "JLPT no dokkai mondai ni 鶏 no kanji ga fukumarete imashita.",
+        "english": "The kanji '鶏' was included in the JLPT reading comprehension questions.",
+        "indonesian": "Kanji '鶏' tercantum dalam soal pemahaman bacaan JLPT.",
+        "grammarNote": "Bentuk pasif fukumarete imashita (termasuk/tercantum di dalamnya)."
+      }
+    ]
   }
 ];

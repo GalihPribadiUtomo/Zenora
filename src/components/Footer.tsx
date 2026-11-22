@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
             <span className="text-[10px] text-[#55B9F5] font-semibold">Blue Sakura Future Edition</span>
           </div>
           <span className="text-[#6B85B5] hidden lg:inline border-l border-[#2457C5]/25 pl-3 py-1">
-            Platform Belajar Bahasa Jepang Modern • Kana 312 • Kotoba 2.910 • Kanji 329
+            Platform Belajar Bahasa Jepang Modern • Kana 312 • Kotoba 2.910 • Kanji 424
           </span>
         </div>
 

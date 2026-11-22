@@ -119,7 +119,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
               {/* Subtitle Description */}
               <p className="text-[#DCE9FF]/85 text-sm sm:text-base leading-relaxed max-w-xl">
-                Platform pembelajaran bahasa Jepang modern dengan 312 aksara Kana, 2.910 kosakata Minna no Nihongo Bab 1–50, 329 Kanji JLPT N5 & N4, animasi goresan interaktif, serta 4 mode latihan mandiri.
+                Platform pembelajaran bahasa Jepang modern dengan 312 aksara Kana, 2.910 kosakata Minna no Nihongo Bab 1–50, {totalKanji} Kanji JLPT N5 & N4, animasi goresan interaktif, serta 4 mode latihan mandiri.
               </p>
 
               {/* Action Buttons */}
@@ -202,38 +202,38 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Kanji Hafal Progress */}
-        <div className="card-soft p-6 sm:p-7 rounded-3xl relative overflow-hidden text-left border border-[#D2E2FC] bg-white shadow-sm hover:shadow-md transition-shadow">
+        <div className="card-soft p-6 sm:p-7 rounded-3xl relative overflow-hidden text-left border border-[#2457C5]/30 bg-[#0D1830] shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <span className="text-[11px] font-bold text-[#4A5B82] uppercase tracking-wider">Target Kemajuan</span>
-              <h3 className="text-lg font-extrabold text-[#101C3D] flex items-center gap-2 mt-0.5 font-['Manrope']">
-                <PenTool className="w-5 h-5 text-[#2457C5]" />
+              <span className="text-[11px] font-bold text-[#6B85B5] uppercase tracking-wider">Target Kemajuan</span>
+              <h3 className="text-lg font-extrabold text-[#DCE9FF] flex items-center gap-2 mt-0.5 font-['Manrope']">
+                <PenTool className="w-5 h-5 text-[#55B9F5]" />
                 <span>Penguasaan Kanji</span>
               </h3>
             </div>
             <div className="text-right">
-              <div className="text-2xl font-black text-[#101C3D] font-['Manrope']">
-                {learnedKanjiIds.length} <span className="text-sm font-semibold text-[#4A5B82]">/ {totalKanji}</span>
+              <div className="text-2xl font-black text-[#DCE9FF] font-['Manrope']">
+                {learnedKanjiIds.length} <span className="text-sm font-semibold text-[#6B85B5]">/ {totalKanji}</span>
               </div>
-              <span className="text-xs font-bold text-[#2457C5] bg-[#F0F5FF] px-2.5 py-0.5 rounded-full border border-[#D2E2FC]">
+              <span className="text-xs font-bold text-[#55B9F5] bg-white/8 px-2.5 py-0.5 rounded-full border border-[#2457C5]/25">
                 {kanjiPct}% Tuntas
               </span>
             </div>
           </div>
 
           {/* Progress bar */}
-          <div className="w-full h-3 bg-[#F0F5FF] rounded-full overflow-hidden p-0.5 border border-[#D2E2FC]">
+          <div className="w-full h-3 bg-white/8 rounded-full overflow-hidden p-0.5 border border-[#2457C5]/25">
             <div 
               className="h-full bg-gradient-to-r from-[#101C3D] via-[#2457C5] to-[#55B9F5] rounded-full transition-all duration-700 shadow-[0_0_8px_rgba(85,185,245,0.5)]"
               style={{ width: `${Math.max(4, kanjiPct)}%` }}
             ></div>
           </div>
 
-          <div className="mt-4 flex items-center justify-between text-xs text-[#4A5B82] font-medium">
+          <div className="mt-4 flex items-center justify-between text-xs text-[#6B85B5] font-medium">
             <span>{totalKanji} Kanji N5 & N4 Lengkap dengan Kun, On & Kalimat Contoh</span>
             <button 
               onClick={() => onNavigate('kanji')}
-              className="text-[#2457C5] hover:text-[#55B9F5] font-bold flex items-center gap-1 transition-colors"
+              className="text-[#55B9F5] hover:text-[#55B9F5] font-bold flex items-center gap-1 transition-colors"
             >
               Lanjutkan Belajar <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -241,38 +241,38 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
         </div>
 
         {/* Kotoba Hafal Progress */}
-        <div className="card-soft p-6 sm:p-7 rounded-3xl relative overflow-hidden text-left border border-[#D2E2FC] bg-white shadow-sm hover:shadow-md transition-shadow">
+        <div className="card-soft p-6 sm:p-7 rounded-3xl relative overflow-hidden text-left border border-[#2457C5]/30 bg-[#0D1830] shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <span className="text-[11px] font-bold text-[#4A5B82] uppercase tracking-wider">Target Kemajuan</span>
-              <h3 className="text-lg font-extrabold text-[#101C3D] flex items-center gap-2 mt-0.5 font-['Manrope']">
+              <span className="text-[11px] font-bold text-[#6B85B5] uppercase tracking-wider">Target Kemajuan</span>
+              <h3 className="text-lg font-extrabold text-[#DCE9FF] flex items-center gap-2 mt-0.5 font-['Manrope']">
                 <BookOpen className="w-5 h-5 text-[#8975E8]" />
                 <span>Penguasaan Kosakata (Kotoba)</span>
               </h3>
             </div>
             <div className="text-right">
-              <div className="text-2xl font-black text-[#101C3D] font-['Manrope']">
-                {learnedKotobaIds.length} <span className="text-sm font-semibold text-[#4A5B82]">/ {totalKotoba}</span>
+              <div className="text-2xl font-black text-[#DCE9FF] font-['Manrope']">
+                {learnedKotobaIds.length} <span className="text-sm font-semibold text-[#6B85B5]">/ {totalKotoba}</span>
               </div>
-              <span className="text-xs font-bold text-[#8975E8] bg-[#E8F3FF] px-2.5 py-0.5 rounded-full border border-[#D2E2FC]">
+              <span className="text-xs font-bold text-[#8975E8] bg-[#2457C5]/12 px-2.5 py-0.5 rounded-full border border-[#2457C5]/25">
                 {kotobaPct}% Tuntas
               </span>
             </div>
           </div>
 
           {/* Progress bar */}
-          <div className="w-full h-3 bg-[#F0F5FF] rounded-full overflow-hidden p-0.5 border border-[#D2E2FC]">
+          <div className="w-full h-3 bg-white/8 rounded-full overflow-hidden p-0.5 border border-[#2457C5]/25">
             <div 
               className="h-full bg-gradient-to-r from-[#2457C5] via-[#55B9F5] to-[#8975E8] rounded-full transition-all duration-700 shadow-[0_0_8px_rgba(137,117,232,0.5)]"
               style={{ width: `${Math.max(4, kotobaPct)}%` }}
             ></div>
           </div>
 
-          <div className="mt-4 flex items-center justify-between text-xs text-[#4A5B82] font-medium">
+          <div className="mt-4 flex items-center justify-between text-xs text-[#6B85B5] font-medium">
             <span>Bab 1–50 Terbagi ke 8 Kategori Tematik Lengkap</span>
             <button 
               onClick={() => onNavigate('kotoba')}
-              className="text-[#2457C5] hover:text-[#55B9F5] font-bold flex items-center gap-1 transition-colors"
+              className="text-[#55B9F5] hover:text-[#55B9F5] font-bold flex items-center gap-1 transition-colors"
             >
               Buka Daftar Bab <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -285,10 +285,10 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 text-left">
         
         {/* Kanji of the Day */}
-        <div className="lg:col-span-7 card-soft p-6 sm:p-8 rounded-3xl border border-[#D2E2FC] bg-white flex flex-col justify-between shadow-2xs">
+        <div className="lg:col-span-7 card-soft p-6 sm:p-8 rounded-3xl border border-[#2457C5]/30 bg-[#0D1830] flex flex-col justify-between shadow-xs">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0F5FF] text-[#2457C5] text-xs font-extrabold border border-[#D2E2FC]">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/8 text-[#55B9F5] text-xs font-extrabold border border-[#2457C5]/25">
                 <Sparkles className="w-3.5 h-3.5 text-[#55B9F5]" />
                 Kanji Pilihan · Level {kanjiOfTheDay.jlpt} ({kanjiNavIndex + 1}/{totalKanji})
               </span>
@@ -297,7 +297,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={handlePrevKanji}
-                  className="p-2 rounded-xl bg-[#F0F5FF] hover:bg-[#DCE9FF] text-[#4A5B82] hover:text-[#101C3D] transition-all border border-[#D2E2FC] active:scale-95 shadow-2xs"
+                  className="p-2 rounded-xl bg-white/8 hover:bg-white/15 text-[#6B85B5] hover:text-[#DCE9FF] transition-all border border-[#2457C5]/25 active:scale-95 shadow-xs"
                   title="Kanji Sebelumnya (Back)"
                   aria-label="Kanji Sebelumnya"
                 >
@@ -306,7 +306,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
                 <button 
                   onClick={() => speakJapanese(kanjiOfTheDay.reading)}
-                  className="p-2 rounded-xl bg-[#F0F5FF] hover:bg-[#DCE9FF] text-[#4A5B82] hover:text-[#101C3D] transition-all border border-[#D2E2FC] active:scale-95 shadow-2xs"
+                  className="p-2 rounded-xl bg-white/8 hover:bg-white/15 text-[#6B85B5] hover:text-[#DCE9FF] transition-all border border-[#2457C5]/25 active:scale-95 shadow-xs"
                   title="Dengarkan pengucapan audio"
                   aria-label="Dengarkan pengucapan audio"
                 >
@@ -315,7 +315,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
                 <button
                   onClick={handleNextKanji}
-                  className="p-2 rounded-xl bg-[#F0F5FF] hover:bg-[#DCE9FF] text-[#4A5B82] hover:text-[#101C3D] transition-all border border-[#D2E2FC] active:scale-95 shadow-2xs"
+                  className="p-2 rounded-xl bg-white/8 hover:bg-white/15 text-[#6B85B5] hover:text-[#DCE9FF] transition-all border border-[#2457C5]/25 active:scale-95 shadow-xs"
                   title="Kanji Berikutnya (Next)"
                   aria-label="Kanji Berikutnya"
                 >
@@ -337,40 +337,40 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               {/* Kanji details */}
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
-                  <span className="text-xl sm:text-2xl font-black text-[#101C3D] font-['Manrope']">
+                  <span className="text-xl sm:text-2xl font-black text-[#DCE9FF] font-['Manrope']">
                     {kanjiOfTheDay.reading}
                   </span>
-                  <span className="text-sm font-bold text-[#4A5B82]">
+                  <span className="text-sm font-bold text-[#6B85B5]">
                     ({kanjiOfTheDay.meaning})
                   </span>
                 </div>
 
-                <div className="text-xs text-[#4A5B82] space-y-1">
+                <div className="text-xs text-[#6B85B5] space-y-1">
                   <div>
-                    <span className="font-bold text-[#2457C5] bg-[#F0F5FF] px-1.5 py-0.5 rounded text-[10px] mr-1.5 border border-[#D2E2FC]">
+                    <span className="font-bold text-[#55B9F5] bg-white/8 px-1.5 py-0.5 rounded text-[10px] mr-1.5 border border-[#2457C5]/25">
                       ON
                     </span>
-                    <span className="font-mono text-[#101C3D] font-bold">{kanjiOfTheDay.onyomi}</span>
+                    <span className="font-mono text-[#DCE9FF] font-bold">{kanjiOfTheDay.onyomi}</span>
                   </div>
                   <div>
-                    <span className="font-bold text-[#8975E8] bg-[#E8F3FF] px-1.5 py-0.5 rounded text-[10px] mr-1.5 border border-[#D2E2FC]">
+                    <span className="font-bold text-[#8975E8] bg-[#2457C5]/12 px-1.5 py-0.5 rounded text-[10px] mr-1.5 border border-[#2457C5]/25">
                       KUN
                     </span>
-                    <span className="font-mono text-[#101C3D] font-bold">{kanjiOfTheDay.kunyomi}</span>
+                    <span className="font-mono text-[#DCE9FF] font-bold">{kanjiOfTheDay.kunyomi}</span>
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <span className="text-xs font-semibold text-[#4A5B82]">
-                    Kategori: <strong className="text-[#101C3D]">{kanjiOfTheDay.category}</strong>
+                  <span className="text-xs font-semibold text-[#6B85B5]">
+                    Kategori: <strong className="text-[#DCE9FF]">{kanjiOfTheDay.category}</strong>
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="pt-6 border-t border-[#D2E2FC] mt-6 flex items-center justify-between">
-            <span className="text-xs text-[#4A5B82] font-medium">
+          <div className="pt-6 border-t border-[#2457C5]/25 mt-6 flex items-center justify-between">
+            <span className="text-xs text-[#6B85B5] font-medium">
               Pelajari urutan goresan, kanvas menulis, dan kalimat contoh
             </span>
             <button
@@ -384,11 +384,11 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
         </div>
 
         {/* Kotoba of the Day */}
-        <div className="lg:col-span-5 card-soft p-6 sm:p-8 rounded-3xl border border-[#D2E2FC] bg-white flex flex-col justify-between shadow-2xs">
+        <div className="lg:col-span-5 card-soft p-6 sm:p-8 rounded-3xl border border-[#2457C5]/30 bg-[#0D1830] flex flex-col justify-between shadow-xs">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8F3FF] text-[#2457C5] text-xs font-extrabold border border-[#D2E2FC]">
-                <BookOpen className="w-3.5 h-3.5 text-[#2457C5]" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2457C5]/12 text-[#55B9F5] text-xs font-extrabold border border-[#2457C5]/25">
+                <BookOpen className="w-3.5 h-3.5 text-[#55B9F5]" />
                 Kosakata Pilihan · Bab {kotobaOfTheDay.bab} ({kotobaNavIndex + 1}/{totalKotoba})
               </span>
 
@@ -396,7 +396,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={handlePrevKotoba}
-                  className="p-2 rounded-xl bg-[#F0F5FF] hover:bg-[#DCE9FF] text-[#4A5B82] hover:text-[#101C3D] transition-all border border-[#D2E2FC] active:scale-95 shadow-2xs"
+                  className="p-2 rounded-xl bg-white/8 hover:bg-white/15 text-[#6B85B5] hover:text-[#DCE9FF] transition-all border border-[#2457C5]/25 active:scale-95 shadow-xs"
                   title="Kosakata Sebelumnya (Back)"
                   aria-label="Kosakata Sebelumnya"
                 >
@@ -405,7 +405,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
                 <button 
                   onClick={() => speakJapanese(kotobaOfTheDay.kana || kotobaOfTheDay.kanji)}
-                  className="p-2 rounded-xl bg-[#F0F5FF] hover:bg-[#DCE9FF] text-[#4A5B82] hover:text-[#101C3D] transition-all border border-[#D2E2FC] active:scale-95 shadow-2xs"
+                  className="p-2 rounded-xl bg-white/8 hover:bg-white/15 text-[#6B85B5] hover:text-[#DCE9FF] transition-all border border-[#2457C5]/25 active:scale-95 shadow-xs"
                   title="Dengarkan pengucapan audio"
                   aria-label="Dengarkan pengucapan audio"
                 >
@@ -414,7 +414,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
                 <button
                   onClick={handleNextKotoba}
-                  className="p-2 rounded-xl bg-[#F0F5FF] hover:bg-[#DCE9FF] text-[#4A5B82] hover:text-[#101C3D] transition-all border border-[#D2E2FC] active:scale-95 shadow-2xs"
+                  className="p-2 rounded-xl bg-white/8 hover:bg-white/15 text-[#6B85B5] hover:text-[#DCE9FF] transition-all border border-[#2457C5]/25 active:scale-95 shadow-xs"
                   title="Kosakata Berikutnya (Next)"
                   aria-label="Kosakata Berikutnya"
                 >
@@ -425,31 +425,31 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
             <div className="space-y-3 mt-4">
               <div>
-                <span className="text-3xl sm:text-4xl font-black text-[#101C3D] kanji-font">
+                <span className="text-3xl sm:text-4xl font-black text-[#DCE9FF] kanji-font">
                   {kotobaOfTheDay.kanji}
                 </span>
-                <p className="text-sm font-bold text-[#2457C5] mt-1">
+                <p className="text-sm font-bold text-[#55B9F5] mt-1">
                   {kotobaOfTheDay.kana}
                 </p>
               </div>
 
-              <div className="bg-[#F0F5FF] p-3.5 rounded-2xl border border-[#D2E2FC]">
-                <span className="text-[10px] text-[#4A5B82] font-bold uppercase tracking-wider block mb-0.5">
+              <div className="bg-white/8 p-3.5 rounded-2xl border border-[#2457C5]/25">
+                <span className="text-[10px] text-[#6B85B5] font-bold uppercase tracking-wider block mb-0.5">
                   Romaji & Arti
                 </span>
-                <p className="text-sm font-semibold text-[#101C3D]">
-                  <span className="font-mono text-[#2457C5] font-bold">{kotobaOfTheDay.romaji}</span> — {kotobaOfTheDay.arti}
+                <p className="text-sm font-semibold text-[#DCE9FF]">
+                  <span className="font-mono text-[#55B9F5] font-bold">{kotobaOfTheDay.romaji}</span> — {kotobaOfTheDay.arti}
                 </p>
               </div>
 
-              <div className="inline-block px-2.5 py-1 rounded-lg bg-[#E8F3FF] text-[#2457C5] text-xs font-bold border border-[#D2E2FC]">
+              <div className="inline-block px-2.5 py-1 rounded-lg bg-[#2457C5]/12 text-[#55B9F5] text-xs font-bold border border-[#2457C5]/25">
                 {kotobaOfTheDay.kategori}
               </div>
             </div>
           </div>
 
-          <div className="pt-6 border-t border-[#D2E2FC] mt-6 flex items-center justify-between">
-            <span className="text-xs text-[#4A5B82] font-medium">
+          <div className="pt-6 border-t border-[#2457C5]/25 mt-6 flex items-center justify-between">
+            <span className="text-xs text-[#6B85B5] font-medium">
               Minna no Nihongo Bab {kotobaOfTheDay.bab}
             </span>
             <button
@@ -468,12 +468,12 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
       <section className="text-left">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-black text-[#101C3D] font-['Manrope']">4 Cara Berlatih Hafalan</h2>
-            <p className="text-sm text-[#4A5B82]">Pilih metode interaktif yang paling cocok untuk menguji daya ingat Anda.</p>
+            <h2 className="text-2xl font-black text-[#DCE9FF] font-['Manrope']">4 Cara Berlatih Hafalan</h2>
+            <p className="text-sm text-[#6B85B5]">Pilih metode interaktif yang paling cocok untuk menguji daya ingat Anda.</p>
           </div>
           <button
             onClick={() => onNavigate('latihan')}
-            className="text-xs font-bold text-[#2457C5] hover:text-[#55B9F5] flex items-center gap-1 transition-colors"
+            className="text-xs font-bold text-[#55B9F5] hover:text-[#55B9F5] flex items-center gap-1 transition-colors"
           >
             <span>Buka Semua Latihan</span>
             <ArrowRight className="w-4 h-4" />
@@ -485,18 +485,18 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
           {/* Card 1: Pilihan Ganda */}
           <div 
             onClick={() => onNavigate('latihan')}
-            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#D2E2FC] hover:border-[#2457C5] bg-white flex flex-col justify-between shadow-2xs hover:shadow-md transition-all"
+            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#2457C5] bg-[#0D1830] flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-[#DCE9FF] border border-[#2457C5]/20 flex items-center justify-center text-[#2457C5] mb-4">
-                <Award className="w-6 h-6 text-[#2457C5]" />
+              <div className="w-12 h-12 rounded-2xl bg-white/15 border border-[#2457C5]/20 flex items-center justify-center text-[#55B9F5] mb-4">
+                <Award className="w-6 h-6 text-[#55B9F5]" />
               </div>
-              <h4 className="font-black text-base text-[#101C3D] mb-1 font-['Manrope']">Pilihan Ganda</h4>
-              <p className="text-xs text-[#4A5B82] leading-relaxed">
+              <h4 className="font-black text-base text-[#DCE9FF] mb-1 font-['Manrope']">Pilihan Ganda</h4>
+              <p className="text-xs text-[#6B85B5] leading-relaxed">
                 Pilih arti atau kanji yang tepat dari 4 opsi jawaban dengan timer dan streak point.
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#D2E2FC] flex items-center justify-between text-xs font-bold text-[#2457C5]">
+            <div className="pt-4 mt-4 border-t border-[#2457C5]/25 flex items-center justify-between text-xs font-bold text-[#55B9F5]">
               <span>Mulai Kuis</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
@@ -505,18 +505,18 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
           {/* Card 2: Kartu Hafalan */}
           <div 
             onClick={() => onNavigate('latihan')}
-            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#D2E2FC] hover:border-[#55B9F5] bg-white flex flex-col justify-between shadow-2xs hover:shadow-md transition-all"
+            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#55B9F5] bg-[#0D1830] flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-[#E8F3FF] border border-[#55B9F5]/30 flex items-center justify-center text-[#2457C5] mb-4">
-                <Layers className="w-6 h-6 text-[#2457C5]" />
+              <div className="w-12 h-12 rounded-2xl bg-[#2457C5]/12 border border-[#55B9F5]/30 flex items-center justify-center text-[#55B9F5] mb-4">
+                <Layers className="w-6 h-6 text-[#55B9F5]" />
               </div>
-              <h4 className="font-black text-base text-[#101C3D] mb-1 font-['Manrope']">Kartu Hafalan</h4>
-              <p className="text-xs text-[#4A5B82] leading-relaxed">
+              <h4 className="font-black text-base text-[#DCE9FF] mb-1 font-['Manrope']">Kartu Hafalan</h4>
+              <p className="text-xs text-[#6B85B5] leading-relaxed">
                 Balik kartu 3D interaktif, lalu tandai sudah hafal atau belum untuk pengulangan berkala.
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#D2E2FC] flex items-center justify-between text-xs font-bold text-[#2457C5]">
+            <div className="pt-4 mt-4 border-t border-[#2457C5]/25 flex items-center justify-between text-xs font-bold text-[#55B9F5]">
               <span>Buka Flashcard</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
@@ -525,18 +525,18 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
           {/* Card 3: Menjodohkan */}
           <div 
             onClick={() => onNavigate('latihan')}
-            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#D2E2FC] hover:border-[#8975E8] bg-white flex flex-col justify-between shadow-2xs hover:shadow-md transition-all"
+            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-[#8975E8] bg-[#0D1830] flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-[#F0F5FF] border border-[#8975E8]/30 flex items-center justify-center text-[#8975E8] mb-4">
+              <div className="w-12 h-12 rounded-2xl bg-white/8 border border-[#8975E8]/30 flex items-center justify-center text-[#8975E8] mb-4">
                 <Shuffle className="w-6 h-6 text-[#8975E8]" />
               </div>
-              <h4 className="font-black text-base text-[#101C3D] mb-1 font-['Manrope']">Menjodohkan</h4>
-              <p className="text-xs text-[#4A5B82] leading-relaxed">
+              <h4 className="font-black text-base text-[#DCE9FF] mb-1 font-['Manrope']">Menjodohkan</h4>
+              <p className="text-xs text-[#6B85B5] leading-relaxed">
                 Hubungkan kata bahasa Jepang dengan terjemahan artinya secara interaktif.
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#D2E2FC] flex items-center justify-between text-xs font-bold text-[#8975E8]">
+            <div className="pt-4 mt-4 border-t border-[#2457C5]/25 flex items-center justify-between text-xs font-bold text-[#8975E8]">
               <span>Mainkan Game</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
@@ -545,18 +545,18 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
           {/* Card 4: Ketik Romaji */}
           <div 
             onClick={() => onNavigate('latihan')}
-            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#D2E2FC] hover:border-emerald-400 bg-white flex flex-col justify-between shadow-2xs hover:shadow-md transition-all"
+            className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-emerald-400 bg-[#0D1830] flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-4">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-400 mb-4">
                 <Clock className="w-6 h-6 text-emerald-600" />
               </div>
-              <h4 className="font-black text-base text-[#101C3D] mb-1 font-['Manrope']">Ketik Romaji</h4>
-              <p className="text-xs text-[#4A5B82] leading-relaxed">
+              <h4 className="font-black text-base text-[#DCE9FF] mb-1 font-['Manrope']">Ketik Romaji</h4>
+              <p className="text-xs text-[#6B85B5] leading-relaxed">
                 Baca huruf Jepang yang muncul, lalu ketik ejaan romajinya secepat dan setepat mungkin.
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-[#D2E2FC] flex items-center justify-between text-xs font-bold text-emerald-700">
+            <div className="pt-4 mt-4 border-t border-[#2457C5]/25 flex items-center justify-between text-xs font-bold text-emerald-400">
               <span>Tes Ketik</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>

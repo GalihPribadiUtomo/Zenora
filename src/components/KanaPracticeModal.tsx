@@ -136,20 +136,20 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-2xl my-auto rounded-3xl bg-white shadow-2xl border border-[#D2E2FC] overflow-hidden text-left"
+        className="relative w-full max-w-2xl my-auto rounded-3xl bg-[#0D1830] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#2457C5]/30 text-[#DCE9FF] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Accent Bar */}
         <div className="h-1.5 w-full bg-gradient-to-r from-[#101C3D] via-[#2457C5] to-[#55B9F5]" />
 
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#D2E2FC] bg-[#F0F5FF]/90">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#2457C5]/25 bg-[#121F3D]/90">
           <div className="flex items-center gap-2">
             <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#101C3D] to-[#2457C5] text-white text-xs font-black uppercase font-mono shadow-xs">
               Latihan {kanaType === 'hiragana' ? 'Hiragana' : 'Katakana'}
             </span>
             {!isFinished && (
-              <span className="text-xs font-mono font-bold text-[#4A5B82]">
+              <span className="text-xs font-mono font-bold text-[#6B85B5]">
                 Soal {currentIndex + 1} / {questions.length}
               </span>
             )}
@@ -157,7 +157,7 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl hover:bg-[#DCE9FF] text-[#4A5B82] hover:text-[#101C3D] transition-colors"
+            className="p-1.5 rounded-xl hover:bg-[#0D1830]/15/12 text-[#6B85B5] hover:text-[#DCE9FF] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -165,13 +165,13 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
 
         {/* Mode Selector Tabs */}
         {!isFinished && (
-          <div className="flex items-center gap-1.5 px-6 pt-4 pb-2 border-b border-[#D2E2FC] bg-white">
+          <div className="flex items-center gap-1.5 px-6 pt-4 pb-2 border-b border-[#2457C5]/25 bg-[#0D1830]">
             <button
               onClick={() => initQuiz('recognition')}
               className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold transition-all ${
                 mode === 'recognition'
                   ? 'bg-gradient-to-r from-[#101C3D] to-[#2457C5] text-white shadow-xs'
-                  : 'bg-[#F0F5FF] text-[#4A5B82] hover:text-[#101C3D]'
+                  : 'bg-[#0D1830]/8 text-[#6B85B5] hover:text-[#DCE9FF]'
               }`}
             >
               <Eye className="w-3.5 h-3.5" />
@@ -183,7 +183,7 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
               className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold transition-all ${
                 mode === 'listening'
                   ? 'bg-gradient-to-r from-[#101C3D] to-[#2457C5] text-white shadow-xs'
-                  : 'bg-[#F0F5FF] text-[#4A5B82] hover:text-[#101C3D]'
+                  : 'bg-[#0D1830]/8 text-[#6B85B5] hover:text-[#DCE9FF]'
               }`}
             >
               <Headphones className="w-3.5 h-3.5" />
@@ -195,7 +195,7 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
               className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold transition-all ${
                 mode === 'writing'
                   ? 'bg-gradient-to-r from-[#101C3D] to-[#2457C5] text-white shadow-xs'
-                  : 'bg-[#F0F5FF] text-[#4A5B82] hover:text-[#101C3D]'
+                  : 'bg-[#0D1830]/8 text-[#6B85B5] hover:text-[#DCE9FF]'
               }`}
             >
               <PenTool className="w-3.5 h-3.5" />
@@ -215,13 +215,13 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
               </div>
 
               <div>
-                <span className="text-xs font-bold text-[#4A5B82] uppercase tracking-wider font-mono">
+                <span className="text-xs font-bold text-[#6B85B5] uppercase tracking-wider font-mono">
                   Sesi Latihan Tuntas!
                 </span>
-                <h3 className="text-3xl font-black text-[#101C3D] mt-1 font-['Manrope']">
+                <h3 className="text-3xl font-black text-[#DCE9FF] mt-1 font-['Manrope']">
                   Skor Anda: {score} / {questions.length}
                 </h3>
-                <p className="text-sm text-[#4A5B82] mt-1">
+                <p className="text-sm text-[#6B85B5] mt-1">
                   {score >= 8 
                     ? 'Luar biasa! Pemahaman karakter Anda sangat tajam.' 
                     : score >= 5 
@@ -241,7 +241,7 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
 
                 <button
                   onClick={onClose}
-                  className="px-6 py-3 rounded-2xl bg-white hover:bg-[#F0F5FF] text-[#101C3D] border border-[#D2E2FC] font-bold text-sm transition-colors"
+                  className="px-6 py-3 rounded-2xl bg-[#0D1830] hover:bg-[#121F3D] text-[#DCE9FF] border border-[#2457C5]/25 font-bold text-sm transition-colors"
                 >
                   Selesai
                 </button>
@@ -254,33 +254,33 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
               {/* MODE A: CHARACTER RECOGNITION */}
               {mode === 'recognition' && (
                 <div className="space-y-6 text-center">
-                  <div className="p-8 rounded-3xl bg-gradient-to-br from-[#F0F5FF] to-[#DCE9FF] border border-[#D2E2FC] shadow-xs relative">
-                    <span className="kanji-font text-8xl font-black text-[#101C3D] select-none block">
+                  <div className="p-8 rounded-3xl bg-gradient-to-br from-[#F0F5FF] to-[#DCE9FF] border border-[#2457C5]/25 shadow-xs relative">
+                    <span className="kanji-font text-8xl font-black text-[#DCE9FF] select-none block">
                       {currentKana.char}
                     </span>
                     <button
                       onClick={() => speakJapanese(currentKana.char)}
-                      className="absolute top-4 right-4 p-2 rounded-xl bg-white hover:bg-[#E5EFFF] text-[#101C3D] border border-[#D2E2FC] shadow-2xs"
+                      className="absolute top-4 right-4 p-2 rounded-xl bg-[#0D1830] hover:bg-[#2457C5]/15 text-[#DCE9FF] border border-[#2457C5]/25 shadow-2xs"
                       title="Dengarkan bunyi"
                     >
-                      <Volume2 className="w-4 h-4 text-[#2457C5]" />
+                      <Volume2 className="w-4 h-4 text-[#55B9F5]" />
                     </button>
                   </div>
 
-                  <p className="text-xs font-bold text-[#4A5B82] uppercase tracking-wider">
+                  <p className="text-xs font-bold text-[#6B85B5] uppercase tracking-wider">
                     Pilih Romaji yang Sesuai:
                   </p>
 
                   <div className="grid grid-cols-2 gap-3">
                     {options.map((opt, idx) => {
-                      let btnStyle = 'bg-white hover:bg-[#F0F5FF] text-[#101C3D] border-[#D2E2FC]';
+                      let btnStyle = 'bg-[#0D1830] hover:bg-[#121F3D] text-[#DCE9FF] border-[#2457C5]/25';
                       if (isAnswered) {
                         if (opt === currentKana.romaji) {
-                          btnStyle = 'bg-emerald-500 text-white border-emerald-600 shadow-xs ring-2 ring-emerald-300';
+                          btnStyle = 'bg-emerald-500/150 text-white border-emerald-600 shadow-xs ring-2 ring-emerald-300';
                         } else if (opt === selectedOption) {
                           btnStyle = 'bg-red-500 text-white border-red-600 shadow-xs';
                         } else {
-                          btnStyle = 'opacity-40 bg-white text-[#4A5B82] border-[#D2E2FC]';
+                          btnStyle = 'opacity-40 bg-[#0D1830] text-[#6B85B5] border-[#2457C5]/25';
                         }
                       }
 
@@ -309,7 +309,7 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
 
                     <button
                       onClick={() => speakJapanese(currentKana.char)}
-                      className="p-5 rounded-full bg-white/20 hover:bg-white/30 text-white border border-white/25 transition-transform active:scale-95 shadow-md mx-auto inline-block"
+                      className="p-5 rounded-full bg-[#0D1830]/20 hover:bg-[#0D1830]/15/30 text-white border border-white/25 transition-transform active:scale-95 shadow-md mx-auto inline-block"
                       title="Putar ulang suara"
                     >
                       <Volume2 className="w-8 h-8 text-[#55B9F5]" />
@@ -320,20 +320,20 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
                     </p>
                   </div>
 
-                  <p className="text-xs font-bold text-[#4A5B82] uppercase tracking-wider">
+                  <p className="text-xs font-bold text-[#6B85B5] uppercase tracking-wider">
                     Pilih Karakter Jepang yang Terdengar:
                   </p>
 
                   <div className="grid grid-cols-2 gap-3">
                     {options.map((opt, idx) => {
-                      let btnStyle = 'bg-white hover:bg-[#F0F5FF] text-[#101C3D] border-[#D2E2FC]';
+                      let btnStyle = 'bg-[#0D1830] hover:bg-[#121F3D] text-[#DCE9FF] border-[#2457C5]/25';
                       if (isAnswered) {
                         if (opt === currentKana.char) {
-                          btnStyle = 'bg-emerald-500 text-white border-emerald-600 shadow-xs ring-2 ring-emerald-300';
+                          btnStyle = 'bg-emerald-500/150 text-white border-emerald-600 shadow-xs ring-2 ring-emerald-300';
                         } else if (opt === selectedOption) {
                           btnStyle = 'bg-red-500 text-white border-red-600 shadow-xs';
                         } else {
-                          btnStyle = 'opacity-40 bg-white text-[#4A5B82] border-[#D2E2FC]';
+                          btnStyle = 'opacity-40 bg-[#0D1830] text-[#6B85B5] border-[#2457C5]/25';
                         }
                       }
 
@@ -355,22 +355,22 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
               {/* MODE C: WRITING PRACTICE */}
               {mode === 'writing' && (
                 <div className="space-y-5">
-                  <div className="flex items-center justify-between p-4 rounded-2xl bg-[#F0F5FF] border border-[#D2E2FC]">
+                  <div className="flex items-center justify-between p-4 rounded-2xl bg-[#0D1830]/8 border border-[#2457C5]/25">
                     <div>
-                      <span className="text-[11px] font-bold text-[#4A5B82] uppercase tracking-wider block font-mono">
+                      <span className="text-[11px] font-bold text-[#6B85B5] uppercase tracking-wider block font-mono">
                         Target Karakter:
                       </span>
-                      <h4 className="text-2xl font-black text-[#101C3D] font-mono">
+                      <h4 className="text-2xl font-black text-[#DCE9FF] font-mono">
                         {currentKana.romaji.toUpperCase()} ({currentKana.pronunciation})
                       </h4>
                     </div>
 
                     <button
                       onClick={() => speakJapanese(currentKana.char)}
-                      className="p-2 rounded-xl bg-white hover:bg-[#E5EFFF] text-[#101C3D] border border-[#D2E2FC]"
+                      className="p-2 rounded-xl bg-[#0D1830] hover:bg-[#2457C5]/15 text-[#DCE9FF] border border-[#2457C5]/25"
                       title="Dengarkan pelafalan"
                     >
-                      <Volume2 className="w-4 h-4 text-[#2457C5]" />
+                      <Volume2 className="w-4 h-4 text-[#55B9F5]" />
                     </button>
                   </div>
 
@@ -386,16 +386,16 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
                       <div className="flex items-center justify-center pt-2">
                         <button
                           onClick={() => setShowWritingAnswer(true)}
-                          className="flex items-center gap-2 px-5 py-2 rounded-xl bg-white hover:bg-[#F0F5FF] text-[#101C3D] border border-[#D2E2FC] font-bold text-xs shadow-2xs"
+                          className="flex items-center gap-2 px-5 py-2 rounded-xl bg-[#0D1830] hover:bg-[#121F3D] text-[#DCE9FF] border border-[#2457C5]/25 font-bold text-xs shadow-2xs"
                         >
-                          <Eye className="w-3.5 h-3.5 text-[#2457C5]" />
+                          <Eye className="w-3.5 h-3.5 text-[#55B9F5]" />
                           <span>Tampilkan Urutan Goresan Resmi</span>
                         </button>
                       </div>
                     </div>
                   ) : (
                     <div className="space-y-4 animate-in fade-in duration-200">
-                      <div className="p-3 bg-[#F0F5FF] rounded-2xl border border-[#D2E2FC] text-center">
+                      <div className="p-3 bg-[#0D1830]/8 rounded-2xl border border-[#2457C5]/25 text-center">
                         <KanaStrokePlayer
                           char={currentKana.char}
                           strokeCount={currentKana.strokeCount}
@@ -405,7 +405,7 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
 
                       <button
                         onClick={() => setShowWritingAnswer(false)}
-                        className="w-full py-2.5 rounded-xl bg-white hover:bg-[#F0F5FF] text-[#4A5B82] text-xs font-bold border border-[#D2E2FC]"
+                        className="w-full py-2.5 rounded-xl bg-[#0D1830] hover:bg-[#121F3D] text-[#6B85B5] text-xs font-bold border border-[#2457C5]/25"
                       >
                         ← Kembali ke Kanvas Menulis
                       </button>
@@ -416,7 +416,7 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
 
               {/* Bottom Next Button Bar */}
               {(isAnswered || mode === 'writing') && (
-                <div className="pt-4 border-t border-[#D2E2FC] flex items-center justify-between">
+                <div className="pt-4 border-t border-[#2457C5]/25 flex items-center justify-between">
                   <div className="text-xs">
                     {mode !== 'writing' && isAnswered && (
                       <span className={`font-bold flex items-center gap-1.5 ${

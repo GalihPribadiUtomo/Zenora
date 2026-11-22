@@ -188,23 +188,23 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-md rounded-3xl bg-white shadow-2xl border border-[#D2E2FC] overflow-hidden text-left"
+        className="relative w-full max-w-md rounded-3xl bg-[#0D1830] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#2457C5]/30 text-[#DCE9FF] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Accent Bar */}
         <div className="h-1.5 w-full bg-gradient-to-r from-[#101C3D] via-[#2457C5] to-[#55B9F5]" />
 
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#D2E2FC] bg-[#F0F5FF]/90">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#2457C5]/25 bg-[#121F3D]/90">
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#101C3D] to-[#2457C5] text-white flex items-center justify-center shadow-xs">
               <Database className="w-4 h-4 text-[#55B9F5]" />
             </div>
             <div>
-              <h3 className="text-base font-black text-[#101C3D] font-['Manrope']">
+              <h3 className="text-base font-black text-[#DCE9FF] font-['Manrope']">
                 {tab === 'config' ? 'Konfigurasi Database Cloud' : 'Akun Pembelajar ZENORA'}
               </h3>
-              <p className="text-xs text-[#4A5B82]">
+              <p className="text-xs text-[#6B85B5]">
                 {tab === 'config' 
                   ? 'Hubungkan ke Supabase PostgreSQL' 
                   : 'Sinkronisasi progres belajar Anda di semua perangkat'}
@@ -214,7 +214,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl hover:bg-[#DCE9FF] text-[#4A5B82] hover:text-[#101C3D] transition-colors"
+            className="p-1.5 rounded-xl hover:bg-[#0D1830]/15/12 text-[#6B85B5] hover:text-[#DCE9FF] transition-colors"
             aria-label="Tutup jendela"
           >
             <X className="w-5 h-5" />
@@ -222,14 +222,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex items-center justify-between p-1 mx-6 mt-4 bg-[#F0F5FF] rounded-2xl border border-[#D2E2FC]">
+        <div className="flex items-center justify-between p-1 mx-6 mt-4 bg-[#0D1830]/8 rounded-2xl border border-[#2457C5]/25">
           <button
             type="button"
             onClick={() => { setTab('signin'); setErrorMessage(''); }}
             className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all ${
               tab === 'signin'
-                ? 'bg-white text-[#2457C5] shadow-xs'
-                : 'text-[#4A5B82] hover:text-[#101C3D]'
+                ? 'bg-[#0D1830] text-[#55B9F5] shadow-xs'
+                : 'text-[#6B85B5] hover:text-[#DCE9FF]'
             }`}
           >
             Masuk
@@ -239,8 +239,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => { setTab('signup'); setErrorMessage(''); }}
             className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all ${
               tab === 'signup'
-                ? 'bg-white text-[#2457C5] shadow-xs'
-                : 'text-[#4A5B82] hover:text-[#101C3D]'
+                ? 'bg-[#0D1830] text-[#55B9F5] shadow-xs'
+                : 'text-[#6B85B5] hover:text-[#DCE9FF]'
             }`}
           >
             Daftar Baru
@@ -250,8 +250,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => { setTab('config'); setErrorMessage(''); }}
             className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 ${
               tab === 'config'
-                ? 'bg-white text-[#2457C5] shadow-xs font-black'
-                : 'text-[#4A5B82] hover:text-[#101C3D]'
+                ? 'bg-[#0D1830] text-[#55B9F5] shadow-xs font-black'
+                : 'text-[#6B85B5] hover:text-[#DCE9FF]'
             }`}
           >
             <Database className="w-3 h-3" />
@@ -269,7 +269,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           )}
 
           {successMessage && (
-            <div className="flex items-center gap-2 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
+            <div className="flex items-center gap-2 p-3 rounded-xl bg-emerald-500/15 border border-emerald-200 text-emerald-700 text-xs font-semibold">
               <CheckCircle2 className="w-4 h-4 shrink-0" />
               <span>{successMessage}</span>
             </div>
@@ -280,35 +280,35 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {tab === 'signin' && (
           <form onSubmit={handleSignIn} className="p-6 pt-3 space-y-4">
             <div>
-              <label className="block text-xs font-bold text-[#101C3D] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
                 Alamat Email
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-[#4A5B82] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-[#6B85B5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="nama@email.com"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#F0F5FF] border border-[#D2E2FC] text-sm font-semibold text-[#101C3D] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-semibold text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#101C3D] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
                 Kata Sandi
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-[#4A5B82] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-[#6B85B5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#F0F5FF] border border-[#D2E2FC] text-sm font-semibold text-[#101C3D] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-semibold text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
                 />
               </div>
             </div>
@@ -328,18 +328,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
             {/* Google OAuth Login */}
             <div className="relative flex py-1 items-center">
-              <div className="grow border-t border-[#D2E2FC]"></div>
-              <span className="shrink mx-3 text-[10px] text-[#4A5B82] font-bold uppercase tracking-wider">
+              <div className="grow border-t border-[#2457C5]/25"></div>
+              <span className="shrink mx-3 text-[10px] text-[#6B85B5] font-bold uppercase tracking-wider">
                 atau
               </span>
-              <div className="grow border-t border-[#D2E2FC]"></div>
+              <div className="grow border-t border-[#2457C5]/25"></div>
             </div>
 
             <button
               type="button"
               onClick={handleGoogleLogin}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white hover:bg-[#F0F5FF] text-[#101C3D] font-bold text-xs border border-[#D2E2FC] shadow-2xs transition-all active:scale-95"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#0D1830] hover:bg-[#121F3D] text-[#DCE9FF] font-bold text-xs border border-[#2457C5]/25 shadow-2xs transition-all active:scale-95"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24">
                 <path
@@ -368,52 +368,52 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {tab === 'signup' && (
           <form onSubmit={handleSignUp} className="p-6 pt-3 space-y-4">
             <div>
-              <label className="block text-xs font-bold text-[#101C3D] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
                 Nama Lengkap / Panggilan
               </label>
               <div className="relative">
-                <UserIcon className="w-4 h-4 text-[#4A5B82] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <UserIcon className="w-4 h-4 text-[#6B85B5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Contoh: Kenji"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#F0F5FF] border border-[#D2E2FC] text-sm font-semibold text-[#101C3D] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-semibold text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#101C3D] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
                 Alamat Email
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-[#4A5B82] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-[#6B85B5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="nama@email.com"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#F0F5FF] border border-[#D2E2FC] text-sm font-semibold text-[#101C3D] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-semibold text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#101C3D] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
                 Kata Sandi
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-[#4A5B82] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-[#6B85B5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Minimal 6 karakter"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#F0F5FF] border border-[#D2E2FC] text-sm font-semibold text-[#101C3D] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-semibold text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
                 />
               </div>
             </div>
@@ -436,18 +436,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* TAB 3: CONFIGURATION (SUPABASE URL & ANON KEY) */}
         {tab === 'config' && (
           <form onSubmit={handleSaveConfig} className="p-6 pt-3 space-y-4">
-            <div className="p-3.5 rounded-2xl bg-[#DCE9FF]/60 border border-[#2457C5]/30 text-[#101C3D] text-xs leading-relaxed space-y-1">
-              <div className="font-black flex items-center gap-1.5 text-[#2457C5]">
+            <div className="p-3.5 rounded-2xl bg-[#0D1830]/12/60 border border-[#2457C5]/30 text-[#DCE9FF] text-xs leading-relaxed space-y-1">
+              <div className="font-black flex items-center gap-1.5 text-[#55B9F5]">
                 <ShieldCheck className="w-4 h-4" />
                 <span>Pengaturan Database Supabase</span>
               </div>
-              <p className="text-[11px] text-[#4A5B82]">
+              <p className="text-[11px] text-[#6B85B5]">
                 Salin Project URL dan anon public key dari Project Settings → API, lalu simpan di bawah:
               </p>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#101C3D] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
                 Supabase Project URL
               </label>
               <input
@@ -456,12 +456,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 value={inputUrl}
                 onChange={(e) => setInputUrl(e.target.value)}
                 placeholder="https://your-project.supabase.co"
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#F0F5FF] border border-[#D2E2FC] text-sm font-mono text-[#101C3D] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-sm font-mono text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#101C3D] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#DCE9FF] uppercase tracking-wider mb-1.5">
                 Supabase Anon Public Key
               </label>
               <textarea
@@ -470,7 +470,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 value={inputKey}
                 onChange={(e) => setInputKey(e.target.value)}
                 placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..."
-                className="w-full px-3.5 py-2 rounded-xl bg-[#F0F5FF] border border-[#D2E2FC] text-xs font-mono text-[#101C3D] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
+                className="w-full px-3.5 py-2 rounded-xl bg-[#0D1830]/8 border border-[#2457C5]/25 text-xs font-mono text-[#DCE9FF] focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5]"
               />
             </div>
 
@@ -493,7 +493,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </button>
             </div>
 
-            <div className="text-[10px] text-[#4A5B82] bg-[#F0F5FF] p-2.5 rounded-xl border border-[#D2E2FC]">
+            <div className="text-[10px] text-[#6B85B5] bg-[#0D1830]/8 p-2.5 rounded-xl border border-[#2457C5]/25">
               Tabel database telah diverifikasi dan siap digunakan untuk sinkronisasi progres Anda.
             </div>
           </form>

@@ -314,7 +314,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
 
             {/* Mastery Status Filter */}
             <div className="flex items-center gap-1.5 self-end sm:self-auto">
-              <span className="text-xs font-bold text-[#4A5B82] flex items-center gap-1 mr-1">
+              <span className="text-xs font-bold text-[#6B85B5] flex items-center gap-1 mr-1">
                 <Filter className="w-3.5 h-3.5" />
                 <span>Filter:</span>
               </span>
@@ -325,7 +325,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold capitalize transition-all ${
                     filterStatus === status
                       ? 'bg-[#101C3D] text-white shadow-xs'
-                      : 'bg-[#F0F5FF] text-[#4A5B82] hover:text-[#101C3D]'
+                      : 'bg-white/8 text-[#6B85B5] hover:text-[#DCE9FF]'
                   }`}
                 >
                   {status === 'semua' ? 'Semua' : status === 'belum' ? 'Belum Dihafal' : 'Sudah Dikuasai'}
@@ -338,7 +338,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
           {activeGroup === 'gojuon' && !searchQuery.trim() && filterStatus === 'semua' ? (
             /* Traditional Japanese 5-Column Gojuon Table */
             <div className="space-y-4">
-              <div className="flex items-center justify-between text-xs font-bold text-[#4A5B82] px-1">
+              <div className="flex items-center justify-between text-xs font-bold text-[#6B85B5] px-1">
                 <span>Tabel 50 Bunyi Gojuon (五十音) · Tersusun berdasarkan baris konsonan & vokal A-I-U-E-O</span>
                 <span className="hidden sm:inline">Klik kartu untuk animasi goresan & latihan menulis</span>
               </div>
@@ -348,11 +348,11 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                   return (
                     <div 
                       key={row.key} 
-                      className="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#D2E2FC] shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3 hover:border-[#55B9F5] transition-colors"
+                      className="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#2457C5]/25 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3 hover:border-[#55B9F5] transition-colors"
                     >
                       <div className="w-44 shrink-0">
-                        <div className="text-xs font-black text-[#101C3D]">{row.label}</div>
-                        <div className="text-[10px] font-semibold text-[#4A5B82]">5 Vokal / Suku Kata</div>
+                        <div className="text-xs font-black text-[#DCE9FF]">{row.label}</div>
+                        <div className="text-[10px] font-semibold text-[#6B85B5]">5 Vokal / Suku Kata</div>
                       </div>
 
                       {/* 5 Column Grid */}
@@ -362,7 +362,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                             return (
                               <div 
                                 key={`empty-${colIdx}`} 
-                                className="h-20 sm:h-24 rounded-2xl bg-[#F0F5FF]/50 border border-dashed border-[#D2E2FC] flex items-center justify-center text-xs text-[#4A5B82]/40 font-mono"
+                                className="h-20 sm:h-24 rounded-2xl bg-white/4 border border-dashed border-[#2457C5]/20 flex items-center justify-center text-xs text-[#6B85B5]/40 font-mono"
                               >
                                 —
                               </div>
@@ -372,7 +372,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                           const item = currentDataset.find(k => k.romaji.toLowerCase() === romaji.toLowerCase() && k.group === 'gojuon');
                           if (!item) {
                             return (
-                              <div key={romaji} className="h-20 sm:h-24 rounded-2xl bg-[#F0F5FF]/50 border border-dashed border-[#D2E2FC] flex items-center justify-center text-xs text-[#4A5B82]/40 font-mono">
+                              <div key={romaji} className="h-20 sm:h-24 rounded-2xl bg-white/4 border border-dashed border-[#2457C5]/20 flex items-center justify-center text-xs text-[#6B85B5]/40 font-mono">
                                 {romaji}
                               </div>
                             );
@@ -399,7 +399,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
           ) : (
             /* Modern Card Grid Layout for Dakuten, Youon, Small, Extended Modern sounds, or Search results */
             <div>
-              <div className="flex items-center justify-between mb-4 text-xs font-bold text-[#4A5B82]">
+              <div className="flex items-center justify-between mb-4 text-xs font-bold text-[#6B85B5]">
                 <span>Menampilkan {filteredData.length} karakter</span>
                 {searchQuery && (
                   <span>Hasil pencarian: "{searchQuery}"</span>
@@ -407,12 +407,12 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
               </div>
 
               {filteredData.length === 0 ? (
-                <div className="py-16 text-center bg-white rounded-3xl border border-[#D2E2FC] p-8 shadow-xs">
-                  <div className="w-16 h-16 rounded-2xl bg-[#F0F5FF] flex items-center justify-center mx-auto text-[#4A5B82] mb-3">
+                <div className="py-16 text-center bg-[#0D1830] rounded-3xl border border-[#2457C5]/30 p-8 shadow-xs">
+                  <div className="w-16 h-16 rounded-2xl bg-[#F0F5FF] flex items-center justify-center mx-auto text-[#6B85B5] mb-3">
                     <Search className="w-8 h-8 text-[#2457C5]" />
                   </div>
-                  <h3 className="text-base font-black text-[#101C3D] mb-1">Karakter Tidak Ditemukan</h3>
-                  <p className="text-xs text-[#4A5B82] max-w-sm mx-auto">
+                  <h3 className="text-base font-black text-[#DCE9FF] mb-1">Karakter Tidak Ditemukan</h3>
+                  <p className="text-xs text-[#6B85B5] max-w-sm mx-auto">
                     Tidak ada karakter Kana yang sesuai dengan kata kunci atau filter saat ini.
                   </p>
                   <button
@@ -489,7 +489,7 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
       className={`group relative rounded-2xl p-3 sm:p-4 text-center cursor-pointer transition-all duration-200 border flex flex-col justify-between ${
         isLearned
           ? 'bg-gradient-to-b from-white to-emerald-50/40 border-emerald-300 hover:border-emerald-400 hover:shadow-md'
-          : 'bg-white border-[#D2E2FC] hover:border-[#55B9F5] hover:shadow-md hover:shadow-[#55B9F5]/10 hover:-translate-y-0.5'
+          : 'bg-[#0D1830] border-[#2457C5]/30 hover:border-[#55B9F5] hover:shadow-md hover:shadow-[#55B9F5]/10 hover:-translate-y-0.5'
       }`}
     >
       {/* Top action row */}
@@ -501,7 +501,7 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
             e.stopPropagation();
             speakJapanese(item.char);
           }}
-          className="p-1 rounded-lg text-[#4A5B82] hover:text-[#101C3D] hover:bg-[#F0F5FF] transition-colors"
+          className="p-1 rounded-lg text-[#6B85B5] hover:text-[#DCE9FF] hover:bg-white/10 transition-colors"
           title={`Dengarkan pelafalan ${item.char}`}
           aria-label={`Pronounce ${item.char}`}
         >
@@ -519,7 +519,7 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
           className={`p-1 rounded-lg transition-all ${
             isLearned
               ? 'text-emerald-600 bg-emerald-100/60'
-              : 'text-[#D2E2FC] group-hover:text-[#4A5B82] hover:bg-[#F0F5FF]'
+              : 'text-[#D2E2FC] group-hover:text-[#6B85B5] hover:bg-white/10'
           }`}
           title={isLearned ? 'Sudah Dikuasai' : 'Tandai Hafal'}
           aria-label="Toggle mastery"
@@ -530,7 +530,7 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
 
       {/* Main Japanese Character */}
       <div className="my-1.5">
-        <span className="font-japanese text-3xl sm:text-4xl font-bold text-[#101C3D] group-hover:text-[#2457C5] transition-colors inline-block leading-none">
+        <span className="font-japanese text-3xl sm:text-4xl font-bold text-[#DCE9FF] group-hover:text-[#55B9F5] transition-colors inline-block leading-none">
           {item.char}
         </span>
       </div>
@@ -540,7 +540,7 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
         <div className="text-xs font-black font-mono text-[#2457C5] uppercase tracking-wide">
           {item.romaji}
         </div>
-        <div className="text-[10px] font-semibold text-[#4A5B82] truncate px-1">
+        <div className="text-[10px] font-semibold text-[#6B85B5] truncate px-1">
           {item.example?.word || `${item.strokeCount} goresan`}
         </div>
       </div>
