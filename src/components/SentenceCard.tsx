@@ -100,7 +100,7 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
         <div className="space-y-1.5 my-2">
           {/* Furigana */}
           {furigana && (
-            <div className="text-xs font-semibold text-[#8FB4E3] font-mono tracking-wider">
+            <div className="text-sm font-bold text-[#A8CEFF] japanese-text tracking-wide">
               {furigana}
             </div>
           )}
@@ -112,7 +112,7 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
 
           {/* Romaji */}
           {romaji && (
-            <p className="text-xs font-mono text-[#8793A8] font-medium pt-0.5">
+            <p className="text-sm text-[#8FB4E3] font-semibold pt-0.5">
               {romaji}
             </p>
           )}

@@ -79,7 +79,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
                 Materi & Pelajaran Bab 1–50
               </h1>
 
-              <p className="text-[#8793A8] text-sm sm:text-base leading-relaxed max-w-xl">
+              <p className="text-[#CBD8EC] text-sm sm:text-base leading-relaxed max-w-xl">
                 Akses lengkap pembelajaran Minna no Nihongo Bab 1–50: <span className="text-[#8FB4E3] font-bold">Tata Bahasa (Bunpou)</span>, <span className="text-[#8FB4E3] font-bold">Pola Kalimat (Bunkei)</span>, <span className="text-[#8FB4E3] font-bold">Percakapan Interaktif (Kaiwa)</span>, <span className="text-[#8FB4E3] font-bold">2.910 Kosakata</span>, dan <span className="text-[#EEF1F6] font-bold">Kanji</span> terkait. Pilih nomor bab untuk mulai belajar!
               </p>
 
@@ -155,11 +155,11 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
 
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-bold text-[#8793A8] uppercase tracking-wider font-mono">
+                  <span className="text-xs font-bold text-[#8FB4E3] uppercase tracking-wider font-mono">
                     第{chapter.bab}課
                   </span>
                   {learnedCount > 0 && (
-                    <span className={`text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 ${
+                    <span className={`text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 ${
                       isDone
                         ? 'text-emerald-400 bg-emerald-500/15 border border-emerald-500/30'
                         : 'text-[#8FB4E3] bg-[#8FB4E3]/10 border border-[#8FB4E3]/30'
@@ -176,16 +176,16 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
                   {chapter.bab}
                 </h3>
 
-                <p className="text-[11px] font-semibold text-[#8793A8] mt-1">
+                <p className="text-xs font-semibold text-[#CBD8EC] mt-1">
                   {chapter.totalKata} kata · {learnedCount} hafal
                 </p>
 
                 {/* Badge fitur materi di bab ini */}
-                <div className="flex flex-wrap gap-1 mt-2">
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#1F3760]/60 text-[#8FB4E3] border border-[#8FB4E3]/30">
+                <div className="flex flex-wrap gap-1.5 mt-2.5">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/35">
                     文法 Bunpou
                   </span>
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#0C1B33]/80 text-[#8793A8] border border-[#8FB4E3]/20">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#0C1B33] text-[#CBD8EC] border border-[#8FB4E3]/25">
                     会話 Kaiwa
                   </span>
                 </div>

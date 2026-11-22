@@ -119,13 +119,13 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
 
             <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="text-xs font-bold text-[#8FB4E3] font-mono tracking-wider block mb-1">
+                <span className="text-sm font-bold text-[#A8CEFF] japanese-text tracking-wide block mb-1">
                   {word.kana}
                 </span>
                 <h1 className="kanji-font text-4xl sm:text-5xl font-black text-[#EEF1F6] tracking-tight drop-shadow-sm leading-relaxed">
                   <FuriganaText text={word.kanji || word.kana} reading={word.kana} />
                 </h1>
-                <p className="text-sm font-mono text-[#8793A8] mt-1">
+                <p className="text-sm font-semibold text-[#8FB4E3] mt-1">
                   {word.romaji}
                 </p>
               </div>

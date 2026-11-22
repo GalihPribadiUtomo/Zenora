@@ -209,7 +209,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               第{bab}課 · {lesson?.title || `Pelajaran ${bab}`}
             </h1>
 
-            <p className="text-sm text-[#8793A8] max-w-2xl leading-relaxed">
+            <p className="text-base text-[#CBD8EC] max-w-2xl leading-relaxed">
               {lesson?.summary || 'Kuasai tata bahasa (Bunpou), pola kalimat (Bunkei), contoh (Reibun), percakapan (Kaiwa), kosakata, dan kanji terkait pada bab ini.'}
             </p>
           </div>
@@ -353,45 +353,45 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
 
                   {/* Formula / Format Box */}
                   {item.polaFormat && (
-                    <div className="p-3.5 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 text-[#8FB4E3] font-mono text-xs sm:text-sm font-bold flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded-md bg-[#1F3760] text-[#EEF1F6] text-[11px] uppercase tracking-wider border border-[#8FB4E3]/30">
+                    <div className="p-4 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/30 text-[#8FB4E3] text-sm sm:text-base font-bold flex flex-wrap items-center gap-2.5">
+                      <span className="px-2.5 py-1 rounded-md bg-[#1F3760] text-[#EEF1F6] text-xs uppercase tracking-wider border border-[#8FB4E3]/30 shrink-0 font-bold">
                         Pola
                       </span>
-                      <span><FuriganaText text={item.polaFormat} /></span>
+                      <span className="japanese-text leading-relaxed text-[#EEF1F6]"><FuriganaText text={item.polaFormat} /></span>
                     </div>
                   )}
 
                   {/* Explanation text */}
-                  <p className="text-sm text-[#EEF1F6]/90 leading-relaxed whitespace-pre-line font-medium">
+                  <p className="text-base text-[#EEF1F6] leading-relaxed whitespace-pre-line font-medium">
                     {item.explanation}
                   </p>
 
                   {/* Examples */}
                   {item.examples && item.examples.length > 0 && (
                     <div className="space-y-3 pt-3 border-t border-[#8FB4E3]/15">
-                      <h4 className="text-xs font-bold text-[#8793A8] uppercase tracking-wider">
+                      <h4 className="text-xs font-black text-[#8FB4E3] uppercase tracking-wider">
                         Contoh Kalimat Penggunaan:
                       </h4>
-                      <div className="space-y-2.5">
+                      <div className="space-y-3">
                         {item.examples.map((ex, idx) => (
                           <div
                             key={idx}
-                            className="p-3.5 rounded-2xl bg-[#0C1B33]/60 border border-[#8FB4E3]/15 flex items-start justify-between gap-3 group hover:border-[#8FB4E3]/40 transition-all"
+                            className="p-4 rounded-2xl bg-[#0C1B33]/70 border border-[#8FB4E3]/20 flex items-start justify-between gap-3 group hover:border-[#8FB4E3]/40 transition-all"
                           >
-                            <div className="space-y-1">
-                              <p className="text-base font-bold text-[#EEF1F6] japanese-text leading-relaxed">
+                            <div className="space-y-1.5 flex-1">
+                              <p className="text-lg sm:text-xl font-bold text-[#EEF1F6] japanese-text leading-relaxed">
                                 <FuriganaText text={ex.japanese} />
                               </p>
-                              <p className="text-xs text-[#8FB4E3] font-mono">
+                              <p className="text-sm font-semibold text-[#8FB4E3]">
                                 {ex.romaji}
                               </p>
-                              <p className="text-xs text-[#8793A8]">
+                              <p className="text-sm font-medium text-[#CBD8EC]">
                                 {ex.indonesian}
                               </p>
                             </div>
                             <button
                               onClick={() => speakJapanese(ex.japanese)}
-                              className="p-2 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/20 transition-colors shrink-0"
+                              className="p-2.5 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/25 transition-colors shrink-0"
                               title="Dengarkan audio"
                             >
                               <Volume2 className="w-4 h-4" />
@@ -409,17 +409,17 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                 <div className="rounded-3xl bg-gradient-to-br from-[#16294A] to-[#1F3760] border border-[#8FB4E3]/30 p-6 sm:p-8 space-y-4 shadow-[0_4px_20px_rgba(12,27,51,0.5)]">
                   <div className="flex items-center gap-2.5 text-[#8FB4E3]">
                     <Info className="w-5 h-5 text-[#8FB4E3]" />
-                    <h3 className="text-lg font-black text-[#EEF1F6] font-['Manrope']">
+                    <h3 className="text-xl font-black text-[#EEF1F6] font-['Manrope']">
                       {lesson.referensiInfo.title}
                     </h3>
                   </div>
                   {lesson.referensiInfo.description && (
-                    <p className="text-sm text-[#EEF1F6]/85 leading-relaxed">
+                    <p className="text-base text-[#EEF1F6] leading-relaxed">
                       {lesson.referensiInfo.description}
                     </p>
                   )}
                   {lesson.referensiInfo.notes && (
-                    <ul className="space-y-1.5 list-disc list-inside text-xs text-[#8793A8]">
+                    <ul className="space-y-2 list-disc list-inside text-sm text-[#CBD8EC] leading-relaxed">
                       {lesson.referensiInfo.notes.map((note, idx) => (
                         <li key={idx}>{note}</li>
                       ))}
@@ -456,25 +456,25 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-[#8FB4E3] px-2 py-0.5 rounded-md bg-[#0C1B33]/80 border border-[#8FB4E3]/20">
+                      <span className="text-xs font-bold text-[#8FB4E3] px-2.5 py-1 rounded-md bg-[#0C1B33]/80 border border-[#8FB4E3]/25 font-mono">
                         Pola #{pola.id}
                       </span>
                       <button
                         onClick={() => speakJapanese(pola.japanese)}
-                        className="p-1.5 rounded-xl bg-[#0C1B33]/60 hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/20 transition-colors"
+                        className="p-2 rounded-xl bg-[#0C1B33]/60 hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/20 transition-colors"
                         title="Dengarkan audio"
                       >
                         <Volume2 className="w-4 h-4" />
                       </button>
                     </div>
-                    <p className="text-lg font-bold text-[#EEF1F6] japanese-text leading-relaxed">
+                    <p className="text-xl sm:text-2xl font-bold text-[#EEF1F6] japanese-text leading-relaxed">
                       <FuriganaText text={pola.japanese} />
                     </p>
-                    <p className="text-xs text-[#8FB4E3] font-mono">
+                    <p className="text-sm font-semibold text-[#8FB4E3]">
                       {pola.romaji}
                     </p>
                   </div>
-                  <p className="text-xs text-[#8793A8] pt-2 border-t border-[#8FB4E3]/15">
+                  <p className="text-sm font-medium text-[#CBD8EC] pt-2.5 border-t border-[#8FB4E3]/15">
                     {pola.indonesian}
                   </p>
                 </div>
@@ -486,7 +486,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#8FB4E3]" />
-              <h3 className="text-lg font-black text-[#EEF1F6] uppercase tracking-wider font-['Manrope']">
+              <h3 className="text-xl font-black text-[#EEF1F6] uppercase tracking-wider font-['Manrope']">
                 例文 · Contoh Kalimat Tanya-Jawab (Reibun)
               </h3>
             </div>
@@ -495,35 +495,35 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               {lesson?.contohKalimat.map((ex) => (
                 <div
                   key={ex.id}
-                  className="rounded-3xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 space-y-2.5 hover:border-[#8FB4E3]/40 transition-all shadow-[0_4px_16px_rgba(12,27,51,0.4)]"
+                  className="rounded-3xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 sm:p-6 space-y-3 hover:border-[#8FB4E3]/40 transition-all shadow-[0_4px_16px_rgba(12,27,51,0.4)]"
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <div className="space-y-1.5 flex-1">
+                    <div className="space-y-2 flex-1">
                       {ex.question && (
-                        <div className="flex items-start gap-2">
-                          <span className="text-xs font-black text-[#8FB4E3] font-mono mt-0.5">Q:</span>
-                          <p className="text-base font-bold text-[#EEF1F6] japanese-text leading-relaxed">
+                        <div className="flex items-start gap-2.5">
+                          <span className="text-sm font-black text-[#8FB4E3] font-mono mt-1 shrink-0">Q:</span>
+                          <p className="text-lg sm:text-xl font-bold text-[#EEF1F6] japanese-text leading-relaxed">
                             <FuriganaText text={ex.question} />
                           </p>
                         </div>
                       )}
-                      <div className="flex items-start gap-2">
-                        <span className="text-xs font-black text-emerald-400 font-mono mt-0.5">A:</span>
-                        <p className="text-base font-bold text-[#EEF1F6] japanese-text leading-relaxed">
+                      <div className="flex items-start gap-2.5">
+                        <span className="text-sm font-black text-emerald-400 font-mono mt-1 shrink-0">A:</span>
+                        <p className="text-lg sm:text-xl font-bold text-[#EEF1F6] japanese-text leading-relaxed">
                           <FuriganaText text={ex.answer} />
                         </p>
                       </div>
-                      <p className="text-xs text-[#8FB4E3] font-mono pl-5">
+                      <p className="text-sm font-semibold text-[#8FB4E3] pl-6">
                         {ex.romaji}
                       </p>
-                      <p className="text-xs text-[#8793A8] pl-5">
+                      <p className="text-sm font-medium text-[#CBD8EC] pl-6">
                         {ex.indonesian}
                       </p>
                     </div>
 
                     <button
                       onClick={() => speakJapanese(`${ex.question || ''} ${ex.answer}`)}
-                      className="p-2 rounded-xl bg-[#0C1B33]/60 hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/20 transition-colors shrink-0"
+                      className="p-2.5 rounded-xl bg-[#0C1B33]/60 hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/20 transition-colors shrink-0"
                       title="Dengarkan dialog"
                     >
                       <Volume2 className="w-4 h-4" />
@@ -546,11 +546,11 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                   <span className="text-xs font-mono font-bold text-[#8FB4E3] uppercase tracking-wider block mb-1">
                     Percakapan Otentik Minna no Nihongo
                   </span>
-                  <h2 className="text-2xl font-black text-[#EEF1F6] font-['Manrope'] leading-relaxed">
+                  <h2 className="text-2xl sm:text-3xl font-black text-[#EEF1F6] font-['Manrope'] leading-relaxed">
                     <FuriganaText text={lesson.percakapan.title} />
                   </h2>
                   {lesson.percakapan.situasi && (
-                    <p className="text-xs text-[#8793A8] mt-1 italic">
+                    <p className="text-sm text-[#CBD8EC] mt-1.5 italic">
                       Situasi: {lesson.percakapan.situasi}
                     </p>
                   )}
@@ -573,38 +573,38 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                 {lesson.percakapan.dialogs.map((dialog, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-2xl bg-[#0C1B33]/60 border border-[#8FB4E3]/15 hover:border-[#8FB4E3]/40 transition-all flex items-start gap-4"
+                    className="p-4 sm:p-5 rounded-2xl bg-[#0C1B33]/70 border border-[#8FB4E3]/20 hover:border-[#8FB4E3]/45 transition-all flex items-start gap-4"
                   >
                     {/* Speaker Avatar Badge */}
-                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#16294A] to-[#1F3760] border border-[#8FB4E3]/30 text-[#8FB4E3] font-black text-xs flex items-center justify-center shrink-0 shadow-sm font-['Manrope']">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#16294A] to-[#1F3760] border border-[#8FB4E3]/35 text-[#8FB4E3] font-black text-sm flex items-center justify-center shrink-0 shadow-sm font-['Manrope']">
                       {dialog.speaker.slice(0, 2)}
                     </div>
 
-                    <div className="flex-1 space-y-1">
+                    <div className="flex-1 space-y-2">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-[#EEF1F6]">
+                        <span className="text-sm sm:text-base font-bold text-[#EEF1F6]">
                           <FuriganaText text={dialog.speaker} />
                         </span>
                         {dialog.role && (
-                          <span className="text-[10px] text-[#8793A8]">
+                          <span className="text-xs font-medium text-[#8FB4E3]">
                             ({dialog.role})
                           </span>
                         )}
                       </div>
-                      <p className="text-base font-bold text-[#EEF1F6] japanese-text leading-relaxed pt-1">
+                      <p className="text-lg sm:text-xl font-bold text-[#EEF1F6] japanese-text leading-relaxed pt-1">
                         <FuriganaText text={dialog.japanese} />
                       </p>
-                      <p className="text-xs text-[#8FB4E3] font-mono">
+                      <p className="text-sm font-semibold text-[#8FB4E3]">
                         {dialog.romaji}
                       </p>
-                      <p className="text-xs text-[#8793A8]">
+                      <p className="text-sm font-medium text-[#CBD8EC]">
                         {dialog.indonesian}
                       </p>
                     </div>
 
                     <button
                       onClick={() => speakJapanese(dialog.japanese)}
-                      className="p-2 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/20 transition-colors shrink-0"
+                      className="p-2.5 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/20 transition-colors shrink-0"
                       title="Dengarkan kalimat ini"
                     >
                       <Volume2 className="w-4 h-4" />
@@ -733,15 +733,15 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                       </div>
 
                       <div className="my-2">
-                        <h3 className="text-2xl font-black text-[#EEF1F6] japanese-text leading-relaxed">
+                        <h3 className="text-3xl font-black text-[#EEF1F6] japanese-text leading-relaxed">
                           <FuriganaText text={word.kanji} reading={word.kana} />
                         </h3>
-                        <p className="text-xs text-[#8FB4E3] font-bold mt-0.5">
-                          {word.kana} · <span className="font-mono">{word.romaji}</span>
+                        <p className="text-sm font-bold text-[#8FB4E3] mt-1">
+                          {word.kana} · <span className="font-mono text-xs">{word.romaji}</span>
                         </p>
                       </div>
 
-                      <p className="text-sm font-semibold text-[#8793A8] line-clamp-2 mt-2">
+                      <p className="text-base font-semibold text-[#EEF1F6] line-clamp-2 mt-2 leading-snug">
                         {word.arti}
                       </p>
                     </div>
@@ -816,7 +816,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
             <div className="rounded-3xl bg-[#16294A] border border-[#8FB4E3]/25 overflow-hidden shadow-[0_4px_24px_rgba(12,27,51,0.5)]">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#0C1B33] text-[#8793A8] text-xs font-bold uppercase tracking-wider border-b border-[#8FB4E3]/20">
+                  <thead className="bg-[#0C1B33] text-[#8FB4E3] text-xs font-black uppercase tracking-wider border-b border-[#8FB4E3]/20">
                     <tr>
                       <th className="p-4">No</th>
                       <th className="p-4">Kanji</th>
@@ -833,13 +833,13 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                         onClick={() => setSelectedKotobaModal(word)}
                         className="hover:bg-white/5 cursor-pointer transition-colors"
                       >
-                        <td className="p-4 font-mono font-bold text-[#8793A8]">#{word.no}</td>
-                        <td className="p-4 font-bold text-[#EEF1F6] text-base japanese-text leading-relaxed">
+                        <td className="p-4 font-mono font-bold text-[#8FB4E3]">#{word.no}</td>
+                        <td className="p-4 font-bold text-[#EEF1F6] text-xl japanese-text leading-relaxed">
                           <FuriganaText text={word.kanji} reading={word.kana} />
                         </td>
-                        <td className="p-4 text-[#8FB4E3] font-mono text-xs">{word.kana} ({word.romaji})</td>
-                        <td className="p-4 text-[#EEF1F6]">{word.arti}</td>
-                        <td className="p-4 text-xs text-[#8793A8]">{word.kategori}</td>
+                        <td className="p-4 text-[#8FB4E3] text-sm font-semibold">{word.kana} <span className="font-mono text-xs text-[#CBD8EC]">({word.romaji})</span></td>
+                        <td className="p-4 text-base font-medium text-[#EEF1F6]">{word.arti}</td>
+                        <td className="p-4 text-xs font-semibold text-[#8FB4E3]">{word.kategori}</td>
                         <td className="p-4 text-center">
                           <button
                             onClick={(e) => {
@@ -873,22 +873,22 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                     <h2 className="text-5xl font-black text-[#EEF1F6] japanese-text leading-relaxed">
                       <FuriganaText text={currentFlashcard.kanji} reading={currentFlashcard.kana} />
                     </h2>
-                    <p className="text-lg font-bold text-[#8FB4E3]">
+                    <p className="text-xl font-bold text-[#8FB4E3]">
                       {currentFlashcard.kana}
                     </p>
-                    <p className="text-xs text-[#8793A8] font-mono">
+                    <p className="text-sm font-semibold text-[#CBD8EC]">
                       {currentFlashcard.romaji}
                     </p>
                   </div>
                 ) : (
-                  <div className="space-y-3">
-                    <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block">
+                  <div className="space-y-4">
+                    <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">
                       Arti & Terjemahan
                     </span>
-                    <h3 className="text-2xl font-bold text-[#EEF1F6]">
+                    <h3 className="text-3xl font-extrabold text-[#EEF1F6] leading-snug">
                       {currentFlashcard.arti}
                     </h3>
-                    <span className="px-3 py-1 rounded-full bg-[#0C1B33] border border-[#8FB4E3]/30 text-[#8FB4E3] text-xs font-bold inline-block">
+                    <span className="px-3.5 py-1 rounded-full bg-[#0C1B33] border border-[#8FB4E3]/30 text-[#8FB4E3] text-xs font-bold inline-block">
                       {currentFlashcard.kategori}
                     </span>
                   </div>

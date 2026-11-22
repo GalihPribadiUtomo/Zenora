@@ -459,9 +459,9 @@ export function parseFuriganaElements(text: string, directReading?: string): Rea
     const parts = decomposeToRuby(text, directReading);
     return parts.map((p, i) =>
       p.isRuby && p.rt ? (
-        <ruby key={`dir-${i}`} className="ruby-furigana inline-flex flex-col-reverse items-center align-baseline">
+        <ruby key={`dir-${i}`} className="ruby-furigana inline-flex flex-col-reverse items-center align-baseline mx-[1px]">
           <span className="ruby-base leading-none">{p.text}</span>
-          <rt className="ruby-rt text-[0.55em] leading-none text-[#8FB4E3] select-none font-bold pb-0.5 tracking-tight">
+          <rt className="ruby-rt text-[0.72em] leading-none text-[#A8CEFF] select-none font-bold pb-0.5 tracking-wide">
             {p.rt}
           </rt>
         </ruby>
@@ -492,10 +492,10 @@ export function parseFuriganaElements(text: string, directReading?: string): Rea
             elements.push(
               <ruby
                 key={`furi-${keyCounter++}`}
-                className="ruby-furigana inline-flex flex-col-reverse items-center align-baseline mx-[0.5px]"
+                className="ruby-furigana inline-flex flex-col-reverse items-center align-baseline mx-[1px]"
               >
                 <span className="ruby-base leading-none">{p.text}</span>
-                <rt className="ruby-rt text-[0.55em] leading-none text-[#8FB4E3] select-none font-bold pb-0.5 tracking-tight">
+                <rt className="ruby-rt text-[0.72em] leading-none text-[#A8CEFF] select-none font-bold pb-0.5 tracking-wide">
                   {p.rt}
                 </rt>
               </ruby>
@@ -520,10 +520,10 @@ export function parseFuriganaElements(text: string, directReading?: string): Rea
         elements.push(
           <ruby
             key={`furi-${keyCounter++}`}
-            className="ruby-furigana inline-flex flex-col-reverse items-center align-baseline mx-[0.5px]"
+            className="ruby-furigana inline-flex flex-col-reverse items-center align-baseline mx-[1px]"
           >
             <span className="ruby-base leading-none">{char}</span>
-            <rt className="ruby-rt text-[0.55em] leading-none text-[#8FB4E3] select-none font-bold pb-0.5 tracking-tight">
+            <rt className="ruby-rt text-[0.72em] leading-none text-[#A8CEFF] select-none font-bold pb-0.5 tracking-wide">
               {fallbackReading}
             </rt>
           </ruby>
@@ -564,5 +564,5 @@ export const FuriganaText: React.FC<FuriganaTextProps> = ({
     return parseFuriganaElements(text, reading);
   }, [text, reading]);
 
-  return <span className={`inline-flex flex-wrap items-baseline ${className}`}>{renderedElements}</span>;
+  return <span className={`inline-flex flex-wrap items-baseline japanese-text ${className}`}>{renderedElements}</span>;
 };
