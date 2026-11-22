@@ -96,14 +96,14 @@ export const Navbar: React.FC<NavbarProps> = ({
     setMobileMenuOpen(false);
   };
 
-  // Sub-menu Materi items (Tepat 4 Menu: Bunpou & Kotoba disatukan)
+  // Sub-menu Materi items (Tepat 3 Menu Bersih: Kana, Tata Bahasa & Kosakata, Kanji)
   const materiSubItems = [
     {
       id: 'kana',
-      title: 'Kana: Hiragana & Katakana',
+      title: 'Hiragana & Katakana',
       subtitle: 'Pondasi 46 aksara dasar, variasi dakuten & kanvas menulis',
       icon: Languages,
-      badge: 'Aksara Dasar',
+      badge: 'Aksara',
       action: () => {
         handleNav('kana');
         onNavigateSubMateri?.('kana');
@@ -111,8 +111,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     },
     {
       id: 'materi-bab',
-      title: 'Materi Bab 1–50: Minna no Nihongo',
-      subtitle: 'Kurikulum lengkap Shokyu I & II dengan audio otentik',
+      title: 'Tata Bahasa & Kosakata',
+      subtitle: 'Kurikulum Bab 1–50 terpadu, contoh kalimat & audio',
       icon: BookOpen,
       badge: 'Bab 1–50',
       action: () => {
@@ -122,24 +122,13 @@ export const Navbar: React.FC<NavbarProps> = ({
     },
     {
       id: 'kanji',
-      title: 'Kanji: N5 & N4 Interaktif',
-      subtitle: '424 Kanji lengkap dengan font kaligrafi edukasi, goresan & makna',
+      title: 'Kanji N5 & N4',
+      subtitle: '424 Kanji lengkap dengan animasi goresan, makna & kuis',
       icon: PenTool,
       badge: '424 Kanji',
       action: () => {
         handleNav('kanji');
         onNavigateSubMateri?.('kanji');
-      }
-    },
-    {
-      id: 'kotoba-bunpou',
-      title: 'Kotoba & Bunpou: Kosakata & Tata Bahasa',
-      subtitle: '2.910 Kosakata esensial, contoh kalimat, dan kaidah tata bahasa',
-      icon: Layers,
-      badge: 'Kosakata & Pola',
-      action: () => {
-        handleNav('kotoba');
-        onNavigateSubMateri?.('kotoba-bunpou' as any);
       }
     }
   ];
@@ -251,7 +240,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* Floating Dropdown Menu Materi */}
               {materiDropdownOpen && (
-                <div className="absolute left-0 mt-3 w-80 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute left-0 mt-3 w-88 sm:w-96 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="px-3 py-2 border-b border-white/10 mb-2">
                     <span className="text-[10px] font-black uppercase tracking-wider text-[#8FB4E3] font-mono block">
                       MODUL PEMBELAJARAN
@@ -331,7 +320,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* Floating Dropdown Menu Latihan */}
               {latihanDropdownOpen && (
-                <div className="absolute right-0 mt-3 w-80 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute right-0 mt-3 w-88 sm:w-96 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="px-3 py-2 border-b border-white/10 mb-2">
                     <span className="text-[10px] font-black uppercase tracking-wider text-[#8FB4E3] font-mono block">
                       HUB EVALUASI & SERTIFIKASI
