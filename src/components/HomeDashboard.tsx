@@ -621,18 +621,18 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#1F3760] to-[#8FB4E3] flex items-center justify-center text-[#0C1B33] mb-4 shadow-[0_0_15px_rgba(143,180,227,0.35)] group-hover:scale-110 transition-transform">
                 <Award className="w-6 h-6" />
               </div>
-              <span className="text-[10px] font-mono text-[#8FB4E3] font-black uppercase tracking-wider block mb-1">
-                Evaluasi Terpadu
+              <span className="text-[10px] font-mono text-emerald-400 font-black uppercase tracking-wider block mb-1">
+                Evaluasi & Sertifikasi Resmi
               </span>
               <h4 className="font-black text-lg text-[#EEF1F6] mb-1.5 font-['Manrope'] group-hover:text-[#8FB4E3] transition-colors">
-                18 Mode Latihan
+                Latihan & Simulasi JLPT / JFT
               </h4>
               <p className="text-xs text-[#CBD8EC]/80 leading-relaxed">
-                Pilihan Ganda, Matching, Rumpang, Susun Kalimat, Choukai, Dokkai, Kaiwa, Menulis, Timed Exam, dan Ujian Akhir.
+                18 Mode Latihan interaktif per bab, serta Simulasi Ujian Penuh JLPT N5, N4, dan JFT-Basic A2 dengan timer resmi & passing mark.
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#8FB4E3]">
-              <span>Mulai Latihan</span>
+              <span>Mulai Ujian & Latihan</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>

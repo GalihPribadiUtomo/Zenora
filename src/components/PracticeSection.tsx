@@ -18,19 +18,22 @@ import { KANJI_DATA } from '../data/kanjiData';
 import { QuizMode, QuizSubject, QuizQuestion } from '../types';
 import { speakJapanese, sound } from '../utils/audio';
 import { ChapterExerciseSection } from './ChapterExerciseSection';
+import { JlptExamSection } from './JlptExamSection';
 import { loadChapterLesson, ChapterLesson } from '../data/materi';
 
 interface PracticeSectionProps {
   initialBab?: number | null;
   onRecordResult?: (score: number, total: number, mode: QuizMode, subject: QuizSubject) => void;
+  initialPracticeType?: '18-modes' | 'jlpt-jft' | 'classic';
 }
 
 export const PracticeSection: React.FC<PracticeSectionProps> = ({
   initialBab,
-  onRecordResult
+  onRecordResult,
+  initialPracticeType = '18-modes'
 }) => {
   // Setup state
-  const [practiceType, setPracticeType] = useState<'18-modes' | 'classic'>('18-modes');
+  const [practiceType, setPracticeType] = useState<'18-modes' | 'jlpt-jft' | 'classic'>(initialPracticeType);
   const [activeExerciseBab, setActiveExerciseBab] = useState<number>(initialBab || 1);
   const [exerciseLesson, setExerciseLesson] = useState<ChapterLesson | null>(null);
 
@@ -272,9 +275,9 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
   return (
     <div className="space-y-8 text-left pb-16 max-w-5xl mx-auto">
 
-      {/* Main Mode Switcher: 18 Modes vs Classic */}
+      {/* Main Mode Switcher: 18 Modes vs JLPT/JFT vs Classic */}
       <div className="flex justify-center">
-        <div className="flex items-center gap-2 p-1.5 bg-[#16294A] rounded-2xl border border-[#8FB4E3]/25 max-w-md w-full shadow-lg">
+        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#16294A] rounded-2xl border border-[#8FB4E3]/25 max-w-2xl w-full shadow-lg">
           <button
             onClick={() => {
               sound.playClick();
@@ -288,7 +291,28 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }`}
           >
             <Sparkles className="w-4 h-4 text-[#8FB4E3]" />
-            <span>18 Mode Latihan (Bab 1–50)</span>
+            <span>18 Mode (Bab 1–50)</span>
+          </button>
+
+          <button
+            onClick={() => {
+              sound.playClick();
+              setPracticeType('jlpt-jft');
+              setIsQuizActive(false);
+            }}
+            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-1.5 ${
+              practiceType === 'jlpt-jft'
+                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-[0_0_15px_rgba(143,180,227,0.3)]'
+                : 'text-[#8793A8] hover:text-[#EEF1F6]'
+            }`}
+          >
+            <Award className="w-4 h-4 text-emerald-400" />
+            <span className="flex items-center gap-1">
+              Simulasi JLPT & JFT
+              <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono">
+                N5・N4・A2
+              </span>
+            </span>
           </button>
 
           <button
@@ -307,6 +331,11 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
           </button>
         </div>
       </div>
+
+      {/* ── VIEW 0: SIMULASI JLPT & JFT (N5, N4, A2) ── */}
+      {practiceType === 'jlpt-jft' && (
+        <JlptExamSection onBackToPractice={() => setPracticeType('18-modes')} />
+      )}
 
       {/* ── VIEW 1: 18 MODES COMPREHENSIVE PRACTICE WITH BAB SELECTOR ── */}
       {practiceType === '18-modes' && (

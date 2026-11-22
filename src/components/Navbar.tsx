@@ -111,6 +111,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <Icon className={`w-4 h-4 transition-colors ${isActive ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
                   <span>{item.label}</span>
+                  {item.id === 'latihan' && (
+                    <span className="hidden xl:inline-block text-[9px] font-black px-1.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono">
+                      JLPT/JFT
+                    </span>
+                  )}
                 </button>
               );
             })}

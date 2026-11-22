@@ -259,3 +259,61 @@ export interface ChapterLesson {
   tataBahasa: TataBahasaPoint[];
   referensiInfo?: ReferensiInfoItem;
 }
+
+// ==========================================
+// JLPT & JFT-BASIC EXAM SIMULATION TYPES
+// ==========================================
+
+export type ExamType = 'JLPT_N5' | 'JLPT_N4' | 'JFT_BASIC_A2';
+
+export type ExamSectionType = 
+  | 'gengo_chishiki' // 文字・語彙 (Moji / Goi)
+  | 'bunpou_dokkai'  // 文法・読解 (Grammar & Reading)
+  | 'choukai'        // 聴解 (Listening)
+  | 'jft_moji_goi'   // JFT: Huruf dan Kosakata
+  | 'jft_kaiwa'      // JFT: Percakapan dan Ungkapan
+  | 'jft_choukai'    // JFT: Mendengarkan
+  | 'jft_dokkai';    // JFT: Membaca
+
+export interface ExamQuestion {
+  id: string;
+  mondaiNumber: number;            // Nomor kelompok soal (misal: 1 untuk 問題１)
+  mondaiTitle: string;             // Judul instruksi kelompok soal
+  questionNumber: number;          // Nomor urut soal
+  questionText: string;            // Teks kalimat soal
+  passageText?: string;            // Wacana bacaan (untuk Dokkai)
+  audioScript?: string;            // Skrip audio dialog yang diucapkan (Choukai)
+  audioSituation?: string;         // Panduan situasi audio
+  options: string[];               // 4 pilihan jawaban
+  correctAnswerIndex: number;      // Indeks jawaban benar (0, 1, 2, atau 3)
+  explanation: string;             // Pembahasan mendalam
+  indonesianTranslation?: string;  // Terjemahan kalimat soal & opsi
+  isStarQuestion?: boolean;        // Apakah soal susun kalimat posisi bintang ★
+  starSlots?: string[];            // 4 komponen kata untuk disusun jika soal bintang
+}
+
+export interface ExamSection {
+  id: string;
+  type: ExamSectionType;
+  title: string;
+  japaneseTitle: string;
+  timeLimitMinutes: number;        // Waktu resmi (menit)
+  passingScore: number;            // Kriteria batas lulus bagian
+  maxScore: number;                // Skor maksimal bagian
+  instructions: string;
+  questions: ExamQuestion[];
+}
+
+export interface ExamPackage {
+  id: ExamType;
+  title: string;
+  level: string;                   // "N5", "N4", "A2"
+  subtitle: string;
+  description: string;
+  totalTimeMinutes: number;
+  totalQuestions: number;
+  maxScore: number;
+  passingScore: number;
+  badgeColor: string;
+  sections: ExamSection[];
+}
