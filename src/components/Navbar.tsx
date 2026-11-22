@@ -96,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     setMobileMenuOpen(false);
   };
 
-  // Sub-menu Materi items (persis seperti diagram)
+  // Sub-menu Materi items (Disatukan agar tidak dobel/redundant)
   const materiSubItems = [
     {
       id: 'kana',
@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     {
       id: 'materi-bab',
       title: 'Materi Bab 1–50: Minna no Nihongo',
-      subtitle: 'Kurikulum lengkap Shokyu I & II dengan audio otentik',
+      subtitle: 'Kurikulum terpadu Tata Bahasa (Bunpou), Kosakata (Kotoba) & Percakapan (Kaiwa)',
       icon: BookOpen,
       badge: 'Bab 1–50',
       action: () => {
@@ -123,34 +123,12 @@ export const Navbar: React.FC<NavbarProps> = ({
     {
       id: 'kanji',
       title: 'Kanji: N5 & N4 Interaktif',
-      subtitle: '424 Kanji lengkap dengan animasi urutan goresan & makna',
+      subtitle: '424 Kanji lengkap dengan font kaligrafi edukasi, goresan & makna',
       icon: PenTool,
       badge: '424 Kanji',
       action: () => {
         handleNav('kanji');
         onNavigateSubMateri?.('kanji');
-      }
-    },
-    {
-      id: 'kotoba',
-      title: 'Kotoba: Bank Kosakata',
-      subtitle: '2.910 Kosakata esensial dilengkapi audio pelafalan & contoh',
-      icon: Layers,
-      badge: '2.910 Kata',
-      action: () => {
-        handleNav('kotoba');
-        onNavigateSubMateri?.('kotoba');
-      }
-    },
-    {
-      id: 'bunpou',
-      title: 'Bunpou: Tata Bahasa & Pola',
-      subtitle: 'Penjelasan struktur pola kalimat dan aturan tata bahasa',
-      icon: FileText,
-      badge: 'Tata Bahasa',
-      action: () => {
-        handleNav('kotoba');
-        onNavigateSubMateri?.('bunpou');
       }
     }
   ];
@@ -391,17 +369,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* 3. UTILITY NAVIGATION (KANAN - Minimalist Icon Buttons) */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-
-            {/* Streak Counter Badge (hanya tampil jika streak > 0) */}
-            {streakDays > 0 && (
-              <div 
-                className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#16294A] border border-amber-400/25 text-amber-300 text-xs font-bold"
-                title={`${streakDays} Hari Belajar Berturut-turut`}
-              >
-                <Flame className="w-4 h-4 text-amber-400 fill-amber-400" />
-                <span>{streakDays}</span>
-              </div>
-            )}
 
             {/* Compact Search Icon Button */}
             <button

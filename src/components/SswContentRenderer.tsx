@@ -1,0 +1,149 @@
+import React from 'react';
+
+interface SswContentRendererProps {
+  content: string;
+}
+
+export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content }) => {
+  if (!content) return null;
+
+  // Helper to parse inline formatting: **bold**, *italic*, and `code`
+  const renderInlineFormatted = (text: string) => {
+    // Regex for bold **text**, italic *text*, and Japanese parentheses
+    const parts: React.ReactNode[] = [];
+    let remaining = text;
+    let keyIdx = 0;
+
+    // Pattern matching **bold** or *italic*
+    const regex = /(\*\*([^*]+)\*\*|\*([^*]+)\*)/g;
+    let lastIndex = 0;
+    let match;
+
+    while ((match = regex.exec(text)) !== null) {
+      // Push preceding plain text
+      if (match.index > lastIndex) {
+        parts.push(text.substring(lastIndex, match.index));
+      }
+
+      if (match[2]) {
+        // Bold: **text**
+        parts.push(
+          <strong
+            key={`b-${keyIdx++}`}
+            className="font-black text-[#FFFFFF] bg-[#1F3760]/70 px-1.5 py-0.5 rounded-md border border-[#8FB4E3]/30 tracking-wide inline-block my-0.5"
+          >
+            {match[2]}
+          </strong>
+        );
+      } else if (match[3]) {
+        // Italic: *text*
+        parts.push(
+          <span
+            key={`i-${keyIdx++}`}
+            className="italic text-[#8FB4E3] font-medium"
+          >
+            {match[3]}
+          </span>
+        );
+      }
+
+      lastIndex = match.index + match[0].length;
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
+  };
+
+  // Split content into lines and group into paragraphs and lists
+  const lines = content.trim().split('\n');
+  const elements: React.ReactNode[] = [];
+  let currentList: { type: 'ol' | 'ul'; items: string[] } | null = null;
+  let elementKey = 0;
+
+  const flushList = () => {
+    if (!currentList) return;
+    const ListTag = currentList.type;
+    const isOrdered = currentList.type === 'ol';
+
+    elements.push(
+      <div key={`list-${elementKey++}`} className="my-3 space-y-2 pl-1">
+        {currentList.items.map((item, idx) => (
+          <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#EEF1F6] leading-relaxed">
+            <span className={`flex items-center justify-center shrink-0 mt-0.5 ${
+              isOrdered 
+                ? 'w-5 h-5 rounded-md bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/30 text-[11px] font-black font-mono' 
+                : 'w-2 h-2 rounded-full bg-[#8FB4E3] mt-2'
+            }`}>
+              {isOrdered ? idx + 1 : ''}
+            </span>
+            <div className="flex-1">
+              {renderInlineFormatted(item)}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+    currentList = null;
+  };
+
+  lines.forEach((rawLine) => {
+    const line = rawLine.trim();
+
+    if (!line) {
+      flushList();
+      return;
+    }
+
+    // Numbered list: 1. Item, 2. Item
+    const numMatch = line.match(/^(\d+)\.\s+(.*)$/);
+    if (numMatch) {
+      if (!currentList || currentList.type !== 'ol') {
+        flushList();
+        currentList = { type: 'ol', items: [] };
+      }
+      currentList.items.push(numMatch[2]);
+      return;
+    }
+
+    // Bullet list: - Item or * Item
+    const bulletMatch = line.match(/^[-*•]\s+(.*)$/);
+    if (bulletMatch) {
+      if (!currentList || currentList.type !== 'ul') {
+        flushList();
+        currentList = { type: 'ul', items: [] };
+      }
+      currentList.items.push(bulletMatch[1]);
+      return;
+    }
+
+    // Note line: *(Catatan: ...)* or ※ ...
+    if (line.startsWith('*(') || line.startsWith('※') || line.startsWith('(Catatan')) {
+      flushList();
+      elements.push(
+        <div
+          key={`note-${elementKey++}`}
+          className="my-3 p-3 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 text-xs text-[#CBD8EC] leading-relaxed flex items-start gap-2 shadow-xs"
+        >
+          <span className="text-[#8FB4E3] font-bold shrink-0">※</span>
+          <div>{renderInlineFormatted(line.replace(/^\*\(/, '(').replace(/\)\*$/, ')'))}</div>
+        </div>
+      );
+      return;
+    }
+
+    // Normal paragraph
+    flushList();
+    elements.push(
+      <p key={`p-${elementKey++}`} className="text-xs sm:text-sm text-[#CBD8EC] leading-relaxed my-2.5">
+        {renderInlineFormatted(line)}
+      </p>
+    );
+  });
+
+  flushList();
+
+  return <div className="space-y-1 text-left">{elements}</div>;
+};

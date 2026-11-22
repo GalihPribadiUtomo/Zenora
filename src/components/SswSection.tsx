@@ -38,6 +38,7 @@ import {
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 import { SSW_ALL_SECTORS } from '../data/ssw';
+import { SswContentRenderer } from './SswContentRenderer';
 import type { SswSectorData, SswSectorId, SswLessonChapter, SswQuizQuestion, SswCategoryType, SswUserProgress } from '../types/ssw';
 
 // ── Icon Map ──
@@ -501,8 +502,8 @@ export const SswSection: React.FC<SswSectionProps> = ({
         {/* Penjelasan Materi Utama */}
         <div className="rounded-2xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 sm:p-7 space-y-4">
           <span className="text-xs font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5"><BookOpen className="w-4 h-4" /> Materi Pembelajaran</span>
-          <div className="text-sm text-[#EEF1F6] leading-relaxed whitespace-pre-line ssw-content-text">
-            {ch.contentExplanation.trim()}
+          <div className="ssw-content-text">
+            <SswContentRenderer content={ch.contentExplanation} />
           </div>
         </div>
 
