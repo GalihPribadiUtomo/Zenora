@@ -226,6 +226,7 @@ export function App() {
             onToggleLearned={handleToggleLearnedKotoba}
             onToggleBookmark={handleToggleBookmarkKotoba}
             onStartQuiz={handleStartQuizFromBab}
+            onSelectKanji={(k) => setActiveKanji(k)}
           />
         )}
 

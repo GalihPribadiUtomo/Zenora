@@ -11,9 +11,17 @@ import {
   Search,
   BookOpen,
   Pencil,
-  Trash2
+  Trash2,
+  FileText,
+  MessageSquare,
+  Sparkles,
+  Info,
+  ChevronRight,
+  ExternalLink
 } from 'lucide-react';
-import { KotobaItem } from '../types';
+import { KotobaItem, KanjiItem, ChapterLesson } from '../types';
+import { KANJI_DATA } from '../data/kanjiData';
+import { loadChapterLesson } from '../data/materi';
 import { speakJapanese, sound } from '../utils/audio';
 import { KotobaModal } from './KotobaModal';
 import { KotobaEditModal } from './KotobaEditModal';
@@ -30,6 +38,7 @@ interface ChapterDetailProps {
   onToggleLearned: (id: string) => void;
   onToggleBookmark: (id: string) => void;
   onStartQuiz: (bab: number) => void;
+  onSelectKanji?: (kanji: KanjiItem) => void;
 }
 
 export const ChapterDetail: React.FC<ChapterDetailProps> = ({
@@ -41,8 +50,17 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   bookmarkedKotobaIds,
   onToggleLearned,
   onToggleBookmark,
-  onStartQuiz
+  onStartQuiz,
+  onSelectKanji
 }) => {
+  // Main Chapter Detail Tabs
+  const [sectionTab, setSectionTab] = useState<'bunpou' | 'bunkei' | 'kaiwa' | 'kotoba' | 'kanji'>('bunpou');
+
+  // Lesson data loaded lazily
+  const [lesson, setLesson] = useState<ChapterLesson | null>(null);
+  const [isLoadingLesson, setIsLoadingLesson] = useState(true);
+
+  // Kotoba State
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'card' | 'table' | 'flashcard'>('card');
@@ -54,6 +72,21 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   const [localKotoba, setLocalKotoba] = useState<KotobaItem[]>(() => applyCustomKotoba(allKotoba));
   const [editingWord, setEditingWord] = useState<KotobaItem | null>(null);
   const [deletingWord, setDeletingWord] = useState<KotobaItem | null>(null);
+
+  // Load lesson dynamically per chapter
+  useEffect(() => {
+    let isMounted = true;
+    setIsLoadingLesson(true);
+    loadChapterLesson(bab).then((data) => {
+      if (isMounted) {
+        setLesson(data);
+        setIsLoadingLesson(false);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, [bab]);
 
   useEffect(() => {
     setLocalKotoba(applyCustomKotoba(allKotoba));
@@ -71,6 +104,9 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
 
   // Filter kotoba for this chapter
   const chapterWords = localKotoba.filter(k => k.bab === bab);
+
+  // Filter kanji for this chapter
+  const chapterKanji = KANJI_DATA.filter(k => k.bab === bab);
 
   // Categories present in this chapter
   const categoriesInChapter = Array.from(new Set(chapterWords.map(k => k.kategori)));
@@ -102,40 +138,49 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   };
 
   return (
-    <div className="space-y-6 text-left">
+    <div className="space-y-6 text-left pb-16">
       
-      {/* Top Navigation Row */}
+      {/* ── Top Navigation Row ── */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0D1830] hover:bg-white/8 text-[#DCE9FF] text-sm font-bold border border-[#2457C5]/25 shadow-xs hover:border-[#55B9F5] transition-all"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0D1830] hover:bg-[#121F3D] text-[#DCE9FF] text-sm font-bold border border-[#2457C5]/30 shadow-xs hover:border-[#55B9F5] transition-all"
         >
-          <ArrowLeft className="w-4 h-4 text-[#2457C5]" />
-          <span>Semua Bab</span>
+          <ArrowLeft className="w-4 h-4 text-[#55B9F5]" />
+          <span>Daftar Bab</span>
         </button>
 
         <div className="flex items-center gap-2">
           {bab > 1 && (
             <button
-              onClick={() => onSelectChapter(bab - 1)}
-              className="px-3.5 py-2 rounded-xl bg-[#0D1830] hover:bg-white/8 text-[#6B85B5] hover:text-[#DCE9FF] text-xs font-bold border border-[#2457C5]/25 shadow-xs transition-colors"
+              onClick={() => {
+                sound.playClick();
+                onSelectChapter(bab - 1);
+              }}
+              className="px-3.5 py-2 rounded-xl bg-[#0D1830] hover:bg-[#121F3D] text-[#A5BDE8] hover:text-[#DCE9FF] text-xs font-bold border border-[#2457C5]/25 shadow-xs transition-colors"
             >
               ← Bab {bab - 1}
             </button>
           )}
 
           <button
-            onClick={() => onStartQuiz(bab)}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#101C3D] to-[#2457C5] hover:brightness-110 text-white text-xs sm:text-sm font-bold shadow-sm shadow-[#101C3D]/20 transition-all active:scale-95"
+            onClick={() => {
+              sound.playClick();
+              onStartQuiz(bab);
+            }}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] hover:brightness-110 text-white text-xs sm:text-sm font-bold shadow-[0_4px_15px_rgba(36,87,197,0.4)] transition-all active:scale-95"
           >
-            <Award className="w-4 h-4 text-[#55B9F5]" />
-            <span>Latihan Bab Ini</span>
+            <Award className="w-4 h-4 text-white" />
+            <span>Kuis Bab {bab}</span>
           </button>
 
           {bab < 50 && (
             <button
-              onClick={() => onSelectChapter(bab + 1)}
-              className="px-3.5 py-2 rounded-xl bg-[#101C3D] hover:bg-[#2457C5] text-white text-xs font-bold shadow-xs transition-colors"
+              onClick={() => {
+                sound.playClick();
+                onSelectChapter(bab + 1);
+              }}
+              className="px-3.5 py-2 rounded-xl bg-[#0D1830] hover:bg-[#121F3D] text-[#A5BDE8] hover:text-[#DCE9FF] text-xs font-bold border border-[#2457C5]/25 shadow-xs transition-colors"
             >
               <span>Bab {bab + 1} →</span>
             </button>
@@ -143,194 +188,592 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
         </div>
       </div>
 
-      {/* Chapter Title & Header info */}
-      <div className="relative overflow-hidden rounded-3xl border border-[#2457C5]/40 shadow-[0_20px_60px_-15px_rgba(16,28,61,0.8)] bg-gradient-to-br from-[#101C3D] via-[#0D1830] to-[#080F20] p-6 sm:p-8 text-white">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D1830]/8 border border-[#55B9F5]/30 text-[#55B9F5] text-xs font-black uppercase tracking-wider mb-2 font-mono">
-              Minna no Nihongo {bab <= 25 ? 'I' : 'II'}
+      {/* ── Chapter Hero Banner ── */}
+      <div className="relative overflow-hidden rounded-3xl border border-[#2457C5]/40 shadow-[0_20px_60px_-15px_rgba(16,28,61,0.8),0_0_40px_rgba(85,185,245,0.12)] bg-gradient-to-br from-[#101C3D] via-[#0D1830] to-[#080F20] p-6 sm:p-8 text-white">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2.5">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/8 border border-[#55B9F5]/30 text-[#55B9F5] text-xs font-black uppercase tracking-wider font-mono">
+                Minna no Nihongo {bab <= 25 ? 'Shokyu I' : 'Shokyu II'} · Bab {bab}
+              </span>
+              {lesson?.subTitle && (
+                <span className="text-xs font-bold text-[#8975E8] bg-[#8975E8]/12 px-2.5 py-1 rounded-full border border-[#8975E8]/30">
+                  {lesson.subTitle}
+                </span>
+              )}
             </div>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#DCE9FF] tracking-tight font-['Manrope']">
-              第{bab}課 · Bab {bab}
+
+            <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight font-['Manrope']">
+              第{bab}課 · {lesson?.title || `Pelajaran ${bab}`}
             </h1>
-            <p className="text-sm font-semibold text-[#6B85B5] mt-1">
-              {chapterWords.length} kosakata · {categoriesInChapter.length} kategori tematik · {learnedCount} telah dihafal
+
+            <p className="text-sm text-[#A5BDE8] max-w-2xl leading-relaxed">
+              {lesson?.summary || 'Kuasai tata bahasa (Bunpou), pola kalimat (Bunkei), contoh (Reibun), percakapan (Kaiwa), kosakata, dan kanji terkait pada bab ini.'}
             </p>
           </div>
 
-          {/* Chapter completion pill */}
-          <div className="flex items-center gap-3">
-            <div className="text-right">
-              <span className="text-xs text-[#6B85B5] font-bold block">Status Hafal</span>
-              <span className="text-xl font-black text-[#DCE9FF] font-['Manrope']">
-                {learnedCount} / {chapterWords.length}
-              </span>
+          {/* Quick Metrics */}
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="p-3.5 rounded-2xl bg-white/5 border border-[#2457C5]/30 text-center min-w-[80px]">
+              <span className="text-[11px] font-bold text-[#6B85B5] block uppercase">Kosakata</span>
+              <span className="text-lg font-black text-[#55B9F5] font-['Manrope']">{chapterWords.length}</span>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-[#0D1830]/8 border border-[#2457C5]/30 flex items-center justify-center font-black text-[#55B9F5] text-sm shadow-xs font-['Manrope']">
-              {chapterWords.length > 0 ? Math.round((learnedCount / chapterWords.length) * 100) : 0}%
+            <div className="p-3.5 rounded-2xl bg-white/5 border border-[#2457C5]/30 text-center min-w-[80px]">
+              <span className="text-[11px] font-bold text-[#6B85B5] block uppercase">Kanji</span>
+              <span className="text-lg font-black text-[#8975E8] font-['Manrope']">{chapterKanji.length}</span>
+            </div>
+            <div className="p-3.5 rounded-2xl bg-white/5 border border-[#2457C5]/30 text-center min-w-[80px]">
+              <span className="text-[11px] font-bold text-[#6B85B5] block uppercase">Hafal</span>
+              <span className="text-lg font-black text-emerald-400 font-['Manrope']">{learnedCount}</span>
             </div>
           </div>
         </div>
 
-        {/* Category Pills */}
-        <div className="mt-6 flex flex-wrap items-center gap-2 pt-4 border-t border-[#2457C5]/25">
+        {/* ── 5 Tab Navigation: Bunpou | Bunkei & Reibun | Kaiwa | Kotoba | Kanji ── */}
+        <div className="mt-8 pt-4 border-t border-[#2457C5]/30 flex flex-wrap items-center gap-2">
           <button
-            onClick={() => setSelectedCategory('Semua')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              selectedCategory === 'Semua'
-                ? 'bg-gradient-to-r from-[#101C3D] to-[#2457C5] text-white shadow-xs'
-                : 'bg-[#0D1830] hover:bg-white/8 text-[#6B85B5] border border-[#2457C5]/25'
+            onClick={() => {
+              sound.playClick();
+              setSectionTab('bunpou');
+            }}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
+              sectionTab === 'bunpou'
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.4)]'
+                : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
             }`}
           >
-            Semua {chapterWords.length}
+            <BookOpen className="w-4 h-4" />
+            <span>文法 Tata Bahasa ({lesson?.tataBahasa?.length || 0})</span>
           </button>
 
-          {categoriesInChapter.map(cat => {
-            const count = chapterWords.filter(k => k.kategori === cat).length;
-            const isSelected = selectedCategory === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                  isSelected
-                    ? 'bg-gradient-to-r from-[#101C3D] to-[#2457C5] text-white shadow-xs'
-                    : 'bg-[#0D1830] hover:bg-white/8 text-[#6B85B5] border border-[#2457C5]/25'
-                }`}
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#55B9F5]"></span>
-                <span>{cat}</span>
-                <span className="opacity-75 text-[10px] font-mono ml-0.5">({count})</span>
-              </button>
-            );
-          })}
+          <button
+            onClick={() => {
+              sound.playClick();
+              setSectionTab('bunkei');
+            }}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
+              sectionTab === 'bunkei'
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.4)]'
+                : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
+            }`}
+          >
+            <FileText className="w-4 h-4" />
+            <span>文型・例文 Pola & Contoh</span>
+          </button>
+
+          <button
+            onClick={() => {
+              sound.playClick();
+              setSectionTab('kaiwa');
+            }}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
+              sectionTab === 'kaiwa'
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.4)]'
+                : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
+            }`}
+          >
+            <MessageSquare className="w-4 h-4" />
+            <span>会話 Percakapan</span>
+          </button>
+
+          <button
+            onClick={() => {
+              sound.playClick();
+              setSectionTab('kotoba');
+            }}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
+              sectionTab === 'kotoba'
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.4)]'
+                : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
+            }`}
+          >
+            <Layers className="w-4 h-4" />
+            <span>言葉 Kosakata ({chapterWords.length})</span>
+          </button>
+
+          <button
+            onClick={() => {
+              sound.playClick();
+              setSectionTab('kanji');
+            }}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
+              sectionTab === 'kanji'
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_15px_rgba(85,185,245,0.4)]'
+                : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
+            }`}
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>漢字 Kanji Bab Ini ({chapterKanji.length})</span>
+          </button>
         </div>
       </div>
 
-      {/* Control bar: Search + View Modes */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-        
-        {/* Search input */}
-        <div className="relative flex-1 max-w-md">
-          <Search className="w-4 h-4 text-[#6B85B5] absolute left-3.5 top-1/2 -translate-y-1/2" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Cari di bab ini (Jepang, romaji, arti)..."
-            className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[#0D1830] border border-[#2457C5]/30 text-sm text-[#DCE9FF] placeholder-[#4A5B82]/60 focus:outline-hidden focus:ring-2 focus:ring-[#2457C5]/30 focus:border-[#2457C5] shadow-2xs transition-all"
-          />
+      {/* ── TAB 1: TATA BAHASA (BUNPOU) ── */}
+      {sectionTab === 'bunpou' && (
+        <div className="space-y-6">
+          {isLoadingLesson ? (
+            <div className="p-12 text-center text-[#6B85B5]">
+              <div className="w-8 h-8 border-2 border-[#55B9F5] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+              <p className="text-sm font-semibold">Memuat materi tata bahasa Bab {bab}...</p>
+            </div>
+          ) : lesson?.tataBahasa && lesson.tataBahasa.length > 0 ? (
+            <div className="space-y-6">
+              {lesson.tataBahasa.map((item) => (
+                <div
+                  key={item.point}
+                  className="rounded-3xl bg-[#0D1830] border border-[#2457C5]/30 p-6 sm:p-8 space-y-4 shadow-lg hover:border-[#55B9F5]/40 transition-all"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#2457C5] to-[#55B9F5] text-white text-sm font-black flex items-center justify-center font-['Manrope'] shadow-xs">
+                        {item.point}
+                      </span>
+                      <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope']">
+                        {item.title}
+                      </h2>
+                    </div>
+                  </div>
+
+                  {/* Formula / Format Box */}
+                  {item.polaFormat && (
+                    <div className="p-3.5 rounded-2xl bg-[#101C3D] border border-[#55B9F5]/30 text-[#55B9F5] font-mono text-xs sm:text-sm font-bold flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded-md bg-[#55B9F5]/20 text-[#DCE9FF] text-[11px] uppercase tracking-wider">
+                        Pola
+                      </span>
+                      <span>{item.polaFormat}</span>
+                    </div>
+                  )}
+
+                  {/* Explanation text */}
+                  <p className="text-sm text-[#DCE9FF]/90 leading-relaxed whitespace-pre-line font-medium">
+                    {item.explanation}
+                  </p>
+
+                  {/* Examples */}
+                  {item.examples && item.examples.length > 0 && (
+                    <div className="space-y-3 pt-3 border-t border-[#2457C5]/20">
+                      <h4 className="text-xs font-bold text-[#6B85B5] uppercase tracking-wider">
+                        Contoh Kalimat Penggunaan:
+                      </h4>
+                      <div className="space-y-2.5">
+                        {item.examples.map((ex, idx) => (
+                          <div
+                            key={idx}
+                            className="p-3.5 rounded-2xl bg-white/5 border border-[#2457C5]/20 flex items-start justify-between gap-3 group hover:border-[#55B9F5]/40 transition-all"
+                          >
+                            <div className="space-y-1">
+                              <p className="text-base font-bold text-white japanese-text">
+                                {ex.japanese}
+                              </p>
+                              <p className="text-xs text-[#55B9F5] font-mono">
+                                {ex.romaji}
+                              </p>
+                              <p className="text-xs text-[#A5BDE8]">
+                                {ex.indonesian}
+                              </p>
+                            </div>
+                            <button
+                              onClick={() => speakJapanese(ex.japanese)}
+                              className="p-2 rounded-xl bg-white/5 hover:bg-[#2457C5]/30 text-[#55B9F5] transition-colors shrink-0"
+                              title="Dengarkan audio"
+                            >
+                              <Volume2 className="w-4 h-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {/* Referensi & Budaya Card */}
+              {lesson.referensiInfo && (
+                <div className="rounded-3xl bg-gradient-to-br from-[#101C3D] to-[#0D1830] border border-[#8975E8]/35 p-6 sm:p-8 space-y-4">
+                  <div className="flex items-center gap-2.5 text-[#8975E8]">
+                    <Info className="w-5 h-5 text-[#8975E8]" />
+                    <h3 className="text-lg font-black text-white font-['Manrope']">
+                      {lesson.referensiInfo.title}
+                    </h3>
+                  </div>
+                  {lesson.referensiInfo.description && (
+                    <p className="text-sm text-[#DCE9FF]/80 leading-relaxed">
+                      {lesson.referensiInfo.description}
+                    </p>
+                  )}
+                  {lesson.referensiInfo.notes && (
+                    <ul className="space-y-1.5 list-disc list-inside text-xs text-[#A5BDE8]">
+                      {lesson.referensiInfo.notes.map((note, idx) => (
+                        <li key={idx}>{note}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="p-8 text-center text-[#6B85B5] bg-[#0D1830] rounded-3xl border border-[#2457C5]/30">
+              Belum ada data tata bahasa khusus untuk bab ini.
+            </div>
+          )}
         </div>
+      )}
 
-        {/* View Switcher (Kartu, Daftar, Mode Hafalan) */}
-        <div className="flex items-center p-1 bg-white/8 rounded-2xl border border-[#2457C5]/25 self-start sm:self-auto">
-          <button
-            onClick={() => setViewMode('card')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              viewMode === 'card'
-                ? 'bg-[#0D1830] text-[#DCE9FF] shadow-xs'
-                : 'text-[#6B85B5] hover:text-[#DCE9FF]'
-            }`}
-          >
-            <LayoutGrid className="w-3.5 h-3.5 text-[#2457C5]" />
-            <span>Kartu</span>
-          </button>
+      {/* ── TAB 2: POLA & CONTOH KALIMAT (BUNKEI & REIBUN) ── */}
+      {sectionTab === 'bunkei' && (
+        <div className="space-y-8">
+          {/* Bunkei / Pola Kalimat */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#55B9F5]" />
+              <h3 className="text-lg font-black text-white uppercase tracking-wider font-['Manrope']">
+                文型 · Pola Kalimat Inti (Bunkei)
+              </h3>
+            </div>
 
-          <button
-            onClick={() => setViewMode('table')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              viewMode === 'table'
-                ? 'bg-[#0D1830] text-[#DCE9FF] shadow-xs'
-                : 'text-[#6B85B5] hover:text-[#DCE9FF]'
-            }`}
-          >
-            <List className="w-3.5 h-3.5 text-[#2457C5]" />
-            <span>Daftar</span>
-          </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {lesson?.polaKalimat.map((pola) => (
+                <div
+                  key={pola.id}
+                  className="rounded-3xl bg-[#0D1830] border border-[#2457C5]/30 p-5 space-y-2 hover:border-[#55B9F5]/40 transition-all flex flex-col justify-between"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold text-[#55B9F5] px-2 py-0.5 rounded-md bg-[#2457C5]/20">
+                        Pola #{pola.id}
+                      </span>
+                      <button
+                        onClick={() => speakJapanese(pola.japanese)}
+                        className="p-1.5 rounded-xl bg-white/5 hover:bg-[#2457C5]/30 text-[#55B9F5] transition-colors"
+                        title="Dengarkan audio"
+                      >
+                        <Volume2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                    <p className="text-lg font-bold text-white japanese-text">
+                      {pola.japanese}
+                    </p>
+                    <p className="text-xs text-[#55B9F5] font-mono">
+                      {pola.romaji}
+                    </p>
+                  </div>
+                  <p className="text-xs text-[#A5BDE8] pt-2 border-t border-[#2457C5]/20">
+                    {pola.indonesian}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <button
-            onClick={() => setViewMode('flashcard')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              viewMode === 'flashcard'
-                ? 'bg-[#0D1830] text-[#DCE9FF] shadow-xs'
-                : 'text-[#6B85B5] hover:text-[#DCE9FF]'
-            }`}
-          >
-            <Layers className="w-3.5 h-3.5 text-[#2457C5]" />
-            <span>Mode Hafalan</span>
-          </button>
-        </div>
+          {/* Reibun / Contoh Kalimat */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#8975E8]" />
+              <h3 className="text-lg font-black text-white uppercase tracking-wider font-['Manrope']">
+                例文 · Contoh Kalimat Tanya-Jawab (Reibun)
+              </h3>
+            </div>
 
-      </div>
+            <div className="space-y-3">
+              {lesson?.contohKalimat.map((ex) => (
+                <div
+                  key={ex.id}
+                  className="rounded-3xl bg-[#0D1830] border border-[#2457C5]/30 p-5 space-y-2.5 hover:border-[#8975E8]/40 transition-all"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="space-y-1.5 flex-1">
+                      {ex.question && (
+                        <div className="flex items-start gap-2">
+                          <span className="text-xs font-black text-[#55B9F5] font-mono mt-0.5">Q:</span>
+                          <p className="text-base font-bold text-[#DCE9FF] japanese-text">
+                            {ex.question}
+                          </p>
+                        </div>
+                      )}
+                      <div className="flex items-start gap-2">
+                        <span className="text-xs font-black text-emerald-400 font-mono mt-0.5">A:</span>
+                        <p className="text-base font-bold text-white japanese-text">
+                          {ex.answer}
+                        </p>
+                      </div>
+                      <p className="text-xs text-[#55B9F5] font-mono pl-5">
+                        {ex.romaji}
+                      </p>
+                      <p className="text-xs text-[#A5BDE8] pl-5">
+                        {ex.indonesian}
+                      </p>
+                    </div>
 
-      {/* VIEW 1: KARTU GRID */}
-      {viewMode === 'card' && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {filteredWords.map((word) => {
-            const isLearned = learnedKotobaIds.includes(word.id);
-            const isBookmarked = bookmarkedKotobaIds.includes(word.id);
-
-            return (
-              <div
-                key={word.id}
-                onClick={() => setSelectedKotobaModal(word)}
-                className={`card-soft p-5 rounded-3xl border transition-all flex flex-col justify-between cursor-pointer hover:shadow-md hover:border-[#55B9F5] group ${
-                  isLearned ? 'border-emerald-500/30 bg-emerald-500/8' : 'border-[#2457C5]/25 bg-[#0D1830]'
-                }`}
-              >
-                <div>
-                  {/* Top Bar inside Card: Audio & Actions */}
-                  <div className="flex items-center justify-between mb-3">
                     <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        speakJapanese(word.kana || word.kanji);
-                      }}
-                      className="p-1.5 rounded-lg bg-white/8 hover:bg-[#2457C5]/15 hover:text-[#DCE9FF] text-[#6B85B5] transition-colors border border-[#2457C5]/25"
-                      title="Dengarkan pelafalan audio"
+                      onClick={() => speakJapanese(`${ex.question || ''} ${ex.answer}`)}
+                      className="p-2 rounded-xl bg-white/5 hover:bg-[#2457C5]/30 text-[#55B9F5] transition-colors shrink-0"
+                      title="Dengarkan dialog"
                     >
-                      <Volume2 className="w-4 h-4 text-[#2457C5]" />
+                      <Volume2 className="w-4 h-4" />
                     </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
-                    <div className="flex items-center gap-1">
-                      {/* Edit Kosakata Button */}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setEditingWord(word);
-                        }}
-                        className="p-1.5 rounded-lg bg-white/8 hover:bg-[#2457C5]/15 text-[#2457C5] transition-colors border border-[#2457C5]/25"
-                        title="Edit Kosakata (Kanji, Kana, Romaji, Arti, Kategori)"
-                      >
-                        <Pencil className="w-3.5 h-3.5" />
-                      </button>
+      {/* ── TAB 3: PERCAKAPAN (KAIWA) ── */}
+      {sectionTab === 'kaiwa' && (
+        <div className="space-y-6">
+          {lesson?.percakapan ? (
+            <div className="rounded-3xl bg-[#0D1830] border border-[#2457C5]/30 p-6 sm:p-8 space-y-6 shadow-xl">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#2457C5]/20">
+                <div>
+                  <span className="text-xs font-mono font-bold text-[#55B9F5] uppercase tracking-wider block mb-1">
+                    Percakapan Otentik Minna no Nihongo
+                  </span>
+                  <h2 className="text-2xl font-black text-white font-['Manrope']">
+                    {lesson.percakapan.title}
+                  </h2>
+                  {lesson.percakapan.situasi && (
+                    <p className="text-xs text-[#A5BDE8] mt-1 italic">
+                      Situasi: {lesson.percakapan.situasi}
+                    </p>
+                  )}
+                </div>
 
-                      {/* Hapus Kosakata Button */}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setDeletingWord(word);
-                        }}
-                        className="p-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-500 transition-colors border border-red-200/50"
-                        title="Hapus Kosakata"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                      </button>
+                <button
+                  onClick={() => {
+                    const fullText = lesson.percakapan.dialogs.map(d => `${d.speaker}、${d.japanese}`).join('。 ');
+                    speakJapanese(fullText);
+                  }}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white text-xs font-bold hover:brightness-110 transition-all shrink-0"
+                >
+                  <Volume2 className="w-4 h-4" />
+                  <span>Putar Seluruh Dialog</span>
+                </button>
+              </div>
 
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onToggleBookmark(word.id);
-                        }}
-                        className={`p-1.5 rounded-lg transition-colors ${
-                          isBookmarked
-                            ? 'text-amber-500 fill-amber-400 bg-amber-50 border border-amber-200'
-                            : 'text-slate-300 hover:text-amber-500'
-                        }`}
-                        title="Simpan ke favorit"
-                      >
-                        <Star className={`w-4 h-4 ${isBookmarked ? 'fill-amber-400' : ''}`} />
-                      </button>
+              {/* Dialog Lines */}
+              <div className="space-y-4">
+                {lesson.percakapan.dialogs.map((dialog, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-2xl bg-white/5 border border-[#2457C5]/20 hover:border-[#55B9F5]/40 transition-all flex items-start gap-4"
+                  >
+                    {/* Speaker Avatar Badge */}
+                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#101C3D] to-[#2457C5] border border-[#55B9F5]/40 text-[#55B9F5] font-black text-xs flex items-center justify-center shrink-0 shadow-sm font-['Manrope']">
+                      {dialog.speaker.slice(0, 2)}
+                    </div>
+
+                    <div className="flex-1 space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-white">
+                          {dialog.speaker}
+                        </span>
+                        {dialog.role && (
+                          <span className="text-[10px] text-[#6B85B5]">
+                            ({dialog.role})
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-base font-bold text-[#DCE9FF] japanese-text">
+                        {dialog.japanese}
+                      </p>
+                      <p className="text-xs text-[#55B9F5] font-mono">
+                        {dialog.romaji}
+                      </p>
+                      <p className="text-xs text-[#A5BDE8]">
+                        {dialog.indonesian}
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => speakJapanese(dialog.japanese)}
+                      className="p-2 rounded-xl bg-white/5 hover:bg-[#2457C5]/30 text-[#55B9F5] transition-colors shrink-0"
+                      title="Dengarkan kalimat ini"
+                    >
+                      <Volume2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="p-8 text-center text-[#6B85B5] bg-[#0D1830] rounded-3xl border border-[#2457C5]/30">
+              Percakapan untuk bab ini sedang disiapkan.
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── TAB 4: KOSAKATA (KOTOBA) ── */}
+      {sectionTab === 'kotoba' && (
+        <div className="space-y-6">
+          {/* Controls row */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            {/* Search within chapter */}
+            <div className="relative flex-1">
+              <Search className="w-4 h-4 text-[#6B85B5] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Cari kata di Bab ini (Kanji, Romaji, Arti)..."
+                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[#0D1830] border border-[#2457C5]/30 text-sm text-[#DCE9FF] placeholder-[#6B85B5] focus:outline-hidden focus:border-[#55B9F5] transition-all"
+              />
+            </div>
+
+            {/* View Mode Toggle */}
+            <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[#0D1830] border border-[#2457C5]/30 self-start sm:self-auto">
+              <button
+                onClick={() => setViewMode('card')}
+                className={`p-2 rounded-xl text-xs font-bold transition-colors ${
+                  viewMode === 'card'
+                    ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white'
+                    : 'text-[#6B85B5] hover:text-[#DCE9FF]'
+                }`}
+                title="Tampilan Kartu"
+              >
+                <LayoutGrid className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => setViewMode('table')}
+                className={`p-2 rounded-xl text-xs font-bold transition-colors ${
+                  viewMode === 'table'
+                    ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white'
+                    : 'text-[#6B85B5] hover:text-[#DCE9FF]'
+                }`}
+                title="Tampilan Tabel"
+              >
+                <List className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => setViewMode('flashcard')}
+                className={`p-2 rounded-xl text-xs font-bold transition-colors ${
+                  viewMode === 'flashcard'
+                    ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white'
+                    : 'text-[#6B85B5] hover:text-[#DCE9FF]'
+                }`}
+                title="Mode Flashcard"
+              >
+                <Layers className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => setSelectedCategory('Semua')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                selectedCategory === 'Semua'
+                  ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-xs'
+                  : 'bg-[#0D1830] hover:bg-[#121F3D] text-[#A5BDE8] border border-[#2457C5]/25'
+              }`}
+            >
+              Semua ({chapterWords.length})
+            </button>
+            {categoriesInChapter.map((cat) => {
+              const count = chapterWords.filter((k) => k.kategori === cat).length;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                    selectedCategory === cat
+                      ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-xs'
+                      : 'bg-[#0D1830] hover:bg-[#121F3D] text-[#A5BDE8] border border-[#2457C5]/25'
+                  }`}
+                >
+                  <span>{cat}</span>
+                  <span className="text-[10px] opacity-75 font-mono">({count})</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Words Render Modes */}
+          {viewMode === 'card' && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredWords.map((word) => {
+                const isLearned = learnedKotobaIds.includes(word.id);
+                const isBookmarked = bookmarkedKotobaIds.includes(word.id);
+
+                return (
+                  <div
+                    key={word.id}
+                    onClick={() => setSelectedKotobaModal(word)}
+                    className={`rounded-3xl border p-5 flex flex-col justify-between cursor-pointer transition-all hover:scale-[1.01] ${
+                      isLearned
+                        ? 'border-emerald-500/30 bg-emerald-500/8'
+                        : 'border-[#2457C5]/30 bg-[#0D1830] hover:border-[#55B9F5]/40'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between text-xs text-[#6B85B5] mb-2">
+                        <span className="font-mono font-bold">#{word.no}</span>
+                        <span className="px-2 py-0.5 rounded-md bg-[#2457C5]/15 text-[#55B9F5] font-bold text-[10px]">
+                          {word.kategori}
+                        </span>
+                      </div>
+
+                      <div className="my-2">
+                        <h3 className="text-2xl font-black text-white japanese-text">
+                          {word.kanji}
+                        </h3>
+                        <p className="text-xs text-[#55B9F5] font-bold mt-0.5">
+                          {word.kana} · <span className="font-mono">{word.romaji}</span>
+                        </p>
+                      </div>
+
+                      <p className="text-sm font-semibold text-[#DCE9FF]/90 line-clamp-2 mt-2">
+                        {word.arti}
+                      </p>
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-[#2457C5]/20 flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            speakJapanese(word.kanji);
+                          }}
+                          className="p-1.5 rounded-xl bg-white/5 hover:bg-[#2457C5]/30 text-[#55B9F5] transition-colors"
+                          title="Dengarkan audio"
+                        >
+                          <Volume2 className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onToggleBookmark(word.id);
+                          }}
+                          className={`p-1.5 rounded-xl transition-colors ${
+                            isBookmarked ? 'text-amber-400 bg-amber-400/10' : 'text-[#6B85B5] hover:text-white'
+                          }`}
+                          title="Bookmark"
+                        >
+                          <Star className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setEditingWord(word);
+                          }}
+                          className="p-1.5 rounded-xl text-[#6B85B5] hover:text-white transition-colors"
+                          title="Edit kata"
+                        >
+                          <Pencil className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setDeletingWord(word);
+                          }}
+                          className="p-1.5 rounded-xl text-[#6B85B5] hover:text-rose-400 transition-colors"
+                          title="Hapus kata"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
 
                       <button
                         onClick={(e) => {
@@ -338,303 +781,190 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                           onToggleLearned(word.id);
                           if (!isLearned) sound.playCorrect();
                         }}
-                        className={`p-1.5 rounded-lg transition-colors ${
-                          isLearned
-                            ? 'text-emerald-600 bg-emerald-50 border border-emerald-200'
-                            : 'text-slate-300 hover:text-emerald-500'
+                        className={`p-1.5 rounded-xl transition-colors ${
+                          isLearned ? 'text-emerald-400' : 'text-[#2457C5]/40 hover:text-emerald-400'
                         }`}
-                        title={isLearned ? 'Sudah dihafal' : 'Tandai sudah hafal'}
+                        title={isLearned ? 'Sudah hafal' : 'Tandai sudah hafal'}
                       >
-                        <CheckCircle2 className="w-4 h-4" />
+                        <CheckCircle2 className="w-5 h-5" />
                       </button>
                     </div>
                   </div>
+                );
+              })}
+            </div>
+          )}
 
-                  {/* Japanese Word Header */}
-                  <div className="mb-2">
-                    <span className="kanji-font text-2xl font-black text-[#DCE9FF] block tracking-tight group-hover:text-[#55B9F5] transition-colors">
-                      {word.kanji}
-                    </span>
-                    <span className="text-xs font-bold text-[#2457C5] block mt-0.5">
-                      {word.kana}
-                    </span>
-                  </div>
-
-                  {/* Romaji */}
-                  <p className="text-xs font-mono text-[#6B85B5] mb-2">
-                    {word.romaji}
-                  </p>
-
-                  {/* Indonesian Translation */}
-                  <p className="text-sm font-bold text-[#DCE9FF] leading-snug">
-                    {word.arti}
-                  </p>
-                </div>
-
-                {/* Bottom Row: Category & 4 Sentences Trigger */}
-                <div className="mt-4 pt-3 border-t border-[#2457C5]/25 flex items-center justify-between gap-2">
-                  <span className="inline-block text-[11px] font-bold text-[#2457C5] bg-white/8 px-2 py-0.5 rounded-lg border border-[#2457C5]/25">
-                    {word.kategori}
-                  </span>
-
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedKotobaModal(word);
-                    }}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded-xl bg-white/8 hover:bg-gradient-to-r hover:from-[#101C3D] hover:to-[#2457C5] text-[#DCE9FF] hover:text-white border border-[#2457C5]/25 hover:border-transparent text-xs font-bold transition-all shadow-2xs"
-                    title="Lihat 4 Contoh Kalimat Lengkap"
-                  >
-                    <BookOpen className="w-3.5 h-3.5" />
-                    <span>4 Kalimat</span>
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* VIEW 2: TABULAR LIST */}
-      {viewMode === 'table' && (
-        <div className="card-soft rounded-3xl overflow-hidden border border-[#2457C5]/25 bg-[#0D1830]">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-white/8 text-[#6B85B5] text-xs uppercase tracking-wider border-b border-[#2457C5]/25">
-                <tr>
-                  <th className="py-3.5 px-4 w-12 text-center font-bold">No</th>
-                  <th className="py-3.5 px-4 w-12 font-bold">Audio</th>
-                  <th className="py-3.5 px-4 font-bold">Kanji / Jepang</th>
-                  <th className="py-3.5 px-4 font-bold">Kana (Furigana)</th>
-                  <th className="py-3.5 px-4 font-bold">Romaji</th>
-                  <th className="py-3.5 px-4 font-bold">Arti (Bahasa Indonesia)</th>
-                  <th className="py-3.5 px-4 font-bold">Kategori</th>
-                  <th className="py-3.5 px-4 text-center font-bold">4 Kalimat</th>
-                  <th className="py-3.5 px-4 text-center w-20 font-bold">Hafal</th>
-                  <th className="py-3.5 px-4 text-center w-20 font-bold">Aksi</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#D2E2FC]">
-                {filteredWords.map((word, idx) => {
-                  const isLearned = learnedKotobaIds.includes(word.id);
-                  return (
-                    <tr 
-                      key={word.id} 
-                      className={`hover:bg-white/8/60 transition-colors ${
-                        isLearned ? 'bg-emerald-50/20' : ''
-                      }`}
-                    >
-                      <td className="py-3 px-4 text-center text-xs font-mono text-[#6B85B5]">
-                        {idx + 1}
-                      </td>
-                      <td className="py-3 px-4">
-                        <button
-                          onClick={() => speakJapanese(word.kana || word.kanji)}
-                          className="p-1 rounded-md text-[#6B85B5] hover:text-[#DCE9FF] hover:bg-white/8 transition-colors"
-                        >
-                          <Volume2 className="w-4 h-4 text-[#2457C5]" />
-                        </button>
-                      </td>
-                      <td className="py-3 px-4 kanji-font text-base font-bold text-[#DCE9FF]">
-                        {word.kanji}
-                      </td>
-                      <td className="py-3 px-4 text-sm font-semibold text-[#2457C5]">
-                        {word.kana}
-                      </td>
-                      <td className="py-3 px-4 font-mono text-xs text-[#6B85B5]">
-                        {word.romaji}
-                      </td>
-                      <td className="py-3 px-4 font-medium text-[#DCE9FF]">
-                        {word.arti}
-                      </td>
-                      <td className="py-3 px-4">
-                        <span className="text-[11px] font-bold text-[#2457C5] bg-white/8 px-2 py-0.5 rounded-md border border-[#2457C5]/25">
-                          {word.kategori}
-                        </span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button
-                          onClick={() => setSelectedKotobaModal(word)}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/8 hover:bg-gradient-to-r hover:from-[#101C3D] hover:to-[#2457C5] text-[#DCE9FF] hover:text-white border border-[#2457C5]/25 hover:border-transparent text-xs font-bold transition-all shadow-2xs"
-                          title="Buka 4 Contoh Kalimat"
-                        >
-                          <BookOpen className="w-3.5 h-3.5" />
-                          <span>4 Kalimat</span>
-                        </button>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button
-                          onClick={() => {
-                            onToggleLearned(word.id);
-                            if (!isLearned) sound.playCorrect();
-                          }}
-                          className={`p-1 rounded-md transition-colors ${
-                            isLearned ? 'text-emerald-600' : 'text-slate-300 hover:text-emerald-500'
-                          }`}
-                        >
-                          <CheckCircle2 className="w-4 h-4" />
-                        </button>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <div className="flex items-center justify-center gap-1">
-                          <button
-                            onClick={() => setEditingWord(word)}
-                            className="p-1 rounded-md text-[#2457C5] hover:bg-white/8 transition-colors"
-                            title="Edit Kosakata"
-                          >
-                            <Pencil className="w-3.5 h-3.5" />
-                          </button>
-                          <button
-                            onClick={() => setDeletingWord(word)}
-                            className="p-1 rounded-md text-red-500 hover:bg-red-50 transition-colors"
-                            title="Hapus Kosakata"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                          </button>
-                        </div>
-                      </td>
+          {viewMode === 'table' && (
+            <div className="rounded-3xl bg-[#0D1830] border border-[#2457C5]/30 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-[#101C3D] text-[#A5BDE8] text-xs font-bold uppercase tracking-wider">
+                    <tr>
+                      <th className="p-4">No</th>
+                      <th className="p-4">Kanji</th>
+                      <th className="p-4">Kana / Romaji</th>
+                      <th className="p-4">Arti Indonesia</th>
+                      <th className="p-4">Kategori</th>
+                      <th className="p-4 text-center">Aksi</th>
                     </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-
-      {/* VIEW 3: MODE HAFALAN / FLASHCARD */}
-      {viewMode === 'flashcard' && filteredWords.length > 0 && currentFlashcard && (
-        <div className="max-w-xl mx-auto space-y-6">
-          
-          <div className="flex items-center justify-between text-xs text-[#6B85B5] font-bold px-2">
-            <span>
-              Kartu ke {flashcardIndex + 1} dari {filteredWords.length}
-            </span>
-            <span>Klik kartu untuk membalik</span>
-          </div>
-
-          {/* 3D Flip Card Container */}
-          <div 
-            onClick={() => setIsFlipped(!isFlipped)}
-            className="w-full h-80 sm:h-96 rounded-3xl cursor-pointer perspective-1000"
-          >
-            <div className={`relative w-full h-full rounded-3xl transition-transform duration-500 transform-style-3d shadow-xl border border-[#2457C5]/25 p-8 flex flex-col justify-between text-center select-none ${
-              isFlipped ? 'bg-gradient-to-br from-[#101C3D] to-[#1B367A] text-white' : 'bg-[#0D1830] text-[#DCE9FF]'
-            }`}>
-              
-              {/* Card Header */}
-              <div className="flex items-center justify-between w-full">
-                <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg ${
-                  isFlipped ? 'bg-[#0D1830]/10 text-[#55B9F5]' : 'bg-white/8 text-[#6B85B5] border border-[#2457C5]/25'
-                }`}>
-                  {currentFlashcard.kategori}
-                </span>
-
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    speakJapanese(currentFlashcard.kana || currentFlashcard.kanji);
-                  }}
-                  className={`p-2 rounded-xl transition-colors ${
-                    isFlipped ? 'bg-[#0D1830]/15 text-white hover:bg-[#0D1830]/25' : 'bg-white/8 text-[#6B85B5] hover:bg-[#2457C5]/15 border border-[#2457C5]/25'
-                  }`}
-                >
-                  <Volume2 className="w-5 h-5 text-[#2457C5]" />
-                </button>
+                  </thead>
+                  <tbody className="divide-y divide-[#2457C5]/20">
+                    {filteredWords.map((word) => (
+                      <tr
+                        key={word.id}
+                        onClick={() => setSelectedKotobaModal(word)}
+                        className="hover:bg-white/5 cursor-pointer transition-colors"
+                      >
+                        <td className="p-4 font-mono font-bold text-[#6B85B5]">#{word.no}</td>
+                        <td className="p-4 font-bold text-white text-base japanese-text">{word.kanji}</td>
+                        <td className="p-4 text-[#55B9F5] font-mono text-xs">{word.kana} ({word.romaji})</td>
+                        <td className="p-4 text-[#DCE9FF]">{word.arti}</td>
+                        <td className="p-4 text-xs text-[#A5BDE8]">{word.kategori}</td>
+                        <td className="p-4 text-center">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              speakJapanese(word.kanji);
+                            }}
+                            className="p-1.5 rounded-lg bg-white/5 hover:bg-[#2457C5]/30 text-[#55B9F5]"
+                          >
+                            <Volume2 className="w-4 h-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
+            </div>
+          )}
 
-              {/* Front side (Japanese) vs Back side (Romaji & Meaning) */}
-              <div className="my-auto space-y-3">
+          {viewMode === 'flashcard' && currentFlashcard && (
+            <div className="max-w-xl mx-auto space-y-6">
+              <div
+                onClick={() => setIsFlipped(!isFlipped)}
+                className="min-h-[280px] rounded-3xl bg-gradient-to-br from-[#101C3D] to-[#0D1830] border border-[#2457C5]/40 shadow-2xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-all hover:border-[#55B9F5]"
+              >
                 {!isFlipped ? (
-                  <>
-                    <h2 className="kanji-font text-5xl sm:text-6xl font-black tracking-tight text-[#DCE9FF]">
+                  <div className="space-y-4">
+                    <span className="text-xs font-mono text-[#6B85B5] uppercase tracking-wider block">
+                      Klik kartu untuk melihat arti
+                    </span>
+                    <h2 className="text-5xl font-black text-white japanese-text">
                       {currentFlashcard.kanji}
                     </h2>
-                    <p className="text-xl sm:text-2xl font-bold text-[#2457C5]">
+                    <p className="text-lg font-bold text-[#55B9F5]">
                       {currentFlashcard.kana}
                     </p>
-                    <p className="text-xs text-[#6B85B5] font-medium">Klik untuk melihat arti</p>
-                  </>
-                ) : (
-                  <>
-                    <p className="text-sm font-mono text-[#55B9F5] font-bold tracking-widest uppercase">
+                    <p className="text-xs text-[#6B85B5] font-mono">
                       {currentFlashcard.romaji}
                     </p>
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Manrope']">
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block">
+                      Arti & Terjemahan
+                    </span>
+                    <h3 className="text-2xl font-bold text-white">
                       {currentFlashcard.arti}
-                    </h2>
-                    <p className="text-xs text-[#DCE9FF] font-medium pt-2">
-                      {currentFlashcard.kanji} ({currentFlashcard.kana})
-                    </p>
-                    <div className="pt-2">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedKotobaModal(currentFlashcard);
-                        }}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0D1830]/15 hover:bg-[#0D1830]/25 text-white text-xs font-bold border border-white/20 transition-all shadow-xs"
-                      >
-                        <BookOpen className="w-3.5 h-3.5 text-[#55B9F5]" />
-                        <span>Lihat 4 Contoh Kalimat</span>
-                      </button>
-                    </div>
-                  </>
+                    </h3>
+                    <span className="px-3 py-1 rounded-full bg-[#2457C5]/20 text-[#55B9F5] text-xs font-bold inline-block">
+                      {currentFlashcard.kategori}
+                    </span>
+                  </div>
                 )}
               </div>
 
-              {/* Card Footer */}
-              <div className="flex items-center justify-center text-xs opacity-60">
-                <span>Tekan untuk {isFlipped ? 'tutup kembali' : 'buka arti'}</span>
+              {/* Flashcard Nav */}
+              <div className="flex items-center justify-between">
+                <button
+                  onClick={handlePrevFlashcard}
+                  className="px-4 py-2 rounded-xl bg-[#0D1830] border border-[#2457C5]/30 text-white text-xs font-bold hover:bg-[#121F3D]"
+                >
+                  ← Sebelumnya
+                </button>
+                <span className="text-xs font-mono text-[#6B85B5]">
+                  {flashcardIndex + 1} / {filteredWords.length}
+                </span>
+                <button
+                  onClick={handleNextFlashcard}
+                  className="px-4 py-2 rounded-xl bg-[#0D1830] border border-[#2457C5]/30 text-white text-xs font-bold hover:bg-[#121F3D]"
+                >
+                  Selanjutnya →
+                </button>
               </div>
-
             </div>
-          </div>
-
-          {/* Flashcard Navigation & Memory Buttons */}
-          <div className="flex items-center justify-between gap-3">
-            <button
-              onClick={handlePrevFlashcard}
-              className="px-4 py-2.5 rounded-2xl bg-[#0D1830] hover:bg-white/8 text-[#DCE9FF] font-bold text-xs sm:text-sm border border-[#2457C5]/25 shadow-xs transition-colors"
-            >
-              ← Sebelumnya
-            </button>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => {
-                  sound.playIncorrect();
-                  handleNextFlashcard();
-                }}
-                className="px-4 py-2.5 rounded-2xl bg-white/8 hover:bg-[#2457C5]/15 text-[#6B85B5] font-bold text-xs sm:text-sm transition-colors border border-[#2457C5]/25"
-              >
-                Belum Hafal
-              </button>
-
-              <button
-                onClick={() => {
-                  sound.playCorrect();
-                  onToggleLearned(currentFlashcard.id);
-                  handleNextFlashcard();
-                }}
-                className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-105 text-white font-bold text-xs sm:text-sm shadow-xs transition-colors flex items-center gap-1.5"
-              >
-                <CheckCircle2 className="w-4 h-4" />
-                <span>Sudah Hafal!</span>
-              </button>
-            </div>
-
-            <button
-              onClick={handleNextFlashcard}
-              className="px-4 py-2.5 rounded-2xl bg-[#0D1830] hover:bg-white/8 text-[#DCE9FF] font-bold text-xs sm:text-sm border border-[#2457C5]/25 shadow-xs transition-colors"
-            >
-              Berikutnya →
-            </button>
-          </div>
-
+          )}
         </div>
       )}
 
-      {/* Kotoba 4 Sentences Modal */}
+      {/* ── TAB 5: KANJI BAB INI (KANJI) ── */}
+      {sectionTab === 'kanji' && (
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-black text-white font-['Manrope']">
+                Kanji Terkait Bab {bab}
+              </h3>
+              <p className="text-xs text-[#6B85B5]">
+                Daftar huruf Kanji yang dipelajari dan sering muncul pada kosakata Bab {bab}. Klik kartu untuk membuka panduan coretan & kanvas menulis.
+              </p>
+            </div>
+            <span className="px-3 py-1 rounded-full bg-[#8975E8]/15 border border-[#8975E8]/30 text-[#C4B5FF] text-xs font-bold font-mono">
+              {chapterKanji.length} Kanji
+            </span>
+          </div>
+
+          {chapterKanji.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {chapterKanji.map((kanji) => {
+                return (
+                  <div
+                    key={kanji.id}
+                    onClick={() => {
+                      sound.playClick();
+                      if (onSelectKanji) onSelectKanji(kanji);
+                    }}
+                    className="p-4 rounded-3xl bg-[#0D1830] border border-[#2457C5]/30 hover:border-[#55B9F5] cursor-pointer transition-all hover:scale-[1.02] flex flex-col justify-between text-center group"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between text-[10px] text-[#6B85B5] mb-1 font-mono">
+                        <span>#{kanji.id}</span>
+                        <span className="px-1.5 py-0.5 rounded bg-[#2457C5]/20 text-[#55B9F5]">
+                          {kanji.strokeCount}画
+                        </span>
+                      </div>
+                      <div className="py-2">
+                        <span className="kanji-font text-5xl font-black text-white group-hover:text-[#55B9F5] transition-colors inline-block select-none">
+                          {kanji.kanji}
+                        </span>
+                      </div>
+                      <p className="text-xs font-black text-[#DCE9FF] font-['Manrope']">
+                        {kanji.reading}
+                      </p>
+                      <p className="text-[11px] font-bold text-[#55B9F5] truncate mt-0.5">
+                        {kanji.meaning}
+                      </p>
+                    </div>
+
+                    <div className="mt-3 pt-2 border-t border-[#2457C5]/20 flex items-center justify-center gap-1 text-[10px] text-[#8975E8] font-bold">
+                      <span>Lihat Detail</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="p-8 text-center text-[#6B85B5] bg-[#0D1830] rounded-3xl border border-[#2457C5]/30">
+              Tidak ada kanji pengenalan baru khusus pada bab ini, atau seluruh kanji telah dipelajari pada bab pengantar sebelumnya.
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── Modals: Kotoba Detail, Edit, Delete ── */}
       {selectedKotobaModal && (
         <KotobaModal
           word={selectedKotobaModal}
@@ -646,21 +976,23 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
         />
       )}
 
-      {/* Kotoba Edit Modal */}
-      <KotobaEditModal
-        isOpen={!!editingWord}
-        word={editingWord}
-        onClose={() => setEditingWord(null)}
-        onSave={handleSaveEdit}
-      />
+      {editingWord && (
+        <KotobaEditModal
+          isOpen={!!editingWord}
+          word={editingWord}
+          onClose={() => setEditingWord(null)}
+          onSave={handleSaveEdit}
+        />
+      )}
 
-      {/* Kotoba Delete Modal */}
-      <KotobaDeleteModal
-        isOpen={!!deletingWord}
-        word={deletingWord}
-        onClose={() => setDeletingWord(null)}
-        onConfirm={handleConfirmDelete}
-      />
+      {deletingWord && (
+        <KotobaDeleteModal
+          isOpen={!!deletingWord}
+          word={deletingWord}
+          onClose={() => setDeletingWord(null)}
+          onConfirm={handleConfirmDelete}
+        />
+      )}
 
     </div>
   );

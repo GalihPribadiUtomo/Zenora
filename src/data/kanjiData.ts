@@ -12,6 +12,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひと-・ひとつ",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Tarik satu garis mendatar lurus dari kiri ke kanan dengan sedikit tekanan di bagian akhir.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal dari kiri ke kanan (横)"
@@ -28,6 +29,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ふた・ふたつ・ふたたび",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Tulis garis horizontal atas terlebih dahulu (lebih pendek), lalu garis horizontal bawah (lebih panjang). Aturan: Atas ke bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal pendek atas",
@@ -45,6 +47,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "み・みつ・みっつ",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Tulis tiga garis horizontal dari atas ke bawah. Garis tengah paling pendek, garis bawah paling panjang.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal atas sedang",
@@ -63,6 +66,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "よ・よつ・よっつ・よん",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Buat bingkai luar kiri, lalu sudut atas-kanan. Isi bagian dalam terlebih dahulu, baru kemudian tutup garis bawah kotak.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal kiri",
@@ -83,6 +87,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いつ・いつつ",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Garis horizontal atas, garis vertikal miring tengah, sudut horizontal-vertikal, lalu garis penutup bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal atas",
@@ -102,6 +107,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "む・むつ・むっつ・むい",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Titik atas, garis horizontal melintang, lalu dua 'kaki' kiri dan kanan (kiri dulu baru kanan).",
     "strokeOrderGuide": [
       "Goresan 1: Titik vertikal di puncak",
@@ -121,6 +127,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "なな・ななつ・なの",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Garis mendatar agak naik ke kanan, dipotong garis vertikal yang melengkung ke kanan dan berkait ke atas.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal miring sedikit naik",
@@ -138,6 +145,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "や・やつ・やっつ・よう",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Tulis goresan kiri pendek lebih dulu, lalu goresan kanan yang lebih panjang dan melebar.",
     "strokeOrderGuide": [
       "Goresan 1: Garis miring ke kiri (kiri ke bawah)",
@@ -155,6 +163,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ここの・ここのつ",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Tarik garis lengkung miring kiri terlebih dahulu, lalu garis melintang horizontal yang turun melengkung dengan kait ke atas.",
     "strokeOrderGuide": [
       "Goresan 1: Garis melengkung miring ke kiri",
@@ -172,6 +181,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とお・と・そ",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Garis horizontal mendatar terlebih dahulu, kemudian dipotong lurus oleh garis vertikal di tengah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal dari kiri ke kanan",
@@ -189,6 +199,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もも",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 3,
     "strokeRules": "Garis horizontal atas, garis miring pendek, lalu bingkai kotak (putih/白): vertikal kiri, sudut kanan, horizontal dalam, dan penutup bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal atas",
@@ -210,6 +221,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ち",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 3,
     "strokeRules": "Goresan miring miring ke kiri di atas, garis horizontal melintang, lalu garis vertikal memotong tengah lurus ke bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis miring pendek ke kiri",
@@ -228,6 +240,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "よろず",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 3,
     "strokeRules": "Garis horizontal atas, garis sudut membelok ke kiri bawah dengan kait, lalu garis miring pemotong.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal atas",
@@ -246,6 +259,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まるい・まる・まど・まどか・まろやか",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 3,
     "strokeRules": "Garis vertikal kiri, sudut kanan berbingkai dengan kait, garis vertikal dalam, lalu garis horizontal dalam dan penutup bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal kiri",
@@ -265,6 +279,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひ・-び・-か",
     "jlpt": "N5",
     "category": "Alam & Cuaca",
+    "bab": 1,
     "strokeRules": "Garis vertikal kiri kotak, sudut kanan atas turun ke bawah, garis horizontal tengah, lalu garis penutup bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal kiri",
@@ -284,6 +299,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つき",
     "jlpt": "N5",
     "category": "Alam & Cuaca",
+    "bab": 4,
     "strokeRules": "Garis melengkung kiri, sudut kanan atas turun panjang dengan kait ke kiri, lalu dua garis horizontal di dalam.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal melengkung kiri",
@@ -303,6 +319,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひ・-び・ほ-",
     "jlpt": "N5",
     "category": "Alam & Cuaca",
+    "bab": 4,
     "strokeRules": "Titik kiri dulu, titik kanan, garis tengah melengkung ke kiri, lalu kaki kanan melengkung ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Titik miring kiri",
@@ -322,6 +339,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みず・みず-",
     "jlpt": "N5",
     "category": "Alam & Cuaca",
+    "bab": 4,
     "strokeRules": "Aturan: Tengah dulu baru sisi luar. Tarik garis vertikal tengah berkait, lalu garis patah kiri, titik miring kanan, dan garis panjang kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal tengah dengan kait kiri",
@@ -341,6 +359,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "き・こ-",
     "jlpt": "N5",
     "category": "Bunga & Tumbuhan",
+    "bab": 4,
     "strokeRules": "Garis horizontal mendatar, garis vertikal tegak lurus menembus tengah, lalu cabang miring kiri, dan cabang miring kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal",
@@ -360,6 +379,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かね・かな-・-がね",
     "jlpt": "N5",
     "category": "Warna & Benda",
+    "bab": 4,
     "strokeRules": "Atap payung (kiri lalu kanan), garis horizontal atas, garis horizontal kedua, garis vertikal tengah, dua titik sisi (kiri lalu kanan), garis penutup bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Atap miring ke kiri",
@@ -383,6 +403,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つち",
     "jlpt": "N5",
     "category": "Alam & Cuaca",
+    "bab": 2,
     "strokeRules": "Garis horizontal atas pendek, garis vertikal tengah, lalu garis horizontal bawah panjang.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal atas pendek",
@@ -401,6 +422,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もと",
     "jlpt": "N5",
     "category": "Warna & Benda",
+    "bab": 1,
     "strokeRules": "Tulis kanji 木 (pohon) terlebih dahulu secara berurutan, lalu tambahkan garis horizontal pendek di bagian bawah batang.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal",
@@ -421,6 +443,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひと・-り・-と",
     "jlpt": "N5",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Garis kiri melengkung turun melandai dari atas ke kiri bawah, kemudian garis kanan menopang dari tengah meluncur ke kanan bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis miring panjang melengkung ke kiri bawah",
@@ -438,6 +461,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いま",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Atap miring kiri, atap miring kanan, garis horizontal pendek tengah, lalu garis vertikal bengkok ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Atap miring ke kiri",
@@ -457,6 +481,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "てら",
     "jlpt": "N5",
     "category": "Tempat & Bangunan",
+    "bab": 10,
     "strokeRules": "Kanji 土 di atas (horizontal pendek, vertikal, horizontal panjang), diikuti radikal 寸 di bawah (horizontal, vertikal berkait, titik).",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal atas",
@@ -478,6 +503,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とき・-どき",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 2,
     "strokeRules": "Kiri dulu (radikal matahari 日: 4 goresan), kemudian sisi kanan (radikal kuil 寺: 6 goresan). Aturan: Kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1-4: Radikal 日 di sebelah kiri",
@@ -496,6 +522,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "なかば",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Dua titik atas (kiri lalu kanan), garis horizontal pendek, garis horizontal panjang, lalu garis vertikal lurus membelah di tengah.",
     "strokeOrderGuide": [
       "Goresan 1: Titik miring kiri",
@@ -516,6 +543,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "わける・わけ・わかる・わかつ・わかれる",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Bagian atas radikal 八 (kiri dulu, lalu kanan), diikuti bagian bawah radikal 刀 (horizontal melengkung berkait, lalu garis miring).",
     "strokeOrderGuide": [
       "Goresan 1: Garis miring kiri atas",
@@ -535,6 +563,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うえ・-うえ・うわ-・かみ・あげる・-あげる・あがる・-あがる・あがり・-あがり・のぼる・のぼり・のぼせる・のぼす・たてまつる",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 3,
     "strokeRules": "Garis vertikal tengah, garis horizontal pendek di sebelah kanan, lalu garis horizontal panjang di dasar.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal tegak",
@@ -553,6 +582,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "した・しも・もと・さげる・さがる・くだる・くだり・くだす・-くだす・くださる・おろす・おりる",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 3,
     "strokeRules": "Garis horizontal atas panjang, garis vertikal tengah lurus, lalu titik miring di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal atas panjang",
@@ -571,6 +601,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "なか・うち・あたる",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 1,
     "strokeRules": "Tulis kotak 口 terlebih dahulu (vertikal kiri, sudut kanan, tutup bawah), lalu tarik garis vertikal tegak lurus menembus persis di tengah.",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal kiri kotak",
@@ -590,6 +621,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "そと・ほか・はずす・はずれる・と-",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 10,
     "strokeRules": "Kiri radikal 夕 (3 goresan), lalu kanan radikal ト (garis vertikal, garis miring titik).",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal 夕 di kiri",
@@ -608,6 +640,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みぎ",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 10,
     "strokeRules": "Penting: Pada 右 garis miring kiri ditulis lebih dulu, baru garis horizontal, kemudian kotak 口 di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis miring dari atas ke kiri bawah",
@@ -626,6 +659,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひだり",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 10,
     "strokeRules": "Penting: Berbeda dengan 右, pada 左 garis horizontal ditulis terlebih dahulu, baru garis miring, kemudian karakter 工 di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal atas",
@@ -644,6 +678,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まえ・-まえ",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 1,
     "strokeRules": "Atas: titik dan garis pendek memotong horizontal. Bawah kiri: bulan (月), bawah kanan: pisau (刂).",
     "strokeOrderGuide": [
       "Goresan 1-3: Bagian atas mahkota",
@@ -662,6 +697,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "のち・うしろ・うしろ・あと・おくれる",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 4,
     "strokeRules": "Kiri: radikal langkah (彳 3 goresan). Kanan atas: benang pendek (幺). Kanan bawah: kaki silang (夊).",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal 彳 di kiri",
@@ -680,6 +716,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "きた",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 10,
     "strokeRules": "Kiri: garis vertikal, garis horizontal naik. Kanan: garis miring, garis vertikal melengkung dengan kait (匕).",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal kiri",
@@ -700,6 +737,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みなみ",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 10,
     "strokeRules": "Salib atas 十 (horizontal lalu vertikal), bingkai kotak terbuka, lalu isi dalam (dua garis kecil dan salib), tutup bawah.",
     "strokeOrderGuide": [
       "Goresan 1-2: Salib atas (十)",
@@ -720,6 +758,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひがし",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 10,
     "strokeRules": "Garis horizontal atas, kotak matahari 日 di tengah, garis vertikal panjang menembus tengah, lalu dua kaki kiri dan kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas",
@@ -740,6 +779,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "にし",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 10,
     "strokeRules": "Horizontal atas, bingkai kiri, sudut kanan, dua garis vertikal dalam, lalu tutup bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas",
@@ -760,6 +800,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "なに・なん・なに-・なん-",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 1,
     "strokeRules": "Kiri radikal orang (亻 2 goresan). Kanan atas: horizontal pendek. Kanan bawah: kotak 口 dan kait vertikal kanan.",
     "strokeOrderGuide": [
       "Goresan 1-2: Radikal 亻 di kiri",
@@ -779,6 +820,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ちち",
     "jlpt": "N5",
     "category": "Manusia & Keluarga",
+    "bab": 7,
     "strokeRules": "Dua goresan miring atas (kiri lalu kanan), diikuti dua goresan silang panjang memotong (kiri ke bawah, lalu kanan ke bawah).",
     "strokeOrderGuide": [
       "Goresan 1: Miring kiri atas",
@@ -798,6 +840,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はは・も",
     "jlpt": "N5",
     "category": "Manusia & Keluarga",
+    "bab": 7,
     "strokeRules": "Vertikal kiri, sudut kanan membungkus dengan kait, garis horizontal panjang melintang di tengah, lalu dua titik vertikal.",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal kiri",
@@ -818,6 +861,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "こ・-こ・ね",
     "jlpt": "N5",
     "category": "Manusia & Keluarga",
+    "bab": 2,
     "strokeRules": "Sudut horizontal-miring atas, garis vertikal melengkung berkait ke kiri, lalu garis horizontal panjang membelah tengah.",
     "strokeOrderGuide": [
       "Goresan 1: Sudut horizontal lalu miring ke kiri bawah",
@@ -836,6 +880,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おんな・め",
     "jlpt": "N5",
     "category": "Manusia & Keluarga",
+    "bab": 5,
     "strokeRules": "Garis miring membelok ke kanan mendatar, garis miring melengkung kiri, lalu garis horizontal panjang memotong tengah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis miring kiri lalu membelok mendatar ke kanan",
@@ -854,6 +899,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おとこ・お",
     "jlpt": "N5",
     "category": "Manusia & Keluarga",
+    "bab": 10,
     "strokeRules": "Bagian atas adalah sawah (田 5 goresan), bagian bawah adalah kekuatan (力 2 goresan). Aturan: Atas ke bawah.",
     "strokeOrderGuide": [
       "Goresan 1-5: Kanji 田 di bagian atas",
@@ -871,6 +917,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まなぶ",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 1,
     "strokeRules": "Tiga titik/goresan mahkota di atas, mahkota atap (冖 2 goresan), kemudian karakter anak (子 3 goresan) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Tiga titik di puncak (kiri, tengah, kanan)",
@@ -889,6 +936,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N5",
     "category": "Tempat & Bangunan",
+    "bab": 5,
     "strokeRules": "Kiri radikal pohon (木 4 goresan). Kanan atas atap (亠 2 goresan), kanan bawah kaki menyilang (父 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-4: Radikal 木 di kiri",
@@ -907,6 +955,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "さき・まず",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 1,
     "strokeRules": "Garis miring pendek atas, garis horizontal pendek, garis vertikal tengah, garis horizontal panjang, lalu dua kaki (kiri miring, kanan melengkung berkait).",
     "strokeOrderGuide": [
       "Goresan 1: Miring pendek atas",
@@ -928,6 +977,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いきる・いかす・いける・うまれる・うまれ・うむ・おう・はえる・はやす・き・なま・なま-・なる・なす・むす・-う",
     "jlpt": "N5",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Garis miring pendek kiri atas, garis horizontal pendek, garis vertikal tegak lurus, garis horizontal tengah, lalu garis horizontal alas panjang.",
     "strokeOrderGuide": [
       "Goresan 1: Miring pendek kiri atas",
@@ -948,6 +998,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "やま",
     "jlpt": "N5",
     "category": "Alam & Cuaca",
+    "bab": 8,
     "strokeRules": "Puncak tengah terlebih dahulu (vertikal), lalu sisi kiri turun belok kanan, kemudian sisi kanan vertikal menutup.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal tengah puncak paling tinggi",
@@ -966,6 +1017,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かわ",
     "jlpt": "N5",
     "category": "Alam & Cuaca",
+    "bab": 5,
     "strokeRules": "Tiga aliran vertikal dari kiri ke kanan. Garis kiri melengkung sedikit, garis tengah lebih pendek, garis kanan paling panjang lurus.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal kiri melengkung",
@@ -984,6 +1036,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "た",
     "jlpt": "N5",
     "category": "Tempat & Bangunan",
+    "bab": 25,
     "strokeRules": "Vertikal kiri, sudut atas-kanan, garis vertikal dalam, garis horizontal dalam, baru tutup garis bawah kotak.",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal kiri kotak",
@@ -1004,6 +1057,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "しろ・しら-・しろい",
     "jlpt": "N5",
     "category": "Warna & Benda",
+    "bab": 8,
     "strokeRules": "Garis miring pendek di puncak, lalu buat kotak 日 di bawahnya (kiri, sudut kanan, horizontal tengah, tutup bawah).",
     "strokeOrderGuide": [
       "Goresan 1: Goresan miring pendek di atas",
@@ -1024,6 +1078,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あか・あか-・あかい・あからむ・あからめる",
     "jlpt": "N5",
     "category": "Warna & Benda",
+    "bab": 8,
     "strokeRules": "Bagian atas tanah (土 3 goresan), diikuti garis vertikal kiri, garis horizontal sudut, lalu dua kaki miring di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Bagian atas (土)",
@@ -1044,6 +1099,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あお・あお-・あおい",
     "jlpt": "N5",
     "category": "Warna & Benda",
+    "bab": 8,
     "strokeRules": "Bagian atas: 3 garis horizontal disela garis vertikal tengah. Bagian bawah: bentuk bulan (月 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas",
@@ -1064,6 +1120,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くろ・くろずむ・くろい",
     "jlpt": "N5",
     "category": "Warna & Benda",
+    "bab": 8,
     "strokeRules": "Bagian atas radikal desa/ladang dengan garis silang (里 mirip), bagian bawah adalah 4 titik api (灬).",
     "strokeOrderGuide": [
       "Goresan 1-7: Bagian badan atas",
@@ -1081,6 +1138,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あまつ・あめ・あま-",
     "jlpt": "N5",
     "category": "Alam & Cuaca",
+    "bab": 4,
     "strokeRules": "Garis horizontal atas pendek, garis horizontal kedua lebih panjang, garis miring ke kiri melengkung, lalu kaki kanan meluncur.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal atas pendek",
@@ -1100,6 +1158,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "き",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 4,
     "strokeRules": "Tiga goresan atas (miring, horizontal, horizontal), garis vertikal melengkung dengan kait (⺁), lalu tanda salib silang (乂) di dalam.",
     "strokeOrderGuide": [
       "Goresan 1: Miring pendek atas",
@@ -1120,6 +1179,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あめ・あま-・-さめ",
     "jlpt": "N5",
     "category": "Alam & Cuaca",
+    "bab": 12,
     "strokeRules": "Horizontal atap, vertikal kiri, sudut kanan berbingkai, garis vertikal tengah menembus, lalu 4 titik tetesan hujan di dalam (kiri dua, kanan dua).",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atap",
@@ -1140,6 +1200,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N5",
     "category": "Warna & Benda",
+    "bab": 3,
     "strokeRules": "Bagian atas kanji hujan (雨 8 goresan), bagian bawah kotak 日 (4 goresan) dengan ekor vertikal melengkung berkait (1 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-8: Kanji 雨 di bagian atas",
@@ -1158,6 +1219,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くるま",
     "jlpt": "N5",
     "category": "Warna & Benda",
+    "bab": 2,
     "strokeRules": "Horizontal atas, kotak tengah (vertikal kiri, sudut kanan, horizontal dalam, tutup), horizontal panjang bawah, lalu poros vertikal menembus lurus.",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas",
@@ -1177,6 +1239,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "やすむ・やすまる・やすめる",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 4,
     "strokeRules": "Orang (亻 2 goresan) bersandar pada pohon (木 4 goresan). Tulis sisi kiri terlebih dahulu, lalu sisi kanan.",
     "strokeOrderGuide": [
       "Goresan 1-2: Radikal orang (亻) di sebelah kiri",
@@ -1194,6 +1257,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みる・みえる・みせる",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Mata (目 5 goresan) di bagian atas, kemudian dua kaki (kaki kiri miring, kaki kanan melengkung berkait) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-5: Bagian mata (目) di atas",
@@ -1212,6 +1276,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "きく・きこえる",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 2,
     "strokeRules": "Gerbang pintu (門 8 goresan) di luar, lalu masukkan telinga (耳 6 goresan) di dalam.",
     "strokeOrderGuide": [
       "Goresan 1-8: Bingkai gerbang (門)",
@@ -1229,6 +1294,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "よむ・-よみ",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 6,
     "strokeRules": "Radikal kata (言 7 goresan) di kiri. Kanan atas mahkota samurai (士 3 goresan), kanan bawah kepala (四 mirip / 买).",
     "strokeOrderGuide": [
       "Goresan 1-7: Radikal kata (言) di sisi kiri",
@@ -1247,6 +1313,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かく・-がき・-がき",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 2,
     "strokeRules": "Tulis kuas di atas (聿 mirip: horizontal berulang dan vertikal pemotong), lalu kotak matahari 日 di bagian dasar.",
     "strokeOrderGuide": [
       "Goresan 1-6: Bagian atas kuas",
@@ -1264,6 +1331,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はなす・はなし",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 2,
     "strokeRules": "Kiri radikal perkataan (言 7 goresan). Kanan adalah lidah (舌 6 goresan: garis miring, horizontal, vertikal, kotak 口).",
     "strokeOrderGuide": [
       "Goresan 1-7: Radikal 言 di sebelah kiri",
@@ -1281,6 +1349,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かう",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 6,
     "strokeRules": "Jaring atas (网 5 goresan), kemudian kerang uang (貝 7 goresan) di bagian bawah.",
     "strokeOrderGuide": [
       "Goresan 1-5: Jaring atas (罒)",
@@ -1298,6 +1367,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くう・くらう・たべる・はむ",
     "jlpt": "N5",
     "category": "Makanan & Minuman",
+    "bab": 3,
     "strokeRules": "Atap payung (kiri lalu kanan), titik bawah, garis horizontal sudut berkait, garis horizontal dalam, dan kaki bawah.",
     "strokeOrderGuide": [
       "Goresan 1-2: Atap payung miring kiri & kanan",
@@ -1317,6 +1387,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "のむ・-のみ",
     "jlpt": "N5",
     "category": "Makanan & Minuman",
+    "bab": 6,
     "strokeRules": "Kiri radikal makanan (食 mirip: 8 goresan), kanan radikal menguap/membuka mulut (欠 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-8: Radikal 飠 di sebelah kiri",
@@ -1334,6 +1405,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いく・ゆく・-ゆき・-ゆき・-いき・-いき・おこなう・おこなう",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 1,
     "strokeRules": "Langkah kiri (彳 3 goresan), kemudian langkah kanan (亍 3 goresan: horizontal pendek, horizontal panjang, vertikal berkait).",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal 彳 di kiri",
@@ -1351,6 +1423,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くる・きたる・きたす・きたす・きたる・き・こ",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 1,
     "strokeRules": "Garis horizontal atas, dua titik kiri-kanan, garis horizontal tengah panjang, garis vertikal tegak lurus, lalu dua cabang kaki miring.",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas",
@@ -1371,6 +1444,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かえる・かえす・おくる・とつぐ",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 5,
     "strokeRules": "Kiri: garis miring, garis vertikal melengkung (刂 mirip). Kanan: sapu (ヨ) di atas dan kain (巾) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Bagian sisi kiri",
@@ -1389,6 +1463,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あう・あわせる・あつまる",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 1,
     "strokeRules": "Atap payung (kiri lalu kanan), garis horizontal tengah, lalu garis horizontal bawah membelok melengkung.",
     "strokeOrderGuide": [
       "Goresan 1: Atap miring ke kiri",
@@ -1408,6 +1483,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おお-・おおきい・-おおいに",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 1,
     "strokeRules": "Garis horizontal lurus mendatar, garis miring panjang melengkung kiri dari atas, lalu kaki kanan meluncur ke kanan bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis horizontal melintang",
@@ -1426,6 +1502,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ちいさい・こ-・お-・さ-",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Tengah terlebih dahulu: garis vertikal berkait di tengah, lalu titik miring kiri, dan titik miring kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal tengah dengan kait (hane)",
@@ -1444,6 +1521,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たかい・たか・-だか・たかまる・たかめる",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Titik atas, horizontal atas, kotak 口 atas, bingkai pintu terbuka (冂), dan kotak 口 di paling bawah.",
     "strokeOrderGuide": [
       "Goresan 1-2: Titik dan horizontal atap",
@@ -1463,6 +1541,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "やすい・やすまる・やす・やすらか",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Mahkota atap (宀 3 goresan) di atas, kemudian karakter wanita (女 3 goresan) di bagian bawah. Menggambarkan ketenangan.",
     "strokeOrderGuide": [
       "Goresan 1: Titik vertikal puncak",
@@ -1482,6 +1561,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あたらしい・あらた・あら-・にい-",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 2,
     "strokeRules": "Kiri: kanji berdiri (立) di atas pohon (木). Kanan: kapak (斤 4 goresan). Aturan: Kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1-5: Karakter 立 di kiri atas",
@@ -1500,6 +1580,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ふるい・ふる-・-ふるす",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Karakter sepuluh (十: horizontal lalu vertikal) di atas, kemudian mulut kotak (口 3 goresan) di bagian bawah.",
     "strokeOrderGuide": [
       "Goresan 1-2: Salib 十 di atas",
@@ -1517,6 +1598,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ながい・おさ",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 16,
     "strokeRules": "Garis miring pendek atas, garis vertikal kiri, 3 garis horizontal sejajar, garis vertikal panjang berkait, dan garis miring kanan bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Miring pendek atas",
@@ -1538,6 +1620,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おおい・まさに・まさる",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 12,
     "strokeRules": "Dua karakter petang (夕) bertumpuk dari atas ke bawah. Tulis 夕 atas (3 goresan), lalu 夕 bawah (3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Karakter 夕 di bagian atas",
@@ -1555,6 +1638,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "すくない・すこし",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 12,
     "strokeRules": "Tulis karakter kecil (小: vertikal berkait, titik kiri, titik kanan), lalu tarik garis miring panjang membelah dari kanan atas ke kiri bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal tengah berkait",
@@ -1574,6 +1658,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はやい・はや・はや-・はやまる・はやめる・さ-",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 12,
     "strokeRules": "Bagian atas kotak matahari 日 (4 goresan), bagian bawah salib sepuluh 十 (horizontal lalu vertikal memotong).",
     "strokeOrderGuide": [
       "Goresan 1-4: Kotak 日 di atas",
@@ -1591,6 +1676,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いる・-いる・-いり・いれる・-いれ・はいる",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 16,
     "strokeRules": "Perhatikan: Berbeda dengan 人 (orang), pada 入 garis miring kiri pendek ditulis duluan, lalu garis kanan panjang meluncur menutupi puncak.",
     "strokeOrderGuide": [
       "Goresan 1: Garis miring pendek kiri",
@@ -1608,6 +1694,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "でる・-で・だす・-だす・いでる・いだす",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 16,
     "strokeRules": "Garis vertikal tengah atas, sudut kiri-bawah, vertikal kanan atas, garis vertikal tengah bawah, sudut kiri-bawah, dan vertikal kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal tengah",
@@ -1628,6 +1715,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たつ・-たつ・たち-・たてる・-たてる・たて-・-たて・-だて・-だてる",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 21,
     "strokeRules": "Titik puncak atas, garis horizontal pendek, dua garis vertikal miring (kiri lalu kanan), lalu garis horizontal alas panjang.",
     "strokeOrderGuide": [
       "Goresan 1: Titik vertikal puncak",
@@ -1648,6 +1736,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いう・こと",
     "jlpt": "N5",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 20,
     "strokeRules": "Titik horizontal atas, garis horizontal panjang, dua garis horizontal pendek di bawahnya, kemudian kotak mulut 口 di dasar.",
     "strokeOrderGuide": [
       "Goresan 1: Titik horizontal atas",
@@ -1668,6 +1757,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かたる・かたらう",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 2,
     "strokeRules": "Kiri radikal perkataan (言 7 goresan). Kanan atas angka lima (五 4 goresan), kanan bawah mulut (口 3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-7: Radikal 言 di kiri",
@@ -1686,6 +1776,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くに",
     "jlpt": "N5",
     "category": "Tempat & Bangunan",
+    "bab": 1,
     "strokeRules": "Bingkai luar besar (vertikal kiri, sudut kanan), isi permata 玉 di dalam, lalu tutup kotak bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal kiri bingkai",
@@ -1705,6 +1796,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みち・いう",
     "jlpt": "N5",
     "category": "Arah & Posisi",
+    "bab": 23,
     "strokeRules": "Tulis kepala 首 di kanan atas terlebih dahulu (9 goresan), lalu selubungi dengan radikal jalan 辶 di kiri bawah (3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-9: Karakter 首 di kanan atas",
@@ -1722,6 +1814,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みせ・たな",
     "jlpt": "N5",
     "category": "Tempat & Bangunan",
+    "bab": 6,
     "strokeRules": "Radikal atap tebing (广 3 goresan: titik, horizontal, miring kiri), diikuti karakter ramalan (占 5 goresan) di dalam.",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal atap 广",
@@ -1740,6 +1833,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くち",
     "jlpt": "N5",
     "category": "Tubuh",
+    "bab": 33,
     "strokeRules": "Garis vertikal kiri, sudut atas-kanan turun ke bawah, lalu garis horizontal penutup bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal kiri",
@@ -1758,6 +1852,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "め・-め・ま-",
     "jlpt": "N5",
     "category": "Tubuh",
+    "bab": 7,
     "strokeRules": "Garis vertikal kiri, sudut kanan memanjang turun, dua garis horizontal di dalam, lalu tutup bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal kiri",
@@ -1778,6 +1873,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みみ",
     "jlpt": "N5",
     "category": "Tubuh",
+    "bab": 7,
     "strokeRules": "Horizontal atas, garis vertikal kiri, dua garis horizontal dalam, garis vertikal kanan panjang, dan garis horizontal bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas",
@@ -1798,6 +1894,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "て・て-・-て・た-",
     "jlpt": "N5",
     "category": "Tubuh",
+    "bab": 2,
     "strokeRules": "Garis miring pendek atas, garis horizontal pendek, garis horizontal panjang, lalu garis vertikal melengkung berkait ke kiri.",
     "strokeOrderGuide": [
       "Goresan 1: Miring pendek atas",
@@ -1817,6 +1914,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あし・たりる・たる・たす",
     "jlpt": "N5",
     "category": "Tubuh",
+    "bab": 25,
     "strokeRules": "Kotak mulut 口 di atas (3 goresan), diikuti tiang vertikal, horizontal pendek, garis miring kiri, dan sapuan kaki kanan meluncur.",
     "strokeOrderGuide": [
       "Goresan 1-3: Kotak 口 di atas",
@@ -1837,6 +1935,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ちから",
     "jlpt": "N5",
     "category": "Sifat & Keadaan",
+    "bab": 16,
     "strokeRules": "Tarik garis horizontal lalu belok turun melengkung dengan kait (hane) ke kiri, kemudian garis miring panjang memotong.",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal membelok turun dengan kait (hane)",
@@ -1854,6 +1953,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うお・さかな・-ざかな",
     "jlpt": "N5",
     "category": "Hewan",
+    "bab": 6,
     "strokeRules": "Kepala miring di atas, kotak badan 田 di tengah, lalu 4 sirip titik (灬) di bagian alas.",
     "strokeOrderGuide": [
       "Goresan 1-2: Kepala ikan atas",
@@ -1872,6 +1972,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "しし",
     "jlpt": "N5",
     "category": "Makanan & Minuman",
+    "bab": 6,
     "strokeRules": "Vertikal kiri, sudut kanan membungkus, lalu dua pasang karakter orang 人 di dalam (atas lalu bawah).",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal kiri",
@@ -1891,6 +1992,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はな",
     "jlpt": "N5",
     "category": "Bunga & Tumbuhan",
+    "bab": 6,
     "strokeRules": "Mahkota rumput (艹 3 goresan) di atas, diikuti perubahan (化 4 goresan) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Mahkota rumput 艹",
@@ -1909,6 +2011,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かど・と",
     "jlpt": "N5",
     "category": "Tempat & Bangunan",
+    "bab": 10,
     "strokeRules": "Pintu kiri (vertikal, sudut, dua horizontal), pintu kanan (vertikal, sudut panjang berkait, dua horizontal).",
     "strokeOrderGuide": [
       "Goresan 1-4: Daun pintu sebelah kiri",
@@ -1926,6 +2029,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はる",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 12,
     "strokeRules": "Tiga garis horizontal melintang, garis miring panjang memotong ke kiri bawah, garis miring kanan, lalu kotak matahari 日 di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Tiga garis horizontal",
@@ -1945,6 +2049,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "なつ",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 12,
     "strokeRules": "Horizontal atas, mata 目 di bagian atas-tengah, lalu kaki penopang 夂 di bagian bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas",
@@ -1963,6 +2068,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あき・とき",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 12,
     "strokeRules": "Kiri radikal padi/gandum (禾 5 goresan), kanan radikal api (火 4 goresan). Aturan: Kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1-5: Radikal padi 禾 di kiri",
@@ -1980,6 +2086,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ふゆ",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 12,
     "strokeRules": "Bagian atas kaki 夂 (3 goresan), lalu dua titik es di bawah (kiri lalu kanan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Bagian atas 夂",
@@ -1998,6 +2105,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あさ",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Kiri: kanji 十, 日, 十 (matahari terbit di antara rumput). Kanan: kanji bulan (月 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-8: Bagian kiri matahari terbit",
@@ -2015,6 +2123,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひる",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Mahkota atap 尺 mirip, garis horizontal tengah, kotak matahari 日 di dalam, garis horizontal bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Mahkota atas",
@@ -2034,6 +2143,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ゆう",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 12,
     "strokeRules": "Garis miring pendek kiri atas, garis horizontal membelok melengkung ke kiri bawah, lalu titik di dalam.",
     "strokeOrderGuide": [
       "Goresan 1: Miring pendek atas",
@@ -2052,6 +2162,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "よ・よる",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Atap 亠 (titik, horizontal), orang 亻 di kiri bawah, lalu bagian kanan membelok melengkung.",
     "strokeOrderGuide": [
       "Goresan 1-2: Atap 亠",
@@ -2070,6 +2181,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かぜ・かざ-",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 39,
     "strokeRules": "Bingkai luar angin (几 mirip: kiri vertikal, sudut kanan dengan kait), lalu isi serangga (虫 6 goresan) di dalam.",
     "strokeOrderGuide": [
       "Goresan 1-2: Bingkai luar angin",
@@ -2088,6 +2200,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くも・-ぐも",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 12,
     "strokeRules": "Bagian atas kanji hujan (雨 8 goresan), bagian bawah awan berputar (云 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-8: Kanji hujan 雨 di atas",
@@ -2105,6 +2218,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ゆき",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 12,
     "strokeRules": "Bagian atas kanji hujan (雨 8 goresan), bagian bawah sapu (ヨ 3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-8: Kanji hujan 雨 di atas",
@@ -2122,6 +2236,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はれる・はれ・はれ-・-ばれ・はらす",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 32,
     "strokeRules": "Kiri kotak matahari (日 4 goresan), kanan warna biru (青 8 goresan). Aturan: Kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1-4: Kotak 日 di sebelah kiri",
@@ -2139,6 +2254,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "そら・あく・あき・あける・から・すく・すかす・むなしい",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 12,
     "strokeRules": "Bagian atas radikal lubang (穴 5 goresan), bagian bawah radikal kerja/teknik (工 3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-5: Radikal lubang 穴 di atas",
@@ -2156,6 +2272,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ほし・-ぼし",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 12,
     "strokeRules": "Bagian atas kotak matahari (日 4 goresan), bagian bawah lahir/hidup (生 5 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-4: Kotak matahari 日 di atas",
@@ -2173,6 +2290,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひかる・ひかり",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 12,
     "strokeRules": "Tiga goresan api di atas (tengah, kiri, kanan), lalu garis horizontal memotong, dan dua kaki di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal pendek tengah",
@@ -2194,6 +2312,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うみ",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 13,
     "strokeRules": "Kiri radikal tiga titik air (氵 3 goresan). Kanan: orang (𠂉), diikuti ibu (毎 6 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Tiga titik air 氵 di kiri",
@@ -2212,6 +2331,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いけ",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 10,
     "strokeRules": "Kiri radikal air (氵 3 goresan). Kanan karakter juga (也 3 goresan). Aturan: Kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal air 氵 di kiri",
@@ -2229,6 +2349,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いわ",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 10,
     "strokeRules": "Gunung (山 3 goresan) di atas batu (石 5 goresan). Aturan: Atas ke bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Gunung 山 di atas",
@@ -2246,6 +2367,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いし",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 10,
     "strokeRules": "Horizontal atas, garis miring melengkung ke kiri bawah, lalu kotak 口 di bagian kanan bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas",
@@ -2264,6 +2386,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たに・きわまる",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 10,
     "strokeRules": "Dua titik atas, atap payung (八), lalu kotak mulut 口 di dasar.",
     "strokeOrderGuide": [
       "Goresan 1-2: Dua titik di puncak",
@@ -2282,6 +2405,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はら",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 46,
     "strokeRules": "Tebing (厂 2 goresan), kotak putih (白 5 goresan) di dalam, lalu mata air (小 3 goresan) di bawahnya.",
     "strokeOrderGuide": [
       "Goresan 1-2: Radikal tebing 厂",
@@ -2300,6 +2424,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 3,
     "strokeRules": "Kiri radikal tanah (土 3 goresan). Kanan karakter juga (也 3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal tanah 土 di kiri",
@@ -2317,6 +2442,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "の・の-",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 6,
     "strokeRules": "Kiri radikal desa (里 7 goresan). Kanan radikal tombak/panah (予 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-7: Karakter 里 di sebelah kiri",
@@ -2334,6 +2460,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いえ・や・うち",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 3,
     "strokeRules": "Atap mahkota (宀 3 goresan) di atas, babi/ternak (豕 7 goresan) di bawah atap.",
     "strokeOrderGuide": [
       "Goresan 1-3: Atap mahkota 宀 di atas",
@@ -2351,6 +2478,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "むろ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 3,
     "strokeRules": "Atap mahkota (宀 3 goresan) di atas, sampai/tiba (至 6 goresan) di bagian bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Atap mahkota 宀",
@@ -2368,6 +2496,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まち",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 8,
     "strokeRules": "Kiri radikal sawah (田 5 goresan), kanan radikal paku/petunjuk (丁 2 goresan: horizontal lalu vertikal berkait).",
     "strokeOrderGuide": [
       "Goresan 1-5: Sawah 田 di kiri",
@@ -2385,6 +2514,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "むら",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 12,
     "strokeRules": "Kiri radikal pohon (木 4 goresan), kanan radikal ukuran/jempol (寸 3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-4: Pohon 木 di kiri",
@@ -2402,6 +2532,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みやこ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 5,
     "strokeRules": "Atap 亠 (2 goresan), kotak 口 tengah (3 goresan), dan dua kaki 小 mirip di bawah (3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-2: Bagian atas 亠",
@@ -2420,6 +2551,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いち",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 12,
     "strokeRules": "Titik atas, garis horizontal panjang, garis vertikal kiri, sudut kanan melengkung berkait, garis vertikal tengah lurus.",
     "strokeOrderGuide": [
       "Goresan 1-2: Bagian atas 亠",
@@ -2438,6 +2570,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ば",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 3,
     "strokeRules": "Kiri tanah (土 3 goresan), kanan matahari (日 4 goresan) di atas dan sinar (勿 mirip 5 goresan) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Tanah 土 di kiri",
@@ -2456,6 +2589,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おおやけ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 10,
     "strokeRules": "Bagian atas radikal delapan (八: kiri lalu kanan), bagian bawah siku segitiga (厶 2 goresan).",
     "strokeOrderGuide": [
       "Goresan 1: Miring kiri atas",
@@ -2475,6 +2609,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "その",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 3,
     "strokeRules": "Bingkai kandang besar (囗), isi pakaian/tanah (袁 10 goresan) di dalam, lalu tutup garis bawah kotak.",
     "strokeOrderGuide": [
       "Goresan 1-2: Bingkai kiri dan atas-kanan 囗",
@@ -2493,6 +2628,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あるく・あゆむ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 5,
     "strokeRules": "Bagian atas berhenti (止 4 goresan), bagian bawah beberapa langkah (少 mirip: 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-4: Karakter 止 di atas",
@@ -2510,6 +2646,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とまる・-どまり・とめる・-とめる・-どめ・とどめる・とどめ・とどまる・やめる・やむ・-やむ・よす・-さす・-さし",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 33,
     "strokeRules": "Garis vertikal tengah, garis horizontal pendek kanan, garis vertikal kiri bawah, lalu garis horizontal alas penutup.",
     "strokeOrderGuide": [
       "Goresan 1: Garis vertikal tengah",
@@ -2529,6 +2666,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はしる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 14,
     "strokeRules": "Bagian atas tanah (土 3 goresan), lalu garis horizontal kedua, vertikal tengah, dan kaki meluncur (疋 bawah).",
     "strokeOrderGuide": [
       "Goresan 1-3: Bagian atas 土",
@@ -2549,6 +2687,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おきる・おこる・おこす・おかす",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 4,
     "strokeRules": "Kiri radikal lari (走 7 goresan), kanan radikal diri sendiri (己 3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-7: Radikal lari 走 di kiri",
@@ -2566,6 +2705,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ねる・ねかす",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 4,
     "strokeRules": "Atap mahkota 宀 (3 goresan), ranjang 爿 di kiri bawah (4 goresan), dan bagian kanan (6 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Atap 宀",
@@ -2584,6 +2724,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つかう・つかい・-づかい",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 14,
     "strokeRules": "Kiri radikal orang (亻 2 goresan). Kanan karakter pegawai/pejabat (吏 6 goresan: horizontal, kotak 口, garis vertikal meluncur).",
     "strokeOrderGuide": [
       "Goresan 1-2: Radikal orang 亻 di kiri",
@@ -2603,6 +2744,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つくる・つくり・-づくり",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 15,
     "strokeRules": "Kiri radikal orang (亻 2 goresan), kanan radikal bergerak/membuat (乍 5 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-2: Radikal orang 亻 di kiri",
@@ -2623,6 +2765,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かんがえる・かんがえ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 25,
     "strokeRules": "Bagian atas orang tua (老 mirip: horizontal, vertikal, horizontal panjang, miring panjang), lalu garis melengkung berkait di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Bagian atas 土 mirip",
@@ -2641,6 +2784,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "しる・しらせる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 15,
     "strokeRules": "Kiri radikal panah (矢 5 goresan), kanan radikal mulut (口 3 goresan). Mengetahui secepat panah.",
     "strokeOrderGuide": [
       "Goresan 1-5: Anak panah 矢 di sebelah kiri",
@@ -2658,6 +2802,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おもう・おもえらく・おぼす",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 21,
     "strokeRules": "Bagian atas sawah/otak (田 5 goresan), bagian bawah hati (心 4 goresan). Pikiran yang berasal dari hati.",
     "strokeOrderGuide": [
       "Goresan 1-5: Sawah 田 di atas",
@@ -2675,6 +2820,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つよい・つよまる・つよめる・しいる・こわい",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 4,
     "strokeRules": "Kiri radikal busur panah (弓 3 goresan). Kanan atas mulut/kotak 厶, kanan bawah serangga (虫 6 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Busur 弓 di kiri",
@@ -2693,6 +2839,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "よわい・よわる・よわまる・よわめる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 19,
     "strokeRules": "Dua busur panah berdampingan dengan bulu titik. Kiri: 弓 dan dua titik (5 goresan). Kanan: 弓 dan dua titik (5 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-5: Busur dan bulu di kiri",
@@ -2710,6 +2857,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あかり・あかるい・あかるむ・あからむ・あきらか・あける・-あけ・あく・あくる・あかす",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 4,
     "strokeRules": "Matahari (日 4 goresan) di kiri dan bulan (月 4 goresan) di kanan bersatu menghasilkan terang.",
     "strokeOrderGuide": [
       "Goresan 1-4: Kotak matahari 日 di kiri",
@@ -2727,6 +2875,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くらい・くらむ・くれぐれ",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Kiri matahari (日 4 goresan). Kanan suara/bunyi (音 9 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-4: Kotak 日 di kiri",
@@ -2744,6 +2893,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひろい・ひろまる・ひろめる・ひろがる・ひろげる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 13,
     "strokeRules": "Radikal atap tebing (广 3 goresan), lalu siku segitiga (厶 2 goresan) di bagian dalam.",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal atap 广",
@@ -2761,6 +2911,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ちかい",
     "jlpt": "N4",
     "category": "Arah & Posisi",
+    "bab": 12,
     "strokeRules": "Kapak (斤 4 goresan) di kanan atas ditulis terlebih dahulu, lalu disusul radikal jalan (辶 3 goresan) di kiri meluncur ke bawah.",
     "strokeOrderGuide": [
       "Goresan 1-4: Karakter kapak 斤 di kanan atas",
@@ -2778,6 +2929,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とおい",
     "jlpt": "N4",
     "category": "Arah & Posisi",
+    "bab": 12,
     "strokeRules": "Tulis bagian kanan 袁 terlebih dahulu (10 goresan), lalu selubungi dengan radikal jalan 辶 (3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-10: Karakter 袁 di kanan",
@@ -2795,6 +2947,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おくる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 7,
     "strokeRules": "Tulis bagian kanan 关 (6 goresan: dua titik, dua horizontal, dua kaki), lalu tarik radikal jalan 辶 (3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-6: Bagian 关 di kanan",
@@ -2812,6 +2965,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "きる・-きる・きり・-きり・-ぎり・きれる・-きれる・きれ・-きれ・-ぎれ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 7,
     "strokeRules": "Kiri: angka tujuh (七 2 goresan). Kanan: pisau pedang (刀 2 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-2: Karakter 七 di kiri",
@@ -2829,6 +2983,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひらく・ひらき・-びらき・ひらける・あく・あける",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 14,
     "strokeRules": "Gerbang pintu (門 8 goresan), kemudian karakter dua garis dan dua kaki (开 4 goresan) di dalam.",
     "strokeOrderGuide": [
       "Goresan 1-8: Bingkai gerbang 門 di luar",
@@ -2846,6 +3001,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とじる・とざす・しめる・しまる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 14,
     "strokeRules": "Gerbang pintu (門 8 goresan) di luar, lalu karakter berbakat (才 3 goresan) di dalam.",
     "strokeOrderGuide": [
       "Goresan 1-8: Bingkai gerbang 門 di luar",
@@ -2863,6 +3019,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まつ・-まち",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 14,
     "strokeRules": "Kiri radikal langkah (彳 3 goresan). Kanan kuil (寺 6 goresan: 土 di atas, 寸 di bawah).",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal 彳 di sebelah kiri",
@@ -2880,6 +3037,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いそぐ・いそぎ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 5,
     "strokeRules": "Bagian atas pembungkus ⺈ dan kotak 彐 (5 goresan), bagian bawah hati (心 4 goresan). Hati yang terburu-buru.",
     "strokeOrderGuide": [
       "Goresan 1-5: Bagian kepala atas",
@@ -2897,6 +3055,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もつ・-もち・もてる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 14,
     "strokeRules": "Kiri radikal tangan (扌 3 goresan). Kanan karakter kuil (寺 6 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal tangan 扌 di kiri",
@@ -2914,6 +3073,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おしえる・おそわる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 1,
     "strokeRules": "Kiri: anak belajar (孝 mirip: salib, horizontal, miring, anak 子). Kanan: aksi (攵 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-7: Bagian kiri",
@@ -2931,6 +3091,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ならう・ならい",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 7,
     "strokeRules": "Bagian atas sepasang bulu/sayap burung (羽 6 goresan), bagian bawah kotak putih (白 5 goresan). Belajar mengepakkan sayap.",
     "strokeOrderGuide": [
       "Goresan 1-6: Sayap 羽 di bagian atas",
@@ -2948,6 +3109,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かす・かし-・かし",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 7,
     "strokeRules": "Bagian atas pengganti (代 5 goresan), bagian bawah uang kerang (貝 7 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-5: Karakter 代 di atas",
@@ -2965,6 +3127,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かりる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 7,
     "strokeRules": "Kiri radikal orang (亻 2 goresan). Kanan masa lalu (昔 8 goresan: 共 atas dan 日 bawah).",
     "strokeOrderGuide": [
       "Goresan 1-2: Radikal orang 亻 di kiri",
@@ -2982,6 +3145,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はこぶ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 18,
     "strokeRules": "Tulis pasukan militer 軍 di kanan (9 goresan: mahkota 冖, mobil 車), lalu selubungi dengan radikal jalan 辶 (3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-9: Karakter 軍 di kanan",
@@ -2999,6 +3163,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ころがる・ころげる・ころがす・ころぶ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 5,
     "strokeRules": "Kiri mobil/roda (車 7 goresan). Kanan awan berputar (云 4 goresan). Roda yang berputar.",
     "strokeOrderGuide": [
       "Goresan 1-7: Mobil 車 di kiri",
@@ -3016,6 +3181,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とおる・とおり・-とおり・-どおり・とおす・とおし・-どおし・かよう",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 5,
     "strokeRules": "Tulis karakter 通 bagian kanan 甬 (7 goresan) terlebih dahulu, lalu tarik radikal jalan 辶 (3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-7: Karakter 甬 di kanan",
@@ -3033,6 +3199,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おりる・おろす・ふる・ふり・くだる・くだす",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 16,
     "strokeRules": "Kiri radikal bukit/lereng (阝 3 goresan). Kanan atas 夂 (3 goresan), kanan bawah dua kaki melangkah (4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal bukit 阝 di kiri",
@@ -3050,6 +3217,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "のる・-のり・のせる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 16,
     "strokeRules": "Garis miring pendek di puncak, tiga garis horizontal, garis vertikal membelah tengah, dan dua kaki di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Miring pendek atas",
@@ -3071,6 +3239,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うつる・うつす・はえる・-ばえ",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 4,
     "strokeRules": "Kiri matahari (日 4 goresan). Kanan pusat/tengah (央 5 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-4: Kotak matahari 日 di kiri",
@@ -3088,6 +3257,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "えがく・かくする・かぎる・はかりごと・はかる",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 4,
     "strokeRules": "Horizontal atas, kotak sawah 田 di dalam, lalu garis bingkai pembungkus bawah (凵).",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas",
@@ -3106,6 +3276,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おと・ね",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 9,
     "strokeRules": "Bagian atas berdiri (立 5 goresan), bagian bawah kotak matahari (日 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-5: Karakter 立 di atas",
@@ -3123,6 +3294,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たのしい・たのしむ・このむ",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Bagian atas: drum putih 白 di tengah diapit dua titik sutra 幺 di kiri dan kanan. Bagian bawah: pohon kayu 木.",
     "strokeOrderGuide": [
       "Goresan 1-5: Karakter 白 di tengah atas",
@@ -3142,6 +3314,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うた・うたう",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 9,
     "strokeRules": "Kiri dua susun 哥 (dua kotak 口 dan kait), kanan radikal menguap/membuka mulut (欠 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-10: Bagian kiri dua kotak bersusun",
@@ -3159,6 +3332,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "からだ・かたち",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 16,
     "strokeRules": "Kiri radikal orang (亻 2 goresan), kanan radikal dasar/buku (本 5 goresan). Aturan: Kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1-2: Radikal orang 亻 di kiri",
@@ -3176,6 +3350,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あたま・かしら・-がしら・かぶり",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 16,
     "strokeRules": "Kiri radikal kacang (豆 7 goresan). Kanan radikal halaman/kepala (頁 9 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-7: Karakter 豆 di sebelah kiri",
@@ -3193,6 +3368,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かお",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 16,
     "strokeRules": "Kiri: kanji 立 di atas dan 彡 di bawah (9 goresan). Kanan: radikal halaman/kepala (頁 9 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-9: Bagian kiri wajah",
@@ -3210,6 +3386,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くび",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 16,
     "strokeRules": "Dua tanduk miring di puncak, garis horizontal, lalu mata (目 5 goresan) dan dua kaki di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-2: Dua titik di puncak",
@@ -3229,6 +3406,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "こころ・-ごころ",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 28,
     "strokeRules": "Titik kiri, garis melengkung seperti mangkuk berkait (hane), titik tengah, lalu titik kanan luar.",
     "strokeOrderGuide": [
       "Goresan 1: Titik miring kiri",
@@ -3248,6 +3426,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "こえ・こわ-",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 16,
     "strokeRules": "Bagian atas prajurit/samurai (士 3 goresan), bagian bawah bendera dan kaki (4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Karakter 士 di atas",
@@ -3266,6 +3445,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "やむ・-やみ・やまい",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 1,
     "strokeRules": "Radikal penyakit/ranjang sakit (疒 5 goresan) di luar, lalu karakter ketiga (丙 5 goresan) di dalam.",
     "strokeOrderGuide": [
       "Goresan 1-5: Radikal sakit 疒",
@@ -3283,6 +3463,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 1,
     "strokeRules": "Kiri radikal bukit/dinding (阝 3 goresan). Kanan atas atap 宀, kanan bawah karakter sempurna (元 4 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Radikal bukit 阝 di kiri",
@@ -3301,6 +3482,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くすり",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 16,
     "strokeRules": "Mahkota rumput (艹 3 goresan) di atas tumbuhan obat, diikuti karakter musik/nyaman (楽 13 goresan) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1-3: Mahkota rumput 艹",
@@ -3318,6 +3500,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "やしろ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 1,
     "strokeRules": "Kiri radikal altar pemujaan (礻 4 goresan), kanan radikal tanah (土 3 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-4: Radikal altar 礻 di kiri",
@@ -3335,6 +3518,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Bagian atas mulut (口 3 goresan), bagian bawah uang kerang (貝 7 goresan).",
     "strokeOrderGuide": [
       "Goresan 1-3: Kotak mulut 口 di atas",
@@ -3352,6 +3536,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いやす・いする・くすし",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Bingkai kotak luar (匚 2 goresan), di dalamnya terdapat anak panah (矢 5 goresan).",
     "strokeOrderGuide": [
       "Goresan 1: Horizontal atas bingkai",
@@ -3370,6 +3555,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もの",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Bagian atas orang tua 老 mirip (horizontal, vertikal, horizontal, miring panjang memotong), bagian bawah matahari 日.",
     "strokeOrderGuide": [
       "Goresan 1-4: Bagian atas memotong",
@@ -3387,6 +3573,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いぬ・いぬ-",
     "jlpt": "N5",
     "category": "Hewan",
+    "bab": 10,
     "strokeRules": "Tulis karakter besar (大: horizontal, miring kiri, kaki kanan), lalu tambahkan titik telinga anjing di kanan atas.",
     "strokeOrderGuide": [
       "Goresan 1-3: Karakter 大",
@@ -3404,6 +3591,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とり",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 10,
     "strokeRules": "Miring pendek atas, mata dan kepala burung berbingkai, lalu 4 bulu titik kaki (灬) di bagian alas.",
     "strokeOrderGuide": [
       "Goresan 1: Miring pendek atas",
@@ -3422,6 +3610,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うし",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 6,
     "strokeRules": "Garis miring pendek atas, garis horizontal pendek, garis horizontal panjang, lalu tanduk/badan vertikal tegak lurus menembus.",
     "strokeOrderGuide": [
       "Goresan 1: Miring pendek kiri atas",
@@ -3441,6 +3630,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うま・うま-・ま",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 10,
     "strokeRules": "Suri vertikal kiri, sudut kanan membungkus dengan 3 garis horizontal suri, vertikal penutup berkait, lalu 4 kuku titik (灬) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Vertikal kiri",
@@ -3461,6 +3651,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 12,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -3527,6 +3718,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まる・まるい・まるめる",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 10,
     "strokeRules": "Tulis 3 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -3592,6 +3784,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あるじ・おも・ぬし",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 10,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -3659,6 +3852,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "こと・つかう・つかえる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -3727,6 +3921,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-かう・かわす・かわす・こもごも・まざる・まじる・まぜる・まじえる・まじる・まじわる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 14,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -3795,6 +3990,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-がわり・-がわり・かえる・かわり・かわる・かわり・かわる・しろ・よ",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 10,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -3862,6 +4058,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もって",
     "jlpt": "N4",
     "category": "Arah & Posisi",
+    "bab": 18,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -3929,6 +4126,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひくい・ひくまる・ひくめる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -3997,6 +4195,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たより",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 4,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4065,6 +4264,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 23,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4133,6 +4333,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はたらく",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 4,
     "strokeRules": "Tulis 13 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4201,6 +4402,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もと",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 5,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4267,6 +4469,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あに",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4334,6 +4537,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うち",
     "jlpt": "N4",
     "category": "Arah & Posisi",
+    "bab": 4,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4400,6 +4604,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かたな・そり",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 7,
     "strokeRules": "Tulis 2 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4464,6 +4669,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "わける・わかれる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 47,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4532,6 +4738,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つとめる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 4,
     "strokeRules": "Tulis 10 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4600,6 +4807,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うごかす・うごく",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4668,6 +4876,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うま",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4734,6 +4943,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-さる・さる",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4801,6 +5011,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とも",
     "jlpt": "N5",
     "category": "Manusia & Keluarga",
+    "bab": 5,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4867,6 +5078,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-どり・とり・とり-・とる・とり",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 14,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -4935,6 +5147,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-うけ・うかる・うける",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5003,6 +5216,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うてな・つかさ・われ",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 11,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5070,6 +5284,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-あい・-あう・-あわせる・-あい・あい・あう・あわす・あわせる・あい-",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 21,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5138,6 +5353,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おなじ",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 12,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5206,6 +5422,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-な・な",
     "jlpt": "N5",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5274,6 +5491,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あえる・なごむ・なごやか・やわらぐ・やわらげる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 42,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5342,6 +5560,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "しな",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 3,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5410,6 +5629,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とい・とう・とん",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 34,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5478,6 +5698,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-まわし・-まわす・-まわり・-まわる・かえる・まわし-・まわす・まわる・もとおる",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 11,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5546,6 +5767,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "え・はかる",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 4,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5614,6 +5836,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 3,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5682,6 +5905,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うる・うれる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5750,6 +5974,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ふとい・ふとる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 36,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5816,6 +6041,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いい・このむ・すく・よい",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 9,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5884,6 +6110,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いもうと",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -5952,6 +6179,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あね・はは",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6020,6 +6248,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-はじめる・はじまる・はじめる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 31,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6088,6 +6317,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-な・あざ・あざな",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 9,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6156,6 +6386,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 22,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6224,6 +6455,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "さだか・さだまる・さだめる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 30,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6292,6 +6524,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まこと・み・みちる・みの・みのる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 22,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6360,6 +6593,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "やど・やどす・やどる",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 6,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6428,6 +6662,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "や",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 3,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6496,6 +6731,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 22,
     "strokeRules": "Tulis 3 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6561,6 +6797,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とし",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6629,6 +6866,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-たい・たび",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 19,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6697,6 +6935,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-だて・たつ・たて・たてる",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 27,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6765,6 +7004,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ゆみ",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 10,
     "strokeRules": "Tulis 3 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6830,6 +7070,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひく・ひける",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 23,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6896,6 +7137,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おとうと",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -6964,6 +7206,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あたり・あたる・あて・あてる・まさに・まさにべし",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 10,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7032,6 +7275,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-がた・かた・かたち・なり",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 10,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7100,6 +7344,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-にくい・あし・ああ・いずくに・いずくんぞ・にくい・にくむ・わる-・わるい",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7168,6 +7413,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 21,
     "strokeRules": "Tulis 13 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7236,6 +7482,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "と",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 10,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7302,6 +7549,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 1,
     "strokeRules": "Tulis 3 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7367,6 +7615,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かず・かぞえる・しばしば・せめる・わずらわしい",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 40,
     "strokeRules": "Tulis 13 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7435,6 +7684,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あや・ふみ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7501,6 +7751,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 9,
     "strokeRules": "Tulis 10 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7569,6 +7820,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-かた・-がた・かた",
     "jlpt": "N4",
     "category": "Arah & Posisi",
+    "bab": 1,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7635,6 +7887,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たび",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Tulis 10 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7703,6 +7956,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 5,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7771,6 +8025,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Tulis 18 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7839,6 +8094,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ある",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7907,6 +8163,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 3,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -7975,6 +8232,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はやし",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 10,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8043,6 +8301,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もり",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 10,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8111,6 +8370,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "わざ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 31,
     "strokeRules": "Tulis 13 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8179,6 +8439,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ただしい・ただす・まさ・まさに",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 12,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8246,6 +8507,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "しに-・しぬ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 22,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8314,6 +8576,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-ごとに・ごと",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8382,6 +8645,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "け",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 16,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8448,6 +8712,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 5,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8516,6 +8781,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おさまる・おさめる・なおす・なおる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 16,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8584,6 +8850,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "さす・そそぐ・つぐ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 17,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8652,6 +8919,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いかす・いきる・いける",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 8,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8720,6 +8988,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "さす・たてる・つく・つける・とぼす・ともす・ぼち",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 12,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8788,6 +9057,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もの・もの-",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 3,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8856,6 +9126,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 5,
     "strokeRules": "Tulis 10 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8924,6 +9195,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-だま・たま・たま-",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 10,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -8991,6 +9263,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 10,
     "strokeRules": "Tulis 4 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9057,6 +9330,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ことわり",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 9,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9125,6 +9399,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うまれる・うむ・うぶ-・むす",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 2,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9193,6 +9468,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もちいる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9260,6 +9536,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 13,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9328,6 +9605,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つがい",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9396,6 +9674,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あばく・おこる・たつ・つかわす・はなつ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 40,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9464,6 +9743,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まと",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 22,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9532,6 +9812,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-なおす・すぐ・ただちに・なおき・なおす・なおる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 24,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9600,6 +9881,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ま・ま-・まこと",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 6,
     "strokeRules": "Tulis 10 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9668,6 +9950,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "きせる・きる・つく・つける",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 20,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9736,6 +10019,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "や",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 10,
     "strokeRules": "Tulis 5 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9803,6 +10087,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "わたくし・わたし",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 1,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9871,6 +10156,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 47,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -9939,6 +10225,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たけ",
     "jlpt": "N4",
     "category": "Bunga & Tumbuhan",
+    "bab": 10,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10007,6 +10294,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "こたえ・こたえる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 39,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10075,6 +10363,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "そろ",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 11,
     "strokeRules": "Tulis 14 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10143,6 +10432,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "こめ・よね",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 6,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10211,6 +10501,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いと",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 10,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10279,6 +10570,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かみ",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 6,
     "strokeRules": "Tulis 10 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10347,6 +10639,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "こまか・こまかい・ほそい・ほそる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10415,6 +10708,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-おわる・おえる・おわる・おわる・つい・ついに",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 4,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10483,6 +10777,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-ぐみ・くむ・くみ",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 34,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10551,6 +10846,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 9,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10619,6 +10915,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "すじ",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 5,
     "strokeRules": "Tulis 15 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10687,6 +10984,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "は・はね・わ",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 10,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10755,6 +11053,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おのずから・おのずと・みずから",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 3,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10823,6 +11122,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ふな-・ふね",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 5,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10891,6 +11191,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "いろ",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 27,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -10959,6 +11260,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はなぶさ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 2,
     "strokeRules": "Tulis 8 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11027,6 +11329,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 6,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11095,6 +11398,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-ぐさ・くさ・くさ-",
     "jlpt": "N4",
     "category": "Bunga & Tumbuhan",
+    "bab": 10,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11163,6 +11467,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "むし",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 10,
     "strokeRules": "Tulis 6 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11231,6 +11536,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おや・おや-・したしい・したしむ",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 8,
     "strokeRules": "Tulis 16 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11299,6 +11605,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かど・つの",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 10,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11367,6 +11674,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はからう・はかる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 2,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11435,6 +11743,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "しるす",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 15,
     "strokeRules": "Tulis 10 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11503,6 +11812,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かい",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 10,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11571,6 +11881,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ただす・たち・もと・わりふ",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 34,
     "strokeRules": "Tulis 15 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11639,6 +11950,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 5,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11707,6 +12019,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-たち",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 5,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11775,6 +12088,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "-べ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 3,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11843,6 +12157,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みやこ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 13,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11911,6 +12226,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "さと",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 10,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -11979,6 +12295,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "え・おも・おもい・おもなう・おもり・かさなる・かさねる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 12,
     "strokeRules": "Tulis 9 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12047,6 +12364,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くろがね",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 5,
     "strokeRules": "Tulis 13 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12115,6 +12433,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "しろがね",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 1,
     "strokeRules": "Tulis 14 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12183,6 +12502,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あい・あいだ・ま",
     "jlpt": "N5",
     "category": "Angka & Waktu",
+    "bab": 9,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12251,6 +12571,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "きざはし",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 3,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12319,6 +12640,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あつまる・あつめる・つどう",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 18,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12387,6 +12709,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 6,
     "strokeRules": "Tulis 18 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12455,6 +12778,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "めし",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 6,
     "strokeRules": "Tulis 12 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12523,6 +12847,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たて・やかた",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 4,
     "strokeRules": "Tulis 16 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12591,6 +12916,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "—",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 5,
     "strokeRules": "Tulis 14 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12659,6 +12985,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "なく・ならす・なる",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 10,
     "strokeRules": "Tulis 14 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12727,6 +13054,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "むぎ",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 6,
     "strokeRules": "Tulis 7 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12795,6 +13123,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "き・こ-",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 8,
     "strokeRules": "Tulis 11 goresan secara teratur dari atas ke bawah dan dari kiri ke kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12863,6 +13192,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "よ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 2,
     "strokeRules": "Tulis garis horizontal atas terlebih dahulu, kemudian garis vertikal kiri, tengah, kanan, dan garis penutup.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -12935,6 +13265,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たけ",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 26,
     "strokeRules": "Tulis garis horizontal atas, garis miring kiri melengkung, lalu garis menyilang ke kanan bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13005,6 +13336,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "お-わる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 26,
     "strokeRules": "Tarik garis horizontal lalu miring kiri, kemudian vertikal berkail di ujung.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13074,6 +13406,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "へだ-てる",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 24,
     "strokeRules": "Tulis atap orang (kanji hito), kemudian garis vertikal kiri dan vertikal kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13145,6 +13478,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つか-える",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 8,
     "strokeRules": "Tulis radikal orang (ninben) di kiri, lalu kanji samurai (shi) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13217,6 +13551,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "なか",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 28,
     "strokeRules": "Tulis radikal orang (ninben) di kiri, lalu kanji tengah (chuu/naka) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13290,6 +13625,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くらい・ぐらい",
     "jlpt": "N4",
     "category": "Arah & Posisi",
+    "bab": 30,
     "strokeRules": "Tulis radikal ninben di kiri, lalu kanji berdiri (tatsu) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13364,6 +13700,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "す-む・す-まう",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 15,
     "strokeRules": "Tulis ninben di kiri, lalu kanji tuan/pokok (nushi) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13438,6 +13775,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とも・そな-える",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 3,
     "strokeRules": "Tulis radikal ninben di kiri, lalu bagian kanan kanji tomo (bersama).",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13513,6 +13851,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あたい",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 28,
     "strokeRules": "Tulis ninben di kiri, lalu bagian nishi (barat) dengan variasi di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13588,6 +13927,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "がわ・そば",
     "jlpt": "N4",
     "category": "Arah & Posisi",
+    "bab": 29,
     "strokeRules": "Tulis ninben di kiri, lalu kanji aturan/kaidah (soku) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13666,6 +14006,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かさ",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 2,
     "strokeRules": "Tulis atap orang besar di atas, empat karakter orang kecil di dalamnya, lalu garis vertikal penopang.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13745,6 +14086,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 31,
     "strokeRules": "Tulis ninben di kiri, lalu kanji niat/pikiran (i) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13827,6 +14169,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "やさ-しい・すぐ-れる",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 32,
     "strokeRules": "Tulis ninben di kiri, bagian tengah atas, hati (kokoro) di bawah, dan goresan penutup.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13911,6 +14254,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "すべ-て・まった-く",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 30,
     "strokeRules": "Tulis atap hito di atas, lalu kanji raja (ou) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -13984,6 +14328,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うつ-す・うつ-る",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 6,
     "strokeRules": "Tulis mahkota wakanmuri di atas, lalu kanji yo di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14056,6 +14401,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "き-く",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 8,
     "strokeRules": "Tulis padi (nogihen) di kiri, lalu radikal pedang (ritou) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14130,6 +14476,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つと-める",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Tulis tombak dan panah di atas kiri, lalu kekuatan (chikara) di kanan bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14208,6 +14555,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ば-ける・ば-かす",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 3,
     "strokeRules": "Tulis ninben di kiri, lalu sendok (hi) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14279,6 +14627,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 30,
     "strokeRules": "Tulis bentuk pagi atas, lalu kanji sepuluh (juu) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14354,6 +14703,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たまご",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 6,
     "strokeRules": "Tulis bentuk simetris melengkung kiri dengan titik, lalu bagian kanan yang mirip berpasangan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14428,6 +14778,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まい-る",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 50,
     "strokeRules": "Tulis tiga atap di atas, garis horizontal tengah, dan tiga garis miring di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14503,6 +14854,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 35,
     "strokeRules": "Tulis garis horizontal atas, kotak mulut (kuchi) di dalam, lalu kail vertikal kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14575,6 +14927,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 26,
     "strokeRules": "Tulis kotak mulut di atas, garis penghubung pendek, lalu kotak mulut di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14649,6 +15002,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あじ・あじ-わう",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 18,
     "strokeRules": "Tulis radikal mulut (kuchihen) di kiri, lalu belum (hitsuji/mi) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14724,6 +15078,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "こま-る",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 35,
     "strokeRules": "Tulis bingkai kotak pembungkus (kunigamae), lalu masukkan pohon (ki) di dalamnya.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14798,6 +15153,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おっと",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 28,
     "strokeRules": "Tulis dua garis horizontal sejajar, garis miring ke kiri, dan garis melengkung kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14869,6 +15225,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "さむ-い",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 8,
     "strokeRules": "Tulis atap rumah (ukanmuri), lalu tumpukan rumput dan selimut, diakhiri dua titik es di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -14948,6 +15305,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "い-る・お-る",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 28,
     "strokeRules": "Tulis radikal mayat/atap (shikabane) di atas, lalu kanji kuno (ko) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15023,6 +15381,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "すわ-る",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 14,
     "strokeRules": "Tulis kanji rumah condong (madare) di luar, masukkan dua orang (hito) dan tanah (tsuchi) di dalam.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15100,6 +15459,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 26,
     "strokeRules": "Tulis dua titik dan goresan atas, lalu bagian bawah menyerupai tangan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15172,6 +15532,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かれ・かの",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 5,
     "strokeRules": "Tulis radikal langkah kaki (gyouninben) di kiri, lalu kulit (kawa) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15247,6 +15608,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "こい・こい-しい",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 32,
     "strokeRules": "Tulis bagian atas menyilang ganda, lalu letakkan hati (kokoro) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15324,6 +15686,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 32,
     "strokeRules": "Tulis cakar di atas, atap penutup, hati (kokoro) di tengah, dan langkah kaki di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15404,6 +15767,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 39,
     "strokeRules": "Tulis kanji tombak/seluruh (kan) di bagian atas, lalu kanji hati (kokoro) di bagian bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15484,6 +15848,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "もど-る・もど-す",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 30,
     "strokeRules": "Tulis radikal pintu (todaare) di atas, lalu masukkan anjing (inu) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15558,6 +15923,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ところ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 3,
     "strokeRules": "Tulis radikal pintu (tobean) di kiri, lalu kapak (ono/kin) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15633,6 +15999,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "お-る・お-れる・おり",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 29,
     "strokeRules": "Tulis radikal tangan (tehen) di kiri, lalu kapak (kin) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15707,6 +16074,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ゆえ",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 36,
     "strokeRules": "Tulis kanji kuno (furui) di kiri, lalu radikal pukulan/tindakan (nogome) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15783,6 +16151,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Tulis radikal matahari (hihen) di kiri, lalu kanji membuat/saku di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15859,6 +16228,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 4,
     "strokeRules": "Tulis radikal matahari (hihen) di kiri, lalu bagian terbebas/menolak di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -15938,6 +16308,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あまね-く",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 5,
     "strokeRules": "Tulis berjajar (narabu) di atas, lalu matahari (hi) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16017,6 +16388,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くも-る・くもり",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 32,
     "strokeRules": "Tulis radikal matahari (hihen) di kiri atas atau bagian atas, lalu kanji awan (kumo) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16100,6 +16472,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "とし",
     "jlpt": "N4",
     "category": "Angka & Waktu",
+    "bab": 1,
     "strokeRules": "Tulis berhenti (tome) di atas, lalu bagian bulan sabit dan kapak di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16180,6 +16553,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "うじ",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 49,
     "strokeRules": "Tulis kait diagonal kiri, horizontal tengah, vertikal melengkung dengan ujung berkail.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16251,6 +16625,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "たみ",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 26,
     "strokeRules": "Tulis goresan lengkung atas, horizontal, lalu kotak terhubung dengan goresan miring bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16323,6 +16698,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あぶら",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 34,
     "strokeRules": "Tulis radikal tiga tetes air (sanzui) di kiri, lalu kanji yuu (alasan) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16398,6 +16774,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "のり",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 42,
     "strokeRules": "Tulis sanzui di kiri, lalu kanji pergi (saru/iku) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16473,6 +16850,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "な-く",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 44,
     "strokeRules": "Tulis sanzui di kiri, lalu kanji berdiri (tatsu) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16548,6 +16926,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "およ-ぐ",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 13,
     "strokeRules": "Tulis sanzui di kiri, lalu kanji selamanya (nagai/ei) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16623,6 +17002,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 34,
     "strokeRules": "Tulis sanzui di kiri, lalu domba (hitsuji) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16699,6 +17079,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "き-える・け-す",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 4,
     "strokeRules": "Tulis sanzui di kiri, lalu kanji bulan sabit dan kail di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16776,6 +17157,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あたた-かい・あたた-まる",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 32,
     "strokeRules": "Tulis sanzui di kiri, lalu matahari dan piring (sara) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16855,6 +17237,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "な-い",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 28,
     "strokeRules": "Tulis garis horizontal atas dan tiang ganda, lalu empat titik api (rengo) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -16934,6 +17317,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "けむり・けむ-い",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 26,
     "strokeRules": "Tulis api (hihen) di kiri, lalu bagian barat dan tanah di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17014,6 +17398,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひと-り",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 32,
     "strokeRules": "Tulis radikal anjing (kemonohen) di kiri, lalu kanji ulat/serangga (chuu) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17090,6 +17475,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ねこ",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 10,
     "strokeRules": "Tulis radikal kemonohen di kiri, lalu kecambah (nae) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17168,6 +17554,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あらわ-れる・あらわ-す",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 31,
     "strokeRules": "Tulis radikal permata/raja (ouhen) di kiri, lalu kanji melihat (miru) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17246,6 +17633,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はたけ・はた",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 34,
     "strokeRules": "Tulis radikal api (hihen) di kiri, lalu kanji sawah (ta) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17322,6 +17710,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ねむ-る・ねむ-い",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 19,
     "strokeRules": "Tulis radikal mata (mehen) di kiri, lalu kanji sipil/rakyat (min) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17399,6 +17788,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "みじか-い",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 16,
     "strokeRules": "Tulis anak panah (yahen) di kiri, lalu kacang (mame) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17478,6 +17868,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かみ",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 38,
     "strokeRules": "Tulis radikal altar (shimesuhen) di kiri, lalu kanji petir/lurus (mousu/shin) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17554,6 +17945,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 33,
     "strokeRules": "Tulis dua pohon (hayashi) di atas, lalu altar persembahan (shimesu) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17634,6 +18026,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "わら-う・え-む",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 44,
     "strokeRules": "Tulis radikal bambu (takekanmuri) di atas, lalu orang muda (waka/ten) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17711,6 +18104,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "から-む・から-まる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 26,
     "strokeRules": "Tulis benang (itohen) di kiri, lalu setiap (kaku) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17790,6 +18184,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 31,
     "strokeRules": "Tulis bentuk beruang/kekuatan di kiri, lalu dua belati sejajar (hi) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17867,6 +18262,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "はら",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 32,
     "strokeRules": "Tulis radikal daging/bulan (nikuzuki) di kiri, lalu bagian kembalian (fuku) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -17947,6 +18343,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おこ-る・おこ-す",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 39,
     "strokeRules": "Tulis mortar (usu) di bagian atas mengapit garis, lalu kaki bersama (tomo) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18030,6 +18427,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "よ-い・い-い",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 32,
     "strokeRules": "Tulis satu titik di puncak, garis melengkung kiri, lalu bagian bawah berimbang.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18104,6 +18502,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くる-しい・にが-い",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 34,
     "strokeRules": "Tulis radikal rumput (kusakanmuri) di atas, lalu kanji kuno (ko/furui) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18179,6 +18578,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "に",
     "jlpt": "N4",
     "category": "Warna & Benda",
+    "bab": 7,
     "strokeRules": "Tulis kusakanmuri di atas, lalu apa (nani/ka) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18256,6 +18656,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "な",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 6,
     "strokeRules": "Tulis kusakanmuri di atas, lalu memetik (tori/sai) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18334,6 +18735,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "にじ",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 32,
     "strokeRules": "Tulis serangga (mushihen) di kiri, lalu tukang (kou) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18410,6 +18812,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "い-る・かなめ",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 20,
     "strokeRules": "Tulis penutup nishi di atas, lalu wanita (onna) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18486,6 +18889,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "と-く・と-かす・わか-る",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 30,
     "strokeRules": "Tulis tanduk (tsuno) di kiri, lalu pisau (katana) dan sapi (ushi) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18566,6 +18970,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あやま-る",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 45,
     "strokeRules": "Tulis kata (gonben) di kiri, badan (mi) di tengah, dan jengkal (sun) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18650,6 +19055,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まも-る",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 41,
     "strokeRules": "Tulis gonben di kiri, lalu burung rumput (kaku) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18737,6 +19143,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ぶた",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 34,
     "strokeRules": "Tulis nikuzuki (bulan daging) di kiri, lalu anak babi/taring di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18815,6 +19222,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "おど-る・おど-り",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 28,
     "strokeRules": "Tulis radikal kaki (ashihen) di kiri, lalu berani (yuu) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18896,6 +19304,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "み",
     "jlpt": "N4",
     "category": "Tubuh",
+    "bab": 28,
     "strokeRules": "Tulis garis miring atas, badan menyamping, garis horizontal tengah melintang.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -18970,6 +19379,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かる-い・かろ-やか",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 32,
     "strokeRules": "Tulis kereta (kurumahen) di kiri, lalu bagian benang melintang di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19049,6 +19459,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 28,
     "strokeRules": "Tulis lawan/bukan (hi) di atas, lalu kereta (kuruma) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19131,6 +19542,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "や-める",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 2,
     "strokeRules": "Tulis lidah di kiri, lalu rasa pedas (karai) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19211,6 +19623,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "まよ-う",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 35,
     "strokeRules": "Tulis beras (kome) di dalam, lalu jalan melangkah (shinnyou) di luar.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19287,6 +19700,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "つ-れる・つら-なる",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 24,
     "strokeRules": "Tulis kereta (kuruma) di dalam, lalu jalanan shinnyou di luar.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19364,6 +19778,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "くば-る",
     "jlpt": "N4",
     "category": "Aktivitas & Kata Kerja",
+    "bab": 33,
     "strokeRules": "Tulis kendi anggur (tori) di kiri, lalu orang bersujud (ki) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19441,6 +19856,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "さけ・さか",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 6,
     "strokeRules": "Tulis sanzui di kiri, lalu kendi anggur (tori/sake) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19518,6 +19934,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "さか",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 26,
     "strokeRules": "Tulis radikal tebing/bukit (kozatohen) di kiri, lalu kanji membalik (han) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19592,6 +20009,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "ひ",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 32,
     "strokeRules": "Tulis kozatohen di kiri, lalu bagian mudah/cahaya (you) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19671,6 +20089,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Manusia & Keluarga",
+    "bab": 33,
     "strokeRules": "Tulis kozatohen di kiri, lalu babi hutan (chou) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19750,6 +20169,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "かみなり",
     "jlpt": "N4",
     "category": "Alam & Cuaca",
+    "bab": 32,
     "strokeRules": "Tulis radikal hujan (amekanmuri) di atas, lalu kanji sawah (ta) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19830,6 +20250,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "あめ",
     "jlpt": "N4",
     "category": "Makanan & Minuman",
+    "bab": 34,
     "strokeRules": "Tulis radikal makanan (shokuhen) di kiri, lalu kanji meja/kedudukan (tai) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19911,6 +20332,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Tempat & Bangunan",
+    "bab": 33,
     "strokeRules": "Tulis radikal kuda (umahen) di kiri, lalu kanji tuan/pokok (nushi) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -19993,6 +20415,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "",
     "jlpt": "N4",
     "category": "Sifat & Keadaan",
+    "bab": 38,
     "strokeRules": "Tulis kanji rami (asa) di atas mengayomi, lalu kanji hantu (oni) di bawah.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",
@@ -20081,6 +20504,7 @@ export const KANJI_DATA: KanjiItem[] = [
     "kunyomi": "にわとり・とり",
     "jlpt": "N4",
     "category": "Hewan",
+    "bab": 34,
     "strokeRules": "Tulis bagian kiri jumbai cakaran rumit, lalu radikal burung (tori) di kanan.",
     "strokeOrderGuide": [
       "Goresan 1: Langkah goresan ke-1",

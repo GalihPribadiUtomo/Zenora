@@ -56,6 +56,7 @@ export interface KanjiItem {
   kunyomi: string;
   jlpt: JLPTLevel;
   category: KanjiCategory;
+  bab?: number;
   strokeRules?: string;
   strokeOrderGuide?: string[];
   radicals?: string;
@@ -149,4 +150,69 @@ export interface UserStats {
   }[];
   streakDays: number;
   lastActiveDate: string;
+}
+
+export interface PolaKalimatItem {
+  id: number;
+  japanese: string;
+  romaji: string;
+  indonesian: string;
+}
+
+export interface ContohKalimatItem {
+  id: number;
+  question?: string;
+  answer: string;
+  romaji: string;
+  indonesian: string;
+}
+
+export interface KaiwaDialogItem {
+  speaker: string;
+  role?: string;
+  japanese: string;
+  romaji: string;
+  indonesian: string;
+}
+
+export interface KaiwaItem {
+  title: string;
+  situasi?: string;
+  tokoh: string[];
+  dialogs: KaiwaDialogItem[];
+}
+
+export interface TataBahasaPoint {
+  point: number;
+  title: string;
+  polaFormat?: string;
+  explanation: string;
+  examples: {
+    japanese: string;
+    romaji: string;
+    indonesian: string;
+  }[];
+}
+
+export interface ReferensiInfoItem {
+  title: string;
+  description?: string;
+  items?: {
+    japanese: string;
+    romaji: string;
+    indonesian: string;
+  }[];
+  notes?: string[];
+}
+
+export interface ChapterLesson {
+  bab: number;
+  title: string;
+  subTitle?: string;
+  summary: string;
+  polaKalimat: PolaKalimatItem[];
+  contohKalimat: ContohKalimatItem[];
+  percakapan: KaiwaItem;
+  tataBahasa: TataBahasaPoint[];
+  referensiInfo?: ReferensiInfoItem;
 }

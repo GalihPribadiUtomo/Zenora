@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, CheckCircle2, BookOpen } from 'lucide-react';
 import { CHAPTERS_DATA } from '../data/chaptersData';
 import { KOTOBA_DATA } from '../data/kotobaData';
+import { KanjiItem } from '../types';
 import { ChapterDetail } from './ChapterDetail';
 import { sound } from '../utils/audio';
 
@@ -13,6 +14,7 @@ interface KotobaSectionProps {
   onToggleLearned: (id: string) => void;
   onToggleBookmark: (id: string) => void;
   onStartQuiz: (bab: number) => void;
+  onSelectKanji?: (kanji: KanjiItem) => void;
 }
 
 export const KotobaSection: React.FC<KotobaSectionProps> = ({
@@ -23,6 +25,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
   onToggleLearned,
   onToggleBookmark,
   onStartQuiz,
+  onSelectKanji,
 }) => {
   const [activeBook, setActiveBook] = useState<'I' | 'II'>('I');
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,6 +42,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
         onToggleLearned={onToggleLearned}
         onToggleBookmark={onToggleBookmark}
         onStartQuiz={onStartQuiz}
+        onSelectKanji={onSelectKanji}
       />
     );
   }

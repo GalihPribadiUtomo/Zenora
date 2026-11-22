@@ -21,6 +21,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
 }) => {
   const [selectedLevel, setSelectedLevel] = useState<JLPTLevel | 'ALL'>('ALL');
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
+  const [selectedBab, setSelectedBab] = useState<number | 'ALL'>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
 
   // JLPT Level cards data with Dark Blue Sakura Future styling
@@ -82,6 +83,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
   const filteredKanji = KANJI_DATA.filter((k) => {
     const matchesLevel = selectedLevel === 'ALL' || k.jlpt === selectedLevel;
     const matchesCat = selectedCategory === 'Semua' || k.category === selectedCategory;
+    const matchesBab = selectedBab === 'ALL' || k.bab === selectedBab;
     const q = searchQuery.toLowerCase();
     const matchesSearch = 
       k.kanji.toLowerCase().includes(q) ||
@@ -89,7 +91,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
       k.meaning.toLowerCase().includes(q) ||
       k.onyomi.toLowerCase().includes(q) ||
       k.kunyomi.toLowerCase().includes(q);
-    return matchesLevel && matchesCat && matchesSearch;
+    return matchesLevel && matchesCat && matchesBab && matchesSearch;
   });
 
   return (
@@ -248,6 +250,65 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
         </div>
       </div>
 
+      {/* FILTER BAB MINNA NO NIHONGO (BAB 1–50) */}
+      <div className="p-4 rounded-3xl bg-[#0D1830] border border-[#2457C5]/30">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#55B9F5]" />
+            <h3 className="text-xs font-bold text-[#DCE9FF] uppercase tracking-wider font-['Manrope']">
+              Filter Bab Minna no Nihongo (Bab 1–50)
+            </h3>
+          </div>
+          {selectedBab !== 'ALL' && (
+            <button
+              onClick={() => setSelectedBab('ALL')}
+              className="text-xs font-bold text-[#55B9F5] hover:text-white transition-colors text-left"
+            >
+              Reset Filter Bab (Tampilkan Semua)
+            </button>
+          )}
+        </div>
+
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
+          <button
+            onClick={() => {
+              sound.playClick();
+              setSelectedBab('ALL');
+            }}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+              selectedBab === 'ALL'
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-xs'
+                : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
+            }`}
+          >
+            Semua Bab
+          </button>
+          {Array.from({ length: 50 }, (_, i) => i + 1).map((b) => {
+            const count = KANJI_DATA.filter((k) => k.bab === b).length;
+            const isSelected = selectedBab === b;
+            return (
+              <button
+                key={b}
+                onClick={() => {
+                  sound.playClick();
+                  setSelectedBab(isSelected ? 'ALL' : b);
+                }}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                  isSelected
+                    ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-xs'
+                    : 'bg-white/5 hover:bg-white/10 text-[#A5BDE8] border border-[#2457C5]/20'
+                }`}
+              >
+                <span>Bab {b}</span>
+                {count > 0 && (
+                  <span className="text-[10px] opacity-75 font-mono">({count})</span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* KANJI CARDS GRID */}
       <div className="space-y-4">
         <div className="flex items-center justify-between text-xs font-bold text-[#6B85B5]">
@@ -271,12 +332,19 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                 }`}
               >
                 <div>
-                  {/* Top: ID & Strokes */}
+                  {/* Top: ID, Bab & Strokes */}
                   <div className="flex items-center justify-between text-[#6B85B5] text-xs mb-1">
                     <span className="font-mono text-[11px] font-bold">#{kanji.id}</span>
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#2457C5]/12 text-[#55B9F5]">
-                      {kanji.strokeCount}画
-                    </span>
+                    <div className="flex items-center gap-1">
+                      {kanji.bab && (
+                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#8975E8]/15 text-[#C4B5FF] border border-[#8975E8]/30">
+                          Bab {kanji.bab}
+                        </span>
+                      )}
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#2457C5]/12 text-[#55B9F5]">
+                        {kanji.strokeCount}画
+                      </span>
+                    </div>
                   </div>
 
                   {/* Big Kanji Character */}

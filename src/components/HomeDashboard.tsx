@@ -548,8 +548,8 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
             className="card-soft card-soft-hover p-5 rounded-3xl cursor-pointer border border-[#2457C5]/30 hover:border-emerald-400 bg-[#0D1830] flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-400 mb-4">
-                <Clock className="w-6 h-6 text-emerald-600" />
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4">
+                <Clock className="w-6 h-6 text-emerald-400" />
               </div>
               <h4 className="font-black text-base text-[#DCE9FF] mb-1 font-['Manrope']">Ketik Romaji</h4>
               <p className="text-xs text-[#6B85B5] leading-relaxed">
