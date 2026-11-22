@@ -127,24 +127,24 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
                 <button
                   onClick={() => {
                     sound.playClick();
-                    onNavigate('kana');
+                    onNavigate('kotoba');
                   }}
                   className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] hover:brightness-110 text-white font-black text-sm sm:text-base shadow-[0_0_25px_rgba(85,185,245,0.45)] hover:shadow-[0_0_35px_rgba(85,185,245,0.6)] hover:-translate-y-0.5 transition-all flex items-center gap-2.5 active:scale-95"
                 >
-                  <Languages className="w-5 h-5 text-white" />
-                  <span>Belajar Kana (あ・ア)</span>
+                  <BookOpen className="w-5 h-5 text-white" />
+                  <span>Materi Bab 1–50</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
                 <button
                   onClick={() => {
                     sound.playClick();
-                    onNavigate('kotoba');
+                    onNavigate('kana');
                   }}
                   className="px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base border border-white/20 backdrop-blur-md shadow-xs hover:-translate-y-0.5 transition-all flex items-center gap-2 active:scale-95"
                 >
-                  <BookOpen className="w-5 h-5 text-[#55B9F5]" />
-                  <span>Mulai Kotoba</span>
+                  <Languages className="w-5 h-5 text-[#55B9F5]" />
+                  <span>Aksara Kana (あ・ア)</span>
                 </button>
 
                 <button
@@ -172,15 +172,38 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
 
               {/* 3 Quick Stat Counter Cards */}
               <div className="grid grid-cols-3 gap-3 pt-4 max-w-md">
-                <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 text-center shadow-xs">
-                  <span className="block text-2xl sm:text-3xl font-black text-white font-['Manrope']">50</span>
-                  <span className="text-[11px] text-[#DCE9FF]/70 font-bold uppercase tracking-wider">Bab Materi</span>
+                <div 
+                  onClick={() => {
+                    sound.playClick();
+                    onNavigate('kotoba');
+                  }}
+                  className="bg-white/10 hover:bg-white/15 cursor-pointer backdrop-blur-md p-3.5 rounded-2xl border border-[#55B9F5]/30 hover:border-[#55B9F5]/60 text-center shadow-xs transition-all hover:-translate-y-0.5 group"
+                  title="Klik untuk membuka Materi Bab 1–50"
+                >
+                  <span className="block text-2xl sm:text-3xl font-black text-white font-['Manrope'] group-hover:text-[#55B9F5] transition-colors">50</span>
+                  <span className="text-[11px] text-[#55B9F5] font-black uppercase tracking-wider flex items-center justify-center gap-1">
+                    Bab Materi &rarr;
+                  </span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 text-center shadow-xs">
+                <div 
+                  onClick={() => {
+                    sound.playClick();
+                    onNavigate('kotoba');
+                  }}
+                  className="bg-white/10 hover:bg-white/15 cursor-pointer backdrop-blur-md p-3.5 rounded-2xl border border-white/15 hover:border-[#55B9F5]/40 text-center shadow-xs transition-all hover:-translate-y-0.5 group"
+                  title="Klik untuk membuka Kosakata"
+                >
                   <span className="block text-2xl sm:text-3xl font-black text-[#55B9F5] font-['Manrope']">2.910</span>
                   <span className="text-[11px] text-[#DCE9FF]/70 font-bold uppercase tracking-wider">Kosakata</span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 text-center shadow-xs">
+                <div 
+                  onClick={() => {
+                    sound.playClick();
+                    onNavigate('kanji');
+                  }}
+                  className="bg-white/10 hover:bg-white/15 cursor-pointer backdrop-blur-md p-3.5 rounded-2xl border border-white/15 hover:border-[#8975E8]/40 text-center shadow-xs transition-all hover:-translate-y-0.5 group"
+                  title="Klik untuk membuka Kanji N5 & N4"
+                >
                   <span className="block text-2xl sm:text-3xl font-black text-[#8975E8] font-['Manrope']">{totalKanji}</span>
                   <span className="text-[11px] text-[#DCE9FF]/70 font-bold uppercase tracking-wider">Kanji N5 & N4</span>
                 </div>

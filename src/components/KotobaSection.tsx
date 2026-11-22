@@ -71,16 +71,16 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
               {/* Pill badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/8 border border-[#55B9F5]/30 text-[#55B9F5] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(85,185,245,0.2)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#55B9F5] animate-pulse" />
-                Minna no Nihongo · Kosakata Lengkap
+                Minna no Nihongo I & II · Materi Lengkap Bab 1–50
               </div>
 
               <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight font-['Manrope'] flex items-center gap-3">
                 <BookOpen className="w-8 h-8 text-[#55B9F5]" />
-                Kotoba · 言葉
+                Materi & Pelajaran Bab 1–50
               </h1>
 
-              <p className="text-[#DCE9FF]/75 text-sm leading-relaxed max-w-lg">
-                Pelajari <span className="text-[#55B9F5] font-bold">{totalWords.toLocaleString()} kosakata</span> Minna no Nihongo Bab 1–50. Pilih bab, tandai hafalanmu, dan latih dengan kuis mandiri.
+              <p className="text-[#DCE9FF]/80 text-sm sm:text-base leading-relaxed max-w-xl">
+                Akses lengkap pembelajaran Minna no Nihongo Bab 1–50: <span className="text-[#55B9F5] font-bold">Tata Bahasa (Bunpou)</span>, <span className="text-[#55B9F5] font-bold">Pola Kalimat (Bunkei)</span>, <span className="text-[#55B9F5] font-bold">Percakapan Interaktif (Kaiwa)</span>, <span className="text-[#55B9F5] font-bold">2.910 Kosakata</span>, dan <span className="text-[#8975E8] font-bold">Kanji</span> terkait. Pilih nomor bab untuk mulai belajar!
               </p>
 
               {/* Progress bar */}
@@ -179,6 +179,16 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
                 <p className="text-[11px] font-semibold text-[#6B85B5] mt-1">
                   {chapter.totalKata} kata · {learnedCount} hafal
                 </p>
+
+                {/* Badge fitur materi di bab ini */}
+                <div className="flex flex-wrap gap-1 mt-2">
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#2457C5]/30 text-[#DCE9FF] border border-[#2457C5]/50">
+                    文法 Bunpou
+                  </span>
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#8975E8]/20 text-[#8975E8] border border-[#8975E8]/30">
+                    会話 Kaiwa
+                  </span>
+                </div>
               </div>
 
               {/* Progress bar */}

@@ -126,7 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </span>
             </button>
 
-            {/* Kotoba (Bab 1-50) */}
+            {/* Materi Bab 1-50 (Tata Bahasa, Kaiwa, Kotoba, Kanji) */}
             <button
               onClick={() => handleNav('kotoba')}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
@@ -136,9 +136,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
             >
               <BookOpen className={`w-4 h-4 ${activeTab === 'kotoba' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
-              <span>Kotoba</span>
+              <span>Materi Bab 1–50</span>
               <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-[#55B9F5]/20 text-[#55B9F5] border border-[#55B9F5]/30">
-                1–50
+                Bunpou & Kaiwa
               </span>
             </button>
 
@@ -275,7 +275,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {[
             { id: 'beranda', label: 'Beranda', icon: Sparkles },
             { id: 'kana', label: 'Kana', icon: Languages },
-            { id: 'kotoba', label: 'Kotoba', icon: BookOpen },
+            { id: 'kotoba', label: 'Materi 1–50', icon: BookOpen },
             { id: 'kanji', label: 'Kanji', icon: PenTool },
             { id: 'latihan', label: 'Latihan', icon: Award },
           ].map((item) => {
