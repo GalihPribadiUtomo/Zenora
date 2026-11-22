@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Search, BookOpen, ChevronRight, CheckCircle2, Sparkles, Filter } from 'lucide-react';
+import { Search, CheckCircle2, BookOpen } from 'lucide-react';
 import { CHAPTERS_DATA } from '../data/chaptersData';
 import { KOTOBA_DATA } from '../data/kotobaData';
 import { ChapterDetail } from './ChapterDetail';
-import { KotobaItem } from '../types';
 import { sound } from '../utils/audio';
 
 interface KotobaSectionProps {
@@ -28,7 +27,6 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
   const [activeBook, setActiveBook] = useState<'I' | 'II'>('I');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // If a chapter is selected, show ChapterDetail
   if (selectedBab !== null) {
     return (
       <ChapterDetail
@@ -45,139 +43,157 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
     );
   }
 
-  // Filter chapters by active book (I: 1-25, II: 26-50)
   const currentChapters = CHAPTERS_DATA.filter((ch) => ch.book === activeBook);
-
-  // Search filter
   const filteredChapters = currentChapters.filter((ch) => {
     const q = searchQuery.toLowerCase();
-    const matchesBab = ch.bab.toString().includes(q);
-    const matchesTitle = ch.title.toLowerCase().includes(q);
-    return matchesBab || matchesTitle;
+    return ch.bab.toString().includes(q) || ch.title.toLowerCase().includes(q);
   });
+
+  const totalLearned = learnedKotobaIds.length;
+  const totalWords = KOTOBA_DATA.length;
 
   return (
     <div className="space-y-8 text-left pb-16">
-      
-      {/* Header section */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0EBF8] border border-[#29264B]/20 text-[#29264B] text-xs font-black uppercase tracking-wider mb-2">
-            Minna no Nihongo · Kosakata Lengkap
+
+      {/* ── Dark Hero Header ── */}
+      <div className="relative overflow-hidden rounded-3xl border border-[#2457C5]/40 shadow-[0_20px_60px_-15px_rgba(16,28,61,0.8),0_0_40px_rgba(85,185,245,0.12)] bg-gradient-to-br from-[#101C3D] via-[#0D1830] to-[#080F20]">
+        {/* Glow blobs */}
+        <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#2457C5]/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-[#8975E8]/15 blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 p-6 sm:p-10">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-3">
+              {/* Pill badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/8 border border-[#55B9F5]/30 text-[#55B9F5] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(85,185,245,0.2)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#55B9F5] animate-pulse" />
+                Minna no Nihongo · Kosakata Lengkap
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight font-['Manrope'] flex items-center gap-3">
+                <BookOpen className="w-8 h-8 text-[#55B9F5]" />
+                Kotoba · 言葉
+              </h1>
+
+              <p className="text-[#DCE9FF]/75 text-sm leading-relaxed max-w-lg">
+                Pelajari <span className="text-[#55B9F5] font-bold">{totalWords.toLocaleString()} kosakata</span> Minna no Nihongo Bab 1–50. Pilih bab, tandai hafalanmu, dan latih dengan kuis mandiri.
+              </p>
+
+              {/* Progress bar */}
+              <div className="max-w-xs">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-xs text-[#DCE9FF]/60 font-semibold">Progress Hafalan</span>
+                  <span className="text-xs text-[#55B9F5] font-bold">
+                    {totalLearned} / {totalWords}
+                  </span>
+                </div>
+                <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-[#2457C5] to-[#55B9F5] shadow-[0_0_8px_rgba(85,185,245,0.5)] transition-all duration-700"
+                    style={{ width: `${Math.max(1, Math.round((totalLearned / totalWords) * 100))}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Search input */}
+            <div className="relative w-full md:w-72 shrink-0">
+              <Search className="w-4 h-4 text-[#55B9F5]/60 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Cari bab atau kata..."
+                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white/8 border border-[#2457C5]/40 text-sm text-[#DCE9FF] placeholder-[#6B85B5] focus:outline-none focus:ring-2 focus:ring-[#55B9F5]/30 focus:border-[#55B9F5]/50 transition-all"
+              />
+            </div>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-[#29264B] tracking-tight flex items-center gap-3 font-['Manrope']">
-            Kotoba · 言葉
-          </h1>
-          <p className="text-[#77738A] text-sm mt-1">
-            Pilih bab materi pembelajaran Minna no Nihongo, pilah kosakata berdasarkan kategori tematik, dan tandai hafalanmu.
-          </p>
-        </div>
-
-        {/* Global Search Input */}
-        <div className="relative w-full md:w-80">
-          <Search className="w-4 h-4 text-[#77738A] absolute left-3.5 top-1/2 -translate-y-1/2" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Cari kata (Jepang, romaji, arti)..."
-            className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white border border-[#E9E2F0] text-sm text-[#29264B] placeholder-[#77738A]/60 focus:outline-hidden focus:ring-2 focus:ring-[#85B9D1]/40 focus:border-[#85B9D1] shadow-2xs transition-all"
-          />
         </div>
       </div>
 
-      {/* Book Tabs: Minna no Nihongo I vs II */}
-      <div className="flex items-center gap-2 p-1.5 bg-[#F8F3FA] rounded-2xl border border-[#E9E2F0] max-w-md">
-        <button
-          onClick={() => {
-            sound.playClick();
-            setActiveBook('I');
-          }}
-          className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all text-center ${
-            activeBook === 'I'
-              ? 'bg-gradient-to-r from-[#29264B] to-[#85B9D1] text-white shadow-xs'
-              : 'text-[#77738A] hover:text-[#29264B]'
-          }`}
-        >
-          Minna no Nihongo I · Bab 1–25
-        </button>
-
-        <button
-          onClick={() => {
-            sound.playClick();
-            setActiveBook('II');
-          }}
-          className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all text-center ${
-            activeBook === 'II'
-              ? 'bg-gradient-to-r from-[#29264B] to-[#85B9D1] text-white shadow-xs'
-              : 'text-[#77738A] hover:text-[#29264B]'
-          }`}
-        >
-          Minna no Nihongo II · Bab 26–50
-        </button>
+      {/* ── Book Tabs ── */}
+      <div className="flex items-center gap-2 p-1.5 bg-[#0D1830] rounded-2xl border border-[#2457C5]/30 max-w-lg">
+        {(['I', 'II'] as const).map((book) => (
+          <button
+            key={book}
+            onClick={() => { sound.playClick(); setActiveBook(book); }}
+            className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all text-center ${
+              activeBook === book
+                ? 'bg-gradient-to-r from-[#2457C5] to-[#55B9F5] text-white shadow-[0_0_16px_rgba(85,185,245,0.35)]'
+                : 'text-[#A5BDE8] hover:text-[#DCE9FF] hover:bg-white/5'
+            }`}
+          >
+            Minna no Nihongo {book} · Bab {book === 'I' ? '1–25' : '26–50'}
+          </button>
+        ))}
       </div>
 
-      {/* Chapters Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-4">
+      {/* ── Chapters Grid ── */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
         {filteredChapters.map((chapter) => {
-          // Count how many words in this bab are learned
           const wordsInBab = KOTOBA_DATA.filter((k) => k.bab === chapter.bab);
           const learnedCount = wordsInBab.filter((k) => learnedKotobaIds.includes(k.id)).length;
           const pct = chapter.totalKata > 0 ? Math.round((learnedCount / chapter.totalKata) * 100) : 0;
+          const isDone = pct === 100;
 
           return (
             <div
               key={chapter.bab}
-              onClick={() => {
-                sound.playClick();
-                setSelectedBab(chapter.bab);
-              }}
-              className="card-soft card-soft-hover p-4 sm:p-5 rounded-3xl cursor-pointer border border-[#E9E2F0] bg-white flex flex-col justify-between group"
+              onClick={() => { sound.playClick(); setSelectedBab(chapter.bab); }}
+              className={`group relative overflow-hidden rounded-2xl cursor-pointer border transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_30px_-6px_rgba(85,185,245,0.25)] p-4 flex flex-col justify-between ${
+                isDone
+                  ? 'bg-gradient-to-br from-[#0D2A1A] to-[#0A1F14] border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.1)]'
+                  : 'bg-[#0D1830] border-[#2457C5]/25 hover:border-[#55B9F5]/40'
+              }`}
             >
-              <div>
-                {/* Bab Tag */}
+              {/* Hover glow overlay */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-gradient-to-br from-[#2457C5]/8 to-[#55B9F5]/5 rounded-2xl" />
+
+              <div className="relative z-10">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[11px] font-bold text-[#77738A] uppercase tracking-wider font-mono">
+                  <span className="text-[10px] font-bold text-[#6B85B5] uppercase tracking-wider font-mono">
                     第{chapter.bab}課
                   </span>
                   {learnedCount > 0 && (
-                    <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-emerald-100">
-                      <CheckCircle2 className="w-3 h-3" />
+                    <span className={`text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 ${
+                      isDone
+                        ? 'text-emerald-400 bg-emerald-500/15 border border-emerald-500/30'
+                        : 'text-[#55B9F5] bg-[#55B9F5]/10 border border-[#55B9F5]/25'
+                    }`}>
+                      <CheckCircle2 className="w-2.5 h-2.5" />
                       {pct}%
                     </span>
                   )}
                 </div>
 
-                {/* Big Bab Number */}
-                <h3 className="text-3xl sm:text-4xl font-black text-[#29264B] tracking-tight group-hover:text-[#85B9D1] transition-colors font-['Manrope']">
+                <h3 className={`text-3xl sm:text-4xl font-black tracking-tight group-hover:text-[#55B9F5] transition-colors font-['Manrope'] ${
+                  isDone ? 'text-emerald-400' : 'text-[#DCE9FF]'
+                }`}>
                   {chapter.bab}
                 </h3>
 
-                <p className="text-xs font-semibold text-[#77738A] mt-1">
+                <p className="text-[11px] font-semibold text-[#6B85B5] mt-1">
                   {chapter.totalKata} kata · {learnedCount} hafal
                 </p>
               </div>
 
-              {/* Multi-colored Category Progress Bar */}
-              <div className="mt-4 pt-3 border-t border-[#E9E2F0]">
-                <div className="w-full h-2 rounded-full overflow-hidden flex bg-[#F0EBF8]">
+              {/* Progress bar */}
+              <div className="relative z-10 mt-4 pt-3 border-t border-[#2457C5]/20">
+                <div className="w-full h-1.5 rounded-full overflow-hidden bg-white/8 flex">
                   {chapter.categories.length > 0 ? (
                     chapter.categories.map((c, i) => (
                       <div
                         key={i}
-                        style={{
-                          width: `${(c.count / chapter.totalKata) * 100}%`,
-                          backgroundColor: c.color,
-                        }}
-                        className="h-full"
+                        style={{ width: `${(c.count / chapter.totalKata) * 100}%`, backgroundColor: c.color }}
+                        className="h-full opacity-70"
                         title={`${c.name}: ${c.count} kata`}
-                      ></div>
+                      />
                     ))
                   ) : (
                     <div
-                      className="h-full bg-gradient-to-r from-[#29264B] to-[#85B9D1] rounded-full"
-                      style={{ width: `${Math.max(5, pct)}%` }}
-                    ></div>
+                      className="h-full bg-gradient-to-r from-[#2457C5] to-[#55B9F5] rounded-full shadow-[0_0_6px_rgba(85,185,245,0.4)]"
+                      style={{ width: `${Math.max(4, pct)}%` }}
+                    />
                   )}
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Sparkles, Volume2, ArrowRight, BookOpen, Layers } from 'lucide-react';
+import { X, Sparkles, Volume2, ArrowRight, BookOpen } from 'lucide-react';
 import { KanjiItem } from '../types';
 import { speakJapanese, sound } from '../utils/audio';
 
@@ -28,30 +28,30 @@ export const DailyKanjiDetailModal: React.FC<DailyKanjiDetailModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg rounded-3xl bg-white shadow-2xl border border-[#E9E2F0] overflow-hidden text-left"
+        className="relative w-full max-w-lg rounded-3xl bg-white shadow-2xl border border-[#D2E2FC] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Accent Bar */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#29264B] via-[#6555A5] to-[#85B9D1]" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-[#101C3D] via-[#2457C5] to-[#55B9F5]" />
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E9E2F0] bg-[#F8F3FA]/80">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#D2E2FC] bg-[#F0F5FF]/90">
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#29264B] to-[#6555A5] text-white text-[11px] font-black uppercase tracking-wider font-mono shadow-xs">
+            <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#101C3D] to-[#2457C5] text-white text-[11px] font-black uppercase tracking-wider font-mono shadow-xs">
               KANJI HARI INI
             </span>
-            <span className="text-xs font-bold text-[#77738A] bg-white px-2.5 py-1 rounded-xl border border-[#E9E2F0]">
+            <span className="text-xs font-bold text-[#4A5B82] bg-white px-2.5 py-1 rounded-xl border border-[#D2E2FC]">
               {displayDate}
             </span>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl hover:bg-[#F0EBF8] text-[#77738A] hover:text-[#29264B] transition-colors"
+            className="p-1.5 rounded-xl hover:bg-[#DCE9FF] text-[#4A5B82] hover:text-[#101C3D] transition-colors"
             aria-label="Tutup jendela"
           >
             <X className="w-5 h-5" />
@@ -62,20 +62,20 @@ export const DailyKanjiDetailModal: React.FC<DailyKanjiDetailModalProps> = ({
         <div className="p-6 space-y-5">
           
           {/* Main Hero Card for the Kanji */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#29264B] via-[#43376E] to-[#6555A5] text-white relative overflow-hidden flex items-center justify-between gap-4 shadow-md">
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#101C3D] via-[#1A387E] to-[#2457C5] text-white relative overflow-hidden flex items-center justify-between gap-4 shadow-md shadow-[#101C3D]/20">
             <div className="space-y-1 relative z-10">
               <div className="flex items-center gap-2">
-                <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-white/20 text-[#85B9D1]">
+                <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-white/20 text-[#55B9F5]">
                   {kanji.jlpt}
                 </span>
-                <span className="text-xs font-bold text-[#E9E2F0]">
+                <span className="text-xs font-bold text-[#DCE9FF]">
                   {kanji.category}
                 </span>
               </div>
               <h2 className="text-2xl font-black text-white font-['Manrope']">
                 {kanji.meaning}
               </h2>
-              <p className="text-xs text-[#85B9D1] font-mono">
+              <p className="text-xs text-[#55B9F5] font-mono">
                 {kanji.meaningEn} · {kanji.strokeCount} Goresan
               </p>
             </div>
@@ -93,7 +93,7 @@ export const DailyKanjiDetailModal: React.FC<DailyKanjiDetailModalProps> = ({
                 className="mt-1 flex items-center gap-1 px-2.5 py-1 rounded-xl bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold transition-all active:scale-95 border border-white/20"
                 title="Dengarkan pengucapan"
               >
-                <Volume2 className="w-3.5 h-3.5" />
+                <Volume2 className="w-3.5 h-3.5 text-[#55B9F5]" />
                 <span>Audio</span>
               </button>
             </div>
@@ -106,20 +106,20 @@ export const DailyKanjiDetailModal: React.FC<DailyKanjiDetailModalProps> = ({
 
           {/* Readings: Onyomi & Kunyomi */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="p-3.5 rounded-2xl bg-[#F8F3FA] border border-[#E9E2F0] space-y-1">
-              <div className="text-[10px] font-black text-[#6555A5] uppercase tracking-wider font-mono">
+            <div className="p-3.5 rounded-2xl bg-[#F0F5FF] border border-[#D2E2FC] space-y-1">
+              <div className="text-[10px] font-black text-[#2457C5] uppercase tracking-wider font-mono">
                 音読み (On'yomi)
               </div>
-              <div className="kanji-font text-sm font-bold text-[#29264B] leading-tight">
+              <div className="kanji-font text-sm font-bold text-[#101C3D] leading-tight">
                 {kanji.onyomi || '—'}
               </div>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-[#F8F3FA] border border-[#E9E2F0] space-y-1">
-              <div className="text-[10px] font-black text-[#85B9D1] uppercase tracking-wider font-mono">
+            <div className="p-3.5 rounded-2xl bg-[#F0F5FF] border border-[#D2E2FC] space-y-1">
+              <div className="text-[10px] font-black text-[#55B9F5] uppercase tracking-wider font-mono">
                 訓読み (Kun'yomi)
               </div>
-              <div className="kanji-font text-sm font-bold text-[#29264B] leading-tight">
+              <div className="kanji-font text-sm font-bold text-[#101C3D] leading-tight">
                 {kanji.kunyomi || '—'}
               </div>
             </div>
@@ -128,32 +128,32 @@ export const DailyKanjiDetailModal: React.FC<DailyKanjiDetailModalProps> = ({
           {/* Sample Compound Words (Jukugo) */}
           {kanji.examples && kanji.examples.length > 0 && (
             <div className="space-y-2">
-              <div className="text-xs font-bold text-[#77738A] uppercase tracking-wider flex items-center gap-1.5">
-                <BookOpen className="w-3.5 h-3.5 text-[#6555A5]" />
+              <div className="text-xs font-bold text-[#4A5B82] uppercase tracking-wider flex items-center gap-1.5">
+                <BookOpen className="w-3.5 h-3.5 text-[#2457C5]" />
                 <span>Contoh Kosakata (Jukugo):</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {kanji.examples.slice(0, 2).map((ex, idx) => (
                   <div
                     key={idx}
-                    className="p-3 rounded-xl bg-white border border-[#E9E2F0] flex items-center justify-between gap-2 shadow-2xs"
+                    className="p-3 rounded-xl bg-white border border-[#D2E2FC] flex items-center justify-between gap-2 shadow-2xs"
                   >
                     <div>
                       <div className="flex items-baseline gap-1.5">
-                        <span className="kanji-font font-black text-sm text-[#29264B]">
+                        <span className="kanji-font font-black text-sm text-[#101C3D]">
                           {ex.word}
                         </span>
-                        <span className="text-[11px] font-mono text-[#6555A5]">
+                        <span className="text-[11px] font-mono text-[#2457C5]">
                           【{ex.reading}】
                         </span>
                       </div>
-                      <div className="text-[11px] text-[#77738A] font-medium">
+                      <div className="text-[11px] text-[#4A5B82] font-medium">
                         {ex.meaning}
                       </div>
                     </div>
                     <button
                       onClick={() => speakJapanese(ex.word)}
-                      className="p-1.5 rounded-lg hover:bg-[#F8F3FA] text-[#77738A] hover:text-[#29264B] transition-colors"
+                      className="p-1.5 rounded-lg hover:bg-[#F0F5FF] text-[#4A5B82] hover:text-[#101C3D] transition-colors"
                       title="Dengarkan kata"
                     >
                       <Volume2 className="w-3.5 h-3.5" />
@@ -172,9 +172,9 @@ export const DailyKanjiDetailModal: React.FC<DailyKanjiDetailModalProps> = ({
                 onClose();
                 onOpenFullDetail(kanji);
               }}
-              className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-gradient-to-r from-[#29264B] to-[#6555A5] hover:brightness-110 text-white font-bold text-xs sm:text-sm shadow-md shadow-[#29264B]/15 transition-all active:scale-95"
+              className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-gradient-to-r from-[#101C3D] to-[#2457C5] hover:brightness-110 text-white font-bold text-xs sm:text-sm shadow-md shadow-[#101C3D]/15 transition-all active:scale-95"
             >
-              <Sparkles className="w-4 h-4 text-[#85B9D1]" />
+              <Sparkles className="w-4 h-4 text-[#55B9F5]" />
               <span>Pelajari Kanji Ini Lebih Lanjut (Animasi Goresan & Latihan Tulis)</span>
               <ArrowRight className="w-4 h-4" />
             </button>

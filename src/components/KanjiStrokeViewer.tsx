@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { RotateCcw, Play, Pause, SkipForward, SkipBack, Eye, ChevronRight, Check } from 'lucide-react';
+import { RotateCcw, Play, Pause, SkipForward, SkipBack, Check } from 'lucide-react';
 import { KANJI_STROKE_DATA } from '../data/kanjiStrokeData';
 
 interface KanjiStrokeViewerProps {
@@ -154,8 +154,8 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
 
   if (!strokeData) {
     return (
-      <div className="flex items-center justify-center h-64 bg-[#F8F3FA] rounded-2xl border border-[#E9E2F0]">
-        <p className="text-sm text-[#77738A] font-medium">Panduan data goresan tidak tersedia untuk kanji ini.</p>
+      <div className="flex items-center justify-center h-64 bg-[#F0F5FF] rounded-2xl border border-[#D2E2FC]">
+        <p className="text-sm text-[#4A5B82] font-medium">Panduan data goresan tidak tersedia untuk kanji ini.</p>
       </div>
     );
   }
@@ -166,13 +166,13 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
     <div className="space-y-5">
       
       {/* Top Header & Progress */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#E9E2F0]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#D2E2FC]">
         <div>
-          <h4 className="text-sm font-extrabold text-[#29264B] flex items-center gap-2">
-            <span className="text-[#29264B] font-black kanji-font text-base">書き順</span>
+          <h4 className="text-sm font-extrabold text-[#101C3D] flex items-center gap-2">
+            <span className="text-[#2457C5] font-black kanji-font text-base">書き順</span>
             <span>Panduan Urutan Goresan Interaktif</span>
           </h4>
-          <p className="text-xs text-[#77738A] mt-0.5">
+          <p className="text-xs text-[#4A5B82] mt-0.5">
             Pelajari arah dan nomor urutan goresan standar resmi Jepang.
           </p>
         </div>
@@ -180,14 +180,14 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
         {/* Progress Badge */}
         <div className="flex items-center gap-3">
           <div className="text-right">
-            <span className="text-[11px] font-bold text-[#77738A] block">Progres Goresan</span>
-            <span className="text-xs font-black text-[#29264B]">
+            <span className="text-[11px] font-bold text-[#4A5B82] block">Progres Goresan</span>
+            <span className="text-xs font-black text-[#101C3D]">
               {visibleStrokes} / {totalStrokes} Goresan ({progressPercent}%)
             </span>
           </div>
-          <div className="w-20 h-2 bg-[#F0EBF8] rounded-full overflow-hidden border border-[#E9E2F0]">
+          <div className="w-20 h-2 bg-[#DCE9FF] rounded-full overflow-hidden border border-[#D2E2FC]">
             <div 
-              className="h-full bg-gradient-to-r from-[#29264B] to-[#85B9D1] transition-all duration-300"
+              className="h-full bg-gradient-to-r from-[#101C3D] via-[#2457C5] to-[#55B9F5] transition-all duration-300"
               style={{ width: `${progressPercent}%` }}
             ></div>
           </div>
@@ -197,7 +197,7 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
       <div className="flex flex-col lg:flex-row gap-6 items-center lg:items-start">
         
         {/* SVG Drawing Blackboard */}
-        <div className="relative w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] rounded-3xl bg-white border-2 border-[#E9E2F0] shadow-sm overflow-hidden shrink-0 flex items-center justify-center">
+        <div className="relative w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] rounded-3xl bg-white border-2 border-[#D2E2FC] shadow-sm overflow-hidden shrink-0 flex items-center justify-center">
           
           {/* Subtle Grid crosshair lines */}
           <svg
@@ -205,8 +205,8 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
             viewBox="0 0 109 109"
             preserveAspectRatio="xMidYMid meet"
           >
-            <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="#E9E2F0" strokeWidth="0.8" strokeDasharray="3 3" />
-            <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="#E9E2F0" strokeWidth="0.8" strokeDasharray="3 3" />
+            <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="#D2E2FC" strokeWidth="0.8" strokeDasharray="3 3" />
+            <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="#D2E2FC" strokeWidth="0.8" strokeDasharray="3 3" />
           </svg>
 
           {/* Stroke paths */}
@@ -230,7 +230,7 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
                 <path
                   key={idx}
                   d={pathD}
-                  stroke={isCurrentStroke ? '#29264B' : '#29264B'}
+                  stroke={isCurrentStroke ? '#2457C5' : '#101C3D'}
                   strokeWidth={isCurrentStroke ? '4.8' : '4.2'}
                   style={
                     isBeingDrawn
@@ -259,10 +259,10 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
                     cx={start.x}
                     cy={start.y}
                     r={isCurrent ? '7.5' : '6'}
-                    fill={isCurrent ? '#85B9D1' : '#29264B'}
+                    fill={isCurrent ? '#55B9F5' : '#2457C5'}
                     stroke="white"
                     strokeWidth="1.8"
-                    opacity={isCurrent ? 1 : 0.88}
+                    opacity={isCurrent ? 1 : 0.9}
                   />
                   {/* Number */}
                   <text
@@ -285,7 +285,7 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
           {/* Kanji Ghost Overlay if zero strokes displayed */}
           {visibleStrokes === 0 && !isAnimating && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15">
-              <span className="kanji-font text-[160px] font-black text-[#29264B]">
+              <span className="kanji-font text-[160px] font-black text-[#101C3D]">
                 {kanji}
               </span>
             </div>
@@ -296,13 +296,13 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
         <div className="flex-1 min-w-0 w-full space-y-4">
           
           {/* Action Button Bar */}
-          <div className="flex flex-wrap items-center gap-2 p-2 rounded-2xl bg-[#F0EBF8]/60 border border-[#E9E2F0]">
+          <div className="flex flex-wrap items-center gap-2 p-2 rounded-2xl bg-[#F0F5FF] border border-[#D2E2FC]">
             
             {/* Play / Pause / Replay Button */}
             {!isAnimating ? (
               <button
                 onClick={playAnimation}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#29264B] to-[#85B9D1] hover:brightness-105 text-white text-xs font-bold shadow-xs transition-all"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#101C3D] to-[#2457C5] hover:brightness-110 text-white text-xs font-bold shadow-xs transition-all"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
                 <span>Putar Animasi</span>
@@ -310,7 +310,7 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
             ) : isPaused ? (
               <button
                 onClick={resumeAnimation}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#29264B] to-[#85B9D1] hover:brightness-105 text-white text-xs font-bold shadow-xs transition-all"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#101C3D] to-[#2457C5] hover:brightness-110 text-white text-xs font-bold shadow-xs transition-all"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
                 <span>Lanjutkan</span>
@@ -329,7 +329,7 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
             <button
               onClick={prevStroke}
               disabled={visibleStrokes <= 0}
-              className="p-2 rounded-xl bg-white hover:bg-[#F8F3FA] text-[#29264B] border border-[#E9E2F0] disabled:opacity-40 transition-colors"
+              className="p-2 rounded-xl bg-white hover:bg-[#F0F5FF] text-[#101C3D] border border-[#D2E2FC] disabled:opacity-40 transition-colors"
               title="Goresan Sebelumnya"
             >
               <SkipBack className="w-4 h-4" />
@@ -338,7 +338,7 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
             <button
               onClick={nextStroke}
               disabled={visibleStrokes >= totalStrokes}
-              className="p-2 rounded-xl bg-white hover:bg-[#F8F3FA] text-[#29264B] border border-[#E9E2F0] disabled:opacity-40 transition-colors"
+              className="p-2 rounded-xl bg-white hover:bg-[#F0F5FF] text-[#101C3D] border border-[#D2E2FC] disabled:opacity-40 transition-colors"
               title="Goresan Berikutnya"
             >
               <SkipForward className="w-4 h-4" />
@@ -346,7 +346,7 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
 
             <button
               onClick={resetView}
-              className="flex items-center gap-1 px-3 py-2 rounded-xl bg-white hover:bg-[#F8F3FA] text-[#77738A] hover:text-[#29264B] border border-[#E9E2F0] text-xs font-bold transition-colors ml-auto"
+              className="flex items-center gap-1 px-3 py-2 rounded-xl bg-white hover:bg-[#F0F5FF] text-[#4A5B82] hover:text-[#101C3D] border border-[#D2E2FC] text-xs font-bold transition-colors ml-auto"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Reset</span>
@@ -355,7 +355,7 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
 
           {/* Stroke Step List */}
           <div className="space-y-1.5 max-h-[200px] overflow-y-auto pr-1">
-            <span className="text-[11px] font-bold text-[#77738A] uppercase tracking-wider block">
+            <span className="text-[11px] font-bold text-[#4A5B82] uppercase tracking-wider block">
               Daftar Langkah Goresan (Klik untuk melompat):
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
@@ -374,19 +374,19 @@ export const KanjiStrokeViewer: React.FC<KanjiStrokeViewerProps> = ({ kanji, str
                     }}
                     className={`flex items-center justify-between p-2.5 rounded-xl border text-xs font-bold transition-all text-left ${
                       isCurrent && isDrawn
-                        ? 'bg-[#F0EBF8] border-[#85B9D1] text-[#29264B] shadow-xs'
+                        ? 'bg-[#DCE9FF] border-[#2457C5] text-[#101C3D] shadow-xs'
                         : isDrawn
-                        ? 'bg-white border-[#E9E2F0] text-[#29264B] hover:bg-[#F8F3FA]'
-                        : 'bg-[#F8F3FA]/70 border-dashed border-[#E9E2F0] text-[#77738A]/50'
+                        ? 'bg-white border-[#D2E2FC] text-[#101C3D] hover:bg-[#F0F5FF]'
+                        : 'bg-[#F0F5FF]/70 border-dashed border-[#D2E2FC] text-[#4A5B82]/50'
                     }`}
                   >
                     <span className="flex items-center gap-2">
                       <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black ${
                         isCurrent
-                          ? 'bg-[#85B9D1] text-white'
+                          ? 'bg-[#2457C5] text-white'
                           : isDrawn
-                          ? 'bg-[#29264B] text-white'
-                          : 'bg-slate-200 text-slate-500'
+                          ? 'bg-[#101C3D] text-white'
+                          : 'bg-[#DCE9FF] text-[#4A5B82]'
                       }`}>
                         {idx + 1}
                       </span>

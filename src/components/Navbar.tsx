@@ -7,12 +7,10 @@ import {
   Search,
   Volume2,
   VolumeX,
-  Flame,
   Languages,
   Database,
   Cloud,
   LogOut,
-  User as UserIcon,
   Check
 } from 'lucide-react';
 import { sound } from '../utils/audio';
@@ -39,9 +37,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   soundEnabled,
   setSoundEnabled,
   onOpenSearch,
-  learnedKotobaCount,
-  learnedKanjiCount,
-  streakDays,
   user,
   onOpenAuth,
   onSignOut,
@@ -57,113 +52,108 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full glass-header shadow-xs">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div className="flex items-center justify-between h-16 sm:h-20 gap-4 lg:gap-8">
+    <header className="sticky top-0 z-40 w-full pt-2 sm:pt-3 px-3 sm:px-6">
+      <div className="max-w-7xl mx-auto rounded-2xl sm:rounded-3xl bg-[#101C3D]/95 backdrop-blur-xl border border-[#2457C5]/30 shadow-[0_10px_35px_rgba(16,28,61,0.35)] transition-all">
+        <div className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8 gap-4">
 
           {/* Logo & Brand: ZENORA */}
           <div
             onClick={() => handleNav('beranda')}
             className="flex items-center gap-3 cursor-pointer group select-none shrink-0"
           >
-            {/* Desktop Full Logo */}
-            <div className="hidden sm:flex items-center">
-              <img
-                src="/zenora-full.png"
-                alt="ZENORA - Learn • Practice • Master"
-                className="h-10 sm:h-12 w-auto object-contain drop-shadow-2xs group-hover:scale-[1.02] transition-transform"
-              />
-            </div>
-
-            {/* Mobile Compact Brand */}
-            <div className="flex sm:hidden items-center gap-2.5">
-              <img
-                src="/zenora-icon.png"
-                alt="ZENORA"
-                className="w-10 h-10 object-contain drop-shadow-2xs"
-              />
+            {/* Desktop Brand */}
+            <div className="hidden sm:flex items-center gap-3">
+              <div className="relative">
+                <img
+                  src="/zenora-icon.png"
+                  alt="ZENORA"
+                  className="w-10 h-10 object-contain drop-shadow-[0_0_12px_rgba(85,185,245,0.4)] group-hover:scale-105 transition-transform"
+                />
+                <span className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-[#55B9F5] ring-2 ring-[#101C3D] animate-pulse"></span>
+              </div>
               <div>
-                <span className="font-black text-xl tracking-tight font-['Manrope'] text-[#29264B] block leading-none">
+                <span className="font-black text-2xl tracking-tight font-['Manrope'] bg-gradient-to-r from-white via-[#DCE9FF] to-[#55B9F5] bg-clip-text text-transparent block leading-tight">
                   ZENORA
                 </span>
-                <span className="text-[9px] text-[#6555A5] font-bold font-mono tracking-wider block mt-1 uppercase">
-                  Learn · Practice · Master
+                <span className="text-[10px] text-[#55B9F5] font-bold font-mono tracking-widest block uppercase">
+                  Blue Sakura Future
                 </span>
               </div>
             </div>
+
+            {/* Mobile Compact Brand */}
+            <div className="flex sm:hidden items-center gap-2">
+              <img
+                src="/zenora-icon.png"
+                alt="ZENORA"
+                className="w-9 h-9 object-contain drop-shadow-[0_0_8px_rgba(85,185,245,0.4)]"
+              />
+              <span className="font-black text-lg tracking-tight font-['Manrope'] text-white">
+                ZENORA
+              </span>
+            </div>
           </div>
 
-          {/* Navigation Tabs - Spacious, elegant & never crammed */}
-          <nav className="hidden md:flex items-center gap-2 lg:gap-3 p-1.5 px-2 bg-[#F8F3FA] rounded-2xl border border-[#E9E2F0] shadow-2xs">
+          {/* Navigation Tabs - Floating Cyber-Zen Glass Bar */}
+          <nav className="hidden md:flex items-center gap-1.5 p-1.5 bg-[#0B142B]/80 rounded-2xl border border-[#2457C5]/30 shadow-inner">
 
             {/* Beranda */}
             <button
               onClick={() => handleNav('beranda')}
-              className={`flex items-center gap-2 px-3.5 lg:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'beranda'
-                  ? 'bg-white text-[#29264B] shadow-xs border border-[#E9E2F0]'
-                  : 'text-[#77738A] hover:text-[#29264B] hover:bg-white/70'
+                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
+                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
               }`}
-              title="Kembali ke Dashboard Utama Beranda"
             >
-              <Sparkles className={`w-4 h-4 ${activeTab === 'beranda' ? 'text-[#6555A5]' : 'text-[#85B9D1]'}`} />
+              <Sparkles className={`w-4 h-4 ${activeTab === 'beranda' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
               <span>Beranda</span>
             </button>
 
-            {/* Kana */}
+            {/* Aksara Kana */}
             <button
               onClick={() => handleNav('kana')}
-              className={`flex items-center gap-2 px-3.5 lg:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'kana'
-                  ? 'bg-white text-[#29264B] shadow-xs border border-[#E9E2F0]'
-                  : 'text-[#77738A] hover:text-[#29264B] hover:bg-white/70'
+                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
+                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
               }`}
-              title="Modul Pembelajaran Hiragana & Katakana Modern (312 Karakter)"
             >
-              <Languages className={`w-4 h-4 ${activeTab === 'kana' ? 'text-[#6555A5]' : 'text-[#85B9D1]'}`} />
+              <Languages className={`w-4 h-4 ${activeTab === 'kana' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
               <span>Kana</span>
-              <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                activeTab === 'kana' ? 'bg-[#6555A5]/15 text-[#29264B]' : 'bg-[#F0EBF8] text-[#29264B]'
-              }`}>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-[#55B9F5]/20 text-[#55B9F5] border border-[#55B9F5]/30">
                 あ・ア
               </span>
             </button>
 
-            {/* Kotoba */}
+            {/* Kotoba (Bab 1-50) */}
             <button
               onClick={() => handleNav('kotoba')}
-              className={`flex items-center gap-2 px-3.5 lg:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'kotoba'
-                  ? 'bg-white text-[#29264B] shadow-xs border border-[#E9E2F0]'
-                  : 'text-[#77738A] hover:text-[#29264B] hover:bg-white/70'
+                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
+                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
               }`}
-              title="Kosakata Minna no Nihongo Bab 1–50 (2.910 Kata)"
             >
-              <BookOpen className={`w-4 h-4 ${activeTab === 'kotoba' ? 'text-[#6555A5]' : 'text-[#85B9D1]'}`} />
+              <BookOpen className={`w-4 h-4 ${activeTab === 'kotoba' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
               <span>Kotoba</span>
-              <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                activeTab === 'kotoba' ? 'bg-[#6555A5]/15 text-[#29264B]' : 'bg-[#F0EBF8] text-[#29264B]'
-              }`}>
-                Bab 1–50
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-[#55B9F5]/20 text-[#55B9F5] border border-[#55B9F5]/30">
+                1–50
               </span>
             </button>
 
-            {/* Kanji */}
+            {/* Kanji (N5 & N4) */}
             <button
               onClick={() => handleNav('kanji')}
-              className={`flex items-center gap-2 px-3.5 lg:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'kanji'
-                  ? 'bg-white text-[#29264B] shadow-xs border border-[#E9E2F0]'
-                  : 'text-[#77738A] hover:text-[#29264B] hover:bg-white/70'
+                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
+                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
               }`}
-              title="Daftar 329 Kanji JLPT N5 & N4 Lengkap dengan Stroke Order"
             >
-              <PenTool className={`w-4 h-4 ${activeTab === 'kanji' ? 'text-[#6555A5]' : 'text-[#85B9D1]'}`} />
+              <PenTool className={`w-4 h-4 ${activeTab === 'kanji' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
               <span>Kanji</span>
-              <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                activeTab === 'kanji' ? 'bg-[#6555A5]/15 text-[#29264B]' : 'bg-[#F0EBF8] text-[#29264B]'
-              }`}>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-[#8975E8]/25 text-[#DCE9FF] border border-[#8975E8]/40">
                 N5–N4
               </span>
             </button>
@@ -171,212 +161,141 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mode Latihan */}
             <button
               onClick={() => handleNav('latihan')}
-              className={`flex items-center gap-2 px-3.5 lg:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'latihan'
-                  ? 'bg-white text-[#29264B] shadow-xs border border-[#E9E2F0]'
-                  : 'text-[#77738A] hover:text-[#29264B] hover:bg-white/70'
+                  ? 'bg-gradient-to-r from-[#2457C5] to-[#1A3A82] text-white shadow-[0_0_15px_rgba(85,185,245,0.35)] border border-[#55B9F5]/40'
+                  : 'text-[#DCE9FF]/75 hover:text-white hover:bg-white/5'
               }`}
-              title="4 Mode Latihan Interaktif: Kuis, Flashcard, Menjodohkan & Ketik Romaji"
             >
-              <Award className={`w-4 h-4 ${activeTab === 'latihan' ? 'text-[#6555A5]' : 'text-[#85B9D1]'}`} />
-              <span>Mode Latihan</span>
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#85B9D1] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#85B9D1]"></span>
-              </span>
+              <Award className={`w-4 h-4 ${activeTab === 'latihan' ? 'text-[#55B9F5]' : 'text-[#DCE9FF]/60'}`} />
+              <span>Latihan</span>
+              <span className="w-2 h-2 rounded-full bg-[#55B9F5] shadow-[0_0_8px_#55B9F5]"></span>
             </button>
 
           </nav>
 
-          {/* Right Utility Actions */}
-          <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 shrink-0">
+          {/* Action Tools: Search, Audio, Database Auth */}
+          <div className="flex items-center gap-2 sm:gap-3">
 
-            {/* Quick Search */}
+            {/* Quick Search Trigger */}
             <button
               onClick={onOpenSearch}
-              className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 rounded-xl bg-white hover:bg-[#F8F3FA] text-[#29264B] text-xs sm:text-sm font-semibold transition-colors border border-[#E9E2F0] shadow-2xs"
-              title="Cari Kosakata atau Kanji (⌘K)"
+              className="flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-[#DCE9FF] hover:text-white border border-white/15 transition-all text-xs font-semibold shadow-xs"
+              title="Cari (Ctrl + K)"
             >
-              <Search className="w-4 h-4 text-[#77738A]" />
-              <span className="hidden sm:inline">Cari</span>
-              <kbd className="hidden lg:inline text-[10px] font-mono bg-[#F8F3FA] px-1.5 py-0.5 rounded border border-[#E9E2F0] text-[#77738A]">
+              <Search className="w-4 h-4 text-[#55B9F5]" />
+              <span className="hidden lg:inline text-xs">Cari</span>
+              <kbd className="hidden sm:inline-flex items-center text-[10px] font-mono bg-white/10 text-[#DCE9FF] px-1.5 py-0.5 rounded border border-white/10">
                 ⌘K
               </kbd>
             </button>
 
-            {/* Audio Toggle */}
+            {/* Audio Pronunciation Mute/Unmute */}
             <button
-              onClick={() => setSoundEnabled(!soundEnabled)}
-              className={`p-2 rounded-xl border text-sm transition-colors ${
+              onClick={() => {
+                const next = !soundEnabled;
+                setSoundEnabled(next);
+                if (next) sound.playClick();
+              }}
+              className={`p-2 rounded-xl border transition-all ${
                 soundEnabled
-                  ? 'bg-white text-[#29264B] border-[#E9E2F0] shadow-2xs'
-                  : 'bg-[#F0EBF8] text-slate-400 border-slate-200'
+                  ? 'bg-white/10 text-[#55B9F5] border-white/15 hover:bg-white/20'
+                  : 'bg-white/5 text-white/40 border-white/10 hover:bg-white/10'
               }`}
-              title={soundEnabled ? 'Suara Aktif' : 'Suara Dimatikan'}
-              aria-label={soundEnabled ? 'Matikan suara' : 'Aktifkan suara'}
+              title={soundEnabled ? 'Suara Audio Aktif' : 'Suara Dimatikan'}
             >
-              {soundEnabled
-                ? <Volume2 className="w-4 h-4 text-[#29264B]" />
-                : <VolumeX className="w-4 h-4" />}
+              {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
             </button>
 
-            {/* SUPABASE ACCOUNT & CLOUD SYNC BUTTON */}
-            {!user ? (
-              <button
-                onClick={onOpenAuth}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-[#29264B] to-[#6555A5] hover:brightness-110 text-white text-xs font-bold shadow-xs transition-all active:scale-95"
-                title="Masuk / Hubungkan Database Cloud Supabase"
-              >
-                <Database className="w-3.5 h-3.5 text-[#85B9D1]" />
-                <span className="hidden sm:inline">Database</span>
-              </button>
-            ) : (
-              <div className="relative">
-                <button
-                  onClick={() => setUserDropdownOpen(prev => !prev)}
-                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-[#F0EBF8] hover:bg-[#E9E2F0] text-[#29264B] border border-[#6555A5]/25 text-xs font-bold transition-all shadow-2xs"
-                  title={`Akun: ${user.email} (Tersinkronisasi)`}
-                >
-                  <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-[#29264B] to-[#6555A5] text-white text-[10px] flex items-center justify-center font-black">
-                    {user.email?.charAt(0).toUpperCase() || 'U'}
-                  </div>
-                  <span className="hidden md:inline max-w-[80px] lg:max-w-[110px] truncate">
-                    {user.user_metadata?.full_name || user.email?.split('@')[0]}
-                  </span>
-                  <Cloud className={`w-3.5 h-3.5 ${isSyncing ? 'text-amber-500 animate-pulse' : 'text-emerald-600'}`} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {userDropdownOpen && (
-                  <div 
-                    className="absolute right-0 mt-2 w-56 rounded-2xl bg-white shadow-xl border border-[#E9E2F0] py-2 z-50 text-left animate-in fade-in duration-150"
-                    onClick={() => setUserDropdownOpen(false)}
+            {/* Database & Cloud Sync Account Pill */}
+            <div className="relative">
+              {user ? (
+                <div>
+                  <button
+                    onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#2457C5] to-[#163882] text-white border border-[#55B9F5]/40 text-xs font-bold transition-all shadow-[0_0_12px_rgba(85,185,245,0.3)]"
                   >
-                    <div className="px-4 py-2 border-b border-[#E9E2F0]">
-                      <div className="text-[11px] font-bold text-[#77738A] uppercase tracking-wider">
-                        Tersambung Supabase
+                    <Cloud className={`w-3.5 h-3.5 text-[#55B9F5] ${isSyncing ? 'animate-pulse' : ''}`} />
+                    <span className="max-w-[80px] sm:max-w-[120px] truncate">
+                      {user.user_metadata?.full_name || user.email?.split('@')[0]}
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  </button>
+
+                  {userDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-[#101C3D] border border-[#2457C5]/40 shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 text-left">
+                      <div className="px-3 py-2 border-b border-white/10 mb-1">
+                        <span className="text-[10px] text-[#55B9F5] font-bold block uppercase tracking-wider font-mono">
+                          Akun Terhubung
+                        </span>
+                        <span className="text-xs font-bold text-white block truncate">
+                          {user.email}
+                        </span>
                       </div>
-                      <div className="text-xs font-black text-[#29264B] truncate mt-0.5">
-                        {user.email}
-                      </div>
-                      <div className="flex items-center gap-1 mt-1 text-[10px] text-emerald-600 font-semibold">
-                        <Check className="w-3 h-3" />
-                        <span>Cloud Database Aktif</span>
-                      </div>
+                      <button
+                        onClick={() => {
+                          setUserDropdownOpen(false);
+                          onOpenAuth();
+                        }}
+                        className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-[#DCE9FF] hover:text-white hover:bg-white/10 transition-colors"
+                      >
+                        <Database className="w-3.5 h-3.5 text-[#55B9F5]" />
+                        <span>Pengaturan Database</span>
+                      </button>
+                      <button
+                        onClick={() => {
+                          setUserDropdownOpen(false);
+                          onSignOut();
+                        }}
+                        className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-colors"
+                      >
+                        <LogOut className="w-3.5 h-3.5" />
+                        <span>Keluar Akun</span>
+                      </button>
                     </div>
-
-                    <button
-                      onClick={() => {
-                        onOpenAuth();
-                        setUserDropdownOpen(false);
-                      }}
-                      className="w-full px-4 py-2 text-xs font-bold text-[#77738A] hover:text-[#29264B] hover:bg-[#F8F3FA] flex items-center gap-2 transition-colors"
-                    >
-                      <Database className="w-3.5 h-3.5 text-[#6555A5]" />
-                      <span>Pengaturan Koneksi</span>
-                    </button>
-
-                    <button
-                      onClick={() => {
-                        onSignOut();
-                        setUserDropdownOpen(false);
-                      }}
-                      className="w-full px-4 py-2 text-xs font-bold text-rose-600 hover:bg-rose-50 flex items-center gap-2 transition-colors border-t border-[#E9E2F0] mt-1"
-                    >
-                      <LogOut className="w-3.5 h-3.5" />
-                      <span>Keluar (Sign Out)</span>
-                    </button>
-                  </div>
-                )}
-              </div>
-            )}
+                  )}
+                </div>
+              ) : (
+                <button
+                  onClick={onOpenAuth}
+                  className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#2457C5] to-[#55B9F5] hover:brightness-110 text-white font-bold text-xs shadow-[0_0_15px_rgba(85,185,245,0.35)] transition-all active:scale-95"
+                >
+                  <Database className="w-3.5 h-3.5 text-white" />
+                  <span className="hidden sm:inline">Database</span>
+                </button>
+              )}
+            </div>
 
           </div>
+
         </div>
 
-        {/* Mobile Navigation Bar */}
-        <div className="flex md:hidden items-center justify-around py-1.5 border-t border-[#E9E2F0] gap-1">
-
-          <button
-            onClick={() => handleNav('beranda')}
-            className={`flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-xl text-xs font-bold transition-all ${
-              activeTab === 'beranda'
-                ? 'text-[#29264B] bg-[#F0EBF8]/80 font-black'
-                : 'text-[#77738A] hover:text-[#29264B]'
-            }`}
-            title="Beranda"
-          >
-            <Sparkles className={`w-4 h-4 ${activeTab === 'beranda' ? 'text-[#6555A5]' : ''}`} />
-            <span>Beranda</span>
-            {activeTab === 'beranda' && (
-              <span className="w-1.5 h-0.5 rounded-full bg-[#6555A5]" />
-            )}
-          </button>
-
-          <button
-            onClick={() => handleNav('kana')}
-            className={`flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-xl text-xs font-bold transition-all ${
-              activeTab === 'kana'
-                ? 'text-[#29264B] bg-[#F0EBF8]/80 font-black'
-                : 'text-[#77738A] hover:text-[#29264B]'
-            }`}
-            title="Kana (Hiragana & Katakana)"
-          >
-            <Languages className={`w-4 h-4 ${activeTab === 'kana' ? 'text-[#6555A5]' : ''}`} />
-            <span>Kana</span>
-            {activeTab === 'kana' && (
-              <span className="w-1.5 h-0.5 rounded-full bg-[#6555A5]" />
-            )}
-          </button>
-
-          <button
-            onClick={() => handleNav('kotoba')}
-            className={`flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-xl text-xs font-bold transition-all ${
-              activeTab === 'kotoba'
-                ? 'text-[#29264B] bg-[#F0EBF8]/80 font-black'
-                : 'text-[#77738A] hover:text-[#29264B]'
-            }`}
-            title="Kosakata Kotoba"
-          >
-            <BookOpen className={`w-4 h-4 ${activeTab === 'kotoba' ? 'text-[#6555A5]' : ''}`} />
-            <span>Kotoba</span>
-            {activeTab === 'kotoba' && (
-              <span className="w-1.5 h-0.5 rounded-full bg-[#6555A5]" />
-            )}
-          </button>
-
-          <button
-            onClick={() => handleNav('kanji')}
-            className={`flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-xl text-xs font-bold transition-all ${
-              activeTab === 'kanji'
-                ? 'text-[#29264B] bg-[#F0EBF8]/80 font-black'
-                : 'text-[#77738A] hover:text-[#29264B]'
-            }`}
-            title="Kanji N5 & N4"
-          >
-            <PenTool className={`w-4 h-4 ${activeTab === 'kanji' ? 'text-[#6555A5]' : ''}`} />
-            <span>Kanji</span>
-            {activeTab === 'kanji' && (
-              <span className="w-1.5 h-0.5 rounded-full bg-[#6555A5]" />
-            )}
-          </button>
-
-          <button
-            onClick={() => handleNav('latihan')}
-            className={`flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-xl text-xs font-bold transition-all ${
-              activeTab === 'latihan'
-                ? 'text-[#29264B] bg-[#F0EBF8]/80 font-black'
-                : 'text-[#77738A] hover:text-[#29264B]'
-            }`}
-            title="Mode Latihan"
-          >
-            <Award className={`w-4 h-4 ${activeTab === 'latihan' ? 'text-[#6555A5]' : ''}`} />
-            <span>Latihan</span>
-            {activeTab === 'latihan' && (
-              <span className="w-1.5 h-0.5 rounded-full bg-[#6555A5]" />
-            )}
-          </button>
-
+        {/* Mobile Navigation Row (Bottom Bar in Header for Small Devices) */}
+        <div className="flex md:hidden items-center justify-around py-2 border-t border-white/10 px-2 gap-1 overflow-x-auto">
+          {[
+            { id: 'beranda', label: 'Beranda', icon: Sparkles },
+            { id: 'kana', label: 'Kana', icon: Languages },
+            { id: 'kotoba', label: 'Kotoba', icon: BookOpen },
+            { id: 'kanji', label: 'Kanji', icon: PenTool },
+            { id: 'latihan', label: 'Latihan', icon: Award },
+          ].map((item) => {
+            const Icon = item.icon;
+            const isActive = activeTab === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleNav(item.id as any)}
+                className={`flex flex-col items-center py-1 px-2.5 rounded-xl text-[11px] font-bold transition-all whitespace-nowrap ${
+                  isActive
+                    ? 'bg-gradient-to-r from-[#2457C5] to-[#163882] text-white shadow-xs'
+                    : 'text-[#DCE9FF]/70 hover:text-white'
+                }`}
+              >
+                <Icon className={`w-4 h-4 mb-0.5 ${isActive ? 'text-[#55B9F5]' : ''}`} />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
         </div>
 
       </div>

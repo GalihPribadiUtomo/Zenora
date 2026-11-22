@@ -6,7 +6,6 @@ import {
   SkipForward, 
   SkipBack, 
   Gauge, 
-  CheckCircle2,
   Sparkles
 } from 'lucide-react';
 import { KANA_STROKE_DATA, KanaStrokeData } from '../data/kanaStrokeData';
@@ -26,7 +25,6 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
   const chars = Array.from(char);
   const [selectedSubIndex, setSelectedSubIndex] = useState(0);
 
-  // If compound (length > 1), use the selected sub-character for stroke data lookup
   const activeChar = chars.length > 1 ? chars[selectedSubIndex] : char;
   const strokeData: KanaStrokeData | undefined = KANA_STROKE_DATA[activeChar] || KANA_STROKE_DATA[char];
 
@@ -34,7 +32,7 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [activeStroke, setActiveStroke] = useState<number | null>(null);
-  const [speed, setSpeed] = useState<number>(1); // 0.5, 1, 1.5, 2
+  const [speed, setSpeed] = useState<number>(1);
   const [animProgress, setAnimProgress] = useState<Record<number, number>>({});
   
   const animRef = useRef<number | null>(null);
@@ -45,14 +43,12 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
 
   const totalStrokes = strokeData ? strokeData.paths.length : strokeCount;
 
-  // Sync refs
   useEffect(() => {
     isPausedRef.current = isPaused;
     isAnimatingRef.current = isAnimating;
     speedRef.current = speed;
   }, [isPaused, isAnimating, speed]);
 
-  // Reset state on character change
   useEffect(() => {
     setVisibleStrokes(totalStrokes);
     setActiveStroke(null);
@@ -62,7 +58,6 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
     if (animRef.current) cancelAnimationFrame(animRef.current);
   }, [char, activeChar, totalStrokes]);
 
-  // Measure path length in hidden SVG
   const getPathLength = useCallback((pathD: string): number => {
     try {
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -78,7 +73,6 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
     }
   }, []);
 
-  // Play stroke by stroke animation
   const playAnimation = useCallback(() => {
     if (!strokeData || strokeData.paths.length === 0) return;
 
@@ -129,7 +123,6 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
         if (progress < 1) {
           animRef.current = requestAnimationFrame(animate);
         } else {
-          // Goresan ini tuntas
           setVisibleStrokes(idx + 1);
           const pauseBeforeNext = 140 / (speedRef.current || 1);
           setTimeout(() => {
@@ -179,22 +172,22 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
     setVisibleStrokes(prev => Math.max(0, prev - 1));
   };
 
-  // Color palette for distinctive strokes
+  // Blue Sakura Future distinct stroke colors:
   const strokeColors = [
-    '#29264B', // Deep Indigo
-    '#6555A5', // Royal Blue
+    '#101C3D', // Midnight Navy
+    '#2457C5', // Royal Blue
+    '#55B9F5', // Electric Sky
+    '#8975E8', // Soft Violet
     '#059669', // Emerald
     '#D97706', // Amber
-    '#DC2626', // Crimson Red
-    '#7C3AED', // Violet
   ];
 
   return (
     <div className="space-y-5">
-      {/* Compound Character Component Selector (for Youon & Extended Kana) */}
+      {/* Compound Character Component Selector */}
       {chars.length > 1 && (
-        <div className="flex flex-wrap items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#F8F3FA] border border-[#E9E2F0]">
-          <span className="text-xs font-bold text-[#77738A]">Karakter Komponen:</span>
+        <div className="flex flex-wrap items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#F0F5FF] border border-[#D2E2FC]">
+          <span className="text-xs font-bold text-[#4A5B82]">Karakter Komponen:</span>
           {chars.map((c, idx) => (
             <button
               key={idx}
@@ -204,8 +197,8 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-black transition-all ${
                 selectedSubIndex === idx
-                  ? 'bg-gradient-to-r from-[#29264B] to-[#6555A5] text-white shadow-xs'
-                  : 'bg-white text-[#77738A] hover:text-[#29264B] border border-[#E9E2F0]'
+                  ? 'bg-gradient-to-r from-[#101C3D] to-[#2457C5] text-white shadow-xs'
+                  : 'bg-white text-[#4A5B82] hover:text-[#101C3D] border border-[#D2E2FC]'
               }`}
             >
               <span className="font-japanese text-base">{c}</span>
@@ -218,14 +211,14 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
       )}
 
       {/* Visual Canvas Area with Crosshair Guidelines */}
-      <div className="relative w-64 h-64 sm:w-72 sm:h-72 mx-auto rounded-3xl bg-white border border-[#E9E2F0] shadow-md flex items-center justify-center overflow-hidden">
+      <div className="relative w-64 h-64 sm:w-72 sm:h-72 mx-auto rounded-3xl bg-white border border-[#D2E2FC] shadow-md flex items-center justify-center overflow-hidden">
         
         {/* Delicate Crosshair Grid */}
         <div className="absolute inset-0 pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 109 109">
-            <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="#E9E2F0" strokeWidth="0.8" strokeDasharray="3 3" />
-            <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="#E9E2F0" strokeWidth="0.8" strokeDasharray="3 3" />
-            <circle cx="54.5" cy="54.5" r="50" stroke="#F1F5F9" strokeWidth="0.8" fill="none" />
+            <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="#D2E2FC" strokeWidth="0.8" strokeDasharray="3 3" />
+            <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="#D2E2FC" strokeWidth="0.8" strokeDasharray="3 3" />
+            <circle cx="54.5" cy="54.5" r="50" stroke="#F0F5FF" strokeWidth="0.8" fill="none" />
           </svg>
         </div>
 
@@ -241,7 +234,7 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
                 key={`ghost-${i}`}
                 d={d}
                 fill="none"
-                stroke="#E9E2F0"
+                stroke="#D2E2FC"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -325,25 +318,25 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
           </svg>
         ) : (
           /* Fallback large static char */
-          <span className="kanji-font text-8xl font-black text-[#29264B]">
+          <span className="kanji-font text-8xl font-black text-[#101C3D]">
             {char}
           </span>
         )}
 
         {/* Current Step Pill Overlay */}
-        <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-xl bg-white/90 backdrop-blur-xs border border-[#E9E2F0] shadow-xs text-[11px] font-bold font-mono text-[#29264B]">
+        <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-xs border border-[#D2E2FC] shadow-xs text-[11px] font-bold font-mono text-[#101C3D]">
           Goresan: {visibleStrokes} / {totalStrokes}
         </div>
       </div>
 
       {/* Control Buttons Bar */}
-      <div className="flex flex-wrap items-center justify-center gap-2 p-3 rounded-2xl bg-[#F8F3FA] border border-[#E9E2F0]">
+      <div className="flex flex-wrap items-center justify-center gap-2 p-3 rounded-2xl bg-[#F0F5FF] border border-[#D2E2FC]">
         
         {/* Step backward */}
         <button
           onClick={prevStroke}
           disabled={visibleStrokes <= 0 || isAnimating}
-          className="p-2.5 rounded-xl bg-white hover:bg-[#F0EBF8] text-[#29264B] border border-[#E9E2F0] disabled:opacity-40 transition-colors shadow-2xs"
+          className="p-2.5 rounded-xl bg-white hover:bg-[#E5EFFF] text-[#101C3D] border border-[#D2E2FC] disabled:opacity-40 transition-colors shadow-2xs"
           title="Goresan Sebelumnya"
           aria-label="Previous stroke"
         >
@@ -363,10 +356,10 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
         ) : (
           <button
             onClick={playAnimation}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#29264B] to-[#85B9D1] hover:brightness-105 text-white font-bold text-xs shadow-xs transition-all active:scale-95"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#101C3D] to-[#2457C5] hover:brightness-110 text-white font-bold text-xs shadow-xs transition-all active:scale-95"
             title="Putar Animasi Goresan"
           >
-            <Play className="w-4 h-4" />
+            <Play className="w-4 h-4 text-[#55B9F5]" />
             <span>{isPaused ? 'Lanjutkan' : 'Putar Animasi'}</span>
           </button>
         )}
@@ -375,7 +368,7 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
         <button
           onClick={nextStroke}
           disabled={visibleStrokes >= totalStrokes || isAnimating}
-          className="p-2.5 rounded-xl bg-white hover:bg-[#F0EBF8] text-[#29264B] border border-[#E9E2F0] disabled:opacity-40 transition-colors shadow-2xs"
+          className="p-2.5 rounded-xl bg-white hover:bg-[#E5EFFF] text-[#101C3D] border border-[#D2E2FC] disabled:opacity-40 transition-colors shadow-2xs"
           title="Goresan Berikutnya"
           aria-label="Next stroke"
         >
@@ -385,18 +378,18 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
         {/* Reset / Replay */}
         <button
           onClick={resetAnimation}
-          className="p-2.5 rounded-xl bg-white hover:bg-[#F0EBF8] text-[#77738A] hover:text-[#29264B] border border-[#E9E2F0] transition-colors shadow-2xs"
+          className="p-2.5 rounded-xl bg-white hover:bg-[#E5EFFF] text-[#4A5B82] hover:text-[#101C3D] border border-[#D2E2FC] transition-colors shadow-2xs"
           title="Tampilkan Utuh / Reset"
           aria-label="Reset strokes"
         >
           <RotateCcw className="w-4 h-4" />
         </button>
 
-        <div className="h-5 w-px bg-[#E9E2F0] mx-1"></div>
+        <div className="h-5 w-px bg-[#D2E2FC] mx-1"></div>
 
         {/* Speed Selector Pill */}
-        <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-[#E9E2F0]">
-          <Gauge className="w-3.5 h-3.5 text-[#77738A] ml-1.5" />
+        <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-[#D2E2FC]">
+          <Gauge className="w-3.5 h-3.5 text-[#4A5B82] ml-1.5" />
           {[0.5, 1, 1.5, 2].map((s) => (
             <button
               key={s}
@@ -406,8 +399,8 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
               }}
               className={`px-2 py-0.5 rounded-lg text-[10px] font-black font-mono transition-colors ${
                 speed === s
-                  ? 'bg-gradient-to-r from-[#29264B] to-[#85B9D1] text-white shadow-xs'
-                  : 'text-[#77738A] hover:text-[#29264B]'
+                  ? 'bg-gradient-to-r from-[#101C3D] to-[#2457C5] text-white shadow-xs'
+                  : 'text-[#4A5B82] hover:text-[#101C3D]'
               }`}
             >
               {s}x
@@ -419,12 +412,12 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
 
       {/* Writing Tips Banner */}
       {writingTips && (
-        <div className="p-4 rounded-2xl bg-[#F0EBF8]/70 border border-[#29264B]/15 text-left text-xs leading-relaxed">
-          <div className="flex items-center gap-1.5 font-black text-[#29264B] uppercase tracking-wider text-[11px] mb-1">
-            <Sparkles className="w-3.5 h-3.5 text-[#85B9D1]" />
+        <div className="p-4 rounded-2xl bg-[#F0F5FF] border border-[#D2E2FC] text-left text-xs leading-relaxed">
+          <div className="flex items-center gap-1.5 font-black text-[#101C3D] uppercase tracking-wider text-[11px] mb-1">
+            <Sparkles className="w-3.5 h-3.5 text-[#2457C5]" />
             <span>Kaidah & Arah Penulisan:</span>
           </div>
-          <p className="text-[#29264B] font-medium">
+          <p className="text-[#101C3D] font-medium">
             {writingTips}
           </p>
         </div>
