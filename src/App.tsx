@@ -12,6 +12,7 @@ import { SearchModal } from './components/SearchModal';
 import { AuthModal } from './components/AuthModal';
 import { KanaSection } from './components/KanaSection';
 import { SswSection } from './components/SswSection';
+import { AdminSection } from './components/admin/AdminSection';
 import { KanjiItem, QuizMode, QuizSubject } from './types';
 import { getInitialStats, saveStats } from './utils/storage';
 import { supabase, isSupabaseConfigured } from './lib/supabase';
@@ -20,7 +21,7 @@ import { X } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik' | 'profil'>('beranda');
+  const [activeTab, setActiveTab] = useState<'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik' | 'profil' | 'admin'>('beranda');
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
@@ -387,6 +388,17 @@ export function App() {
               }}
               darkMode={darkMode}
               onToggleDarkMode={() => setDarkMode(!darkMode)}
+            />
+          )}
+
+          {activeTab === 'admin' && (
+            <AdminSection
+              onBackToApp={() => setActiveTab('beranda')}
+              user={user}
+              onSyncCloud={() => {
+                if (user) handleCloudSync(user);
+              }}
+              isSyncing={isSyncing}
             />
           )}
           </div>

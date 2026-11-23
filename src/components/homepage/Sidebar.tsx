@@ -11,11 +11,12 @@ import {
   ChevronDown,
   Languages,
   PenTool,
-  BookMarked
+  BookMarked,
+  ShieldCheck
 } from 'lucide-react';
 import { sound } from '../../utils/audio';
 
-export type MainAppTab = 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik' | 'profil';
+export type MainAppTab = 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik' | 'profil' | 'admin';
 
 interface SidebarProps {
   activeTab: string;
@@ -40,6 +41,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const isLatihan = activeTab === 'latihan';
   const isAnalitik = activeTab === 'analitik';
   const isProfil = activeTab === 'profil';
+  const isAdmin = activeTab === 'admin';
 
   const [materiExpanded, setMateriExpanded] = useState(isMateri);
 
@@ -244,6 +246,27 @@ export const Sidebar: React.FC<SidebarProps> = ({
           >
             <UserIcon className={`w-5 h-5 transition-transform group-hover:scale-110 ${isProfil ? 'text-white' : 'text-[#7857FF]'}`} />
             <span>{user ? (user.email?.split('@')[0] || 'Profil') : 'Profil'}</span>
+          </button>
+
+          {/* 7. Admin & CMS Console */}
+          <button
+            onClick={() => {
+              sound.playClick();
+              onNavigateTab('admin');
+            }}
+            className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group ${
+              isAdmin
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_25px_rgba(120,87,255,0.45)]'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70'
+            }`}
+          >
+            <div className="flex items-center gap-3.5">
+              <ShieldCheck className={`w-5 h-5 transition-transform group-hover:scale-110 ${isAdmin ? 'text-white' : 'text-[#329BFF]'}`} />
+              <span>Admin & CMS</span>
+            </div>
+            <span className="text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-[#7857FF]/30 text-[#B46BFF] border border-[#7857FF]/40">
+              PRO
+            </span>
           </button>
 
         </nav>

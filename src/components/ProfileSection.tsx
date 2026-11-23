@@ -878,6 +878,33 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
             </div>
           </div>
 
+          {/* Group D: Konsol Admin & CMS */}
+          <div className="p-6 flex items-center justify-between border-t border-[#7857FF]/15 bg-gradient-to-r from-[#7857FF]/10 via-transparent to-[#329BFF]/10">
+            <div className="flex items-center gap-3">
+              <Shield className="w-5 h-5 text-[#329BFF]" />
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-black text-white font-['Manrope']">Panel Manajemen & CMS</h3>
+                  <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-[#7857FF]/30 text-[#B46BFF] border border-[#7857FF]/40">
+                    Admin
+                  </span>
+                </div>
+                <p className="text-xs text-[#AAB3D5]">Kelola kosakata kustom, kurikulum SSW, dan paket soal CBT</p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => {
+                sound.playClick();
+                onNavigate('admin');
+              }}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] hover:brightness-110 text-white text-xs font-bold shadow-[0_0_15px_rgba(120,87,255,0.4)] transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <span>Buka Admin Console</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
         </div>
       </div>
 

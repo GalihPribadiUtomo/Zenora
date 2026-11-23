@@ -5,6 +5,7 @@ const KOTOBA_CUSTOM_STORAGE_KEY = 'zenora_kotoba_custom_v1';
 export interface KotobaCustomData {
   overrides: Record<string, Partial<KotobaItem>>;
   deletedIds: string[];
+  addedItems?: KotobaItem[];
 }
 
 export const loadKotobaCustomData = (): KotobaCustomData => {
@@ -15,6 +16,7 @@ export const loadKotobaCustomData = (): KotobaCustomData => {
       return {
         overrides: parsed.overrides || {},
         deletedIds: parsed.deletedIds || [],
+        addedItems: parsed.addedItems || [],
       };
     }
   } catch (e) {
@@ -23,6 +25,7 @@ export const loadKotobaCustomData = (): KotobaCustomData => {
   return {
     overrides: {},
     deletedIds: [],
+    addedItems: [],
   };
 };
 
@@ -35,10 +38,10 @@ export const saveKotobaCustomData = (data: KotobaCustomData): void => {
 };
 
 export const applyCustomKotoba = (baseList: KotobaItem[]): KotobaItem[] => {
-  const { overrides, deletedIds } = loadKotobaCustomData();
+  const { overrides, deletedIds, addedItems = [] } = loadKotobaCustomData();
   const deletedSet = new Set(deletedIds);
 
-  return baseList
+  const modifiedBase = baseList
     .filter((item) => !deletedSet.has(item.id))
     .map((item) => {
       if (overrides[item.id]) {
@@ -49,6 +52,21 @@ export const applyCustomKotoba = (baseList: KotobaItem[]): KotobaItem[] => {
       }
       return item;
     });
+
+  return [...modifiedBase, ...addedItems.filter(item => !deletedSet.has(item.id))];
+};
+
+export const persistKotobaAdd = (item: KotobaItem): void => {
+  const custom = loadKotobaCustomData();
+  if (!custom.addedItems) custom.addedItems = [];
+  // Replace if exists, or append
+  const idx = custom.addedItems.findIndex(x => x.id === item.id);
+  if (idx >= 0) {
+    custom.addedItems[idx] = item;
+  } else {
+    custom.addedItems.push(item);
+  }
+  saveKotobaCustomData(custom);
 };
 
 export const persistKotobaEdit = (item: KotobaItem): void => {
