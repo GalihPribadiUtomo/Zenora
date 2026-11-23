@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Home, 
   BookOpen, 
@@ -7,15 +7,19 @@ import {
   BarChart3, 
   User as UserIcon, 
   Moon,
-  Sparkles
+  Sparkles,
+  ChevronDown,
+  Languages,
+  PenTool,
+  BookMarked
 } from 'lucide-react';
 import { sound } from '../../utils/audio';
 
-export type SidebarTab = 'beranda' | 'materi' | 'ssw' | 'latihan' | 'analitik' | 'profil';
+export type MainAppTab = 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik';
 
 interface SidebarProps {
   activeTab: string;
-  onNavigateTab: (tab: 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan') => void;
+  onNavigateTab: (tab: MainAppTab) => void;
   onOpenAuth: () => void;
   user: any;
   darkMode?: boolean;
@@ -34,9 +38,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const isMateri = activeTab === 'kotoba' || activeTab === 'kana' || activeTab === 'kanji';
   const isSsw = activeTab === 'ssw';
   const isLatihan = activeTab === 'latihan';
+  const isAnalitik = activeTab === 'analitik';
+
+  const [materiExpanded, setMateriExpanded] = useState(isMateri);
 
   return (
-    <aside className="w-60 xl:w-64 shrink-0 h-screen sticky top-0 flex flex-col justify-between bg-[#080D2B] border-r border-[#7857FF]/15 p-4 z-40 select-none">
+    <aside className="w-60 xl:w-64 shrink-0 h-screen sticky top-0 flex flex-col justify-between bg-[#080D2B] border-r border-[#7857FF]/15 p-4 z-40 select-none overflow-y-auto">
       
       {/* Top Section: Logo & Nav items */}
       <div className="space-y-6">
@@ -50,16 +57,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           className="flex items-center gap-3 px-2 py-2 cursor-pointer group"
         >
           <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-[#7857FF] via-[#945CFF] to-[#329BFF] p-0.5 shadow-[0_0_20px_rgba(120,87,255,0.4)] group-hover:scale-105 transition-transform flex items-center justify-center">
-            <img 
-              src="/zenora-icon.png" 
-              alt="Zenora Icon" 
-              className="w-full h-full object-contain rounded-2xl"
-              onError={(e) => {
-                // Fallback to text if icon not loaded
-                (e.target as HTMLElement).style.display = 'none';
-              }}
-            />
-            <span className="absolute inset-0 flex items-center justify-center text-white font-black text-xl pointer-events-none">
+            <span className="text-white font-black text-xl">
               Z
             </span>
           </div>
@@ -80,7 +78,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Navigation Menu */}
-        <nav className="space-y-1.5 pt-2">
+        <nav className="space-y-1.5 pt-1">
           
           {/* 1. Beranda */}
           <button
@@ -98,21 +96,81 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <span>Beranda</span>
           </button>
 
-          {/* 2. Materi */}
-          <button
-            onClick={() => {
-              sound.playClick();
-              onNavigateTab('kotoba');
-            }}
-            className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group ${
-              isMateri 
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_25px_rgba(120,87,255,0.45)]' 
-                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70'
-            }`}
-          >
-            <BookOpen className={`w-5 h-5 transition-transform group-hover:scale-110 ${isMateri ? 'text-white' : 'text-[#7857FF]'}`} />
-            <span>Materi</span>
-          </button>
+          {/* 2. Materi (Accordion / Submenu) */}
+          <div>
+            <div
+              className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
+                isMateri 
+                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_25px_rgba(120,87,255,0.45)]' 
+                  : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70'
+              }`}
+              onClick={() => {
+                sound.playClick();
+                if (!isMateri) {
+                  onNavigateTab('kotoba');
+                  setMateriExpanded(true);
+                } else {
+                  setMateriExpanded(!materiExpanded);
+                }
+              }}
+            >
+              <div className="flex items-center gap-3.5">
+                <BookOpen className={`w-5 h-5 transition-transform group-hover:scale-110 ${isMateri ? 'text-white' : 'text-[#7857FF]'}`} />
+                <span>Materi</span>
+              </div>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${materiExpanded ? 'rotate-180' : ''}`} />
+            </div>
+
+            {/* Sub-menu Materi */}
+            {materiExpanded && (
+              <div className="pl-4 pr-1 py-1 space-y-1 mt-1 border-l-2 border-[#7857FF]/30 ml-4 animate-fade-in">
+                <button
+                  onClick={() => {
+                    sound.playClick();
+                    onNavigateTab('kotoba');
+                  }}
+                  className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
+                    activeTab === 'kotoba' 
+                      ? 'bg-[#12194A] text-[#329BFF] border border-[#329BFF]/30' 
+                      : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/50'
+                  }`}
+                >
+                  <BookMarked className="w-4 h-4" />
+                  <span>Bab 1–50 (Minna)</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    sound.playClick();
+                    onNavigateTab('kana');
+                  }}
+                  className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
+                    activeTab === 'kana' 
+                      ? 'bg-[#12194A] text-[#FF70C8] border border-[#FF70C8]/30' 
+                      : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/50'
+                  }`}
+                >
+                  <Languages className="w-4 h-4" />
+                  <span>Hiragana & Katakana</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    sound.playClick();
+                    onNavigateTab('kanji');
+                  }}
+                  className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
+                    activeTab === 'kanji' 
+                      ? 'bg-[#12194A] text-[#329BFF] border border-[#329BFF]/30' 
+                      : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/50'
+                  }`}
+                >
+                  <PenTool className="w-4 h-4" />
+                  <span>Kanji N5 & N4 (424)</span>
+                </button>
+              </div>
+            )}
+          </div>
 
           {/* 3. SSW with Tokutei Badge */}
           <button
@@ -155,17 +213,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={() => {
               sound.playClick();
-              // Scroll to stats section on homepage or trigger analytics
-              const statsEl = document.getElementById('learning-stats-section');
-              if (statsEl) {
-                statsEl.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                onNavigateTab('latihan');
-              }
+              onNavigateTab('analitik');
             }}
-            className="w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-sm text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70 transition-all duration-200 group"
+            className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group ${
+              isAnalitik 
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_25px_rgba(120,87,255,0.45)]' 
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70'
+            }`}
           >
-            <BarChart3 className="w-5 h-5 text-[#329BFF] transition-transform group-hover:scale-110" />
+            <BarChart3 className={`w-5 h-5 transition-transform group-hover:scale-110 ${isAnalitik ? 'text-white' : 'text-[#329BFF]'}`} />
             <span>Analitik</span>
           </button>
 
