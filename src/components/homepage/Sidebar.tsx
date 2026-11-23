@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { sound } from '../../utils/audio';
 
-export type MainAppTab = 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik';
+export type MainAppTab = 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik' | 'profil';
 
 interface SidebarProps {
   activeTab: string;
@@ -39,6 +39,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const isSsw = activeTab === 'ssw';
   const isLatihan = activeTab === 'latihan';
   const isAnalitik = activeTab === 'analitik';
+  const isProfil = activeTab === 'profil';
 
   const [materiExpanded, setMateriExpanded] = useState(isMateri);
 
@@ -233,11 +234,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={() => {
               sound.playClick();
-              onOpenAuth();
+              onNavigateTab('profil');
             }}
-            className="w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-sm text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70 transition-all duration-200 group"
+            className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group ${
+              isProfil
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_25px_rgba(120,87,255,0.45)]'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70'
+            }`}
           >
-            <UserIcon className="w-5 h-5 text-[#7857FF] transition-transform group-hover:scale-110" />
+            <UserIcon className={`w-5 h-5 transition-transform group-hover:scale-110 ${isProfil ? 'text-white' : 'text-[#7857FF]'}`} />
             <span>{user ? (user.email?.split('@')[0] || 'Profil') : 'Profil'}</span>
           </button>
 

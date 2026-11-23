@@ -14,6 +14,7 @@ import { sound } from '../../utils/audio';
 interface TopNavigationProps {
   onOpenSearch: () => void;
   onOpenAuth: () => void;
+  onNavigateToProfile?: () => void;
   user: any;
   soundEnabled: boolean;
   setSoundEnabled: (val: boolean) => void;
@@ -25,6 +26,7 @@ interface TopNavigationProps {
 export const TopNavigation: React.FC<TopNavigationProps> = ({
   onOpenSearch,
   onOpenAuth,
+  onNavigateToProfile,
   user,
   soundEnabled,
   setSoundEnabled,
@@ -132,10 +134,14 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
           <button
             onClick={() => {
               sound.playClick();
-              onOpenAuth();
+              if (onNavigateToProfile) {
+                onNavigateToProfile();
+              } else {
+                onOpenAuth();
+              }
             }}
-            className="flex items-center gap-2 p-1 pl-1 pr-1.5 sm:pr-3 rounded-2xl bg-[#0D1238] hover:bg-[#12194A] border border-[#7857FF]/25 hover:border-[#7857FF]/50 transition-all group shadow-xs"
-            title={user ? 'Kelola Akun & Sinkronisasi' : 'Masuk / Daftar Akun'}
+            className="flex items-center gap-2 p-1 pl-1 pr-1.5 sm:pr-3 rounded-2xl bg-[#0D1238] hover:bg-[#12194A] border border-[#7857FF]/25 hover:border-[#7857FF]/50 transition-all group shadow-xs cursor-pointer"
+            title={user ? 'Buka Profil & Pengaturan' : 'Masuk / Daftar Akun'}
           >
             <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#7857FF] to-[#329BFF] flex items-center justify-center text-white font-black text-sm shadow-[0_0_12px_rgba(120,87,255,0.4)] group-hover:scale-105 transition-transform">
               {user?.email ? user.email.charAt(0).toUpperCase() : 'Z'}

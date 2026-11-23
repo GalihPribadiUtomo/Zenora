@@ -6,6 +6,7 @@ import { KotobaSection } from './components/KotobaSection';
 import { KanjiSection } from './components/KanjiSection';
 import { PracticeSection } from './components/PracticeSection';
 import { AnalyticsSection } from './components/AnalyticsSection';
+import { ProfileSection } from './components/ProfileSection';
 import { KanjiModal } from './components/KanjiModal';
 import { SearchModal } from './components/SearchModal';
 import { AuthModal } from './components/AuthModal';
@@ -19,7 +20,7 @@ import { X } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik'>('beranda');
+  const [activeTab, setActiveTab] = useState<'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik' | 'profil'>('beranda');
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
@@ -276,6 +277,7 @@ export function App() {
         <TopNavigation
           onOpenSearch={() => setSearchOpen(true)}
           onOpenAuth={() => setAuthOpen(true)}
+          onNavigateToProfile={() => setActiveTab('profil')}
           user={user}
           soundEnabled={soundEnabled}
           setSoundEnabled={setSoundEnabled}
@@ -365,6 +367,25 @@ export function App() {
                 if (tab === 'kotoba') setSelectedBab(null);
                 setActiveTab(tab);
               }}
+            />
+          )}
+
+          {activeTab === 'profil' && (
+            <ProfileSection
+              stats={stats}
+              user={user}
+              onOpenAuth={() => setAuthOpen(true)}
+              onSignOut={handleSignOut}
+              isSyncing={isSyncing}
+              onSync={() => {
+                if (user) handleCloudSync(user);
+              }}
+              onNavigate={(tab) => {
+                if (tab === 'kotoba') setSelectedBab(null);
+                setActiveTab(tab as any);
+              }}
+              darkMode={darkMode}
+              onToggleDarkMode={() => setDarkMode(!darkMode)}
             />
           )}
 

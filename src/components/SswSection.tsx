@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   Briefcase,
   Award,
@@ -18,7 +18,6 @@ import {
   Languages,
   Clock,
   Sparkles,
-  ChevronDown,
   ChevronRight,
   Layers,
   Target,
@@ -33,11 +32,15 @@ import {
   ListChecks,
   Brain,
   Lightbulb,
-  ClipboardCheck,
   Users,
   Image as ImageIcon,
   ZoomIn,
-  X
+  X,
+  Compass,
+  TrendingUp,
+  MapPin,
+  Check,
+  Building
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 import { SSW_ALL_SECTORS } from '../data/ssw';
@@ -50,12 +53,46 @@ const ICON_MAP: Record<string, LucideIcon> = {
 };
 
 // ── Category Metadata ──
-const CATEGORY_META: Record<SswCategoryType, { label: string; icon: LucideIcon; color: string }> = {
-  pengenalan: { label: 'Pengenalan Bidang', icon: BookOpen, color: 'text-blue-400' },
-  kosakata: { label: 'Kosakata Kerja', icon: Languages, color: 'text-amber-400' },
-  komunikasi: { label: 'Komunikasi Kerja', icon: MessageSquare, color: 'text-emerald-400' },
-  keterampilan: { label: 'Keterampilan & K3', icon: ShieldCheck, color: 'text-purple-400' },
-  persiapan_ujian: { label: 'Persiapan Ujian', icon: Target, color: 'text-rose-400' }
+const CATEGORY_META: Record<SswCategoryType, { label: string; icon: LucideIcon; color: string; bg: string }> = {
+  pengenalan: { label: 'Pengenalan Bidang', icon: BookOpen, color: 'text-[#329BFF]', bg: 'bg-[#329BFF]/15 border-[#329BFF]/30' },
+  kosakata: { label: 'Kosakata Kerja', icon: Languages, color: 'text-[#FFC857]', bg: 'bg-[#FFC857]/15 border-[#FFC857]/30' },
+  komunikasi: { label: 'Komunikasi Kerja', icon: MessageSquare, color: 'text-[#00D6A3]', bg: 'bg-[#00D6A3]/15 border-[#00D6A3]/30' },
+  keterampilan: { label: 'Keterampilan & K3', icon: ShieldCheck, color: 'text-[#945CFF]', bg: 'bg-[#945CFF]/15 border-[#945CFF]/30' },
+  persiapan_ujian: { label: 'Persiapan Ujian', icon: Target, color: 'text-[#FF70C8]', bg: 'bg-[#FF70C8]/15 border-[#FF70C8]/30' }
+};
+
+// Sector Color Accents
+const SECTOR_ACCENTS: Record<SswSectorId, { gradient: string; glow: string; border: string }> = {
+  kaigo: {
+    gradient: 'from-[#080D2B] via-[#0D1238] to-[#1E1B4B]',
+    glow: 'rgba(120,87,255,0.3)',
+    border: 'border-[#7857FF]/40'
+  },
+  food_service: {
+    gradient: 'from-[#080D2B] via-[#0D1238] to-[#2E1065]',
+    glow: 'rgba(255,112,200,0.3)',
+    border: 'border-[#FF70C8]/40'
+  },
+  manufacturing: {
+    gradient: 'from-[#080D2B] via-[#0D1238] to-[#172554]',
+    glow: 'rgba(50,155,255,0.3)',
+    border: 'border-[#329BFF]/40'
+  },
+  agriculture: {
+    gradient: 'from-[#080D2B] via-[#0D1238] to-[#064E3B]',
+    glow: 'rgba(0,214,163,0.3)',
+    border: 'border-[#00D6A3]/40'
+  },
+  hospitality: {
+    gradient: 'from-[#080D2B] via-[#0D1238] to-[#3B0764]',
+    glow: 'rgba(180,107,255,0.3)',
+    border: 'border-[#B46BFF]/40'
+  },
+  building_cleaning: {
+    gradient: 'from-[#080D2B] via-[#0D1238] to-[#1E293B]',
+    glow: 'rgba(148,92,255,0.3)',
+    border: 'border-[#945CFF]/40'
+  }
 };
 
 // ── Storage Keys ──
@@ -125,8 +162,15 @@ export const SswSection: React.FC<SswSectionProps> = ({
   // Derived data
   const selectedSector = SSW_ALL_SECTORS.find(s => s.id === selectedSectorId) || SSW_ALL_SECTORS[0];
   const selectedChapter = selectedSector.chapters.find(ch => ch.id === selectedChapterId);
-
   const SectorIcon = ICON_MAP[selectedSector.iconName] || Briefcase;
+
+  // Global progress calculation across all sectors
+  const { totalAllChapters, completedAllChapters, overallPercentage } = useMemo(() => {
+    const total = SSW_ALL_SECTORS.reduce((acc, s) => acc + s.chapters.length, 0);
+    const completed = progress.completedLessonIds.length;
+    const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+    return { totalAllChapters: total, completedAllChapters: completed, overallPercentage: pct };
+  }, [progress.completedLessonIds]);
 
   const markChapterComplete = useCallback((chapterId: string) => {
     setProgress(prev => ({
@@ -202,417 +246,804 @@ export const SswSection: React.FC<SswSectionProps> = ({
     else setView('hub');
   };
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // VIEW: HUB — Overview Semua Sektor
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // VIEW: HUB — PREMIUM JAPANESE CAREER ACADEMY
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   if (view === 'hub') {
+    const featuredSector = SSW_ALL_SECTORS.find(s => s.id === progress.lastActiveSectorId) || SSW_ALL_SECTORS[0];
+    const FeaturedIcon = ICON_MAP[featuredSector.iconName] || Briefcase;
+    const featuredCompleted = featuredSector.chapters.filter(ch => progress.completedLessonIds.includes(ch.id)).length;
+    const featuredPct = Math.round((featuredCompleted / featuredSector.chapters.length) * 100);
+
     return (
-      <div className="space-y-8 text-left pb-16">
-        {/* Hero Banner */}
-        <div className="relative overflow-hidden rounded-3xl border border-[#7857FF]/25 shadow-[0_20px_60px_-15px_rgba(8,13,43,0.9),0_0_40px_rgba(120,87,255,0.15)] bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#12194A] p-6 sm:p-10">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12194A]/80 border border-[#7857FF]/35 text-[#F5F6FF] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(120,87,255,0.25)]">
-                <Briefcase className="w-4 h-4 text-[#7857FF]" />
-                Tokutei Ginou (特定技能) · Specified Skilled Worker (SSW)
+      <div className="space-y-10 text-left pb-20 animate-fade-in font-['Plus_Jakarta_Sans',sans-serif]">
+        
+        {/* ── 1. CINEMATIC HERO SECTION ── */}
+        <div className="relative overflow-hidden rounded-3xl border border-[#7857FF]/30 shadow-[0_24px_70px_-15px_rgba(8,13,43,0.95),0_0_50px_rgba(120,87,255,0.2)] bg-[#080D2B] min-h-[420px] flex items-center">
+          
+          {/* Background image & deep gradients */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-45 scale-105 transition-transform duration-1000"
+            style={{ backgroundImage: `url('/assets/ssw/ssw-hero-career.jpg')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#080D2B] via-[#080D2B]/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080D2B] via-transparent to-transparent" />
+
+          {/* Hero Content */}
+          <div className="relative z-10 p-6 sm:p-10 lg:p-12 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Column: 8 cols */}
+              <div className="lg:col-span-8 space-y-5">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12194A]/90 border border-[#7857FF]/40 text-[#F5F6FF] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_15px_rgba(120,87,255,0.3)]">
+                  <Sparkles className="w-4 h-4 text-[#FFC857]" />
+                  Specified Skilled Worker · 特定技能 (Tokutei Ginou)
+                </div>
+
+                <div className="space-y-2">
+                  <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-['Manrope'] leading-[1.1]">
+                    Your Journey to <br />
+                    <span className="bg-gradient-to-r from-[#7857FF] via-[#945CFF] to-[#329BFF] bg-clip-text text-transparent">
+                      Work in Japan
+                    </span>
+                  </h1>
+                  <p className="text-[#AAB3D5] text-sm sm:text-base leading-relaxed max-w-2xl pt-1">
+                    Akademi persiapan komprehensif visa kerja terampil Jepang (SSW 1 & SSW 2). Kuasai kurikulum resmi, komunikasi kerja (Ho-Ren-So), standar keselamatan, dan simulasi ujian teknis sesuai standar kementerian Jepang.
+                  </p>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                  <button
+                    onClick={() => openSector(featuredSector.id)}
+                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl neon-btn-primary text-white text-xs sm:text-sm font-black shadow-lg transition-all active:scale-95 cursor-pointer"
+                  >
+                    <Briefcase className="w-4 h-4" />
+                    <span>Lanjutkan Belajar: {featuredSector.japaneseName}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <button
+                    onClick={() => { sound.playClick(); onNavigateToJft(); }}
+                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-[#0D1238]/90 hover:bg-[#12194A] border border-[#7857FF]/40 text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95 cursor-pointer"
+                  >
+                    <FileCheck className="w-4 h-4 text-[#329BFF]" />
+                    <span>Simulasi CBT JFT-Basic A2</span>
+                  </button>
+                </div>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight font-['Manrope'] flex items-center gap-3">
-                <Award className="w-8 h-8 text-[#7857FF]" />
-                Pusat Pembelajaran & Persiapan Kerja SSW
-              </h1>
+              {/* Right Column: 4 cols - Readiness Circular Gauge Widget */}
+              <div className="lg:col-span-4">
+                <div className="rounded-3xl bg-[#0D1238]/80 backdrop-blur-xl border border-[#7857FF]/35 p-6 space-y-4 shadow-2xl">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold text-[#AAB3D5] uppercase tracking-wider">
+                      Kesiapan Karier SSW
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#7857FF]/20 text-[#D8B4FE] border border-[#7857FF]/30 text-[10px] font-bold">
+                      Progress Global
+                    </span>
+                  </div>
 
-              <p className="text-[#AAB3D5] text-sm sm:text-base leading-relaxed max-w-2xl">
-                Panduan terpadu karir dan persiapan ujian visa kerja terampil Jepang (SSW 1 & SSW 2). Kuasai <span className="text-[#945CFF] font-bold">Ujian Bahasa (JFT-Basic A2 / JLPT N4)</span> dan <span className="text-[#329BFF] font-bold">Ujian Keterampilan Teknis (Skill Test)</span> per sektor industri.
-              </p>
+                  <div className="flex items-center gap-5">
+                    {/* Circular percentage */}
+                    <div className="relative w-24 h-24 shrink-0 flex items-center justify-center">
+                      <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+                        <path
+                          className="text-[#080D2B]"
+                          strokeWidth="3.5"
+                          stroke="currentColor"
+                          fill="none"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <path
+                          className="text-[#7857FF]"
+                          strokeDasharray={`${overallPercentage}, 100`}
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
+                          stroke="currentColor"
+                          fill="none"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                      </svg>
+                      <div className="absolute text-center">
+                        <span className="text-2xl font-black text-white font-['Manrope']">{overallPercentage}%</span>
+                        <span className="text-[9px] text-[#737FA8] block uppercase">Selesai</span>
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5 flex-1">
+                      <div className="text-xs font-bold text-white">
+                        {completedAllChapters} dari {totalAllChapters} Bab Selesai
+                      </div>
+                      <p className="text-[11px] text-[#AAB3D5] leading-relaxed">
+                        {overallPercentage >= 60 
+                          ? 'Kesiapan Anda tinggi! Latih ujian CBT per sektor.' 
+                          : 'Selesaikan materi dasar dan kuasai kosakata per sektor.'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t border-[#7857FF]/15 flex items-center justify-between text-xs text-[#737FA8]">
+                    <span>Sektor Terakhir:</span>
+                    <span className="text-white font-bold">{featuredSector.japaneseName} ({featuredPct}%)</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
-
-            <button
-              onClick={() => { sound.playClick(); onNavigateToJft(); }}
-              className="self-start md:self-auto inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl neon-btn-primary text-white text-xs sm:text-sm font-black shadow-lg transition-all shrink-0 active:scale-95"
-            >
-              <FileCheck className="w-4 h-4" />
-              <span>Mulai Simulasi JFT-Basic A2</span>
-            </button>
           </div>
         </div>
 
-        {/* 2 Syarat Utama */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 sm:p-7 space-y-4 shadow-lg flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-[#7857FF] px-2.5 py-1 rounded-lg bg-[#080D2B] border border-[#7857FF]/20">Syarat Mutlak #1</span>
-                <span className="text-xs font-bold text-emerald-400 flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5" /> Bahasa Jepang</span>
-              </div>
-              <h3 className="text-xl font-black text-[#F5F6FF] font-['Manrope']">Lulus JFT-Basic A2 atau JLPT N4</h3>
-              <p className="text-xs sm:text-sm text-[#AAB3D5] leading-relaxed">Standar kompetensi percakapan kerja sehari-hari. Wajib lulus ujian CBT <strong>JFT-Basic A2</strong> (skor ≥ 200/250) atau ujian resmi <strong>JLPT N4</strong> (skor ≥ 90/180).</p>
-            </div>
-            <div className="pt-4 border-t border-[#7857FF]/15 flex items-center justify-between">
-              <span className="text-xs text-[#737FA8]">Latihan soal CBT tersedia</span>
-              <button onClick={() => { sound.playClick(); onNavigateToJft(); }} className="text-xs font-bold text-[#7857FF] hover:text-[#F5F6FF] flex items-center gap-1 transition-colors">
-                <span>Uji Simulasi Sekarang</span><ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-
-          <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 sm:p-7 space-y-4 shadow-lg flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-[#7857FF] px-2.5 py-1 rounded-lg bg-[#080D2B] border border-[#7857FF]/20">Syarat Mutlak #2</span>
-                <span className="text-xs font-bold text-emerald-400 flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5" /> Keterampilan Teknis</span>
-              </div>
-              <h3 className="text-xl font-black text-[#F5F6FF] font-['Manrope']">Lulus Ujian Keahlian Bidang (Skill Test)</h3>
-              <p className="text-xs sm:text-sm text-[#AAB3D5] leading-relaxed">Ujian teori & praktik sesuai bidang kerja pilihan Anda di Jepang. Pilih sektor di bawah untuk memulai pembelajaran.</p>
-            </div>
-            <div className="pt-4 border-t border-[#7857FF]/15 flex items-center justify-between">
-              <span className="text-xs text-[#737FA8]">{SSW_ALL_SECTORS.length} Sektor resmi tersedia</span>
-              <span className="text-xs font-bold text-[#7857FF]">Pilih bidang di bawah ↓</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Grid Sektor */}
+        {/* ── 2. TWO MANDATORY REQUIREMENTS ROADMAP ── */}
         <div className="space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-black text-[#F5F6FF] font-['Manrope']">Pilih Sektor Bidang Pekerjaan</h2>
-            <p className="text-xs sm:text-sm text-[#737FA8]">Pelajari materi, kosakata kerja, komunikasi, keterampilan teknis, dan latih ujian keahlian per sektor.</p>
+            <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope'] flex items-center gap-2.5">
+              <ShieldCheck className="w-6 h-6 text-[#7857FF]" />
+              2 Syarat Mutlak Visa Kerja Tokutei Ginou
+            </h2>
+            <p className="text-xs sm:text-sm text-[#AAB3D5]">
+              Untuk memperoleh visa SSW 1 dari Imigrasi Jepang, kedua sertifikasi berikut wajib dimiliki
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {SSW_ALL_SECTORS.map((sector) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* Requirement 1 */}
+            <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/30 p-6 sm:p-8 space-y-5 shadow-lg flex flex-col justify-between hover:border-[#7857FF]/60 transition-all">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-[#080D2B] border border-[#7857FF]/30 text-[#D8B4FE] text-xs font-bold font-mono">
+                    Syarat #1 · Bahasa Jepang
+                  </span>
+                  <span className="text-xs font-bold text-emerald-400 flex items-center gap-1">
+                    <CheckCircle2 className="w-4 h-4" /> Standar A2
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-white font-['Manrope']">
+                  Lulus JFT-Basic A2 atau JLPT N4
+                </h3>
+
+                <p className="text-xs sm:text-sm text-[#AAB3D5] leading-relaxed">
+                  Kemampuan percakapan praktis sehari-hari dan di tempat kerja. Ujian resmi diselenggarakan menggunakan komputer (CBT) dengan passing score:
+                </p>
+
+                <ul className="space-y-2 pt-2 text-xs text-[#F5F6FF]">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#7857FF] shrink-0" />
+                    <span><strong>JFT-Basic A2:</strong> Skor minimal 200 / 250 (Penyelenggara: The Japan Foundation)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#7857FF] shrink-0" />
+                    <span><strong>JLPT N4:</strong> Lulus skor total minimal 90 / 180</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-4 border-t border-[#7857FF]/15 flex items-center justify-between">
+                <span className="text-xs text-[#737FA8]">Simulasi CBT tersedia gratis</span>
+                <button
+                  onClick={() => { sound.playClick(); onNavigateToJft(); }}
+                  className="text-xs font-black text-[#7857FF] hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <span>Buka Simulasi CBT</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+            {/* Requirement 2 */}
+            <div className="rounded-3xl bg-[#0D1238] border border-[#329BFF]/30 p-6 sm:p-8 space-y-5 shadow-lg flex flex-col justify-between hover:border-[#329BFF]/60 transition-all">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-[#080D2B] border border-[#329BFF]/30 text-[#50C8FF] text-xs font-bold font-mono">
+                    Syarat #2 · Keterampilan Teknis
+                  </span>
+                  <span className="text-xs font-bold text-[#329BFF] flex items-center gap-1">
+                    <Award className="w-4 h-4" /> Skill Test
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-white font-['Manrope']">
+                  Lulus Ujian Keahlian Bidang (Tokutei Ginou)
+                </h3>
+
+                <p className="text-xs sm:text-sm text-[#AAB3D5] leading-relaxed">
+                  Ujian evaluasi pengetahuan teori dan tes praktik kerja sesuai bidang pekerjaan yang Anda pilih. Materi mencakup SOP, sanitasi, dan keselamatan kerja:
+                </p>
+
+                <ul className="space-y-2 pt-2 text-xs text-[#F5F6FF]">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#329BFF] shrink-0" />
+                    <span>Tersedia kurikulum 5 bab lengkap per sektor industri</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#329BFF] shrink-0" />
+                    <span>Latihan soal bergambar standar OTAFF & Prometric</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-4 border-t border-[#329BFF]/15 flex items-center justify-between">
+                <span className="text-xs text-[#737FA8]">6 Sektor Industri Resmi</span>
+                <span className="text-xs font-bold text-[#329BFF]">Pilih Sektor di Bawah ↓</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ── 3. INDUSTRY SECTOR EXPLORER (Asymmetric Layout) ── */}
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#945CFF] uppercase tracking-wider mb-1">
+                <Compass className="w-3.5 h-3.5" /> Eksplorasi Sektor Industri (産業分野)
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-white font-['Manrope']">
+                Pilih Sektor Karier Anda di Jepang
+              </h2>
+            </div>
+            <span className="text-xs text-[#AAB3D5]">
+              6 Sektor Resmi dengan Kurikulum Pembelajaran Mandiri
+            </span>
+          </div>
+
+          {/* Featured Sector Card (Large Asymmetric Display) */}
+          <div 
+            onClick={() => openSector(featuredSector.id)}
+            className="group relative overflow-hidden rounded-3xl border border-[#7857FF]/40 bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#12194A] p-6 sm:p-10 shadow-[0_20px_50px_rgba(8,13,43,0.8)] cursor-pointer hover:border-[#7857FF] transition-all duration-300"
+          >
+            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+              
+              <div className="space-y-4 max-w-2xl">
+                <div className="flex items-center gap-3">
+                  <div className="w-14 h-14 rounded-2xl bg-[#080D2B] border border-[#7857FF]/40 flex items-center justify-center text-[#7857FF] shadow-inner group-hover:scale-110 transition-transform">
+                    <FeaturedIcon className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#FFC857] block">
+                      ★ Sektor Paling Populer & Sedang Anda Pelajari
+                    </span>
+                    <h3 className="text-3xl sm:text-4xl font-black text-white font-['Manrope'] flex items-center gap-3">
+                      {featuredSector.japaneseName}
+                      <span className="text-lg sm:text-xl font-bold text-[#AAB3D5]">
+                        ({featuredSector.name})
+                      </span>
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="text-sm sm:text-base text-[#F5F6FF] leading-relaxed">
+                  {featuredSector.tagline}
+                </p>
+
+                <p className="text-xs text-[#AAB3D5] leading-relaxed line-clamp-2">
+                  {featuredSector.overview.workEnvironment}
+                </p>
+
+                {/* Badges & Meta */}
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <span className="px-3 py-1 rounded-full bg-[#12194A] border border-[#7857FF]/30 text-white text-xs font-bold">
+                    Ujian: {featuredSector.overview.technicalExamName}
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+                    Kelulusan: {featuredSector.overview.passRequirement}
+                  </span>
+                </div>
+              </div>
+
+              {/* Progress & CTA */}
+              <div className="rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/25 p-5 min-w-[260px] space-y-4 shrink-0">
+                <div>
+                  <div className="flex items-center justify-between text-xs font-bold mb-1.5">
+                    <span className="text-[#AAB3D5]">Progres Kurikulum</span>
+                    <span className="text-[#945CFF] font-mono">{featuredCompleted} / {featuredSector.chapters.length} Bab</span>
+                  </div>
+                  <div className="w-full h-2 rounded-full bg-[#12194A] overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-[#7857FF] to-[#00D6A3] transition-all duration-700"
+                      style={{ width: `${featuredPct}%` }}
+                    />
+                  </div>
+                </div>
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openSector(featuredSector.id);
+                  }}
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white text-xs font-black shadow-md transition-all flex items-center justify-center gap-2 group-hover:brightness-110"
+                >
+                  <span>Buka Sektor Lengkap</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Remaining 5 Sectors Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SSW_ALL_SECTORS.filter(s => s.id !== featuredSector.id).map((sector) => {
               const Icon = ICON_MAP[sector.iconName] || Briefcase;
-              const completedChapters = sector.chapters.filter(ch => progress.completedLessonIds.includes(ch.id)).length;
-              const totalChapters = sector.chapters.length;
-              const progressPct = totalChapters > 0 ? Math.round((completedChapters / totalChapters) * 100) : 0;
+              const completedCh = sector.chapters.filter(ch => progress.completedLessonIds.includes(ch.id)).length;
+              const totalCh = sector.chapters.length;
+              const pct = Math.round((completedCh / totalCh) * 100);
+              const accent = SECTOR_ACCENTS[sector.id] || SECTOR_ACCENTS.kaigo;
 
               return (
-                <button
+                <div
                   key={sector.id}
                   onClick={() => openSector(sector.id)}
-                  className="p-5 rounded-3xl bg-[#0D1238] border border-[#7857FF]/20 hover:border-[#7857FF]/50 text-left transition-all flex flex-col gap-4 group hover:shadow-[0_0_30px_rgba(120,87,255,0.1)]"
+                  className={`group rounded-3xl bg-gradient-to-br ${accent.gradient} border ${accent.border} p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(8,13,43,0.9)]`}
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-[#080D2B] border border-[#7857FF]/25 flex items-center justify-center group-hover:border-[#7857FF]/60 transition-colors">
-                      <Icon className="w-6 h-6 text-[#7857FF]" />
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div className="w-12 h-12 rounded-2xl bg-[#080D2B] border border-[#7857FF]/30 flex items-center justify-center text-[#7857FF] group-hover:scale-110 transition-transform">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-full border ${sector.badgeColor}`}>
+                        {sector.badge}
+                      </span>
                     </div>
-                    <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${sector.badgeColor}`}>{sector.badge}</span>
+
+                    <div>
+                      <h3 className="text-xl font-black text-white font-['Manrope'] group-hover:text-[#945CFF] transition-colors">
+                        {sector.japaneseName}
+                      </h3>
+                      <p className="text-xs font-bold text-[#AAB3D5] mt-0.5">
+                        {sector.name}
+                      </p>
+                    </div>
+
+                    <p className="text-xs text-[#F5F6FF] leading-relaxed line-clamp-2">
+                      {sector.tagline}
+                    </p>
                   </div>
 
-                  <div>
-                    <h3 className="text-base font-black text-[#F5F6FF] font-['Manrope'] group-hover:text-[#7857FF] transition-colors">{sector.japaneseName}</h3>
-                    <p className="text-xs text-[#737FA8] mt-0.5">{sector.name}</p>
-                  </div>
-
-                  <p className="text-[11px] text-[#AAB3D5] leading-relaxed line-clamp-2">{sector.tagline}</p>
-
-                  {/* Progress Bar */}
-                  <div className="space-y-1.5 pt-2 border-t border-[#7857FF]/10">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] text-[#737FA8]">Progres Belajar</span>
-                      <span className="text-[10px] font-bold text-[#7857FF] font-mono">{completedChapters}/{totalChapters} bab</span>
+                  <div className="pt-4 mt-4 border-t border-[#7857FF]/15 space-y-2">
+                    <div className="flex items-center justify-between text-[11px] font-mono">
+                      <span className="text-[#737FA8]">Progres Bab</span>
+                      <span className="text-[#7857FF] font-bold">{completedCh} / {totalCh}</span>
                     </div>
                     <div className="w-full h-1.5 rounded-full bg-[#080D2B] overflow-hidden">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-[#7857FF] to-emerald-400 transition-all duration-500"
-                        style={{ width: `${progressPct}%` }}
+                        className="h-full rounded-full bg-gradient-to-r from-[#7857FF] to-[#329BFF] transition-all"
+                        style={{ width: `${pct}%` }}
                       />
                     </div>
                   </div>
-                </button>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+
+        {/* ── 4. JAPANESE WORKPLACE CULTURE & CAREER GUIDES (HO-REN-SO) ── */}
+        <div className="rounded-3xl bg-gradient-to-br from-[#0D1238] to-[#12194A] border border-[#7857FF]/30 p-6 sm:p-8 space-y-6">
+          <div className="flex items-center gap-3 text-[#FFC857]">
+            <Award className="w-6 h-6" />
+            <div>
+              <h3 className="text-lg sm:text-xl font-black text-white font-['Manrope']">
+                Kunci Sukses Bekerja di Perusahaan Jepang: 報連相 (Ho-Ren-So)
+              </h3>
+              <p className="text-xs text-[#AAB3D5]">
+                Tiga pilar komunikasi mutlak yang wajib dikuasai pekerja terampil asing
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/20 space-y-2">
+              <span className="text-xs font-mono font-bold text-[#7857FF] uppercase block">
+                1. 報告 (HOUKOKU) · Laporan
+              </span>
+              <p className="text-xs text-[#F5F6FF] leading-relaxed">
+                Melaporkan perkembangan dan hasil tugas kepada atasan secara berkala, terutama saat tugas selesai atau terjadi kendala tak terduga.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/20 space-y-2">
+              <span className="text-xs font-mono font-bold text-[#329BFF] uppercase block">
+                2. 連絡 (RENRAKU) · Kontak / Informasi
+              </span>
+              <p className="text-xs text-[#F5F6FF] leading-relaxed">
+                Menyampaikan fakta dan informasi penting kepada rekan kerja atau tim tanpa opini pribadi, memastikan semua pihak memahami situasi.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/20 space-y-2">
+              <span className="text-xs font-mono font-bold text-[#00D6A3] uppercase block">
+                3. 相談 (SOUDAN) · Konsultasi
+              </span>
+              <p className="text-xs text-[#F5F6FF] leading-relaxed">
+                Meminta saran atau berdiskusi dengan atasan atau senior saat Anda ragu, bingung, atau menghadapi masalah sebelum mengambil keputusan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    );
+  }
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // VIEW: SECTOR — ROADMAP KURIKULUM & SECTOR PROFILE
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  if (view === 'sector') {
+    const completedChapters = selectedSector.chapters.filter(ch => progress.completedLessonIds.includes(ch.id)).length;
+    const totalChapters = selectedSector.chapters.length;
+    const pct = Math.round((completedChapters / totalChapters) * 100);
+
+    return (
+      <div className="space-y-8 text-left pb-20 animate-fade-in font-['Plus_Jakarta_Sans',sans-serif]">
+        
+        {/* Back navigation */}
+        <button
+          onClick={goBack}
+          className="inline-flex items-center gap-2 text-xs font-bold text-[#AAB3D5] hover:text-white transition-colors cursor-pointer"
+        >
+          <ArrowLeft className="w-4 h-4 text-[#7857FF]" />
+          <span>Kembali ke Akademi Karier SSW</span>
+        </button>
+
+        {/* Sector Hero Profile */}
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#12194A] border border-[#7857FF]/30 p-6 sm:p-10 shadow-xl">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-16 h-16 rounded-2xl bg-[#080D2B] border border-[#7857FF]/40 flex items-center justify-center text-[#7857FF] shadow-inner">
+                  <SectorIcon className="w-8 h-8" />
+                </div>
+                <div>
+                  <span className={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border inline-block mb-1 ${selectedSector.badgeColor}`}>
+                    {selectedSector.badge}
+                  </span>
+                  <h1 className="text-3xl sm:text-4xl font-black text-white font-['Manrope']">
+                    {selectedSector.japaneseName}
+                  </h1>
+                  <p className="text-sm font-bold text-[#AAB3D5]">{selectedSector.name} ({selectedSector.romajiName})</p>
+                </div>
+              </div>
+
+              <p className="text-sm sm:text-base text-[#F5F6FF] max-w-2xl leading-relaxed pt-1">
+                {selectedSector.tagline}
+              </p>
+            </div>
+
+            {/* Exam Simulation CTA & Stats */}
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
+              <div className="p-4 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-center">
+                <span className="text-[10px] font-mono text-[#737FA8] uppercase font-bold block">
+                  Progres Kurikulum Sektor
+                </span>
+                <span className="text-2xl font-black text-[#945CFF] font-['Manrope']">
+                  {completedChapters} / {totalChapters} Bab ({pct}%)
+                </span>
+              </div>
+
+              <button
+                onClick={startExamSimulation}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white text-xs sm:text-sm font-black shadow-lg transition-all active:scale-95 cursor-pointer"
+              >
+                <GraduationCap className="w-4 h-4" />
+                <span>Simulasi Skill Test {selectedSector.japaneseName}</span>
+              </button>
+            </div>
+
+          </div>
+
+          {/* Sector Overview Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 pt-6 border-t border-[#7857FF]/15">
+            <div className="p-4 rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/15 space-y-1.5">
+              <span className="text-[10px] font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5">
+                <Building className="w-3.5 h-3.5" /> Lingkungan Kerja di Jepang
+              </span>
+              <p className="text-xs text-[#F5F6FF] leading-relaxed">
+                {selectedSector.overview.workEnvironment}
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/15 space-y-1.5">
+              <span className="text-[10px] font-black text-[#329BFF] uppercase tracking-wider flex items-center gap-1.5">
+                <Award className="w-3.5 h-3.5" /> Standar Ujian Keahlian (Skill Test)
+              </span>
+              <p className="text-xs text-[#F5F6FF] font-bold">
+                {selectedSector.overview.technicalExamName}
+              </p>
+              <p className="text-[11px] text-[#AAB3D5]">
+                Penyelenggara: {selectedSector.overview.examOrganizer} · Standar Lulus: {selectedSector.overview.passRequirement}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ── INTERACTIVE LEARNING ROADMAP (Timeline) ── */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope']">
+                Roadmap Kurikulum Pembelajaran ({totalChapters} Bab)
+              </h2>
+              <p className="text-xs sm:text-sm text-[#AAB3D5]">
+                Pelajari setiap bab secara berurutan untuk mempersiapkan diri menghadapi ujian resmi
+              </p>
+            </div>
+          </div>
+
+          {/* Timeline Nodes */}
+          <div className="space-y-3 relative before:absolute before:inset-0 before:left-7 before:w-0.5 before:bg-gradient-to-b before:from-[#7857FF] before:via-[#329BFF] before:to-transparent">
+            {selectedSector.chapters.map((ch, idx) => {
+              const catMeta = CATEGORY_META[ch.category];
+              const CatIcon = catMeta.icon;
+              const isCompleted = progress.completedLessonIds.includes(ch.id);
+              const quizKey = `${selectedSectorId}_${ch.id}`;
+              const quizResult = progress.quizScores[quizKey];
+
+              return (
+                <div
+                  key={ch.id}
+                  onClick={() => openChapter(ch.id)}
+                  className={`relative pl-14 p-5 rounded-3xl border transition-all duration-300 cursor-pointer flex items-center justify-between gap-4 group ${
+                    isCompleted
+                      ? 'bg-[#0D1238] border-emerald-500/35 hover:border-emerald-500/60 shadow-md'
+                      : 'bg-[#0D1238] border-[#7857FF]/25 hover:border-[#7857FF]/60 hover:shadow-[0_8px_24px_rgba(120,87,255,0.2)]'
+                  }`}
+                >
+                  {/* Timeline Badge Node */}
+                  <div className={`absolute left-4 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full flex items-center justify-center font-black text-xs z-10 ${
+                    isCompleted
+                      ? 'bg-emerald-500 text-white shadow-[0_0_12px_rgba(0,214,163,0.6)]'
+                      : 'bg-[#12194A] border-2 border-[#7857FF] text-[#D8B4FE]'
+                  }`}>
+                    {isCompleted ? <Check className="w-4 h-4" /> : ch.chapterNumber}
+                  </div>
+
+                  <div className="space-y-1 flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider border ${catMeta.bg} ${catMeta.color}`}>
+                        <CatIcon className="w-3 h-3 inline mr-1" />
+                        {catMeta.label}
+                      </span>
+                      <span className="text-[10px] font-mono text-[#737FA8] flex items-center gap-1">
+                        <Clock className="w-3 h-3" /> ~{ch.estimatedMinutes} menit
+                      </span>
+                      {isCompleted && (
+                        <span className="text-[10px] font-bold text-emerald-400 flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3" /> Selesai
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-black text-white font-['Manrope'] group-hover:text-[#945CFF] transition-colors truncate">
+                      Bab {ch.chapterNumber}: {ch.title}
+                    </h3>
+                    <p className="text-xs text-[#737FA8] font-mono japanese-text truncate">
+                      {ch.japaneseTitle}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-3 shrink-0">
+                    {quizResult && (
+                      <span className={`px-2.5 py-1 rounded-xl text-xs font-mono font-bold ${
+                        quizResult.percentage >= 70
+                          ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
+                          : 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
+                      }`}>
+                        Skor: {quizResult.percentage}%
+                      </span>
+                    )}
+                    <ChevronRight className="w-5 h-5 text-[#737FA8] group-hover:text-white transition-colors" />
+                  </div>
+                </div>
               );
             })}
           </div>
         </div>
-      </div>
-    );
-  }
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // VIEW: SECTOR — Daftar Bab per Sektor
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  if (view === 'sector') {
-    const completedChapters = selectedSector.chapters.filter(ch => progress.completedLessonIds.includes(ch.id)).length;
-    const totalChapters = selectedSector.chapters.length;
-
-    return (
-      <div className="space-y-6 text-left pb-16">
-        {/* Back Button */}
-        <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Kembali ke Hub SSW
-        </button>
-
-        {/* Sector Header */}
-        <div className="rounded-3xl bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#12194A] border border-[#7857FF]/25 p-6 sm:p-8 space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-[#080D2B] border border-[#7857FF]/30 flex items-center justify-center">
-                <SectorIcon className="w-7 h-7 text-[#7857FF]" />
-              </div>
-              <div>
-                <span className={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border inline-block mb-1 ${selectedSector.badgeColor}`}>{selectedSector.badge}</span>
-                <h2 className="text-2xl sm:text-3xl font-black text-[#F5F6FF] font-['Manrope']">{selectedSector.japaneseName}</h2>
-                <p className="text-sm text-[#AAB3D5]">{selectedSector.name}</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
-              <div className="text-right">
-                <span className="text-[10px] text-[#737FA8] block">Progres</span>
-                <span className="text-lg font-black text-[#7857FF] font-mono">{completedChapters}/{totalChapters}</span>
-              </div>
-              <button
-                onClick={startExamSimulation}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white text-xs font-black shadow-lg transition-all active:scale-95"
-              >
-                <GraduationCap className="w-4 h-4" /> Simulasi Ujian {selectedSector.japaneseName}
-              </button>
-            </div>
-          </div>
-
-          {/* Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#7857FF]/15">
-            <div className="space-y-2">
-              <span className="text-[10px] font-black text-[#7857FF] uppercase tracking-wider">Lingkungan Kerja</span>
-              <p className="text-xs text-[#AAB3D5] leading-relaxed">{selectedSector.overview.workEnvironment}</p>
-            </div>
-            <div className="space-y-2">
-              <span className="text-[10px] font-black text-[#7857FF] uppercase tracking-wider">Syarat Ujian Teknis</span>
-              <p className="text-xs text-[#AAB3D5] leading-relaxed">{selectedSector.overview.technicalExamName}</p>
-              <p className="text-xs text-[#737FA8]">Penyelenggara: {selectedSector.overview.examOrganizer}</p>
-              <p className="text-xs text-emerald-400 font-bold">Kelulusan: {selectedSector.overview.passRequirement}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Chapter List */}
-        <div className="space-y-3">
-          <h3 className="text-lg font-black text-[#F5F6FF] font-['Manrope']">Kurikulum Pembelajaran ({totalChapters} Bab)</h3>
-
-          {selectedSector.chapters.map((ch) => {
-            const catMeta = CATEGORY_META[ch.category];
-            const CatIcon = catMeta.icon;
-            const isCompleted = progress.completedLessonIds.includes(ch.id);
-            const quizKey = `${selectedSectorId}_${ch.id}`;
-            const quizResult = progress.quizScores[quizKey];
-
-            return (
-              <button
-                key={ch.id}
-                onClick={() => openChapter(ch.id)}
-                className={`w-full p-4 sm:p-5 rounded-2xl border text-left transition-all flex items-center gap-4 group ${
-                  isCompleted
-                    ? 'bg-[#0D1238] border-emerald-500/30 hover:border-emerald-500/50'
-                    : 'bg-[#0D1238] border-[#7857FF]/20 hover:border-[#7857FF]/50'
-                }`}
-              >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                  isCompleted ? 'bg-emerald-500/20 border border-emerald-500/40' : 'bg-[#080D2B] border border-[#7857FF]/20'
-                }`}>
-                  {isCompleted ? (
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                  ) : (
-                    <span className="text-sm font-black text-[#7857FF] font-mono">{ch.chapterNumber}</span>
-                  )}
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className={`inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider ${catMeta.color}`}>
-                      <CatIcon className="w-3 h-3" /> {catMeta.label}
-                    </span>
-                    <span className="text-[9px] text-[#737FA8] font-mono flex items-center gap-1">
-                      <Clock className="w-3 h-3" /> ~{ch.estimatedMinutes} menit
-                    </span>
-                  </div>
-                  <h4 className="text-sm font-bold text-[#F5F6FF] mt-1 group-hover:text-[#7857FF] transition-colors truncate">{ch.title}</h4>
-                  <p className="text-[11px] text-[#737FA8] truncate">{ch.japaneseTitle}</p>
-                </div>
-
-                <div className="flex items-center gap-2 shrink-0">
-                  {quizResult && (
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-lg font-mono ${
-                      quizResult.percentage >= 70 ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30' : 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
-                    }`}>{quizResult.percentage}%</span>
-                  )}
-                  <ChevronRight className="w-4 h-4 text-[#737FA8] group-hover:text-[#7857FF] transition-colors" />
-                </div>
-              </button>
-            );
-          })}
-        </div>
 
         {/* Official References */}
-        <div className="rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/15 p-5 space-y-3">
-          <span className="text-[10px] font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5">
-            <Info className="w-3.5 h-3.5" /> Sumber Referensi Resmi
+        <div className="rounded-3xl bg-[#080D2B]/80 border border-[#7857FF]/20 p-6 space-y-3">
+          <span className="text-xs font-mono font-bold text-[#7857FF] uppercase tracking-wider flex items-center gap-2">
+            <Info className="w-4 h-4" /> Dokumen Referensi Resmi & Standar Kurikulum
           </span>
-          {selectedSector.officialReferences.map((ref, idx) => (
-            <div key={idx} className="text-xs text-[#AAB3D5]">
-              <span className="font-bold text-[#F5F6FF]">{ref.title}</span>
-              <span className="text-[#737FA8] block">{ref.agency} — {ref.description}</span>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+            {selectedSector.officialReferences.map((ref, i) => (
+              <div key={i} className="p-3.5 rounded-2xl bg-[#0D1238] border border-[#7857FF]/15 text-xs">
+                <span className="font-bold text-white block">{ref.title}</span>
+                <span className="text-[#737FA8] block text-[11px] mt-0.5">{ref.agency} — {ref.description}</span>
+              </div>
+            ))}
+          </div>
         </div>
+
       </div>
     );
   }
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // VIEW: CHAPTER — Halaman Bab Pembelajaran
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // VIEW: CHAPTER — DETAIL PEMBELAJARAN BAB LENGKAP
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   if (view === 'chapter' && selectedChapter) {
     const ch = selectedChapter;
     const catMeta = CATEGORY_META[ch.category];
     const CatIcon = catMeta.icon;
     const isCompleted = progress.completedLessonIds.includes(ch.id);
 
-    // Find next chapter
     const currentIdx = selectedSector.chapters.findIndex(c => c.id === ch.id);
     const nextChapter = selectedSector.chapters[currentIdx + 1];
     const prevChapter = selectedSector.chapters[currentIdx - 1];
 
     return (
-      <div className="space-y-6 text-left pb-16 max-w-4xl mx-auto">
-        {/* Back + Navigation */}
+      <div className="space-y-6 text-left pb-20 max-w-4xl mx-auto animate-fade-in font-['Plus_Jakarta_Sans',sans-serif]">
+        
+        {/* Top Navigation */}
         <div className="flex items-center justify-between">
-          <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Kembali ke {selectedSector.japaneseName}
+          <button
+            onClick={goBack}
+            className="inline-flex items-center gap-2 text-xs font-bold text-[#AAB3D5] hover:text-white transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4 text-[#7857FF]" />
+            <span>Kembali ke Kurikulum {selectedSector.japaneseName}</span>
           </button>
-          <div className="flex items-center gap-1.5">
+
+          <div className="flex items-center gap-2">
             {prevChapter && (
-              <button onClick={() => openChapter(prevChapter.id)} className="text-[10px] text-[#737FA8] hover:text-[#7857FF] px-2 py-1 rounded-lg hover:bg-[#0D1238]">← Bab {prevChapter.chapterNumber}</button>
+              <button
+                onClick={() => openChapter(prevChapter.id)}
+                className="px-3 py-1.5 rounded-xl bg-[#0D1238] border border-[#7857FF]/20 text-xs font-bold text-[#AAB3D5] hover:text-white transition-colors"
+              >
+                ← Bab {prevChapter.chapterNumber}
+              </button>
             )}
             {nextChapter && (
-              <button onClick={() => openChapter(nextChapter.id)} className="text-[10px] text-[#737FA8] hover:text-[#7857FF] px-2 py-1 rounded-lg hover:bg-[#0D1238]">Bab {nextChapter.chapterNumber} →</button>
+              <button
+                onClick={() => openChapter(nextChapter.id)}
+                className="px-3 py-1.5 rounded-xl bg-[#0D1238] border border-[#7857FF]/20 text-xs font-bold text-[#AAB3D5] hover:text-white transition-colors"
+              >
+                Bab {nextChapter.chapterNumber} →
+              </button>
             )}
           </div>
         </div>
 
-        {/* Chapter Header */}
-        <div className="rounded-3xl bg-gradient-to-br from-[#0D1238] to-[#12194A] border border-[#7857FF]/25 p-6 space-y-3">
+        {/* Chapter Hero */}
+        <div className="rounded-3xl bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#171D50] border border-[#7857FF]/35 p-6 sm:p-8 space-y-3 shadow-xl">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider ${catMeta.color}`}>
-              <CatIcon className="w-3.5 h-3.5" /> {catMeta.label}
+            <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider border ${catMeta.bg} ${catMeta.color}`}>
+              <CatIcon className="w-3.5 h-3.5 inline mr-1" />
+              {catMeta.label}
             </span>
-            <span className="text-[10px] text-[#737FA8] font-mono">Bab {ch.chapterNumber} · ~{ch.estimatedMinutes} menit</span>
-            {isCompleted && <span className="text-[10px] text-emerald-400 font-bold flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> Selesai</span>}
+            <span className="text-xs font-mono text-[#737FA8]">
+              Bab {ch.chapterNumber} · ~{ch.estimatedMinutes} menit
+            </span>
+            {isCompleted && (
+              <span className="text-xs text-emerald-400 font-bold flex items-center gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5" /> Selesai
+              </span>
+            )}
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-[#F5F6FF] font-['Manrope']">{ch.title}</h2>
-          <p className="text-sm text-[#7857FF] font-mono">{ch.japaneseTitle}</p>
+
+          <h1 className="text-2xl sm:text-3xl font-black text-white font-['Manrope']">
+            Bab {ch.chapterNumber}: {ch.title}
+          </h1>
+          <p className="text-base text-[#D8B4FE] font-mono japanese-text">
+            {ch.japaneseTitle}
+          </p>
         </div>
 
-        {/* Tujuan Pembelajaran */}
-        <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 space-y-3">
-          <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><Target className="w-4 h-4" /> Tujuan Pembelajaran</span>
-          <ul className="space-y-2">
+        {/* Objectives */}
+        <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 space-y-3">
+          <span className="text-xs font-mono font-bold text-[#7857FF] uppercase tracking-wider flex items-center gap-2">
+            <Target className="w-4 h-4" /> Tujuan Pembelajaran (Gool)
+          </span>
+          <ul className="space-y-2 pt-1">
             {ch.objectives.map((obj, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-[#F5F6FF] leading-relaxed">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+              <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F5F6FF] leading-relaxed">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <span>{obj}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Penjelasan Materi Utama */}
-        <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 sm:p-7 space-y-4">
-          <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><BookOpen className="w-4 h-4" /> Materi Pembelajaran</span>
-          <div className="ssw-content-text">
+        {/* Main Content Explanation (SswContentRenderer) */}
+        <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 sm:p-8 space-y-4">
+          <span className="text-xs font-mono font-bold text-[#7857FF] uppercase tracking-wider flex items-center gap-2">
+            <BookOpen className="w-4 h-4" /> Materi & Pembahasan Lengkap
+          </span>
+          <div className="ssw-content-text pt-2 leading-relaxed text-sm sm:text-base text-[#F5F6FF]">
             <SswContentRenderer content={ch.contentExplanation} />
           </div>
         </div>
 
-        {/* Key Terms / Istilah Kunci */}
-        <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 space-y-4">
-          <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><Languages className="w-4 h-4" /> Istilah Kunci Bahasa Jepang</span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {/* Key Terms */}
+        <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 space-y-4">
+          <span className="text-xs font-mono font-bold text-[#FFC857] uppercase tracking-wider flex items-center gap-2">
+            <Languages className="w-4 h-4" /> Istilah Kunci Tempat Kerja ({ch.keyTerms.length})
+          </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
             {ch.keyTerms.map((term, i) => (
-              <div key={i} className="p-3.5 rounded-2xl bg-[#080D2B]/70 border border-[#7857FF]/15 space-y-1.5">
-                <span className="text-lg font-bold text-[#F5F6FF] japanese-text block">{term.japanese}</span>
+              <div key={i} className="p-4 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/20 space-y-1.5">
+                <span className="text-xl font-bold text-white japanese-text block">{term.japanese}</span>
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="font-mono text-[#7857FF]">{term.kana}</span>
+                  <span className="font-mono text-[#7857FF] font-bold">{term.kana}</span>
                   <span className="text-[#737FA8]">({term.romaji})</span>
                 </div>
-                <p className="text-xs text-[#AAB3D5] font-semibold">{term.indonesian}</p>
+                <p className="text-xs text-[#F5F6FF] font-medium pt-1 border-t border-[#7857FF]/15">
+                  {term.indonesian}
+                </p>
                 {term.note && <p className="text-[10px] text-[#737FA8] italic">※ {term.note}</p>}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Case Study / Studi Kasus Tempat Kerja */}
+        {/* Case Study */}
         {ch.workplaceCaseStudy && (
-          <div className="rounded-2xl bg-[#0D1238] border border-amber-500/25 p-5 space-y-4">
-            <span className="text-xs font-black text-amber-400 uppercase tracking-wider flex items-center gap-1.5"><Users className="w-4 h-4" /> Studi Kasus Tempat Kerja</span>
-            <h4 className="text-sm font-bold text-[#F5F6FF]">{ch.workplaceCaseStudy.title}</h4>
-            <p className="text-xs text-[#AAB3D5] leading-relaxed bg-[#080D2B]/50 p-3 rounded-xl border border-[#7857FF]/10 italic">{ch.workplaceCaseStudy.scenario}</p>
+          <div className="rounded-3xl bg-[#0D1238] border border-amber-500/30 p-6 space-y-4">
+            <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+              <Users className="w-4 h-4" /> Studi Kasus & Percakapan Kerja Nyata
+            </span>
+            <h3 className="text-base font-black text-white">{ch.workplaceCaseStudy.title}</h3>
+            <p className="text-xs sm:text-sm text-[#AAB3D5] leading-relaxed bg-[#080D2B]/60 p-4 rounded-2xl border border-[#7857FF]/15 italic">
+              {ch.workplaceCaseStudy.scenario}
+            </p>
 
             {ch.workplaceCaseStudy.dialogue && ch.workplaceCaseStudy.dialogue.length > 0 && (
-              <div className="space-y-3">
+              <div className="space-y-3 pt-2">
                 {ch.workplaceCaseStudy.dialogue.map((d, i) => (
-                  <div key={i} className="p-3 rounded-xl bg-[#080D2B]/40 border border-[#7857FF]/10 space-y-1">
-                    <div className="flex items-center gap-2 text-[10px]">
+                  <div key={i} className="p-3.5 rounded-2xl bg-[#080D2B]/50 border border-[#7857FF]/15 space-y-1">
+                    <div className="flex items-center gap-2 text-xs">
                       <span className="font-black text-[#7857FF]">{d.speaker}</span>
                       <span className="text-[#737FA8]">({d.role})</span>
                     </div>
-                    <p className="text-sm text-[#F5F6FF] japanese-text font-medium">{d.japanese}</p>
-                    <p className="text-[11px] text-[#737FA8]">{d.kana}</p>
+                    <p className="text-base text-white japanese-text font-medium">{d.japanese}</p>
+                    <p className="text-xs text-[#737FA8]">{d.kana}</p>
                     <p className="text-xs text-[#AAB3D5]">→ {d.indonesian}</p>
                   </div>
                 ))}
               </div>
             )}
 
-            <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25">
-              <span className="text-[10px] font-bold text-emerald-400 uppercase">Pelajaran:</span>
-              <p className="text-xs text-[#F5F6FF] mt-1">{ch.workplaceCaseStudy.takeaway}</p>
+            <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
+              <span className="text-[10px] font-bold text-emerald-400 uppercase block mb-1">Pelajaran Penting:</span>
+              <p className="text-xs text-[#F5F6FF]">{ch.workplaceCaseStudy.takeaway}</p>
             </div>
           </div>
         )}
 
         {/* Visual Diagram */}
         {ch.visualDiagram && (
-          <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 space-y-4">
-            <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><BarChart3 className="w-4 h-4" /> {ch.visualDiagram.title}</span>
-            <div className={`grid gap-3 ${
-              ch.visualDiagram.type === 'grid' ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4' :
-              ch.visualDiagram.type === 'table' ? 'grid-cols-1' :
-              ch.visualDiagram.type === 'steps' ? 'grid-cols-1' :
-              'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-            }`}>
+          <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 space-y-4">
+            <span className="text-xs font-mono font-bold text-[#7857FF] uppercase tracking-wider flex items-center gap-2">
+              <BarChart3 className="w-4 h-4" /> {ch.visualDiagram.title}
+            </span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {ch.visualDiagram.items.map((item, i) => (
-                <div key={i} className={`p-3.5 rounded-xl border space-y-1 ${
-                  ch.visualDiagram!.type === 'warning'
-                    ? 'bg-amber-500/5 border-amber-500/20'
-                    : ch.visualDiagram!.type === 'steps'
-                    ? 'bg-[#080D2B]/60 border-[#7857FF]/15 relative pl-10'
-                    : 'bg-[#080D2B]/60 border-[#7857FF]/15'
-                }`}>
-                  {ch.visualDiagram!.type === 'steps' && (
-                    <div className="absolute left-3 top-3 w-5 h-5 rounded-full bg-[#7857FF]/20 border border-[#7857FF]/40 flex items-center justify-center">
-                      <span className="text-[10px] font-black text-[#7857FF]">{i + 1}</span>
-                    </div>
-                  )}
-                  <span className="text-xs font-bold text-[#F5F6FF] block">{item.label}</span>
-                  <p className="text-[11px] text-[#AAB3D5] leading-relaxed">{item.description}</p>
-                  {item.highlight && <span className="text-[10px] font-mono text-[#7857FF]">{item.highlight}</span>}
-                  {item.badge && <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#7857FF]/10 text-[#7857FF] border border-[#7857FF]/20 inline-block">{item.badge}</span>}
+                <div key={i} className="p-4 rounded-2xl bg-[#080D2B]/70 border border-[#7857FF]/20 space-y-1">
+                  <span className="text-xs font-bold text-white block">{item.label}</span>
+                  <p className="text-xs text-[#AAB3D5] leading-relaxed">{item.description}</p>
+                  {item.highlight && <span className="text-[10px] font-mono text-[#7857FF] font-bold block pt-1">{item.highlight}</span>}
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* Galeri Ilustrasi & Diagram Resmi */}
+        {/* Illustrations Gallery */}
         {ch.illustrations && ch.illustrations.length > 0 && (
-          <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 space-y-4">
+          <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-mono font-bold text-[#7857FF] uppercase tracking-wider flex items-center gap-2">
                 <ImageIcon className="w-4 h-4" /> Galeri Ilustrasi & Diagram Resmi ({ch.illustrations.length})
               </span>
               <span className="text-[10px] text-[#737FA8] italic">Klik gambar untuk memperbesar</span>
             </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {ch.illustrations.map((item, i) => (
                 <div
@@ -621,34 +1052,22 @@ export const SswSection: React.FC<SswSectionProps> = ({
                     sound.playClick();
                     setPreviewImage({ url: item.url, title: item.title, caption: item.caption });
                   }}
-                  className="group cursor-pointer rounded-xl bg-[#080D2B]/70 border border-[#7857FF]/20 hover:border-[#7857FF]/50 transition-all duration-200 overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-0.5"
+                  className="group cursor-pointer rounded-2xl bg-[#080D2B] border border-[#7857FF]/20 hover:border-[#7857FF]/60 overflow-hidden flex flex-col hover:shadow-lg transition-all"
                 >
-                  <div className="relative aspect-4/3 bg-black/40 overflow-hidden flex items-center justify-center p-2">
+                  <div className="relative aspect-4/3 bg-black/40 flex items-center justify-center p-2">
                     <img
                       src={item.url}
                       alt={item.title}
-                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                      <span className="p-2 rounded-full bg-[#12194A]/90 text-white border border-[#7857FF]/40 shadow-md">
-                        <ZoomIn className="w-4 h-4" />
-                      </span>
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                      <ZoomIn className="w-5 h-5 text-white" />
                     </div>
-                    {item.tag && (
-                      <span className="absolute top-2 left-2 text-[9px] font-bold px-2 py-0.5 rounded-md bg-[#080D2B]/90 text-[#7857FF] border border-[#7857FF]/30">
-                        {item.tag}
-                      </span>
-                    )}
                   </div>
-                  <div className="p-3 space-y-1 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h5 className="text-xs font-bold text-[#F5F6FF] group-hover:text-[#7857FF] transition-colors">{item.title}</h5>
-                      {item.japaneseTitle && (
-                        <p className="text-[11px] text-[#737FA8] font-mono japanese-text">{item.japaneseTitle}</p>
-                      )}
-                    </div>
-                    <p className="text-[11px] text-[#AAB3D5] line-clamp-2 mt-1">{item.caption}</p>
+                  <div className="p-3">
+                    <h4 className="text-xs font-bold text-white group-hover:text-[#945CFF] transition-colors">{item.title}</h4>
+                    <p className="text-[10px] text-[#AAB3D5] line-clamp-2 mt-1">{item.caption}</p>
                   </div>
                 </div>
               ))}
@@ -656,58 +1075,53 @@ export const SswSection: React.FC<SswSectionProps> = ({
           </div>
         )}
 
-        {/* Poin Penting */}
-        <div className="rounded-2xl bg-amber-500/5 border border-amber-500/25 p-5 space-y-3">
-          <span className="text-xs font-black text-amber-400 uppercase tracking-wider flex items-center gap-1.5"><AlertTriangle className="w-4 h-4" /> Poin Penting yang Harus Diingat</span>
+        {/* Important Points & Summary */}
+        <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 space-y-4">
+          <span className="text-xs font-mono font-bold text-[#FFC857] uppercase tracking-wider flex items-center gap-2">
+            <Lightbulb className="w-4 h-4" /> Poin Penting & Rangkuman
+          </span>
           <ul className="space-y-2">
             {ch.importantPoints.map((pt, i) => (
               <li key={i} className="flex items-start gap-2 text-xs text-[#F5F6FF] leading-relaxed">
-                <Lightbulb className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFC857] mt-1.5 shrink-0" />
                 <span>{pt}</span>
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* Rangkuman */}
-        <div className="rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/15 p-5 space-y-2">
-          <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><ListChecks className="w-4 h-4" /> Rangkuman</span>
-          <p className="text-sm text-[#F5F6FF] leading-relaxed">{ch.summary}</p>
-        </div>
-
-        {/* Referensi */}
-        <div className="rounded-2xl bg-[#080D2B]/40 border border-[#7857FF]/10 p-4 space-y-1">
-          <span className="text-[10px] font-black text-[#737FA8] uppercase tracking-wider">Referensi Resmi</span>
-          <p className="text-[11px] text-[#AAB3D5]">{ch.officialReference.documentTitle}</p>
-          <p className="text-[10px] text-[#737FA8]">{ch.officialReference.agency} — {ch.officialReference.source}</p>
+          <p className="text-xs sm:text-sm text-[#AAB3D5] pt-3 border-t border-[#7857FF]/15 leading-relaxed">
+            {ch.summary}
+          </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col sm:flex-row gap-3 pt-2">
           {ch.practiceQuestions.length > 0 && (
             <button
               onClick={() => startQuiz(ch.practiceQuestions, `Latihan Bab ${ch.chapterNumber}: ${ch.title}`)}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] hover:brightness-110 text-[#F5F6FF] border border-[#7857FF]/30 text-sm font-black shadow-lg transition-all active:scale-95"
+              className="flex-1 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white text-xs sm:text-sm font-black shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
             >
-              <Brain className="w-4 h-4 text-[#7857FF]" /> Mulai Latihan Soal ({ch.practiceQuestions.length} soal)
+              <Brain className="w-4 h-4" />
+              <span>Mulai Latihan Soal ({ch.practiceQuestions.length} Soal)</span>
             </button>
           )}
 
           {!isCompleted && (
             <button
               onClick={() => { markChapterComplete(ch.id); sound.playClick(); }}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:brightness-110 text-white text-sm font-black shadow-lg transition-all active:scale-95"
+              className="flex-1 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs sm:text-sm font-black shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
             >
-              <CheckCircle2 className="w-4 h-4" /> Tandai Selesai
+              <CheckCircle2 className="w-4 h-4" />
+              <span>Tandai Bab Selesai</span>
             </button>
           )}
 
           {nextChapter && (
             <button
               onClick={() => openChapter(nextChapter.id)}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-[#0D1238] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/20 text-sm font-bold transition-all"
+              className="flex-1 py-3.5 px-5 rounded-2xl bg-[#0D1238] hover:bg-[#12194A] border border-[#7857FF]/30 text-white text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              Bab Berikutnya <ArrowRight className="w-4 h-4" />
+              <span>Bab Berikutnya</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           )}
         </div>
@@ -715,101 +1129,108 @@ export const SswSection: React.FC<SswSectionProps> = ({
         {/* Lightbox Image Preview Modal */}
         {previewImage && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md"
             onClick={() => setPreviewImage(null)}
           >
             <div
-              className="relative max-w-4xl w-full max-h-[92vh] flex flex-col rounded-3xl bg-[#080D2B] border border-[#7857FF]/30 shadow-2xl overflow-hidden"
+              className="relative max-w-4xl w-full max-h-[92vh] flex flex-col rounded-3xl bg-[#080D2B] border border-[#7857FF]/40 shadow-2xl overflow-hidden"
               onClick={e => e.stopPropagation()}
             >
-              {/* Modal Header */}
-              <div className="p-4 sm:p-5 border-b border-[#7857FF]/15 flex items-center justify-between bg-[#0D1238]">
-                <div className="space-y-0.5 pr-4">
-                  <h3 className="text-sm sm:text-base font-bold text-[#F5F6FF]">{previewImage.title}</h3>
-                  {previewImage.caption && (
-                    <p className="text-xs text-[#AAB3D5]">{previewImage.caption}</p>
-                  )}
+              <div className="p-4 border-b border-[#7857FF]/20 flex items-center justify-between bg-[#0D1238]">
+                <div>
+                  <h3 className="text-sm font-bold text-white">{previewImage.title}</h3>
+                  {previewImage.caption && <p className="text-xs text-[#AAB3D5]">{previewImage.caption}</p>}
                 </div>
-                <button
-                  onClick={() => setPreviewImage(null)}
-                  className="p-2 rounded-xl bg-[#080D2B] text-[#737FA8] hover:text-white hover:bg-[#12194A] transition-colors shrink-0 cursor-pointer"
-                >
+                <button onClick={() => setPreviewImage(null)} className="p-2 rounded-xl text-[#737FA8] hover:text-white">
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Modal Image Body */}
-              <div className="flex-1 overflow-auto p-4 flex items-center justify-center bg-black/60 min-h-[300px]">
-                <img
-                  src={previewImage.url}
-                  alt={previewImage.title}
-                  className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-lg"
-                />
-              </div>
-
-              {/* Modal Footer */}
-              <div className="p-3 bg-[#0D1238] border-t border-[#7857FF]/15 flex items-center justify-between text-[11px] text-[#737FA8]">
-                <span>Modul Pembelajaran Resmi Tokutei Ginou OTAFF</span>
-                <span className="hidden sm:inline">Tekan ESC atau klik luar untuk menutup</span>
+              <div className="p-4 flex items-center justify-center bg-black/60 overflow-auto">
+                <img src={previewImage.url} alt={previewImage.title} className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl" />
               </div>
             </div>
           </div>
         )}
+
       </div>
     );
   }
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // VIEW: QUIZ / EXAM — Latihan & Simulasi Ujian
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // VIEW: QUIZ / EXAM — SSW CBT SIMULATION ENGINE
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   if ((view === 'quiz' || view === 'exam') && quizQuestions.length > 0) {
     const q = quizQuestions[quizCurrentIdx];
     const isExam = view === 'exam';
     const totalQuestions = quizQuestions.length;
     const answeredCount = Object.keys(quizAnswers).length;
 
-    // Results view
+    // Results
     if (quizSubmitted && !quizShowReview) {
       const correctCount = quizQuestions.reduce((acc, qu) => acc + (quizAnswers[qu.id] === qu.correctAnswerIndex ? 1 : 0), 0);
       const percentage = Math.round((correctCount / totalQuestions) * 100);
-      const passed = isExam ? percentage >= (selectedSector.examSimulation.passingScorePercentage || 60) : percentage >= 60;
+      const passingMark = isExam ? (selectedSector.examSimulation.passingScorePercentage || 60) : 60;
+      const passed = percentage >= passingMark;
 
       return (
-        <div className="space-y-6 text-left pb-16 max-w-3xl mx-auto">
-          <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Kembali
+        <div className="space-y-6 text-left pb-20 max-w-3xl mx-auto animate-fade-in font-['Plus_Jakarta_Sans',sans-serif]">
+          <button onClick={goBack} className="inline-flex items-center gap-2 text-xs font-bold text-[#AAB3D5] hover:text-white transition-colors cursor-pointer">
+            <ArrowLeft className="w-4 h-4 text-[#7857FF]" />
+            <span>Kembali</span>
           </button>
 
-          <div className={`rounded-3xl border p-8 text-center space-y-4 ${
-            passed ? 'bg-emerald-500/5 border-emerald-500/30' : 'bg-amber-500/5 border-amber-500/30'
+          <div className={`rounded-3xl border p-8 sm:p-10 text-center space-y-6 ${
+            passed ? 'bg-[#0D1238] border-emerald-500/40 shadow-[0_0_40px_rgba(0,214,163,0.2)]' : 'bg-[#0D1238] border-amber-500/40'
           }`}>
             <div className={`w-20 h-20 rounded-full mx-auto flex items-center justify-center ${
-              passed ? 'bg-emerald-500/20' : 'bg-amber-500/20'
+              passed ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'
             }`}>
-              {passed ? <CheckCircle2 className="w-10 h-10 text-emerald-400" /> : <AlertTriangle className="w-10 h-10 text-amber-400" />}
+              {passed ? <CheckCircle2 className="w-10 h-10" /> : <AlertTriangle className="w-10 h-10" />}
             </div>
 
-            <h2 className="text-2xl font-black text-[#F5F6FF] font-['Manrope']">
-              {passed ? 'Selamat! Anda Lulus 🎉' : 'Belum Lulus — Pelajari Kembali'}
-            </h2>
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-black text-white font-['Manrope']">
+                {passed ? 'Selamat! Anda Lulus Evaluasi 🎉' : 'Belum Mencapai Nilai Kelulusan'}
+              </h2>
+              <p className="text-xs sm:text-sm text-[#AAB3D5] mt-1">
+                {passed 
+                  ? `Skor Anda melampaui passing mark ${passingMark}% untuk ${quizTitle}` 
+                  : `Passing mark standar adalah ${passingMark}%. Ulangi materi dan coba lagi.`}
+              </p>
+            </div>
 
-            <div className="flex items-center justify-center gap-6">
+            <div className="flex items-center justify-center gap-8 pt-2">
               <div>
-                <span className={`text-4xl font-black font-mono ${passed ? 'text-emerald-400' : 'text-amber-400'}`}>{percentage}%</span>
-                <span className="text-xs text-[#737FA8] block">Skor</span>
+                <span className={`text-4xl sm:text-5xl font-black font-mono ${passed ? 'text-emerald-400' : 'text-amber-400'}`}>
+                  {percentage}%
+                </span>
+                <span className="text-xs text-[#737FA8] block font-bold mt-1">Skor Akhir</span>
               </div>
+              <div className="w-px h-12 bg-[#7857FF]/20" />
               <div>
-                <span className="text-4xl font-black font-mono text-[#7857FF]">{correctCount}/{totalQuestions}</span>
-                <span className="text-xs text-[#737FA8] block">Jawaban Benar</span>
+                <span className="text-4xl sm:text-5xl font-black font-mono text-[#7857FF]">
+                  {correctCount}/{totalQuestions}
+                </span>
+                <span className="text-xs text-[#737FA8] block font-bold mt-1">Jawaban Benar</span>
               </div>
             </div>
 
             <div className="flex items-center justify-center gap-3 pt-4">
-              <button onClick={() => setQuizShowReview(true)} className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#0D1238] border border-[#7857FF]/30 text-[#F5F6FF] text-xs font-bold hover:bg-[#12194A] transition-all">
-                <Eye className="w-4 h-4 text-[#7857FF]" /> Lihat Pembahasan
+              <button
+                onClick={() => setQuizShowReview(true)}
+                className="px-6 py-3 rounded-2xl bg-[#12194A] hover:bg-[#1D245E] border border-[#7857FF]/40 text-white text-xs sm:text-sm font-bold shadow-md transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <Eye className="w-4 h-4 text-[#7857FF]" />
+                <span>Lihat Pembahasan Jawaban</span>
               </button>
-              <button onClick={() => { setQuizCurrentIdx(0); setQuizAnswers({}); setQuizSubmitted(false); }} className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#0D1238] border border-[#7857FF]/30 text-[#F5F6FF] text-xs font-bold hover:bg-[#12194A] transition-all">
-                <RotateCcw className="w-4 h-4 text-[#7857FF]" /> Ulangi
+
+              <button
+                onClick={() => { setQuizCurrentIdx(0); setQuizAnswers({}); setQuizSubmitted(false); }}
+                className="px-6 py-3 rounded-2xl bg-[#080D2B] hover:bg-[#12194A] border border-[#7857FF]/25 text-[#AAB3D5] hover:text-white text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <RotateCcw className="w-4 h-4" />
+                <span>Ulangi Ujian</span>
               </button>
             </div>
           </div>
@@ -820,87 +1241,125 @@ export const SswSection: React.FC<SswSectionProps> = ({
     // Review mode
     if (quizSubmitted && quizShowReview) {
       return (
-        <div className="space-y-6 text-left pb-16 max-w-3xl mx-auto">
-          <button onClick={() => setQuizShowReview(false)} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Kembali ke Hasil
+        <div className="space-y-6 text-left pb-20 max-w-3xl mx-auto animate-fade-in font-['Plus_Jakarta_Sans',sans-serif]">
+          <button onClick={() => setQuizShowReview(false)} className="inline-flex items-center gap-2 text-xs font-bold text-[#AAB3D5] hover:text-white transition-colors cursor-pointer">
+            <ArrowLeft className="w-4 h-4 text-[#7857FF]" />
+            <span>Kembali ke Ringkasan Nilai</span>
           </button>
 
-          <h2 className="text-xl font-black text-[#F5F6FF] font-['Manrope']">Pembahasan Jawaban</h2>
+          <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope']">
+            Pembahasan & Evaluasi Jawaban ({totalQuestions} Soal)
+          </h2>
 
-          {quizQuestions.map((qu, idx) => {
-            const userAnswer = quizAnswers[qu.id];
-            const isCorrect = userAnswer === qu.correctAnswerIndex;
+          <div className="space-y-4">
+            {quizQuestions.map((qu, idx) => {
+              const userAnswer = quizAnswers[qu.id];
+              const isCorrect = userAnswer === qu.correctAnswerIndex;
 
-            return (
-              <div key={qu.id} className={`rounded-2xl border p-5 space-y-3 ${
-                isCorrect ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-rose-500/5 border-rose-500/20'
-              }`}>
-                <div className="flex items-center gap-2">
-                  <span className={`text-xs font-bold ${isCorrect ? 'text-emerald-400' : 'text-rose-400'}`}>
-                    {isCorrect ? '✓ Benar' : '✗ Salah'} — Soal {idx + 1}
-                  </span>
+              return (
+                <div
+                  key={qu.id}
+                  className={`rounded-3xl border p-6 space-y-3 ${
+                    isCorrect ? 'bg-[#0D1238] border-emerald-500/30' : 'bg-[#0D1238] border-rose-500/30'
+                  }`}
+                >
+                  <div className="flex items-center justify-between text-xs font-bold font-mono">
+                    <span className={isCorrect ? 'text-emerald-400' : 'text-rose-400'}>
+                      {isCorrect ? '✓ Benar' : '✗ Salah'} · Soal {idx + 1}
+                    </span>
+                  </div>
+
+                  <p className="text-sm sm:text-base text-white font-bold leading-relaxed japanese-text">
+                    {qu.questionText}
+                  </p>
+
+                  {qu.situation && <p className="text-xs text-[#737FA8] italic">Situasi: {qu.situation}</p>}
+                  {qu.translation && <p className="text-xs text-[#AAB3D5]">Terjemahan: {qu.translation}</p>}
+
+                  <div className="space-y-2 pt-1">
+                    {qu.options.map((opt, oi) => (
+                      <div
+                        key={oi}
+                        className={`p-3 rounded-xl text-xs flex items-start gap-2.5 ${
+                          oi === qu.correctAnswerIndex
+                            ? 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold'
+                            : oi === userAnswer && oi !== qu.correctAnswerIndex
+                            ? 'bg-rose-500/20 border border-rose-500/40 text-rose-300'
+                            : 'bg-[#080D2B]/40 text-[#737FA8]'
+                        }`}
+                      >
+                        <span className="font-mono font-bold shrink-0">{oi + 1}.</span>
+                        <span className="japanese-text">{opt}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-[#080D2B] border border-[#7857FF]/20 text-xs">
+                    <span className="font-bold text-[#7857FF] block mb-1">Penjelasan Pembahasan:</span>
+                    <p className="text-[#AAB3D5] leading-relaxed">{qu.explanation}</p>
+                  </div>
                 </div>
-                <p className="text-sm text-[#F5F6FF] japanese-text">{qu.questionText}</p>
-
-                {qu.situation && <p className="text-xs text-[#737FA8] italic">Situasi: {qu.situation}</p>}
-                {qu.translation && <p className="text-xs text-[#AAB3D5]">Terjemahan: {qu.translation}</p>}
-
-                <div className="space-y-1.5">
-                  {qu.options.map((opt, oi) => (
-                    <div key={oi} className={`p-2.5 rounded-xl text-xs flex items-start gap-2 ${
-                      oi === qu.correctAnswerIndex ? 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-300' :
-                      oi === userAnswer && oi !== qu.correctAnswerIndex ? 'bg-rose-500/15 border border-rose-500/30 text-rose-300' :
-                      'bg-[#080D2B]/30 text-[#737FA8]'
-                    }`}>
-                      <span className="font-mono font-bold shrink-0">{oi + 1}.</span>
-                      <span className="japanese-text">{opt}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="p-3 rounded-xl bg-[#080D2B]/50 border border-[#7857FF]/10">
-                  <span className="text-[10px] font-bold text-[#7857FF]">Pembahasan:</span>
-                  <p className="text-xs text-[#F5F6FF] mt-1 leading-relaxed">{qu.explanation}</p>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       );
     }
 
-    // Active quiz question
+    // Active Quiz Question Interface
     return (
-      <div className="space-y-6 text-left pb-16 max-w-3xl mx-auto">
+      <div className="space-y-6 text-left pb-20 max-w-3xl mx-auto animate-fade-in font-['Plus_Jakarta_Sans',sans-serif]">
+        
+        {/* Header bar */}
         <div className="flex items-center justify-between">
-          <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Keluar
+          <button onClick={goBack} className="inline-flex items-center gap-2 text-xs font-bold text-[#AAB3D5] hover:text-white transition-colors cursor-pointer">
+            <ArrowLeft className="w-4 h-4 text-[#7857FF]" />
+            <span>Keluar Latihan</span>
           </button>
-          <span className="text-xs font-bold text-[#737FA8] font-mono">{quizCurrentIdx + 1} / {totalQuestions}</span>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="w-full h-2 rounded-full bg-[#080D2B] overflow-hidden">
-          <div className="h-full rounded-full bg-gradient-to-r from-[#7857FF] to-emerald-400 transition-all duration-300" style={{ width: `${((quizCurrentIdx + 1) / totalQuestions) * 100}%` }} />
-        </div>
-
-        {/* Title */}
-        <div className="flex items-center gap-2">
-          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-lg ${isExam ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30' : 'bg-[#7857FF]/15 text-[#7857FF] border border-[#7857FF]/30'}`}>
-            {isExam ? 'Simulasi Ujian' : 'Latihan'}
+          <span className="text-xs font-mono font-bold text-[#945CFF]">
+            Soal {quizCurrentIdx + 1} dari {totalQuestions}
           </span>
-          <span className="text-xs text-[#737FA8] truncate">{quizTitle}</span>
         </div>
 
-        {/* Question */}
-        <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 sm:p-6 space-y-4">
-          <p className="text-sm sm:text-base text-[#F5F6FF] font-semibold leading-relaxed japanese-text">{q.questionText}</p>
+        {/* Progress bar */}
+        <div className="w-full h-2 rounded-full bg-[#080D2B] overflow-hidden border border-[#7857FF]/20">
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-[#7857FF] to-[#329BFF] transition-all duration-300"
+            style={{ width: `${((quizCurrentIdx + 1) / totalQuestions) * 100}%` }}
+          />
+        </div>
 
-          {q.situation && <p className="text-xs text-[#737FA8] italic bg-[#080D2B]/40 p-2 rounded-lg">Situasi: {q.situation}</p>}
-          {q.passageText && <div className="text-xs text-[#AAB3D5] bg-[#080D2B]/40 p-3 rounded-xl border border-[#7857FF]/10 whitespace-pre-line japanese-text">{q.passageText}</div>}
-          {q.translation && <p className="text-xs text-[#AAB3D5]">→ {q.translation}</p>}
+        {/* Question card */}
+        <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/30 p-6 sm:p-8 space-y-5 shadow-xl">
+          <div className="space-y-2">
+            <span className="px-3 py-1 rounded-full bg-[#12194A] border border-[#7857FF]/30 text-[#D8B4FE] text-xs font-bold font-mono">
+              {isExam ? 'Ujian Keahlian Teknis' : 'Latihan Bab'}
+            </span>
+            <p className="text-base sm:text-lg text-white font-bold leading-relaxed japanese-text pt-2">
+              {q.questionText}
+            </p>
+          </div>
 
-          <div className="space-y-2.5 pt-2">
+          {q.situation && (
+            <p className="text-xs text-[#AAB3D5] italic bg-[#080D2B]/60 p-3 rounded-xl border border-[#7857FF]/15">
+              Situasi: {q.situation}
+            </p>
+          )}
+
+          {q.passageText && (
+            <div className="text-xs sm:text-sm text-[#F5F6FF] bg-[#080D2B] p-4 rounded-2xl border border-[#7857FF]/20 whitespace-pre-line japanese-text leading-relaxed">
+              {q.passageText}
+            </div>
+          )}
+
+          {q.translation && (
+            <p className="text-xs text-[#737FA8]">
+              Arti: {q.translation}
+            </p>
+          )}
+
+          {/* Options */}
+          <div className="space-y-3 pt-2">
             {q.options.map((opt, oi) => {
               const isSelected = quizAnswers[q.id] === oi;
               return (
@@ -910,67 +1369,73 @@ export const SswSection: React.FC<SswSectionProps> = ({
                     sound.playClick();
                     setQuizAnswers(prev => ({ ...prev, [q.id]: oi }));
                   }}
-                  className={`w-full p-3.5 rounded-xl text-left text-sm transition-all flex items-start gap-3 ${
+                  className={`w-full p-4 rounded-2xl text-left text-xs sm:text-sm transition-all flex items-start gap-3.5 cursor-pointer ${
                     isSelected
-                      ? 'bg-[#12194A] border-2 border-[#7857FF] text-[#F5F6FF] shadow-[0_0_15px_rgba(120,87,255,0.2)]'
-                      : 'bg-[#080D2B]/50 border border-[#7857FF]/15 text-[#AAB3D5] hover:border-[#7857FF]/40'
+                      ? 'bg-[#12194A] border-2 border-[#7857FF] text-white shadow-[0_0_20px_rgba(120,87,255,0.3)]'
+                      : 'bg-[#080D2B]/80 border border-[#7857FF]/20 text-[#AAB3D5] hover:border-[#7857FF]/50 hover:text-white'
                   }`}
                 >
-                  <span className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 font-black text-xs ${
-                    isSelected ? 'bg-[#7857FF] text-[#080D2B]' : 'bg-[#0D1238] text-[#737FA8] border border-[#7857FF]/20'
-                  }`}>{oi + 1}</span>
-                  <span className="japanese-text pt-0.5">{opt}</span>
+                  <span className={`w-7 h-7 rounded-xl flex items-center justify-center shrink-0 font-bold text-xs ${
+                    isSelected ? 'bg-[#7857FF] text-white' : 'bg-[#0D1238] text-[#737FA8] border border-[#7857FF]/20'
+                  }`}>
+                    {oi + 1}
+                  </span>
+                  <span className="japanese-text pt-0.5 leading-relaxed">{opt}</span>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Navigation */}
+        {/* Footer Navigation */}
         <div className="flex items-center justify-between gap-3">
           <button
             onClick={() => { if (quizCurrentIdx > 0) { sound.playClick(); setQuizCurrentIdx(prev => prev - 1); } }}
             disabled={quizCurrentIdx === 0}
-            className="px-4 py-2.5 rounded-xl bg-[#0D1238] border border-[#7857FF]/20 text-[#737FA8] text-xs font-bold disabled:opacity-30 hover:text-[#F5F6FF] transition-all"
+            className="px-4 py-2.5 rounded-xl bg-[#0D1238] border border-[#7857FF]/20 text-xs font-bold text-[#AAB3D5] hover:text-white disabled:opacity-30 cursor-pointer"
           >
             ← Sebelumnya
           </button>
 
-          <div className="flex gap-1 overflow-x-auto">
+          <div className="flex gap-1.5 overflow-x-auto max-w-[200px] sm:max-w-md">
             {quizQuestions.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => { sound.playClick(); setQuizCurrentIdx(idx); }}
                 className={`w-7 h-7 rounded-lg text-[10px] font-bold shrink-0 transition-all ${
-                  idx === quizCurrentIdx ? 'bg-[#7857FF] text-[#080D2B]' :
-                  quizAnswers[quizQuestions[idx].id] !== undefined ? 'bg-[#12194A] text-[#7857FF] border border-[#7857FF]/30' :
-                  'bg-[#080D2B] text-[#737FA8] border border-[#7857FF]/10'
+                  idx === quizCurrentIdx
+                    ? 'bg-[#7857FF] text-white shadow-md'
+                    : quizAnswers[quizQuestions[idx].id] !== undefined
+                    ? 'bg-[#12194A] text-[#7857FF] border border-[#7857FF]/40'
+                    : 'bg-[#080D2B] text-[#737FA8] border border-[#7857FF]/15'
                 }`}
-              >{idx + 1}</button>
+              >
+                {idx + 1}
+              </button>
             ))}
           </div>
 
           {quizCurrentIdx < totalQuestions - 1 ? (
             <button
               onClick={() => { sound.playClick(); setQuizCurrentIdx(prev => prev + 1); }}
-              className="px-4 py-2.5 rounded-xl bg-[#0D1238] border border-[#7857FF]/20 text-[#F5F6FF] text-xs font-bold hover:bg-[#12194A] transition-all"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white text-xs font-bold shadow-md transition-all cursor-pointer"
             >
-              Berikutnya →
+              Selanjutnya →
             </button>
           ) : (
             <button
               onClick={submitQuiz}
               disabled={answeredCount < totalQuestions}
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-black disabled:opacity-50 hover:brightness-110 transition-all active:scale-95"
+              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-black shadow-lg transition-all active:scale-95 disabled:opacity-40 cursor-pointer"
             >
               Kumpulkan ({answeredCount}/{totalQuestions})
             </button>
           )}
         </div>
+
       </div>
     );
   }
 
-  // Fallback
-  return <div className="text-center text-[#737FA8] py-20">Memuat...</div>;
+  return <div className="text-center text-[#737FA8] py-20">Memuat SSW Career Academy...</div>;
 };
