@@ -174,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const isMateriActive = ['kana', 'kotoba', 'kanji'].includes(activeTab);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0C1B33]/95 backdrop-blur-xl border-b border-[#8FB4E3]/20 shadow-[0_4px_30px_rgba(12,27,51,0.6)]">
+    <header className="sticky top-0 z-40 w-full bg-[#080D2B]/95 backdrop-blur-xl border-b border-[#7857FF]/20 shadow-[0_4px_30px_rgba(8,13,43,0.6)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Desktop & Tablet Row */}
@@ -186,36 +186,36 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-2.5 cursor-pointer group select-none shrink-0"
           >
             <div className="relative flex items-center justify-center">
-              <div className="absolute inset-0 rounded-2xl bg-[#8FB4E3]/15 blur-md group-hover:bg-[#8FB4E3]/30 transition-all"></div>
+              <div className="absolute inset-0 rounded-2xl bg-[#7857FF]/15 blur-md group-hover:bg-[#7857FF]/30 transition-all"></div>
               <img
                 src="/zenora-icon.png"
                 alt="ZENORA"
-                className="relative w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_2px_8px_rgba(143,180,227,0.35)] group-hover:scale-105 transition-transform"
+                className="relative w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_2px_8px_rgba(120,87,255,0.35)] group-hover:scale-105 transition-transform"
               />
             </div>
             <div className="flex items-center gap-2">
-              <span className="font-black text-xl sm:text-2xl tracking-tight font-['Manrope'] bg-gradient-to-r from-[#EEF1F6] via-[#EEF1F6] to-[#8FB4E3] bg-clip-text text-transparent">
+              <span className="font-black text-xl sm:text-2xl tracking-tight font-['Manrope'] bg-gradient-to-r from-[#F5F6FF] via-[#F5F6FF] to-[#7857FF] bg-clip-text text-transparent">
                 ZENORA
               </span>
-              <span className="inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-bold font-mono tracking-wider bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/30">
+              <span className="inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-bold font-mono tracking-wider bg-[#12194A] text-[#7857FF] border border-[#7857FF]/30">
                 日本語
               </span>
             </div>
           </div>
 
           {/* 2. STRUKTUR 4 PILAR NAVIGASI UTAMA (DESKTOP) */}
-          <nav className="hidden lg:flex items-center gap-1.5 p-1.5 bg-[#16294A]/80 rounded-2xl border border-[#8FB4E3]/20 shadow-inner">
+          <nav className="hidden lg:flex items-center gap-1.5 p-1.5 bg-[#0D1238]/80 rounded-2xl border border-[#7857FF]/20 shadow-inner">
             
             {/* Pilar 1: Beranda */}
             <button
               onClick={() => handleNav('beranda')}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
                 activeTab === 'beranda'
-                  ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
-                  : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
+                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] shadow-[0_2px_12px_rgba(120,87,255,0.25)] border border-[#7857FF]/40'
+                  : 'text-[#737FA8] hover:text-[#F5F6FF] hover:bg-white/5'
               }`}
             >
-              <Sparkles className={`w-4 h-4 ${activeTab === 'beranda' ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+              <Sparkles className={`w-4 h-4 ${activeTab === 'beranda' ? 'text-[#7857FF]' : 'text-[#737FA8]'}`} />
               <span>Beranda</span>
             </button>
 
@@ -229,23 +229,23 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
                   isMateriActive || materiDropdownOpen
-                    ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
-                    : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
+                    ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] shadow-[0_2px_12px_rgba(120,87,255,0.25)] border border-[#7857FF]/40'
+                    : 'text-[#737FA8] hover:text-[#F5F6FF] hover:bg-white/5'
                 }`}
               >
-                <BookOpen className={`w-4 h-4 ${isMateriActive ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+                <BookOpen className={`w-4 h-4 ${isMateriActive ? 'text-[#7857FF]' : 'text-[#737FA8]'}`} />
                 <span>Materi</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${materiDropdownOpen ? 'rotate-180 text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${materiDropdownOpen ? 'rotate-180 text-[#7857FF]' : 'text-[#737FA8]'}`} />
               </button>
 
               {/* Floating Dropdown Menu Materi */}
               {materiDropdownOpen && (
-                <div className="absolute left-0 mt-3 w-88 sm:w-96 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute left-0 mt-3 w-88 sm:w-96 rounded-3xl bg-[#0D1238] border border-[#7857FF]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="px-3 py-2 border-b border-white/10 mb-2">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-[#8FB4E3] font-mono block">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#7857FF] font-mono block">
                       MODUL PEMBELAJARAN
                     </span>
-                    <span className="text-xs text-[#CBD8EC] block">
+                    <span className="text-xs text-[#AAB3D5] block">
                       Pilih aspek materi bahasa Jepang
                     </span>
                   </div>
@@ -257,21 +257,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                         <button
                           key={item.id}
                           onClick={item.action}
-                          className="w-full p-2.5 rounded-2xl hover:bg-[#1F3760] transition-colors flex items-start gap-3 text-left group"
+                          className="w-full p-2.5 rounded-2xl hover:bg-[#12194A] transition-colors flex items-start gap-3 text-left group"
                         >
-                          <div className="w-8 h-8 rounded-xl bg-[#0C1B33] border border-[#8FB4E3]/20 flex items-center justify-center shrink-0 group-hover:border-[#8FB4E3]/50 transition-colors">
-                            <Icon className="w-4 h-4 text-[#8FB4E3]" />
+                          <div className="w-8 h-8 rounded-xl bg-[#080D2B] border border-[#7857FF]/20 flex items-center justify-center shrink-0 group-hover:border-[#7857FF]/50 transition-colors">
+                            <Icon className="w-4 h-4 text-[#7857FF]" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-1">
-                              <span className="text-xs font-bold text-[#EEF1F6] group-hover:text-[#8FB4E3] transition-colors truncate">
+                              <span className="text-xs font-bold text-[#F5F6FF] group-hover:text-[#7857FF] transition-colors truncate">
                                 {item.title}
                               </span>
-                              <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-md bg-[#0C1B33] text-[#8FB4E3] border border-[#8FB4E3]/20 shrink-0 font-mono">
+                              <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-md bg-[#080D2B] text-[#7857FF] border border-[#7857FF]/20 shrink-0 font-mono">
                                 {item.badge}
                               </span>
                             </div>
-                            <p className="text-[11px] text-[#8793A8] line-clamp-1 mt-0.5">
+                            <p className="text-[11px] text-[#737FA8] line-clamp-1 mt-0.5">
                               {item.subtitle}
                             </p>
                           </div>
@@ -288,11 +288,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNav('ssw')}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
                 activeTab === 'ssw'
-                  ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
-                  : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
+                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] shadow-[0_2px_12px_rgba(120,87,255,0.25)] border border-[#7857FF]/40'
+                  : 'text-[#737FA8] hover:text-[#F5F6FF] hover:bg-white/5'
               }`}
             >
-              <Briefcase className={`w-4 h-4 ${activeTab === 'ssw' ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+              <Briefcase className={`w-4 h-4 ${activeTab === 'ssw' ? 'text-[#7857FF]' : 'text-[#737FA8]'}`} />
               <span>SSW</span>
               <span className="text-[9px] font-black px-1.5 py-0.2 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono">
                 Tokutei
@@ -309,23 +309,23 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
                   activeTab === 'latihan' || latihanDropdownOpen
-                    ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] shadow-[0_2px_12px_rgba(143,180,227,0.25)] border border-[#8FB4E3]/40'
-                    : 'text-[#8793A8] hover:text-[#EEF1F6] hover:bg-white/5'
+                    ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] shadow-[0_2px_12px_rgba(120,87,255,0.25)] border border-[#7857FF]/40'
+                    : 'text-[#737FA8] hover:text-[#F5F6FF] hover:bg-white/5'
                 }`}
               >
-                <Award className={`w-4 h-4 ${activeTab === 'latihan' ? 'text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+                <Award className={`w-4 h-4 ${activeTab === 'latihan' ? 'text-[#7857FF]' : 'text-[#737FA8]'}`} />
                 <span>Latihan</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${latihanDropdownOpen ? 'rotate-180 text-[#8FB4E3]' : 'text-[#8793A8]'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${latihanDropdownOpen ? 'rotate-180 text-[#7857FF]' : 'text-[#737FA8]'}`} />
               </button>
 
               {/* Floating Dropdown Menu Latihan */}
               {latihanDropdownOpen && (
-                <div className="absolute right-0 mt-3 w-88 sm:w-96 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute right-0 mt-3 w-88 sm:w-96 rounded-3xl bg-[#0D1238] border border-[#7857FF]/30 shadow-2xl p-3 z-50 text-left animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="px-3 py-2 border-b border-white/10 mb-2">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-[#8FB4E3] font-mono block">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#7857FF] font-mono block">
                       HUB EVALUASI & SERTIFIKASI
                     </span>
-                    <span className="text-xs text-[#CBD8EC] block">
+                    <span className="text-xs text-[#AAB3D5] block">
                       18 Mode per bab & Simulasi Ujian Resmi
                     </span>
                   </div>
@@ -337,23 +337,23 @@ export const Navbar: React.FC<NavbarProps> = ({
                         <button
                           key={item.id}
                           onClick={item.action}
-                          className="w-full p-2.5 rounded-2xl hover:bg-[#1F3760] transition-colors flex items-start gap-3 text-left group"
+                          className="w-full p-2.5 rounded-2xl hover:bg-[#12194A] transition-colors flex items-start gap-3 text-left group"
                         >
-                          <div className="w-8 h-8 rounded-xl bg-[#0C1B33] border border-[#8FB4E3]/20 flex items-center justify-center shrink-0 group-hover:border-[#8FB4E3]/50 transition-colors">
-                            <Icon className="w-4 h-4 text-[#8FB4E3]" />
+                          <div className="w-8 h-8 rounded-xl bg-[#080D2B] border border-[#7857FF]/20 flex items-center justify-center shrink-0 group-hover:border-[#7857FF]/50 transition-colors">
+                            <Icon className="w-4 h-4 text-[#7857FF]" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-1">
-                              <span className="text-xs font-bold text-[#EEF1F6] group-hover:text-[#8FB4E3] transition-colors truncate">
+                              <span className="text-xs font-bold text-[#F5F6FF] group-hover:text-[#7857FF] transition-colors truncate">
                                 {item.title}
                               </span>
                               {item.badge && (
-                                <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-md border shrink-0 font-mono ${item.badgeColor || 'bg-[#0C1B33] text-[#8FB4E3] border-[#8FB4E3]/20'}`}>
+                                <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-md border shrink-0 font-mono ${item.badgeColor || 'bg-[#080D2B] text-[#7857FF] border-[#7857FF]/20'}`}>
                                   {item.badge}
                                 </span>
                               )}
                             </div>
-                            <p className="text-[11px] text-[#8793A8] line-clamp-1 mt-0.5">
+                            <p className="text-[11px] text-[#737FA8] line-clamp-1 mt-0.5">
                               {item.subtitle}
                             </p>
                           </div>
@@ -373,7 +373,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Compact Search Icon Button */}
             <button
               onClick={onOpenSearch}
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#8FB4E3] hover:text-[#EEF1F6] border border-[#8FB4E3]/20 hover:border-[#8FB4E3]/40 transition-all flex items-center justify-center shadow-xs group"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0D1238] hover:bg-[#12194A] text-[#7857FF] hover:text-[#F5F6FF] border border-[#7857FF]/20 hover:border-[#7857FF]/40 transition-all flex items-center justify-center shadow-xs group"
               title="Cari Kosakata, Kanji, atau Materi (Ctrl + K)"
               aria-label="Pencarian"
             >
@@ -389,8 +389,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl border transition-all flex items-center justify-center shadow-xs ${
                 soundEnabled
-                  ? 'bg-[#16294A] text-[#8FB4E3] border-[#8FB4E3]/30 hover:bg-[#1F3760]'
-                  : 'bg-[#16294A]/60 text-[#8793A8] border-white/10 hover:bg-[#16294A]'
+                  ? 'bg-[#0D1238] text-[#7857FF] border-[#7857FF]/30 hover:bg-[#12194A]'
+                  : 'bg-[#0D1238]/60 text-[#737FA8] border-white/10 hover:bg-[#0D1238]'
               }`}
               title={soundEnabled ? 'Audio Suara: Aktif' : 'Audio Suara: Hening'}
               aria-label="Audio Suara"
@@ -404,26 +404,26 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <div>
                   <button
                     onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                    className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-2 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#EEF1F6] border border-[#8FB4E3]/30 transition-all shadow-xs"
+                    className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-2 rounded-xl bg-[#0D1238] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/30 transition-all shadow-xs"
                     title={`Tersinkronisasi sebagai ${user.email}`}
                   >
                     <div className="relative">
-                      <Cloud className={`w-4 h-4 text-[#8FB4E3] ${isSyncing ? 'animate-pulse' : ''}`} />
+                      <Cloud className={`w-4 h-4 text-[#7857FF] ${isSyncing ? 'animate-pulse' : ''}`} />
                       <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                     </div>
                     <span className="hidden md:inline max-w-[90px] truncate text-xs font-bold">
                       {user.user_metadata?.full_name || user.email?.split('@')[0]}
                     </span>
-                    <ChevronDown className="w-3 h-3 text-[#8793A8] hidden md:block" />
+                    <ChevronDown className="w-3 h-3 text-[#737FA8] hidden md:block" />
                   </button>
 
                   {userDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/30 shadow-2xl p-2 z-50 text-left animate-in fade-in zoom-in-95">
+                    <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-[#0D1238] border border-[#7857FF]/30 shadow-2xl p-2 z-50 text-left animate-in fade-in zoom-in-95">
                       <div className="px-3.5 py-2.5 border-b border-white/10 mb-1">
-                        <span className="text-[10px] text-[#8FB4E3] font-bold block uppercase tracking-wider font-mono">
+                        <span className="text-[10px] text-[#7857FF] font-bold block uppercase tracking-wider font-mono">
                           Tersinkronisasi ke Cloud
                         </span>
-                        <span className="text-xs font-bold text-[#EEF1F6] block truncate mt-0.5">
+                        <span className="text-xs font-bold text-[#F5F6FF] block truncate mt-0.5">
                           {user.email}
                         </span>
                       </div>
@@ -432,9 +432,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                           setUserDropdownOpen(false);
                           onOpenAuth();
                         }}
-                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-[#EEF1F6] hover:bg-[#1F3760] transition-colors"
+                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-[#F5F6FF] hover:bg-[#12194A] transition-colors"
                       >
-                        <Database className="w-4 h-4 text-[#8FB4E3]" />
+                        <Database className="w-4 h-4 text-[#7857FF]" />
                         <span>Kelola Database & Cloud</span>
                       </button>
                       <button
@@ -453,10 +453,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               ) : (
                 <button
                   onClick={onOpenAuth}
-                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] border border-[#8FB4E3]/30 text-xs font-bold shadow-xs transition-all active:scale-95"
+                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] hover:brightness-110 text-[#F5F6FF] border border-[#7857FF]/30 text-xs font-bold shadow-xs transition-all active:scale-95"
                   title="Hubungkan Sinkronisasi Cloud Supabase"
                 >
-                  <Cloud className="w-4 h-4 text-[#8FB4E3]" />
+                  <Cloud className="w-4 h-4 text-[#7857FF]" />
                   <span className="hidden sm:inline text-xs">Sync Cloud</span>
                 </button>
               )}
@@ -468,7 +468,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 if (soundEnabled) sound.playClick();
                 setMobileMenuOpen(!mobileMenuOpen);
               }}
-              className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#EEF1F6] border border-[#8FB4E3]/20 flex items-center justify-center transition-colors"
+              className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0D1238] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/20 flex items-center justify-center transition-colors"
               aria-label="Toggle Mobile Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -482,36 +482,36 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* 4. MOBILE / TABLET DRAWER ACCORDION PANEL */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#8FB4E3]/20 bg-[#0C1B33]/98 backdrop-blur-2xl p-4 space-y-3 text-left animate-in slide-in-from-top-2 duration-200 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden border-t border-[#7857FF]/20 bg-[#080D2B]/98 backdrop-blur-2xl p-4 space-y-3 text-left animate-in slide-in-from-top-2 duration-200 max-h-[80vh] overflow-y-auto">
           
           {/* 1. Beranda */}
           <button
             onClick={() => handleNav('beranda')}
             className={`w-full flex items-center gap-3 p-3 rounded-2xl text-sm font-bold transition-all ${
               activeTab === 'beranda'
-                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40'
-                : 'text-[#CBD8EC] hover:bg-white/5'
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40'
+                : 'text-[#AAB3D5] hover:bg-white/5'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-[#8FB4E3]" />
+            <Sparkles className="w-4 h-4 text-[#7857FF]" />
             <span>Beranda</span>
           </button>
 
           {/* 2. Materi (Accordion) */}
-          <div className="rounded-2xl border border-[#8FB4E3]/20 bg-[#16294A]/40 overflow-hidden">
+          <div className="rounded-2xl border border-[#7857FF]/20 bg-[#0D1238]/40 overflow-hidden">
             <button
               onClick={() => setMobileMateriAccordion(!mobileMateriAccordion)}
-              className="w-full flex items-center justify-between p-3 text-sm font-bold text-[#EEF1F6]"
+              className="w-full flex items-center justify-between p-3 text-sm font-bold text-[#F5F6FF]"
             >
               <div className="flex items-center gap-3">
-                <BookOpen className="w-4 h-4 text-[#8FB4E3]" />
+                <BookOpen className="w-4 h-4 text-[#7857FF]" />
                 <span>Materi Pembelajaran</span>
               </div>
-              <ChevronDown className={`w-4 h-4 text-[#8793A8] transition-transform ${mobileMateriAccordion ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-[#737FA8] transition-transform ${mobileMateriAccordion ? 'rotate-180' : ''}`} />
             </button>
 
             {mobileMateriAccordion && (
-              <div className="p-2 space-y-1 bg-[#0C1B33]/60 border-t border-[#8FB4E3]/15">
+              <div className="p-2 space-y-1 bg-[#080D2B]/60 border-t border-[#7857FF]/15">
                 {materiSubItems.map((sub) => {
                   const Icon = sub.icon;
                   return (
@@ -521,13 +521,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                         sub.action();
                         setMobileMenuOpen(false);
                       }}
-                      className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-[#1F3760] text-xs font-semibold text-[#CBD8EC] hover:text-[#EEF1F6]"
+                      className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-[#12194A] text-xs font-semibold text-[#AAB3D5] hover:text-[#F5F6FF]"
                     >
                       <div className="flex items-center gap-2.5">
-                        <Icon className="w-3.5 h-3.5 text-[#8FB4E3]" />
+                        <Icon className="w-3.5 h-3.5 text-[#7857FF]" />
                         <span>{sub.title}</span>
                       </div>
-                      <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-[#16294A] text-[#8FB4E3] border border-[#8FB4E3]/20">
+                      <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-[#0D1238] text-[#7857FF] border border-[#7857FF]/20">
                         {sub.badge}
                       </span>
                     </button>
@@ -542,12 +542,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => handleNav('ssw')}
             className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-bold transition-all ${
               activeTab === 'ssw'
-                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40'
-                : 'text-[#CBD8EC] hover:bg-white/5'
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40'
+                : 'text-[#AAB3D5] hover:bg-white/5'
             }`}
           >
             <div className="flex items-center gap-3">
-              <Briefcase className="w-4 h-4 text-[#8FB4E3]" />
+              <Briefcase className="w-4 h-4 text-[#7857FF]" />
               <span>SSW (Tokutei Ginou)</span>
             </div>
             <span className="text-[10px] font-mono font-black px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
@@ -556,20 +556,20 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
 
           {/* 4. Latihan Hub (Accordion) */}
-          <div className="rounded-2xl border border-[#8FB4E3]/20 bg-[#16294A]/40 overflow-hidden">
+          <div className="rounded-2xl border border-[#7857FF]/20 bg-[#0D1238]/40 overflow-hidden">
             <button
               onClick={() => setMobileLatihanAccordion(!mobileLatihanAccordion)}
-              className="w-full flex items-center justify-between p-3 text-sm font-bold text-[#EEF1F6]"
+              className="w-full flex items-center justify-between p-3 text-sm font-bold text-[#F5F6FF]"
             >
               <div className="flex items-center gap-3">
-                <Award className="w-4 h-4 text-[#8FB4E3]" />
+                <Award className="w-4 h-4 text-[#7857FF]" />
                 <span>Latihan & Ujian Resmi</span>
               </div>
-              <ChevronDown className={`w-4 h-4 text-[#8793A8] transition-transform ${mobileLatihanAccordion ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-[#737FA8] transition-transform ${mobileLatihanAccordion ? 'rotate-180' : ''}`} />
             </button>
 
             {mobileLatihanAccordion && (
-              <div className="p-2 space-y-1 bg-[#0C1B33]/60 border-t border-[#8FB4E3]/15">
+              <div className="p-2 space-y-1 bg-[#080D2B]/60 border-t border-[#7857FF]/15">
                 {latihanSubItems.map((sub) => {
                   const Icon = sub.icon;
                   return (
@@ -579,14 +579,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                         sub.action();
                         setMobileMenuOpen(false);
                       }}
-                      className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-[#1F3760] text-xs font-semibold text-[#CBD8EC] hover:text-[#EEF1F6]"
+                      className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-[#12194A] text-xs font-semibold text-[#AAB3D5] hover:text-[#F5F6FF]"
                     >
                       <div className="flex items-center gap-2.5">
-                        <Icon className="w-3.5 h-3.5 text-[#8FB4E3]" />
+                        <Icon className="w-3.5 h-3.5 text-[#7857FF]" />
                         <span>{sub.title}</span>
                       </div>
                       {sub.badge && (
-                        <span className={`text-[9px] font-mono font-bold px-1.5 py-0.2 rounded border ${sub.badgeColor || 'bg-[#16294A] text-[#8FB4E3] border-[#8FB4E3]/20'}`}>
+                        <span className={`text-[9px] font-mono font-bold px-1.5 py-0.2 rounded border ${sub.badgeColor || 'bg-[#0D1238] text-[#7857FF] border-[#7857FF]/20'}`}>
                           {sub.badge}
                         </span>
                       )}

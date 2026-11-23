@@ -30,7 +30,7 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
         parts.push(
           <strong
             key={`b-${keyIdx++}`}
-            className="font-black text-[#FFFFFF] bg-[#1F3760]/70 px-1.5 py-0.5 rounded-md border border-[#8FB4E3]/30 tracking-wide inline-block my-0.5"
+            className="font-black text-[#FFFFFF] bg-[#12194A]/70 px-1.5 py-0.5 rounded-md border border-[#7857FF]/30 tracking-wide inline-block my-0.5"
           >
             {match[2]}
           </strong>
@@ -40,7 +40,7 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
         parts.push(
           <span
             key={`i-${keyIdx++}`}
-            className="italic text-[#8FB4E3] font-medium"
+            className="italic text-[#7857FF] font-medium"
           >
             {match[3]}
           </span>
@@ -71,11 +71,11 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
     elements.push(
       <div key={`list-${elementKey++}`} className="my-3 space-y-2 pl-1">
         {currentList.items.map((item, idx) => (
-          <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#EEF1F6] leading-relaxed">
+          <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F5F6FF] leading-relaxed">
             <span className={`flex items-center justify-center shrink-0 mt-0.5 ${
               isOrdered 
-                ? 'w-5 h-5 rounded-md bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/30 text-[11px] font-black font-mono' 
-                : 'w-2 h-2 rounded-full bg-[#8FB4E3] mt-2'
+                ? 'w-5 h-5 rounded-md bg-[#12194A] text-[#7857FF] border border-[#7857FF]/30 text-[11px] font-black font-mono' 
+                : 'w-2 h-2 rounded-full bg-[#7857FF] mt-2'
             }`}>
               {isOrdered ? idx + 1 : ''}
             </span>
@@ -106,9 +106,9 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
       elements.push(
         <figure
           key={`img-${elementKey++}`}
-          className="my-5 rounded-2xl overflow-hidden border border-[#8FB4E3]/25 bg-[#0C1B33]/80 p-3 sm:p-4 space-y-2.5 shadow-lg group"
+          className="my-5 rounded-2xl overflow-hidden border border-[#7857FF]/25 bg-[#080D2B]/80 p-3 sm:p-4 space-y-2.5 shadow-lg group"
         >
-          <div className="relative rounded-xl overflow-hidden bg-black/40 flex items-center justify-center border border-[#8FB4E3]/10 p-2">
+          <div className="relative rounded-xl overflow-hidden bg-black/40 flex items-center justify-center border border-[#7857FF]/10 p-2">
             <img
               src={src}
               alt={caption}
@@ -117,8 +117,8 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
             />
           </div>
           {caption && (
-            <figcaption className="text-center text-xs text-[#CBD8EC] flex items-center justify-center gap-1.5 pt-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8FB4E3]" />
+            <figcaption className="text-center text-xs text-[#AAB3D5] flex items-center justify-center gap-1.5 pt-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#7857FF]" />
               <span className="font-medium">{renderInlineFormatted(caption)}</span>
             </figcaption>
           )}
@@ -132,8 +132,8 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
     if (h3Match) {
       flushList();
       elements.push(
-        <h4 key={`h3-${elementKey++}`} className="text-sm sm:text-base font-bold text-[#EEF1F6] pt-3 pb-1 border-b border-[#8FB4E3]/20 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-xs bg-[#8FB4E3]" />
+        <h4 key={`h3-${elementKey++}`} className="text-sm sm:text-base font-bold text-[#F5F6FF] pt-3 pb-1 border-b border-[#7857FF]/20 flex items-center gap-2">
+          <span className="w-2 h-2 rounded-xs bg-[#7857FF]" />
           {renderInlineFormatted(h3Match[1])}
         </h4>
       );
@@ -168,9 +168,9 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
       elements.push(
         <div
           key={`note-${elementKey++}`}
-          className="my-3 p-3 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 text-xs text-[#CBD8EC] leading-relaxed flex items-start gap-2 shadow-xs"
+          className="my-3 p-3 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-xs text-[#AAB3D5] leading-relaxed flex items-start gap-2 shadow-xs"
         >
-          <span className="text-[#8FB4E3] font-bold shrink-0">※</span>
+          <span className="text-[#7857FF] font-bold shrink-0">※</span>
           <div>{renderInlineFormatted(line.replace(/^\*\(/, '(').replace(/\)\*$/, ')'))}</div>
         </div>
       );
@@ -180,7 +180,7 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
     // Normal paragraph
     flushList();
     elements.push(
-      <p key={`p-${elementKey++}`} className="text-xs sm:text-sm text-[#CBD8EC] leading-relaxed my-2.5">
+      <p key={`p-${elementKey++}`} className="text-xs sm:text-sm text-[#AAB3D5] leading-relaxed my-2.5">
         {renderInlineFormatted(line)}
       </p>
     );

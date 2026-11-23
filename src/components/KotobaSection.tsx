@@ -144,25 +144,25 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
             <div
               key={chapter.bab}
               onClick={() => { sound.playClick(); setSelectedBab(chapter.bab); }}
-              className={`group relative overflow-hidden rounded-2xl cursor-pointer border transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_30px_-6px_rgba(143,180,227,0.25)] p-4 flex flex-col justify-between ${
+              className={`group relative overflow-hidden rounded-2xl cursor-pointer border transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_30px_-6px_rgba(120,87,255,0.3)] p-4 flex flex-col justify-between ${
                 isDone
-                  ? 'bg-gradient-to-br from-[#0F3025] to-[#16294A] border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]'
-                  : 'bg-[#16294A] border-[#8FB4E3]/20 hover:border-[#8FB4E3]/50 shadow-[0_4px_16px_rgba(12,27,51,0.4)]'
+                  ? 'bg-gradient-to-br from-[#12194A] to-[#0D1238] border-[#7857FF]/60 shadow-[0_0_20px_rgba(120,87,255,0.3)]'
+                  : 'bg-[#0D1238] border-[#7857FF]/20 hover:border-[#7857FF]/60 shadow-[0_4px_16px_rgba(8,13,43,0.7)]'
               }`}
             >
               {/* Hover glow overlay */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-gradient-to-br from-[#1F3760]/20 to-[#8FB4E3]/10 rounded-2xl" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-gradient-to-br from-[#7857FF]/15 to-[#329BFF]/10 rounded-2xl" />
 
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold text-[#8FB4E3] uppercase tracking-wider font-mono">
+                  <span className="text-xs font-bold text-[#945CFF] uppercase tracking-wider font-mono">
                     第{chapter.bab}課
                   </span>
                   {learnedCount > 0 && (
                     <span className={`text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 ${
                       isDone
-                        ? 'text-emerald-400 bg-emerald-500/15 border border-emerald-500/30'
-                        : 'text-[#8FB4E3] bg-[#8FB4E3]/10 border border-[#8FB4E3]/30'
+                        ? 'text-white bg-[#7857FF] border border-[#945CFF] shadow-[0_0_8px_rgba(120,87,255,0.6)]'
+                        : 'text-[#945CFF] bg-[#7857FF]/15 border border-[#7857FF]/30'
                     }`}>
                       <CheckCircle2 className="w-2.5 h-2.5" />
                       {pct}%
@@ -170,30 +170,30 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
                   )}
                 </div>
 
-                <h3 className={`text-3xl sm:text-4xl font-black tracking-tight group-hover:text-[#8FB4E3] transition-colors font-['Manrope'] ${
-                  isDone ? 'text-emerald-400' : 'text-[#EEF1F6]'
+                <h3 className={`text-3xl sm:text-4xl font-black tracking-tight group-hover:text-[#945CFF] transition-colors font-['Manrope'] ${
+                  isDone ? 'text-[#329BFF]' : 'text-white'
                 }`}>
                   {chapter.bab}
                 </h3>
 
-                <p className="text-xs font-semibold text-[#CBD8EC] mt-1">
+                <p className="text-xs font-semibold text-[#AAB3D5] mt-1">
                   {chapter.totalKata} kata · {learnedCount} hafal
                 </p>
 
                 {/* Badge fitur materi di bab ini */}
                 <div className="flex flex-wrap gap-1.5 mt-2.5">
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/35">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#12194A] text-[#D8B4FE] border border-[#7857FF]/35">
                     文法 Bunpou
                   </span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#0C1B33] text-[#CBD8EC] border border-[#8FB4E3]/25">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#080D2B] text-[#AAB3D5] border border-[#7857FF]/25">
                     会話 Kaiwa
                   </span>
                 </div>
               </div>
 
               {/* Progress bar */}
-              <div className="relative z-10 mt-4 pt-3 border-t border-[#8FB4E3]/15">
-                <div className="w-full h-1.5 rounded-full overflow-hidden bg-[#0C1B33]/80 flex">
+              <div className="relative z-10 mt-4 pt-3 border-t border-[#7857FF]/15">
+                <div className="w-full h-1.5 rounded-full overflow-hidden bg-[#080D2B] flex">
                   {chapter.categories.length > 0 ? (
                     chapter.categories.map((c, i) => (
                       <div
@@ -205,7 +205,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
                     ))
                   ) : (
                     <div
-                      className="h-full bg-gradient-to-r from-[#1F3760] to-[#8FB4E3] rounded-full shadow-[0_0_6px_rgba(143,180,227,0.4)]"
+                      className="h-full bg-gradient-to-r from-[#7857FF] to-[#329BFF] rounded-full shadow-[0_0_6px_rgba(120,87,255,0.4)]"
                       style={{ width: `${Math.max(4, pct)}%` }}
                     />
                   )}

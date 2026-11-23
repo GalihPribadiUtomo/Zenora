@@ -239,35 +239,35 @@ export const SswSection: React.FC<SswSectionProps> = ({
 
         {/* 2 Syarat Utama */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="rounded-3xl bg-[#16294A] border border-[#8FB4E3]/25 p-6 sm:p-7 space-y-4 shadow-lg flex flex-col justify-between">
+          <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 sm:p-7 space-y-4 shadow-lg flex flex-col justify-between">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-[#8FB4E3] px-2.5 py-1 rounded-lg bg-[#0C1B33] border border-[#8FB4E3]/20">Syarat Mutlak #1</span>
+                <span className="text-xs font-mono font-bold text-[#7857FF] px-2.5 py-1 rounded-lg bg-[#080D2B] border border-[#7857FF]/20">Syarat Mutlak #1</span>
                 <span className="text-xs font-bold text-emerald-400 flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5" /> Bahasa Jepang</span>
               </div>
-              <h3 className="text-xl font-black text-[#EEF1F6] font-['Manrope']">Lulus JFT-Basic A2 atau JLPT N4</h3>
-              <p className="text-xs sm:text-sm text-[#CBD8EC] leading-relaxed">Standar kompetensi percakapan kerja sehari-hari. Wajib lulus ujian CBT <strong>JFT-Basic A2</strong> (skor ≥ 200/250) atau ujian resmi <strong>JLPT N4</strong> (skor ≥ 90/180).</p>
+              <h3 className="text-xl font-black text-[#F5F6FF] font-['Manrope']">Lulus JFT-Basic A2 atau JLPT N4</h3>
+              <p className="text-xs sm:text-sm text-[#AAB3D5] leading-relaxed">Standar kompetensi percakapan kerja sehari-hari. Wajib lulus ujian CBT <strong>JFT-Basic A2</strong> (skor ≥ 200/250) atau ujian resmi <strong>JLPT N4</strong> (skor ≥ 90/180).</p>
             </div>
-            <div className="pt-4 border-t border-[#8FB4E3]/15 flex items-center justify-between">
-              <span className="text-xs text-[#8793A8]">Latihan soal CBT tersedia</span>
-              <button onClick={() => { sound.playClick(); onNavigateToJft(); }} className="text-xs font-bold text-[#8FB4E3] hover:text-[#EEF1F6] flex items-center gap-1 transition-colors">
+            <div className="pt-4 border-t border-[#7857FF]/15 flex items-center justify-between">
+              <span className="text-xs text-[#737FA8]">Latihan soal CBT tersedia</span>
+              <button onClick={() => { sound.playClick(); onNavigateToJft(); }} className="text-xs font-bold text-[#7857FF] hover:text-[#F5F6FF] flex items-center gap-1 transition-colors">
                 <span>Uji Simulasi Sekarang</span><ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
 
-          <div className="rounded-3xl bg-[#16294A] border border-[#8FB4E3]/25 p-6 sm:p-7 space-y-4 shadow-lg flex flex-col justify-between">
+          <div className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 p-6 sm:p-7 space-y-4 shadow-lg flex flex-col justify-between">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-[#8FB4E3] px-2.5 py-1 rounded-lg bg-[#0C1B33] border border-[#8FB4E3]/20">Syarat Mutlak #2</span>
+                <span className="text-xs font-mono font-bold text-[#7857FF] px-2.5 py-1 rounded-lg bg-[#080D2B] border border-[#7857FF]/20">Syarat Mutlak #2</span>
                 <span className="text-xs font-bold text-emerald-400 flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5" /> Keterampilan Teknis</span>
               </div>
-              <h3 className="text-xl font-black text-[#EEF1F6] font-['Manrope']">Lulus Ujian Keahlian Bidang (Skill Test)</h3>
-              <p className="text-xs sm:text-sm text-[#CBD8EC] leading-relaxed">Ujian teori & praktik sesuai bidang kerja pilihan Anda di Jepang. Pilih sektor di bawah untuk memulai pembelajaran.</p>
+              <h3 className="text-xl font-black text-[#F5F6FF] font-['Manrope']">Lulus Ujian Keahlian Bidang (Skill Test)</h3>
+              <p className="text-xs sm:text-sm text-[#AAB3D5] leading-relaxed">Ujian teori & praktik sesuai bidang kerja pilihan Anda di Jepang. Pilih sektor di bawah untuk memulai pembelajaran.</p>
             </div>
-            <div className="pt-4 border-t border-[#8FB4E3]/15 flex items-center justify-between">
-              <span className="text-xs text-[#8793A8]">{SSW_ALL_SECTORS.length} Sektor resmi tersedia</span>
-              <span className="text-xs font-bold text-[#8FB4E3]">Pilih bidang di bawah ↓</span>
+            <div className="pt-4 border-t border-[#7857FF]/15 flex items-center justify-between">
+              <span className="text-xs text-[#737FA8]">{SSW_ALL_SECTORS.length} Sektor resmi tersedia</span>
+              <span className="text-xs font-bold text-[#7857FF]">Pilih bidang di bawah ↓</span>
             </div>
           </div>
         </div>
@@ -275,8 +275,8 @@ export const SswSection: React.FC<SswSectionProps> = ({
         {/* Grid Sektor */}
         <div className="space-y-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-black text-[#EEF1F6] font-['Manrope']">Pilih Sektor Bidang Pekerjaan</h2>
-            <p className="text-xs sm:text-sm text-[#8793A8]">Pelajari materi, kosakata kerja, komunikasi, keterampilan teknis, dan latih ujian keahlian per sektor.</p>
+            <h2 className="text-xl sm:text-2xl font-black text-[#F5F6FF] font-['Manrope']">Pilih Sektor Bidang Pekerjaan</h2>
+            <p className="text-xs sm:text-sm text-[#737FA8]">Pelajari materi, kosakata kerja, komunikasi, keterampilan teknis, dan latih ujian keahlian per sektor.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -290,31 +290,31 @@ export const SswSection: React.FC<SswSectionProps> = ({
                 <button
                   key={sector.id}
                   onClick={() => openSector(sector.id)}
-                  className="p-5 rounded-3xl bg-[#16294A] border border-[#8FB4E3]/20 hover:border-[#8FB4E3]/50 text-left transition-all flex flex-col gap-4 group hover:shadow-[0_0_30px_rgba(143,180,227,0.1)]"
+                  className="p-5 rounded-3xl bg-[#0D1238] border border-[#7857FF]/20 hover:border-[#7857FF]/50 text-left transition-all flex flex-col gap-4 group hover:shadow-[0_0_30px_rgba(120,87,255,0.1)]"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-[#0C1B33] border border-[#8FB4E3]/25 flex items-center justify-center group-hover:border-[#8FB4E3]/60 transition-colors">
-                      <Icon className="w-6 h-6 text-[#8FB4E3]" />
+                    <div className="w-12 h-12 rounded-2xl bg-[#080D2B] border border-[#7857FF]/25 flex items-center justify-center group-hover:border-[#7857FF]/60 transition-colors">
+                      <Icon className="w-6 h-6 text-[#7857FF]" />
                     </div>
                     <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${sector.badgeColor}`}>{sector.badge}</span>
                   </div>
 
                   <div>
-                    <h3 className="text-base font-black text-[#EEF1F6] font-['Manrope'] group-hover:text-[#8FB4E3] transition-colors">{sector.japaneseName}</h3>
-                    <p className="text-xs text-[#8793A8] mt-0.5">{sector.name}</p>
+                    <h3 className="text-base font-black text-[#F5F6FF] font-['Manrope'] group-hover:text-[#7857FF] transition-colors">{sector.japaneseName}</h3>
+                    <p className="text-xs text-[#737FA8] mt-0.5">{sector.name}</p>
                   </div>
 
-                  <p className="text-[11px] text-[#CBD8EC] leading-relaxed line-clamp-2">{sector.tagline}</p>
+                  <p className="text-[11px] text-[#AAB3D5] leading-relaxed line-clamp-2">{sector.tagline}</p>
 
                   {/* Progress Bar */}
-                  <div className="space-y-1.5 pt-2 border-t border-[#8FB4E3]/10">
+                  <div className="space-y-1.5 pt-2 border-t border-[#7857FF]/10">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] text-[#8793A8]">Progres Belajar</span>
-                      <span className="text-[10px] font-bold text-[#8FB4E3] font-mono">{completedChapters}/{totalChapters} bab</span>
+                      <span className="text-[10px] text-[#737FA8]">Progres Belajar</span>
+                      <span className="text-[10px] font-bold text-[#7857FF] font-mono">{completedChapters}/{totalChapters} bab</span>
                     </div>
-                    <div className="w-full h-1.5 rounded-full bg-[#0C1B33] overflow-hidden">
+                    <div className="w-full h-1.5 rounded-full bg-[#080D2B] overflow-hidden">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-[#8FB4E3] to-emerald-400 transition-all duration-500"
+                        className="h-full rounded-full bg-gradient-to-r from-[#7857FF] to-emerald-400 transition-all duration-500"
                         style={{ width: `${progressPct}%` }}
                       />
                     </div>
@@ -338,28 +338,28 @@ export const SswSection: React.FC<SswSectionProps> = ({
     return (
       <div className="space-y-6 text-left pb-16">
         {/* Back Button */}
-        <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#8793A8] hover:text-[#8FB4E3] transition-colors">
+        <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
           <ArrowLeft className="w-4 h-4" /> Kembali ke Hub SSW
         </button>
 
         {/* Sector Header */}
-        <div className="rounded-3xl bg-gradient-to-br from-[#0C1B33] via-[#16294A] to-[#1F3760] border border-[#8FB4E3]/25 p-6 sm:p-8 space-y-4">
+        <div className="rounded-3xl bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#12194A] border border-[#7857FF]/25 p-6 sm:p-8 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-[#0C1B33] border border-[#8FB4E3]/30 flex items-center justify-center">
-                <SectorIcon className="w-7 h-7 text-[#8FB4E3]" />
+              <div className="w-14 h-14 rounded-2xl bg-[#080D2B] border border-[#7857FF]/30 flex items-center justify-center">
+                <SectorIcon className="w-7 h-7 text-[#7857FF]" />
               </div>
               <div>
                 <span className={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border inline-block mb-1 ${selectedSector.badgeColor}`}>{selectedSector.badge}</span>
-                <h2 className="text-2xl sm:text-3xl font-black text-[#EEF1F6] font-['Manrope']">{selectedSector.japaneseName}</h2>
-                <p className="text-sm text-[#CBD8EC]">{selectedSector.name}</p>
+                <h2 className="text-2xl sm:text-3xl font-black text-[#F5F6FF] font-['Manrope']">{selectedSector.japaneseName}</h2>
+                <p className="text-sm text-[#AAB3D5]">{selectedSector.name}</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <div className="text-right">
-                <span className="text-[10px] text-[#8793A8] block">Progres</span>
-                <span className="text-lg font-black text-[#8FB4E3] font-mono">{completedChapters}/{totalChapters}</span>
+                <span className="text-[10px] text-[#737FA8] block">Progres</span>
+                <span className="text-lg font-black text-[#7857FF] font-mono">{completedChapters}/{totalChapters}</span>
               </div>
               <button
                 onClick={startExamSimulation}
@@ -371,15 +371,15 @@ export const SswSection: React.FC<SswSectionProps> = ({
           </div>
 
           {/* Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#8FB4E3]/15">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#7857FF]/15">
             <div className="space-y-2">
-              <span className="text-[10px] font-black text-[#8FB4E3] uppercase tracking-wider">Lingkungan Kerja</span>
-              <p className="text-xs text-[#CBD8EC] leading-relaxed">{selectedSector.overview.workEnvironment}</p>
+              <span className="text-[10px] font-black text-[#7857FF] uppercase tracking-wider">Lingkungan Kerja</span>
+              <p className="text-xs text-[#AAB3D5] leading-relaxed">{selectedSector.overview.workEnvironment}</p>
             </div>
             <div className="space-y-2">
-              <span className="text-[10px] font-black text-[#8FB4E3] uppercase tracking-wider">Syarat Ujian Teknis</span>
-              <p className="text-xs text-[#CBD8EC] leading-relaxed">{selectedSector.overview.technicalExamName}</p>
-              <p className="text-xs text-[#8793A8]">Penyelenggara: {selectedSector.overview.examOrganizer}</p>
+              <span className="text-[10px] font-black text-[#7857FF] uppercase tracking-wider">Syarat Ujian Teknis</span>
+              <p className="text-xs text-[#AAB3D5] leading-relaxed">{selectedSector.overview.technicalExamName}</p>
+              <p className="text-xs text-[#737FA8]">Penyelenggara: {selectedSector.overview.examOrganizer}</p>
               <p className="text-xs text-emerald-400 font-bold">Kelulusan: {selectedSector.overview.passRequirement}</p>
             </div>
           </div>
@@ -387,7 +387,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
 
         {/* Chapter List */}
         <div className="space-y-3">
-          <h3 className="text-lg font-black text-[#EEF1F6] font-['Manrope']">Kurikulum Pembelajaran ({totalChapters} Bab)</h3>
+          <h3 className="text-lg font-black text-[#F5F6FF] font-['Manrope']">Kurikulum Pembelajaran ({totalChapters} Bab)</h3>
 
           {selectedSector.chapters.map((ch) => {
             const catMeta = CATEGORY_META[ch.category];
@@ -402,17 +402,17 @@ export const SswSection: React.FC<SswSectionProps> = ({
                 onClick={() => openChapter(ch.id)}
                 className={`w-full p-4 sm:p-5 rounded-2xl border text-left transition-all flex items-center gap-4 group ${
                   isCompleted
-                    ? 'bg-[#16294A] border-emerald-500/30 hover:border-emerald-500/50'
-                    : 'bg-[#16294A] border-[#8FB4E3]/20 hover:border-[#8FB4E3]/50'
+                    ? 'bg-[#0D1238] border-emerald-500/30 hover:border-emerald-500/50'
+                    : 'bg-[#0D1238] border-[#7857FF]/20 hover:border-[#7857FF]/50'
                 }`}
               >
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                  isCompleted ? 'bg-emerald-500/20 border border-emerald-500/40' : 'bg-[#0C1B33] border border-[#8FB4E3]/20'
+                  isCompleted ? 'bg-emerald-500/20 border border-emerald-500/40' : 'bg-[#080D2B] border border-[#7857FF]/20'
                 }`}>
                   {isCompleted ? (
                     <CheckCircle2 className="w-5 h-5 text-emerald-400" />
                   ) : (
-                    <span className="text-sm font-black text-[#8FB4E3] font-mono">{ch.chapterNumber}</span>
+                    <span className="text-sm font-black text-[#7857FF] font-mono">{ch.chapterNumber}</span>
                   )}
                 </div>
 
@@ -421,12 +421,12 @@ export const SswSection: React.FC<SswSectionProps> = ({
                     <span className={`inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider ${catMeta.color}`}>
                       <CatIcon className="w-3 h-3" /> {catMeta.label}
                     </span>
-                    <span className="text-[9px] text-[#8793A8] font-mono flex items-center gap-1">
+                    <span className="text-[9px] text-[#737FA8] font-mono flex items-center gap-1">
                       <Clock className="w-3 h-3" /> ~{ch.estimatedMinutes} menit
                     </span>
                   </div>
-                  <h4 className="text-sm font-bold text-[#EEF1F6] mt-1 group-hover:text-[#8FB4E3] transition-colors truncate">{ch.title}</h4>
-                  <p className="text-[11px] text-[#8793A8] truncate">{ch.japaneseTitle}</p>
+                  <h4 className="text-sm font-bold text-[#F5F6FF] mt-1 group-hover:text-[#7857FF] transition-colors truncate">{ch.title}</h4>
+                  <p className="text-[11px] text-[#737FA8] truncate">{ch.japaneseTitle}</p>
                 </div>
 
                 <div className="flex items-center gap-2 shrink-0">
@@ -435,7 +435,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
                       quizResult.percentage >= 70 ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30' : 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
                     }`}>{quizResult.percentage}%</span>
                   )}
-                  <ChevronRight className="w-4 h-4 text-[#8793A8] group-hover:text-[#8FB4E3] transition-colors" />
+                  <ChevronRight className="w-4 h-4 text-[#737FA8] group-hover:text-[#7857FF] transition-colors" />
                 </div>
               </button>
             );
@@ -443,14 +443,14 @@ export const SswSection: React.FC<SswSectionProps> = ({
         </div>
 
         {/* Official References */}
-        <div className="rounded-2xl bg-[#0C1B33]/60 border border-[#8FB4E3]/15 p-5 space-y-3">
-          <span className="text-[10px] font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5">
+        <div className="rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/15 p-5 space-y-3">
+          <span className="text-[10px] font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5">
             <Info className="w-3.5 h-3.5" /> Sumber Referensi Resmi
           </span>
           {selectedSector.officialReferences.map((ref, idx) => (
-            <div key={idx} className="text-xs text-[#CBD8EC]">
-              <span className="font-bold text-[#EEF1F6]">{ref.title}</span>
-              <span className="text-[#8793A8] block">{ref.agency} — {ref.description}</span>
+            <div key={idx} className="text-xs text-[#AAB3D5]">
+              <span className="font-bold text-[#F5F6FF]">{ref.title}</span>
+              <span className="text-[#737FA8] block">{ref.agency} — {ref.description}</span>
             </div>
           ))}
         </div>
@@ -476,38 +476,38 @@ export const SswSection: React.FC<SswSectionProps> = ({
       <div className="space-y-6 text-left pb-16 max-w-4xl mx-auto">
         {/* Back + Navigation */}
         <div className="flex items-center justify-between">
-          <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#8793A8] hover:text-[#8FB4E3] transition-colors">
+          <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
             <ArrowLeft className="w-4 h-4" /> Kembali ke {selectedSector.japaneseName}
           </button>
           <div className="flex items-center gap-1.5">
             {prevChapter && (
-              <button onClick={() => openChapter(prevChapter.id)} className="text-[10px] text-[#8793A8] hover:text-[#8FB4E3] px-2 py-1 rounded-lg hover:bg-[#16294A]">← Bab {prevChapter.chapterNumber}</button>
+              <button onClick={() => openChapter(prevChapter.id)} className="text-[10px] text-[#737FA8] hover:text-[#7857FF] px-2 py-1 rounded-lg hover:bg-[#0D1238]">← Bab {prevChapter.chapterNumber}</button>
             )}
             {nextChapter && (
-              <button onClick={() => openChapter(nextChapter.id)} className="text-[10px] text-[#8793A8] hover:text-[#8FB4E3] px-2 py-1 rounded-lg hover:bg-[#16294A]">Bab {nextChapter.chapterNumber} →</button>
+              <button onClick={() => openChapter(nextChapter.id)} className="text-[10px] text-[#737FA8] hover:text-[#7857FF] px-2 py-1 rounded-lg hover:bg-[#0D1238]">Bab {nextChapter.chapterNumber} →</button>
             )}
           </div>
         </div>
 
         {/* Chapter Header */}
-        <div className="rounded-3xl bg-gradient-to-br from-[#16294A] to-[#1F3760] border border-[#8FB4E3]/25 p-6 space-y-3">
+        <div className="rounded-3xl bg-gradient-to-br from-[#0D1238] to-[#12194A] border border-[#7857FF]/25 p-6 space-y-3">
           <div className="flex items-center gap-2 flex-wrap">
             <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider ${catMeta.color}`}>
               <CatIcon className="w-3.5 h-3.5" /> {catMeta.label}
             </span>
-            <span className="text-[10px] text-[#8793A8] font-mono">Bab {ch.chapterNumber} · ~{ch.estimatedMinutes} menit</span>
+            <span className="text-[10px] text-[#737FA8] font-mono">Bab {ch.chapterNumber} · ~{ch.estimatedMinutes} menit</span>
             {isCompleted && <span className="text-[10px] text-emerald-400 font-bold flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> Selesai</span>}
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-[#EEF1F6] font-['Manrope']">{ch.title}</h2>
-          <p className="text-sm text-[#8FB4E3] font-mono">{ch.japaneseTitle}</p>
+          <h2 className="text-xl sm:text-2xl font-black text-[#F5F6FF] font-['Manrope']">{ch.title}</h2>
+          <p className="text-sm text-[#7857FF] font-mono">{ch.japaneseTitle}</p>
         </div>
 
         {/* Tujuan Pembelajaran */}
-        <div className="rounded-2xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 space-y-3">
-          <span className="text-xs font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5"><Target className="w-4 h-4" /> Tujuan Pembelajaran</span>
+        <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 space-y-3">
+          <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><Target className="w-4 h-4" /> Tujuan Pembelajaran</span>
           <ul className="space-y-2">
             {ch.objectives.map((obj, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-[#EEF1F6] leading-relaxed">
+              <li key={i} className="flex items-start gap-2 text-xs text-[#F5F6FF] leading-relaxed">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                 <span>{obj}</span>
               </li>
@@ -516,26 +516,26 @@ export const SswSection: React.FC<SswSectionProps> = ({
         </div>
 
         {/* Penjelasan Materi Utama */}
-        <div className="rounded-2xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 sm:p-7 space-y-4">
-          <span className="text-xs font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5"><BookOpen className="w-4 h-4" /> Materi Pembelajaran</span>
+        <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 sm:p-7 space-y-4">
+          <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><BookOpen className="w-4 h-4" /> Materi Pembelajaran</span>
           <div className="ssw-content-text">
             <SswContentRenderer content={ch.contentExplanation} />
           </div>
         </div>
 
         {/* Key Terms / Istilah Kunci */}
-        <div className="rounded-2xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 space-y-4">
-          <span className="text-xs font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5"><Languages className="w-4 h-4" /> Istilah Kunci Bahasa Jepang</span>
+        <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 space-y-4">
+          <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><Languages className="w-4 h-4" /> Istilah Kunci Bahasa Jepang</span>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {ch.keyTerms.map((term, i) => (
-              <div key={i} className="p-3.5 rounded-2xl bg-[#0C1B33]/70 border border-[#8FB4E3]/15 space-y-1.5">
-                <span className="text-lg font-bold text-[#EEF1F6] japanese-text block">{term.japanese}</span>
+              <div key={i} className="p-3.5 rounded-2xl bg-[#080D2B]/70 border border-[#7857FF]/15 space-y-1.5">
+                <span className="text-lg font-bold text-[#F5F6FF] japanese-text block">{term.japanese}</span>
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="font-mono text-[#8FB4E3]">{term.kana}</span>
-                  <span className="text-[#8793A8]">({term.romaji})</span>
+                  <span className="font-mono text-[#7857FF]">{term.kana}</span>
+                  <span className="text-[#737FA8]">({term.romaji})</span>
                 </div>
-                <p className="text-xs text-[#CBD8EC] font-semibold">{term.indonesian}</p>
-                {term.note && <p className="text-[10px] text-[#8793A8] italic">※ {term.note}</p>}
+                <p className="text-xs text-[#AAB3D5] font-semibold">{term.indonesian}</p>
+                {term.note && <p className="text-[10px] text-[#737FA8] italic">※ {term.note}</p>}
               </div>
             ))}
           </div>
@@ -543,22 +543,22 @@ export const SswSection: React.FC<SswSectionProps> = ({
 
         {/* Case Study / Studi Kasus Tempat Kerja */}
         {ch.workplaceCaseStudy && (
-          <div className="rounded-2xl bg-[#16294A] border border-amber-500/25 p-5 space-y-4">
+          <div className="rounded-2xl bg-[#0D1238] border border-amber-500/25 p-5 space-y-4">
             <span className="text-xs font-black text-amber-400 uppercase tracking-wider flex items-center gap-1.5"><Users className="w-4 h-4" /> Studi Kasus Tempat Kerja</span>
-            <h4 className="text-sm font-bold text-[#EEF1F6]">{ch.workplaceCaseStudy.title}</h4>
-            <p className="text-xs text-[#CBD8EC] leading-relaxed bg-[#0C1B33]/50 p-3 rounded-xl border border-[#8FB4E3]/10 italic">{ch.workplaceCaseStudy.scenario}</p>
+            <h4 className="text-sm font-bold text-[#F5F6FF]">{ch.workplaceCaseStudy.title}</h4>
+            <p className="text-xs text-[#AAB3D5] leading-relaxed bg-[#080D2B]/50 p-3 rounded-xl border border-[#7857FF]/10 italic">{ch.workplaceCaseStudy.scenario}</p>
 
             {ch.workplaceCaseStudy.dialogue && ch.workplaceCaseStudy.dialogue.length > 0 && (
               <div className="space-y-3">
                 {ch.workplaceCaseStudy.dialogue.map((d, i) => (
-                  <div key={i} className="p-3 rounded-xl bg-[#0C1B33]/40 border border-[#8FB4E3]/10 space-y-1">
+                  <div key={i} className="p-3 rounded-xl bg-[#080D2B]/40 border border-[#7857FF]/10 space-y-1">
                     <div className="flex items-center gap-2 text-[10px]">
-                      <span className="font-black text-[#8FB4E3]">{d.speaker}</span>
-                      <span className="text-[#8793A8]">({d.role})</span>
+                      <span className="font-black text-[#7857FF]">{d.speaker}</span>
+                      <span className="text-[#737FA8]">({d.role})</span>
                     </div>
-                    <p className="text-sm text-[#EEF1F6] japanese-text font-medium">{d.japanese}</p>
-                    <p className="text-[11px] text-[#8793A8]">{d.kana}</p>
-                    <p className="text-xs text-[#CBD8EC]">→ {d.indonesian}</p>
+                    <p className="text-sm text-[#F5F6FF] japanese-text font-medium">{d.japanese}</p>
+                    <p className="text-[11px] text-[#737FA8]">{d.kana}</p>
+                    <p className="text-xs text-[#AAB3D5]">→ {d.indonesian}</p>
                   </div>
                 ))}
               </div>
@@ -566,15 +566,15 @@ export const SswSection: React.FC<SswSectionProps> = ({
 
             <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25">
               <span className="text-[10px] font-bold text-emerald-400 uppercase">Pelajaran:</span>
-              <p className="text-xs text-[#EEF1F6] mt-1">{ch.workplaceCaseStudy.takeaway}</p>
+              <p className="text-xs text-[#F5F6FF] mt-1">{ch.workplaceCaseStudy.takeaway}</p>
             </div>
           </div>
         )}
 
         {/* Visual Diagram */}
         {ch.visualDiagram && (
-          <div className="rounded-2xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 space-y-4">
-            <span className="text-xs font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5"><BarChart3 className="w-4 h-4" /> {ch.visualDiagram.title}</span>
+          <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 space-y-4">
+            <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><BarChart3 className="w-4 h-4" /> {ch.visualDiagram.title}</span>
             <div className={`grid gap-3 ${
               ch.visualDiagram.type === 'grid' ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4' :
               ch.visualDiagram.type === 'table' ? 'grid-cols-1' :
@@ -586,18 +586,18 @@ export const SswSection: React.FC<SswSectionProps> = ({
                   ch.visualDiagram!.type === 'warning'
                     ? 'bg-amber-500/5 border-amber-500/20'
                     : ch.visualDiagram!.type === 'steps'
-                    ? 'bg-[#0C1B33]/60 border-[#8FB4E3]/15 relative pl-10'
-                    : 'bg-[#0C1B33]/60 border-[#8FB4E3]/15'
+                    ? 'bg-[#080D2B]/60 border-[#7857FF]/15 relative pl-10'
+                    : 'bg-[#080D2B]/60 border-[#7857FF]/15'
                 }`}>
                   {ch.visualDiagram!.type === 'steps' && (
-                    <div className="absolute left-3 top-3 w-5 h-5 rounded-full bg-[#8FB4E3]/20 border border-[#8FB4E3]/40 flex items-center justify-center">
-                      <span className="text-[10px] font-black text-[#8FB4E3]">{i + 1}</span>
+                    <div className="absolute left-3 top-3 w-5 h-5 rounded-full bg-[#7857FF]/20 border border-[#7857FF]/40 flex items-center justify-center">
+                      <span className="text-[10px] font-black text-[#7857FF]">{i + 1}</span>
                     </div>
                   )}
-                  <span className="text-xs font-bold text-[#EEF1F6] block">{item.label}</span>
-                  <p className="text-[11px] text-[#CBD8EC] leading-relaxed">{item.description}</p>
-                  {item.highlight && <span className="text-[10px] font-mono text-[#8FB4E3]">{item.highlight}</span>}
-                  {item.badge && <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#8FB4E3]/10 text-[#8FB4E3] border border-[#8FB4E3]/20 inline-block">{item.badge}</span>}
+                  <span className="text-xs font-bold text-[#F5F6FF] block">{item.label}</span>
+                  <p className="text-[11px] text-[#AAB3D5] leading-relaxed">{item.description}</p>
+                  {item.highlight && <span className="text-[10px] font-mono text-[#7857FF]">{item.highlight}</span>}
+                  {item.badge && <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#7857FF]/10 text-[#7857FF] border border-[#7857FF]/20 inline-block">{item.badge}</span>}
                 </div>
               ))}
             </div>
@@ -606,12 +606,12 @@ export const SswSection: React.FC<SswSectionProps> = ({
 
         {/* Galeri Ilustrasi & Diagram Resmi */}
         {ch.illustrations && ch.illustrations.length > 0 && (
-          <div className="rounded-2xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 space-y-4">
+          <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5">
                 <ImageIcon className="w-4 h-4" /> Galeri Ilustrasi & Diagram Resmi ({ch.illustrations.length})
               </span>
-              <span className="text-[10px] text-[#8793A8] italic">Klik gambar untuk memperbesar</span>
+              <span className="text-[10px] text-[#737FA8] italic">Klik gambar untuk memperbesar</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {ch.illustrations.map((item, i) => (
@@ -621,7 +621,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
                     sound.playClick();
                     setPreviewImage({ url: item.url, title: item.title, caption: item.caption });
                   }}
-                  className="group cursor-pointer rounded-xl bg-[#0C1B33]/70 border border-[#8FB4E3]/20 hover:border-[#8FB4E3]/50 transition-all duration-200 overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-0.5"
+                  className="group cursor-pointer rounded-xl bg-[#080D2B]/70 border border-[#7857FF]/20 hover:border-[#7857FF]/50 transition-all duration-200 overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-0.5"
                 >
                   <div className="relative aspect-4/3 bg-black/40 overflow-hidden flex items-center justify-center p-2">
                     <img
@@ -631,24 +631,24 @@ export const SswSection: React.FC<SswSectionProps> = ({
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                      <span className="p-2 rounded-full bg-[#1F3760]/90 text-white border border-[#8FB4E3]/40 shadow-md">
+                      <span className="p-2 rounded-full bg-[#12194A]/90 text-white border border-[#7857FF]/40 shadow-md">
                         <ZoomIn className="w-4 h-4" />
                       </span>
                     </div>
                     {item.tag && (
-                      <span className="absolute top-2 left-2 text-[9px] font-bold px-2 py-0.5 rounded-md bg-[#0C1B33]/90 text-[#8FB4E3] border border-[#8FB4E3]/30">
+                      <span className="absolute top-2 left-2 text-[9px] font-bold px-2 py-0.5 rounded-md bg-[#080D2B]/90 text-[#7857FF] border border-[#7857FF]/30">
                         {item.tag}
                       </span>
                     )}
                   </div>
                   <div className="p-3 space-y-1 flex-1 flex flex-col justify-between">
                     <div>
-                      <h5 className="text-xs font-bold text-[#EEF1F6] group-hover:text-[#8FB4E3] transition-colors">{item.title}</h5>
+                      <h5 className="text-xs font-bold text-[#F5F6FF] group-hover:text-[#7857FF] transition-colors">{item.title}</h5>
                       {item.japaneseTitle && (
-                        <p className="text-[11px] text-[#8793A8] font-mono japanese-text">{item.japaneseTitle}</p>
+                        <p className="text-[11px] text-[#737FA8] font-mono japanese-text">{item.japaneseTitle}</p>
                       )}
                     </div>
-                    <p className="text-[11px] text-[#CBD8EC] line-clamp-2 mt-1">{item.caption}</p>
+                    <p className="text-[11px] text-[#AAB3D5] line-clamp-2 mt-1">{item.caption}</p>
                   </div>
                 </div>
               ))}
@@ -661,7 +661,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
           <span className="text-xs font-black text-amber-400 uppercase tracking-wider flex items-center gap-1.5"><AlertTriangle className="w-4 h-4" /> Poin Penting yang Harus Diingat</span>
           <ul className="space-y-2">
             {ch.importantPoints.map((pt, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-[#EEF1F6] leading-relaxed">
+              <li key={i} className="flex items-start gap-2 text-xs text-[#F5F6FF] leading-relaxed">
                 <Lightbulb className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
                 <span>{pt}</span>
               </li>
@@ -670,16 +670,16 @@ export const SswSection: React.FC<SswSectionProps> = ({
         </div>
 
         {/* Rangkuman */}
-        <div className="rounded-2xl bg-[#0C1B33]/60 border border-[#8FB4E3]/15 p-5 space-y-2">
-          <span className="text-xs font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5"><ListChecks className="w-4 h-4" /> Rangkuman</span>
-          <p className="text-sm text-[#EEF1F6] leading-relaxed">{ch.summary}</p>
+        <div className="rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/15 p-5 space-y-2">
+          <span className="text-xs font-black text-[#7857FF] uppercase tracking-wider flex items-center gap-1.5"><ListChecks className="w-4 h-4" /> Rangkuman</span>
+          <p className="text-sm text-[#F5F6FF] leading-relaxed">{ch.summary}</p>
         </div>
 
         {/* Referensi */}
-        <div className="rounded-2xl bg-[#0C1B33]/40 border border-[#8FB4E3]/10 p-4 space-y-1">
-          <span className="text-[10px] font-black text-[#8793A8] uppercase tracking-wider">Referensi Resmi</span>
-          <p className="text-[11px] text-[#CBD8EC]">{ch.officialReference.documentTitle}</p>
-          <p className="text-[10px] text-[#8793A8]">{ch.officialReference.agency} — {ch.officialReference.source}</p>
+        <div className="rounded-2xl bg-[#080D2B]/40 border border-[#7857FF]/10 p-4 space-y-1">
+          <span className="text-[10px] font-black text-[#737FA8] uppercase tracking-wider">Referensi Resmi</span>
+          <p className="text-[11px] text-[#AAB3D5]">{ch.officialReference.documentTitle}</p>
+          <p className="text-[10px] text-[#737FA8]">{ch.officialReference.agency} — {ch.officialReference.source}</p>
         </div>
 
         {/* Action Buttons */}
@@ -687,9 +687,9 @@ export const SswSection: React.FC<SswSectionProps> = ({
           {ch.practiceQuestions.length > 0 && (
             <button
               onClick={() => startQuiz(ch.practiceQuestions, `Latihan Bab ${ch.chapterNumber}: ${ch.title}`)}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-[#1F3760] to-[#274474] hover:brightness-110 text-[#EEF1F6] border border-[#8FB4E3]/30 text-sm font-black shadow-lg transition-all active:scale-95"
+              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] hover:brightness-110 text-[#F5F6FF] border border-[#7857FF]/30 text-sm font-black shadow-lg transition-all active:scale-95"
             >
-              <Brain className="w-4 h-4 text-[#8FB4E3]" /> Mulai Latihan Soal ({ch.practiceQuestions.length} soal)
+              <Brain className="w-4 h-4 text-[#7857FF]" /> Mulai Latihan Soal ({ch.practiceQuestions.length} soal)
             </button>
           )}
 
@@ -705,7 +705,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
           {nextChapter && (
             <button
               onClick={() => openChapter(nextChapter.id)}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-[#16294A] hover:bg-[#1F3760] text-[#EEF1F6] border border-[#8FB4E3]/20 text-sm font-bold transition-all"
+              className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-[#0D1238] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/20 text-sm font-bold transition-all"
             >
               Bab Berikutnya <ArrowRight className="w-4 h-4" />
             </button>
@@ -719,20 +719,20 @@ export const SswSection: React.FC<SswSectionProps> = ({
             onClick={() => setPreviewImage(null)}
           >
             <div
-              className="relative max-w-4xl w-full max-h-[92vh] flex flex-col rounded-3xl bg-[#0C1B33] border border-[#8FB4E3]/30 shadow-2xl overflow-hidden"
+              className="relative max-w-4xl w-full max-h-[92vh] flex flex-col rounded-3xl bg-[#080D2B] border border-[#7857FF]/30 shadow-2xl overflow-hidden"
               onClick={e => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="p-4 sm:p-5 border-b border-[#8FB4E3]/15 flex items-center justify-between bg-[#16294A]">
+              <div className="p-4 sm:p-5 border-b border-[#7857FF]/15 flex items-center justify-between bg-[#0D1238]">
                 <div className="space-y-0.5 pr-4">
-                  <h3 className="text-sm sm:text-base font-bold text-[#EEF1F6]">{previewImage.title}</h3>
+                  <h3 className="text-sm sm:text-base font-bold text-[#F5F6FF]">{previewImage.title}</h3>
                   {previewImage.caption && (
-                    <p className="text-xs text-[#CBD8EC]">{previewImage.caption}</p>
+                    <p className="text-xs text-[#AAB3D5]">{previewImage.caption}</p>
                   )}
                 </div>
                 <button
                   onClick={() => setPreviewImage(null)}
-                  className="p-2 rounded-xl bg-[#0C1B33] text-[#8793A8] hover:text-white hover:bg-[#1F3760] transition-colors shrink-0 cursor-pointer"
+                  className="p-2 rounded-xl bg-[#080D2B] text-[#737FA8] hover:text-white hover:bg-[#12194A] transition-colors shrink-0 cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -748,7 +748,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
               </div>
 
               {/* Modal Footer */}
-              <div className="p-3 bg-[#16294A] border-t border-[#8FB4E3]/15 flex items-center justify-between text-[11px] text-[#8793A8]">
+              <div className="p-3 bg-[#0D1238] border-t border-[#7857FF]/15 flex items-center justify-between text-[11px] text-[#737FA8]">
                 <span>Modul Pembelajaran Resmi Tokutei Ginou OTAFF</span>
                 <span className="hidden sm:inline">Tekan ESC atau klik luar untuk menutup</span>
               </div>
@@ -776,7 +776,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
 
       return (
         <div className="space-y-6 text-left pb-16 max-w-3xl mx-auto">
-          <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#8793A8] hover:text-[#8FB4E3] transition-colors">
+          <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
             <ArrowLeft className="w-4 h-4" /> Kembali
           </button>
 
@@ -789,27 +789,27 @@ export const SswSection: React.FC<SswSectionProps> = ({
               {passed ? <CheckCircle2 className="w-10 h-10 text-emerald-400" /> : <AlertTriangle className="w-10 h-10 text-amber-400" />}
             </div>
 
-            <h2 className="text-2xl font-black text-[#EEF1F6] font-['Manrope']">
+            <h2 className="text-2xl font-black text-[#F5F6FF] font-['Manrope']">
               {passed ? 'Selamat! Anda Lulus 🎉' : 'Belum Lulus — Pelajari Kembali'}
             </h2>
 
             <div className="flex items-center justify-center gap-6">
               <div>
                 <span className={`text-4xl font-black font-mono ${passed ? 'text-emerald-400' : 'text-amber-400'}`}>{percentage}%</span>
-                <span className="text-xs text-[#8793A8] block">Skor</span>
+                <span className="text-xs text-[#737FA8] block">Skor</span>
               </div>
               <div>
-                <span className="text-4xl font-black font-mono text-[#8FB4E3]">{correctCount}/{totalQuestions}</span>
-                <span className="text-xs text-[#8793A8] block">Jawaban Benar</span>
+                <span className="text-4xl font-black font-mono text-[#7857FF]">{correctCount}/{totalQuestions}</span>
+                <span className="text-xs text-[#737FA8] block">Jawaban Benar</span>
               </div>
             </div>
 
             <div className="flex items-center justify-center gap-3 pt-4">
-              <button onClick={() => setQuizShowReview(true)} className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/30 text-[#EEF1F6] text-xs font-bold hover:bg-[#1F3760] transition-all">
-                <Eye className="w-4 h-4 text-[#8FB4E3]" /> Lihat Pembahasan
+              <button onClick={() => setQuizShowReview(true)} className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#0D1238] border border-[#7857FF]/30 text-[#F5F6FF] text-xs font-bold hover:bg-[#12194A] transition-all">
+                <Eye className="w-4 h-4 text-[#7857FF]" /> Lihat Pembahasan
               </button>
-              <button onClick={() => { setQuizCurrentIdx(0); setQuizAnswers({}); setQuizSubmitted(false); }} className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/30 text-[#EEF1F6] text-xs font-bold hover:bg-[#1F3760] transition-all">
-                <RotateCcw className="w-4 h-4 text-[#8FB4E3]" /> Ulangi
+              <button onClick={() => { setQuizCurrentIdx(0); setQuizAnswers({}); setQuizSubmitted(false); }} className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#0D1238] border border-[#7857FF]/30 text-[#F5F6FF] text-xs font-bold hover:bg-[#12194A] transition-all">
+                <RotateCcw className="w-4 h-4 text-[#7857FF]" /> Ulangi
               </button>
             </div>
           </div>
@@ -821,11 +821,11 @@ export const SswSection: React.FC<SswSectionProps> = ({
     if (quizSubmitted && quizShowReview) {
       return (
         <div className="space-y-6 text-left pb-16 max-w-3xl mx-auto">
-          <button onClick={() => setQuizShowReview(false)} className="flex items-center gap-2 text-xs font-bold text-[#8793A8] hover:text-[#8FB4E3] transition-colors">
+          <button onClick={() => setQuizShowReview(false)} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
             <ArrowLeft className="w-4 h-4" /> Kembali ke Hasil
           </button>
 
-          <h2 className="text-xl font-black text-[#EEF1F6] font-['Manrope']">Pembahasan Jawaban</h2>
+          <h2 className="text-xl font-black text-[#F5F6FF] font-['Manrope']">Pembahasan Jawaban</h2>
 
           {quizQuestions.map((qu, idx) => {
             const userAnswer = quizAnswers[qu.id];
@@ -840,17 +840,17 @@ export const SswSection: React.FC<SswSectionProps> = ({
                     {isCorrect ? '✓ Benar' : '✗ Salah'} — Soal {idx + 1}
                   </span>
                 </div>
-                <p className="text-sm text-[#EEF1F6] japanese-text">{qu.questionText}</p>
+                <p className="text-sm text-[#F5F6FF] japanese-text">{qu.questionText}</p>
 
-                {qu.situation && <p className="text-xs text-[#8793A8] italic">Situasi: {qu.situation}</p>}
-                {qu.translation && <p className="text-xs text-[#CBD8EC]">Terjemahan: {qu.translation}</p>}
+                {qu.situation && <p className="text-xs text-[#737FA8] italic">Situasi: {qu.situation}</p>}
+                {qu.translation && <p className="text-xs text-[#AAB3D5]">Terjemahan: {qu.translation}</p>}
 
                 <div className="space-y-1.5">
                   {qu.options.map((opt, oi) => (
                     <div key={oi} className={`p-2.5 rounded-xl text-xs flex items-start gap-2 ${
                       oi === qu.correctAnswerIndex ? 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-300' :
                       oi === userAnswer && oi !== qu.correctAnswerIndex ? 'bg-rose-500/15 border border-rose-500/30 text-rose-300' :
-                      'bg-[#0C1B33]/30 text-[#8793A8]'
+                      'bg-[#080D2B]/30 text-[#737FA8]'
                     }`}>
                       <span className="font-mono font-bold shrink-0">{oi + 1}.</span>
                       <span className="japanese-text">{opt}</span>
@@ -858,9 +858,9 @@ export const SswSection: React.FC<SswSectionProps> = ({
                   ))}
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#0C1B33]/50 border border-[#8FB4E3]/10">
-                  <span className="text-[10px] font-bold text-[#8FB4E3]">Pembahasan:</span>
-                  <p className="text-xs text-[#EEF1F6] mt-1 leading-relaxed">{qu.explanation}</p>
+                <div className="p-3 rounded-xl bg-[#080D2B]/50 border border-[#7857FF]/10">
+                  <span className="text-[10px] font-bold text-[#7857FF]">Pembahasan:</span>
+                  <p className="text-xs text-[#F5F6FF] mt-1 leading-relaxed">{qu.explanation}</p>
                 </div>
               </div>
             );
@@ -873,32 +873,32 @@ export const SswSection: React.FC<SswSectionProps> = ({
     return (
       <div className="space-y-6 text-left pb-16 max-w-3xl mx-auto">
         <div className="flex items-center justify-between">
-          <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#8793A8] hover:text-[#8FB4E3] transition-colors">
+          <button onClick={goBack} className="flex items-center gap-2 text-xs font-bold text-[#737FA8] hover:text-[#7857FF] transition-colors">
             <ArrowLeft className="w-4 h-4" /> Keluar
           </button>
-          <span className="text-xs font-bold text-[#8793A8] font-mono">{quizCurrentIdx + 1} / {totalQuestions}</span>
+          <span className="text-xs font-bold text-[#737FA8] font-mono">{quizCurrentIdx + 1} / {totalQuestions}</span>
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full h-2 rounded-full bg-[#0C1B33] overflow-hidden">
-          <div className="h-full rounded-full bg-gradient-to-r from-[#8FB4E3] to-emerald-400 transition-all duration-300" style={{ width: `${((quizCurrentIdx + 1) / totalQuestions) * 100}%` }} />
+        <div className="w-full h-2 rounded-full bg-[#080D2B] overflow-hidden">
+          <div className="h-full rounded-full bg-gradient-to-r from-[#7857FF] to-emerald-400 transition-all duration-300" style={{ width: `${((quizCurrentIdx + 1) / totalQuestions) * 100}%` }} />
         </div>
 
         {/* Title */}
         <div className="flex items-center gap-2">
-          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-lg ${isExam ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30' : 'bg-[#8FB4E3]/15 text-[#8FB4E3] border border-[#8FB4E3]/30'}`}>
+          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-lg ${isExam ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30' : 'bg-[#7857FF]/15 text-[#7857FF] border border-[#7857FF]/30'}`}>
             {isExam ? 'Simulasi Ujian' : 'Latihan'}
           </span>
-          <span className="text-xs text-[#8793A8] truncate">{quizTitle}</span>
+          <span className="text-xs text-[#737FA8] truncate">{quizTitle}</span>
         </div>
 
         {/* Question */}
-        <div className="rounded-2xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 sm:p-6 space-y-4">
-          <p className="text-sm sm:text-base text-[#EEF1F6] font-semibold leading-relaxed japanese-text">{q.questionText}</p>
+        <div className="rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 p-5 sm:p-6 space-y-4">
+          <p className="text-sm sm:text-base text-[#F5F6FF] font-semibold leading-relaxed japanese-text">{q.questionText}</p>
 
-          {q.situation && <p className="text-xs text-[#8793A8] italic bg-[#0C1B33]/40 p-2 rounded-lg">Situasi: {q.situation}</p>}
-          {q.passageText && <div className="text-xs text-[#CBD8EC] bg-[#0C1B33]/40 p-3 rounded-xl border border-[#8FB4E3]/10 whitespace-pre-line japanese-text">{q.passageText}</div>}
-          {q.translation && <p className="text-xs text-[#CBD8EC]">→ {q.translation}</p>}
+          {q.situation && <p className="text-xs text-[#737FA8] italic bg-[#080D2B]/40 p-2 rounded-lg">Situasi: {q.situation}</p>}
+          {q.passageText && <div className="text-xs text-[#AAB3D5] bg-[#080D2B]/40 p-3 rounded-xl border border-[#7857FF]/10 whitespace-pre-line japanese-text">{q.passageText}</div>}
+          {q.translation && <p className="text-xs text-[#AAB3D5]">→ {q.translation}</p>}
 
           <div className="space-y-2.5 pt-2">
             {q.options.map((opt, oi) => {
@@ -912,12 +912,12 @@ export const SswSection: React.FC<SswSectionProps> = ({
                   }}
                   className={`w-full p-3.5 rounded-xl text-left text-sm transition-all flex items-start gap-3 ${
                     isSelected
-                      ? 'bg-[#1F3760] border-2 border-[#8FB4E3] text-[#EEF1F6] shadow-[0_0_15px_rgba(143,180,227,0.2)]'
-                      : 'bg-[#0C1B33]/50 border border-[#8FB4E3]/15 text-[#CBD8EC] hover:border-[#8FB4E3]/40'
+                      ? 'bg-[#12194A] border-2 border-[#7857FF] text-[#F5F6FF] shadow-[0_0_15px_rgba(120,87,255,0.2)]'
+                      : 'bg-[#080D2B]/50 border border-[#7857FF]/15 text-[#AAB3D5] hover:border-[#7857FF]/40'
                   }`}
                 >
                   <span className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 font-black text-xs ${
-                    isSelected ? 'bg-[#8FB4E3] text-[#0C1B33]' : 'bg-[#16294A] text-[#8793A8] border border-[#8FB4E3]/20'
+                    isSelected ? 'bg-[#7857FF] text-[#080D2B]' : 'bg-[#0D1238] text-[#737FA8] border border-[#7857FF]/20'
                   }`}>{oi + 1}</span>
                   <span className="japanese-text pt-0.5">{opt}</span>
                 </button>
@@ -931,7 +931,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
           <button
             onClick={() => { if (quizCurrentIdx > 0) { sound.playClick(); setQuizCurrentIdx(prev => prev - 1); } }}
             disabled={quizCurrentIdx === 0}
-            className="px-4 py-2.5 rounded-xl bg-[#16294A] border border-[#8FB4E3]/20 text-[#8793A8] text-xs font-bold disabled:opacity-30 hover:text-[#EEF1F6] transition-all"
+            className="px-4 py-2.5 rounded-xl bg-[#0D1238] border border-[#7857FF]/20 text-[#737FA8] text-xs font-bold disabled:opacity-30 hover:text-[#F5F6FF] transition-all"
           >
             ← Sebelumnya
           </button>
@@ -942,9 +942,9 @@ export const SswSection: React.FC<SswSectionProps> = ({
                 key={idx}
                 onClick={() => { sound.playClick(); setQuizCurrentIdx(idx); }}
                 className={`w-7 h-7 rounded-lg text-[10px] font-bold shrink-0 transition-all ${
-                  idx === quizCurrentIdx ? 'bg-[#8FB4E3] text-[#0C1B33]' :
-                  quizAnswers[quizQuestions[idx].id] !== undefined ? 'bg-[#1F3760] text-[#8FB4E3] border border-[#8FB4E3]/30' :
-                  'bg-[#0C1B33] text-[#8793A8] border border-[#8FB4E3]/10'
+                  idx === quizCurrentIdx ? 'bg-[#7857FF] text-[#080D2B]' :
+                  quizAnswers[quizQuestions[idx].id] !== undefined ? 'bg-[#12194A] text-[#7857FF] border border-[#7857FF]/30' :
+                  'bg-[#080D2B] text-[#737FA8] border border-[#7857FF]/10'
                 }`}
               >{idx + 1}</button>
             ))}
@@ -953,7 +953,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
           {quizCurrentIdx < totalQuestions - 1 ? (
             <button
               onClick={() => { sound.playClick(); setQuizCurrentIdx(prev => prev + 1); }}
-              className="px-4 py-2.5 rounded-xl bg-[#16294A] border border-[#8FB4E3]/20 text-[#EEF1F6] text-xs font-bold hover:bg-[#1F3760] transition-all"
+              className="px-4 py-2.5 rounded-xl bg-[#0D1238] border border-[#7857FF]/20 text-[#F5F6FF] text-xs font-bold hover:bg-[#12194A] transition-all"
             >
               Berikutnya →
             </button>
@@ -972,5 +972,5 @@ export const SswSection: React.FC<SswSectionProps> = ({
   }
 
   // Fallback
-  return <div className="text-center text-[#8793A8] py-20">Memuat...</div>;
+  return <div className="text-center text-[#737FA8] py-20">Memuat...</div>;
 };

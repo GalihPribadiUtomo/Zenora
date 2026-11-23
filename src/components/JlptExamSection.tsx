@@ -318,20 +318,20 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
       <div className="space-y-8 text-left pb-16">
         
         {/* Banner Hero */}
-        <div className="relative overflow-hidden rounded-3xl border border-[#8FB4E3]/25 shadow-[0_20px_60px_-15px_rgba(12,27,51,0.9),0_0_40px_rgba(143,180,227,0.12)] bg-gradient-to-br from-[#0C1B33] via-[#16294A] to-[#1F3760] p-6 sm:p-10">
+        <div className="relative overflow-hidden rounded-3xl border border-[#7857FF]/25 shadow-[0_20px_60px_-15px_rgba(8,13,43,0.9),0_0_40px_rgba(120,87,255,0.12)] bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#12194A] p-6 sm:p-10">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16294A]/80 border border-[#8FB4E3]/30 text-[#8FB4E3] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(143,180,227,0.2)]">
-                <ShieldCheck className="w-4 h-4 text-[#8FB4E3]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1238]/80 border border-[#7857FF]/30 text-[#7857FF] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(120,87,255,0.2)]">
+                <ShieldCheck className="w-4 h-4 text-[#7857FF]" />
                 Simulasi Ujian Otentik 1:1 Sesuai Lembar Asli
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-black text-[#EEF1F6] tracking-tight font-['Manrope'] flex items-center gap-3">
-                <Award className="w-8 h-8 text-[#8FB4E3]" />
+              <h1 className="text-3xl sm:text-4xl font-black text-[#F5F6FF] tracking-tight font-['Manrope'] flex items-center gap-3">
+                <Award className="w-8 h-8 text-[#7857FF]" />
                 Simulasi Resmi JLPT & JFT-Basic
               </h1>
 
-              <p className="text-[#CBD8EC] text-sm sm:text-base leading-relaxed max-w-2xl">
+              <p className="text-[#AAB3D5] text-sm sm:text-base leading-relaxed max-w-2xl">
                 Pengalaman ujian persis seperti aslinya: format buku soal resmi (問題冊子), lembar jawaban pensil 2B (マークシート), soal susun bintang ★, audio choukai dengan lonceng chime JLPT resmi, hingga antarmuka CBT Prometric resmi untuk JFT-Basic.
               </p>
             </div>
@@ -339,7 +339,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
             {onBackToPractice && (
               <button
                 onClick={onBackToPractice}
-                className="self-start md:self-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0C1B33]/80 hover:bg-[#16294A] text-[#8FB4E3] hover:text-[#EEF1F6] border border-[#8FB4E3]/25 text-xs font-bold transition-all shrink-0"
+                className="self-start md:self-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#080D2B]/80 hover:bg-[#0D1238] text-[#7857FF] hover:text-[#F5F6FF] border border-[#7857FF]/25 text-xs font-bold transition-all shrink-0"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Kembali ke Latihan Bab</span>
@@ -353,7 +353,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
           {JLPT_EXAM_PACKAGES.map((pkg) => (
             <div
               key={pkg.id}
-              className="rounded-3xl bg-[#16294A] border border-[#8FB4E3]/25 hover:border-[#8FB4E3]/60 transition-all p-6 sm:p-7 flex flex-col justify-between shadow-[0_4px_24px_rgba(12,27,51,0.5)] group hover:-translate-y-1"
+              className="rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 hover:border-[#7857FF]/60 transition-all p-6 sm:p-7 flex flex-col justify-between shadow-[0_4px_24px_rgba(8,13,43,0.5)] group hover:-translate-y-1"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -367,40 +367,40 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                   >
                     Level {pkg.level}
                   </span>
-                  <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#8FB4E3]">
+                  <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#7857FF]">
                     <Clock className="w-4 h-4" />
                     <span>{pkg.totalTimeMinutes} Menit</span>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-black text-[#EEF1F6] font-['Manrope'] group-hover:text-[#8FB4E3] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-black text-[#F5F6FF] font-['Manrope'] group-hover:text-[#7857FF] transition-colors">
                     {pkg.title}
                   </h3>
-                  <p className="text-xs font-bold text-[#8FB4E3] mt-1 font-mono">
+                  <p className="text-xs font-bold text-[#7857FF] mt-1 font-mono">
                     {pkg.subtitle}
                   </p>
-                  <p className="text-sm text-[#CBD8EC] mt-3 leading-relaxed">
+                  <p className="text-sm text-[#AAB3D5] mt-3 leading-relaxed">
                     {pkg.description}
                   </p>
                 </div>
 
                 {/* Seksi Details */}
-                <div className="space-y-2 pt-3 border-t border-[#8FB4E3]/15">
-                  <span className="text-[11px] font-bold text-[#8793A8] uppercase tracking-wider block">
+                <div className="space-y-2 pt-3 border-t border-[#7857FF]/15">
+                  <span className="text-[11px] font-bold text-[#737FA8] uppercase tracking-wider block">
                     Seksi Lembar Ujian:
                   </span>
                   <div className="space-y-1.5">
                     {pkg.sections.map((sec) => (
                       <div 
                         key={sec.id}
-                        className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-[#0C1B33]/60 border border-[#8FB4E3]/15"
+                        className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-[#080D2B]/60 border border-[#7857FF]/15"
                       >
-                        <span className="font-bold text-[#EEF1F6] flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#8FB4E3]" />
+                        <span className="font-bold text-[#F5F6FF] flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#7857FF]" />
                           {sec.title}
                         </span>
-                        <span className="text-[#8FB4E3] font-mono text-[11px]">
+                        <span className="text-[#7857FF] font-mono text-[11px]">
                           {sec.timeLimitMinutes} mnt · {sec.questions.length} soal
                         </span>
                       </div>
@@ -409,8 +409,8 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                 </div>
 
                 {/* Syarat Kelulusan */}
-                <div className="p-3 rounded-xl bg-[#0C1B33]/80 border border-[#8FB4E3]/20 flex items-center justify-between text-xs">
-                  <span className="text-[#8793A8] font-medium">Syarat Kelulusan:</span>
+                <div className="p-3 rounded-xl bg-[#080D2B]/80 border border-[#7857FF]/20 flex items-center justify-between text-xs">
+                  <span className="text-[#737FA8] font-medium">Syarat Kelulusan:</span>
                   <span className="font-bold text-emerald-400 font-mono">
                     Minimal {pkg.passingScore} / {pkg.maxScore} Poin
                   </span>
@@ -418,10 +418,10 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-6 pt-4 border-t border-[#8FB4E3]/15 space-y-2.5">
+              <div className="mt-6 pt-4 border-t border-[#7857FF]/15 space-y-2.5">
                 <button
                   onClick={() => openExamCover(pkg, 'full')}
-                  className="w-full py-3.5 px-4 rounded-xl font-black text-sm text-[#0C1B33] bg-gradient-to-r from-[#EEF1F6] to-[#8FB4E3] hover:brightness-110 shadow-md transition-all flex items-center justify-center gap-2 active:scale-95"
+                  className="w-full py-3.5 px-4 rounded-xl font-black text-sm text-[#080D2B] bg-gradient-to-r from-[#F5F6FF] to-[#7857FF] hover:brightness-110 shadow-md transition-all flex items-center justify-center gap-2 active:scale-95"
                 >
                   <FileText className="w-4 h-4" />
                   <span>Buka Lembar Ujian Resmi ({pkg.totalTimeMinutes} Menit)</span>
@@ -432,7 +432,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                     <button
                       key={sec.id}
                       onClick={() => openExamCover(pkg, 'section', sIdx)}
-                      className="py-1.5 px-2 rounded-lg bg-[#0C1B33] hover:bg-[#1F3760] text-[11px] font-bold text-[#CBD8EC] hover:text-[#EEF1F6] border border-[#8FB4E3]/20 transition-colors truncate text-center"
+                      className="py-1.5 px-2 rounded-lg bg-[#080D2B] hover:bg-[#12194A] text-[11px] font-bold text-[#AAB3D5] hover:text-[#F5F6FF] border border-[#7857FF]/20 transition-colors truncate text-center"
                     >
                       {sec.title}
                     </button>
@@ -459,9 +459,9 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
         {/* Back button */}
         <button
           onClick={() => setExamState('selection')}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#16294A] hover:bg-[#1F3760] text-[#EEF1F6] text-xs font-bold border border-[#8FB4E3]/25 transition-all shadow-xs"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0D1238] hover:bg-[#12194A] text-[#F5F6FF] text-xs font-bold border border-[#7857FF]/25 transition-all shadow-xs"
         >
-          <ArrowLeft className="w-4 h-4 text-[#8FB4E3]" />
+          <ArrowLeft className="w-4 h-4 text-[#7857FF]" />
           <span>Kembali ke Pilihan Paket</span>
         </button>
 
@@ -469,7 +469,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
         <div className={`p-8 sm:p-12 rounded-3xl border-4 shadow-2xl transition-all ${
           uiTheme === 'paper' 
             ? 'bg-[#F9F7F1] text-[#1E1E1E] border-[#2A2A2A]' 
-            : 'bg-[#16294A] text-[#EEF1F6] border-[#8FB4E3]/40'
+            : 'bg-[#0D1238] text-[#F5F6FF] border-[#7857FF]/40'
         }`}>
           
           {/* Header Lembaga Resmi */}
@@ -557,7 +557,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                 onClick={() => setUiTheme('cbt')}
                 className={`px-3 py-1.5 rounded-lg border font-bold flex items-center gap-1.5 ${
                   uiTheme === 'cbt' 
-                    ? 'bg-[#1F3760] text-white border-[#8FB4E3]' 
+                    ? 'bg-[#12194A] text-white border-[#7857FF]' 
                     : 'bg-white/80 text-black border-black/30'
                 }`}
               >
@@ -605,7 +605,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
         <div className={`p-4 rounded-2xl border shadow-xl flex flex-wrap items-center justify-between gap-4 transition-all ${
           uiTheme === 'paper'
             ? 'bg-[#F9F7F1] text-[#1E1E1E] border-[#2A2A2A]/40'
-            : 'bg-[#16294A] text-[#EEF1F6] border-[#8FB4E3]/30'
+            : 'bg-[#0D1238] text-[#F5F6FF] border-[#7857FF]/30'
         }`}>
           <div className="flex items-center gap-3">
             <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-black border uppercase">
@@ -628,7 +628,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                 ? 'bg-rose-500/20 border-rose-500 text-rose-600 animate-pulse'
                 : uiTheme === 'paper' 
                   ? 'bg-white border-[#2A2A2A]/40 text-[#1E1E1E]' 
-                  : 'bg-[#0C1B33] border-[#8FB4E3]/30 text-[#8FB4E3]'
+                  : 'bg-[#080D2B] border-[#7857FF]/30 text-[#7857FF]'
             }`}>
               <Clock className="w-4 h-4" />
               <span>{formatTime(timeRemainingSeconds)}</span>
@@ -666,7 +666,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
           <div className={`lg:col-span-8 rounded-3xl border-2 p-6 sm:p-9 space-y-6 shadow-2xl transition-all ${
             uiTheme === 'paper'
               ? 'bg-[#FCFAF5] text-[#1E1E1E] border-[#2A2A2A]/40'
-              : 'bg-[#16294A] text-[#EEF1F6] border-[#8FB4E3]/30'
+              : 'bg-[#0D1238] text-[#F5F6FF] border-[#7857FF]/30'
           }`}>
             
             {/* Header Mondai */}
@@ -721,7 +721,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
             {/* Dokkai / Wacana Bacaan Resmi */}
             {currentQuestion.passageText && (
-              <div className="p-6 rounded-2xl border-2 border-current/30 bg-white/60 dark:bg-[#0C1B33]/80 space-y-2 shadow-inner">
+              <div className="p-6 rounded-2xl border-2 border-current/30 bg-white/60 dark:bg-[#080D2B]/80 space-y-2 shadow-inner">
                 <span className="text-xs font-mono font-black uppercase tracking-wider block mb-1">
                   【 読解本文 · TEKS WACANA 】
                 </span>
@@ -733,7 +733,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
             {/* Choukai / Audio Mendengarkan dengan Chime Lonceng */}
             {currentQuestion.audioScript && (
-              <div className="p-5 rounded-2xl border-2 border-current/30 bg-white/60 dark:bg-[#0C1B33]/80 space-y-3 shadow-inner">
+              <div className="p-5 rounded-2xl border-2 border-current/30 bg-white/60 dark:bg-[#080D2B]/80 space-y-3 shadow-inner">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono font-black uppercase tracking-wider flex items-center gap-1.5">
                     <Headphones className="w-4 h-4" />
@@ -752,9 +752,9 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
                 <button
                   onClick={() => playAudioQuestionWithChime(currentQuestion)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] text-white text-xs sm:text-sm font-bold shadow-md hover:brightness-110 active:scale-95 transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white text-xs sm:text-sm font-bold shadow-md hover:brightness-110 active:scale-95 transition-all"
                 >
-                  <Volume2 className={`w-4 h-4 ${isPlayingAudio ? 'animate-bounce text-[#8FB4E3]' : ''}`} />
+                  <Volume2 className={`w-4 h-4 ${isPlayingAudio ? 'animate-bounce text-[#7857FF]' : ''}`} />
                   <span>{isPlayingAudio ? 'Memutar Audio Percakapan...' : 'Putar Audio Soal (Dengarkan Chime)'}</span>
                 </button>
               </div>
@@ -815,7 +815,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                           className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
                             isUsed 
                               ? 'bg-emerald-500/20 border-emerald-500 text-emerald-700 dark:text-emerald-300'
-                              : 'bg-white/80 dark:bg-[#1F3760] border-current/30 hover:border-current'
+                              : 'bg-white/80 dark:bg-[#12194A] border-current/30 hover:border-current'
                           }`}
                         >
                           {word} {isUsed ? '✓' : '+'}
@@ -869,7 +869,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
               <button
                 onClick={handleNext}
-                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] text-white text-xs font-bold shadow-md hover:brightness-110 transition-all flex items-center gap-2"
+                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white text-xs font-bold shadow-md hover:brightness-110 transition-all flex items-center gap-2"
               >
                 <span>{currentQuestionIdx < allQuestionsInSection.length - 1 ? '次の問題 (Berikutnya)' : '終了 (Kumpulkan)'}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -879,7 +879,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
           </div>
 
           {/* KOLOM KANAN (4 Kolom): LEMBAR JAWABAN マークシート (OPTICAL MARK SHEET) */}
-          <div className="hidden lg:block lg:col-span-4 rounded-3xl border-2 border-dashed border-[#2A2A2A]/40 dark:border-[#8FB4E3]/30 bg-[#F4EFE6] dark:bg-[#16294A] p-5 space-y-4 shadow-xl text-[#1E1E1E] dark:text-[#EEF1F6]">
+          <div className="hidden lg:block lg:col-span-4 rounded-3xl border-2 border-dashed border-[#2A2A2A]/40 dark:border-[#7857FF]/30 bg-[#F4EFE6] dark:bg-[#0D1238] p-5 space-y-4 shadow-xl text-[#1E1E1E] dark:text-[#F5F6FF]">
             
             {/* Header Lembar Jawaban */}
             <div className="text-center pb-3 border-b-2 border-current/30 space-y-1">
@@ -898,7 +898,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
             <div className="p-2.5 rounded-xl border border-current/20 bg-black/5 dark:bg-white/5 flex items-center justify-between text-[11px] font-mono">
               <span>マーク例 (Contoh):</span>
               <span className="font-bold flex items-center gap-1.5">
-                <span className="w-3.5 h-3.5 rounded-full bg-[#1E1E1E] dark:bg-[#EEF1F6] inline-block shadow-sm" /> 良い (Benar)
+                <span className="w-3.5 h-3.5 rounded-full bg-[#1E1E1E] dark:bg-[#F5F6FF] inline-block shadow-sm" /> 良い (Benar)
                 <span className="w-3.5 h-3.5 rounded-full border border-current inline-block ml-2" /> 悪い (Salah)
               </span>
             </div>
@@ -941,7 +941,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                             }}
                             className={`w-7 h-7 rounded-full text-xs font-mono font-bold flex items-center justify-center transition-all ${
                               isShaded
-                                ? 'bg-[#1E1E1E] dark:bg-[#EEF1F6] text-[#F4EFE6] dark:text-[#0C1B33] shadow-inner font-black scale-105'
+                                ? 'bg-[#1E1E1E] dark:bg-[#F5F6FF] text-[#F4EFE6] dark:text-[#080D2B] shadow-inner font-black scale-105'
                                 : 'border border-current hover:bg-black/10 dark:hover:bg-white/10 opacity-75'
                             }`}
                             title={`Jawaban ${numIdx + 1}`}
@@ -969,7 +969,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
         {/* Modal Lembar Jawaban untuk Layar Smartphone */}
         {showMarkSheetModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in lg:hidden">
-            <div className="max-w-sm w-full rounded-3xl bg-[#F4EFE6] dark:bg-[#16294A] text-[#1E1E1E] dark:text-[#EEF1F6] p-6 space-y-4 shadow-2xl border-2 border-current">
+            <div className="max-w-sm w-full rounded-3xl bg-[#F4EFE6] dark:bg-[#0D1238] text-[#1E1E1E] dark:text-[#F5F6FF] p-6 space-y-4 shadow-2xl border-2 border-current">
               <div className="flex items-center justify-between pb-2 border-b border-current/20">
                 <h3 className="font-black text-sm font-['Noto_Serif_JP',serif]">
                   解答用紙（マークシート）
@@ -1021,7 +1021,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
         {/* Modal Konfirmasi Pengumpulan */}
         {showConfirmSubmit && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-            <div className="max-w-md w-full rounded-3xl bg-[#16294A] border border-[#8FB4E3]/40 p-6 sm:p-8 space-y-5 text-center shadow-2xl text-[#EEF1F6]">
+            <div className="max-w-md w-full rounded-3xl bg-[#0D1238] border border-[#7857FF]/40 p-6 sm:p-8 space-y-5 text-center shadow-2xl text-[#F5F6FF]">
               <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
@@ -1030,15 +1030,15 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                 <h3 className="text-xl font-black font-['Manrope']">
                   試験を終了しますか？ (Kumpulkan Ujian?)
                 </h3>
-                <p className="text-xs text-[#CBD8EC] mt-1.5 leading-relaxed">
-                  Anda telah mengisi <span className="font-bold text-[#8FB4E3]">{answeredCount}</span> dari <span className="font-bold text-[#EEF1F6]">{currentSection.questions.length}</span> soal pada seksi ini. Lembar jawaban akan dievaluasi dengan sistem penilaian resmi JLPT / JFT.
+                <p className="text-xs text-[#AAB3D5] mt-1.5 leading-relaxed">
+                  Anda telah mengisi <span className="font-bold text-[#7857FF]">{answeredCount}</span> dari <span className="font-bold text-[#F5F6FF]">{currentSection.questions.length}</span> soal pada seksi ini. Lembar jawaban akan dievaluasi dengan sistem penilaian resmi JLPT / JFT.
                 </p>
               </div>
 
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setShowConfirmSubmit(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-[#0C1B33] hover:bg-[#1F3760] text-[#CBD8EC] text-xs font-bold border border-[#8FB4E3]/25 transition-colors"
+                  className="flex-1 py-2.5 rounded-xl bg-[#080D2B] hover:bg-[#12194A] text-[#AAB3D5] text-xs font-bold border border-[#7857FF]/25 transition-colors"
                 >
                   Kembali Cek Soal
                 </button>
@@ -1067,7 +1067,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
       <div className="space-y-8 text-left pb-16 max-w-4xl mx-auto animate-fade-in">
         
         {/* Lembar Sertifikat Resmi (合否結果通知書 / Score Report) */}
-        <div className="relative overflow-hidden rounded-3xl border-4 border-[#2A2A2A] dark:border-[#8FB4E3]/40 bg-[#FCFAF5] dark:bg-[#16294A] text-[#1E1E1E] dark:text-[#EEF1F6] p-8 sm:p-12 shadow-2xl">
+        <div className="relative overflow-hidden rounded-3xl border-4 border-[#2A2A2A] dark:border-[#7857FF]/40 bg-[#FCFAF5] dark:bg-[#0D1238] text-[#1E1E1E] dark:text-[#F5F6FF] p-8 sm:p-12 shadow-2xl">
           
           {/* Header Sertifikat */}
           <div className="text-center space-y-2 pb-6 border-b-2 border-current">
@@ -1189,9 +1189,9 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
           <div className="mt-10 pt-6 border-t-2 border-current/30 flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={() => setExamState('review')}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] text-white text-xs sm:text-sm font-bold shadow-md hover:brightness-110 flex items-center gap-2"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white text-xs sm:text-sm font-bold shadow-md hover:brightness-110 flex items-center gap-2"
             >
-              <BookOpen className="w-4 h-4 text-[#8FB4E3]" />
+              <BookOpen className="w-4 h-4 text-[#7857FF]" />
               <span>Lihat Pembahasan Lengkap Semua Soal</span>
             </button>
 
@@ -1225,9 +1225,9 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
       <div className="space-y-6 text-left pb-16 max-w-4xl mx-auto animate-fade-in">
         
         {/* Top Review Bar */}
-        <div className="flex items-center justify-between p-4 rounded-2xl bg-[#16294A] border border-[#8FB4E3]/25 text-[#EEF1F6]">
+        <div className="flex items-center justify-between p-4 rounded-2xl bg-[#0D1238] border border-[#7857FF]/25 text-[#F5F6FF]">
           <div className="flex items-center gap-2.5">
-            <span className="px-2.5 py-1 rounded-lg bg-[#0C1B33] text-xs font-black font-mono text-[#8FB4E3]">
+            <span className="px-2.5 py-1 rounded-lg bg-[#080D2B] text-xs font-black font-mono text-[#7857FF]">
               REVIEW
             </span>
             <h2 className="text-base font-black font-['Manrope']">
@@ -1237,7 +1237,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
           <button
             onClick={() => setExamState('results')}
-            className="px-4 py-2 rounded-xl bg-[#0C1B33] hover:bg-[#1F3760] text-[#EEF1F6] text-xs font-bold border border-[#8FB4E3]/25"
+            className="px-4 py-2 rounded-xl bg-[#080D2B] hover:bg-[#12194A] text-[#F5F6FF] text-xs font-bold border border-[#7857FF]/25"
           >
             Kembali ke Nilai
           </button>
@@ -1247,7 +1247,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
         <div className="space-y-6">
           {activeSections.map((sec) => (
             <div key={sec.id} className="space-y-4">
-              <h3 className="text-lg font-black text-[#8FB4E3] font-['Manrope'] pb-2 border-b border-[#8FB4E3]/20">
+              <h3 className="text-lg font-black text-[#7857FF] font-['Manrope'] pb-2 border-b border-[#7857FF]/20">
                 {sec.title} · {sec.japaneseTitle}
               </h3>
 
@@ -1259,14 +1259,14 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                   return (
                     <div
                       key={q.id}
-                      className={`rounded-3xl border p-6 space-y-4 shadow-[0_4px_16px_rgba(12,27,51,0.4)] ${
+                      className={`rounded-3xl border p-6 space-y-4 shadow-[0_4px_16px_rgba(8,13,43,0.4)] ${
                         isCorrect 
-                          ? 'bg-[#16294A] border-emerald-500/30'
-                          : 'bg-[#16294A] border-rose-500/30'
+                          ? 'bg-[#0D1238] border-emerald-500/30'
+                          : 'bg-[#0D1238] border-rose-500/30'
                       }`}
                     >
                       <div className="flex items-center justify-between text-xs">
-                        <span className="font-mono font-bold text-[#8FB4E3]">
+                        <span className="font-mono font-bold text-[#7857FF]">
                           Mondai {q.mondaiNumber} · Soal #{q.questionNumber}
                         </span>
 
@@ -1282,11 +1282,11 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
 
                       <div className="space-y-1">
                         <p 
-                          className="text-lg font-bold text-[#EEF1F6] japanese-text leading-relaxed"
+                          className="text-lg font-bold text-[#F5F6FF] japanese-text leading-relaxed"
                           dangerouslySetInnerHTML={{ __html: q.questionText }}
                         />
                         {q.indonesianTranslation && (
-                          <p className="text-xs text-[#CBD8EC]">
+                          <p className="text-xs text-[#AAB3D5]">
                             Arti: {q.indonesianTranslation}
                           </p>
                         )}
@@ -1298,7 +1298,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                           const isTheCorrectOne = oIdx === q.correctAnswerIndex;
                           const isTheUserChoice = oIdx === userAnswerIdx;
 
-                          let style = 'bg-[#0C1B33]/60 border-[#8FB4E3]/15 text-[#8793A8]';
+                          let style = 'bg-[#080D2B]/60 border-[#7857FF]/15 text-[#737FA8]';
                           if (isTheCorrectOne) {
                             style = 'bg-emerald-500/20 border-emerald-500/50 text-emerald-200 font-bold';
                           } else if (isTheUserChoice && !isCorrect) {
@@ -1329,11 +1329,11 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                       </div>
 
                       {/* Penjelasan */}
-                      <div className="p-4 rounded-2xl bg-[#0C1B33]/80 border border-[#8FB4E3]/25 space-y-1 text-xs">
-                        <span className="font-bold text-[#8FB4E3] uppercase tracking-wider block">
+                      <div className="p-4 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/25 space-y-1 text-xs">
+                        <span className="font-bold text-[#7857FF] uppercase tracking-wider block">
                           Pembahasan Edukatif:
                         </span>
-                        <p className="text-sm text-[#CBD8EC] leading-relaxed">
+                        <p className="text-sm text-[#AAB3D5] leading-relaxed">
                           {q.explanation}
                         </p>
                       </div>
@@ -1348,7 +1348,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
         <div className="flex justify-center pt-4">
           <button
             onClick={() => setExamState('results')}
-            className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] text-sm font-bold border border-[#8FB4E3]/40 shadow-md"
+            className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] text-sm font-bold border border-[#7857FF]/40 shadow-md"
           >
             Selesai Meninjau Pembahasan
           </button>
