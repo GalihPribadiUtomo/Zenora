@@ -9,6 +9,28 @@
     --aksen:          #8FB4E3;    /* Aksen Biru Perak */
     --redup:          #8793A8;    /* Teks Redup / Muted */
 
+    /* ===== PALET MIDNIGHT JAPAN (NEON PURPLE & ELECTRIC BLUE) ===== */
+    --mj-bg-darkest:    #080D2B;
+    --mj-bg-card:       #0D1238;
+    --mj-bg-elevated:   #12194A;
+    --mj-bg-surface:    #171D50;
+    --mj-bg-surface-2:  #1D245E;
+
+    --mj-purple-primary: #7857FF;
+    --mj-purple-light:   #945CFF;
+    --mj-purple-glow:    #B46BFF;
+
+    --mj-blue-accent:   #329BFF;
+    --mj-blue-light:    #50C8FF;
+
+    --mj-sakura-pink:   #FF70C8;
+    --mj-success-green: #00D6A3;
+    --mj-achieve-gold:  #FFC857;
+
+    --mj-text-primary:   #F5F6FF;
+    --mj-text-secondary: #AAB3D5;
+    --mj-text-muted:     #737FA8;
+
     /* Surface tokens */
     --bg-base:        #0C1B33;    /* Latar */
     --bg-surface:     #16294A;    /* Permukaan */
@@ -407,6 +429,56 @@ td {
 tr:hover td {
   background: rgba(143, 180, 227, 0.05);
 }
+
+/* ========== MIDNIGHT JAPAN UTILITIES ========== */
+.bg-midnight-darkest { background-color: #080D2B; }
+.bg-midnight-card { background-color: #0D1238; }
+.bg-midnight-elevated { background-color: #12194A; }
+.bg-midnight-surface { background-color: #171D50; }
+
+.glass-midnight {
+  background: rgba(13, 18, 56, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(120, 87, 255, 0.18);
+}
+
+.glass-midnight-card {
+  background: linear-gradient(165deg, rgba(18, 25, 74, 0.75) 0%, rgba(13, 18, 56, 0.85) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(120, 87, 255, 0.22);
+  box-shadow: 0 12px 36px -8px rgba(8, 13, 43, 0.8);
+}
+
+.glass-midnight-card:hover {
+  border-color: rgba(148, 92, 255, 0.5);
+  box-shadow: 0 16px 44px -6px rgba(120, 87, 255, 0.25), 0 0 20px rgba(50, 155, 255, 0.15);
+}
+
+.neon-btn-primary {
+  background: linear-gradient(135deg, #7857FF 0%, #329BFF 100%);
+  box-shadow: 0 4px 20px rgba(120, 87, 255, 0.45);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neon-btn-primary:hover {
+  background: linear-gradient(135deg, #945CFF 0%, #50C8FF 100%);
+  box-shadow: 0 6px 30px rgba(120, 87, 255, 0.65), 0 0 15px rgba(80, 200, 255, 0.4);
+  transform: translateY(-1.5px);
+}
+
+@keyframes sakura-drift {
+  0% { transform: translateY(-10px) rotate(0deg) translateX(0); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(80px) rotate(180deg) translateX(30px); opacity: 0; }
+}
+
+.animate-sakura {
+  animation: sakura-drift 6s ease-in-out infinite;
+}
+
 
 /* ========== FOCUS VISIBLE ========== */
 *:focus-visible {

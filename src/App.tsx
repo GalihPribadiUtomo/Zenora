@@ -207,98 +207,112 @@ export function App() {
   };
 
   return (
-    <div className="app-shell min-h-screen flex flex-col bg-[#0C1B33] text-[#EEF1F6] selection:bg-[#8FB4E3] selection:text-[#0C1B33]">
+    <div className={`app-shell min-h-screen flex flex-col ${activeTab === 'beranda' ? 'bg-[#080D2B]' : 'bg-[#0C1B33]'} text-[#EEF1F6] selection:bg-[#7857FF] selection:text-white`}>
       
-      {/* Top Navbar */}
-      <Navbar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        soundEnabled={soundEnabled}
-        setSoundEnabled={setSoundEnabled}
-        onOpenSearch={() => setSearchOpen(true)}
-        learnedKotobaCount={stats.learnedKotobaIds.length}
-        learnedKanjiCount={stats.learnedKanjiIds.length}
-        streakDays={stats.streakDays}
-        user={user}
-        onOpenAuth={() => setAuthOpen(true)}
-        onSignOut={handleSignOut}
-        isSyncing={isSyncing}
-        onNavigateSubMateri={handleNavigateSubMateri}
-        onNavigateSubLatihan={handleNavigateSubLatihan}
-      />
-
-      {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8">
-        {activeTab === 'beranda' && (
-          <HomeDashboard
-            onNavigate={(tab) => {
-              if (tab === 'kotoba') setSelectedBab(null);
-              setActiveTab(tab);
-            }}
-            learnedKotobaIds={stats.learnedKotobaIds}
-            learnedKanjiIds={stats.learnedKanjiIds}
-            onSelectKanji={(k) => setActiveKanji(k)}
-            onSelectChapter={(bab) => {
-              setSelectedBab(bab);
-              setActiveTab('kotoba');
-            }}
+      {activeTab === 'beranda' ? (
+        /* MIDNIGHT JAPAN HOMEPAGE (Custom Sidebar & TopNav layout) */
+        <HomeDashboard
+          onNavigate={(tab) => {
+            if (tab === 'kotoba') setSelectedBab(null);
+            setActiveTab(tab);
+          }}
+          learnedKotobaIds={stats.learnedKotobaIds}
+          learnedKanjiIds={stats.learnedKanjiIds}
+          learnedKotobaCount={stats.learnedKotobaIds.length}
+          learnedKanjiCount={stats.learnedKanjiIds.length}
+          streakDays={stats.streakDays}
+          stats={stats}
+          user={user}
+          onOpenSearch={() => setSearchOpen(true)}
+          onOpenAuth={() => setAuthOpen(true)}
+          soundEnabled={soundEnabled}
+          setSoundEnabled={setSoundEnabled}
+          isSyncing={isSyncing}
+          onSelectKanji={(k) => setActiveKanji(k)}
+          onSelectChapter={(bab) => {
+            setSelectedBab(bab);
+            setActiveTab('kotoba');
+          }}
+        />
+      ) : (
+        /* STANDARD APP SECTIONS (Kana, Kotoba, Kanji, SSW, Latihan) */
+        <>
+          {/* Top Navbar */}
+          <Navbar
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            soundEnabled={soundEnabled}
+            setSoundEnabled={setSoundEnabled}
+            onOpenSearch={() => setSearchOpen(true)}
+            learnedKotobaCount={stats.learnedKotobaIds.length}
+            learnedKanjiCount={stats.learnedKanjiIds.length}
+            streakDays={stats.streakDays}
+            user={user}
+            onOpenAuth={() => setAuthOpen(true)}
+            onSignOut={handleSignOut}
+            isSyncing={isSyncing}
+            onNavigateSubMateri={handleNavigateSubMateri}
+            onNavigateSubLatihan={handleNavigateSubLatihan}
           />
-        )}
 
-        {activeTab === 'kana' && (
-          <KanaSection
-            learnedKanaChars={stats.learnedKanaChars || []}
-            onToggleLearned={handleToggleLearnedKana}
-          />
-        )}
+          {/* Main Container */}
+          <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8">
+            {activeTab === 'kana' && (
+              <KanaSection
+                learnedKanaChars={stats.learnedKanaChars || []}
+                onToggleLearned={handleToggleLearnedKana}
+              />
+            )}
 
-        {activeTab === 'kotoba' && (
-          <KotobaSection
-            selectedBab={selectedBab}
-            setSelectedBab={setSelectedBab}
-            learnedKotobaIds={stats.learnedKotobaIds}
-            bookmarkedKotobaIds={stats.bookmarkedKotobaIds}
-            onToggleLearned={handleToggleLearnedKotoba}
-            onToggleBookmark={handleToggleBookmarkKotoba}
-            onStartQuiz={handleStartQuizFromBab}
-            onSelectKanji={(k) => setActiveKanji(k)}
-          />
-        )}
+            {activeTab === 'kotoba' && (
+              <KotobaSection
+                selectedBab={selectedBab}
+                setSelectedBab={setSelectedBab}
+                learnedKotobaIds={stats.learnedKotobaIds}
+                bookmarkedKotobaIds={stats.bookmarkedKotobaIds}
+                onToggleLearned={handleToggleLearnedKotoba}
+                onToggleBookmark={handleToggleBookmarkKotoba}
+                onStartQuiz={handleStartQuizFromBab}
+                onSelectKanji={(k) => setActiveKanji(k)}
+              />
+            )}
 
-        {activeTab === 'kanji' && (
-          <KanjiSection
-            onSelectKanji={(k) => setActiveKanji(k)}
-            learnedKanjiIds={stats.learnedKanjiIds}
-            onToggleLearned={handleToggleLearnedKanji}
-          />
-        )}
+            {activeTab === 'kanji' && (
+              <KanjiSection
+                onSelectKanji={(k) => setActiveKanji(k)}
+                learnedKanjiIds={stats.learnedKanjiIds}
+                onToggleLearned={handleToggleLearnedKanji}
+              />
+            )}
 
-        {activeTab === 'ssw' && (
-          <SswSection
-            onNavigateToJft={() => {
-              setPracticeType('jlpt-jft');
-              setPracticeExamPackageId('JFT_BASIC_A2');
-              setActiveTab('latihan');
-            }}
-            onNavigateToBab={(bab) => {
-              setSelectedBab(bab);
-              setActiveTab('kotoba');
-            }}
-          />
-        )}
+            {activeTab === 'ssw' && (
+              <SswSection
+                onNavigateToJft={() => {
+                  setPracticeType('jlpt-jft');
+                  setPracticeExamPackageId('JFT_BASIC_A2');
+                  setActiveTab('latihan');
+                }}
+                onNavigateToBab={(bab) => {
+                  setSelectedBab(bab);
+                  setActiveTab('kotoba');
+                }}
+              />
+            )}
 
-        {activeTab === 'latihan' && (
-          <PracticeSection
-            initialBab={practiceBab}
-            initialPracticeType={practiceType}
-            initialExamPackageId={practiceExamPackageId}
-            onRecordResult={handleRecordQuizResult}
-          />
-        )}
-      </main>
+            {activeTab === 'latihan' && (
+              <PracticeSection
+                initialBab={practiceBab}
+                initialPracticeType={practiceType}
+                initialExamPackageId={practiceExamPackageId}
+                onRecordResult={handleRecordQuizResult}
+              />
+            )}
+          </main>
 
-      {/* Footer */}
-      <Footer />
+          {/* Footer */}
+          <Footer />
+        </>
+      )}
 
       {/* Kanji Detail & Stroke Canvas Modal */}
       <KanjiModal

@@ -64,6 +64,22 @@ Struktur Kerja Restoran dibagi menjadi dua departemen utama:
 
 Kedua bagian ini dihubungkan oleh koordinasi suara yang tegas dan saling menyahut (*Koe-dashi* / 声出し) untuk memastikan makanan disajikan selagi panas (*atsukan*) atau selagi dingin segar (*tsumetai*).
       `,
+      illustrations: [
+        {
+          title: 'Kontrol Suhu Penyimpanan Dingin & Higiene Restoran',
+          japaneseTitle: '温度管理と食中毒予防',
+          caption: 'Manajemen batas suhu dingin dan waktu untuk mencegah pertumbuhan bakteri patogen di dapur restoran.',
+          url: '/images/ssw/suhu_mikroorganisme.png',
+          tag: 'Higiene Dapur'
+        },
+        {
+          title: 'Prosedur Cuci Tangan 6 Langkah Higienis',
+          japaneseTitle: '衛生的な手洗い手順',
+          caption: 'Standar kebersihan tangan staf dapur dan staf pelayanan meja restoran Jepang.',
+          url: '/images/ssw/langkah_cuci_tangan.png',
+          tag: 'Sanitasi'
+        }
+      ],
       keyTerms: [
         {
           japanese: 'おもてなし',
@@ -196,6 +212,8 @@ Kedua bagian ini dihubungkan oleh koordinasi suara yang tegas dan saling menyahu
       contentExplanation: `
 Dalam industri makanan di Jepang, penanganan **Alergi Makanan (食物アレルギー - Shokumotsu Arerugii)** adalah masalah hidup dan mati (*anaphylactic shock*). 
 
+![8 Bahan Baku Spesifik (Alergen Wajib) & 20 Bahan Rekomendasi Resmi Jepang](/images/ssw/alergen_8_wajib.png)
+
 Hukum Standar Pelabelan Pangan Jepang menetapkan **8 Bahan Baku Spesifik (特定原材料 - Tokutei Genzairyou 8 Hinmoku)** yang WAJIB dicantumkan dan diwaspadai:
 1. **Telur (卵 - Tamago)**
 2. **Susu (乳 - Nyuu / Miruku)**
@@ -217,6 +235,15 @@ Selain itu, staf dapur wajib menguasai 5 metode dasar memasak Jepang yang dising
 - **Se (醤油 - Shouyu / Kecap Asin - zaman dahulu ditulis Seuyu)**
 - **So (味噌 - Miso / Pasta Kedelai)**
       `,
+      illustrations: [
+        {
+          title: 'Daftar Resmi 8 Bahan Alergen Wajib (特定原材料 8品目)',
+          japaneseTitle: '特定原材料 8品目と表示基準',
+          caption: 'Daftar bahan baku alergen yang wajib diwaspadai dan dilarang keras menebak kandungannya saat ditanya pelanggan.',
+          url: '/images/ssw/alergen_8_wajib.png',
+          tag: 'Alergen Wajib'
+        }
+      ],
       keyTerms: [
         {
           japanese: '食物アレルギー',

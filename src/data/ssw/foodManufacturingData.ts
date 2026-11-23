@@ -131,6 +131,22 @@ Sebelum melangkah dari ruang ganti ke koridor produksi, pekerja wajib melalui pr
 3. **Bilas air mengalir (流水で洗い流す)**: Bilas busa sabun hingga benar-benar bersih selama **20 detik**.
 4. **Keringkan tangan**: Gunakan kertas tisu sekali pakai (ペーパータオル) atau mesin pengering udara (エアータオル). Dilarang menyeka tangan pada baju kerja!
 5. **Disinfeksi alkohol (消毒用アルコール)**: Semprotkan alkohol cair ke kedua telapak tangan lalu usap dan gosokkan merata ke sela-sela jari hingga kering alami.`,
+      illustrations: [
+        {
+          title: '8 Bahan Baku Alergen Wajib (特定原材料 8品目)',
+          japaneseTitle: '特定原材料及びそれに準ずるもの',
+          caption: 'Daftar resmi 8 bahan baku spesifik yang wajib dicantumkan pada label kemasan makanan di Jepang (termasuk walnut/kurumi yang baru diwajibkan) beserta 20 bahan anjuran/rekomendasi.',
+          url: '/images/ssw/alergen_8_wajib.png',
+          tag: 'Alergen Pangan'
+        },
+        {
+          title: '3 Kategori Bahaya Pangan (危害要因)',
+          japaneseTitle: '物理的・化学的・生物的危害要因',
+          caption: 'Klasifikasi tiga bahaya utama keamanan pangan industri: Bahaya Fisik (benda asing keras), Bahaya Kimia (alergen & residu disinfektan), dan Bahaya Biologi (mikroorganisme patogen).',
+          url: '/images/ssw/tiga_bahaya_pangan.png',
+          tag: 'Keamanan Pangan'
+        }
+      ],
       keyTerms: [
         {
           japanese: '飲食料品製造業',
@@ -453,6 +469,22 @@ Bahaya biologis meliputi bakteri peracun makanan (食中毒菌), virus, jamur (�
 - **Metode Pembasmian Anisakis**:
   - Pemanasan: Suhu **≥ 70°C seketika**, atau pemanasan **60°C selama minimal 1 menit**.
   - Pembekuan: Dibekukan pada suhu **-20°C atau lebih rendah selama minimal 24 jam**.`,
+      illustrations: [
+        {
+          title: 'Manajemen Suhu Mikroorganisme & Rantai Dingin',
+          japaneseTitle: '微生物の増殖と温度管理',
+          caption: 'Grafik hubungan suhu dan pertumbuhan bakteri patogen: zona bahaya 30°C–40°C, inaktivasi pada 75°C 1 menit, dan pendinginan cepat hingga di bawah 10°C.',
+          url: '/images/ssw/suhu_mikroorganisme.png',
+          tag: 'Kontrol Suhu'
+        },
+        {
+          title: 'Standar Suhu Simpan Bahan Baku Pabrik Pangan',
+          japaneseTitle: '原材料の保管温度基準',
+          caption: 'Tabel standar suhu simpan dingin dan beku resmi OTAFF: beras <=15°C, sayuran segar ~10°C, daging <=10°C, ikan segar <=5°C, dan bahan beku <= -18°C.',
+          url: '/images/ssw/diagram_suhu_mikroba.png',
+          tag: 'Standar Suhu'
+        }
+      ],
       keyTerms: [
         {
           japanese: '危害要因',
@@ -780,6 +812,29 @@ Pencairan bahan baku beku (**解凍 - Kaitou**) harus dilakukan dengan metode re
   - **HOUkoku (報告 - Melapor)**: Melaporkan temuan produk rusak, alarm mesin berbunyi, atau jika ada bahan tumpah.
   - **RENraku (連絡 - Menginformasikan)**: Koordinasi pergantian shift (**申し送り - Moushiokuri**), pergantian batch alergen.
   - **SOUdan (相談 - Berkonsultasi)**: Bertanya kepada line leader saat ragu mengenai instruksi kerja atau parameter mesin.`,
+      illustrations: [
+        {
+          title: 'Tata Cara Memakai Pakaian Kerja Sanitasi yang Benar',
+          japaneseTitle: '作業服・帽子・マスクの正しい着用',
+          caption: 'Standar seragam pabrik higienis: tanpa kantong luar dan kancing luar, penutup kepala jaring ganda mencegah rambut rontok, dan masker tertutup rapat.',
+          url: '/images/ssw/pakaian_kerja_benar.png',
+          tag: 'Sanitasi Pekerja'
+        },
+        {
+          title: 'Standar 6 Langkah Cuci Tangan Higienis',
+          japaneseTitle: '正しい手洗いの手順',
+          caption: 'Prosedur cuci tangan menyeluruh: sabun antiseptik minimal 30 detik sampai pergelangan tangan, bilas air mengalir 20 detik, dan disinfeksi alkohol 70%.',
+          url: '/images/ssw/langkah_cuci_tangan.png',
+          tag: 'Higienitas'
+        },
+        {
+          title: 'Pemeriksaan Kuku, Sarung Tangan & Sepatu Boot',
+          japaneseTitle: '爪・手袋・長靴のチェック',
+          caption: 'Pemeriksaan rutin kebersihan kuku pendek, pemakaian sarung tangan steril sekali pakai, dan penggunaan sepatu boot pelindung bertutup.',
+          url: '/images/ssw/pakaian_kerja_detail.png',
+          tag: 'Pemeriksaan Harian'
+        }
+      ],
       keyTerms: [
         {
           japanese: 'ゾーニング',
@@ -1087,6 +1142,22 @@ Pencatatan data monitoring suhu, waktu, konsentrasi disinfektan, dan kalibrasi d
 - **Dilarang Menunda (後でまとめて記録してはいけない)**: Dilarang keras menunda dan mengisi catatan sekaligus di akhir jam kerja.
 - **Dilarang Mencatat di Awal (はかる前に記録してはいけない)**: Dilarang mengisi angka sebelum alat ukur bekerja dengan asumsi *"karena biasanya suhunya selalu segini"*.
 - **Dilarang Memalsukan / Mengubah Sendiri (事実でないことを記録しない・自分で勝手に修正しない)**: Dilarang mencatat angka fiktif atau mencoret dan mengubah hasil pengukuran tanpa persetujuan resmi supervisor.`,
+      illustrations: [
+        {
+          title: 'Prinsip 5S Pabrik Pengolahan Makanan',
+          japaneseTitle: '食品工場の5S活動（整理・整頓・清掃・清潔・習慣づけ）',
+          caption: 'Visualisasi Seiri (Ringkas), Seiton (Rapi), Seisou (Resik), Seiketsu (Rawat), dan Shuukanzuke/Shitsuke (Rajin) sebagai fondasi mutu industri.',
+          url: '/images/ssw/diagram_5s_lengkap.png',
+          tag: 'Manajemen 5S'
+        },
+        {
+          title: 'Pengujian Detektor Logam Menggunakan Test Piece (Fe & SUS)',
+          japaneseTitle: '金属探知機の点検とテストピース',
+          caption: 'Prosedur pengujian harian kepekaan sensor pendeteksi logam dengan potongan uji standar besi (Fe) dan stainless steel (SUS).',
+          url: '/images/ssw/metal_detector_testpiece.png',
+          tag: 'Inspeksi Mutu'
+        }
+      ],
       keyTerms: [
         {
           japanese: 'ＨＡＣＣＰ',
@@ -1415,6 +1486,43 @@ Berdasarkan Lampiran Resmi OTAFF (halaman 63–65):
    - Jumlah: 15 soal berbasis foto/ilustrasi situasi kerja nyata di pabrik.
    - Menilai kemampuan analisis visual: mengidentifikasi cara pemakaian seragam yang salah, postur mengangkat beban yang salah, penanganan alarm detektor logam, dan tindakan darurat saat terjadi kecelakaan.
    - **Ambang Kelulusan**: Wajib meraih nilai minimal **65%** pada kedua bagian ujian tersebut.`,
+      illustrations: [
+        {
+          title: 'Alat Pelindung Diri (APD) Khusus Pabrik Pengolahan Makanan',
+          japaneseTitle: '安全保護具の正しい着用（くさり手袋・メクセル手袋等）',
+          caption: 'Daftar APD resmi: sarung tangan kawat jaring baja stainless steel, sarung tangan serat sintetis anti-sayat, helm ketinggian, kacamata pelindung, celemek tahan panas, dan boot berpenutup.',
+          url: '/images/ssw/apd_keselamatan_kerja.png',
+          tag: 'K3 & APD'
+        },
+        {
+          title: 'Aktivitas Keselamatan Kerja Tunjuk dan Sebut (指差呼称)',
+          japaneseTitle: '指差呼称（しさこしょう）',
+          caption: 'Metode menunjuk sasaran dengan jari telunjuk lurus dan bersuara lantang mengonfirmasi kondisi aman (Yoshi!) untuk menurunkan angka human error.',
+          url: '/images/ssw/shisa_koushou_tunjuk_sebut.png',
+          tag: 'Budaya K3'
+        },
+        {
+          title: 'Rambu Keselamatan Pabrik Makanan: Tanda Larangan (禁止標識)',
+          japaneseTitle: '安全標識（禁止標識）',
+          caption: 'Rambu larangan resmi: dilarang masuk tanpa izin, dilarang berlari di area pabrik basah, dilarang menyentuh mesin conveyor saat menyala.',
+          url: '/images/ssw/rambu_larangan_pabrik.png',
+          tag: 'Rambu K3'
+        },
+        {
+          title: 'Rambu Keselamatan Pabrik: Tanda Peringatan Bahaya (警告標識)',
+          japaneseTitle: '安全標識（警告標識）',
+          caption: 'Rambu peringatan resmi: bahaya terpeleset (31,3%), bahaya terjepit & tergulung mesin (19,2%), bahaya terpotong/tersayat pisau (10,8%).',
+          url: '/images/ssw/rambu_peringatan_pabrik.png',
+          tag: 'Rambu K3'
+        },
+        {
+          title: 'Rambu Keselamatan Pabrik: Tanda Perintah Wajib APD (指示標識)',
+          japaneseTitle: '安全標識（指示標識）',
+          caption: 'Rambu perintah resmi: wajib memakai helm di ketinggian >=2m, wajib memakai kacamata pelindung kimia/debu, dan wajib cuci tangan steril.',
+          url: '/images/ssw/rambu_instruksi_apd.png',
+          tag: 'Rambu K3'
+        }
+      ],
       keyTerms: [
         {
           japanese: '労働災害',

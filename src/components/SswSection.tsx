@@ -34,7 +34,10 @@ import {
   Brain,
   Lightbulb,
   ClipboardCheck,
-  Users
+  Users,
+  Image as ImageIcon,
+  ZoomIn,
+  X
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 import { SSW_ALL_SECTORS } from '../data/ssw';
@@ -100,6 +103,19 @@ export const SswSection: React.FC<SswSectionProps> = ({
   const [quizAnswers, setQuizAnswers] = useState<Record<string, number>>({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
   const [quizShowReview, setQuizShowReview] = useState(false);
+
+  // Image preview modal state
+  const [previewImage, setPreviewImage] = useState<{ url: string; title: string; caption?: string } | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && previewImage) {
+        setPreviewImage(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [previewImage]);
 
   // Save progress on change
   useEffect(() => {
@@ -588,6 +604,58 @@ export const SswSection: React.FC<SswSectionProps> = ({
           </div>
         )}
 
+        {/* Galeri Ilustrasi & Diagram Resmi */}
+        {ch.illustrations && ch.illustrations.length > 0 && (
+          <div className="rounded-2xl bg-[#16294A] border border-[#8FB4E3]/20 p-5 space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-black text-[#8FB4E3] uppercase tracking-wider flex items-center gap-1.5">
+                <ImageIcon className="w-4 h-4" /> Galeri Ilustrasi & Diagram Resmi ({ch.illustrations.length})
+              </span>
+              <span className="text-[10px] text-[#8793A8] italic">Klik gambar untuk memperbesar</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {ch.illustrations.map((item, i) => (
+                <div
+                  key={i}
+                  onClick={() => {
+                    sound.playClick();
+                    setPreviewImage({ url: item.url, title: item.title, caption: item.caption });
+                  }}
+                  className="group cursor-pointer rounded-xl bg-[#0C1B33]/70 border border-[#8FB4E3]/20 hover:border-[#8FB4E3]/50 transition-all duration-200 overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  <div className="relative aspect-4/3 bg-black/40 overflow-hidden flex items-center justify-center p-2">
+                    <img
+                      src={item.url}
+                      alt={item.title}
+                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                      <span className="p-2 rounded-full bg-[#1F3760]/90 text-white border border-[#8FB4E3]/40 shadow-md">
+                        <ZoomIn className="w-4 h-4" />
+                      </span>
+                    </div>
+                    {item.tag && (
+                      <span className="absolute top-2 left-2 text-[9px] font-bold px-2 py-0.5 rounded-md bg-[#0C1B33]/90 text-[#8FB4E3] border border-[#8FB4E3]/30">
+                        {item.tag}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-3 space-y-1 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h5 className="text-xs font-bold text-[#EEF1F6] group-hover:text-[#8FB4E3] transition-colors">{item.title}</h5>
+                      {item.japaneseTitle && (
+                        <p className="text-[11px] text-[#8793A8] font-mono japanese-text">{item.japaneseTitle}</p>
+                      )}
+                    </div>
+                    <p className="text-[11px] text-[#CBD8EC] line-clamp-2 mt-1">{item.caption}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Poin Penting */}
         <div className="rounded-2xl bg-amber-500/5 border border-amber-500/25 p-5 space-y-3">
           <span className="text-xs font-black text-amber-400 uppercase tracking-wider flex items-center gap-1.5"><AlertTriangle className="w-4 h-4" /> Poin Penting yang Harus Diingat</span>
@@ -643,6 +711,50 @@ export const SswSection: React.FC<SswSectionProps> = ({
             </button>
           )}
         </div>
+
+        {/* Lightbox Image Preview Modal */}
+        {previewImage && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+            onClick={() => setPreviewImage(null)}
+          >
+            <div
+              className="relative max-w-4xl w-full max-h-[92vh] flex flex-col rounded-3xl bg-[#0C1B33] border border-[#8FB4E3]/30 shadow-2xl overflow-hidden"
+              onClick={e => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="p-4 sm:p-5 border-b border-[#8FB4E3]/15 flex items-center justify-between bg-[#16294A]">
+                <div className="space-y-0.5 pr-4">
+                  <h3 className="text-sm sm:text-base font-bold text-[#EEF1F6]">{previewImage.title}</h3>
+                  {previewImage.caption && (
+                    <p className="text-xs text-[#CBD8EC]">{previewImage.caption}</p>
+                  )}
+                </div>
+                <button
+                  onClick={() => setPreviewImage(null)}
+                  className="p-2 rounded-xl bg-[#0C1B33] text-[#8793A8] hover:text-white hover:bg-[#1F3760] transition-colors shrink-0 cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Modal Image Body */}
+              <div className="flex-1 overflow-auto p-4 flex items-center justify-center bg-black/60 min-h-[300px]">
+                <img
+                  src={previewImage.url}
+                  alt={previewImage.title}
+                  className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-lg"
+                />
+              </div>
+
+              {/* Modal Footer */}
+              <div className="p-3 bg-[#16294A] border-t border-[#8FB4E3]/15 flex items-center justify-between text-[11px] text-[#8793A8]">
+                <span>Modul Pembelajaran Resmi Tokutei Ginou OTAFF</span>
+                <span className="hidden sm:inline">Tekan ESC atau klik luar untuk menutup</span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

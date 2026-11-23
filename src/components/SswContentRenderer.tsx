@@ -97,6 +97,49 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
       return;
     }
 
+    // Image syntax: ![caption](url)
+    const imgMatch = line.match(/^!\[(.*?)\]\((.*?)\)$/);
+    if (imgMatch) {
+      flushList();
+      const caption = imgMatch[1];
+      const src = imgMatch[2];
+      elements.push(
+        <figure
+          key={`img-${elementKey++}`}
+          className="my-5 rounded-2xl overflow-hidden border border-[#8FB4E3]/25 bg-[#0C1B33]/80 p-3 sm:p-4 space-y-2.5 shadow-lg group"
+        >
+          <div className="relative rounded-xl overflow-hidden bg-black/40 flex items-center justify-center border border-[#8FB4E3]/10 p-2">
+            <img
+              src={src}
+              alt={caption}
+              className="max-h-[500px] w-auto max-w-full object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01] rounded-lg"
+              loading="lazy"
+            />
+          </div>
+          {caption && (
+            <figcaption className="text-center text-xs text-[#CBD8EC] flex items-center justify-center gap-1.5 pt-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8FB4E3]" />
+              <span className="font-medium">{renderInlineFormatted(caption)}</span>
+            </figcaption>
+          )}
+        </figure>
+      );
+      return;
+    }
+
+    // Header 3: ### Title
+    const h3Match = line.match(/^###\s+(.*)$/);
+    if (h3Match) {
+      flushList();
+      elements.push(
+        <h4 key={`h3-${elementKey++}`} className="text-sm sm:text-base font-bold text-[#EEF1F6] pt-3 pb-1 border-b border-[#8FB4E3]/20 flex items-center gap-2">
+          <span className="w-2 h-2 rounded-xs bg-[#8FB4E3]" />
+          {renderInlineFormatted(h3Match[1])}
+        </h4>
+      );
+      return;
+    }
+
     // Numbered list: 1. Item, 2. Item
     const numMatch = line.match(/^(\d+)\.\s+(.*)$/);
     if (numMatch) {

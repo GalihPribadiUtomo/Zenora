@@ -73,6 +73,14 @@ export interface SswVisualDiagram {
   }[];
 }
 
+export interface SswIllustration {
+  title: string;
+  japaneseTitle?: string;
+  caption: string;
+  url: string;
+  tag?: string;
+}
+
 export interface SswLessonChapter {
   id: string;
   sectorId: SswSectorId;
@@ -84,6 +92,7 @@ export interface SswLessonChapter {
   objectives: string[];
   contentExplanation: string; // Penjelasan materi komprehensif Bahasa Indonesia
   keyTerms: SswKeyTerm[];
+  illustrations?: SswIllustration[];
   workplaceCaseStudy?: {
     title: string;
     scenario: string;
