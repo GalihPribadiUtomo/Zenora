@@ -77,7 +77,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
 
-        {/* Navigation Menu */}
+        {/* Navigation Menu - Unified Purple & Electric Blue Theme */}
         <nav className="space-y-1.5 pt-1">
           
           {/* 1. Beranda */}
@@ -121,7 +121,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${materiExpanded ? 'rotate-180' : ''}`} />
             </div>
 
-            {/* Sub-menu Materi */}
+            {/* Sub-menu Materi with Unified Styling */}
             {materiExpanded && (
               <div className="pl-4 pr-1 py-1 space-y-1 mt-1 border-l-2 border-[#7857FF]/30 ml-4 animate-fade-in">
                 <button
@@ -131,11 +131,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   }}
                   className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'kotoba' 
-                      ? 'bg-[#12194A] text-[#329BFF] border border-[#329BFF]/30' 
+                      ? 'bg-gradient-to-r from-[#7857FF]/30 to-[#945CFF]/30 text-white border border-[#7857FF]/50 shadow-[0_0_12px_rgba(120,87,255,0.25)]' 
                       : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/50'
                   }`}
                 >
-                  <BookMarked className="w-4 h-4" />
+                  <BookMarked className={`w-4 h-4 ${activeTab === 'kotoba' ? 'text-white' : 'text-[#7857FF]'}`} />
                   <span>Bab 1–50 (Minna)</span>
                 </button>
 
@@ -146,11 +146,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   }}
                   className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'kana' 
-                      ? 'bg-[#12194A] text-[#FF70C8] border border-[#FF70C8]/30' 
+                      ? 'bg-gradient-to-r from-[#7857FF]/30 to-[#945CFF]/30 text-white border border-[#7857FF]/50 shadow-[0_0_12px_rgba(120,87,255,0.25)]' 
                       : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/50'
                   }`}
                 >
-                  <Languages className="w-4 h-4" />
+                  <Languages className={`w-4 h-4 ${activeTab === 'kana' ? 'text-white' : 'text-[#7857FF]'}`} />
                   <span>Hiragana & Katakana</span>
                 </button>
 
@@ -161,18 +161,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   }}
                   className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'kanji' 
-                      ? 'bg-[#12194A] text-[#329BFF] border border-[#329BFF]/30' 
+                      ? 'bg-gradient-to-r from-[#7857FF]/30 to-[#945CFF]/30 text-white border border-[#7857FF]/50 shadow-[0_0_12px_rgba(120,87,255,0.25)]' 
                       : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/50'
                   }`}
                 >
-                  <PenTool className="w-4 h-4" />
+                  <PenTool className={`w-4 h-4 ${activeTab === 'kanji' ? 'text-white' : 'text-[#7857FF]'}`} />
                   <span>Kanji N5 & N4 (424)</span>
                 </button>
               </div>
             )}
           </div>
 
-          {/* 3. SSW with Tokutei Badge */}
+          {/* 3. SSW with Matching Unified Purple Badge */}
           <button
             onClick={() => {
               sound.playClick();
@@ -185,10 +185,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
             }`}
           >
             <div className="flex items-center gap-3.5">
-              <Briefcase className={`w-5 h-5 transition-transform group-hover:scale-110 ${isSsw ? 'text-white' : 'text-[#329BFF]'}`} />
+              <Briefcase className={`w-5 h-5 transition-transform group-hover:scale-110 ${isSsw ? 'text-white' : 'text-[#7857FF]'}`} />
               <span>SSW</span>
             </div>
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-[#00D6A3]/15 text-[#00D6A3] border border-[#00D6A3]/30 shadow-[0_0_10px_rgba(0,214,163,0.2)]">
+            <span className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wide transition-all ${
+              isSsw 
+                ? 'bg-white/20 text-white border border-white/30' 
+                : 'bg-[#7857FF]/20 text-[#B46BFF] border border-[#7857FF]/40 shadow-[0_0_10px_rgba(120,87,255,0.25)]'
+            }`}>
               Tokutei!
             </span>
           </button>
@@ -221,7 +225,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70'
             }`}
           >
-            <BarChart3 className={`w-5 h-5 transition-transform group-hover:scale-110 ${isAnalitik ? 'text-white' : 'text-[#329BFF]'}`} />
+            <BarChart3 className={`w-5 h-5 transition-transform group-hover:scale-110 ${isAnalitik ? 'text-white' : 'text-[#7857FF]'}`} />
             <span>Analitik</span>
           </button>
 
@@ -233,7 +237,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             }}
             className="w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-sm text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70 transition-all duration-200 group"
           >
-            <UserIcon className="w-5 h-5 text-[#FF70C8] transition-transform group-hover:scale-110" />
+            <UserIcon className="w-5 h-5 text-[#7857FF] transition-transform group-hover:scale-110" />
             <span>{user ? (user.email?.split('@')[0] || 'Profil') : 'Profil'}</span>
           </button>
 
@@ -248,8 +252,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="absolute inset-0 opacity-25 group-hover:opacity-40 transition-opacity bg-cover bg-center"
                style={{ backgroundImage: `url('/assets/homepage/zenora-jlpt.jpg')` }} />
           <div className="relative z-10">
-            <div className="flex items-center gap-1.5 text-[#FF70C8] text-xs font-bold mb-1">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="flex items-center gap-1.5 text-[#B46BFF] text-xs font-bold mb-1">
+              <Sparkles className="w-3.5 h-3.5 text-[#7857FF]" />
               <span>Jepang Menantimu</span>
             </div>
             <p className="text-[11px] text-[#AAB3D5] leading-tight font-medium">
@@ -274,7 +278,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             aria-label="Toggle Dark Mode"
           >
             <div 
-              className={`w-5 h-5 rounded-full bg-gradient-to-r from-[#7857FF] to-[#329BFF] shadow-[0_0_10px_rgba(120,87,255,0.6)] transform transition-transform duration-200 ${
+              className={`w-5 h-5 rounded-full bg-gradient-to-r from-[#7857FF] to-[#945CFF] shadow-[0_0_10px_rgba(120,87,255,0.6)] transform transition-transform duration-200 ${
                 darkMode ? 'translate-x-5' : 'translate-x-0'
               }`}
             />

@@ -292,7 +292,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
       {/* Main Mode Switcher: 18 Modes vs JLPT/JFT vs Classic */}
       <div className="flex justify-center">
-        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#16294A] rounded-2xl border border-[#8FB4E3]/25 max-w-2xl w-full shadow-lg">
+        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#0D1238] rounded-2xl border border-[#7857FF]/25 max-w-2xl w-full shadow-[0_4px_20px_rgba(8,13,43,0.6)]">
           <button
             onClick={() => {
               sound.playClick();
@@ -301,11 +301,11 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-1.5 ${
               practiceType === '18-modes'
-                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-[0_0_15px_rgba(143,180,227,0.3)]'
-                : 'text-[#8793A8] hover:text-[#EEF1F6]'
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_20px_rgba(120,87,255,0.45)] border border-[#7857FF]/40'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/60'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-[#8FB4E3]" />
+            <Sparkles className={`w-4 h-4 ${practiceType === '18-modes' ? 'text-white' : 'text-[#7857FF]'}`} />
             <span>18 Mode (Bab 1–50)</span>
           </button>
 
@@ -317,14 +317,18 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-1.5 ${
               practiceType === 'jlpt-jft'
-                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-[0_0_15px_rgba(143,180,227,0.3)]'
-                : 'text-[#8793A8] hover:text-[#EEF1F6]'
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_20px_rgba(120,87,255,0.45)] border border-[#7857FF]/40'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/60'
             }`}
           >
-            <Award className="w-4 h-4 text-emerald-400" />
+            <Award className={`w-4 h-4 ${practiceType === 'jlpt-jft' ? 'text-white' : 'text-[#7857FF]'}`} />
             <span className="flex items-center gap-1">
               Simulasi JLPT & JFT
-              <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono">
+              <span className={`text-[10px] px-1.5 py-0.2 rounded-md font-mono ${
+                practiceType === 'jlpt-jft' 
+                  ? 'bg-white/20 text-white border border-white/30' 
+                  : 'bg-[#7857FF]/20 text-[#D8B4FE] border border-[#7857FF]/40'
+              }`}>
                 N5・N4・A2
               </span>
             </span>
@@ -337,11 +341,11 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 ${
               practiceType === 'classic'
-                ? 'bg-gradient-to-r from-[#1F3760] to-[#274474] text-[#EEF1F6] border border-[#8FB4E3]/40 shadow-[0_0_15px_rgba(143,180,227,0.3)]'
-                : 'text-[#8793A8] hover:text-[#EEF1F6]'
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_20px_rgba(120,87,255,0.45)] border border-[#7857FF]/40'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/60'
             }`}
           >
-            <Layers className="w-4 h-4 text-[#8FB4E3]" />
+            <Layers className={`w-4 h-4 ${practiceType === 'classic' ? 'text-white' : 'text-[#7857FF]'}`} />
             <span>Flashcard & Ketik</span>
           </button>
         </div>

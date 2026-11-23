@@ -5,8 +5,7 @@ import {
   BookOpen, 
   Layers, 
   PenTool, 
-  Award,
-  Sparkles
+  Award
 } from 'lucide-react';
 import { sound } from '../../utils/audio';
 
@@ -27,7 +26,6 @@ export const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({
       title: 'Materi Bab 1 – 50',
       description: 'Tata bahasa (Bunpou), pola & contoh kalimat (Bentuk Keigo).',
       badge: 'Populer',
-      badgeColor: 'bg-[#FF70C8]/20 text-[#FF70C8] border-[#FF70C8]/40',
       image: '/assets/homepage/zenora-materials.jpg',
       meta: '50 Bab Materi',
       icon: BookOpen,
@@ -37,8 +35,7 @@ export const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({
       id: 'kana',
       title: 'Hiragana & Katakana',
       description: '312 karakter lengkap dengan pelafalan audio dan contoh.',
-      badge: 'Pemula',
-      badgeColor: 'bg-[#00D6A3]/20 text-[#00D6A3] border-[#00D6A3]/40',
+      badge: 'Dasar',
       image: '/assets/homepage/zenora-kana.jpg',
       meta: '312 Aksara',
       icon: Layers,
@@ -49,7 +46,6 @@ export const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({
       title: 'Kanji Interaktif',
       description: `${totalKanji || 424} Kanji lengkap dengan animasi urutan goresan & kanvas.`,
       badge: 'Interaktif',
-      badgeColor: 'bg-[#329BFF]/20 text-[#329BFF] border-[#329BFF]/40',
       image: '/assets/homepage/zenora-kanji.jpg',
       meta: `${totalKanji || 424} Kanji`,
       icon: PenTool,
@@ -59,8 +55,7 @@ export const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({
       id: 'jlpt',
       title: 'Latihan & Simulasi JLPT',
       description: 'Latihan soal sesuai level JLPT N5–N4 & JFT-Basic A2.',
-      badge: 'JLPT',
-      badgeColor: 'bg-[#FFC857]/20 text-[#FFC857] border-[#FFC857]/40',
+      badge: 'Ujian Resmi',
       image: '/assets/homepage/zenora-jlpt.jpg',
       meta: '18 Mode Ujian',
       icon: Award,
@@ -92,7 +87,7 @@ export const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({
         </button>
       </div>
 
-      {/* 4 Cards Grid */}
+      {/* 4 Cards Grid - Unified Theme */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {cards.map((card) => {
           const Icon = card.icon;
@@ -106,7 +101,7 @@ export const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({
               className="group cursor-pointer rounded-3xl overflow-hidden bg-[#0D1238] border border-[#7857FF]/20 hover:border-[#7857FF]/60 shadow-[0_10px_30px_rgba(8,13,43,0.7)] hover:shadow-[0_16px_40px_rgba(120,87,255,0.25)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                {/* Thumbnail Image with Badge */}
+                {/* Thumbnail Image with Unified Badge */}
                 <div className="relative h-36 w-full overflow-hidden bg-[#080D2B]">
                   <img
                     src={card.image}
@@ -116,8 +111,8 @@ export const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0D1238] via-transparent to-black/30" />
                   
-                  {/* Category Badge */}
-                  <span className={`absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[11px] font-black border backdrop-blur-md uppercase tracking-wider ${card.badgeColor}`}>
+                  {/* Category Badge - Unified Purple Pill */}
+                  <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[11px] font-black border backdrop-blur-md uppercase tracking-wider bg-[#7857FF]/25 text-[#D8B4FE] border-[#7857FF]/40 shadow-[0_0_10px_rgba(120,87,255,0.3)]">
                     {card.badge}
                   </span>
                 </div>
@@ -135,7 +130,7 @@ export const RecommendationsSection: React.FC<RecommendationsSectionProps> = ({
 
               {/* Card Footer */}
               <div className="p-4 pt-0 flex items-center justify-between border-t border-[#7857FF]/15 mt-2">
-                <div className="flex items-center gap-1.5 text-xs text-[#737FA8] font-semibold">
+                <div className="flex items-center gap-1.5 text-xs text-[#AAB3D5] font-semibold">
                   <Icon className="w-3.5 h-3.5 text-[#7857FF]" />
                   <span>{card.meta}</span>
                 </div>

@@ -209,27 +209,27 @@ export const SswSection: React.FC<SswSectionProps> = ({
     return (
       <div className="space-y-8 text-left pb-16">
         {/* Hero Banner */}
-        <div className="relative overflow-hidden rounded-3xl border border-[#8FB4E3]/25 shadow-[0_20px_60px_-15px_rgba(12,27,51,0.9),0_0_40px_rgba(143,180,227,0.12)] bg-gradient-to-br from-[#0C1B33] via-[#16294A] to-[#1F3760] p-6 sm:p-10">
+        <div className="relative overflow-hidden rounded-3xl border border-[#7857FF]/25 shadow-[0_20px_60px_-15px_rgba(8,13,43,0.9),0_0_40px_rgba(120,87,255,0.15)] bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#12194A] p-6 sm:p-10">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16294A]/80 border border-[#8FB4E3]/30 text-[#8FB4E3] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(143,180,227,0.2)]">
-                <Briefcase className="w-4 h-4 text-[#8FB4E3]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12194A]/80 border border-[#7857FF]/35 text-[#F5F6FF] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(120,87,255,0.25)]">
+                <Briefcase className="w-4 h-4 text-[#7857FF]" />
                 Tokutei Ginou (特定技能) · Specified Skilled Worker (SSW)
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-black text-[#EEF1F6] tracking-tight font-['Manrope'] flex items-center gap-3">
-                <Award className="w-8 h-8 text-[#8FB4E3]" />
+              <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight font-['Manrope'] flex items-center gap-3">
+                <Award className="w-8 h-8 text-[#7857FF]" />
                 Pusat Pembelajaran & Persiapan Kerja SSW
               </h1>
 
-              <p className="text-[#CBD8EC] text-sm sm:text-base leading-relaxed max-w-2xl">
-                Panduan terpadu karir dan persiapan ujian visa kerja terampil Jepang (SSW 1 & SSW 2). Kuasai <span className="text-[#8FB4E3] font-bold">Ujian Bahasa (JFT-Basic A2 / JLPT N4)</span> dan <span className="text-emerald-400 font-bold">Ujian Keterampilan Teknis (Skill Test)</span> per sektor industri.
+              <p className="text-[#AAB3D5] text-sm sm:text-base leading-relaxed max-w-2xl">
+                Panduan terpadu karir dan persiapan ujian visa kerja terampil Jepang (SSW 1 & SSW 2). Kuasai <span className="text-[#945CFF] font-bold">Ujian Bahasa (JFT-Basic A2 / JLPT N4)</span> dan <span className="text-[#329BFF] font-bold">Ujian Keterampilan Teknis (Skill Test)</span> per sektor industri.
               </p>
             </div>
 
             <button
               onClick={() => { sound.playClick(); onNavigateToJft(); }}
-              className="self-start md:self-auto inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:brightness-110 text-white text-xs sm:text-sm font-black shadow-lg transition-all shrink-0 active:scale-95"
+              className="self-start md:self-auto inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl neon-btn-primary text-white text-xs sm:text-sm font-black shadow-lg transition-all shrink-0 active:scale-95"
             >
               <FileCheck className="w-4 h-4" />
               <span>Mulai Simulasi JFT-Basic A2</span>
