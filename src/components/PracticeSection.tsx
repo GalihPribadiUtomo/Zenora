@@ -691,7 +691,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
           {/* 1. MULTIPLE CHOICE MODE */}
           {mode === 'multiple-choice' && (
-            <div className="p-6 sm:p-8 rounded-3xl border border-[#7857FF]/25 bg-[#0D1238] space-y-6 shadow-[0_4px_24px_rgba(8,13,43,0.5)]">
+            <div key={currentIdx} className="p-6 sm:p-8 rounded-3xl border border-[#7857FF]/25 bg-[#0D1238] space-y-6 shadow-[0_4px_24px_rgba(8,13,43,0.5)] animate-slide-up">
               
               {/* Question Header */}
               <div className="text-center py-4 space-y-2">
@@ -701,7 +701,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                   </h2>
                   <button
                     onClick={() => speakJapanese(currentQ.audioText)}
-                    className="p-2 rounded-xl bg-[#080D2B]/80 hover:bg-[#12194A] text-[#7857FF] border border-[#7857FF]/25"
+                    className="p-2 rounded-xl bg-[#080D2B]/80 hover:bg-[#12194A] text-[#7857FF] border border-[#7857FF]/25 btn-interactive cursor-pointer"
                   >
                     <Volume2 className="w-5 h-5" />
                   </button>
@@ -720,12 +720,12 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                   const isSelected = selectedAnswer === opt;
                   const isCorrect = opt === currentQ.correctAnswer;
                   
-                  let btnStyle = 'border-[#7857FF]/20 bg-[#080D2B]/80 hover:bg-[#12194A] hover:border-[#7857FF]/50 text-[#F5F6FF]';
+                  let btnStyle = 'border-[#7857FF]/20 bg-[#080D2B]/80 hover:bg-[#12194A] hover:border-[#7857FF]/50 text-[#F5F6FF] btn-interactive';
                   if (isAnswerSubmitted) {
                     if (isCorrect) {
-                      btnStyle = 'border-emerald-500 bg-emerald-500/15 text-emerald-400 font-bold shadow-[0_0_15px_rgba(16,185,129,0.15)]';
+                      btnStyle = 'border-emerald-500 bg-emerald-500/15 text-emerald-400 font-bold shadow-[0_0_20px_rgba(16,185,129,0.3)] animate-success-pulse';
                     } else if (isSelected) {
-                      btnStyle = 'border-rose-500 bg-rose-500/15 text-rose-300 font-bold shadow-[0_0_15px_rgba(244,63,94,0.15)]';
+                      btnStyle = 'border-rose-500 bg-rose-500/15 text-rose-300 font-bold shadow-[0_0_20px_rgba(244,63,94,0.3)] animate-shake-soft';
                     } else {
                       btnStyle = 'border-[#7857FF]/10 opacity-40 text-[#737FA8]/60';
                     }

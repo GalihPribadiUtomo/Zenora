@@ -239,7 +239,7 @@ export function App() {
           />
 
           {/* Drawer Sidebar */}
-          <div className="relative w-72 max-w-[85vw] h-full bg-[#080D2B] z-10 flex flex-col shadow-2xl">
+          <div className="relative w-72 max-w-[85vw] h-full bg-[#080D2B] z-10 flex flex-col shadow-2xl animate-drawer-slide">
             <div className="p-4 flex justify-end">
               <button
                 onClick={() => setMobileDrawerOpen(false)}
@@ -289,6 +289,7 @@ export function App() {
         {/* MAIN BODY SCROLLABLE CONTAINER */}
         <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           
+          <div key={activeTab} className="page-transition">
           {activeTab === 'beranda' && (
             <HomeDashboard
               onNavigate={(tab) => {
@@ -388,6 +389,7 @@ export function App() {
               onToggleDarkMode={() => setDarkMode(!darkMode)}
             />
           )}
+          </div>
 
         </main>
 

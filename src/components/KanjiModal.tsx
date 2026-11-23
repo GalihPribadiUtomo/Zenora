@@ -265,7 +265,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
     >
       {/* Modal Container */}
       <div 
-        className="relative w-full max-w-4xl my-auto rounded-3xl bg-[#0D1238] shadow-[0_20px_60px_-15px_rgba(8,13,43,0.95)] border border-[#7857FF]/25 text-[#F5F6FF] overflow-hidden text-left"
+        className="relative w-full max-w-4xl my-auto rounded-3xl bg-[#0D1238] shadow-[0_20px_60px_-15px_rgba(8,13,43,0.95)] border border-[#7857FF]/35 text-[#F5F6FF] overflow-hidden text-left animate-modal-pop"
         onClick={(e) => e.stopPropagation()}
       >
         

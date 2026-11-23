@@ -170,7 +170,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
     >
       {/* Modal Dialog */}
       <div 
-        className="relative w-full max-w-3xl rounded-3xl bg-[#0D1238] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#7857FF]/25 text-[#F5F6FF] overflow-hidden flex flex-col max-h-[85vh] text-left"
+        className="relative w-full max-w-3xl rounded-3xl bg-[#0D1238] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#7857FF]/35 text-[#F5F6FF] overflow-hidden flex flex-col max-h-[85vh] text-left animate-modal-pop"
         onClick={(e) => e.stopPropagation()}
       >
         

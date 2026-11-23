@@ -115,7 +115,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Right Column: Floating Learning Progress Widget */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="w-full max-w-sm rounded-3xl p-6 glass-midnight-card border border-[#7857FF]/35 shadow-[0_25px_50px_rgba(8,13,43,0.9),0_0_30px_rgba(120,87,255,0.2)] backdrop-blur-2xl text-left">
+            <div className="w-full max-w-sm rounded-3xl p-6 glass-midnight-card border border-[#7857FF]/35 shadow-[0_25px_50px_rgba(8,13,43,0.9),0_0_30px_rgba(120,87,255,0.2)] backdrop-blur-2xl text-left animate-float-gentle">
               
               {/* Widget Header */}
               <div className="flex items-center justify-between mb-4">
