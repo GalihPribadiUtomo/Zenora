@@ -364,6 +364,7 @@ export function App() {
               onToggleBookmark={handleToggleBookmarkKotoba}
               onStartQuiz={handleStartQuizFromBab}
               onSelectKanji={(k) => setActiveKanji(k)}
+              isAdminMode={isAdminMode}
             />
           )}
 

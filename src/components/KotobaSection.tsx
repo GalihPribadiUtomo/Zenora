@@ -15,6 +15,7 @@ interface KotobaSectionProps {
   onToggleBookmark: (id: string) => void;
   onStartQuiz: (bab: number) => void;
   onSelectKanji?: (kanji: KanjiItem) => void;
+  isAdminMode?: boolean;
 }
 
 export const KotobaSection: React.FC<KotobaSectionProps> = ({
@@ -26,6 +27,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
   onToggleBookmark,
   onStartQuiz,
   onSelectKanji,
+  isAdminMode = false,
 }) => {
   const [activeBook, setActiveBook] = useState<'I' | 'II'>('I');
   const [searchQuery, setSearchQuery] = useState('');
@@ -43,6 +45,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
         onToggleBookmark={onToggleBookmark}
         onStartQuiz={onStartQuiz}
         onSelectKanji={onSelectKanji}
+        isAdminMode={isAdminMode}
       />
     );
   }

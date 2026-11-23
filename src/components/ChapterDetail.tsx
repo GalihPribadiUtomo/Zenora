@@ -41,6 +41,7 @@ interface ChapterDetailProps {
   onToggleBookmark: (id: string) => void;
   onStartQuiz: (bab: number) => void;
   onSelectKanji?: (kanji: KanjiItem) => void;
+  isAdminMode?: boolean;
 }
 
 export const ChapterDetail: React.FC<ChapterDetailProps> = ({
@@ -53,7 +54,8 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   onToggleLearned,
   onToggleBookmark,
   onStartQuiz,
-  onSelectKanji
+  onSelectKanji,
+  isAdminMode = false
 }) => {
   // Main Chapter Detail Tabs
   const [sectionTab, setSectionTab] = useState<'bunpou' | 'bunkei' | 'kaiwa' | 'kotoba' | 'kanji' | 'latihan'>('bunpou');
@@ -770,26 +772,32 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                         >
                           <Star className="w-4 h-4" />
                         </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setEditingWord(word);
-                          }}
-                          className="p-1.5 rounded-xl text-[#737FA8] hover:text-[#F5F6FF] transition-colors"
-                          title="Edit kata"
-                        >
-                          <Pencil className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setDeletingWord(word);
-                          }}
-                          className="p-1.5 rounded-xl text-[#737FA8] hover:text-rose-400 transition-colors"
-                          title="Hapus kata"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
+
+                        {/* Hak mengubah & menghapus kosakata HANYA untuk Admin */}
+                        {isAdminMode && (
+                          <>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setEditingWord(word);
+                              }}
+                              className="p-1.5 rounded-xl text-[#329BFF] hover:text-white hover:bg-[#329BFF]/20 transition-colors"
+                              title="Edit kata (Akses Admin)"
+                            >
+                              <Pencil className="w-4 h-4" />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setDeletingWord(word);
+                              }}
+                              className="p-1.5 rounded-xl text-rose-400 hover:text-rose-200 hover:bg-rose-500/20 transition-colors"
+                              title="Hapus kata (Akses Admin)"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </>
+                        )}
                       </div>
 
                       <button
@@ -1005,7 +1013,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
         />
       )}
 
-      {editingWord && (
+      {isAdminMode && editingWord && (
         <KotobaEditModal
           isOpen={!!editingWord}
           word={editingWord}
@@ -1014,7 +1022,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
         />
       )}
 
-      {deletingWord && (
+      {isAdminMode && deletingWord && (
         <KotobaDeleteModal
           isOpen={!!deletingWord}
           word={deletingWord}
