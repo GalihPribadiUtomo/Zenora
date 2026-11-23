@@ -50,6 +50,9 @@ interface ProfileSectionProps {
   onNavigate: (tab: string) => void;
   darkMode: boolean;
   onToggleDarkMode: () => void;
+  isAdminMode?: boolean;
+  onOpenAdminAuth?: () => void;
+  onExitAdminMode?: () => void;
 }
 
 interface Achievement {
@@ -73,7 +76,10 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
   onSync,
   onNavigate,
   darkMode,
-  onToggleDarkMode
+  onToggleDarkMode,
+  isAdminMode = false,
+  onOpenAdminAuth,
+  onExitAdminMode
 }) => {
   // Settings tab / accordions
   const [activeSettingsGroup, setActiveSettingsGroup] = useState<string | null>('personal');
@@ -878,31 +884,66 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
             </div>
           </div>
 
-          {/* Group D: Konsol Admin & CMS */}
-          <div className="p-6 flex items-center justify-between border-t border-[#7857FF]/15 bg-gradient-to-r from-[#7857FF]/10 via-transparent to-[#329BFF]/10">
+          {/* Group D: Hak Akses Role (Siswa vs Admin) */}
+          <div className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-[#7857FF]/15 bg-gradient-to-r from-[#7857FF]/10 via-transparent to-[#329BFF]/10">
             <div className="flex items-center gap-3">
-              <Shield className="w-5 h-5 text-[#329BFF]" />
+              <Shield className="w-5 h-5 text-[#329BFF] shrink-0" />
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-black text-white font-['Manrope']">Panel Manajemen & CMS</h3>
-                  <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-[#7857FF]/30 text-[#B46BFF] border border-[#7857FF]/40">
-                    Admin
+                  <h3 className="text-sm font-black text-white font-['Manrope']">Hak Akses & Konsol Admin</h3>
+                  <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${
+                    isAdminMode
+                      ? 'bg-[#00C99A]/20 text-[#00C99A] border-[#00C99A]/40'
+                      : 'bg-[#7857FF]/25 text-[#B46BFF] border-[#7857FF]/40'
+                  }`}>
+                    {isAdminMode ? 'Role: Administrator' : 'Role: Siswa'}
                   </span>
                 </div>
-                <p className="text-xs text-[#AAB3D5]">Kelola kosakata kustom, kurikulum SSW, dan paket soal CBT</p>
+                <p className="text-xs text-[#AAB3D5]">
+                  {isAdminMode 
+                    ? 'Sesi admin aktif. Anda memiliki akses penuh ke CMS kosakata, SSW, dan CBT.'
+                    : 'Akses CMS dan pengelola sistem dibatasi untuk staf pengajar & administrator.'}
+                </p>
               </div>
             </div>
 
-            <button
-              onClick={() => {
-                sound.playClick();
-                onNavigate('admin');
-              }}
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] hover:brightness-110 text-white text-xs font-bold shadow-[0_0_15px_rgba(120,87,255,0.4)] transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <span>Buka Admin Console</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <div className="flex items-center gap-2 shrink-0">
+              {isAdminMode ? (
+                <>
+                  <button
+                    onClick={() => {
+                      sound.playClick();
+                      onNavigate('admin');
+                    }}
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] hover:brightness-110 text-white text-xs font-bold shadow-[0_0_15px_rgba(120,87,255,0.4)] transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>Buka CMS</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      sound.playClick();
+                      if (onExitAdminMode) onExitAdminMode();
+                    }}
+                    className="px-3 py-2 rounded-xl bg-[#080D2B] hover:bg-[#12194A] border border-[#7857FF]/30 text-[#AAB3D5] hover:text-white text-xs font-bold transition-all cursor-pointer"
+                    title="Keluar dari sesi Admin dan kembali ke Mode Siswa"
+                  >
+                    Mode Siswa
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => {
+                    sound.playClick();
+                    if (onOpenAdminAuth) onOpenAdminAuth();
+                  }}
+                  className="px-4 py-2 rounded-xl bg-[#12194A] hover:bg-[#171D50] border border-[#7857FF]/40 hover:border-[#7857FF] text-[#F5F6FF] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
+                >
+                  <Lock className="w-3.5 h-3.5 text-[#329BFF]" />
+                  <span>Verifikasi Akses Admin</span>
+                </button>
+              )}
+            </div>
           </div>
 
         </div>

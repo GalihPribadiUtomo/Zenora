@@ -7,7 +7,8 @@ import {
   Menu, 
   User as UserIcon,
   Sparkles,
-  Cloud
+  Cloud,
+  ShieldCheck
 } from 'lucide-react';
 import { sound } from '../../utils/audio';
 
@@ -21,6 +22,8 @@ interface TopNavigationProps {
   isSyncing?: boolean;
   onOpenMobileMenu?: () => void;
   streakDays?: number;
+  isAdminMode?: boolean;
+  onNavigateToAdmin?: () => void;
 }
 
 export const TopNavigation: React.FC<TopNavigationProps> = ({
@@ -32,7 +35,9 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
   setSoundEnabled,
   isSyncing = false,
   onOpenMobileMenu,
-  streakDays = 0
+  streakDays = 0,
+  isAdminMode = false,
+  onNavigateToAdmin
 }) => {
   return (
     <header className="sticky top-0 z-30 w-full px-4 sm:px-6 lg:px-8 py-3.5 bg-[#080D2B]/85 backdrop-blur-xl border-b border-[#7857FF]/15">
@@ -129,6 +134,21 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
               </span>
             </button>
           </div>
+
+          {/* Admin Mode Badge Trigger */}
+          {isAdminMode && (
+            <button
+              onClick={() => {
+                sound.playClick();
+                if (onNavigateToAdmin) onNavigateToAdmin();
+              }}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#7857FF]/30 to-[#329BFF]/30 border border-[#7857FF]/50 text-white text-xs font-black shadow-[0_0_15px_rgba(120,87,255,0.3)] hover:brightness-110 transition-all cursor-pointer animate-fade-in"
+              title="Buka Konsol Administrator"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-[#329BFF]" />
+              <span>CMS ADMIN</span>
+            </button>
+          )}
 
           {/* User Profile Avatar */}
           <button

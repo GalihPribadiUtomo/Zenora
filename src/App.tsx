@@ -13,11 +13,13 @@ import { AuthModal } from './components/AuthModal';
 import { KanaSection } from './components/KanaSection';
 import { SswSection } from './components/SswSection';
 import { AdminSection } from './components/admin/AdminSection';
+import { AdminAuthModal } from './components/admin/AdminAuthModal';
+import { isAdminAuthenticated, setAdminAuthenticated, isUserAdminRole } from './utils/adminAuth';
 import { KanjiItem, QuizMode, QuizSubject } from './types';
 import { getInitialStats, saveStats } from './utils/storage';
 import { supabase, isSupabaseConfigured } from './lib/supabase';
 import { syncAllToCloud, pullAndMergeFromCloud } from './services/syncService';
-import { X } from 'lucide-react';
+import { X, Lock } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
 
 export function App() {
@@ -30,6 +32,10 @@ export function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [activeKanji, setActiveKanji] = useState<KanjiItem | null>(null);
+  const [adminAuthModalOpen, setAdminAuthModalOpen] = useState(false);
+
+  // Role-Based Access Control (RBAC) - Admin Mode
+  const [isAdminMode, setIsAdminMode] = useState<boolean>(() => isAdminAuthenticated());
 
   // Selected Bab in Kotoba section
   const [selectedBab, setSelectedBab] = useState<number | null>(null);
@@ -78,8 +84,30 @@ export function App() {
   useEffect(() => {
     if (user) {
       handleCloudSync(user);
+      if (isUserAdminRole(user)) {
+        setIsAdminMode(true);
+        setAdminAuthenticated(true);
+      }
     }
   }, [user?.id]);
+
+  const handleOpenAdminAuth = () => {
+    setAdminAuthModalOpen(true);
+  };
+
+  const handleAdminAuthSuccess = () => {
+    setIsAdminMode(true);
+    setAdminAuthenticated(true);
+    setActiveTab('admin');
+  };
+
+  const handleExitAdminMode = () => {
+    setIsAdminMode(false);
+    setAdminAuthenticated(false);
+    if (activeTab === 'admin') {
+      setActiveTab('beranda');
+    }
+  };
 
   // Persist locally & sync to cloud on stats change
   useEffect(() => {
@@ -227,6 +255,9 @@ export function App() {
           user={user}
           darkMode={darkMode}
           onToggleDarkMode={() => setDarkMode(!darkMode)}
+          isAdminMode={isAdminMode}
+          onOpenAdminAuth={handleOpenAdminAuth}
+          onExitAdminMode={handleExitAdminMode}
         />
       </div>
 
@@ -265,6 +296,9 @@ export function App() {
                 user={user}
                 darkMode={darkMode}
                 onToggleDarkMode={() => setDarkMode(!darkMode)}
+                isAdminMode={isAdminMode}
+                onOpenAdminAuth={handleOpenAdminAuth}
+                onExitAdminMode={handleExitAdminMode}
               />
             </div>
           </div>
@@ -285,6 +319,8 @@ export function App() {
           isSyncing={isSyncing}
           onOpenMobileMenu={() => setMobileDrawerOpen(true)}
           streakDays={stats.streakDays}
+          isAdminMode={isAdminMode}
+          onNavigateToAdmin={() => setActiveTab('admin')}
         />
 
         {/* MAIN BODY SCROLLABLE CONTAINER */}
@@ -388,18 +424,47 @@ export function App() {
               }}
               darkMode={darkMode}
               onToggleDarkMode={() => setDarkMode(!darkMode)}
+              isAdminMode={isAdminMode}
+              onOpenAdminAuth={handleOpenAdminAuth}
+              onExitAdminMode={handleExitAdminMode}
             />
           )}
 
           {activeTab === 'admin' && (
-            <AdminSection
-              onBackToApp={() => setActiveTab('beranda')}
-              user={user}
-              onSyncCloud={() => {
-                if (user) handleCloudSync(user);
-              }}
-              isSyncing={isSyncing}
-            />
+            isAdminMode ? (
+              <AdminSection
+                onBackToApp={() => setActiveTab('beranda')}
+                user={user}
+                onSyncCloud={() => {
+                  if (user) handleCloudSync(user);
+                }}
+                isSyncing={isSyncing}
+              />
+            ) : (
+              <div className="min-h-[70vh] flex flex-col items-center justify-center text-center p-6 animate-fade-in">
+                <div className="w-16 h-16 rounded-2xl bg-red-500/20 border border-red-500/35 flex items-center justify-center mb-4 shadow-[0_0_25px_rgba(239,68,68,0.25)]">
+                  <Lock className="w-8 h-8 text-red-400" />
+                </div>
+                <h2 className="text-2xl font-black text-white font-['Manrope'] mb-2">Akses Dibatasi</h2>
+                <p className="text-sm text-[#AAB3D5] max-w-md mb-6 leading-relaxed">
+                  Anda saat ini berada dalam <span className="text-[#329BFF] font-bold">Mode Siswa</span>. Untuk membuka konsol manajemen kurikulum, kosakata, dan CBT, silakan verifikasi hak akses administrator.
+                </p>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setActiveTab('beranda')}
+                    className="px-5 py-2.5 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white text-xs font-bold hover:bg-[#12194A] transition-all cursor-pointer"
+                  >
+                    Kembali ke Beranda
+                  </button>
+                  <button
+                    onClick={handleOpenAdminAuth}
+                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#329BFF] text-white text-xs font-bold shadow-lg hover:brightness-110 transition-all cursor-pointer"
+                  >
+                    Verifikasi Akses Admin
+                  </button>
+                </div>
+              </div>
+            )
           )}
           </div>
 
@@ -436,6 +501,14 @@ export function App() {
         onAuthSuccess={() => {
           if (user) handleCloudSync(user);
         }}
+      />
+
+      {/* Admin Security Access Verification Modal */}
+      <AdminAuthModal
+        isOpen={adminAuthModalOpen}
+        onClose={() => setAdminAuthModalOpen(false)}
+        onSuccess={handleAdminAuthSuccess}
+        user={user}
       />
 
     </div>

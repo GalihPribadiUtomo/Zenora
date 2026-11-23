@@ -12,7 +12,10 @@ import {
   Languages,
   PenTool,
   BookMarked,
-  ShieldCheck
+  ShieldCheck,
+  Lock,
+  ChevronRight,
+  LogOut
 } from 'lucide-react';
 import { sound } from '../../utils/audio';
 
@@ -25,6 +28,9 @@ interface SidebarProps {
   user: any;
   darkMode?: boolean;
   onToggleDarkMode?: () => void;
+  isAdminMode?: boolean;
+  onOpenAdminAuth?: () => void;
+  onExitAdminMode?: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -33,7 +39,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onOpenAuth,
   user,
   darkMode = true,
-  onToggleDarkMode
+  onToggleDarkMode,
+  isAdminMode = false,
+  onOpenAdminAuth,
+  onExitAdminMode
 }) => {
   const isBeranda = activeTab === 'beranda';
   const isMateri = activeTab === 'kotoba' || activeTab === 'kana' || activeTab === 'kanji';
@@ -79,6 +88,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </span>
           </div>
         </div>
+
+        {/* Admin Mode Active Badge & Exit Switcher */}
+        {isAdminMode && (
+          <div className="p-2.5 rounded-2xl bg-gradient-to-r from-[#7857FF]/20 via-[#12194A] to-[#329BFF]/20 border border-[#7857FF]/40 shadow-[0_0_20px_rgba(120,87,255,0.25)] flex items-center justify-between animate-fade-in">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-[#00C99A] animate-pulse" />
+              <span className="text-xs font-black tracking-wider text-white font-['Manrope']">
+                MODE ADMIN
+              </span>
+            </div>
+            <button
+              onClick={() => {
+                sound.playClick();
+                if (onExitAdminMode) onExitAdminMode();
+              }}
+              className="text-[10px] font-bold text-[#AAB3D5] hover:text-white hover:underline flex items-center gap-1 cursor-pointer transition-colors"
+              title="Keluar dari sesi Admin dan kembali ke Mode Siswa"
+            >
+              <LogOut className="w-3 h-3 text-[#FF70C8]" />
+              <span>Mode Siswa</span>
+            </button>
+          </div>
+        )}
 
         {/* Navigation Menu - Unified Purple & Electric Blue Theme */}
         <nav className="space-y-1.5 pt-1">
@@ -248,26 +280,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <span>{user ? (user.email?.split('@')[0] || 'Profil') : 'Profil'}</span>
           </button>
 
-          {/* 7. Admin & CMS Console */}
-          <button
-            onClick={() => {
-              sound.playClick();
-              onNavigateTab('admin');
-            }}
-            className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group ${
-              isAdmin
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_25px_rgba(120,87,255,0.45)]'
-                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70'
-            }`}
-          >
-            <div className="flex items-center gap-3.5">
-              <ShieldCheck className={`w-5 h-5 transition-transform group-hover:scale-110 ${isAdmin ? 'text-white' : 'text-[#329BFF]'}`} />
-              <span>Admin & CMS</span>
-            </div>
-            <span className="text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-[#7857FF]/30 text-[#B46BFF] border border-[#7857FF]/40">
-              PRO
-            </span>
-          </button>
+          {/* 7. Admin & CMS Console (Tampil HANYA jika berada dalam Mode Admin) */}
+          {isAdminMode && (
+            <button
+              onClick={() => {
+                sound.playClick();
+                onNavigateTab('admin');
+              }}
+              className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group animate-fade-in ${
+                isAdmin
+                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_25px_rgba(120,87,255,0.45)] ring-1 ring-[#7857FF]'
+                  : 'text-white bg-[#12194A] border border-[#7857FF]/35 hover:border-[#7857FF]/70'
+              }`}
+            >
+              <div className="flex items-center gap-3.5">
+                <ShieldCheck className={`w-5 h-5 transition-transform group-hover:scale-110 ${isAdmin ? 'text-white' : 'text-[#329BFF]'}`} />
+                <span>Admin & CMS</span>
+              </div>
+              <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#7857FF]/40 text-[#F5F6FF] border border-[#7857FF]/50 shadow-xs">
+                PRO
+              </span>
+            </button>
+          )}
 
         </nav>
       </div>
@@ -289,6 +323,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </p>
           </div>
         </div>
+
+        {/* Discrete Portal Administrator for Teachers/Staff */}
+        {!isAdminMode && (
+          <button
+            onClick={() => {
+              sound.playClick();
+              if (onOpenAdminAuth) onOpenAdminAuth();
+            }}
+            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-[11px] font-semibold text-[#737FA8] hover:text-[#AAB3D5] hover:bg-[#12194A]/60 border border-transparent hover:border-[#7857FF]/20 transition-all group cursor-pointer"
+            title="Masuk sebagai Administrator atau Instruktur"
+          >
+            <div className="flex items-center gap-2">
+              <Lock className="w-3.5 h-3.5 text-[#737FA8] group-hover:text-[#7857FF] transition-colors" />
+              <span>Portal Staf & Admin</span>
+            </div>
+            <ChevronRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
+          </button>
+        )}
 
         {/* Dark Mode Switch */}
         <div className="flex items-center justify-between px-2 py-1 text-xs font-semibold text-[#AAB3D5]">
