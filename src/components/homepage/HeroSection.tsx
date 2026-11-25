@@ -77,10 +77,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 hover:scale-105"
         style={{ backgroundImage: `url('/assets/homepage/zenora-hero-japan.jpg')` }}
       >
-        {/* Left-focused dark gradient so text is crisp while right side lets the pagoda & sakura shine through the glass card */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#08152F] via-[#08152F]/75 via-45% to-[#08152F]/15" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08152F]/85 via-transparent to-[#08152F]/35" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_50%,rgba(36,86,166,0.22),transparent_58%)]" />
+        {/* Left-focused dark gradient so text is crisp while right side lets the pagoda & sakura shine clearly through the glass card */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#08152F] via-[#08152F]/70 via-42% to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08152F]/70 via-transparent to-[#08152F]/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_50%,rgba(36,86,166,0.20),transparent_55%)]" />
       </div>
 
       {/* Hero Foreground Content */}
@@ -144,13 +144,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div 
               className="w-full max-w-[400px] rounded-[30px] p-5 sm:p-7 relative overflow-hidden transition-all duration-500 ease-out hover:-translate-y-1.5 group"
               style={{
-                /* Clearer, truly translucent Midnight Ocean frosted glass so Japanese hero backdrop is visible */
-                background: 'linear-gradient(145deg, rgba(36, 86, 166, 0.22) 0%, rgba(16, 36, 71, 0.28) 48%, rgba(8, 21, 47, 0.42) 100%)',
-                backdropFilter: 'blur(12px) saturate(135%)',
-                WebkitBackdropFilter: 'blur(12px) saturate(135%)',
+                /* Ultra-transparent Luxury Midnight Ocean crystal glass so Japanese hero backdrop is clearly visible */
+                background: 'linear-gradient(145deg, rgba(57, 120, 214, 0.09) 0%, rgba(16, 36, 71, 0.14) 50%, rgba(8, 21, 47, 0.22) 100%)',
+                backdropFilter: 'blur(5px) saturate(140%)',
+                WebkitBackdropFilter: 'blur(5px) saturate(140%)',
                 /* Crisp luminous cyan & sky-blue glass rim */
-                border: '1.5px solid rgba(131, 183, 238, 0.55)',
-                boxShadow: '0 22px 50px -12px rgba(8, 21, 47, 0.80), 0 0 28px rgba(57, 120, 214, 0.32), inset 0 1px 1px rgba(220, 235, 250, 0.45), inset 0 -1px 1px rgba(105, 201, 223, 0.20)'
+                border: '1.5px solid rgba(131, 183, 238, 0.62)',
+                boxShadow: '0 22px 50px -12px rgba(8, 21, 47, 0.65), 0 0 28px rgba(57, 120, 214, 0.30), inset 0 1px 1px rgba(220, 235, 250, 0.55), inset 0 -1px 1px rgba(105, 201, 223, 0.25)'
               }}
             >
               {/* Subtle Japanese Seigaiha wave watermark in glass */}
@@ -274,11 +274,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               {/* STREAK BELAJAR SUB-CARD */}
               <div 
-                className="relative z-10 mt-3 p-3.5 rounded-[22px] flex items-center justify-between border border-[#83B7EE]/40 shadow-[0_10px_24px_rgba(8,21,47,0.55),inset_0_1px_1px_rgba(220,235,250,0.28)]"
+                className="relative z-10 mt-3 p-3.5 rounded-[22px] flex items-center justify-between border border-[#83B7EE]/45 shadow-[0_10px_24px_rgba(8,21,47,0.45),inset_0_1px_1px_rgba(220,235,250,0.32)]"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(36, 86, 166, 0.25) 0%, rgba(16, 36, 71, 0.42) 100%)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)'
+                  background: 'linear-gradient(135deg, rgba(36, 86, 166, 0.14) 0%, rgba(16, 36, 71, 0.24) 100%)',
+                  backdropFilter: 'blur(6px)',
+                  WebkitBackdropFilter: 'blur(6px)'
                 }}
               >
                 {/* Left Side: Fire Icon + Days + Label */}
