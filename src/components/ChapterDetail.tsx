@@ -905,7 +905,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
       </div>
 
       {/* ── STICKY TAB NAVIGATION: SEMUA MATERI (1 HALAMAN) + 6 TAB SPESIFIK ── */}
-      <div className="sticky top-0 z-30 bg-[#080D2B]/95 backdrop-blur-md py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 border-b border-[#7857FF]/25 flex flex-wrap items-center gap-2">
+      <div className="sticky top-[72px] z-30 bg-[#080D2B]/95 backdrop-blur-md py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 border-b border-[#7857FF]/25 flex flex-wrap items-center gap-2 shadow-[0_10px_30px_rgba(8,13,43,0.8)]">
         
         {/* TAB 0: SEMUA MATERI DALAM 1 HALAMAN */}
         <button
