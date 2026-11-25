@@ -27,6 +27,7 @@ import {
 import confetti from 'canvas-confetti';
 import { ExamPackage, ExamSection, ExamQuestion, ExamType } from '../types';
 import { JLPT_EXAM_PACKAGES } from '../data/jlptExamData';
+import { FuriganaText } from './FuriganaText';
 import { speakJapanese, sound } from '../utils/audio';
 
 interface JlptExamSectionProps {
@@ -1333,9 +1334,9 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                         <span className="font-bold text-[#7857FF] uppercase tracking-wider block">
                           Pembahasan Edukatif:
                         </span>
-                        <p className="text-sm text-[#AAB3D5] leading-relaxed">
-                          {q.explanation}
-                        </p>
+                        <div className="text-sm text-[#AAB3D5] leading-relaxed">
+                          <FuriganaText text={q.explanation} />
+                        </div>
                       </div>
                     </div>
                   );

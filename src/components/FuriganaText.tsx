@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { KOTOBA_DATA } from '../data/kotobaData';
 import { KANJI_DATA } from '../data/kanjiData';
 
-// Common proper nouns, names, and frequent grammar/kaiwa words in Minna no Nihongo
+// Common proper nouns, grammar terms, dialogues, and frequent words in Minna no Nihongo & Japanese learning
 const COMMON_FURIGANA_DICT: Record<string, string> = {
   // Names & People in Minna no Nihongo
   '山田': 'やまだ',
@@ -31,8 +31,54 @@ const COMMON_FURIGANA_DICT: Record<string, string> = {
   '大阪城': 'おおさかじょう',
   '金閣寺': 'きんかくじ',
 
-  // Common Verbs & Expressions in Minna no Nihongo
+  // Dialogues & Classroom Expressions (Fixing Image 2)
+  '表現': 'ひょうげん',
+  '表現を': 'ひょうげんを',
+  '教えて': 'おしえて',
+  '教えてください': 'おしえてください',
+  '教えていただけませんか': 'おしえていただけませんか',
+  'おしえていただけませんか': 'おしえていただけませんか',
+  '会話': 'かいわ',
+  '文法': 'ぶんぽう',
+  '例文': 'れいぶん',
+  '問題': 'もんだい',
+  '質問': 'しつもん',
+  '答え': 'こたえ',
+  '回答': 'かいとう',
+  '意味': 'いみ',
+  '言葉': 'ことば',
+  '単語': 'たんご',
+  '漢字': 'かんじ',
+  '基本': 'きほん',
+  '文型': 'ぶんけい',
+  '練習': 'れんしゅう',
+  '自己紹介': 'じこしょうかい',
+  '紹介': 'しょうかい',
+  '説明': 'せつめい',
+  '注意': 'ちゅうい',
+  '確認': 'かくにん',
+  '準備': 'じゅんび',
+  '連絡': 'れんらく',
+  '相談': 'そうだん',
+  '報告': 'ほうこく',
+  '許可': 'きょか',
+  '禁止': 'きんし',
+  '規則': 'きそく',
+  '仕事': 'しごと',
+  '職場': 'しょくば',
+  '案内': 'あんない',
+  '見学': 'けんがく',
+  '失礼': 'しつれい',
+  '失礼ですが': 'しつれいですが',
+  'お名前': 'おなまえ',
+  '名前': 'なまえ',
+  'お願い': 'おねがい',
+  'お願いします': 'おねがいします',
+  'どうぞよろしく': 'どうぞよろしく',
+
+  // Common Verbs & Conjugations in Minna no Nihongo
   '初めまして': 'はじめまして',
+  '初め': 'はじめ',
   '来ました': 'きました',
   '来ます': 'きます',
   '来ません': 'きません',
@@ -77,7 +123,7 @@ const COMMON_FURIGANA_DICT: Record<string, string> = {
   '貸します': 'かします',
   '貸して': 'かして',
   '教えます': 'おしえます',
-  '教えて': 'おしえて',
+  '教え': 'おしえ',
   '習います': 'ならいます',
   '習って': 'ならって',
   '帰ります': 'かえります',
@@ -94,22 +140,10 @@ const COMMON_FURIGANA_DICT: Record<string, string> = {
   '終わって': 'おわって',
   '勉強します': 'べんきょうします',
   '勉強': 'べんきょう',
-  '案内します': 'あんないします',
-  '案内': 'あんない',
-  '見学します': 'けんがくします',
-  '見学': 'けんがく',
-  '自己紹介': 'じこしょうかい',
-  '紹介': 'しょうかい',
-  '説明': 'せつめい',
+  '散歩します': 'さんぽします',
+  '散歩': 'さんぽ',
   '運転': 'うんてん',
   '旅行': 'りょこう',
-  '散歩': 'さんぽ',
-  '散歩します': 'さんぽします',
-  'お願いします': 'おねがいします',
-  '失礼ですが': 'しつれいですが',
-  'お名前': 'おなまえ',
-  '名前': 'なまえ',
-  'どうぞよろしく': 'どうぞよろしく',
 
   // Time & Numbers
   '何歳': 'なんさい',
@@ -201,74 +235,27 @@ const COMMON_FURIGANA_DICT: Record<string, string> = {
   '会議室': 'かいぎしつ',
   '受付': 'うけつけ',
   '部屋': 'へや',
-  '階段': 'かいだん',
-  '手洗': 'てあらい',
-  'お手洗い': 'おてあらい',
-  '国': 'くに',
-  '言葉': 'ことば',
-  '日本語': 'にほんご',
-  '英語': 'えいご',
-  '日本': 'にほん',
-  '日本人': 'にほんじん',
-  'アメリカ': 'あめりか',
-  '電話': 'でんわ',
-  '手紙': 'てがみ',
-  '写真': 'しゃしん',
-  '映画': 'えいが',
-  '音楽': 'おんがく',
-  '歌': 'うた',
-  '友達': 'ともだち',
-  '家族': 'かぞく',
-  '両親': 'りょうしん',
-  '兄弟': 'きょうだい',
-  '子供': 'こども',
-  '父': 'ちち',
-  '母': 'はは',
-  'お父さん': 'おとうさん',
-  'お母さん': 'おかあさん',
-  '荷物': 'にもつ',
-  '切符': 'きっぷ',
-  '駅': 'えき',
-  '電車': 'でんしゃ',
-  '地下鉄': 'ちかてつ',
-  '自転車': 'じてんしゃ',
-  '自動車': 'じどうしゃ',
-  '飛行機': 'ひこうき',
-  '船': 'ふね',
-  '銀行': 'ぎんこう',
+  '家': 'うち',
+  '会社': 'かいしゃ',
   '郵便局': 'ゆうびんきょく',
   '図書館': 'としょかん',
   '美術館': 'びじゅつかん',
-  '学校': 'がっこう',
-  '会社': 'かいしゃ',
-  '水': 'みず',
-  'お茶': 'おちゃ',
-  '肉': 'にく',
-  '魚': 'さかな',
-  '野菜': 'やさい',
-  'ご飯': 'ごはん',
-  '朝ご飯': 'あさごはん',
-  '昼ご飯': 'ひるごはん',
-  '晩ご飯': 'ばんごはん',
-  '料理': 'りょうり',
-  '天気': 'てんき',
-  '雨': 'あめ',
-  '雪': 'ゆき',
-  '山': 'やま',
-  '海': 'うみ',
-  '川': 'かわ',
-  '花': 'はな',
-  '犬': 'いぬ',
-  '猫': 'ねこ',
-  '鳥': 'とり',
-  '例文': 'れいぶん',
-  '文法': 'ぶんぽう',
-  '会話': 'かいわ',
-  '問題': 'もんだい',
-  '練習': 'れんしゅう',
-  '復習': 'ふくしゅう',
+  '駅': 'えき',
+  '空港': 'くうこう',
+  '家族': 'かぞく',
+  '友達': 'ともだち',
+  '外国人': 'がいこくじん',
+  '国': 'くに',
+  '日本': 'にほん',
+  '日本語': 'にほんご',
+  '英語': 'えいご',
   '試験': 'しけん',
 };
+
+// Add Bab 1 - 50 Chapter Titles to Master Dict
+for (let b = 1; b <= 50; b++) {
+  COMMON_FURIGANA_DICT[`第${b}課`] = `だい${b}か`;
+}
 
 // Compile master dictionary from KOTOBA_DATA + common terms
 const MASTER_DICT: Map<string, string> = new Map();
@@ -289,12 +276,12 @@ Object.entries(COMMON_FURIGANA_DICT).forEach(([k, v]) => {
 const SINGLE_KANJI_DICT: Map<string, string> = new Map();
 KANJI_DATA.forEach((k) => {
   if (k.kanji && /[\u4e00-\u9faf]/.test(k.kanji)) {
-    // Pick first clean kunyomi or onyomi (hiragana)
-    const kun = k.kunyomi?.split(/[,、\s]/)[0]?.replace(/[.\-]/g, '').trim();
-    const on = k.onyomi?.split(/[,、\s]/)[0]?.replace(/[.\-]/g, '').trim();
-    // Convert katakana on-reading to hiragana
-    const onHira = on ? on.replace(/[\u30a1-\u30f6]/g, (match) => String.fromCharCode(match.charCodeAt(0) - 0x60)) : '';
-    const reading = kun || onHira || k.reading || '';
+    // Pick first clean kunyomi stem (before okurigana hyphen) or onyomi
+    const rawKun = k.kunyomi?.split(/[,、\s・/]/)[0]?.trim();
+    const kunStem = rawKun ? rawKun.split('-')[0].replace(/[.\-]/g, '').trim() : '';
+    const rawOn = k.onyomi?.split(/[,、\s・/]/)[0]?.trim();
+    const onHira = rawOn ? rawOn.replace(/[\u30a1-\u30f6]/g, (match) => String.fromCharCode(match.charCodeAt(0) - 0x60)).replace(/[.\-]/g, '').trim() : '';
+    const reading = kunStem || onHira || k.reading?.split(/[,、\s・/]/)[0]?.trim() || '';
     if (reading) {
       SINGLE_KANJI_DICT.set(k.kanji, reading);
     }
@@ -303,6 +290,11 @@ KANJI_DATA.forEach((k) => {
 
 // Explicit common single kanji overrides
 const COMMON_SINGLE_OVERRIDE: Record<string, string> = {
+  '現': 'げん',
+  '表': 'ひょう',
+  '教': 'おし',
+  '第': 'だい',
+  '課': 'か',
   '私': 'わたし',
   '人': 'ひと',
   '方': 'かた',
@@ -365,7 +357,6 @@ const COMMON_SINGLE_OVERRIDE: Record<string, string> = {
   '寝': 'ね',
   '起': 'お',
   '終': 'お',
-  '教': 'おし',
   '習': 'なら',
   '借': 'か',
   '貸': 'か',
@@ -389,6 +380,17 @@ const COMMON_SINGLE_OVERRIDE: Record<string, string> = {
   '赤': 'あか',
   '青': 'あお',
   '好': 'す',
+  '意': 'い',
+  '味': 'み',
+  '文': 'ぶん',
+  '法': 'ぽう',
+  '例': 'れい',
+  '問': 'もん',
+  '題': 'だい',
+  '答': 'こた',
+  '仕': 'し',
+  '事': 'ごと',
+  '語': 'ご'
 };
 Object.entries(COMMON_SINGLE_OVERRIDE).forEach(([k, v]) => {
   SINGLE_KANJI_DICT.set(k, v);
@@ -399,7 +401,7 @@ const SORTED_KEYS = Array.from(MASTER_DICT.keys()).sort((a, b) => b.length - a.l
 
 /**
  * Decompose a kanji word and its known kana reading into ruby parts
- * e.g., "初めまして" + "はじめまして" -> [{kanji: "初", furigana: "はじ", isRuby: true}, {kanji: "めまして", isRuby: false}]
+ * e.g., "初めまして" + "はじめまして" -> [{text: "初", rt: "はじ", isRuby: true}, {text: "めまして", isRuby: false}]
  */
 export function decomposeToRuby(kanjiWord: string, kanaReading: string): { text: string; rt?: string; isRuby: boolean }[] {
   if (kanjiWord === kanaReading || !/[\u4e00-\u9faf]/.test(kanjiWord)) {
@@ -449,21 +451,63 @@ export function decomposeToRuby(kanjiWord: string, kanaReading: string): { text:
 }
 
 /**
- * Parse any Japanese text sentence and render kanji with furigana on top
+ * Parse text containing explicit bracketed annotations, e.g. "現場[げんば]の[つか]い[かた]を..."
+ */
+function parseBracketedFurigana(text: string): React.ReactNode[] {
+  const elements: React.ReactNode[] = [];
+  const regex = /([\u4e00-\u9faf]+)\[([^\s\]]+)\]|\[([^\s\]]+)\]/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let keyCounter = 0;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Text before match
+    if (match.index > lastIndex) {
+      elements.push(<span key={`brk-pre-${keyCounter++}`}>{text.substring(lastIndex, match.index)}</span>);
+    }
+
+    if (match[1] && match[2]) {
+      // Form: 漢字[かんじ]
+      elements.push(
+        <ruby key={`brk-${keyCounter++}`} className="ruby-furigana">
+          {match[1]}
+          <rt className="ruby-rt">{match[2]}</rt>
+        </ruby>
+      );
+    } else if (match[3]) {
+      // Bracketed kana standalone
+      elements.push(<span key={`brk-plain-${keyCounter++}`}>{match[3]}</span>);
+    }
+
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    elements.push(<span key={`brk-post-${keyCounter++}`}>{text.substring(lastIndex)}</span>);
+  }
+
+  return elements;
+}
+
+/**
+ * Parse any Japanese text sentence and render kanji with furigana on top (CONTOH PERTAMA)
  */
 export function parseFuriganaElements(text: string, directReading?: string): React.ReactNode[] {
   if (!text) return [];
+
+  // Check if text already has bracket furigana, e.g. "現場[げんば]..."
+  if (/[\u4e00-\u9faf]+\[[^\]]+\]/.test(text)) {
+    return parseBracketedFurigana(text);
+  }
 
   // If a direct reading is provided for this exact word (e.g. from Kotoba table)
   if (directReading && /[\u4e00-\u9faf]/.test(text)) {
     const parts = decomposeToRuby(text, directReading);
     return parts.map((p, i) =>
       p.isRuby && p.rt ? (
-        <ruby key={`dir-${i}`} className="ruby-furigana inline-flex flex-col-reverse items-center align-baseline mx-[1px]">
-          <span className="ruby-base leading-none">{p.text}</span>
-          <rt className="ruby-rt text-[0.72em] leading-none text-[#A8CEFF] select-none font-bold pb-0.5 tracking-wide">
-            {p.rt}
-          </rt>
+        <ruby key={`dir-${i}`} className="ruby-furigana">
+          {p.text}
+          <rt className="ruby-rt">{p.rt}</rt>
         </ruby>
       ) : (
         <span key={`dir-${i}`}>{p.text}</span>
@@ -490,14 +534,9 @@ export function parseFuriganaElements(text: string, directReading?: string): Rea
         parts.forEach((p) => {
           if (p.isRuby && p.rt) {
             elements.push(
-              <ruby
-                key={`furi-${keyCounter++}`}
-                className="ruby-furigana inline-flex flex-col-reverse items-center align-baseline mx-[1px]"
-              >
-                <span className="ruby-base leading-none">{p.text}</span>
-                <rt className="ruby-rt text-[0.72em] leading-none text-[#A8CEFF] select-none font-bold pb-0.5 tracking-wide">
-                  {p.rt}
-                </rt>
+              <ruby key={`furi-${keyCounter++}`} className="ruby-furigana">
+                {p.text}
+                <rt className="ruby-rt">{p.rt}</rt>
               </ruby>
             );
           } else {
@@ -518,14 +557,9 @@ export function parseFuriganaElements(text: string, directReading?: string): Rea
       const fallbackReading = SINGLE_KANJI_DICT.get(char) || '';
       if (fallbackReading) {
         elements.push(
-          <ruby
-            key={`furi-${keyCounter++}`}
-            className="ruby-furigana inline-flex flex-col-reverse items-center align-baseline mx-[1px]"
-          >
-            <span className="ruby-base leading-none">{char}</span>
-            <rt className="ruby-rt text-[0.72em] leading-none text-[#A8CEFF] select-none font-bold pb-0.5 tracking-wide">
-              {fallbackReading}
-            </rt>
+          <ruby key={`furi-${keyCounter++}`} className="ruby-furigana">
+            {char}
+            <rt className="ruby-rt">{fallbackReading}</rt>
           </ruby>
         );
       } else {
@@ -555,6 +589,10 @@ interface FuriganaTextProps {
   className?: string;
 }
 
+/**
+ * Standard Furigana Component (CONTOH PERTAMA)
+ * Displays furigana directly above each Kanji character, maintaining line baseline and responsive wrapping.
+ */
 export const FuriganaText: React.FC<FuriganaTextProps> = ({
   text = '',
   reading,
@@ -564,5 +602,5 @@ export const FuriganaText: React.FC<FuriganaTextProps> = ({
     return parseFuriganaElements(text, reading);
   }, [text, reading]);
 
-  return <span className={`inline-flex flex-wrap items-baseline japanese-text ${className}`}>{renderedElements}</span>;
+  return <span className={`japanese-text inline leading-relaxed ${className}`}>{renderedElements}</span>;
 };

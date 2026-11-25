@@ -21,6 +21,7 @@ import { speakJapanese, sound } from '../utils/audio';
 import { KanjiStrokeViewer } from './KanjiStrokeViewer';
 import { getKanjiSentences } from '../data/kanjiSentencesData';
 import { SentenceCard } from './SentenceCard';
+import { FuriganaText } from './FuriganaText';
 
 interface KanjiModalProps {
   kanji: KanjiItem | null;
@@ -843,9 +844,10 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                       className="p-4 rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 hover:border-[#7857FF]/40 flex items-center justify-between transition-colors shadow-xs"
                     >
                       <div>
-                        <span className="kanji-font text-lg font-black text-[#F5F6FF] mr-2">{ex.word}</span>
-                        <span className="text-xs font-bold text-[#7857FF] mr-2">【{ex.reading}】</span>
-                        <p className="text-xs text-[#737FA8] mt-0.5 font-medium">{ex.meaning}</p>
+                        <div className="text-lg font-black text-[#F5F6FF] mb-1">
+                          <FuriganaText text={ex.word} reading={ex.reading} />
+                        </div>
+                        <p className="text-xs text-[#737FA8] font-medium">{ex.meaning}</p>
                       </div>
                       <button
                         onClick={() => speakJapanese(ex.word)}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Volume2, Info, AlertCircle } from 'lucide-react';
 import { speakJapanese } from '../utils/audio';
+import { FuriganaText } from './FuriganaText';
 
 export interface SentenceCardProps {
   index: number;
@@ -89,7 +90,7 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
         )}
       </div>
 
-      {/* Main Focus: Japanese sentence & Furigana */}
+      {/* Main Focus: Japanese sentence & Furigana CONTOH PERTAMA */}
       {isPlaceholder ? (
         <div className="py-3 px-4 rounded-2xl bg-amber-950/30 border border-amber-500/30 my-2">
           <p className="text-sm font-semibold text-amber-200 leading-relaxed">
@@ -97,17 +98,10 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
           </p>
         </div>
       ) : (
-        <div className="space-y-1.5 my-2">
-          {/* Furigana */}
-          {furigana && (
-            <div className="text-sm font-bold text-[#A8CEFF] japanese-text tracking-wide">
-              {furigana}
-            </div>
-          )}
-
-          {/* Japanese Sentence (Fokus Utama) */}
-          <div className="text-xl sm:text-2xl font-black text-[#F5F6FF] kanji-font leading-relaxed">
-            {renderHighlightedSentence()}
+        <div className="my-2.5 space-y-1">
+          {/* Japanese Sentence with Furigana directly on top of Kanji */}
+          <div className="text-xl sm:text-2xl font-black text-[#F5F6FF] kanji-font leading-loose tracking-wide">
+            <FuriganaText text={sentence} />
           </div>
 
           {/* Romaji */}

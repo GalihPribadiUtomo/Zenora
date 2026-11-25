@@ -45,6 +45,7 @@ import {
 import { sound } from '../utils/audio';
 import { SSW_ALL_SECTORS } from '../data/ssw';
 import { SswContentRenderer } from './SswContentRenderer';
+import { FuriganaText } from './FuriganaText';
 import type { SswSectorData, SswSectorId, SswLessonChapter, SswQuizQuestion, SswCategoryType, SswUserProgress } from '../types/ssw';
 
 // ── Icon Map ──
@@ -968,7 +969,9 @@ export const SswSection: React.FC<SswSectionProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
             {ch.keyTerms.map((term, i) => (
               <div key={i} className="p-4 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/20 space-y-1.5">
-                <span className="text-xl font-bold text-white japanese-text block">{term.japanese}</span>
+                <div className="text-xl font-bold text-white mb-1">
+                  <FuriganaText text={term.japanese} reading={term.kana} />
+                </div>
                 <div className="flex items-center gap-2 text-xs">
                   <span className="font-mono text-[#7857FF] font-bold">{term.kana}</span>
                   <span className="text-[#737FA8]">({term.romaji})</span>
@@ -1001,7 +1004,9 @@ export const SswSection: React.FC<SswSectionProps> = ({
                       <span className="font-black text-[#7857FF]">{d.speaker}</span>
                       <span className="text-[#737FA8]">({d.role})</span>
                     </div>
-                    <p className="text-base text-white japanese-text font-medium">{d.japanese}</p>
+                    <div className="text-base text-white font-medium py-1">
+                      <FuriganaText text={d.japanese} reading={d.kana} />
+                    </div>
                     <p className="text-xs text-[#737FA8]">{d.kana}</p>
                     <p className="text-xs text-[#AAB3D5]">→ {d.indonesian}</p>
                   </div>
@@ -1269,9 +1274,9 @@ export const SswSection: React.FC<SswSectionProps> = ({
                     </span>
                   </div>
 
-                  <p className="text-sm sm:text-base text-white font-bold leading-relaxed japanese-text">
-                    {qu.questionText}
-                  </p>
+                  <div className="text-sm sm:text-base text-white font-bold leading-relaxed pt-1">
+                    <FuriganaText text={qu.questionText} />
+                  </div>
 
                   {qu.situation && <p className="text-xs text-[#737FA8] italic">Situasi: {qu.situation}</p>}
                   {qu.translation && <p className="text-xs text-[#AAB3D5]">Terjemahan: {qu.translation}</p>}
@@ -1289,7 +1294,9 @@ export const SswSection: React.FC<SswSectionProps> = ({
                         }`}
                       >
                         <span className="font-mono font-bold shrink-0">{oi + 1}.</span>
-                        <span className="japanese-text">{opt}</span>
+                        <div className="flex-1 leading-relaxed">
+                          <FuriganaText text={opt} />
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -1335,9 +1342,9 @@ export const SswSection: React.FC<SswSectionProps> = ({
             <span className="px-3 py-1 rounded-full bg-[#12194A] border border-[#7857FF]/30 text-[#D8B4FE] text-xs font-bold font-mono">
               {isExam ? 'Ujian Keahlian Teknis' : 'Latihan Bab'}
             </span>
-            <p className="text-base sm:text-lg text-white font-bold leading-relaxed japanese-text pt-2">
-              {q.questionText}
-            </p>
+            <div className="text-base sm:text-lg text-white font-bold leading-relaxed pt-2">
+              <FuriganaText text={q.questionText} />
+            </div>
           </div>
 
           {q.situation && (
@@ -1347,8 +1354,8 @@ export const SswSection: React.FC<SswSectionProps> = ({
           )}
 
           {q.passageText && (
-            <div className="text-xs sm:text-sm text-[#F5F6FF] bg-[#080D2B] p-4 rounded-2xl border border-[#7857FF]/20 whitespace-pre-line japanese-text leading-relaxed">
-              {q.passageText}
+            <div className="text-xs sm:text-sm text-[#F5F6FF] bg-[#080D2B] p-4 rounded-2xl border border-[#7857FF]/20 whitespace-pre-line leading-relaxed">
+              <FuriganaText text={q.passageText} />
             </div>
           )}
 
@@ -1380,7 +1387,9 @@ export const SswSection: React.FC<SswSectionProps> = ({
                   }`}>
                     {oi + 1}
                   </span>
-                  <span className="japanese-text pt-0.5 leading-relaxed">{opt}</span>
+                  <div className="flex-1 pt-0.5 leading-relaxed">
+                    <FuriganaText text={opt} />
+                  </div>
                 </button>
               );
             })}

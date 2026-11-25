@@ -43,6 +43,7 @@ import {
   resolveMistake,
   ExerciseModeMeta 
 } from '../utils/exerciseGenerator';
+import { FuriganaText } from './FuriganaText';
 
 interface ChapterExerciseSectionProps {
   bab: number;
@@ -462,14 +463,14 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
           {/* Reading Passage if Dokkai */}
           {currentQ.readingPassage && (
             <div className="p-4 rounded-2xl bg-[#080D2B]/90 border border-[#7857FF]/20 whitespace-pre-line text-sm text-[#F5F6FF] leading-relaxed font-sans">
-              {currentQ.readingPassage}
+              <FuriganaText text={currentQ.readingPassage} />
             </div>
           )}
 
           {/* Question Main Highlight */}
           <div className="text-center py-4 px-2">
-            <h3 className="text-2xl sm:text-3xl font-black text-[#F5F6FF] font-['Manrope'] tracking-wide">
-              {currentQ.question}
+            <h3 className="text-2xl sm:text-3xl font-black text-[#F5F6FF] font-['Manrope'] tracking-wide leading-loose">
+              <FuriganaText text={currentQ.question} reading={currentQ.reading} />
             </h3>
             {currentQ.reading && (
               <p className="text-xs sm:text-sm font-mono text-[#7857FF] mt-1">
@@ -714,7 +715,9 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                     onClick={() => handleSelectOption(opt)}
                     className={`p-4 rounded-2xl border text-left text-xs sm:text-sm font-bold transition-all flex items-center justify-between gap-3 active:scale-[0.98] ${btnStyle}`}
                   >
-                    <span>{opt}</span>
+                    <div className="flex-1 leading-relaxed">
+                      <FuriganaText text={opt} />
+                    </div>
                     {isAnswerSubmitted && isCorrect && (
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     )}
@@ -731,7 +734,9 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
           {isAnswerSubmitted && currentQ.explanation && (
             <div className="p-4 rounded-2xl bg-[#080D2B]/90 border border-[#7857FF]/25 text-xs sm:text-sm text-[#F5F6FF]/90 space-y-1">
               <span className="font-bold text-[#7857FF] block">Pembahasan:</span>
-              <p>{currentQ.explanation}</p>
+              <div className="leading-relaxed">
+                <FuriganaText text={currentQ.explanation} />
+              </div>
             </div>
           )}
 
