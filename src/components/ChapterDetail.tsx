@@ -420,7 +420,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                     .join('。 ');
                   if (fullText) speakJapanese(fullText);
                 }}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#172945] to-[#1D245E] border border-[#3978D6]/40 text-[#F2F6FC] text-xs font-bold hover:brightness-110 shadow-xs transition-all shrink-0 cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#172945] to-[#172945] border border-[#3978D6]/40 text-[#F2F6FC] text-xs font-bold hover:brightness-110 shadow-xs transition-all shrink-0 cursor-pointer"
               >
                 <Volume2 className="w-4 h-4 text-[#3978D6]" />
                 <span>{mutedSpeaker ? 'Putar Mode Roleplay' : 'Putar Seluruh Dialog'}</span>
@@ -521,7 +521,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
             onClick={() => setViewMode('card')}
             className={`p-2 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
               viewMode === 'card'
-                ? 'bg-gradient-to-r from-[#172945] to-[#1D245E] text-[#F2F6FC] border border-[#3978D6]/40'
+                ? 'bg-gradient-to-r from-[#172945] to-[#172945] text-[#F2F6FC] border border-[#3978D6]/40'
                 : 'text-[#7186A5] hover:text-[#F2F6FC]'
             }`}
             title="Tampilan Kartu"
@@ -532,7 +532,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
             onClick={() => setViewMode('table')}
             className={`p-2 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
               viewMode === 'table'
-                ? 'bg-gradient-to-r from-[#172945] to-[#1D245E] text-[#F2F6FC] border border-[#3978D6]/40'
+                ? 'bg-gradient-to-r from-[#172945] to-[#172945] text-[#F2F6FC] border border-[#3978D6]/40'
                 : 'text-[#7186A5] hover:text-[#F2F6FC]'
             }`}
             title="Tampilan Tabel"
@@ -543,7 +543,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
             onClick={() => setViewMode('flashcard')}
             className={`p-2 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
               viewMode === 'flashcard'
-                ? 'bg-gradient-to-r from-[#172945] to-[#1D245E] text-[#F2F6FC] border border-[#3978D6]/40'
+                ? 'bg-gradient-to-r from-[#172945] to-[#172945] text-[#F2F6FC] border border-[#3978D6]/40'
                 : 'text-[#7186A5] hover:text-[#F2F6FC]'
             }`}
             title="Mode Flashcard"
@@ -559,7 +559,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           onClick={() => setSelectedCategory('Semua')}
           className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
             selectedCategory === 'Semua'
-              ? 'bg-gradient-to-r from-[#172945] to-[#1D245E] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+              ? 'bg-gradient-to-r from-[#172945] to-[#172945] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
               : 'bg-[#111F38] hover:bg-[#172945] text-[#7186A5] border border-[#3978D6]/20'
           }`}
         >
@@ -573,7 +573,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-gradient-to-r from-[#172945] to-[#1D245E] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                  ? 'bg-gradient-to-r from-[#172945] to-[#172945] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
                   : 'bg-[#111F38] hover:bg-[#172945] text-[#7186A5] border border-[#3978D6]/20'
               }`}
             >

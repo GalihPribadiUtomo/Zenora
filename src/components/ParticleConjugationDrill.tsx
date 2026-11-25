@@ -327,7 +327,7 @@ export const ParticleConjugationDrill: React.FC<ParticleConjugationDrillProps> =
   return (
     <div className="space-y-6 text-left animate-fade-in">
       {/* Header Switcher */}
-      <div className="p-6 rounded-3xl bg-gradient-to-br from-[#0B1038] via-[#0F1648] to-[#16205E] border border-[#3978D6]/35 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="p-6 rounded-3xl bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#172945] border border-[#3978D6]/35 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#08152F] border border-[#3978D6]/40 text-[#83B7EE] text-xs font-black font-mono mb-2">
             <Zap className="w-3.5 h-3.5" />
@@ -424,7 +424,7 @@ export const ParticleConjugationDrill: React.FC<ParticleConjugationDrillProps> =
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {currentParticle.options.map((opt) => {
-                  let btn = 'bg-[#08152F] hover:bg-[#141C58] border-[#3978D6]/30 text-white';
+                  let btn = 'bg-[#08152F] hover:bg-[#172945] border-[#3978D6]/30 text-white';
                   if (isSubmitted) {
                     if (opt === currentParticle.correct) btn = 'bg-emerald-500/20 border-emerald-500 text-emerald-300';
                     else if (opt === selected) btn = 'bg-rose-500/20 border-rose-500 text-rose-300';
@@ -489,7 +489,7 @@ export const ParticleConjugationDrill: React.FC<ParticleConjugationDrillProps> =
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {currentConj.options.map((opt) => {
-                  let btn = 'bg-[#08152F] hover:bg-[#141C58] border-[#3978D6]/30 text-white';
+                  let btn = 'bg-[#08152F] hover:bg-[#172945] border-[#3978D6]/30 text-white';
                   if (isSubmitted) {
                     if (opt === currentConj.correct) btn = 'bg-emerald-500/20 border-emerald-500 text-emerald-300';
                     else if (opt === selected) btn = 'bg-rose-500/20 border-rose-500 text-rose-300';

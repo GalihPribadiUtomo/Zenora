@@ -65,12 +65,12 @@ const CATEGORY_META: Record<SswCategoryType, { label: string; icon: LucideIcon; 
 // Sector Color Accents
 const SECTOR_ACCENTS: Record<SswSectorId, { gradient: string; glow: string; border: string }> = {
   kaigo: {
-    gradient: 'from-[#08152F] via-[#111F38] to-[#1E1B4B]',
+    gradient: 'from-[#08152F] via-[#111F38] to-[#111F38]',
     glow: 'rgba(57, 120, 214,0.3)',
     border: 'border-[#3978D6]/40'
   },
   food_service: {
-    gradient: 'from-[#08152F] via-[#111F38] to-[#2E1065]',
+    gradient: 'from-[#08152F] via-[#111F38] to-[#172945]',
     glow: 'rgba(255,112,200,0.3)',
     border: 'border-[#FF70C8]/40'
   },
@@ -85,8 +85,8 @@ const SECTOR_ACCENTS: Record<SswSectorId, { gradient: string; glow: string; bord
     border: 'border-[#45C6A5]/40'
   },
   hospitality: {
-    gradient: 'from-[#08152F] via-[#111F38] to-[#3B0764]',
-    glow: 'rgba(180,107,255,0.3)',
+    gradient: 'from-[#08152F] via-[#111F38] to-[#172945]',
+    glow: 'rgba(131, 183, 238,0.3)',
     border: 'border-[#83B7EE]/40'
   },
   building_cleaning: {
@@ -912,7 +912,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
         </div>
 
         {/* Chapter Hero */}
-        <div className="rounded-3xl bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#171D50] border border-[#3978D6]/35 p-6 sm:p-8 space-y-3 shadow-xl">
+        <div className="rounded-3xl bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#111F38] border border-[#3978D6]/35 p-6 sm:p-8 space-y-3 shadow-xl">
           <div className="flex items-center gap-2 flex-wrap">
             <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider border ${catMeta.bg} ${catMeta.color}`}>
               <CatIcon className="w-3.5 h-3.5 inline mr-1" />
@@ -1224,7 +1224,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
             <div className="flex items-center justify-center gap-3 pt-4">
               <button
                 onClick={() => setQuizShowReview(true)}
-                className="px-6 py-3 rounded-2xl bg-[#172945] hover:bg-[#1D245E] border border-[#3978D6]/40 text-white text-xs sm:text-sm font-bold shadow-md transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3 rounded-2xl bg-[#172945] hover:bg-[#172945] border border-[#3978D6]/40 text-white text-xs sm:text-sm font-bold shadow-md transition-all flex items-center gap-2 cursor-pointer"
               >
                 <Eye className="w-4 h-4 text-[#3978D6]" />
                 <span>Lihat Pembahasan Jawaban</span>

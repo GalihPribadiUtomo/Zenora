@@ -109,7 +109,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
   return (
     <div className="space-y-8 text-left pb-16">
       {/* 1. Header & Learning Stats Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0B1038] via-[#0F1648] to-[#16205E] text-[#F2F6FC] border border-[#3978D6]/35 p-6 sm:p-8 shadow-[0_15px_45px_rgba(8, 21, 47,0.95)]">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#172945] text-[#F2F6FC] border border-[#3978D6]/35 p-6 sm:p-8 shadow-[0_15px_45px_rgba(8, 21, 47,0.95)]">
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-80 h-80 rounded-full bg-gradient-to-br from-[#172945]/25 via-[#3978D6]/20 to-transparent blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/3 -mb-20 w-72 h-72 rounded-full bg-[#3978D6]/10 blur-3xl pointer-events-none" />
 
@@ -127,7 +127,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base text-[#B0BBD8] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#A9BBD3] leading-relaxed">
               Pelajari seluruh aksara bahasa Jepang mulai dari Gojuon 46 karakter dasar, Dakuten, Handakuten,
               Youon (kombinasi), Kana Kecil, variasi pelafalan modern, hingga tanda ortografi resmi dengan animasi
               urutan goresan dan latihan kanvas interaktif.
@@ -183,7 +183,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
       {/* 2. Top Navigation Tabs: Hiragana vs Katakana & View Switcher */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
         {/* Main Kana Switcher Tabs */}
-        <div className="inline-flex p-1.5 rounded-2xl bg-[#0D1445] border border-[#3978D6]/35 shadow-md">
+        <div className="inline-flex p-1.5 rounded-2xl bg-[#08152F] border border-[#3978D6]/35 shadow-md">
           <button
             onClick={() => {
               sound.playClick();
@@ -226,7 +226,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
         </div>
 
         {/* View Switcher: Tabel Karakter vs Panduan Kaidah */}
-        <div className="inline-flex p-1.5 rounded-xl bg-[#0D1445] border border-[#3978D6]/35 shadow-md">
+        <div className="inline-flex p-1.5 rounded-xl bg-[#08152F] border border-[#3978D6]/35 shadow-md">
           <button
             onClick={() => setActiveViewSection('table')}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
@@ -278,12 +278,12 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                 className={`shrink-0 flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                   activeGroup === tab.id
                     ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/50 shadow-sm'
-                    : 'bg-[#0D1445] hover:bg-[#141C5A] text-[#A9BBD3] hover:text-white border border-[#3978D6]/30'
+                    : 'bg-[#08152F] hover:bg-[#172945] text-[#A9BBD3] hover:text-white border border-[#3978D6]/30'
                 }`}
               >
                 <span>{tab.label}</span>
                 <span className={`px-1.5 py-0.5 rounded-md text-[10px] font-mono font-black ${
-                  activeGroup === tab.id ? 'bg-[#08152F] text-white border border-[#3978D6]/40' : 'bg-white/10 text-[#C4CDED]'
+                  activeGroup === tab.id ? 'bg-[#08152F] text-white border border-[#3978D6]/40' : 'bg-white/10 text-[#A9BBD3]'
                 }`}>
                   {tab.count}
                 </span>
@@ -292,7 +292,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
           </div>
 
           {/* Search & Status Controls */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#0D1445] p-3.5 rounded-2xl border border-[#3978D6]/35 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#08152F] p-3.5 rounded-2xl border border-[#3978D6]/35 shadow-sm">
             {/* Live Search Input */}
             <div className="relative flex-1">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#A9BBD3]" />
@@ -301,7 +301,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                 placeholder="Cari karakter, romaji (mis. 'ka', 'shi'), atau arti kata..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/35 text-xs font-medium text-white placeholder:text-[#8D9BC4] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/50 focus:border-[#3978D6]"
+                className="w-full pl-10 pr-4 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/35 text-xs font-medium text-white placeholder:text-[#7186A5] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/50 focus:border-[#3978D6]"
               />
               {searchQuery && (
                 <button
@@ -325,7 +325,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                   onClick={() => setFilterStatus(status)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold capitalize transition-all ${
                     filterStatus === status
-                      ? 'bg-[#141C58] text-white border border-[#3978D6]/40 shadow-xs'
+                      ? 'bg-[#172945] text-white border border-[#3978D6]/40 shadow-xs'
                       : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/25'
                   }`}
                 >
@@ -349,7 +349,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                   return (
                     <div 
                       key={row.key} 
-                      className="p-3.5 sm:p-4 rounded-2xl bg-[#0B1038] border border-[#3978D6]/30 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-3 hover:border-[#3978D6]/60 transition-colors"
+                      className="p-3.5 sm:p-4 rounded-2xl bg-[#08152F] border border-[#3978D6]/30 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-3 hover:border-[#3978D6]/60 transition-colors"
                     >
                       <div className="w-44 shrink-0">
                         <div className="text-xs font-black text-white">{row.label}</div>
@@ -492,8 +492,8 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
       onClick={onSelect}
       className={`group relative rounded-2xl p-3 sm:p-4 text-center cursor-pointer transition-all duration-200 border flex flex-col justify-between shadow-[0_4px_16px_rgba(8, 21, 47,0.5)] ${
         isLearned
-          ? 'bg-gradient-to-b from-[#0E3528] to-[#0F1648] border-emerald-500/40 hover:border-emerald-400/70 hover:shadow-lg'
-          : 'bg-[#0E1544] border-[#3978D6]/30 hover:border-[#3978D6]/70 hover:bg-[#141D58] hover:shadow-[0_6px_24px_rgba(57, 120, 214,0.25)] hover:-translate-y-0.5'
+          ? 'bg-gradient-to-b from-[#0E3528] to-[#111F38] border-emerald-500/40 hover:border-emerald-400/70 hover:shadow-lg'
+          : 'bg-[#08152F] border-[#3978D6]/30 hover:border-[#3978D6]/70 hover:bg-[#172945] hover:shadow-[0_6px_24px_rgba(57, 120, 214,0.25)] hover:-translate-y-0.5'
       }`}
     >
       {/* Top action row */}

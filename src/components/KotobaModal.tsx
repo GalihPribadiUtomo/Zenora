@@ -111,7 +111,7 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
         {/* Modal Content Scroll Area */}
         <div className="p-6 sm:p-8 space-y-6 max-h-[82vh] overflow-y-auto">
           {/* Main Word Hero Card */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#172945] via-[#223F6D] to-[#1D245E] text-[#F2F6FC] border border-[#3978D6]/35 shadow-md relative overflow-hidden">
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#172945] via-[#223F6D] to-[#172945] text-[#F2F6FC] border border-[#3978D6]/35 shadow-md relative overflow-hidden">
             {/* Watermark Kanji Background */}
             <div className="absolute -right-4 -bottom-6 text-[120px] font-black kanji-font text-white/5 pointer-events-none select-none">
               {word.kanji || word.kana}

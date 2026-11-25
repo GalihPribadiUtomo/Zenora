@@ -110,11 +110,11 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
     <div className="space-y-8 text-left animate-fade-in">
       
       {/* Header Banner */}
-      <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-[#111F38] via-[#172945] to-[#171D50] border border-[#3978D6]/30 shadow-[0_15px_40px_rgba(8, 21, 47,0.8)] overflow-hidden">
+      <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-[#111F38] via-[#172945] to-[#111F38] border border-[#3978D6]/30 shadow-[0_15px_40px_rgba(8, 21, 47,0.8)] overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#3978D6]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#171D50] border border-[#3978D6]/40 text-[#69C9DF] text-xs font-bold font-mono">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111F38] border border-[#3978D6]/40 text-[#69C9DF] text-xs font-bold font-mono">
               <Sparkles className="w-3.5 h-3.5" />
               <span>SISTEM EVALUASI & ANALITIK ZENORA</span>
             </div>
@@ -159,7 +159,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
           <span className="text-2xl font-black text-white font-['Manrope'] mt-1 block">
             {learnedKotoba} <span className="text-xs text-[#7186A5]">/ {totalKotoba}</span>
           </span>
-          <div className="w-full h-1.5 bg-[#171D50] rounded-full overflow-hidden mt-3">
+          <div className="w-full h-1.5 bg-[#111F38] rounded-full overflow-hidden mt-3">
             <div className="h-full bg-gradient-to-r from-[#2456A6] to-[#3978D6]" style={{ width: `${Math.max(4, kotobaPct)}%` }} />
           </div>
         </div>
@@ -181,7 +181,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
           <span className="text-2xl font-black text-white font-['Manrope'] mt-1 block">
             {learnedKanji} <span className="text-xs text-[#7186A5]">/ {totalKanji}</span>
           </span>
-          <div className="w-full h-1.5 bg-[#171D50] rounded-full overflow-hidden mt-3">
+          <div className="w-full h-1.5 bg-[#111F38] rounded-full overflow-hidden mt-3">
             <div className="h-full bg-gradient-to-r from-[#69C9DF] to-[#69C9DF]" style={{ width: `${Math.max(4, kanjiPct)}%` }} />
           </div>
         </div>
@@ -203,7 +203,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
           <span className="text-2xl font-black text-white font-['Manrope'] mt-1 block">
             {learnedKana} <span className="text-xs text-[#7186A5]">/ {totalKana}</span>
           </span>
-          <div className="w-full h-1.5 bg-[#171D50] rounded-full overflow-hidden mt-3">
+          <div className="w-full h-1.5 bg-[#111F38] rounded-full overflow-hidden mt-3">
             <div className="h-full bg-gradient-to-r from-[#FF70C8] to-[#3978D6]" style={{ width: `${Math.max(4, kanaPct)}%` }} />
           </div>
         </div>
@@ -225,7 +225,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
           <span className="text-2xl font-black text-white font-['Manrope'] mt-1 block">
             {avgScore}%
           </span>
-          <div className="w-full h-1.5 bg-[#171D50] rounded-full overflow-hidden mt-3">
+          <div className="w-full h-1.5 bg-[#111F38] rounded-full overflow-hidden mt-3">
             <div className="h-full bg-gradient-to-r from-[#45C6A5] to-[#69C9DF]" style={{ width: `${avgScore}%` }} />
           </div>
         </div>

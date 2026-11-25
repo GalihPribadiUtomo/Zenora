@@ -154,7 +154,7 @@ export const SrsReviewModal: React.FC<SrsReviewModalProps> = ({
               <div className="relative p-8 rounded-3xl bg-[#08152F] border border-[#3978D6]/30 text-center shadow-inner">
                 <button
                   onClick={() => speakJapanese(currentItem.front)}
-                  className="absolute top-4 right-4 p-2 rounded-xl bg-[#172945] hover:bg-[#171D50] text-[#83B7EE] border border-[#3978D6]/30 transition-colors"
+                  className="absolute top-4 right-4 p-2 rounded-xl bg-[#172945] hover:bg-[#111F38] text-[#83B7EE] border border-[#3978D6]/30 transition-colors"
                   title="Putar Audio"
                 >
                   <Volume2 className="w-4 h-4" />

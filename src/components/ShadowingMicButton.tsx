@@ -89,7 +89,7 @@ export const ShadowingMicButton: React.FC<ShadowingMicButtonProps> = ({ targetJa
         className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[11px] font-bold border transition-all ${
           isListening
             ? 'bg-rose-500/20 text-rose-300 border-rose-500/50 animate-pulse'
-            : 'bg-[#172945] hover:bg-[#171D50] text-[#69C9DF] border-[#69C9DF]/30'
+            : 'bg-[#172945] hover:bg-[#111F38] text-[#69C9DF] border-[#69C9DF]/30'
         }`}
         title="Latihan Shadowing (Ucapkan dengan Mikrofon)"
       >

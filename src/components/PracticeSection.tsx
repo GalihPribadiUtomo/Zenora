@@ -733,7 +733,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
           {/* Progress bar */}
           <div className="w-full h-2 rounded-full bg-[#08152F] border border-[#3978D6]/20 overflow-hidden">
             <div 
-              className="h-full bg-gradient-to-r from-[#172945] via-[#1D245E] to-[#3978D6] transition-all duration-300"
+              className="h-full bg-gradient-to-r from-[#172945] via-[#172945] to-[#3978D6] transition-all duration-300"
               style={{ width: `${((currentIdx + 1) / questions.length) * 100}%` }}
             ></div>
           </div>

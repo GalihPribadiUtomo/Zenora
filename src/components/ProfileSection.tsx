@@ -356,7 +356,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           1. PROFILE HERO SECTION (Personal Japanese Learning Dashboard)
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/30 shadow-[0_24px_70px_-15px_rgba(8, 21, 47,0.95),0_0_50px_rgba(57, 120, 214,0.2)] bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#171D50] p-6 sm:p-10">
+      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/30 shadow-[0_24px_70px_-15px_rgba(8, 21, 47,0.95),0_0_50px_rgba(57, 120, 214,0.2)] bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#111F38] p-6 sm:p-10">
         
         {/* Ambient atmospheric lighting */}
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#3978D6]/20 blur-3xl pointer-events-none" />
@@ -452,7 +452,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                 <button
                   onClick={() => { sound.playClick(); onSync(); }}
                   disabled={isSyncing}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#172945] hover:bg-[#1D245E] border border-[#3978D6]/40 text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#172945] hover:bg-[#172945] border border-[#3978D6]/40 text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
                 >
                   <RefreshCw className={`w-4 h-4 text-[#3978D6] ${isSyncing ? 'animate-spin' : ''}`} />
                   <span>{isSyncing ? 'Menyinkronkan...' : 'Sinkron Cloud'}</span>
@@ -1114,7 +1114,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                     sound.playClick();
                     if (onOpenAdminAuth) onOpenAdminAuth();
                   }}
-                  className="px-4 py-2 rounded-xl bg-[#172945] hover:bg-[#171D50] border border-[#3978D6]/40 hover:border-[#3978D6] text-[#F2F6FC] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
+                  className="px-4 py-2 rounded-xl bg-[#172945] hover:bg-[#111F38] border border-[#3978D6]/40 hover:border-[#3978D6] text-[#F2F6FC] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
                 >
                   <Lock className="w-3.5 h-3.5 text-[#69C9DF]" />
                   <span>Verifikasi Akses Admin</span>

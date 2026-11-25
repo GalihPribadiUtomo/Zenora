@@ -52,7 +52,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
       level: 'N2', 
       name: 'Menengah Atas', 
       count: KANJI_DATA.filter(k => k.jlpt === 'N2').length, 
-      color: 'from-[#111F38] to-[#1D245E]', 
+      color: 'from-[#111F38] to-[#172945]', 
       bg: 'bg-[#08152F] text-[#F2F6FC]' 
     },
     { 
@@ -429,7 +429,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                     )}
                     {kanji.kunyomi && kanji.kunyomi !== '—' && (
                       <div className="flex items-center gap-1.5 text-xs text-[#F1F5F9] bg-[#172945]/80 px-2 py-1 rounded-xl border border-[#3978D6]/30 shadow-xs" title={`Kunyomi: ${kanji.kunyomi}`}>
-                        <span className="font-black text-[10px] px-1 py-0.2 rounded bg-[#1D245E] text-[#A8CEFF] border border-[#3978D6]/35 shrink-0">訓</span>
+                        <span className="font-black text-[10px] px-1 py-0.2 rounded bg-[#172945] text-[#A8CEFF] border border-[#3978D6]/35 shrink-0">訓</span>
                         <span className="font-bold font-['Noto_Sans_JP'] tracking-wider truncate text-[#F1F5F9]">{kanji.kunyomi}</span>
                       </div>
                     )}
