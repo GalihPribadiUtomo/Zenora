@@ -26,7 +26,9 @@ import {
   Check,
   Sliders,
   TrendingUp,
-  HardDrive
+  HardDrive,
+  Megaphone,
+  Bell
 } from 'lucide-react';
 import { KOTOBA_DATA } from '../../data/kotobaData';
 import { KANJI_DATA } from '../../data/kanjiData';
@@ -44,7 +46,12 @@ import { loadAllCustomMateri, resetChapterMateri } from '../../utils/materiStora
 import { clearLessonCache } from '../../data/materi';
 import { AdminMateriManager } from './AdminMateriManager';
 import { sound } from '../../utils/audio';
-import type { KotobaItem, KotobaCategory } from '../../types';
+import type { KotobaItem, KotobaCategory, AdminAnnouncement } from '../../types';
+import { 
+  getAdminAnnouncements, 
+  publishAdminAnnouncement, 
+  deleteAdminAnnouncement 
+} from '../../utils/notificationService';
 
 interface AdminSectionProps {
   onBackToApp: () => void;
@@ -59,7 +66,44 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
   onSyncCloud,
   isSyncing = false
 }) => {
-  const [activeAdminTab, setActiveAdminTab] = useState<'overview' | 'materi' | 'kotoba' | 'ssw' | 'cbt' | 'database'>('overview');
+  const [activeAdminTab, setActiveAdminTab] = useState<'overview' | 'materi' | 'kotoba' | 'ssw' | 'cbt' | 'announcements' | 'database'>('overview');
+
+  // Admin Announcements State
+  const [announcements, setAnnouncements] = useState<AdminAnnouncement[]>(() => getAdminAnnouncements());
+  const [newAnnTitle, setNewAnnTitle] = useState('');
+  const [newAnnContent, setNewAnnContent] = useState('');
+  const [newAnnTarget, setNewAnnTarget] = useState<'all' | 'user' | 'admin'>('all');
+  const [newAnnPublish, setNewAnnPublish] = useState(true);
+
+  const handleCreateAnnouncement = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newAnnTitle.trim() || !newAnnContent.trim()) {
+      alert('Mohon isi Judul dan Isi Pengumuman!');
+      return;
+    }
+    sound.playClick();
+    publishAdminAnnouncement({
+      title: newAnnTitle.trim(),
+      content: newAnnContent.trim(),
+      targetRole: newAnnTarget,
+      published: newAnnPublish,
+      author: user?.email || 'Administrator'
+    });
+    setAnnouncements(getAdminAnnouncements());
+    setNewAnnTitle('');
+    setNewAnnContent('');
+    sound.playCorrect();
+    showToast('Pengumuman berhasil dipublikasikan & dikirim ke Notifikasi Pengguna!');
+  };
+
+  const handleDeleteAnnouncement = (id: string) => {
+    if (confirm('Hapus pengumuman ini?')) {
+      sound.playClick();
+      deleteAdminAnnouncement(id);
+      setAnnouncements(getAdminAnnouncements());
+      showToast('Pengumuman dihapus.');
+    }
+  };
 
   // Kotoba CMS State
   const [kotobaList, setKotobaList] = useState<KotobaItem[]>(() => applyCustomKotoba(KOTOBA_DATA));
@@ -243,6 +287,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
             { id: 'kotoba', label: 'Kelola Kosakata (Kotoba)', icon: Layers },
             { id: 'ssw', label: 'Kurikulum SSW (6 Sektor)', icon: Briefcase },
             { id: 'cbt', label: 'Bank Soal Ujian CBT', icon: FileCheck },
+            { id: 'announcements', label: 'Pusat Pengumuman & Notifikasi', icon: Megaphone },
             { id: 'database', label: 'Database & Cadangan', icon: HardDrive }
           ].map((tab) => {
             const Icon = tab.icon;
@@ -614,7 +659,151 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
       )}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          TAB 5: DATABASE & CADANGAN (BACKUP & RESTORE)
+          TAB 5: PUSAT PENGUMUMAN & NOTIFIKASI ADMIN
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {activeAdminTab === 'announcements' && (
+        <div className="space-y-6">
+          <div className="p-6 rounded-3xl bg-[#111F38] border border-[#263D60] space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#263D60]">
+              <div className="flex items-center gap-3">
+                <div className="p-3 rounded-2xl bg-[#2456A6]/20 border border-[#3978D6]/40 text-[#83B7EE]">
+                  <Megaphone className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-[#F2F6FC] font-['Manrope']">Kelola Pengumuman & Notifikasi Pengguna</h3>
+                  <p className="text-xs text-[#A9BBD3]">
+                    Publikasikan pengumuman resmi yang akan langsung dikirimkan ke lonceng notifikasi seluruh pengguna
+                  </p>
+                </div>
+              </div>
+              <span className="px-3 py-1 rounded-full bg-[#3978D6]/20 border border-[#3978D6]/40 text-[#83B7EE] text-xs font-bold font-mono">
+                {announcements.length} Pengumuman Aktif
+              </span>
+            </div>
+
+            {/* Create Announcement Form */}
+            <form onSubmit={handleCreateAnnouncement} className="p-5 rounded-2xl bg-[#08152F] border border-[#263D60] space-y-4">
+              <h4 className="text-sm font-bold text-[#F2F6FC] flex items-center gap-2">
+                <Plus className="w-4 h-4 text-[#3978D6]" />
+                Buat Pengumuman Baru
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="md:col-span-2 space-y-1.5">
+                  <label className="text-xs font-bold text-[#A9BBD3]">Judul Pengumuman</label>
+                  <input
+                    type="text"
+                    value={newAnnTitle}
+                    onChange={(e) => setNewAnnTitle(e.target.value)}
+                    placeholder="Contoh: Jadwal Ujian Tryout JLPT & Update Materi Bab 26"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#111F38] border border-[#263D60] text-sm text-[#F2F6FC] focus:border-[#3978D6]"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-[#A9BBD3]">Target Penerima</label>
+                  <select
+                    value={newAnnTarget}
+                    onChange={(e) => setNewAnnTarget(e.target.value as any)}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#111F38] border border-[#263D60] text-sm text-[#F2F6FC] focus:border-[#3978D6]"
+                  >
+                    <option value="all">Semua Pengguna & Tamu</option>
+                    <option value="user">Pengguna Terdaftar</option>
+                    <option value="admin">Internal Admin</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-[#A9BBD3]">Isi Pengumuman / Pesan</label>
+                <textarea
+                  value={newAnnContent}
+                  onChange={(e) => setNewAnnContent(e.target.value)}
+                  placeholder="Tuliskan isi pengumuman lengkap di sini. Pesan akan tampil di pusat notifikasi pengguna..."
+                  rows={3}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#111F38] border border-[#263D60] text-sm text-[#F2F6FC] focus:border-[#3978D6]"
+                  required
+                />
+              </div>
+
+              <div className="flex items-center justify-between pt-2">
+                <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#A9BBD3]">
+                  <input
+                    type="checkbox"
+                    checked={newAnnPublish}
+                    onChange={(e) => setNewAnnPublish(e.target.checked)}
+                    className="rounded border-[#263D60] text-[#3978D6]"
+                  />
+                  <span>Kirim dan publikasikan seketika (Broadcast Live)</span>
+                </label>
+
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white text-xs font-bold shadow-[0_0_15px_rgba(36,86,166,0.4)] hover:brightness-110 transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <Megaphone className="w-4 h-4" />
+                  <span>Kirim Notifikasi Pengumuman</span>
+                </button>
+              </div>
+            </form>
+
+            {/* Existing Announcements List */}
+            <div className="space-y-3 pt-2">
+              <h4 className="text-sm font-bold text-[#F2F6FC] flex items-center gap-2">
+                <Bell className="w-4 h-4 text-[#83B7EE]" />
+                Daftar Riwayat Pengumuman
+              </h4>
+
+              {announcements.length === 0 ? (
+                <div className="py-8 text-center bg-[#08152F] rounded-2xl border border-[#263D60]">
+                  <p className="text-xs text-[#7186A5]">Belum ada pengumuman yang dibuat oleh Admin.</p>
+                </div>
+              ) : (
+                <div className="space-y-2.5">
+                  {announcements.map((ann) => (
+                    <div
+                      key={ann.id}
+                      className="p-4 rounded-2xl bg-[#08152F] border border-[#263D60] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-[#3978D6]/40 transition-colors"
+                    >
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2.5">
+                          <span className="text-xs font-bold text-[#F2F6FC]">{ann.title}</span>
+                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                            ann.published
+                              ? 'bg-[#45C6A5]/15 text-[#45C6A5] border border-[#45C6A5]/30'
+                              : 'bg-[#7186A5]/15 text-[#7186A5]'
+                          }`}>
+                            {ann.published ? 'Dipublikasikan' : 'Draf'}
+                          </span>
+                          <span className="text-[10px] text-[#7186A5] font-mono">
+                            Target: {ann.targetRole}
+                          </span>
+                        </div>
+                        <p className="text-xs text-[#A9BBD3] line-clamp-2">{ann.content}</p>
+                        <p className="text-[10px] text-[#7186A5]">
+                          Oleh {ann.author} · {new Date(ann.createdAt).toLocaleString('id-ID')}
+                        </p>
+                      </div>
+
+                      <button
+                        onClick={() => handleDeleteAnnouncement(ann.id)}
+                        className="p-2 rounded-xl text-[#7186A5] hover:text-rose-400 hover:bg-[#111F38] transition-colors self-end sm:self-center cursor-pointer"
+                        title="Hapus pengumuman"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          TAB 6: DATABASE & CADANGAN (BACKUP & RESTORE)
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {activeAdminTab === 'database' && (
         <div className="space-y-6">

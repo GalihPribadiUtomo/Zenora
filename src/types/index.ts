@@ -331,3 +331,45 @@ export interface ExamPackage {
   badgeColor: string;
   sections: ExamSection[];
 }
+
+// ==========================================
+// NOTIFICATION & ANNOUNCEMENT SYSTEM
+// ==========================================
+
+export type NotificationCategory = 'reminder' | 'progress' | 'material' | 'announcement' | 'account';
+
+export interface AppNotification {
+  id: string;
+  userId?: string;
+  title: string;
+  message: string;
+  category: NotificationCategory;
+  timestamp: number;
+  read: boolean;
+  linkAction?: {
+    tab: 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik' | 'profil' | 'admin';
+    bab?: number;
+    subTab?: string;
+  };
+  metadata?: Record<string, any>;
+}
+
+export interface NotificationPreferences {
+  studyReminders: boolean;       // Pengingat belajar harian & target
+  progressUpdates: boolean;      // Notifikasi kelulusan bab, latihan, milestone
+  newMaterials: boolean;         // Notifikasi pembaruan materi
+  announcements: boolean;        // Pengumuman umum & admin
+  soundAlerts: boolean;          // Bunyi bel saat ada notifikasi
+  reminderTime: string;          // Format "HH:mm" (e.g. "19:00")
+  browserNotifications: boolean; // Izin Web Notifications API
+}
+
+export interface AdminAnnouncement {
+  id: string;
+  title: string;
+  content: string;
+  targetRole: 'all' | 'user' | 'admin';
+  createdAt: string;
+  published: boolean;
+  author: string;
+}

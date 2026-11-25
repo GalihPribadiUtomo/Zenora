@@ -19,6 +19,7 @@ import { KanjiItem, QuizMode, QuizSubject } from './types';
 import { getInitialStats, saveStats, incrementDailyActivity } from './utils/storage';
 import { supabase, isSupabaseConfigured } from './lib/supabase';
 import { syncAllToCloud, pullAndMergeFromCloud } from './services/syncService';
+import { checkAndGenerateStudyNotifications } from './utils/notificationService';
 import { X, Lock } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
 
@@ -91,6 +92,11 @@ export function App() {
       }
     }
   }, [user?.id]);
+
+  // Check and generate relevant real study & progress notifications
+  useEffect(() => {
+    checkAndGenerateStudyNotifications(stats, user);
+  }, [stats.streakDays, stats.learnedKotobaIds.length, user]);
 
   const handleOpenAdminAuth = () => {
     setAdminAuthModalOpen(true);
@@ -336,6 +342,10 @@ export function App() {
           streakDays={stats.streakDays}
           isAdminMode={isAdminMode}
           onNavigateToAdmin={() => setActiveTab('admin')}
+          onNavigate={(tab, params) => {
+            if (params?.bab) setSelectedBab(params.bab);
+            setActiveTab(tab);
+          }}
         />
 
         {/* MAIN BODY SCROLLABLE CONTAINER */}

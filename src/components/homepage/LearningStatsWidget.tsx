@@ -47,18 +47,18 @@ export const LearningStatsWidget: React.FC<LearningStatsWidgetProps> = ({
   const areaD = `${pathD} L ${chartWidth} ${chartHeight + 10} L 0 ${chartHeight + 10} Z`;
 
   return (
-    <div id="learning-stats-section" className="rounded-3xl p-5 bg-[#0D1238] border border-[#7857FF]/20 shadow-[0_10px_30px_rgba(8,13,43,0.7)] text-left space-y-4">
+    <div id="learning-stats-section" className="rounded-3xl p-5 bg-[#111F38] border border-[#263D60] shadow-[0_10px_30px_rgba(8,21,47,0.7)] text-left space-y-4">
       
       {/* Widget Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <BarChart2 className="w-4 h-4 text-[#7857FF]" />
-          <h4 className="font-black text-sm text-white font-['Manrope']">
+          <BarChart2 className="w-4 h-4 text-[#3978D6]" />
+          <h4 className="font-black text-sm text-[#F2F6FC] font-['Manrope']">
             Statistik Belajar
           </h4>
         </div>
 
-        <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#00D6A3]/15 text-[#00D6A3] border border-[#00D6A3]/30 flex items-center gap-1">
+        <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#45C6A5]/15 text-[#45C6A5] border border-[#45C6A5]/30 flex items-center gap-1">
           <TrendingUp className="w-3 h-3" />
           +24%
         </span>
@@ -70,7 +70,7 @@ export const LearningStatsWidget: React.FC<LearningStatsWidgetProps> = ({
         {/* Active Point Tooltip */}
         {activeDayIndex !== null && (
           <div 
-            className="absolute -top-3 transform -translate-x-1/2 px-2 py-0.5 rounded-md bg-[#7857FF] text-white text-[10px] font-bold shadow-[0_0_10px_rgba(120,87,255,0.6)] pointer-events-none transition-all duration-200"
+            className="absolute -top-3 transform -translate-x-1/2 px-2 py-0.5 rounded-md bg-[#2456A6] text-white text-[10px] font-bold shadow-[0_0_10px_rgba(36,86,166,0.6)] pointer-events-none transition-all duration-200"
             style={{ left: `${(activeDayIndex / (days.length - 1)) * 100}%` }}
           >
             {defaultValues[activeDayIndex]} Skor
@@ -82,22 +82,22 @@ export const LearningStatsWidget: React.FC<LearningStatsWidgetProps> = ({
           <svg viewBox={`0 0 ${chartWidth} ${chartHeight + 10}`} className="w-full h-full overflow-visible">
             <defs>
               <linearGradient id="curveGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#7857FF" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#329BFF" stopOpacity="0.0" />
+                <stop offset="0%" stopColor="#2456A6" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#3978D6" stopOpacity="0.0" />
               </linearGradient>
             </defs>
 
             {/* Gradient Fill under path */}
             <path d={areaD} fill="url(#curveGradient)" />
 
-            {/* Glowing Neon Line */}
+            {/* Glowing Ocean Line */}
             <path
               d={pathD}
               fill="none"
-              stroke="#945CFF"
+              stroke="#3978D6"
               strokeWidth="2.5"
               strokeLinecap="round"
-              className="drop-shadow-[0_0_8px_rgba(148,92,255,0.8)]"
+              className="drop-shadow-[0_0_8px_rgba(57,120,214,0.8)]"
             />
 
             {/* Data points */}
@@ -107,7 +107,7 @@ export const LearningStatsWidget: React.FC<LearningStatsWidgetProps> = ({
                   cx={p.x}
                   cy={p.y}
                   r={activeDayIndex === idx ? 5 : 3}
-                  className={`${activeDayIndex === idx ? 'fill-white stroke-[#329BFF] stroke-2' : 'fill-[#7857FF]'}`}
+                  className={`${activeDayIndex === idx ? 'fill-white stroke-[#69C9DF] stroke-2' : 'fill-[#2456A6]'}`}
                 />
               </g>
             ))}
@@ -115,12 +115,12 @@ export const LearningStatsWidget: React.FC<LearningStatsWidgetProps> = ({
         </div>
 
         {/* Day Labels */}
-        <div className="flex justify-between text-[11px] font-medium text-[#737FA8] pt-2 border-t border-[#7857FF]/15">
+        <div className="flex justify-between text-[11px] font-medium text-[#7186A5] pt-2 border-t border-[#263D60]">
           {days.map((day, idx) => (
             <span 
               key={day}
               onClick={() => setActiveDayIndex(idx)}
-              className={`cursor-pointer transition-colors ${activeDayIndex === idx ? 'text-[#329BFF] font-bold' : 'hover:text-white'}`}
+              className={`cursor-pointer transition-colors ${activeDayIndex === idx ? 'text-[#83B7EE] font-bold' : 'hover:text-[#F2F6FC]'}`}
             >
               {day}
             </span>
@@ -131,13 +131,13 @@ export const LearningStatsWidget: React.FC<LearningStatsWidgetProps> = ({
 
       {/* Mini Stats Summary */}
       <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
-        <div className="p-2 rounded-xl bg-[#12194A]/60 border border-[#7857FF]/15">
-          <span className="text-[10px] text-[#737FA8] block">Total Kosakata</span>
-          <span className="font-black text-white text-sm">{learnedKotobaCount} / 2.910</span>
+        <div className="p-2 rounded-xl bg-[#172945]/70 border border-[#263D60]">
+          <span className="text-[10px] text-[#7186A5] block">Total Kosakata</span>
+          <span className="font-black text-[#F2F6FC] text-sm">{learnedKotobaCount} / 2.910</span>
         </div>
-        <div className="p-2 rounded-xl bg-[#12194A]/60 border border-[#7857FF]/15">
-          <span className="text-[10px] text-[#737FA8] block">Total Kanji</span>
-          <span className="font-black text-[#50C8FF] text-sm">{learnedKanjiCount} / 424</span>
+        <div className="p-2 rounded-xl bg-[#172945]/70 border border-[#263D60]">
+          <span className="text-[10px] text-[#7186A5] block">Total Kanji</span>
+          <span className="font-black text-[#69C9DF] text-sm">{learnedKanjiCount} / 424</span>
         </div>
       </div>
 

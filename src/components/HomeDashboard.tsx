@@ -86,15 +86,15 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
       {/* SECTION 2.5: SMART STUDY HUB (DAILY GOAL, SRS REVIEW, MISTAKE NOTEBOOK) */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* 1. Target Harian */}
-        <div className="p-5 rounded-3xl bg-[#0D1238] border border-[#7857FF]/30 shadow-lg flex flex-col justify-between space-y-3">
+        <div className="p-5 rounded-3xl bg-[#111F38] border border-[#263D60] shadow-lg flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <div className="p-2 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
                 <Target className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-xs font-black text-white">Target Belajar Harian</div>
-                <div className="text-[11px] text-[#A5B2DC]">{todayCount} / {dailyGoal} aktivitas hari ini</div>
+                <div className="text-xs font-black text-[#F2F6FC]">Target Belajar Harian</div>
+                <div className="text-[11px] text-[#A9BBD3]">{todayCount} / {dailyGoal} aktivitas hari ini</div>
               </div>
             </div>
             {dailyPct >= 100 && (
@@ -103,24 +103,24 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               </span>
             )}
           </div>
-          <div className="w-full h-2.5 rounded-full bg-[#080D2B] border border-[#7857FF]/20 overflow-hidden">
+          <div className="w-full h-2.5 rounded-full bg-[#08152F] border border-[#263D60] overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-[#00D6A3] to-[#329BFF] rounded-full transition-all duration-500"
+              className="h-full bg-gradient-to-r from-[#45C6A5] to-[#3978D6] rounded-full transition-all duration-500"
               style={{ width: `${dailyPct}%` }}
             />
           </div>
         </div>
 
         {/* 2. Waktunya Review SRS */}
-        <div className="p-5 rounded-3xl bg-gradient-to-br from-[#0D1238] to-[#141C58] border border-[#7857FF]/35 shadow-lg flex items-center justify-between gap-3">
+        <div className="p-5 rounded-3xl bg-gradient-to-br from-[#111F38] to-[#172945] border border-[#263D60] shadow-lg flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-2xl bg-[#7857FF]/20 border border-[#7857FF]/40 text-[#A77DFF]">
+            <div className="p-2.5 rounded-2xl bg-[#2456A6]/20 border border-[#3978D6]/40 text-[#83B7EE]">
               <Brain className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs font-black text-white">Review Spasi (SRS)</div>
-              <div className="text-[11px] text-[#A5B2DC]">
-                <strong className="text-[#50C8FF]">{dueSrsCount} kartu</strong> siap diulas
+              <div className="text-xs font-black text-[#F2F6FC]">Review Spasi (SRS)</div>
+              <div className="text-[11px] text-[#A9BBD3]">
+                <strong className="text-[#83B7EE]">{dueSrsCount} kartu</strong> siap diulas
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               sound.playClick();
               setSrsOpen(true);
             }}
-            className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#329BFF] text-white text-xs font-bold shadow-md hover:brightness-110 transition-all"
+            className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white text-xs font-bold shadow-md hover:brightness-110 transition-all cursor-pointer"
           >
             <span>Mulai</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -137,14 +137,14 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
         </div>
 
         {/* 3. Buku Catatan Kesalahan */}
-        <div className="p-5 rounded-3xl bg-[#0D1238] border border-rose-500/25 shadow-lg flex items-center justify-between gap-3">
+        <div className="p-5 rounded-3xl bg-[#111F38] border border-rose-500/25 shadow-lg flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-300">
               <BookX className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs font-black text-white">Catatan Kesalahan</div>
-              <div className="text-[11px] text-[#A5B2DC]">
+              <div className="text-xs font-black text-[#F2F6FC]">Catatan Kesalahan</div>
+              <div className="text-[11px] text-[#A9BBD3]">
                 <strong className="text-rose-300">{savedMistakesCount} soal</strong> perlu diulang
               </div>
             </div>
@@ -154,7 +154,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               sound.playClick();
               setMistakesOpen(true);
             }}
-            className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#12194A] hover:bg-[#171D50] text-white border border-rose-500/35 text-xs font-bold transition-all"
+            className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#172945] hover:bg-[#1c3254] text-[#F2F6FC] border border-rose-500/35 text-xs font-bold transition-all cursor-pointer"
           >
             <span>Buka</span>
             <ArrowRight className="w-3.5 h-3.5" />

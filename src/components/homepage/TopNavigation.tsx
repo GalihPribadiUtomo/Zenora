@@ -11,6 +11,8 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { sound } from '../../utils/audio';
+import { NotificationCenterDropdown } from '../NotificationCenterDropdown';
+import { getUnreadCount } from '../../utils/notificationService';
 
 interface TopNavigationProps {
   onOpenSearch: () => void;
@@ -24,6 +26,7 @@ interface TopNavigationProps {
   streakDays?: number;
   isAdminMode?: boolean;
   onNavigateToAdmin?: () => void;
+  onNavigate?: (tab: any, params?: any) => void;
 }
 
 export const TopNavigation: React.FC<TopNavigationProps> = ({
@@ -37,7 +40,8 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
   onOpenMobileMenu,
   streakDays = 0,
   isAdminMode = false,
-  onNavigateToAdmin
+  onNavigateToAdmin,
+  onNavigate
 }) => {
   const [showFurigana, setShowFurigana] = useState<boolean>(() => {
     try {
@@ -46,6 +50,19 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
       return true;
     }
   });
+
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState<number>(() => getUnreadCount(user?.id));
+
+  // Sync unread count reactively
+  useEffect(() => {
+    const updateCount = () => {
+      setUnreadCount(getUnreadCount(user?.id));
+    };
+    updateCount();
+    window.addEventListener('zenora-notifications-changed', updateCount);
+    return () => window.removeEventListener('zenora-notifications-changed', updateCount);
+  }, [user?.id]);
 
   useEffect(() => {
     if (showFurigana) {
@@ -59,7 +76,7 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
   }, [showFurigana]);
 
   return (
-    <header className="sticky top-0 z-30 w-full px-4 sm:px-6 lg:px-8 py-3.5 bg-[#080D2B]/85 backdrop-blur-xl border-b border-[#7857FF]/15">
+    <header className="sticky top-0 z-30 w-full px-4 sm:px-6 lg:px-8 py-3.5 bg-[#08152F]/90 backdrop-blur-xl border-b border-[#263D60]">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         
         {/* Left: Mobile Menu Trigger (hidden on lg) */}
@@ -69,14 +86,14 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
               sound.playClick();
               if (onOpenMobileMenu) onOpenMobileMenu();
             }}
-            className="p-2.5 rounded-2xl bg-[#0D1238] border border-[#7857FF]/25 text-[#AAB3D5] hover:text-white"
+            className="p-2.5 rounded-2xl bg-[#111F38] border border-[#263D60] text-[#A9BBD3] hover:text-[#F2F6FC] transition-colors"
             aria-label="Buka Menu"
           >
             <Menu className="w-5 h-5" />
           </button>
           
           <div className="flex items-center gap-2">
-            <span className="text-lg font-black tracking-wider text-white font-['Manrope']">
+            <span className="text-lg font-black tracking-wider text-[#F2F6FC] font-['Manrope']">
               ZENORA
             </span>
           </div>
@@ -89,16 +106,16 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
               sound.playClick();
               onOpenSearch();
             }}
-            className="group cursor-pointer flex items-center justify-between px-4 py-2.5 rounded-2xl bg-[#0D1238]/90 hover:bg-[#12194A] border border-[#7857FF]/20 hover:border-[#7857FF]/50 shadow-inner transition-all duration-200"
+            className="group cursor-pointer flex items-center justify-between px-4 py-2.5 rounded-2xl bg-[#111F38]/90 hover:bg-[#172945] border border-[#263D60] hover:border-[#3978D6]/60 shadow-inner transition-all duration-200"
           >
-            <div className="flex items-center gap-3 text-sm text-[#737FA8] group-hover:text-[#AAB3D5]">
-              <Search className="w-4 h-4 text-[#7857FF] group-hover:scale-110 transition-transform" />
+            <div className="flex items-center gap-3 text-sm text-[#7186A5] group-hover:text-[#A9BBD3]">
+              <Search className="w-4 h-4 text-[#3978D6] group-hover:scale-110 transition-transform" />
               <span className="hidden sm:inline">Cari materi, kosakata, atau latihan...</span>
               <span className="sm:hidden">Cari materi...</span>
             </div>
 
             <div className="flex items-center gap-1.5">
-              <kbd className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-lg bg-[#171D50] text-[#AAB3D5] text-[11px] font-mono border border-[#7857FF]/30">
+              <kbd className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-lg bg-[#172945] text-[#A9BBD3] text-[11px] font-mono border border-[#263D60]">
                 Ctrl + K
               </kbd>
             </div>
@@ -110,8 +127,8 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
           
           {/* Cloud Sync Status */}
           {isSyncing && (
-            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#7857FF]/15 border border-[#7857FF]/30 text-[11px] text-[#AAB3D5] animate-pulse">
-              <Cloud className="w-3.5 h-3.5 text-[#329BFF]" />
+            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#2456A6]/20 border border-[#3978D6]/40 text-[11px] text-[#A9BBD3] animate-pulse">
+              <Cloud className="w-3.5 h-3.5 text-[#69C9DF]" />
               <span className="hidden md:inline">Syncing...</span>
             </div>
           )}
@@ -124,8 +141,8 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
             }}
             className={`px-3 py-2 rounded-2xl border text-xs font-black transition-all shadow-xs flex items-center gap-1.5 ${
               showFurigana
-                ? 'bg-[#12194A] border-[#7857FF]/45 text-white'
-                : 'bg-[#0D1238] border-[#7857FF]/20 text-[#737FA8] hover:text-white'
+                ? 'bg-[#172945] border-[#3978D6]/50 text-[#F2F6FC]'
+                : 'bg-[#111F38] border-[#263D60] text-[#7186A5] hover:text-[#F2F6FC]'
             }`}
             title={showFurigana ? 'Sembunyikan Furigana (Mode Tantangan Kanji)' : 'Tampilkan Furigana'}
             aria-label="Toggle Furigana"
@@ -141,35 +158,48 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
               setSoundEnabled(next);
               if (next) sound.playCorrect();
             }}
-            className="p-2.5 rounded-2xl bg-[#0D1238] hover:bg-[#12194A] border border-[#7857FF]/20 text-[#AAB3D5] hover:text-white transition-all shadow-xs"
+            className="p-2.5 rounded-2xl bg-[#111F38] hover:bg-[#172945] border border-[#263D60] text-[#A9BBD3] hover:text-[#F2F6FC] transition-all shadow-xs"
             title={soundEnabled ? 'Matikan Suara Audio' : 'Aktifkan Suara Audio'}
             aria-label="Toggle Audio"
           >
             {soundEnabled ? (
-              <Volume2 className="w-4 h-4 text-[#329BFF]" />
+              <Volume2 className="w-4 h-4 text-[#3978D6]" />
             ) : (
-              <VolumeX className="w-4 h-4 text-[#737FA8]" />
+              <VolumeX className="w-4 h-4 text-[#7186A5]" />
             )}
           </button>
 
-          {/* Notification Icon with Badge */}
+          {/* Notification Bell with Functional Center */}
           <div className="relative">
             <button
               onClick={() => {
                 sound.playClick();
-                // Trigger notification info or jump to stats
-                const statsEl = document.getElementById('learning-stats-section');
-                if (statsEl) statsEl.scrollIntoView({ behavior: 'smooth' });
+                setIsNotificationOpen(!isNotificationOpen);
               }}
-              className="p-2.5 rounded-2xl bg-[#0D1238] hover:bg-[#12194A] border border-[#7857FF]/20 text-[#AAB3D5] hover:text-white transition-all shadow-xs"
-              title="Notifikasi Pembelajaran"
-              aria-label="Notifikasi"
+              className={`relative p-2.5 rounded-2xl border transition-all shadow-xs cursor-pointer ${
+                isNotificationOpen
+                  ? 'bg-[#172945] border-[#3978D6] text-white shadow-[0_0_15px_rgba(57,120,214,0.35)]'
+                  : 'bg-[#111F38] hover:bg-[#172945] border-[#263D60] text-[#A9BBD3] hover:text-[#F2F6FC]'
+              }`}
+              title="Pusat Notifikasi Pembelajaran"
+              aria-label="Pusat Notifikasi"
             >
-              <Bell className="w-4 h-4 text-[#AAB3D5]" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#FF70C8] text-white text-[10px] font-black flex items-center justify-center shadow-[0_0_8px_rgba(255,112,200,0.8)]">
-                3
-              </span>
+              <Bell className="w-4 h-4 text-[#A9BBD3]" />
+              {unreadCount > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-[#3978D6] text-white text-[10px] font-black flex items-center justify-center shadow-[0_0_10px_rgba(57,120,214,0.8)] border border-[#08152F]">
+                  {unreadCount > 9 ? '9+' : unreadCount}
+                </span>
+              )}
             </button>
+
+            {/* Notification Center Dropdown */}
+            <NotificationCenterDropdown
+              isOpen={isNotificationOpen}
+              onClose={() => setIsNotificationOpen(false)}
+              userId={user?.id}
+              onNavigate={onNavigate}
+              onOpenSettings={onNavigateToProfile}
+            />
           </div>
 
           {/* Admin Mode Badge Trigger */}
@@ -179,10 +209,10 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
                 sound.playClick();
                 if (onNavigateToAdmin) onNavigateToAdmin();
               }}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#7857FF]/30 to-[#329BFF]/30 border border-[#7857FF]/50 text-white text-xs font-black shadow-[0_0_15px_rgba(120,87,255,0.3)] hover:brightness-110 transition-all cursor-pointer animate-fade-in"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#2456A6]/30 to-[#3978D6]/30 border border-[#3978D6]/50 text-[#F2F6FC] text-xs font-black shadow-[0_0_15px_rgba(36,86,166,0.3)] hover:brightness-110 transition-all cursor-pointer animate-fade-in"
               title="Buka Konsol Administrator"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-[#329BFF]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#3978D6]" />
               <span>CMS ADMIN</span>
             </button>
           )}
@@ -197,13 +227,13 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
                 onOpenAuth();
               }
             }}
-            className="flex items-center gap-2 p-1 pl-1 pr-1.5 sm:pr-3 rounded-2xl bg-[#0D1238] hover:bg-[#12194A] border border-[#7857FF]/25 hover:border-[#7857FF]/50 transition-all group shadow-xs cursor-pointer"
+            className="flex items-center gap-2 p-1 pl-1 pr-1.5 sm:pr-3 rounded-2xl bg-[#111F38] hover:bg-[#172945] border border-[#263D60] hover:border-[#3978D6]/50 transition-all group shadow-xs cursor-pointer"
             title={user ? 'Buka Profil & Pengaturan' : 'Masuk / Daftar Akun'}
           >
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#7857FF] to-[#329BFF] flex items-center justify-center text-white font-black text-sm shadow-[0_0_12px_rgba(120,87,255,0.4)] group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#2456A6] to-[#3978D6] flex items-center justify-center text-white font-black text-sm shadow-[0_0_12px_rgba(36,86,166,0.4)] group-hover:scale-105 transition-transform">
               {user?.email ? user.email.charAt(0).toUpperCase() : 'Z'}
             </div>
-            <span className="hidden sm:inline text-xs font-bold text-[#F5F6FF] max-w-[100px] truncate">
+            <span className="hidden sm:inline text-xs font-bold text-[#F2F6FC] max-w-[100px] truncate">
               {user?.email ? user.email.split('@')[0] : 'Masuk'}
             </span>
           </button>

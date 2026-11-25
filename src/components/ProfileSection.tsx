@@ -37,8 +37,13 @@ import {
 } from 'lucide-react';
 import { KOTOBA_DATA } from '../data/kotobaData';
 import { KANJI_DATA } from '../data/kanjiData';
-import type { UserStats } from '../types';
+import type { UserStats, NotificationPreferences } from '../types';
 import { sound } from '../utils/audio';
+import { 
+  getNotificationPreferences, 
+  saveNotificationPreferences, 
+  requestBrowserNotificationPermission 
+} from '../utils/notificationService';
 
 interface ProfileSectionProps {
   stats: UserStats;
@@ -92,6 +97,32 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
   const [remindersEnabled, setRemindersEnabled] = useState<boolean>(() => {
     return localStorage.getItem('zenora_reminders') !== 'false';
   });
+
+  // Notification Preferences State
+  const [notifPrefs, setNotifPrefs] = useState<NotificationPreferences>(() => getNotificationPreferences());
+  const [browserPermStatus, setBrowserPermStatus] = useState<string>(() => {
+    if (typeof window !== 'undefined' && 'Notification' in window) {
+      return Notification.permission;
+    }
+    return 'unsupported';
+  });
+
+  const handleUpdateNotifPref = (key: keyof NotificationPreferences, value: any) => {
+    sound.playClick();
+    const next = { ...notifPrefs, [key]: value };
+    setNotifPrefs(next);
+    saveNotificationPreferences(next);
+  };
+
+  const handleRequestBrowserPerm = async () => {
+    sound.playClick();
+    const perm = await requestBrowserNotificationPermission();
+    setBrowserPermStatus(perm);
+    const next = { ...notifPrefs, browserNotifications: perm === 'granted' };
+    setNotifPrefs(next);
+    saveNotificationPreferences(next);
+    if (perm === 'granted') sound.playCorrect();
+  };
 
   const handleSetDailyGoal = (mins: number) => {
     sound.playClick();
@@ -868,7 +899,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                 <button
                   onClick={() => { sound.playClick(); onSync(); }}
                   disabled={isSyncing}
-                  className="px-4 py-2 rounded-xl bg-[#7857FF] hover:bg-[#945CFF] text-white text-xs font-bold shadow-md transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-white text-xs font-bold shadow-md transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin' : ''}`} />
                   <span>{isSyncing ? 'Menyinkron...' : 'Sinkron Sekarang'}</span>
@@ -876,9 +907,155 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               ) : (
                 <button
                   onClick={() => { sound.playClick(); onOpenAuth(); }}
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#329BFF] text-white text-xs font-bold shadow-md transition-all cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white text-xs font-bold shadow-md transition-all cursor-pointer"
                 >
                   Masuk Sekarang
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Group D: Pengaturan Notifikasi & Pengingat */}
+          <div className="p-6 space-y-5 border-t border-[#263D60]">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-[#2456A6]/20 border border-[#3978D6]/40 text-[#83B7EE]">
+                  <Bell className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-black text-[#F2F6FC] font-['Manrope']">Pengaturan Notifikasi & Pengingat</h3>
+                  <p className="text-xs text-[#A9BBD3]">Atur pengingat belajar harian, pencapaian milestone, dan preferensi suara</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+              {/* 1. Pengingat Belajar */}
+              <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-[#F2F6FC]">Pengingat Belajar Harian</p>
+                  <p className="text-[11px] text-[#7186A5]">Notifikasi jika target belajar belum terpenuhi</p>
+                </div>
+                <button
+                  onClick={() => handleUpdateNotifPref('studyReminders', !notifPrefs.studyReminders)}
+                  className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
+                    notifPrefs.studyReminders ? 'bg-[#3978D6]' : 'bg-[#172945]'
+                  }`}
+                >
+                  <span className={`block w-4 h-4 rounded-full bg-white transition-transform ${
+                    notifPrefs.studyReminders ? 'translate-x-6' : 'translate-x-1'
+                  }`} />
+                </button>
+              </div>
+
+              {/* 2. Progres Belajar */}
+              <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-[#F2F6FC]">Pemberitahuan Progres & Streak</p>
+                  <p className="text-[11px] text-[#7186A5]">Pencapaian milestone, streak hari, dan ujian</p>
+                </div>
+                <button
+                  onClick={() => handleUpdateNotifPref('progressUpdates', !notifPrefs.progressUpdates)}
+                  className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
+                    notifPrefs.progressUpdates ? 'bg-[#3978D6]' : 'bg-[#172945]'
+                  }`}
+                >
+                  <span className={`block w-4 h-4 rounded-full bg-white transition-transform ${
+                    notifPrefs.progressUpdates ? 'translate-x-6' : 'translate-x-1'
+                  }`} />
+                </button>
+              </div>
+
+              {/* 3. Materi Baru */}
+              <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-[#F2F6FC]">Pembaruan Materi</p>
+                  <p className="text-[11px] text-[#7186A5]">Info penambahan bab baru atau soal latihan</p>
+                </div>
+                <button
+                  onClick={() => handleUpdateNotifPref('newMaterials', !notifPrefs.newMaterials)}
+                  className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
+                    notifPrefs.newMaterials ? 'bg-[#3978D6]' : 'bg-[#172945]'
+                  }`}
+                >
+                  <span className={`block w-4 h-4 rounded-full bg-white transition-transform ${
+                    notifPrefs.newMaterials ? 'translate-x-6' : 'translate-x-1'
+                  }`} />
+                </button>
+              </div>
+
+              {/* 4. Pengumuman Sistem */}
+              <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-[#F2F6FC]">Pengumuman Admin & Komunitas</p>
+                  <p className="text-[11px] text-[#7186A5]">Informasi jadwal ujian, tips belajar, dan server</p>
+                </div>
+                <button
+                  onClick={() => handleUpdateNotifPref('announcements', !notifPrefs.announcements)}
+                  className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
+                    notifPrefs.announcements ? 'bg-[#3978D6]' : 'bg-[#172945]'
+                  }`}
+                >
+                  <span className={`block w-4 h-4 rounded-full bg-white transition-transform ${
+                    notifPrefs.announcements ? 'translate-x-6' : 'translate-x-1'
+                  }`} />
+                </button>
+              </div>
+            </div>
+
+            {/* Jam Pengingat & Izin Browser */}
+            <div className="p-4 rounded-2xl bg-[#111F38] border border-[#263D60] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <Clock className="w-5 h-5 text-[#83B7EE]" />
+                <div>
+                  <p className="text-xs font-bold text-[#F2F6FC]">Waktu Pengingat Belajar</p>
+                  <p className="text-[11px] text-[#7186A5]">Pilih waktu harian yang paling nyaman untuk Anda</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                {['07:00', '12:00', '18:00', '19:00', '20:00', '21:00'].map((timeStr) => (
+                  <button
+                    key={timeStr}
+                    onClick={() => handleUpdateNotifPref('reminderTime', timeStr)}
+                    className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                      notifPrefs.reminderTime === timeStr
+                        ? 'bg-[#2456A6] text-white shadow-[0_0_10px_rgba(36,86,166,0.6)]'
+                        : 'bg-[#172945] text-[#A9BBD3] hover:text-white border border-[#263D60]'
+                    }`}
+                  >
+                    {timeStr}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Web Browser Notification API Status & Button */}
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-[#102447] to-[#172945] border border-[#3978D6]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#69C9DF]" />
+                  <p className="text-xs font-bold text-[#F2F6FC]">Izin Browser (Web Notification API)</p>
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                    browserPermStatus === 'granted'
+                      ? 'bg-[#45C6A5]/20 text-[#45C6A5] border border-[#45C6A5]/40'
+                      : browserPermStatus === 'denied'
+                      ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40'
+                      : 'bg-[#E9BD72]/20 text-[#E9BD72] border border-[#E9BD72]/40'
+                  }`}>
+                    {browserPermStatus === 'granted' ? 'Diizinkan' : browserPermStatus === 'denied' ? 'Diblokir' : 'Belum Diatur'}
+                  </span>
+                </div>
+                <p className="text-[11px] text-[#A9BBD3] mt-1">
+                  Memungkinkan notifikasi langsung muncul di desktop/laptop Anda bahkan saat ZENORA tidak sedang dibuka di tab aktif.
+                </p>
+              </div>
+
+              {browserPermStatus !== 'granted' && browserPermStatus !== 'unsupported' && (
+                <button
+                  onClick={handleRequestBrowserPerm}
+                  className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white text-xs font-bold shadow-[0_0_12px_rgba(36,86,166,0.5)] hover:brightness-110 transition-all cursor-pointer whitespace-nowrap"
+                >
+                  Minta Izin Notifikasi
                 </button>
               )}
             </div>

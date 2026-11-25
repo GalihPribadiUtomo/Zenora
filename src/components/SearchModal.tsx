@@ -165,21 +165,21 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 sm:pt-20 bg-[#080D2B]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 sm:pt-20 bg-[#08152F]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
       onClick={onClose}
     >
       {/* Modal Dialog */}
       <div 
-        className="relative w-full max-w-3xl rounded-3xl bg-[#0D1238] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#7857FF]/35 text-[#F5F6FF] overflow-hidden flex flex-col max-h-[85vh] text-left animate-modal-pop"
+        className="relative w-full max-w-3xl rounded-3xl bg-[#111F38] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#263D60] text-[#F2F6FC] overflow-hidden flex flex-col max-h-[85vh] text-left animate-modal-pop"
         onClick={(e) => e.stopPropagation()}
       >
         
         {/* Top Gradient Header Accent */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#080D2B] via-[#7857FF] to-[#F5F6FF]"></div>
+        <div className="h-1.5 w-full bg-gradient-to-r from-[#08152F] via-[#2456A6] to-[#69C9DF]"></div>
 
         {/* Search Bar Input Row */}
-        <div className="flex items-center gap-3 px-5 sm:px-6 py-4 border-b border-[#7857FF]/20 bg-[#0D1238]/90">
-          <Search className="w-5 h-5 text-[#7857FF] shrink-0" />
+        <div className="flex items-center gap-3 px-5 sm:px-6 py-4 border-b border-[#263D60] bg-[#111F38]/90">
+          <Search className="w-5 h-5 text-[#3978D6] shrink-0" />
           
           <input
             ref={inputRef}
@@ -192,7 +192,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               }
             }}
             placeholder="Cari kata, kanji, kana, romaji, arti, bab (contoh: tabemasu, 日, あ, Bab 3)..."
-            className="w-full text-sm sm:text-base font-semibold focus:outline-hidden text-[#F5F6FF] placeholder-[#737FA8] font-['Manrope']"
+            className="w-full text-sm sm:text-base font-semibold focus:outline-hidden text-[#F2F6FC] placeholder-[#7186A5] font-['Manrope'] bg-transparent"
             autoFocus
           />
 
@@ -202,13 +202,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                 setQuery('');
                 inputRef.current?.focus();
               }}
-              className="p-1.5 text-[#737FA8] hover:text-[#F5F6FF] hover:bg-[#080D2B] rounded-xl transition-colors"
+              className="p-1.5 text-[#7186A5] hover:text-[#F2F6FC] hover:bg-[#08152F] rounded-xl transition-colors cursor-pointer"
               title="Bersihkan input pencarian"
             >
               <X className="w-4 h-4" />
             </button>
           ) : (
-            <kbd className="hidden sm:inline-flex items-center text-[10px] font-mono bg-[#080D2B] text-[#737FA8] px-2 py-1 rounded-lg border border-[#7857FF]/25 shadow-2xs">
+            <kbd className="hidden sm:inline-flex items-center text-[10px] font-mono bg-[#08152F] text-[#7186A5] px-2 py-1 rounded-lg border border-[#263D60] shadow-2xs">
               ESC
             </kbd>
           )}
@@ -216,18 +216,18 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
         {/* Filter Category Tabs (Active only when searching) */}
         {q && (
-          <div className="flex items-center gap-1.5 px-4 sm:px-6 py-2.5 bg-[#080D2B]/60 border-b border-[#7857FF]/20 overflow-x-auto text-xs font-bold">
+          <div className="flex items-center gap-1.5 px-4 sm:px-6 py-2.5 bg-[#08152F]/60 border-b border-[#263D60] overflow-x-auto text-xs font-bold">
             <button
               onClick={() => setActiveTab('semua')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                 activeTab === 'semua'
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                  : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
               }`}
             >
               <span>Semua</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                activeTab === 'semua' ? 'bg-[#080D2B]/50 text-[#7857FF]' : 'bg-[#080D2B] text-[#737FA8]'
+                activeTab === 'semua' ? 'bg-[#08152F]/70 text-[#83B7EE]' : 'bg-[#08152F] text-[#7186A5]'
               }`}>
                 {totalResults}
               </span>
@@ -235,16 +235,16 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
             <button
               onClick={() => setActiveTab('kanji')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                 activeTab === 'kanji'
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                  : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
               }`}
             >
               <PenTool className="w-3.5 h-3.5" />
               <span>Kanji</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                activeTab === 'kanji' ? 'bg-[#080D2B]/50 text-[#7857FF]' : 'bg-[#080D2B] text-[#737FA8]'
+                activeTab === 'kanji' ? 'bg-[#08152F]/70 text-[#83B7EE]' : 'bg-[#08152F] text-[#7186A5]'
               }`}>
                 {kanjiMatches.length}
               </span>
@@ -252,16 +252,16 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
             <button
               onClick={() => setActiveTab('kotoba')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                 activeTab === 'kotoba'
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                  : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
               }`}
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>Kosakata</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                activeTab === 'kotoba' ? 'bg-[#080D2B]/50 text-[#7857FF]' : 'bg-[#080D2B] text-[#737FA8]'
+                activeTab === 'kotoba' ? 'bg-[#08152F]/70 text-[#83B7EE]' : 'bg-[#08152F] text-[#7186A5]'
               }`}>
                 {kotobaMatches.length}
               </span>
@@ -269,16 +269,16 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
             <button
               onClick={() => setActiveTab('kana')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                 activeTab === 'kana'
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                  : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
               }`}
             >
               <Languages className="w-3.5 h-3.5" />
               <span>Kana (Aksara)</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                activeTab === 'kana' ? 'bg-[#080D2B]/50 text-[#7857FF]' : 'bg-[#080D2B] text-[#737FA8]'
+                activeTab === 'kana' ? 'bg-[#08152F]/70 text-[#83B7EE]' : 'bg-[#08152F] text-[#7186A5]'
               }`}>
                 {kanaMatches.length}
               </span>

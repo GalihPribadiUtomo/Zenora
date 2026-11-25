@@ -184,27 +184,27 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#080D2B]/85 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#08152F]/85 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-md rounded-3xl bg-[#0D1238] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#7857FF]/35 text-[#F5F6FF] overflow-hidden text-left animate-modal-pop"
+        className="relative w-full max-w-md rounded-3xl bg-[#111F38] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#263D60] text-[#F2F6FC] overflow-hidden text-left animate-modal-pop"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Accent Bar */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#080D2B] via-[#7857FF] to-[#F5F6FF]" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-[#08152F] via-[#2456A6] to-[#69C9DF]" />
 
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#7857FF]/20 bg-[#0D1238]/90">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#263D60] bg-[#111F38]/90">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/30 flex items-center justify-center shadow-xs">
-              <Database className="w-4 h-4 text-[#7857FF]" />
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/30 flex items-center justify-center shadow-xs">
+              <Database className="w-4 h-4 text-white" />
             </div>
             <div>
-              <h3 className="text-base font-black text-[#F5F6FF] font-['Manrope']">
+              <h3 className="text-base font-black text-[#F2F6FC] font-['Manrope']">
                 {tab === 'config' ? 'Konfigurasi Database Cloud' : 'Akun Pembelajar ZENORA'}
               </h3>
-              <p className="text-xs text-[#737FA8]">
+              <p className="text-xs text-[#7186A5]">
                 {tab === 'config' 
                   ? 'Hubungkan ke Supabase PostgreSQL' 
                   : 'Sinkronisasi progres belajar Anda di semua perangkat'}
@@ -214,7 +214,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl hover:bg-[#080D2B] text-[#737FA8] hover:text-[#F5F6FF] transition-colors"
+            className="p-1.5 rounded-xl hover:bg-[#08152F] text-[#7186A5] hover:text-[#F2F6FC] transition-colors cursor-pointer"
             aria-label="Tutup jendela"
           >
             <X className="w-5 h-5" />
@@ -222,14 +222,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex items-center justify-between p-1 mx-6 mt-4 bg-[#080D2B]/60 rounded-2xl border border-[#7857FF]/25">
+        <div className="flex items-center justify-between p-1 mx-6 mt-4 bg-[#08152F]/70 rounded-2xl border border-[#263D60]">
           <button
             type="button"
             onClick={() => { setTab('signin'); setErrorMessage(''); }}
-            className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all ${
+            className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
               tab === 'signin'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                : 'text-[#7186A5] hover:text-[#F2F6FC]'
             }`}
           >
             Masuk
@@ -237,10 +237,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           <button
             type="button"
             onClick={() => { setTab('signup'); setErrorMessage(''); }}
-            className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all ${
+            className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
               tab === 'signup'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                : 'text-[#7186A5] hover:text-[#F2F6FC]'
             }`}
           >
             Daftar Baru
@@ -248,10 +248,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           <button
             type="button"
             onClick={() => { setTab('config'); setErrorMessage(''); }}
-            className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 ${
+            className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer ${
               tab === 'config'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs font-black'
-                : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs font-black'
+                : 'text-[#7186A5] hover:text-[#F2F6FC]'
             }`}
           >
             <Database className="w-3 h-3" />
