@@ -1,86 +1,164 @@
 import type { ChapterLesson } from '../../types';
 
 export const lessonData: ChapterLesson = {
-  "bab": 44,
-  "title": "Berlebihan (~すぎます) & Kemudahan",
-  "subTitle": "過度・難易（〜やすい・にくい）",
-  "summary": "Tindakan melampaui batas (〜すぎます), serta kemudahan atau kesulitan melakukan sesuatu (〜やすい / 〜にくい).",
-  "polaKalimat": [
+  bab: 44,
+  title: "Terlalu (〜すぎる), Mudah/Susah (〜やすい/にくい) & Menjadikan",
+  subTitle: "この ズボンは 少し 長すぎます・程度と変化",
+  summary: "Menyatakan batas berlebihan (〜すぎます), kemudahan atau kesulitan sifat suatu objek (〜やすい / 〜にくい), serta tindakan mengubah sifat keadaan secara sadar (〜く / 〜に します).",
+  polaKalimat: [
     {
-      "id": 1,
-      "japanese": "第44課の 基本文型 1 です。",
-      "romaji": "Dai-44-ka no kihon bunkei 1 desu.",
-      "indonesian": "Pola kalimat dasar ke-1 Bab 44: Penguasaan kaidah Berlebihan (~すぎます) & Kemudahan."
+      id: 1,
+      japanese: "きのう お酒を 飲みすぎました。",
+      romaji: "Kinou osake o nomisugimashita.",
+      indonesian: "Kemarin saya minum alkohol terlalu banyak (berlebihan)."
     },
     {
-      "id": 2,
-      "japanese": "第44課の 基本文型 2 です。",
-      "romaji": "Dai-44-ka no kihon bunkei 2 desu.",
-      "indonesian": "Pola kalimat dasar ke-2 Bab 44: Variasi penerapan kaidah Berlebihan (~すぎます) & Kemudahan."
-    }
-  ],
-  "contohKalimat": [
-    {
-      "id": 1,
-      "question": "第44課の ポイントは 何ですか。",
-      "answer": "……Tindakan melampaui batas (〜すぎます), serta kemudahan atau kesulitan melakukan sesuatu (〜やすい / 〜にくい).",
-      "romaji": "Dai-44-ka no pointo wa nan desu ka? ... 過度・難易（〜やすい・にくい）",
-      "indonesian": "Apa fokus utama Bab 44? ... Tindakan melampaui batas (〜すぎます), serta kemudahan atau kesulitan melakukan sesuatu (〜やすい / 〜にくい)."
+      id: 2,
+      japanese: "この パソコンは とても 使いやすいです。",
+      romaji: "Kono pasokon wa totemo tsukaiyasui desu.",
+      indonesian: "Komputer ini sangat mudah digunakan."
     },
     {
-      "id": 2,
-      "question": "例文の 練習を しましょう。",
-      "answer": "……はい、しっかり 練習します。",
-      "romaji": "Reibun no renshuu o shimashou. ... Hai, shikkari renshuu shimasu.",
-      "indonesian": "Mari berlatih contoh kalimat. ... Ya, kami akan berlatih dengan sungguh-sungguh."
+      id: 3,
+      japanese: "その 漢字は 画数が 多すぎて、覚えにくいです。",
+      romaji: "Sono kanji wa kakusuu ga oosugite, oboenikui desu.",
+      indonesian: "Kanji itu coretannya terlalu banyak sehingga sulit dihafalkan."
+    },
+    {
+      id: 4,
+      japanese: "テレビの 音を 小さく して ください。",
+      romaji: "Terebi no oto o chiisaku shite kudasai.",
+      indonesian: "Tolong kecilkan volume suara televisinya (jadikan kecil)."
     }
   ],
-  "percakapan": {
-    "title": "第44課の会話: 過度・難易（〜やすい・にくい）",
-    "situasi": "Percakapan praktis Bab 44 dalam situasi kehidupan dan budaya Jepang.",
-    "tokoh": [
-      "ミラー",
-      "佐藤",
-      "山田"
-    ],
-    "dialogs": [
+  contohKalimat: [
+    {
+      id: 1,
+      question: "どう したんですか。おなかが 痛いんですか。",
+      answer: "……ええ、昼ご飯を 食べすぎたんです。",
+      romaji: "Dou shitan desu ka? Onaka ga itai ndesu ka. ... Ee, hirugohan o tabesugita ndesu.",
+      indonesian: "Ada apa? Apakah sakit perut? ... Ya, saya makan siang terlalu kekenyangan."
+    },
+    {
+      id: 2,
+      question: "どうして この 部屋を 借りないんですか。",
+      answer: "……家賃が 高すぎるからです。",
+      romaji: "Doushite kono heya o karinai ndesu ka? ... Yachin ga takasugiru kara desu.",
+      indonesian: "Kenapa tidak menyewa kamar ini? ... Karena harga sewanya terlalu mahal."
+    },
+    {
+      id: 3,
+      question: "日本の 電車は 乗りやすいですか。",
+      answer: "……ええ、案内が 英語でも 書いて あるので、乗りやすいです。",
+      romaji: "Nihon no densha wa noriyasui desu ka? ... Ee, annai ga eigo de mo kaite aru node, noriyasui desu.",
+      indonesian: "Apakah kereta di Jepang mudah dinaiki? ... Ya, karena petunjuknya tertulis juga dalam bahasa Inggris, jadi mudah dinaiki."
+    },
+    {
+      id: 4,
+      question: "今夜の 予定は どう しますか。",
+      answer: "……あした 早いので、晩ご飯は 簡単な ものに します。",
+      romaji: "Konya no yotei wa dou shimasu ka? ... Ashita hayai node, bangohan wa kantan na mono ni shimasu.",
+      indonesian: "Rencana malam ini bagaimana? ... Karena besok bangun pagi, makan malamnya kita pilih yang simpel saja."
+    }
+  ],
+  percakapan: {
+    title: "この ズボンは 少し 長すぎます (Celana Ini Sedikit Terlalu Panjang)",
+    situasi: "Miller-san sedang mencoba celana atau menata model rambut di toko dan meminta petugas melakukan penyesuaian ukuran/potongan.",
+    tokoh: ["ミラー", "店員"],
+    dialogs: [
       {
-        "speaker": "ミラー",
-        "role": "Tokoh",
-        "japanese": "すみません、第44課の 表現を 教えて いただけませんか。",
-        "romaji": "Sumimasen, dai-44-ka no hyougen o oshiete itadakemasen ka.",
-        "indonesian": "Permisi, bisakah Anda mengajarkan saya ungkapan Bab 44?"
+        speaker: "店員",
+        role: "Pelayan Toko",
+        japanese: "お客様、サイズは いかがですか。",
+        romaji: "Okyakusama, saizu wa ikaga desu ka.",
+        indonesian: "Tuan pelanggan, bagaimana ukurannya?"
       },
       {
-        "speaker": "佐藤",
-        "role": "Tokoh",
-        "japanese": "ええ、喜んで。一緒に 楽しく 会話を 練習しましょう！",
-        "romaji": "Ee, yorokonde. Issho ni tanoshiku kaiwa o renshuu shimashou!",
-        "indonesian": "Tentu dengan senang hati. Mari berlatih percakapan bersama!"
+        speaker: "ミラー",
+        role: "Pembeli",
+        japanese: "うーん、色は とても 綺麗なんですが、この ズボンは 少し 長すぎますね。",
+        romaji: "Uun, iro wa totemo kirei nandesu ga, kono zubon wa sukoshi nagasugimasu ne.",
+        indonesian: "Hmm... warnanya bagus sekali sih, tapi celana ini sedikit terlalu panjang ya."
+      },
+      {
+        speaker: "店員",
+        role: "Pelayan Toko",
+        japanese: "では、すそを 短く しましょうか。どれぐらい 切りましょうか。",
+        romaji: "Dewa, suso o mijikaku shimashou ka. Doregurai kirimashou ka.",
+        indonesian: "Kalau begitu, bagaimana kalau bagian bawahnya kita pendekkan? Kira-kira dipotong seberapa banyak?"
+      },
+      {
+        speaker: "ミラー",
+        role: "Pembeli",
+        japanese: "そうですね。3センチぐらい 短く して ください。",
+        romaji: "Sou desu ne. Sansenchi gurai mijikaku shite kudasai.",
+        indonesian: "Hmm... tolong pendekkan sekitar 3 sentimeter."
+      },
+      {
+        speaker: "店員",
+        role: "Pelayan Toko",
+        japanese: "かしこまりました。30分ほどで 仕上がりますので、5時に お越し ください。",
+        romaji: "Kashikomarimashita. Sanjuppun hodo de shiagarimasu node, goji ni okoshi kudasai.",
+        indonesian: "Baik, saya mengerti. Akan selesai dikerjakan sekitar 30 menit, jadi silakan kembali lagi pukul 5."
       }
     ]
   },
-  "tataBahasa": [
+  tataBahasa: [
     {
-      "point": 1,
-      "title": "Kaidah Tata Bahasa Inti Bab 44",
-      "polaFormat": "[過度・難易（〜やすい・にくい）]",
-      "explanation": "Tindakan melampaui batas (〜すぎます), serta kemudahan atau kesulitan melakukan sesuatu (〜やすい / 〜にくい).",
-      "examples": [
+      point: 1,
+      title: "Menyatakan Berlebihan (Terlalu): 〜すぎます",
+      polaFormat: "KK (hilang ます) + すぎます / KS-い (hilang い) + すぎます / KS-な + すぎます",
+      explanation: "Menunjukkan suatu tingkat aksi atau keadaan yang melewati batas wajar atau bernuansa negatif ('Terlalu... / Kebanyakan...'). Kata kerja「〜すぎます」bertindak sebagai Kata Kerja Golongan II.",
+      examples: [
         {
-          "japanese": "第44課の 文法例文です。",
-          "romaji": "Dai-44-ka no bunpou reibun desu.",
-          "indonesian": "Contoh kalimat tata bahasa untuk Bab 44."
+          japanese: "ゲームを やりすぎました。",
+          romaji: "Geemu o yarisugimashita.",
+          indonesian: "Bermain game terlalu lama / berlebihan."
+        },
+        {
+          japanese: "この スープは 辛すぎます。",
+          romaji: "Kono suupu wa karasugimasu.",
+          indonesian: "Sup ini terlalu pedas."
+        }
+      ]
+    },
+    {
+      point: 2,
+      title: "Menyatakan Mudah / Sulit: KK Bentuk-Masu + やすい / にくい",
+      polaFormat: "KK (hilang ます) + やすいです (Mudah...) / にくいです (Sulit/Susah...)",
+      explanation: "Menunjukkan sifat objektif atau kelayakan suatu benda/situasi ketika dilakukan ('Mudah ditulis', 'Susah pecah', 'Mudah dimengerti', 'Susah diucapkan'). Keduanya berfungsi layaknya Kata Sifat い.",
+      examples: [
+        {
+          japanese: "先生の 説明は とても 分かりやすいです。",
+          romaji: "Sensei no setsumei wa totemo wakariyasui desu.",
+          indonesian: "Penjelasan guru sangat mudah dipahami."
+        },
+        {
+          japanese: "この 靴は 歩きにくいです。",
+          romaji: "Kono kutsu wa arukinikui desu.",
+          indonesian: "Sepatu ini tidak enak/susah dipakai berjalan."
+        }
+      ]
+    },
+    {
+      point: 3,
+      title: "Mengubah Keadaan Secara Sadar: 〜く / 〜に します",
+      polaFormat: "KS-い (hilang い) + く します / KS-な・KB + に します",
+      explanation: "Berbeda dengan「〜く/に なります」(berubah dengan sendirinya), pola「〜く/に します」berarti ada pelaku manusia yang sengaja mengubah sifat atau memilih sesuatu ('Membuat jadi lebih...'). Juga dipakai saat memesan menu makanan/pilihan:「コーヒーに します」(Saya pilih kopi saja).",
+      examples: [
+        {
+          japanese: "部屋を 綺麗に しました。",
+          romaji: "Heya o kirei ni shimashita.",
+          indonesian: "Membersihkan kamar (membuat kamar jadi bersih)."
         }
       ]
     }
   ],
-  "referensiInfo": {
-    "title": "Informasi Budaya & Wawasan Bab 44",
-    "description": "Panduan praktis konteks komunikasi Bab 44 dalam etika masyarakat Jepang.",
-    "notes": [
-      "Latihlah pola kalimat secara lisan dengan audio interaktif.",
-      "Hubungkan kosakata bab ini dengan pola tata bahasa yang sedang dipelajari."
+  referensiInfo: {
+    title: "Wawasan Budaya: Layanan Alterasi Pakaian (お直し) di Toko Jepang",
+    description: "Di Jepang, hampir seluruh toko pakaian dan department store menyediakan layanan gratis atau berbiaya sangat murah untuk memotong ujung celana (裾上げ - susoage) sesuai tinggi badan pembeli.",
+    notes: [
+      "Ketika memesan di restoran, pola「わたしは 天ぷらに します」adalah cara paling alami mengatakan 'Saya pesan tempura'."
     ]
   }
 };

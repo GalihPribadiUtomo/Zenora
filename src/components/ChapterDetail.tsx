@@ -10,6 +10,9 @@ import {
   Award,
   Search,
   BookOpen,
+  Braces,
+  MessageSquareText,
+  MessagesSquare,
   Pencil,
   Trash2,
   FileText,
@@ -75,18 +78,28 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   const [editingWord, setEditingWord] = useState<KotobaItem | null>(null);
   const [deletingWord, setDeletingWord] = useState<KotobaItem | null>(null);
 
-  // Load lesson dynamically per chapter
+  // Load lesson dynamically per chapter and listen to admin updates
   useEffect(() => {
     let isMounted = true;
-    setIsLoadingLesson(true);
-    loadChapterLesson(bab).then((data) => {
-      if (isMounted) {
-        setLesson(data);
-        setIsLoadingLesson(false);
-      }
-    });
+    const fetchLesson = () => {
+      setIsLoadingLesson(true);
+      loadChapterLesson(bab).then((data) => {
+        if (isMounted) {
+          setLesson(data);
+          setIsLoadingLesson(false);
+        }
+      });
+    };
+    fetchLesson();
+
+    const handleUpdate = () => {
+      fetchLesson();
+    };
+    window.addEventListener('zenora_materi_updated', handleUpdate);
+
     return () => {
       isMounted = false;
+      window.removeEventListener('zenora_materi_updated', handleUpdate);
     };
   }, [bab]);
 
@@ -259,7 +272,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
       {/* Bunkei / Pola Kalimat */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#7857FF]" />
+          <Braces className="w-5 h-5 text-[#7857FF]" />
           <h3 className="text-lg font-black text-[#F5F6FF] uppercase tracking-wider font-['Manrope']">
             文型 · Pola Kalimat Inti (Bunkei)
           </h3>
@@ -302,7 +315,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
       {/* Reibun / Contoh Kalimat */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#7857FF]" />
+          <MessageSquareText className="w-5 h-5 text-[#329BFF]" />
           <h3 className="text-xl font-black text-[#F5F6FF] uppercase tracking-wider font-['Manrope']">
             例文 · Contoh Kalimat Tanya-Jawab (Reibun)
           </h3>
@@ -951,7 +964,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               : 'bg-[#0D1238]/90 hover:bg-[#12194A] text-[#AAB3D5] hover:text-white border border-[#7857FF]/20'
           }`}
         >
-          <FileText className={`w-4 h-4 ${sectionTab === 'bunkei' ? 'text-white' : 'text-[#7857FF]'}`} />
+          <Braces className={`w-4 h-4 ${sectionTab === 'bunkei' ? 'text-white' : 'text-[#7857FF]'}`} />
           <span>文型・例文 Pola & Contoh</span>
         </button>
 
@@ -967,7 +980,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               : 'bg-[#0D1238]/90 hover:bg-[#12194A] text-[#AAB3D5] hover:text-white border border-[#7857FF]/20'
           }`}
         >
-          <MessageSquare className={`w-4 h-4 ${sectionTab === 'kaiwa' ? 'text-white' : 'text-[#7857FF]'}`} />
+          <MessagesSquare className={`w-4 h-4 ${sectionTab === 'kaiwa' ? 'text-white' : 'text-[#7857FF]'}`} />
           <span>会話 Percakapan</span>
         </button>
 
@@ -1047,7 +1060,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           <section id="section-bunkei" className="space-y-4 scroll-mt-24">
             <div className="flex items-center justify-between pb-3 border-b border-[#7857FF]/30">
               <div className="flex items-center gap-2.5">
-                <FileText className="w-6 h-6 text-[#7857FF]" />
+                <Braces className="w-6 h-6 text-[#7857FF]" />
                 <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope']">
                   文型・例文 · Pola Kalimat & Contoh Kalimat Bab {bab}
                 </h2>
@@ -1063,7 +1076,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           <section id="section-kaiwa" className="space-y-4 scroll-mt-24">
             <div className="flex items-center justify-between pb-3 border-b border-[#7857FF]/30">
               <div className="flex items-center gap-2.5">
-                <MessageSquare className="w-6 h-6 text-[#7857FF]" />
+                <MessagesSquare className="w-6 h-6 text-[#7857FF]" />
                 <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope']">
                   会話 · Percakapan Otentik Bab {bab}
                 </h2>

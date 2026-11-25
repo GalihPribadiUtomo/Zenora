@@ -1,86 +1,152 @@
 import type { ChapterLesson } from '../../types';
 
 export const lessonData: ChapterLesson = {
-  "bab": 34,
-  "title": "Sesuai Arahan & Urutan Waktu",
-  "subTitle": "〜とおりに・〜あとで",
-  "summary": "Melakukan aksi sesuai petunjuk (〜とおりに), urutan waktu setelah aksi (〜あとで), dan tanpa sesuatu (〜ないで).",
-  "polaKalimat": [
+  bab: 34,
+  title: "Mengikuti Petunjuk (〜とおりに) & Urutan (〜あとで)",
+  subTitle: "する まえに、説明して ください・手順と付帯状況",
+  summary: "Melakukan tindakan persis sesuai petunjuk/contoh (〜とおりに), urutan sesudah aksi selesai (〜あとで), serta kondisi penyerta saat beraksi (〜て / 〜ないで).",
+  polaKalimat: [
     {
-      "id": 1,
-      "japanese": "第34課の 基本文型 1 です。",
-      "romaji": "Dai-34-ka no kihon bunkei 1 desu.",
-      "indonesian": "Pola kalimat dasar ke-1 Bab 34: Penguasaan kaidah Sesuai Arahan & Urutan Waktu."
+      id: 1,
+      japanese: "わたしが する とおりに、やって ください。",
+      romaji: "Watashi ga suru toori ni, yatte kudasai.",
+      indonesian: "Tolong lakukan persis seperti yang saya kerjakan."
     },
     {
-      "id": 2,
-      "japanese": "第34課の 基本文型 2 です。",
-      "romaji": "Dai-34-ka no kihon bunkei 2 desu.",
-      "indonesian": "Pola kalimat dasar ke-2 Bab 34: Variasi penerapan kaidah Sesuai Arahan & Urutan Waktu."
-    }
-  ],
-  "contohKalimat": [
-    {
-      "id": 1,
-      "question": "第34課の ポイントは 何ですか。",
-      "answer": "……Melakukan aksi sesuai petunjuk (〜とおりに), urutan waktu setelah aksi (〜あとで), dan tanpa sesuatu (〜ないで).",
-      "romaji": "Dai-34-ka no pointo wa nan desu ka? ... 〜とおりに・〜あとで",
-      "indonesian": "Apa fokus utama Bab 34? ... Melakukan aksi sesuai petunjuk (〜とおりに), urutan waktu setelah aksi (〜あとで), dan tanpa sesuatu (〜ないで)."
+      id: 2,
+      japanese: "仕事が 終わった あとで、食事に 行きましょう。",
+      romaji: "Shigoto ga owatta ato de, shokuji ni ikimashou.",
+      indonesian: "Setelah pekerjaan selesai, mari kita pergi makan."
     },
     {
-      "id": 2,
-      "question": "例文の 練習を しましょう。",
-      "answer": "……はい、しっかり 練習します。",
-      "romaji": "Reibun no renshuu o shimashou. ... Hai, shikkari renshuu shimasu.",
-      "indonesian": "Mari berlatih contoh kalimat. ... Ya, kami akan berlatih dengan sungguh-sungguh."
+      id: 3,
+      japanese: "しょうゆを つけて、さしみを 食べます。",
+      romaji: "Shouyu o tsukete, sashimi o tabemasu.",
+      indonesian: "Makan sashimi dengan mencelupkan kecap asin."
+    },
+    {
+      id: 4,
+      japanese: "きのうは 傘を 持たないで 出かけました。",
+      romaji: "Kinou wa kasa o motanaide dekakemashita.",
+      indonesian: "Kemarin saya pergi keluar tanpa membawa payung."
     }
   ],
-  "percakapan": {
-    "title": "第34課の会話: 〜とおりに・〜あとで",
-    "situasi": "Percakapan praktis Bab 34 dalam situasi kehidupan dan budaya Jepang.",
-    "tokoh": [
-      "ミラー",
-      "佐藤",
-      "山田"
-    ],
-    "dialogs": [
+  contohKalimat: [
+    {
+      id: 1,
+      question: "折り紙の 折り方が 分かりません。",
+      answer: "……この 説明書の とおりに 折って ください。",
+      romaji: "Origami no orikata ga wakarimasen. ... Kono setsumeisho no toori ni otte kudasai.",
+      indonesian: "Saya tidak mengerti cara melipat origami. ... Tolong lipat sesuai buku petunjuk ini."
+    },
+    {
+      id: 2,
+      question: "先生、薬は いつ 飲みますか。",
+      answer: "……ご飯を 食べた あとで、飲んで ください。",
+      romaji: "Sensei, kusuri wa itsu nomimasu ka? ... Gohan o tabeta ato de, nonde kudasai.",
+      indonesian: "Dokter, obatnya diminum kapan? ... Tolong diminum setelah makan nasi."
+    },
+    {
+      id: 3,
+      question: "いつも 砂糖を 入れて コーヒーを 飲みますか。",
+      answer: "……いいえ、砂糖を 入れないで 飲みます。",
+      romaji: "Itsumo satou o irete koohii o nomimasu ka? ... Iie, satou o irenaide nomimasu.",
+      indonesian: "Apakah Anda selalu minum kopi dengan memakai gula? ... Tidak, saya minum tanpa gula."
+    }
+  ],
+  percakapan: {
+    title: "する まえに、よく 説明を 聞いて ください (Dengarkan Penjelasan Sebelumnya)",
+    situasi: "Miller-san mengikuti kelas budaya tradisional upacara minum teh (Sadou) atau olahraga tradisional Jepang dan dipandu oleh instruktur.",
+    tokoh: ["先生", "ミラー"],
+    dialogs: [
       {
-        "speaker": "ミラー",
-        "role": "Tokoh",
-        "japanese": "すみません、第34課の 表現を 教えて いただけませんか。",
-        "romaji": "Sumimasen, dai-34-ka no hyougen o oshiete itadakemasen ka.",
-        "indonesian": "Permisi, bisakah Anda mengajarkan saya ungkapan Bab 34?"
+        speaker: "先生",
+        role: "Instruktur",
+        japanese: "今から お茶を 立てます。まず わたしが する とおりに 見て いて ください。",
+        romaji: "Ima kara ocha o tatemasu. Mazu watashi ga suru toori ni mite ite kudasai.",
+        indonesian: "Sekarang kita akan meracik teh (matcha). Pertama perhatikanlah persis seperti yang saya lakukan."
       },
       {
-        "speaker": "佐藤",
-        "role": "Tokoh",
-        "japanese": "ええ、喜んで。一緒に 楽しく 会話を 練習しましょう！",
-        "romaji": "Ee, yorokonde. Issho ni tanoshiku kaiwa o renshuu shimashou!",
-        "indonesian": "Tentu dengan senang hati. Mari berlatih percakapan bersama!"
+        speaker: "ミラー",
+        role: "Peserta",
+        japanese: "はい、分かりました。",
+        romaji: "Hai, wakarimashita.",
+        indonesian: "Baik, saya mengerti."
+      },
+      {
+        speaker: "先生",
+        role: "Instruktur",
+        japanese: "お茶を 飲む まえに、お菓子を 食べます。それから 器を 2回 回してから 飲みます。",
+        romaji: "Ocha o nomu mae ni, okashi o tabemasu. Sorekara utsuwa o nikai mawashite kara nomimasu.",
+        indonesian: "Sebelum minum teh, makanlah kue manis dulu. Setelah itu putar cangkir 2 kali baru minum."
+      },
+      {
+        speaker: "ミラー",
+        role: "Peserta",
+        japanese: "回さないで 飲んでは いけませんか。",
+        romaji: "Mawasanaide nonde wa ikemasen ka.",
+        indonesian: "Apakah tidak boleh minum tanpa memutar cangkirnya?"
+      },
+      {
+        speaker: "先生",
+        role: "Instruktur",
+        japanese: "ええ、正面を 避ける ために 回すんですよ。終わった あとで、感想を 聞かせて くださいね。",
+        romaji: "Ee, shoumen o sakeru tame ni mawasu ndesu yo. Owatta ato de, kansou o kikasete kudasai ne.",
+        indonesian: "Ya, diputar untuk menghindari bagian depan cangkir yang bermotif indah. Setelah selesai nanti, ceritakan kesan Anda ya."
       }
     ]
   },
-  "tataBahasa": [
+  tataBahasa: [
     {
-      "point": 1,
-      "title": "Kaidah Tata Bahasa Inti Bab 34",
-      "polaFormat": "[〜とおりに・〜あとで]",
-      "explanation": "Melakukan aksi sesuai petunjuk (〜とおりに), urutan waktu setelah aksi (〜あとで), dan tanpa sesuatu (〜ないで).",
-      "examples": [
+      point: 1,
+      title: "Mengikuti Contoh / Instruksi Persis: 〜とおりに",
+      polaFormat: "[KK Kamus / KK-Ta] + とおりに / [Kata Benda] + の とおりに",
+      explanation: "Menyatakan melakukan suatu hal tepat mengikuti panduan, perkataan, gambar, atau gerakan peraga ('persis sebagaimana yang...').",
+      examples: [
         {
-          "japanese": "第34課の 文法例文です。",
-          "romaji": "Dai-34-ka no bunpou reibun desu.",
-          "indonesian": "Contoh kalimat tata bahasa untuk Bab 34."
+          japanese: "地図の とおりに 行きました。",
+          romaji: "Chizu no toori ni ikimashita.",
+          indonesian: "Pergi persis mengikuti peta."
+        },
+        {
+          japanese: "聞いた とおりに 書きました。",
+          romaji: "Kiita toori ni kakimashita.",
+          indonesian: "Menulis persis seperti apa yang didengar."
+        }
+      ]
+    },
+    {
+      point: 2,
+      title: "Setelah Aksi Pertama Selesai: 〜あとで",
+      polaFormat: "[KK Bentuk-Ta / Kata Benda の] + あとで",
+      explanation: "Berarti 'Setelah ...' dengan penekanan jarak waktu atau urutan di antara dua aktivitas (contoh: setelah kelas selesai, setelah kerja, setelah makan).",
+      examples: [
+        {
+          japanese: "新しい パソコンを 買った あとで、古いのは 友達に あげました。",
+          romaji: "Atarashii pasokon o katta ato de, furui no wa tomodachi ni agemashita.",
+          indonesian: "Setelah membeli komputer baru, yang lama saya berikan kepada teman."
+        }
+      ]
+    },
+    {
+      point: 3,
+      title: "Kondisi Penyerta: KK Bentuk-Te vs KK Bentuk-Nai + で",
+      polaFormat: "KK1-て、KK2 (Dengan melakukan KK1) ⇔ KK1-ないで、KK2 (Tanpa melakukan KK1)",
+      explanation: "Menjelaskan cara atau keadaan penyerta ketika tindakan kedua dilakukan. Misalnya memakai kacamata saat membaca, atau pergi keluar tanpa sarapan.",
+      examples: [
+        {
+          japanese: "辞書を 引かないで、新聞を 読みます。",
+          romaji: "Jisho o hikanaide, shinbun o yomimasu.",
+          indonesian: "Membaca koran tanpa membuka kamus."
         }
       ]
     }
   ],
-  "referensiInfo": {
-    "title": "Informasi Budaya & Wawasan Bab 34",
-    "description": "Panduan praktis konteks komunikasi Bab 34 dalam etika masyarakat Jepang.",
-    "notes": [
-      "Latihlah pola kalimat secara lisan dengan audio interaktif.",
-      "Hubungkan kosakata bab ini dengan pola tata bahasa yang sedang dipelajari."
+  referensiInfo: {
+    title: "Wawasan Budaya: Etika Upacara Minum Teh (茶道 - Sadou)",
+    description: "Memutar mangkuk teh (茶碗 - chawan) sebanyak dua kali searah jarum jam sebelum diminum adalah bentuk penghormatan terhadap seniman pembuat mangkuk agar tidak minum dari sisi motif utama.",
+    notes: [
+      "Perbandingan「〜てから」vs「〜あとで」: Keduanya berarti 'setelah', namun「〜あとで」bisa langsung menempel pada Kata Benda memakai partikel「の」(Contoh: 仕事の あとで = setelah kerja)."
     ]
   }
 };

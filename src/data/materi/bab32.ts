@@ -1,86 +1,166 @@
 import type { ChapterLesson } from '../../types';
 
 export const lessonData: ChapterLesson = {
-  "bab": 32,
-  "title": "Saran Terbaik & Dugaan Perkiraan",
-  "subTitle": "〜ほうがいい・でしょう",
-  "summary": "Nasihat kuat (〜た ほうが いいです), perkiraan (〜でしょう), dan kemungkinan (〜かもしれません).",
-  "polaKalimat": [
+  bab: 32,
+  title: "Saran & Anjuran (〜ほうが いい) serta Perkiraan",
+  subTitle: "無理を しない ほうが いいですよ・助言と推量",
+  summary: "Memberikan saran atau nasihat (〜た ほうが いい / 〜ない ほうが いい), menyatakan kemungkinan dugaan (〜でしょう), dan ketidakpastian (〜かも しれません).",
+  polaKalimat: [
     {
-      "id": 1,
-      "japanese": "第32課の 基本文型 1 です。",
-      "romaji": "Dai-32-ka no kihon bunkei 1 desu.",
-      "indonesian": "Pola kalimat dasar ke-1 Bab 32: Penguasaan kaidah Saran Terbaik & Dugaan Perkiraan."
+      id: 1,
+      japanese: "毎日 運動した ほうが いいです。",
+      romaji: "Mainichi undou shita hou ga ii desu.",
+      indonesian: "Sebaiknya berolahraga setiap hari."
     },
     {
-      "id": 2,
-      "japanese": "第32課の 基本文型 2 です。",
-      "romaji": "Dai-32-ka no kihon bunkei 2 desu.",
-      "indonesian": "Pola kalimat dasar ke-2 Bab 32: Variasi penerapan kaidah Saran Terbaik & Dugaan Perkiraan."
-    }
-  ],
-  "contohKalimat": [
-    {
-      "id": 1,
-      "question": "第32課の ポイントは 何ですか。",
-      "answer": "……Nasihat kuat (〜た ほうが いいです), perkiraan (〜でしょう), dan kemungkinan (〜かもしれません).",
-      "romaji": "Dai-32-ka no pointo wa nan desu ka? ... 〜ほうがいい・でしょう",
-      "indonesian": "Apa fokus utama Bab 32? ... Nasihat kuat (〜た ほうが いいです), perkiraan (〜でしょう), dan kemungkinan (〜かもしれません)."
+      id: 2,
+      japanese: "熱が ある ときは、お風呂に 入らない ほうが いいです。",
+      romaji: "Netsu ga aru toki wa, ofuro ni hairanai hou ga ii desu.",
+      indonesian: "Saat demam, sebaiknya tidak berendam di bak mandi."
     },
     {
-      "id": 2,
-      "question": "例文の 練習を しましょう。",
-      "answer": "……はい、しっかり 練習します。",
-      "romaji": "Reibun no renshuu o shimashou. ... Hai, shikkari renshuu shimasu.",
-      "indonesian": "Mari berlatih contoh kalimat. ... Ya, kami akan berlatih dengan sungguh-sungguh."
+      id: 3,
+      japanese: "あしたは 雨が 降るでしょう。",
+      romaji: "Ashita wa ame ga furu deshou.",
+      indonesian: "Besok sepertinya/kemungkinan besar akan turun hujan."
+    },
+    {
+      id: 4,
+      japanese: "道路が 混んでいますから、会議に 間に合わないかも しれません。",
+      romaji: "Douro ga konde imasu kara, kaigi ni maniawanai kamo shiremasen.",
+      indonesian: "Karena jalanan macet, mungkin saja saya tidak keburu menghadiri rapat."
     }
   ],
-  "percakapan": {
-    "title": "第32課の会話: 〜ほうがいい・でしょう",
-    "situasi": "Percakapan praktis Bab 32 dalam situasi kehidupan dan budaya Jepang.",
-    "tokoh": [
-      "ミラー",
-      "佐藤",
-      "山田"
-    ],
-    "dialogs": [
+  contohKalimat: [
+    {
+      id: 1,
+      question: "のどが 痛いんですが、どう したら いいですか。",
+      answer: "……病院へ 行って、診て もらった ほうが いいですよ。",
+      romaji: "Nodo ga itai ndesu ga, dou shitara ii desu ka? ... Byouin e itte, mite moratta hou ga ii desu yo.",
+      indonesian: "Tenggorokan saya sakit, sebaiknya bagaimana? ... Sebaiknya pergi ke rumah sakit untuk diperiksa."
+    },
+    {
+      id: 2,
+      question: "夜は コーヒーを 飲まない ほうが いいですか。",
+      answer: "……ええ、眠れなくなりますから、飲まない ほうが いいです。",
+      romaji: "Yoru wa koohii o nomanai hou ga ii desu ka? ... Ee, nemurenaku narimasu kara, nomanai hou ga ii desu.",
+      indonesian: "Malam hari sebaiknya jangan minum kopi ya? ... Ya, nanti susah tidur, jadi sebaiknya jangan minum."
+    },
+    {
+      id: 3,
+      question: "大阪の 夏は 暑いですか。",
+      answer: "……ええ、8月は とても 暑いでしょう。",
+      romaji: "Oosaka no natsu wa atsui desu ka? ... Ee, hachigatsu wa totemo atsui deshou.",
+      indonesian: "Musim panas di Osaka panas ya? ... Ya, bulan Agustus sepertinya akan sangat panas."
+    },
+    {
+      id: 4,
+      question: "ミラーさんは パーティーに 来ますか。",
+      answer: "……さあ、仕事が 忙しいですから、来ないかも しれません。",
+      romaji: "Miraa-san wa paatii ni kimasu ka? ... Saa, shigoto ga isogashii desu kara, konai kamo shiremasen.",
+      indonesian: "Apakah Miller-san datang ke pesta? ... Entahlah, karena kerjanya sibuk, mungkin saja tidak datang."
+    }
+  ],
+  percakapan: {
+    title: "無理を しない ほうが いいですよ (Sebaiknya Jangan Memaksakan Diri)",
+    situasi: "Di akhir jam kerja, Miller-san terlihat kurang enak badan dan Kimura-san memberikan nasihat agar beristirahat.",
+    tokoh: ["木村", "ミラー"],
+    dialogs: [
       {
-        "speaker": "ミラー",
-        "role": "Tokoh",
-        "japanese": "すみません、第32課の 表現を 教えて いただけませんか。",
-        "romaji": "Sumimasen, dai-32-ka no hyougen o oshiete itadakemasen ka.",
-        "indonesian": "Permisi, bisakah Anda mengajarkan saya ungkapan Bab 32?"
+        speaker: "木村",
+        role: "Rekan Kerja",
+        japanese: "ミラーさん、顔色が 悪いですね。どう したんですか。",
+        romaji: "Miraa-san, kaoiro ga warui desu ne. Dou shitan desu ka.",
+        indonesian: "Miller-san, wajah Anda terlihat pucat ya. Ada apa?"
       },
       {
-        "speaker": "佐藤",
-        "role": "Tokoh",
-        "japanese": "ええ、喜んで。一緒に 楽しく 会話を 練習しましょう！",
-        "romaji": "Ee, yorokonde. Issho ni tanoshiku kaiwa o renshuu shimashou!",
-        "indonesian": "Tentu dengan senang hati. Mari berlatih percakapan bersama!"
+        speaker: "ミラー",
+        role: "Tokoh Utama",
+        japanese: "ええ、きのうから ちょっと おなかが 痛いんです。",
+        romaji: "Ee, kinou kara chotto onaka ga itai ndesu.",
+        indonesian: "Ya, sejak kemarin perut saya agak sakit."
+      },
+      {
+        speaker: "木村",
+        role: "Rekan Kerja",
+        japanese: "それは いけませんね。すぐ 病院へ 行った ほうが いいですよ。",
+        romaji: "Sore wa ikemasen ne. Sugu byouin e itta hou ga ii desu yo.",
+        indonesian: "Wah, gawat itu. Sebaiknya segera pergi ke rumah sakit lho."
+      },
+      {
+        speaker: "ミラー",
+        role: "Tokoh Utama",
+        japanese: "でも、きょうは 会議が あるんです。",
+        romaji: "Demo, kyou wa kaigi ga aru ndesu.",
+        indonesian: "Tapi hari ini saya ada rapat."
+      },
+      {
+        speaker: "木村",
+        role: "Rekan Kerja",
+        japanese: "無理を しない ほうが いいですよ。会議の ことは 課長に 相談したら どうですか。",
+        romaji: "Muri o shinai hou ga ii desu yo. Kaigi no koto wa kachou ni soudan shitara dou desu ka.",
+        indonesian: "Sebaiknya jangan memaksakan diri. Mengenai rapatnya, bagaimana kalau konsultasikan dengan kepala seksi?"
+      },
+      {
+        speaker: "ミラー",
+        role: "Tokoh Utama",
+        japanese: "そうですね。そう します。ありがとう。",
+        romaji: "Sou desu ne. Sou shimasu. Arigatou.",
+        indonesian: "Benar juga ya. Saya lakukan begitu. Terima kasih."
       }
     ]
   },
-  "tataBahasa": [
+  tataBahasa: [
     {
-      "point": 1,
-      "title": "Kaidah Tata Bahasa Inti Bab 32",
-      "polaFormat": "[〜ほうがいい・でしょう]",
-      "explanation": "Nasihat kuat (〜た ほうが いいです), perkiraan (〜でしょう), dan kemungkinan (〜かもしれません).",
-      "examples": [
+      point: 1,
+      title: "Memberikan Saran / Nasihat: 〜た ほうが いい / 〜ない ほうが いい",
+      polaFormat: "Positif: [KK Bentuk-Ta] + ほうが いいです / Negatif: [KK Bentuk-Nai] + ほうが いいです",
+      explanation: "Digunakan untuk memberikan saran atau nasihat yang dianggap paling bijak bagi lawan bicara ('Sebaiknya melakukan...' atau 'Sebaiknya jangan melakukan...'). Untuk saran positif SELALU memakai Bentuk-Ta (bukan bentuk kamus!).",
+      examples: [
         {
-          "japanese": "第32課の 文法例文です。",
-          "romaji": "Dai-32-ka no bunpou reibun desu.",
-          "indonesian": "Contoh kalimat tata bahasa untuk Bab 32."
+          japanese: "傘を 持って 行った ほうが いいですよ。",
+          romaji: "Kasa o motte itta hou ga ii desu yo.",
+          indonesian: "Sebaiknya bawa payung lho."
+        },
+        {
+          japanese: "お酒は あまり 飲まない ほうが いいです。",
+          romaji: "Osake wa amari nomanai hou ga ii desu.",
+          indonesian: "Sebaiknya jangan terlalu banyak minum alkohol."
+        }
+      ]
+    },
+    {
+      point: 2,
+      title: "Menyatakan Dugaan Cukup Yakin (~70-80%): 〜でしょう",
+      polaFormat: "[KK / KS-い / KS-な(tanpa だ) / KB(tanpa だ) Bentuk Biasa] + でしょう",
+      explanation: "Menyatakan perkiraan berdasarkan fakta, prakiraan cuaca, atau logika pembicara ('Sepertinya... / Kemungkinan besar...').",
+      examples: [
+        {
+          japanese: "今晩は 雪が 降るでしょう。",
+          romaji: "Konban wa yuki ga furu deshou.",
+          indonesian: "Malam ini sepertinya akan turun salju."
+        }
+      ]
+    },
+    {
+      point: 3,
+      title: "Menyatakan Kemungkinan Ketidakpastian (~50%): 〜かも しれません",
+      polaFormat: "[KK / KS / KB Bentuk Biasa (tanpa だ)] + かも しれません",
+      explanation: "Digunakan ketika pembicara merasa suatu hal mungkin saja terjadi, namun tidak yakin sepenuhnya ('Mungkin saja... / Barangkali...').",
+      examples: [
+        {
+          japanese: "田中さんは もう 寝たかも しれません。",
+          romaji: "Tanaka-san wa mou neta kamo shiremasen.",
+          indonesian: "Mungkin saja Tanaka-san sudah tidur."
         }
       ]
     }
   ],
-  "referensiInfo": {
-    "title": "Informasi Budaya & Wawasan Bab 32",
-    "description": "Panduan praktis konteks komunikasi Bab 32 dalam etika masyarakat Jepang.",
-    "notes": [
-      "Latihlah pola kalimat secara lisan dengan audio interaktif.",
-      "Hubungkan kosakata bab ini dengan pola tata bahasa yang sedang dipelajari."
+  referensiInfo: {
+    title: "Wawasan Budaya: Menasihati Secara Sopan Tanpa Menggurui",
+    description: "Pola「〜たほうがいい」jika diucapkan langsung ke atasan tanpa penghalus bisa terdengar memerintah. Untuk atasan gunakanlah「〜たら いかがですか」(Bagaimana kalau...?) atau「〜たほうが よろしいかと 思います」.",
+    notes: [
+      "Perbedaan「〜でしょう」(dugaan beralasan, misal prakiraan cuaca) vs「〜かも しれません」(kemungkinan 50-50, bisa ya bisa tidak)."
     ]
   }
 };

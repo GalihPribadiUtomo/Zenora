@@ -1,86 +1,147 @@
 import type { ChapterLesson } from '../../types';
 
 export const lessonData: ChapterLesson = {
-  "bab": 46,
-  "title": "Titik Tahap Waktu (~ところ) & Baru Saja",
-  "subTitle": "段階（ところ）・〜ばかり",
-  "summary": "Fase waktu: sebelum mulai (辞書形+ところ), sedang (ている+ところ), baru saja tuntas (た+ところ / た+ばかり).",
-  "polaKalimat": [
+  bab: 46,
+  title: "Tepat Momen Aksi (〜ところ) & Seharusnya (〜はず)",
+  subTitle: "今 始まった ところです・アスペクトと確信",
+  summary: "Menyatakan momen waktu yang tepat pada awal, pertengahan, atau akhir tindakan (〜ところです), peristiwa yang baru saja terjadi secara subjektif (〜ばかりです), dan keyakinan logis (〜はずです).",
+  polaKalimat: [
     {
-      "id": 1,
-      "japanese": "第46課の 基本文型 1 です。",
-      "romaji": "Dai-46-ka no kihon bunkei 1 desu.",
-      "indonesian": "Pola kalimat dasar ke-1 Bab 46: Penguasaan kaidah Titik Tahap Waktu (~ところ) & Baru Saja."
+      id: 1,
+      japanese: "これから 昼ご飯を 食べる ところです。",
+      romaji: "Korekara hirugohan o taberu tokoro desu.",
+      indonesian: "Baru saja hendak makan siang sekarang."
     },
     {
-      "id": 2,
-      "japanese": "第46課の 基本文型 2 です。",
-      "romaji": "Dai-46-ka no kihon bunkei 2 desu.",
-      "indonesian": "Pola kalimat dasar ke-2 Bab 46: Variasi penerapan kaidah Titik Tahap Waktu (~ところ) & Baru Saja."
-    }
-  ],
-  "contohKalimat": [
-    {
-      "id": 1,
-      "question": "第46課の ポイントは 何ですか。",
-      "answer": "……Fase waktu: sebelum mulai (辞書形+ところ), sedang (ている+ところ), baru saja tuntas (た+ところ / た+ばかり).",
-      "romaji": "Dai-46-ka no pointo wa nan desu ka? ... 段階（ところ）・〜ばかり",
-      "indonesian": "Apa fokus utama Bab 46? ... Fase waktu: sebelum mulai (辞書形+ところ), sedang (ている+ところ), baru saja tuntas (た+ところ / た+ばかり)."
+      id: 2,
+      japanese: "いま 資料を コピーして いる ところです。",
+      romaji: "Ima shiryou o kopii shite iru tokoro desu.",
+      indonesian: "Tepat sekarang sedang memfotokopi dokumen."
     },
     {
-      "id": 2,
-      "question": "例文の 練習を しましょう。",
-      "answer": "……はい、しっかり 練習します。",
-      "romaji": "Reibun no renshuu o shimashou. ... Hai, shikkari renshuu shimasu.",
-      "indonesian": "Mari berlatih contoh kalimat. ... Ya, kami akan berlatih dengan sungguh-sungguh."
+      id: 3,
+      japanese: "たった今、電車が 出た ところです。",
+      romaji: "Tatta ima, densha ga deta tokoro desu.",
+      indonesian: "Barusan detik ini, keretanya baru saja berangkat."
+    },
+    {
+      id: 4,
+      japanese: "ミラーさんは 日本へ 来た ばかりです。",
+      romaji: "Miraa-san wa Nihon e kita bakari desu.",
+      indonesian: "Miller-san baru saja tiba di Jepang (masih terasa baru)."
     }
   ],
-  "percakapan": {
-    "title": "第46課の会話: 段階（ところ）・〜ばかり",
-    "situasi": "Percakapan praktis Bab 46 dalam situasi kehidupan dan budaya Jepang.",
-    "tokoh": [
-      "ミラー",
-      "佐藤",
-      "山田"
-    ],
-    "dialogs": [
+  contohKalimat: [
+    {
+      id: 1,
+      question: "会議は もう 終わりましたか。",
+      answer: "……いいえ、いま 始まった ところです。",
+      romaji: "Kaigi wa mou owarimashita ka? ... Iie, ima hajimatta tokoro desu.",
+      indonesian: "Apakah rapatnya sudah selesai? ... Belum, baru saja dimulai."
+    },
+    {
+      id: 2,
+      question: "もう 空港へ 出かけましたか。",
+      answer: "……いいえ、今 荷物を まとめて、これから 出かける ところです。",
+      romaji: "Mou kuukou e dekakemashita ka? ... Iie, ima nimotsu o matomete, korekara dekakeru tokoro desu.",
+      indonesian: "Apakah sudah berangkat ke bandara? ... Belum, baru saja merapikan tas, persis mau berangkat sekarang."
+    },
+    {
+      id: 3,
+      question: "この テレビは よく 壊れますね。",
+      answer: "……おかしいですね。先月 買った ばかりなのに。",
+      romaji: "Kono terebi wa yoku kowaremasu ne. ... Okashii desu ne. Sengetsu katta bakari nanoni.",
+      indonesian: "TV ini sering rusak ya. ... Aneh ya. Padahal baru saja dibeli bulan lalu lho."
+    },
+    {
+      id: 4,
+      question: "きょうの パーティーに サントスさんは 来ますか。",
+      answer: "……ええ、きのう 約束しましたから、来る はずです。",
+      romaji: "Kyou no paatii ni Santosu-san wa kimasu ka? ... Ee, kinou yakusoku shimashita kara, kuru hazu desu.",
+      indonesian: "Apakah Santos-san datang ke pesta hari ini? ... Ya, karena kemarin sudah berjanji, seharusnya dia datang."
+    }
+  ],
+  percakapan: {
+    title: "もうすぐ 着く はずです (Seharusnya Sebentar Lagi Tiba)",
+    situasi: "Karyawan perusahaan menantikan kiriman paket dokumen penting atau teknisi perbaikan yang dijanjikan datang pukul 2.",
+    tokoh: ["山下", "ミラー"],
+    dialogs: [
       {
-        "speaker": "ミラー",
-        "role": "Tokoh",
-        "japanese": "すみません、第46課の 表現を 教えて いただけませんか。",
-        "romaji": "Sumimasen, dai-46-ka no hyougen o oshiete itadakemasen ka.",
-        "indonesian": "Permisi, bisakah Anda mengajarkan saya ungkapan Bab 46?"
+        speaker: "山下",
+        role: "Rekan Kerja",
+        japanese: "ミラーさん、さっき 注文した 部品は もう 届きましたか。",
+        romaji: "Miraa-san, sakki chuumon shita buhin wa mou todokimashita ka.",
+        indonesian: "Miller-san, suku cadang yang dipesan tadi apakah sudah tiba?"
       },
       {
-        "speaker": "佐藤",
-        "role": "Tokoh",
-        "japanese": "ええ、喜んで。一緒に 楽しく 会話を 練習しましょう！",
-        "romaji": "Ee, yorokonde. Issho ni tanoshiku kaiwa o renshuu shimashou!",
-        "indonesian": "Tentu dengan senang hati. Mari berlatih percakapan bersama!"
+        speaker: "ミラー",
+        role: "Tokoh Utama",
+        japanese: "まだです。でも、さっき 配送会社に 確認した ところです。もうすぐ 着く はずですよ。",
+        romaji: "Mada desu. Demo, sakki haisougaisha ni kakunin shita tokoro desu. Mousugu tsuku hazu desu yo.",
+        indonesian: "Belum sih. Tapi barusan saya sudah mengonfirmasi ke perusahaan pengiriman. Seharusnya sebentar lagi tiba kok."
+      },
+      {
+        speaker: "山下",
+        role: "Rekan Kerja",
+        japanese: "あ、よかった。この 機械は 先週 修理した ばかりなのに、また 動かなく なったんですか。",
+        romaji: "A, yokatta. Kono kikai wa senshuu shuuri shita bakari nanoni, mata ugokanaku natta ndesu ka.",
+        indonesian: "Oh, syukurlah. Padahal mesin ini baru saja diperbaiki minggu lalu, kok mati lagi ya?"
+      },
+      {
+        speaker: "ミラー",
+        role: "Tokoh Utama",
+        japanese: "そうなんです。ガス会社の サービスセンターから 人が 来て、いま 見ている ところです。",
+        romaji: "Sou nandesu. Gasu-gaisha no saabisusentaa kara hito ga kite, ima mite iru tokoro desu.",
+        indonesian: "Benar sekali. Staf dari pusat layanan perusahaan gas sudah datang, dan sekarang sedang memeriksanya."
       }
     ]
   },
-  "tataBahasa": [
+  tataBahasa: [
     {
-      "point": 1,
-      "title": "Kaidah Tata Bahasa Inti Bab 46",
-      "polaFormat": "[段階（ところ）・〜ばかり]",
-      "explanation": "Fase waktu: sebelum mulai (辞書形+ところ), sedang (ている+ところ), baru saja tuntas (た+ところ / た+ばかり).",
-      "examples": [
+      point: 1,
+      title: "Tiga Fase Momen Tindakan: 〜ところです",
+      polaFormat: "1) KK Kamus + ところです (baru mau mulai) | 2) KK-ている + ところです (tepat sedang berlangsung) | 3) KK-Ta + ところです (baru saja selesai detik ini)",
+      explanation: "Digunakan untuk memfokuskan titik waktu spesifik sebuah aksi. Sering diawali kata penegas:「これから」(tepat akan memulai),「今」(sedang berlangsung), atau「たった今」(baru saja tuntas beberapa detik/menit lalu).",
+      examples: [
         {
-          "japanese": "第46課の 文法例文です。",
-          "romaji": "Dai-46-ka no bunpou reibun desu.",
-          "indonesian": "Contoh kalimat tata bahasa untuk Bab 46."
+          japanese: "いま 駅に 着いた ところです。",
+          romaji: "Ima eki ni tsuita tokoro desu.",
+          indonesian: "Saya baru saja tiba di stasiun (detik ini)."
+        }
+      ]
+    },
+    {
+      point: 2,
+      title: "Baru Saja Terjadi (Perasaan Waktu): KK Bentuk-Ta + ばかりです",
+      polaFormat: "KK Bentuk-Ta + ばかりです (berfungsi seperti KB/KS-な)",
+      explanation: "Menyatakan bahwa menurut perasaan subjektif pembicara, kejadian tersebut belum lama berselang—bahkan meskipun sebenarnya terjadi 1 minggu, 1 bulan, atau 1 tahun lalu (contoh: baru lulus tahun lalu, baru beli kemarin, baru menikah bulan lalu). Di depan「のに」atau kata benda, pakai「ばかりなのに / ばかりの」.",
+      examples: [
+        {
+          japanese: "去年 日本へ 来た ばかりですから、まだ よく 分かりません。",
+          romaji: "Kyonen Nihon e kita bakari desu kara, mada yoku wakarimasen.",
+          indonesian: "Karena baru datang ke Jepang tahun lalu, saya masih belum begitu mengerti."
+        }
+      ]
+    },
+    {
+      point: 3,
+      title: "Keyakinan Berdasarkan Alasan Logis: 〜はずです",
+      polaFormat: "[KK/KS-い Bentuk Biasa] + はずです / [KS-な + な / KB + の] + はずです",
+      explanation: "Menyatakan keyakinan pembicara berdasarkan bukti, logika, atau jadwal ('Seharusnya / Mestinya pasti demikian').",
+      examples: [
+        {
+          japanese: "あしたの 飛行機は 9時に 出発する はずです。",
+          romaji: "Ashita no hikouki wa kuji ni shuppatsu suru hazu desu.",
+          indonesian: "Pesawat besok seharusnya berangkat pukul 9."
         }
       ]
     }
   ],
-  "referensiInfo": {
-    "title": "Informasi Budaya & Wawasan Bab 46",
-    "description": "Panduan praktis konteks komunikasi Bab 46 dalam etika masyarakat Jepang.",
-    "notes": [
-      "Latihlah pola kalimat secara lisan dengan audio interaktif.",
-      "Hubungkan kosakata bab ini dengan pola tata bahasa yang sedang dipelajari."
+  referensiInfo: {
+    title: "Wawasan Budaya: Ketepatan Pengiriman Barang di Jepang (宅急便)",
+    description: "Di Jepang, layanan kurir seperti Yamato Transport (Kuroneko Yamato) memungkinkan pemesan menentukan rentang jam pengiriman secara tepat (misal 14:00–16:00), sehingga ungkapan「もうすぐ届くはずです」(seharusnya segera tiba) sangat diandalkan.",
+    notes: [
+      "Perbandingan:「たった今終わったところです」(benar-benar barusan beberapa detik/menit lalu) vs「先月日本に来たばかりです」(bisa minggu/bulan lalu namun terasa baru)."
     ]
   }
 };

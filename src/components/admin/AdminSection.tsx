@@ -40,6 +40,9 @@ import {
   saveKotobaCustomData,
   resetKotobaCustomData 
 } from '../../utils/kotobaStorage';
+import { loadAllCustomMateri, resetChapterMateri } from '../../utils/materiStorage';
+import { clearLessonCache } from '../../data/materi';
+import { AdminMateriManager } from './AdminMateriManager';
 import { sound } from '../../utils/audio';
 import type { KotobaItem, KotobaCategory } from '../../types';
 
@@ -56,7 +59,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
   onSyncCloud,
   isSyncing = false
 }) => {
-  const [activeAdminTab, setActiveAdminTab] = useState<'overview' | 'kotoba' | 'ssw' | 'cbt' | 'database'>('overview');
+  const [activeAdminTab, setActiveAdminTab] = useState<'overview' | 'materi' | 'kotoba' | 'ssw' | 'cbt' | 'database'>('overview');
 
   // Kotoba CMS State
   const [kotobaList, setKotobaList] = useState<KotobaItem[]>(() => applyCustomKotoba(KOTOBA_DATA));
@@ -168,11 +171,13 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
   const handleExportBackup = () => {
     sound.playClick();
     const custom = loadKotobaCustomData();
+    const customMateri = loadAllCustomMateri();
     const backupObj = {
       exportDate: new Date().toISOString(),
-      version: '1.0',
+      version: '1.1',
       system: 'ZENORA Midnight Japan CMS',
       customKotoba: custom,
+      customMateri: customMateri,
       stats: localStorage.getItem('zenora_stats_v1'),
       sswProgress: localStorage.getItem('zenora_ssw_progress_v1')
     };
@@ -234,7 +239,8 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
         <div className="mt-8 pt-4 border-t border-[#7857FF]/20 flex flex-wrap gap-2">
           {[
             { id: 'overview', label: 'Ringkasan & Metrik', icon: LayoutDashboard },
-            { id: 'kotoba', label: 'Kelola Kosakata & Bab', icon: BookOpen },
+            { id: 'materi', label: 'Kelola Materi (Bunpou, Bunkei, Reibun, Kaiwa)', icon: BookOpen },
+            { id: 'kotoba', label: 'Kelola Kosakata (Kotoba)', icon: Layers },
             { id: 'ssw', label: 'Kurikulum SSW (6 Sektor)', icon: Briefcase },
             { id: 'cbt', label: 'Bank Soal Ujian CBT', icon: FileCheck },
             { id: 'database', label: 'Database & Cadangan', icon: HardDrive }
@@ -314,8 +320,24 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
           </div>
 
           {/* Quick CMS Action Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             
+            <div 
+              onClick={() => { sound.playClick(); setActiveAdminTab('materi'); }}
+              className="p-6 rounded-3xl bg-gradient-to-br from-[#0D1238] to-[#12194A] border border-[#7857FF]/40 cursor-pointer card-interactive flex flex-col justify-between shadow-[0_0_20px_rgba(120,87,255,0.15)]"
+            >
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-[#080D2B] border border-[#7857FF]/40 flex items-center justify-center text-[#7857FF]">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-black text-white font-['Manrope']">Kelola Materi Bab 1–50</h3>
+                <p className="text-xs text-[#AAB3D5] leading-relaxed">
+                  Kelola Bunpou (Tata Bahasa), Bunkei (Pola Kalimat), Reibun (Contoh), dan Kaiwa (Percakapan).
+                </p>
+              </div>
+              <span className="text-xs font-bold text-[#945CFF] pt-4 block">Buka Editor Materi →</span>
+            </div>
+
             <div 
               onClick={() => { sound.playClick(); setIsAddModalOpen(true); }}
               className="p-6 rounded-3xl bg-gradient-to-br from-[#0D1238] to-[#12194A] border border-[#7857FF]/30 cursor-pointer card-interactive flex flex-col justify-between"
@@ -367,6 +389,13 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
           </div>
 
         </div>
+      )}
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          TAB: KELOLA MATERI BAB 1-50 (BUNPOU, BUNKEI, REIBUN, KAIWA)
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {activeAdminTab === 'materi' && (
+        <AdminMateriManager onShowToast={showToast} />
       )}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -619,14 +648,16 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                   Reset Kustomisasi ke Data Bawaan
                 </h4>
                 <p className="text-xs text-[#AAB3D5] leading-relaxed">
-                  Menghapus semua kata kustom yang diedit atau ditambahkan oleh admin lokal dan mengembalikan daftar kata murni Minna no Nihongo.
+                  Menghapus semua kustomisasi materi (Bunpou, Bunkei, Reibun, Kaiwa) dan kosakata yang ditambahkan atau diedit oleh admin lokal, mengembalikan daftar data murni Minna no Nihongo.
                 </p>
                 <button
                   onClick={() => {
-                    if (confirm('PERINGATAN: Seluruh kosakata kustom yang ditambahkan atau diedit akan dikembalikan ke bawaan! Lanjutkan?')) {
+                    if (confirm('PERINGATAN: Seluruh materi dan kosakata kustom yang ditambahkan atau diedit akan dikembalikan ke bawaan! Lanjutkan?')) {
                       resetKotobaCustomData();
+                      resetChapterMateri();
+                      clearLessonCache();
                       setKotobaList(applyCustomKotoba(KOTOBA_DATA));
-                      showToast('Database kustom berhasil direset ke setelan awal.');
+                      showToast('Database kustom (Materi & Kosakata) berhasil direset ke setelan awal.');
                     }
                   }}
                   className="px-4 py-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 hover:bg-rose-500 text-white text-xs font-bold transition-all cursor-pointer"

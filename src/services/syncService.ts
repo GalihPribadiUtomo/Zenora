@@ -1,6 +1,7 @@
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { UserStats } from '../types';
 import { loadKotobaCustomData, saveKotobaCustomData } from '../utils/kotobaStorage';
+import { loadAllCustomMateri, saveAllCustomMateri } from '../utils/materiStorage';
 
 export interface CloudSyncResult {
   success: boolean;
@@ -64,8 +65,9 @@ export const syncAllToCloud = async (userId: string, stats: UserStats): Promise<
       });
     }
 
-    // 4. Sync custom kotoba edits & deletes
+    // 4. Sync custom kotoba & custom materi edits/deletes
     await syncCustomKotobaToCloud(userId);
+    await syncCustomMateriToCloud(userId);
 
     return true;
   } catch (err) {
@@ -125,8 +127,9 @@ export const pullAndMergeFromCloud = async (userId: string, localStats: UserStat
       .map((b) => b.item_id);
     const mergedBookmarkedKotobaIds = Array.from(new Set([...localStats.bookmarkedKotobaIds, ...cloudBookmarkedKotoba]));
 
-    // Pull custom kotoba edits
+    // Pull custom kotoba & materi edits
     await pullCustomKotobaFromCloud(userId);
+    await pullCustomMateriFromCloud(userId);
 
     const merged: UserStats = {
       ...localStats,
@@ -226,5 +229,64 @@ export const pullCustomKotobaFromCloud = async (userId: string): Promise<void> =
     }
   } catch (e) {
     console.error('Failed to pull custom kotoba from cloud', e);
+  }
+};
+
+/**
+ * Sync local custom materi (Bunpou, Bunkei, Reibun, Kaiwa overrides) to cloud
+ */
+export const syncCustomMateriToCloud = async (userId: string): Promise<void> => {
+  if (!supabase || !isSupabaseConfigured || !userId) return;
+
+  try {
+    const customMateri = loadAllCustomMateri();
+    const rows = [];
+    const now = new Date().toISOString();
+
+    for (const [babKey, lessonOverride] of Object.entries(customMateri)) {
+      rows.push({
+        user_id: userId,
+        bab: parseInt(babKey, 10),
+        lesson_data: lessonOverride,
+        updated_at: now,
+      });
+    }
+
+    if (rows.length > 0) {
+      await supabase.from('user_custom_materi').upsert(rows, {
+        onConflict: 'user_id,bab',
+      });
+    }
+  } catch (e) {
+    console.error('Failed to sync custom materi to cloud (non-fatal if table pending)', e);
+  }
+};
+
+/**
+ * Pull custom materi from cloud and update localStorage without duplication
+ */
+export const pullCustomMateriFromCloud = async (userId: string): Promise<void> => {
+  if (!supabase || !isSupabaseConfigured || !userId) return;
+
+  try {
+    const { data } = await supabase
+      .from('user_custom_materi')
+      .select('bab, lesson_data')
+      .eq('user_id', userId);
+
+    if (data && data.length > 0) {
+      const current = loadAllCustomMateri();
+      data.forEach((row) => {
+        if (row.bab && row.lesson_data) {
+          current[row.bab] = {
+            ...(current[row.bab] || {}),
+            ...row.lesson_data,
+          };
+        }
+      });
+      saveAllCustomMateri(current);
+    }
+  } catch (e) {
+    console.error('Failed to pull custom materi from cloud (non-fatal if table pending)', e);
   }
 };

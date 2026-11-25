@@ -1,18 +1,30 @@
 import type { ChapterLesson } from '../../types';
+import { applyCustomMateri } from '../../utils/materiStorage';
 export type { ChapterLesson } from '../../types';
 
 // In-memory cache to avoid redundant network/disk imports
 const lessonCache = new Map<number, ChapterLesson>();
 
 /**
+ * Clears cached lesson in memory (useful after admin updates)
+ */
+export function clearLessonCache(bab?: number): void {
+  if (typeof bab === 'number') {
+    lessonCache.delete(bab);
+  } else {
+    lessonCache.clear();
+  }
+}
+
+/**
  * Lazy loads chapter lesson data on demand.
- * Keeps initial bundle lightweight while providing instant access upon clicking.
+ * Merges with any custom edits saved by Admin.
  */
 export async function loadChapterLesson(bab: number): Promise<ChapterLesson | null> {
   if (bab < 1 || bab > 50) return null;
   
   if (lessonCache.has(bab)) {
-    return lessonCache.get(bab)!;
+    return applyCustomMateri(lessonCache.get(bab)!);
   }
 
   try {
@@ -73,7 +85,7 @@ export async function loadChapterLesson(bab: number): Promise<ChapterLesson | nu
     
     if (module && module.lessonData) {
       lessonCache.set(bab, module.lessonData);
-      return module.lessonData;
+      return applyCustomMateri(module.lessonData);
     }
     return null;
   } catch (error) {

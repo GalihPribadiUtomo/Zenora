@@ -1,86 +1,168 @@
 import type { ChapterLesson } from '../../types';
 
 export const lessonData: ChapterLesson = {
-  "bab": 24,
-  "title": "Pemberian Kebaikan & Bantuan",
-  "subTitle": "授受動詞（て形）",
-  "summary": "Memberikan kebaikan (〜て あげます), menerima bantuan (〜て もらいます), dan dibantu (〜て くれます).",
-  "polaKalimat": [
+  bab: 24,
+  title: "Memberi & Menerima Bantuan (授受表現)",
+  subTitle: "手伝って くれませんか・あげます・もらいます・くれます",
+  summary: "Menyatakan kebaikan atau perbuatan yang dilakukan untuk orang lain (〜て あげます), menerima bantuan (〜て もらいます), dan orang lain berbuat baik untuk kita (〜て くれます).",
+  polaKalimat: [
     {
-      "id": 1,
-      "japanese": "第24課の 基本文型 1 です。",
-      "romaji": "Dai-24-ka no kihon bunkei 1 desu.",
-      "indonesian": "Pola kalimat dasar ke-1 Bab 24: Penguasaan kaidah Pemberian Kebaikan & Bantuan."
+      id: 1,
+      japanese: "佐藤さんは わたしに クリスマスカードを くれました。",
+      romaji: "Satou-san wa watashi ni kurisumasu kaado o kuremashita.",
+      indonesian: "Sato-san memberi saya kartu Natal."
     },
     {
-      "id": 2,
-      "japanese": "第24課の 基本文型 2 です。",
-      "romaji": "Dai-24-ka no kihon bunkei 2 desu.",
-      "indonesian": "Pola kalimat dasar ke-2 Bab 24: Variasi penerapan kaidah Pemberian Kebaikan & Bantuan."
-    }
-  ],
-  "contohKalimat": [
-    {
-      "id": 1,
-      "question": "第24課の ポイントは 何ですか。",
-      "answer": "……Memberikan kebaikan (〜て あげます), menerima bantuan (〜て もらいます), dan dibantu (〜て くれます).",
-      "romaji": "Dai-24-ka no pointo wa nan desu ka? ... 授受動詞（て形）",
-      "indonesian": "Apa fokus utama Bab 24? ... Memberikan kebaikan (〜て あげます), menerima bantuan (〜て もらいます), dan dibantu (〜て くれます)."
+      id: 2,
+      japanese: "わたしは 木村さんに 本を 貸して あげました。",
+      romaji: "Watashi wa Kimura-san ni hon o kashite agemashita.",
+      indonesian: "Saya meminjamkan buku kepada Kimura-san."
     },
     {
-      "id": 2,
-      "question": "例文の 練習を しましょう。",
-      "answer": "……はい、しっかり 練習します。",
-      "romaji": "Reibun no renshuu o shimashou. ... Hai, shikkari renshuu shimasu.",
-      "indonesian": "Mari berlatih contoh kalimat. ... Ya, kami akan berlatih dengan sungguh-sungguh."
+      id: 3,
+      japanese: "わたしは 山田さんに 漢字を 教えて もらいました。",
+      romaji: "Watashi wa Yamada-san ni kanji o oshiete moraimashita.",
+      indonesian: "Saya diajari huruf kanji oleh Yamada-san."
+    },
+    {
+      id: 4,
+      japanese: "ミラーさんは わたしの 荷物を 持って くれました。",
+      romaji: "Miraa-san wa watashi no nimotsu o motte kuremashita.",
+      indonesian: "Miller-san membawakan barang bawaan saya (untuk saya)."
     }
   ],
-  "percakapan": {
-    "title": "第24課の会話: 授受動詞（て形）",
-    "situasi": "Percakapan praktis Bab 24 dalam situasi kehidupan dan budaya Jepang.",
-    "tokoh": [
-      "ミラー",
-      "佐藤",
-      "山田"
-    ],
-    "dialogs": [
+  contohKalimat: [
+    {
+      id: 1,
+      question: "その ネクタイ、素敵ですね。",
+      answer: "……ええ、誕生日に 妹が くれました。",
+      romaji: "Sono nekutai, suteki desu ne. ... Ee, tanjoubi ni imouto ga kuremashita.",
+      indonesian: "Dasi itu bagus sekali ya. ... Ya, adik perempuan saya memberikannya saat ulang tahun."
+    },
+    {
+      id: 2,
+      question: "パーティーの 料理は 自分で 作りましたか。",
+      answer: "……いいえ、みんなに 手伝って もらいました。",
+      romaji: "Paatii no ryouri wa jibun de tsukurimashita ka? ... Iie, minna ni tetsudatte moraimashita.",
+      indonesian: "Apakah makanan pesta dibuat sendiri? ... Tidak, saya dibantu oleh teman-teman semua."
+    },
+    {
+      id: 3,
+      question: "大阪城へ どうやって 行きましたか。",
+      answer: "……田中さんが 車で 送って くれました。",
+      romaji: "Oosakajou e douyatte ikimashita ka? ... Tanaka-san ga kuruma de okutte kuremashita.",
+      indonesian: "Bagaimana Anda pergi ke Kastil Osaka? ... Tanaka-san mengantarkan saya dengan mobilnya."
+    },
+    {
+      id: 4,
+      question: "引っ越しは 大変でしたね。",
+      answer: "……はい、でも 友達が 手伝って くれたので、助かりました。",
+      romaji: "Hikkoshi wa taihen deshita ne. ... Hai, demo tomodachi ga tetsudatte kureta node, tasukarimashita.",
+      indonesian: "Pindahan rumah pasti berat ya. ... Ya, tetapi karena teman membantu saya, jadi sangat terbantu."
+    }
+  ],
+  percakapan: {
+    title: "手伝って くれませんか (Maukah Membantu Saya?)",
+    situasi: "Wang-san akan pindah rumah minggu depan dan meminta bantuan Miller-san beserta teman-teman untuk proses pindahan.",
+    tokoh: ["ミラー", "ワン"],
+    dialogs: [
       {
-        "speaker": "ミラー",
-        "role": "Tokoh",
-        "japanese": "すみません、第24課の 表現を 教えて いただけませんか。",
-        "romaji": "Sumimasen, dai-24-ka no hyougen o oshiete itadakemasen ka.",
-        "indonesian": "Permisi, bisakah Anda mengajarkan saya ungkapan Bab 24?"
+        speaker: "ワン",
+        role: "Teman",
+        japanese: "ミラーさん、来週の日曜日、引っ越しを するんですが、ちょっと 手伝って くれませんか。",
+        romaji: "Miraa-san, raishuu no nichiyoubi, hikkoshi o suru ndesu ga, chotto tetsudatte kuremasen ka.",
+        indonesian: "Miller-san, hari Minggu minggu depan saya mau pindahan rumah, maukah Anda membantu saya sebentar?"
       },
       {
-        "speaker": "佐藤",
-        "role": "Tokoh",
-        "japanese": "ええ、喜んで。一緒に 楽しく 会話を 練習しましょう！",
-        "romaji": "Ee, yorokonde. Issho ni tanoshiku kaiwa o renshuu shimashou!",
-        "indonesian": "Tentu dengan senang hati. Mari berlatih percakapan bersama!"
+        speaker: "ミラー",
+        role: "Tokoh Utama",
+        japanese: "いいですよ。ほかに だれか 手伝いに 来ますか。",
+        romaji: "Ii desu yo. Hoka ni dareka tetsudai ni kimasu ka.",
+        indonesian: "Boleh saja. Selain saya apakah ada orang lain yang datang membantu?"
+      },
+      {
+        speaker: "ワン",
+        role: "Teman",
+        japanese: "サントスさんと カリナさんも 来て くれます。",
+        romaji: "Santosu-san to Karina-san mo kite kuremasu.",
+        indonesian: "Santos-san dan Karina-san juga bersedia datang membantu saya."
+      },
+      {
+        speaker: "ミラー",
+        role: "Tokoh Utama",
+        japanese: "そうですか。何か 持って 行きましょうか。",
+        romaji: "Sou desu ka. Nani ka motte ikimashou ka.",
+        indonesian: "Begitu ya. Apakah perlu saya bawakan sesuatu?"
+      },
+      {
+        speaker: "ワン",
+        role: "Teman",
+        japanese: "いいえ、車も 友達に 貸して もらいますから、何も 要りません。",
+        romaji: "Iie, kuruma mo tomodachi ni kashite moraimasu kara, nani mo irimasen.",
+        indonesian: "Tidak usah, mobil pun sudah saya pinjam dari teman, jadi tidak perlu membawa apa-apa."
       }
     ]
   },
-  "tataBahasa": [
+  tataBahasa: [
     {
-      "point": 1,
-      "title": "Kaidah Tata Bahasa Inti Bab 24",
-      "polaFormat": "[授受動詞（て形）]",
-      "explanation": "Memberikan kebaikan (〜て あげます), menerima bantuan (〜て もらいます), dan dibantu (〜て くれます).",
-      "examples": [
+      point: 1,
+      title: "Perbedaan くれます vs あげます (Arah Pemberian)",
+      polaFormat: "Orang Lain + は/が + わたし(keluarga)に + Benda + を くれます",
+      explanation: "Berbeda dari あげます yang berarti 'Saya memberi kepada orang lain' (arah keluar),「くれます」digunakan khusus ketika 'Orang lain memberi sesuatu kepada SAYA (atau keluarga saya)' (arah masuk ke diri kita).",
+      examples: [
         {
-          "japanese": "第24課の 文法例文です。",
-          "romaji": "Dai-24-ka no bunpou reibun desu.",
-          "indonesian": "Contoh kalimat tata bahasa untuk Bab 24."
+          japanese: "部長は わたしに 本を くれました。",
+          romaji: "Buchou wa watashi ni hon o kuremashita.",
+          indonesian: "Kepala bagian memberi saya sebuah buku."
+        }
+      ]
+    },
+    {
+      point: 2,
+      title: "Berbuat Kebaikan untuk Orang Lain: 〜て あげます",
+      polaFormat: "Pelaku (Saya/Orang) + は + Penerima + に + KK Bentuk-Te + あげます",
+      explanation: "Digunakan saat kita berbuat suatu jasa/kebaikan kepada orang lain (membantu, meminjamkan, mengantarkan). Catatan etika: Hindari penggunaan langsung「〜てあげます」kepada atasan/guru karena terdengar menggurui/sok berjasa; lebih sopan tawarkan dengan「〜ましょうか」.",
+      examples: [
+        {
+          japanese: "わたしは おばあさんに 席を 譲って あげました。",
+          romaji: "Watashi wa obaasan ni seki o yuzutte agemashita.",
+          indonesian: "Saya memberikan tempat duduk kepada seorang nenek."
+        }
+      ]
+    },
+    {
+      point: 3,
+      title: "Menerima Jasa Bantuan (Subjek: Saya): 〜て もらいます",
+      polaFormat: "Saya + は + Pemberi Jasa + に + KK Bentuk-Te + もらいます",
+      explanation: "Menunjukkan rasa syukur karena diri kita mendapatkan/menerima jasa perbuatan baik dari seseorang ('Saya dibantu / diajari / diantar oleh...').",
+      examples: [
+        {
+          japanese: "友達に 自転車を 直して もらいました。",
+          romaji: "Tomodachi ni jitensha o naoshite moraimashita.",
+          indonesian: "Sepeda saya diperbaiki oleh teman (Saya menerima jasa perbaikan)."
+        }
+      ]
+    },
+    {
+      point: 4,
+      title: "Orang Lain Berbuat Baik untuk Kita (Subjek: Orang Lain): 〜て くれます",
+      polaFormat: "Orang Lain + が + (わたしに) + KK Bentuk-Te + くれます",
+      explanation: "Menekankan bahwa orang lain berinisiatif melakukan perbuatan baik bagi diri kita atau keluarga kita. Jika ingin meminta tolong secara sangat ramah kepada teman, gunakan「〜て くれませんか」.",
+      examples: [
+        {
+          japanese: "姉が 空港まで 迎えに 来て くれました。",
+          romaji: "Ane ga kuukou made mukae ni kite kuremashita.",
+          indonesian: "Kakak perempuan saya datang menjemput ke bandara untuk saya."
         }
       ]
     }
   ],
-  "referensiInfo": {
-    "title": "Informasi Budaya & Wawasan Bab 24",
-    "description": "Panduan praktis konteks komunikasi Bab 24 dalam etika masyarakat Jepang.",
-    "notes": [
-      "Latihlah pola kalimat secara lisan dengan audio interaktif.",
-      "Hubungkan kosakata bab ini dengan pola tata bahasa yang sedang dipelajari."
+  referensiInfo: {
+    title: "Wawasan Budaya: Menjaga Kesopanan Saat Memberi Jasa",
+    description: "Penggunaan pola「てあげます・てもらいます・てくれます」mencerminkan cara pandang orang Jepang yang selalu melihat interaksi dari sudut pandang 'pihak penerima/pemberi rasa terima kasih'.",
+    notes: [
+      "Selalu utamakan menyebut jasa orang lain dengan「〜て くれた」untuk menunjukkan rasa terima kasih yang tulus.",
+      "Untuk meminta tolong kepada atasan, gunakan bentuk yang lebih hormat lagi (seperti 〜て いただけませんか)."
     ]
   }
 };
