@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Play, 
   BarChart2, 
   Flame, 
   Sparkles, 
   ArrowRight,
-  TrendingUp,
-  CheckCircle2
+  TrendingUp
 } from 'lucide-react';
 import { sound } from '../../utils/audio';
 
@@ -29,19 +28,37 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   totalKanji,
   streakDays
 }) => {
-  // Calculate total learned items & realistic dynamic percentage
-  const totalLearned = learnedKotobaCount + learnedKanjiCount;
+  // Calculate real learning progress & actual percentage
+  const totalLearned = (learnedKotobaCount || 0) + (learnedKanjiCount || 0);
   const totalItems = (totalKotoba || 2910) + (totalKanji || 424);
-  const actualPct = totalItems > 0 ? Math.round((totalLearned / totalItems) * 100) : 0;
+  const calculatedPct = totalItems > 0 ? Math.round((totalLearned / totalItems) * 100) : 0;
   
-  // Display percentage: show actual, or starter anchor of 72% if simulating master level or display actual
-  const displayPct = actualPct > 0 ? actualPct : 72;
-  const displayStreak = streakDays > 0 ? streakDays : 18;
+  // Real percentage (fallback to benchmark 72% only if initial brand new account has 0)
+  const displayPct = calculatedPct > 0 ? calculatedPct : 72;
+  const displayStreak = (streakDays && streakDays > 0) ? streakDays : 1;
 
-  // SVG circular progress calculation (radius = 54, circumference = 2 * PI * 54 = 339.29)
-  const radius = 54;
+  // Smooth loading animation for circular progress
+  const [animatedPct, setAnimatedPct] = useState(0);
+
+  useEffect(() => {
+    // Check prefers-reduced-motion
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) {
+      setAnimatedPct(displayPct);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setAnimatedPct(displayPct);
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [displayPct]);
+
+  // Circular gauge math (radius = 64, circumference = 2 * PI * 64 = 402.12)
+  const radius = 64;
   const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (displayPct / 100) * circumference;
+  const strokeDashoffset = circumference - (animatedPct / 100) * circumference;
 
   return (
     <section className="relative w-full rounded-3xl overflow-hidden border border-[#263D60] shadow-[0_20px_60px_-15px_rgba(8,21,47,0.95),0_0_35px_rgba(36,86,166,0.18)] bg-[#08152F]">
@@ -51,9 +68,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 hover:scale-105"
         style={{ backgroundImage: `url('/assets/homepage/zenora-hero-japan.jpg')` }}
       >
-        {/* Dark gradient overlay for text readability on the left */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#08152F] via-[#08152F]/90 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08152F] via-transparent to-[#08152F]/60" />
+        {/* Dark gradient overlay for text readability on the left, translucent on the right so glass card sees the pagoda */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#08152F] via-[#08152F]/85 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08152F] via-transparent to-[#08152F]/50" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(36,86,166,0.22),transparent_60%)]" />
       </div>
 
@@ -92,7 +109,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   sound.playClick();
                   onStartLearning();
                 }}
-                className="px-6 py-3.5 rounded-2xl neon-btn-primary text-white font-black text-sm sm:text-base flex items-center gap-2.5 active:scale-95 cursor-pointer"
+                className="px-6 py-3.5 rounded-2xl neon-btn-primary text-white font-black text-sm sm:text-base flex items-center gap-2.5 active:scale-95 cursor-pointer shadow-[0_4px_20px_rgba(36,86,166,0.4)] hover:shadow-[0_6px_25px_rgba(57,120,214,0.6)] transition-all"
               >
                 <Play className="w-4 h-4 fill-white text-white" />
                 <span>Mulai Belajar</span>
@@ -113,96 +130,189 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           </div>
 
-          {/* Right Column: Floating Learning Progress Widget */}
+          {/* Right Column: Luxury Glassmorphism Progress Belajar Card */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="w-full max-w-sm rounded-3xl p-6 glass-midnight-card border border-[#263D60] shadow-[0_25px_50px_rgba(8,21,47,0.9),0_0_30px_rgba(36,86,166,0.2)] backdrop-blur-2xl text-left animate-float-gentle">
-              
-              {/* Widget Header */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2 text-white font-bold text-sm">
-                  <Sparkles className="w-4 h-4 text-[#83B7EE]" />
-                  <span>Progress Belajar</span>
+            <div 
+              className="w-full max-w-[400px] rounded-[32px] p-6 sm:p-7 relative transition-all duration-500 ease-out hover:-translate-y-1 group"
+              style={{
+                /* Translucent Midnight Ocean frosted glass */
+                background: 'linear-gradient(135deg, rgba(16, 36, 71, 0.40) 0%, rgba(8, 21, 47, 0.45) 50%, rgba(8, 21, 47, 0.65) 100%)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                /* Glowing cyan & sapphire glass borders */
+                border: '1.5px solid rgba(105, 201, 223, 0.38)',
+                boxShadow: '0 20px 50px -10px rgba(8, 21, 47, 0.85), 0 0 35px rgba(57, 120, 214, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.32), inset 0 0 25px rgba(105, 201, 223, 0.08)'
+              }}
+            >
+              {/* Subtle top edge glow highlight */}
+              <div className="absolute top-0 left-12 right-12 h-[1px] bg-gradient-to-r from-transparent via-[#83B7EE]/60 to-transparent pointer-events-none" />
+
+              {/* CARD HEADER */}
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center gap-3">
+                  {/* Rising Chart Icon Container */}
+                  <div 
+                    className="w-11 h-11 rounded-2xl flex items-center justify-center border border-[#83B7EE]/30 shadow-[0_0_15px_rgba(57,120,214,0.35)]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(36, 86, 166, 0.45) 0%, rgba(16, 36, 71, 0.65) 100%)',
+                      backdropFilter: 'blur(12px)'
+                    }}
+                  >
+                    <svg className="w-5 h-5 text-[#69C9DF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3 3v18h18" />
+                      <path d="M18 9l-5 5-4-4-3 3" />
+                      <path d="M14 9h4v4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-[#F2F6FC] font-['Manrope'] tracking-tight leading-tight">
+                      Progress Belajar
+                    </h3>
+                    <p className="text-xs text-[#A9BBD3]/85 font-normal">
+                      Terus belajar, capai tujuanmu!
+                    </p>
+                  </div>
                 </div>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-black bg-[#45C6A5]/15 text-[#45C6A5] border border-[#45C6A5]/30 flex items-center gap-1">
-                  <TrendingUp className="w-3 h-3" />
-                  +12%
-                </span>
+
+                {/* Progress Gain Badge */}
+                <div 
+                  className="px-3 py-1 rounded-full flex items-center gap-1 text-xs font-extrabold text-[#69C9DF] border border-[#69C9DF]/30 shadow-[0_0_12px_rgba(105,201,223,0.25)]"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(16, 36, 71, 0.7) 0%, rgba(36, 86, 166, 0.35) 100%)',
+                    backdropFilter: 'blur(8px)'
+                  }}
+                >
+                  <TrendingUp className="w-3.5 h-3.5 text-[#69C9DF]" />
+                  <span>+12%</span>
+                </div>
               </div>
 
-              {/* Circular Progress Gauge */}
-              <div className="relative flex items-center justify-center py-2">
-                <svg className="w-36 h-36 transform -rotate-90">
-                  {/* Track Circle */}
+              {/* CIRCULAR PROGRESS GAUGE */}
+              <div className="relative flex items-center justify-center my-3 py-1">
+                <svg className="w-48 h-48 transform -rotate-90" viewBox="0 0 170 170">
+                  <defs>
+                    {/* Gauge linear gradient */}
+                    <linearGradient id="luxuryProgressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#2456A6" />
+                      <stop offset="45%" stopColor="#3978D6" />
+                      <stop offset="85%" stopColor="#69C9DF" />
+                      <stop offset="100%" stopColor="#83B7EE" />
+                    </linearGradient>
+                    {/* Soft glow filter for the active arc */}
+                    <filter id="progressGlow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="0" stdDeviation="3.5" floodColor="#69C9DF" floodOpacity="0.6" />
+                    </filter>
+                  </defs>
+
+                  {/* Track Circle (Translucent Navy) */}
                   <circle
-                    cx="72"
-                    cy="72"
+                    cx="85"
+                    cy="85"
                     r={radius}
-                    className="stroke-[#172945]"
-                    strokeWidth="10"
+                    stroke="#102447"
+                    strokeOpacity="0.65"
+                    strokeWidth="11"
                     fill="transparent"
                   />
-                  {/* Progress Circle with Ocean Blue Gradient */}
+
+                  {/* Active Progress Circle with rounded linecap & glow */}
                   <circle
-                    cx="72"
-                    cy="72"
+                    cx="85"
+                    cy="85"
                     r={radius}
-                    stroke="url(#oceanBlueGradient)"
-                    strokeWidth="10"
+                    stroke="url(#luxuryProgressGradient)"
+                    strokeWidth="11.5"
                     strokeDasharray={circumference}
                     strokeDashoffset={strokeDashoffset}
                     strokeLinecap="round"
                     fill="transparent"
+                    filter="url(#progressGlow)"
                     className="transition-all duration-1000 ease-out"
                   />
-                  {/* SVG Gradient Definition */}
-                  <defs>
-                    <linearGradient id="oceanBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#2456A6" />
-                      <stop offset="50%" stopColor="#3978D6" />
-                      <stop offset="100%" stopColor="#69C9DF" />
-                    </linearGradient>
-                  </defs>
+
+                  {/* Cyan glowing end-point dot */}
+                  {animatedPct > 0 && animatedPct < 100 && (
+                    <circle
+                      cx="85"
+                      cy="21"
+                      r="4.5"
+                      fill="#69C9DF"
+                      className="shadow-lg"
+                      filter="url(#progressGlow)"
+                    />
+                  )}
                 </svg>
 
-                {/* Center Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
-                  <span className="text-3xl font-black text-[#F2F6FC] font-['Manrope'] tracking-tight">
-                    {displayPct}%
+                {/* Center Content: Percentage & Total Progress */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none select-none">
+                  <span className="text-4xl sm:text-5xl font-black text-[#F2F6FC] font-['Manrope'] tracking-tight drop-shadow-[0_4px_15px_rgba(8,21,47,0.9)]">
+                    {animatedPct}%
                   </span>
-                  <span className="text-[11px] font-semibold text-[#A9BBD3]">
+                  <span className="text-xs font-semibold text-[#A9BBD3] tracking-wide mt-1">
                     Total Progress
                   </span>
                 </div>
               </div>
 
-              {/* Streak Stat & Mini Sparkline */}
-              <div className="mt-3 pt-4 border-t border-[#263D60] flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-xl bg-[#E9BD72]/15 border border-[#E9BD72]/30 text-[#E9BD72]">
-                    <Flame className="w-4 h-4 fill-[#E9BD72]" />
+              {/* STREAK BELAJAR SUB-CARD */}
+              <div 
+                className="mt-3 p-3.5 rounded-2xl flex items-center justify-between border border-[#69C9DF]/25 shadow-[0_8px_20px_rgba(8,21,47,0.7),inset_0_1px_1px_rgba(255,255,255,0.18)]"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(16, 36, 71, 0.45) 0%, rgba(8, 21, 47, 0.55) 100%)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)'
+                }}
+              >
+                {/* Left Side: Fire Icon + Days + Label */}
+                <div className="flex items-center gap-3">
+                  {/* Fire Icon in Gold Halo */}
+                  <div 
+                    className="w-11 h-11 rounded-full flex items-center justify-center border border-[#E9BD72]/50 shadow-[0_0_15px_rgba(233,189,114,0.35)] shrink-0"
+                    style={{
+                      background: 'radial-gradient(circle, rgba(233, 189, 114, 0.25) 0%, rgba(16, 36, 71, 0.5) 100%)'
+                    }}
+                  >
+                    <Flame className="w-5 h-5 fill-[#E9BD72] text-[#E9BD72] drop-shadow-[0_0_8px_rgba(233,189,114,0.7)]" />
                   </div>
+
                   <div>
-                    <span className="block text-sm font-black text-white">
+                    <span className="block text-base sm:text-lg font-black text-[#F2F6FC] font-['Manrope'] leading-tight">
                       {displayStreak} Hari
                     </span>
-                    <span className="text-[10px] text-[#7186A5] font-medium uppercase tracking-wider">
-                      Streak Belajar
+                    <span className="text-[10px] text-[#A9BBD3] font-bold tracking-widest uppercase">
+                      STREAK BELAJAR
                     </span>
                   </div>
                 </div>
 
-                {/* Mini Wave Sparkline */}
-                <div className="w-24 h-8 flex items-end">
-                  <svg viewBox="0 0 100 30" className="w-full h-full overflow-visible">
+                {/* Vertical Subtle Divider */}
+                <div className="h-9 w-[1px] bg-gradient-to-b from-transparent via-[#263D60] to-transparent mx-2" />
+
+                {/* Right Side: Minimalist Glowing Wave Sparkline */}
+                <div className="w-28 h-9 flex items-center pr-1">
+                  <svg viewBox="0 0 110 32" className="w-full h-full overflow-visible">
+                    <defs>
+                      <linearGradient id="sparklineWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#2456A6" />
+                        <stop offset="60%" stopColor="#3978D6" />
+                        <stop offset="100%" stopColor="#69C9DF" />
+                      </linearGradient>
+                      <filter id="sparklineGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#69C9DF" floodOpacity="0.8" />
+                      </filter>
+                    </defs>
+                    {/* Elegant activity curve */}
                     <path
-                      d="M0 25 Q 20 10, 40 18 T 80 5 T 100 12"
+                      d="M2 24 C 20 25, 30 18, 48 18 C 65 18, 75 25, 92 18 C 98 15, 104 10, 108 8"
                       fill="none"
-                      stroke="#3978D6"
-                      strokeWidth="3"
+                      stroke="url(#sparklineWaveGrad)"
+                      strokeWidth="2.8"
                       strokeLinecap="round"
+                      filter="url(#sparklineGlow)"
                     />
-                    <circle cx="100" cy="12" r="3" fill="#69C9DF" className="animate-ping" />
-                    <circle cx="100" cy="12" r="3" fill="#69C9DF" />
+                    {/* Glowing endpoint dot */}
+                    <circle cx="108" cy="8" r="3.5" fill="#69C9DF" filter="url(#sparklineGlow)" />
+                    <circle cx="108" cy="8" r="6" fill="#69C9DF" opacity="0.3" className="animate-ping" />
                   </svg>
                 </div>
               </div>
