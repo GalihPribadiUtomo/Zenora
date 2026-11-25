@@ -32,6 +32,7 @@ export function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [activeKanji, setActiveKanji] = useState<KanjiItem | null>(null);
+  const [activeKanjiList, setActiveKanjiList] = useState<KanjiItem[] | null>(null);
   const [adminAuthModalOpen, setAdminAuthModalOpen] = useState(false);
 
   // Role-Based Access Control (RBAC) - Admin Mode
@@ -205,6 +206,13 @@ export function App() {
     }));
   };
 
+  const handleSelectKanji = (kanji: KanjiItem, list?: KanjiItem[]) => {
+    setActiveKanji(kanji);
+    if (list && list.length > 0) {
+      setActiveKanjiList(list);
+    }
+  };
+
   const handleStartQuizFromBab = (bab: number) => {
     setPracticeBab(bab);
     setPracticeType('18-modes');
@@ -339,7 +347,7 @@ export function App() {
               learnedKanjiCount={stats.learnedKanjiIds.length}
               streakDays={stats.streakDays}
               stats={stats}
-              onSelectKanji={(k) => setActiveKanji(k)}
+              onSelectKanji={handleSelectKanji}
               onSelectChapter={(bab) => {
                 setSelectedBab(bab);
                 setActiveTab('kotoba');
@@ -363,14 +371,14 @@ export function App() {
               onToggleLearned={handleToggleLearnedKotoba}
               onToggleBookmark={handleToggleBookmarkKotoba}
               onStartQuiz={handleStartQuizFromBab}
-              onSelectKanji={(k) => setActiveKanji(k)}
+              onSelectKanji={handleSelectKanji}
               isAdminMode={isAdminMode}
             />
           )}
 
           {activeTab === 'kanji' && (
             <KanjiSection
-              onSelectKanji={(k) => setActiveKanji(k)}
+              onSelectKanji={handleSelectKanji}
               learnedKanjiIds={stats.learnedKanjiIds}
               onToggleLearned={handleToggleLearnedKanji}
             />
@@ -479,13 +487,15 @@ export function App() {
         onClose={() => setActiveKanji(null)}
         isLearned={activeKanji ? stats.learnedKanjiIds.includes(activeKanji.id) : false}
         onToggleLearned={handleToggleLearnedKanji}
+        kanjiList={activeKanjiList || undefined}
+        onSelectKanji={(k) => setActiveKanji(k)}
       />
 
       {/* Quick Search Modal */}
       <SearchModal
         isOpen={searchOpen}
         onClose={() => setSearchOpen(false)}
-        onSelectKanji={(k) => setActiveKanji(k)}
+        onSelectKanji={handleSelectKanji}
         onSelectBab={(bab) => {
           setSelectedBab(bab);
           setActiveTab('kotoba');

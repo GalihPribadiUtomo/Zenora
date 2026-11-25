@@ -455,6 +455,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
           isLearned={learnedKanaChars.includes(selectedKanaModal.char)}
           onToggleLearned={onToggleLearned}
           onSelectKana={(kana) => setSelectedKanaModal(kana)}
+          kanaList={filteredData.length > 0 ? filteredData : (activeType === 'hiragana' ? HIRAGANA_DATA : KATAKANA_DATA)}
         />
       )}
 

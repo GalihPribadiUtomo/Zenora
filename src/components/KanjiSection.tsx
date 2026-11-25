@@ -9,7 +9,7 @@ import { KanjiItem, JLPTLevel, KanjiCategory } from '../types';
 import { sound } from '../utils/audio';
 
 interface KanjiSectionProps {
-  onSelectKanji: (kanji: KanjiItem) => void;
+  onSelectKanji: (kanji: KanjiItem, list?: KanjiItem[]) => void;
   learnedKanjiIds: number[];
   onToggleLearned: (id: number) => void;
 }
@@ -376,7 +376,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                 key={kanji.id}
                 onClick={() => {
                   sound.playClick();
-                  onSelectKanji(kanji);
+                  onSelectKanji(kanji, filteredKanji);
                 }}
                 className={`p-4 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between group shadow-[0_4px_16px_rgba(8,13,43,0.5)] ${
                   isLearned ? 'border-emerald-500/40 bg-[#0F3025]' : 'border-[#7857FF]/25 bg-[#0D1238] hover:border-[#7857FF]/60 hover:shadow-[0_0_24px_rgba(120,87,255,0.18)]'

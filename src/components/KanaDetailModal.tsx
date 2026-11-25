@@ -12,7 +12,8 @@ import { KanaItem } from '../types';
 import { speakJapanese, sound } from '../utils/audio';
 import { KanaStrokePlayer } from './KanaStrokePlayer';
 import { KanaCanvasPractice } from './KanaCanvasPractice';
-import { ALL_KANA_DATA } from '../data/kanaData';
+import { ALL_KANA_DATA, HIRAGANA_DATA, KATAKANA_DATA } from '../data/kanaData';
+import { ItemNavigationButtons } from './common/ItemNavigationButtons';
 
 interface KanaDetailModalProps {
   kana: KanaItem | null;
@@ -20,6 +21,7 @@ interface KanaDetailModalProps {
   isLearned: boolean;
   onToggleLearned: (char: string) => void;
   onSelectKana: (kana: KanaItem) => void;
+  kanaList?: KanaItem[];
 }
 
 export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
@@ -27,9 +29,18 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
   onClose,
   isLearned,
   onToggleLearned,
-  onSelectKana
+  onSelectKana,
+  kanaList
 }) => {
   const [activeTab, setActiveTab] = useState<'goresan' | 'latihan'>('goresan');
+  const modalContentRef = React.useRef<HTMLDivElement | null>(null);
+
+  // Scroll to top when character changes
+  useEffect(() => {
+    if (modalContentRef.current) {
+      modalContentRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [kana?.char]);
 
   // Close on Escape key
   useEffect(() => {
@@ -41,6 +52,17 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
   }, [onClose]);
 
   if (!kana) return null;
+
+  // Navigation context: strictly within current Kana type (Hiragana or Katakana)
+  const activeTypeKanaList = (kanaList && kanaList.length > 0)
+    ? kanaList.filter(k => k.type === kana.type)
+    : (kana.type === 'hiragana' ? HIRAGANA_DATA : KATAKANA_DATA);
+
+  const currentIndex = activeTypeKanaList.findIndex(k => k.char === kana.char);
+  const hasPrev = currentIndex > 0;
+  const hasNext = currentIndex !== -1 && currentIndex < activeTypeKanaList.length - 1;
+  const prevKana = hasPrev ? activeTypeKanaList[currentIndex - 1] : null;
+  const nextKana = hasNext ? activeTypeKanaList[currentIndex + 1] : null;
 
   // Find equivalent paired character (Hiragana <-> Katakana)
   const pairedKana = ALL_KANA_DATA.find(k => k.char === kana.equivalentChar);
@@ -96,7 +118,7 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
         </div>
 
         {/* Modal Content Body */}
-        <div className="p-6 sm:p-8 space-y-6 max-h-[82vh] overflow-y-auto">
+        <div ref={modalContentRef} className="p-6 sm:p-8 space-y-6 max-h-[82vh] overflow-y-auto">
           
           {/* Top Info Banner Grid */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
@@ -301,6 +323,23 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
             )}
 
           </div>
+
+          {/* NEXT & BACK NAVIGATION BUTTONS */}
+          <ItemNavigationButtons
+            currentIndex={currentIndex !== -1 ? currentIndex : 0}
+            totalCount={activeTypeKanaList.length}
+            hasPrev={hasPrev}
+            hasNext={hasNext}
+            onPrev={() => {
+              if (prevKana) onSelectKana(prevKana);
+            }}
+            onNext={() => {
+              if (nextKana) onSelectKana(nextKana);
+            }}
+            prevLabel={prevKana ? `${prevKana.char} (${prevKana.romaji})` : undefined}
+            nextLabel={nextKana ? `${nextKana.char} (${nextKana.romaji})` : undefined}
+            itemTypeLabel={kana.type === 'hiragana' ? 'Hiragana' : 'Katakana'}
+          />
 
         </div>
 

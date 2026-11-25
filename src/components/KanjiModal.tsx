@@ -22,12 +22,16 @@ import { KanjiStrokeViewer } from './KanjiStrokeViewer';
 import { getKanjiSentences } from '../data/kanjiSentencesData';
 import { SentenceCard } from './SentenceCard';
 import { FuriganaText } from './FuriganaText';
+import { KANJI_DATA } from '../data/kanjiData';
+import { ItemNavigationButtons } from './common/ItemNavigationButtons';
 
 interface KanjiModalProps {
   kanji: KanjiItem | null;
   onClose: () => void;
   isLearned: boolean;
   onToggleLearned: (id: number) => void;
+  kanjiList?: KanjiItem[];
+  onSelectKanji?: (kanji: KanjiItem) => void;
 }
 
 interface StrokePoint {
@@ -45,12 +49,30 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
   kanji,
   onClose,
   isLearned,
-  onToggleLearned
+  onToggleLearned,
+  kanjiList,
+  onSelectKanji
 }) => {
   if (!kanji) return null;
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const contentScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeTab, setActiveTab] = useState<'goresan' | 'kalimat' | 'menulis' | 'jukugo'>('goresan');
+
+  // Scroll to top when active kanji changes
+  useEffect(() => {
+    if (contentScrollRef.current) {
+      contentScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [kanji?.id]);
+
+  // Navigation context
+  const activeKanjiList = (kanjiList && kanjiList.length > 0) ? kanjiList : KANJI_DATA;
+  const currentIndex = activeKanjiList.findIndex(k => k.id === kanji.id);
+  const hasPrev = currentIndex > 0;
+  const hasNext = currentIndex !== -1 && currentIndex < activeKanjiList.length - 1;
+  const prevKanji = hasPrev ? activeKanjiList[currentIndex - 1] : null;
+  const nextKanji = hasNext ? activeKanjiList[currentIndex + 1] : null;
   
   // Handwriting Canvas States
   const [isDrawing, setIsDrawing] = useState(false);
@@ -310,7 +332,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
         </div>
 
         {/* Modal Content Body */}
-        <div className="p-6 sm:p-8 space-y-6 max-h-[82vh] overflow-y-auto">
+        <div ref={contentScrollRef} className="p-6 sm:p-8 space-y-6 max-h-[82vh] overflow-y-auto">
           
           {/* Main Info Row (Blue Sakura Future Study Banner Card) */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
@@ -863,6 +885,25 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
             )}
 
           </div>
+
+          {/* NEXT & BACK NAVIGATION BUTTONS */}
+          {onSelectKanji && (
+            <ItemNavigationButtons
+              currentIndex={currentIndex !== -1 ? currentIndex : 0}
+              totalCount={activeKanjiList.length}
+              hasPrev={hasPrev}
+              hasNext={hasNext}
+              onPrev={() => {
+                if (prevKanji) onSelectKanji(prevKanji);
+              }}
+              onNext={() => {
+                if (nextKanji) onSelectKanji(nextKanji);
+              }}
+              prevLabel={prevKanji ? `${prevKanji.kanji} (${prevKanji.meaning})` : undefined}
+              nextLabel={nextKanji ? `${nextKanji.kanji} (${nextKanji.meaning})` : undefined}
+              itemTypeLabel="Kanji"
+            />
+          )}
 
         </div>
       </div>
