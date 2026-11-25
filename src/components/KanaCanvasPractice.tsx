@@ -10,6 +10,7 @@ import {
   AlertCircle,
   Sparkles
 } from 'lucide-react';
+import { KANA_STROKE_DATA } from '../data/kanaStrokeData';
 import { sound } from '../utils/audio';
 
 interface KanaCanvasPracticeProps {
@@ -69,6 +70,10 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
     setEvalResult(null);
     setShowHint(false);
   }, [char, activeChar]);
+
+  useEffect(() => {
+    setSelectedSubIndex(0);
+  }, [char]);
 
   const redrawCanvas = () => {
     const canvas = canvasRef.current;
@@ -210,7 +215,8 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
 
   const handleCheckWriting = () => {
     const userStrokeCount = strokes.length;
-    const expected = strokeCount;
+    const activeCharStrokeCount = KANA_STROKE_DATA[activeChar]?.paths.length || (chars.length > 1 ? Math.round(strokeCount / chars.length) : strokeCount);
+    const expected = activeCharStrokeCount;
 
     if (userStrokeCount === 0) {
       sound.playIncorrect();
@@ -358,27 +364,30 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
 
       {/* Sub-character selector if compound */}
       {chars.length > 1 && (
-        <div className="flex flex-wrap items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/25">
-          <span className="text-xs font-bold text-[#737FA8]">Latihan Karakter:</span>
-          {chars.map((c, idx) => (
-            <button
-              key={idx}
-              onClick={() => {
-                sound.playClick();
-                setSelectedSubIndex(idx);
-              }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-black transition-all ${
-                selectedSubIndex === idx
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                  : 'bg-[#080D2B] text-[#737FA8] hover:text-[#F5F6FF] border border-[#7857FF]/25'
-              }`}
-            >
-              <span className="font-japanese text-base">{c}</span>
-              <span className="text-[10px] font-normal opacity-80">
-                ({idx === 0 ? 'Induk' : 'Kecil'})
-              </span>
-            </button>
-          ))}
+        <div className="flex flex-wrap items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/30">
+          <span className="text-xs font-bold text-[#AAB3D5]">Pilih Karakter untuk Ditulis:</span>
+          {chars.map((c, idx) => {
+            const cStrokes = KANA_STROKE_DATA[c]?.paths.length || '?';
+            return (
+              <button
+                key={idx}
+                onClick={() => {
+                  sound.playClick();
+                  setSelectedSubIndex(idx);
+                }}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-mono text-xs font-black transition-all cursor-pointer ${
+                  selectedSubIndex === idx
+                    ? 'bg-gradient-to-r from-[#7857FF] to-[#329BFF] text-white border border-[#7857FF]/50 shadow-md'
+                    : 'bg-[#0D1238] text-[#737FA8] hover:text-white border border-[#7857FF]/25'
+                }`}
+              >
+                <span className="font-japanese text-base">{c}</span>
+                <span className="text-[11px] font-normal opacity-90">
+                  ({idx === 0 ? 'Induk' : 'Kecil'} · {cStrokes} Goresan)
+                </span>
+              </button>
+            );
+          })}
         </div>
       )}
 

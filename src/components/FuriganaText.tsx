@@ -1,6 +1,23 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
+import { Volume2, X, BookOpen } from 'lucide-react';
 import { KOTOBA_DATA } from '../data/kotobaData';
 import { KANJI_DATA } from '../data/kanjiData';
+import { speakJapanese } from '../utils/audio';
+
+interface WordLookupInfo {
+  word: string;
+  reading: string;
+  meaning: string;
+}
+
+const MEANING_DICT = new Map<string, string>();
+KOTOBA_DATA.forEach((w) => {
+  if (w.kanji && w.arti && !MEANING_DICT.has(w.kanji)) MEANING_DICT.set(w.kanji, w.arti);
+  if (w.kana && w.arti && !MEANING_DICT.has(w.kana)) MEANING_DICT.set(w.kana, w.arti);
+});
+KANJI_DATA.forEach((k) => {
+  if (k.kanji && k.meaning && !MEANING_DICT.has(k.kanji)) MEANING_DICT.set(k.kanji, k.meaning);
+});
 
 // Common proper nouns, grammar terms, dialogues, and frequent words in Minna no Nihongo & Japanese learning
 const COMMON_FURIGANA_DICT: Record<string, string> = {
@@ -531,7 +548,11 @@ function parseBracketedFurigana(text: string): React.ReactNode[] {
 /**
  * Parse any Japanese text sentence and render kanji with furigana on top (CONTOH PERTAMA)
  */
-export function parseFuriganaElements(text: string, directReading?: string): React.ReactNode[] {
+export function parseFuriganaElements(
+  text: string,
+  directReading?: string,
+  onLookup?: (info: WordLookupInfo) => void
+): React.ReactNode[] {
   if (!text) return [];
 
   // Check if text already has bracket furigana, e.g. "現場[げんば]..."
@@ -542,9 +563,22 @@ export function parseFuriganaElements(text: string, directReading?: string): Rea
   // If a direct reading is provided for this exact word (e.g. from Kotoba table)
   if (directReading && /[\u4e00-\u9faf]/.test(text)) {
     const parts = decomposeToRuby(text, directReading);
+    const meaning = MEANING_DICT.get(text) || MEANING_DICT.get(directReading);
     return parts.map((p, i) =>
       p.isRuby && p.rt ? (
-        <ruby key={`dir-${i}`} className="ruby-furigana">
+        <ruby
+          key={`dir-${i}`}
+          onClick={
+            meaning && onLookup
+              ? (e) => {
+                  e.stopPropagation();
+                  onLookup({ word: text, reading: directReading, meaning });
+                }
+              : undefined
+          }
+          className={`ruby-furigana ${meaning && onLookup ? 'cursor-pointer hover:text-[#50C8FF] transition-colors' : ''}`}
+          title={meaning ? `${text} (${directReading}): ${meaning}` : undefined}
+        >
           {p.text}
           <rt className="ruby-rt">{p.rt}</rt>
         </ruby>
@@ -569,11 +603,24 @@ export function parseFuriganaElements(text: string, directReading?: string): Rea
     for (const key of SORTED_KEYS) {
       if (text.startsWith(key, i)) {
         const kana = MASTER_DICT.get(key)!;
+        const meaning = MEANING_DICT.get(key) || MEANING_DICT.get(kana);
         const parts = decomposeToRuby(key, kana);
         parts.forEach((p) => {
           if (p.isRuby && p.rt) {
             elements.push(
-              <ruby key={`furi-${keyCounter++}`} className="ruby-furigana">
+              <ruby
+                key={`furi-${keyCounter++}`}
+                onClick={
+                  meaning && onLookup
+                    ? (e) => {
+                        e.stopPropagation();
+                        onLookup({ word: key, reading: kana, meaning });
+                      }
+                    : undefined
+                }
+                className={`ruby-furigana ${meaning && onLookup ? 'cursor-pointer hover:text-[#50C8FF] underline decoration-[#7857FF]/30 decoration-dotted underline-offset-4 transition-colors' : ''}`}
+                title={meaning ? `Klik untuk arti: ${key} (${kana})` : undefined}
+              >
                 {p.text}
                 <rt className="ruby-rt">{p.rt}</rt>
               </ruby>
@@ -594,9 +641,21 @@ export function parseFuriganaElements(text: string, directReading?: string): Rea
     const char = text[i];
     if (/[\u4e00-\u9faf]/.test(char)) {
       const fallbackReading = SINGLE_KANJI_DICT.get(char) || '';
+      const meaning = MEANING_DICT.get(char);
       if (fallbackReading) {
         elements.push(
-          <ruby key={`furi-${keyCounter++}`} className="ruby-furigana">
+          <ruby
+            key={`furi-${keyCounter++}`}
+            onClick={
+              meaning && onLookup
+                ? (e) => {
+                    e.stopPropagation();
+                    onLookup({ word: char, reading: fallbackReading, meaning });
+                  }
+                : undefined
+            }
+            className={`ruby-furigana ${meaning && onLookup ? 'cursor-pointer hover:text-[#50C8FF] transition-colors' : ''}`}
+          >
             {char}
             <rt className="ruby-rt">{fallbackReading}</rt>
           </ruby>
@@ -626,6 +685,7 @@ interface FuriganaTextProps {
   text?: string;
   reading?: string;
   className?: string;
+  enableLookup?: boolean;
 }
 
 /**
@@ -636,10 +696,58 @@ export const FuriganaText: React.FC<FuriganaTextProps> = ({
   text = '',
   reading,
   className = '',
+  enableLookup = true
 }) => {
-  const renderedElements = useMemo(() => {
-    return parseFuriganaElements(text, reading);
-  }, [text, reading]);
+  const [lookupInfo, setLookupInfo] = useState<WordLookupInfo | null>(null);
 
-  return <span className={`japanese-text inline leading-relaxed ${className}`}>{renderedElements}</span>;
+  const renderedElements = useMemo(() => {
+    return parseFuriganaElements(
+      text,
+      reading,
+      enableLookup ? (info) => setLookupInfo(info) : undefined
+    );
+  }, [text, reading, enableLookup]);
+
+  return (
+    <>
+      <span className={`japanese-text inline leading-relaxed ${className}`}>{renderedElements}</span>
+      {lookupInfo && (
+        <span
+          className="fixed bottom-5 right-5 z-50 w-72 p-4 rounded-2xl bg-[#0D1238] border border-[#7857FF]/50 shadow-[0_15px_40px_rgba(8,13,43,0.95)] text-left animate-fade-in block"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <span className="flex items-start justify-between gap-2 mb-2">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-[#A77DFF] uppercase">
+              <BookOpen className="w-3 h-3" />
+              <span>Kamus Cepat</span>
+            </span>
+            <button
+              type="button"
+              onClick={() => setLookupInfo(null)}
+              className="p-0.5 rounded-lg text-[#737FA8] hover:text-white"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </span>
+          <span className="flex items-center justify-between gap-2">
+            <span>
+              <span className="block text-xl font-black text-white kanji-font">{lookupInfo.word}</span>
+              <span className="block text-xs font-mono text-[#50C8FF]">{lookupInfo.reading}</span>
+            </span>
+            <button
+              type="button"
+              onClick={() => speakJapanese(lookupInfo.word)}
+              className="p-2 rounded-xl bg-[#12194A] text-[#A77DFF] hover:text-white border border-[#7857FF]/30"
+              title="Dengarkan"
+            >
+              <Volume2 className="w-4 h-4" />
+            </button>
+          </span>
+          <span className="block mt-2 pt-2 border-t border-[#7857FF]/20 text-xs font-semibold text-[#F5F6FF]">
+            {lookupInfo.meaning}
+          </span>
+        </span>
+      )}
+    </>
+  );
 };

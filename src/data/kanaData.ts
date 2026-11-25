@@ -6459,7 +6459,7 @@ export const KATAKANA_DATA: KanaItem[] = [
   {
     "id": "k_small_ka",
     "char": "ヵ",
-    "equivalentChar": "ヵ",
+    "equivalentChar": "か",
     "romaji": "ka (kecil)",
     "pronunciation": "/ka/",
     "type": "katakana",
@@ -6478,7 +6478,7 @@ export const KATAKANA_DATA: KanaItem[] = [
   {
     "id": "k_small_ke",
     "char": "ヶ",
-    "equivalentChar": "ヶ",
+    "equivalentChar": "け",
     "romaji": "ke (kecil)",
     "pronunciation": "/ke/ /ga/",
     "type": "katakana",

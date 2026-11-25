@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Search, 
   Bell, 
@@ -39,6 +39,25 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
   isAdminMode = false,
   onNavigateToAdmin
 }) => {
+  const [showFurigana, setShowFurigana] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('zenora_show_furigana') !== 'false';
+    } catch {
+      return true;
+    }
+  });
+
+  useEffect(() => {
+    if (showFurigana) {
+      document.documentElement.classList.remove('hide-furigana');
+    } else {
+      document.documentElement.classList.add('hide-furigana');
+    }
+    try {
+      localStorage.setItem('zenora_show_furigana', String(showFurigana));
+    } catch { /* ignore */ }
+  }, [showFurigana]);
+
   return (
     <header className="sticky top-0 z-30 w-full px-4 sm:px-6 lg:px-8 py-3.5 bg-[#080D2B]/85 backdrop-blur-xl border-b border-[#7857FF]/15">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
@@ -96,6 +115,24 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
               <span className="hidden md:inline">Syncing...</span>
             </div>
           )}
+
+          {/* Furigana Visibility Toggle */}
+          <button
+            onClick={() => {
+              sound.playClick();
+              setShowFurigana(!showFurigana);
+            }}
+            className={`px-3 py-2 rounded-2xl border text-xs font-black transition-all shadow-xs flex items-center gap-1.5 ${
+              showFurigana
+                ? 'bg-[#12194A] border-[#7857FF]/45 text-white'
+                : 'bg-[#0D1238] border-[#7857FF]/20 text-[#737FA8] hover:text-white'
+            }`}
+            title={showFurigana ? 'Sembunyikan Furigana (Mode Tantangan Kanji)' : 'Tampilkan Furigana'}
+            aria-label="Toggle Furigana"
+          >
+            <span className="kanji-font text-sm leading-none">{showFurigana ? 'ふ' : '漢'}</span>
+            <span className="hidden md:inline">{showFurigana ? 'Furigana ON' : 'Furigana OFF'}</span>
+          </button>
 
           {/* Sound Toggle */}
           <button

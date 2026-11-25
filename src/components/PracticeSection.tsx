@@ -12,7 +12,9 @@ import {
   Sparkles,
   BookOpen,
   CheckSquare,
-  Play
+  Play,
+  Zap,
+  BookX
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { KOTOBA_DATA } from '../data/kotobaData';
@@ -21,12 +23,14 @@ import { QuizMode, QuizSubject, QuizQuestion } from '../types';
 import { speakJapanese, sound } from '../utils/audio';
 import { ChapterExerciseSection } from './ChapterExerciseSection';
 import { JlptExamSection } from './JlptExamSection';
+import { ParticleConjugationDrill } from './ParticleConjugationDrill';
+import { MistakeNotebookModal } from './MistakeNotebookModal';
 import { loadChapterLesson, ChapterLesson } from '../data/materi';
 
 interface PracticeSectionProps {
   initialBab?: number | null;
   onRecordResult?: (score: number, total: number, mode: QuizMode, subject: QuizSubject) => void;
-  initialPracticeType?: '18-modes' | 'jlpt-jft' | 'classic';
+  initialPracticeType?: '18-modes' | 'jlpt-jft' | 'classic' | 'particle-conj';
   initialExamPackageId?: string;
 }
 
@@ -37,7 +41,8 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
   initialExamPackageId
 }) => {
   // Setup state
-  const [practiceType, setPracticeType] = useState<'18-modes' | 'jlpt-jft' | 'classic'>(initialPracticeType);
+  const [practiceType, setPracticeType] = useState<'18-modes' | 'jlpt-jft' | 'classic' | 'particle-conj'>(initialPracticeType);
+  const [mistakeModalOpen, setMistakeModalOpen] = useState(false);
   const [activeExerciseBab, setActiveExerciseBab] = useState<number>(initialBab || 1);
   const [exerciseLesson, setExerciseLesson] = useState<ChapterLesson | null>(null);
   const [examPackageId, setExamPackageId] = useState<string | undefined>(initialExamPackageId);
@@ -292,9 +297,9 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
   return (
     <div className="space-y-8 text-left pb-16 max-w-5xl mx-auto">
 
-      {/* Main Mode Switcher: 18 Modes vs JLPT/JFT vs Classic */}
+      {/* Main Mode Switcher: 18 Modes vs Partikel & Konjugasi vs JLPT/JFT vs Classic */}
       <div className="flex justify-center">
-        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#0D1238] rounded-2xl border border-[#7857FF]/25 max-w-2xl w-full shadow-[0_4px_20px_rgba(8,13,43,0.6)]">
+        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#0D1238] rounded-2xl border border-[#7857FF]/25 max-w-4xl w-full shadow-[0_4px_20px_rgba(8,13,43,0.6)]">
           <button
             onClick={() => {
               sound.playClick();
@@ -309,6 +314,22 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
           >
             <Sparkles className={`w-4 h-4 ${practiceType === '18-modes' ? 'text-white' : 'text-[#7857FF]'}`} />
             <span>18 Mode (Bab 1–50)</span>
+          </button>
+
+          <button
+            onClick={() => {
+              sound.playClick();
+              setPracticeType('particle-conj');
+              setIsQuizActive(false);
+            }}
+            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-1.5 ${
+              practiceType === 'particle-conj'
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white shadow-[0_0_20px_rgba(120,87,255,0.45)] border border-[#7857FF]/40'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/60'
+            }`}
+          >
+            <Zap className={`w-4 h-4 ${practiceType === 'particle-conj' ? 'text-white' : 'text-[#7857FF]'}`} />
+            <span>Partikel & Konjugasi</span>
           </button>
 
           <button
@@ -350,8 +371,34 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             <Layers className={`w-4 h-4 ${practiceType === 'classic' ? 'text-white' : 'text-[#7857FF]'}`} />
             <span>Flashcard & Ketik</span>
           </button>
+
+          <button
+            onClick={() => {
+              sound.playClick();
+              setMistakeModalOpen(true);
+            }}
+            className="py-2.5 px-3.5 rounded-xl text-xs font-bold bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border border-rose-500/35 flex items-center justify-center gap-1.5 transition-all"
+            title="Buka Buku Catatan Kesalahan"
+          >
+            <BookX className="w-4 h-4" />
+            <span className="hidden sm:inline">Catatan Salah</span>
+          </button>
         </div>
       </div>
+
+      {/* ── VIEW: PARTIKEL & KONJUGASI ── */}
+      {practiceType === 'particle-conj' && (
+        <ParticleConjugationDrill
+          onComplete={(s, t) => {
+            if (onRecordResult) onRecordResult(s, t, 'multiple-choice', 'kotoba');
+          }}
+        />
+      )}
+
+      <MistakeNotebookModal
+        isOpen={mistakeModalOpen}
+        onClose={() => setMistakeModalOpen(false)}
+      />
 
       {/* ── VIEW 0: SIMULASI JLPT & JFT (N5, N4, A2) ── */}
       {practiceType === 'jlpt-jft' && (

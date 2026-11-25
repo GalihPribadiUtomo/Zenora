@@ -82,7 +82,8 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
     { key: 'ma', label: 'Baris MA (ま行)', columns: ['ma', 'mi', 'mu', 'me', 'mo'] },
     { key: 'ya', label: 'Baris YA (や行)', columns: ['ya', null, 'yu', null, 'yo'] },
     { key: 'ra', label: 'Baris RA (ら行)', columns: ['ra', 'ri', 'ru', 're', 'ro'] },
-    { key: 'wa', label: 'Baris WA & N (わ・ん)', columns: ['wa', null, null, null, 'wo', 'n'] }
+    { key: 'wa', label: 'Baris WA (わ・を)', columns: ['wa', null, null, null, 'wo'] },
+    { key: 'n', label: 'Konsonan Khusus N (ん)', columns: ['n', null, null, null, null] }
   ];
 
   // Category counts for quick tabs
@@ -108,25 +109,25 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
   return (
     <div className="space-y-8 text-left pb-16">
       {/* 1. Header & Learning Stats Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#12194A] text-[#F5F6FF] border border-[#7857FF]/25 p-6 sm:p-8 shadow-[0_15px_45px_rgba(8,13,43,0.9)]">
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-80 h-80 rounded-full bg-gradient-to-br from-[#12194A]/20 via-[#7857FF]/15 to-transparent blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/3 -mb-20 w-72 h-72 rounded-full bg-[#0D1238]/40 blur-3xl pointer-events-none" />
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0B1038] via-[#0F1648] to-[#16205E] text-[#F5F6FF] border border-[#7857FF]/35 p-6 sm:p-8 shadow-[0_15px_45px_rgba(8,13,43,0.95)]">
+        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-80 h-80 rounded-full bg-gradient-to-br from-[#12194A]/25 via-[#7857FF]/20 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/3 -mb-20 w-72 h-72 rounded-full bg-[#7857FF]/10 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1238] border border-[#7857FF]/30 text-xs font-bold text-[#7857FF] shadow-[0_0_12px_rgba(120,87,255,0.25)]">
-              <Sparkles className="w-3.5 h-3.5 text-[#7857FF]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#080D2B]/90 border border-[#7857FF]/40 text-xs font-bold text-[#A77DFF] shadow-[0_0_12px_rgba(120,87,255,0.25)]">
+              <Sparkles className="w-3.5 h-3.5 text-[#945CFF]" />
               <span>Japanese Writing System · Modul Lengkap</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl font-black text-[#F5F6FF] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               Kuasai{' '}
-              <span className="bg-gradient-to-r from-white via-[#F5F6FF] to-[#7857FF] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(120,87,255,0.3)]">
+              <span className="bg-gradient-to-r from-white via-[#F5F6FF] to-[#A77DFF] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(120,87,255,0.4)]">
                 Hiragana & Katakana
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base text-[#737FA8] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#B0BBD8] leading-relaxed">
               Pelajari seluruh aksara bahasa Jepang mulai dari Gojuon 46 karakter dasar, Dakuten, Handakuten,
               Youon (kombinasi), Kana Kecil, variasi pelafalan modern, hingga tanda ortografi resmi dengan animasi
               urutan goresan dan latihan kanvas interaktif.
@@ -134,24 +135,24 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
           </div>
 
           {/* Quick Mastery Status Widget */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-[#080D2B]/70 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-[#7857FF]/25 shadow-xs">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-[#080D2B]/90 p-4 sm:p-5 rounded-2xl border border-[#7857FF]/35 shadow-md">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#7857FF] to-[#945CFF] border border-[#7857FF]/30 flex items-center justify-center text-[#F5F6FF] font-black text-lg shadow-[0_0_15px_rgba(120,87,255,0.3)] font-mono">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#7857FF] to-[#945CFF] border border-[#7857FF]/40 flex items-center justify-center text-white font-black text-lg shadow-[0_0_15px_rgba(120,87,255,0.4)] font-mono">
                 {progressPct}%
               </div>
               <div>
-                <div className="text-xs font-bold text-[#737FA8] uppercase tracking-wider">Progress {activeType === 'hiragana' ? 'Hiragana' : 'Katakana'}</div>
-                <div className="text-lg font-black text-[#F5F6FF] flex items-baseline gap-2">
+                <div className="text-xs font-bold text-[#AAB3D5] uppercase tracking-wider">Progress {activeType === 'hiragana' ? 'Hiragana' : 'Katakana'}</div>
+                <div className="text-lg font-black text-white flex items-baseline gap-2">
                   <span>{learnedCount}</span>
-                  <span className="text-xs font-bold text-[#737FA8]">/ {totalChars} Dikuasai</span>
+                  <span className="text-xs font-bold text-[#AAB3D5]">/ {totalChars} Dikuasai</span>
                 </div>
-                <div className="text-xs font-semibold text-[#7857FF]">
+                <div className="text-xs font-semibold text-[#A77DFF]">
                   {unmasteredCount} karakter tersisa
                 </div>
               </div>
             </div>
 
-            <div className="h-px sm:h-12 w-full sm:w-px bg-[#7857FF]/15" />
+            <div className="h-px sm:h-12 w-full sm:w-px bg-[#7857FF]/25" />
 
             <div className="flex items-center gap-2">
               <button
@@ -159,9 +160,9 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                   sound.playClick();
                   setIsPracticeModalOpen(true);
                 }}
-                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] hover:brightness-110 text-[#F5F6FF] border border-[#7857FF]/40 font-bold text-xs shadow-[0_0_15px_rgba(120,87,255,0.3)] transition-all active:scale-95"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] hover:brightness-110 text-white border border-[#7857FF]/50 font-bold text-xs shadow-[0_0_15px_rgba(120,87,255,0.35)] transition-all active:scale-95"
               >
-                <Pencil className="w-3.5 h-3.5 text-[#7857FF]" />
+                <Pencil className="w-3.5 h-3.5 text-white" />
                 <span>Mode Latihan</span>
               </button>
             </div>
@@ -169,10 +170,10 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
         </div>
 
         {/* Progress Bar Line */}
-        <div className="relative mt-6 pt-4 border-t border-[#7857FF]/15">
-          <div className="w-full bg-[#080D2B]/80 border border-[#7857FF]/20 h-2.5 rounded-full overflow-hidden">
+        <div className="relative mt-6 pt-4 border-t border-[#7857FF]/20">
+          <div className="w-full bg-[#080D2B] border border-[#7857FF]/30 h-2.5 rounded-full overflow-hidden">
             <div 
-              className="h-full bg-gradient-to-r from-[#12194A] to-[#7857FF] rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(120,87,255,0.5)]"
+              className="h-full bg-gradient-to-r from-[#7857FF] to-[#50C8FF] rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(120,87,255,0.6)]"
               style={{ width: `${progressPct}%` }}
             />
           </div>
@@ -182,7 +183,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
       {/* 2. Top Navigation Tabs: Hiragana vs Katakana & View Switcher */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
         {/* Main Kana Switcher Tabs */}
-        <div className="inline-flex p-1.5 rounded-2xl bg-[#0D1238] border border-[#7857FF]/25 shadow-xs">
+        <div className="inline-flex p-1.5 rounded-2xl bg-[#0D1445] border border-[#7857FF]/35 shadow-md">
           <button
             onClick={() => {
               sound.playClick();
@@ -190,14 +191,14 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
             }}
             className={`flex items-center gap-2.5 px-6 py-2.5 rounded-xl text-sm font-black transition-all ${
               activeType === 'hiragana'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-md'
-                : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white border border-[#7857FF]/50 shadow-md'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70'
             }`}
           >
             <span className="text-base font-japanese">ひらがな</span>
             <span>Hiragana</span>
             <span className={`text-xs px-2 py-0.5 rounded-full font-mono ${
-              activeType === 'hiragana' ? 'bg-[#080D2B] text-[#7857FF] border border-[#7857FF]/30' : 'bg-white/5 text-[#737FA8]'
+              activeType === 'hiragana' ? 'bg-[#080D2B] text-white border border-[#7857FF]/40' : 'bg-white/10 text-[#AAB3D5]'
             }`}>
               {HIRAGANA_DATA.length}
             </span>
@@ -210,14 +211,14 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
             }}
             className={`flex items-center gap-2.5 px-6 py-2.5 rounded-xl text-sm font-black transition-all ${
               activeType === 'katakana'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-md'
-                : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white border border-[#7857FF]/50 shadow-md'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/70'
             }`}
           >
             <span className="text-base font-japanese">カタカナ</span>
             <span>Katakana</span>
             <span className={`text-xs px-2 py-0.5 rounded-full font-mono ${
-              activeType === 'katakana' ? 'bg-[#080D2B] text-[#7857FF] border border-[#7857FF]/30' : 'bg-white/5 text-[#737FA8]'
+              activeType === 'katakana' ? 'bg-[#080D2B] text-white border border-[#7857FF]/40' : 'bg-white/10 text-[#AAB3D5]'
             }`}>
               {KATAKANA_DATA.length}
             </span>
@@ -225,27 +226,27 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
         </div>
 
         {/* View Switcher: Tabel Karakter vs Panduan Kaidah */}
-        <div className="inline-flex p-1 rounded-xl bg-[#0D1238] border border-[#7857FF]/25 shadow-xs">
+        <div className="inline-flex p-1.5 rounded-xl bg-[#0D1445] border border-[#7857FF]/35 shadow-md">
           <button
             onClick={() => setActiveViewSection('table')}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
               activeViewSection === 'table'
-                ? 'bg-[#12194A] text-[#F5F6FF] shadow-2xs font-black border border-[#7857FF]/30'
-                : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                ? 'bg-gradient-to-r from-[#7857FF]/35 to-[#945CFF]/35 text-white shadow-sm font-black border border-[#7857FF]/60'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/50'
             }`}
           >
-            <Layers className="w-3.5 h-3.5 text-[#7857FF]" />
+            <Layers className="w-3.5 h-3.5 text-[#A77DFF]" />
             <span>Tabel & Kartu Aksara</span>
           </button>
           <button
             onClick={() => setActiveViewSection('guides')}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
               activeViewSection === 'guides'
-                ? 'bg-[#12194A] text-[#F5F6FF] shadow-2xs font-black border border-[#7857FF]/30'
-                : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                ? 'bg-gradient-to-r from-[#7857FF]/35 to-[#945CFF]/35 text-white shadow-sm font-black border border-[#7857FF]/60'
+                : 'text-[#AAB3D5] hover:text-white hover:bg-[#12194A]/50'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5 text-[#7857FF]" />
+            <BookOpen className="w-3.5 h-3.5 text-[#A77DFF]" />
             <span>Panduan & Aturan Fonetik</span>
           </button>
         </div>
@@ -276,13 +277,13 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                 }}
                 className={`shrink-0 flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                   activeGroup === tab.id
-                    ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                    : 'bg-[#0D1238] hover:bg-[#12194A] text-[#737FA8] hover:text-[#F5F6FF] border border-[#7857FF]/20'
+                    ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white border border-[#7857FF]/50 shadow-sm'
+                    : 'bg-[#0D1445] hover:bg-[#141C5A] text-[#A5B2DC] hover:text-white border border-[#7857FF]/30'
                 }`}
               >
                 <span>{tab.label}</span>
                 <span className={`px-1.5 py-0.5 rounded-md text-[10px] font-mono font-black ${
-                  activeGroup === tab.id ? 'bg-[#080D2B] text-[#7857FF] border border-[#7857FF]/30' : 'bg-white/5 text-[#7857FF]'
+                  activeGroup === tab.id ? 'bg-[#080D2B] text-white border border-[#7857FF]/40' : 'bg-white/10 text-[#C4CDED]'
                 }`}>
                   {tab.count}
                 </span>
@@ -291,21 +292,21 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
           </div>
 
           {/* Search & Status Controls */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#0D1238] p-3.5 rounded-2xl border border-[#7857FF]/25 shadow-xs">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#0D1445] p-3.5 rounded-2xl border border-[#7857FF]/35 shadow-sm">
             {/* Live Search Input */}
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#737FA8]" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#A5B2DC]" />
               <input
                 type="text"
                 placeholder="Cari karakter, romaji (mis. 'ka', 'shi'), atau arti kata..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-xs font-medium text-[#F5F6FF] placeholder:text-[#737FA8] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/30 focus:border-[#7857FF]"
+                className="w-full pl-10 pr-4 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/35 text-xs font-medium text-white placeholder:text-[#8D9BC4] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/50 focus:border-[#7857FF]"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-[#737FA8] hover:text-[#F5F6FF]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-[#A5B2DC] hover:text-white"
                 >
                   ✕
                 </button>
@@ -314,8 +315,8 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
 
             {/* Mastery Status Filter */}
             <div className="flex items-center gap-1.5 self-end sm:self-auto">
-              <span className="text-xs font-bold text-[#737FA8] flex items-center gap-1 mr-1">
-                <Filter className="w-3.5 h-3.5 text-[#7857FF]" />
+              <span className="text-xs font-bold text-[#A5B2DC] flex items-center gap-1 mr-1">
+                <Filter className="w-3.5 h-3.5 text-[#945CFF]" />
                 <span>Filter:</span>
               </span>
               {(['semua', 'belum', 'hafal'] as const).map((status) => (
@@ -324,8 +325,8 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                   onClick={() => setFilterStatus(status)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold capitalize transition-all ${
                     filterStatus === status
-                      ? 'bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/30 shadow-xs'
-                      : 'bg-[#080D2B]/60 text-[#737FA8] hover:text-[#F5F6FF]'
+                      ? 'bg-[#141C58] text-white border border-[#7857FF]/40 shadow-xs'
+                      : 'bg-[#080D2B] text-[#A5B2DC] hover:text-white border border-[#7857FF]/25'
                   }`}
                 >
                   {status === 'semua' ? 'Semua' : status === 'belum' ? 'Belum Dihafal' : 'Sudah Dikuasai'}
@@ -338,7 +339,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
           {activeGroup === 'gojuon' && !searchQuery.trim() && filterStatus === 'semua' ? (
             /* Traditional Japanese 5-Column Gojuon Table */
             <div className="space-y-4">
-              <div className="flex items-center justify-between text-xs font-bold text-[#737FA8] px-1">
+              <div className="flex items-center justify-between text-xs font-bold text-[#A5B2DC] px-1">
                 <span>Tabel 50 Bunyi Gojuon (五十音) · Tersusun berdasarkan baris konsonan & vokal A-I-U-E-O</span>
                 <span className="hidden sm:inline">Klik kartu untuk animasi goresan & latihan menulis</span>
               </div>
@@ -348,11 +349,13 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                   return (
                     <div 
                       key={row.key} 
-                      className="p-3.5 sm:p-4 rounded-2xl bg-[#0D1238] border border-[#7857FF]/20 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3 hover:border-[#7857FF]/50 transition-colors"
+                      className="p-3.5 sm:p-4 rounded-2xl bg-[#0B1038] border border-[#7857FF]/30 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-3 hover:border-[#7857FF]/60 transition-colors"
                     >
                       <div className="w-44 shrink-0">
-                        <div className="text-xs font-black text-[#F5F6FF]">{row.label}</div>
-                        <div className="text-[10px] font-semibold text-[#737FA8]">5 Vokal / Suku Kata</div>
+                        <div className="text-xs font-black text-white">{row.label}</div>
+                        <div className="text-[10px] font-semibold text-[#A5B2DC]">
+                          {row.key === 'n' ? '1 Karakter Khusus' : row.key === 'ya' ? '3 Vokal (ya, yu, yo)' : row.key === 'wa' ? '2 Vokal (wa, wo)' : '5 Vokal / Suku Kata'}
+                        </div>
                       </div>
 
                       {/* 5 Column Grid */}
@@ -362,7 +365,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                             return (
                               <div 
                                 key={`empty-${colIdx}`} 
-                                className="h-20 sm:h-24 rounded-2xl bg-[#080D2B]/60 border border-dashed border-[#7857FF]/20 flex items-center justify-center text-xs text-[#737FA8]/40 font-mono"
+                                className="h-20 sm:h-24 rounded-2xl bg-[#080D2B]/50 border border-dashed border-[#7857FF]/25 flex items-center justify-center text-xs text-[#737FA8] font-mono"
                               >
                                 —
                               </div>
@@ -372,7 +375,7 @@ export const KanaSection: React.FC<KanaSectionProps> = ({
                           const item = currentDataset.find(k => k.romaji.toLowerCase() === romaji.toLowerCase() && k.group === 'gojuon');
                           if (!item) {
                             return (
-                              <div key={romaji} className="h-20 sm:h-24 rounded-2xl bg-[#080D2B]/60 border border-dashed border-[#7857FF]/20 flex items-center justify-center text-xs text-[#737FA8]/40 font-mono">
+                              <div key={romaji} className="h-20 sm:h-24 rounded-2xl bg-[#080D2B]/50 border border-dashed border-[#7857FF]/25 flex items-center justify-center text-xs text-[#737FA8] font-mono">
                                 {romaji}
                               </div>
                             );
@@ -487,10 +490,10 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
   return (
     <div
       onClick={onSelect}
-      className={`group relative rounded-2xl p-3 sm:p-4 text-center cursor-pointer transition-all duration-200 border flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.4)] ${
+      className={`group relative rounded-2xl p-3 sm:p-4 text-center cursor-pointer transition-all duration-200 border flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.5)] ${
         isLearned
-          ? 'bg-gradient-to-b from-[#0F3025] to-[#0D1238] border-emerald-500/30 hover:border-emerald-400/60 hover:shadow-md'
-          : 'bg-[#0D1238] border-[#7857FF]/20 hover:border-[#7857FF]/50 hover:shadow-[0_4px_20px_rgba(120,87,255,0.15)] hover:-translate-y-0.5'
+          ? 'bg-gradient-to-b from-[#0E3528] to-[#0F1648] border-emerald-500/40 hover:border-emerald-400/70 hover:shadow-lg'
+          : 'bg-[#0E1544] border-[#7857FF]/30 hover:border-[#7857FF]/70 hover:bg-[#141D58] hover:shadow-[0_6px_24px_rgba(120,87,255,0.25)] hover:-translate-y-0.5'
       }`}
     >
       {/* Top action row */}
@@ -502,7 +505,7 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
             e.stopPropagation();
             speakJapanese(item.char);
           }}
-          className="p-1 rounded-lg text-[#737FA8] hover:text-[#7857FF] hover:bg-[#080D2B] transition-colors"
+          className="p-1 rounded-lg text-[#A5B2DC] hover:text-[#945CFF] hover:bg-[#080D2B] transition-colors"
           title={`Dengarkan pelafalan ${item.char}`}
           aria-label={`Pronounce ${item.char}`}
         >
@@ -519,8 +522,8 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
           }}
           className={`p-1 rounded-lg transition-all ${
             isLearned
-              ? 'text-emerald-400 bg-emerald-500/20 border border-emerald-500/30'
-              : 'text-[#737FA8]/40 group-hover:text-[#737FA8] hover:bg-[#080D2B]'
+              ? 'text-emerald-300 bg-emerald-500/30 border border-emerald-500/50'
+              : 'text-[#A5B2DC]/50 group-hover:text-[#A5B2DC] hover:bg-[#080D2B]'
           }`}
           title={isLearned ? 'Sudah Dikuasai' : 'Tandai Hafal'}
           aria-label="Toggle mastery"
@@ -531,24 +534,24 @@ const KanaGridCard: React.FC<KanaGridCardProps> = ({
 
       {/* Main Japanese Character */}
       <div className="my-1.5">
-        <span className="font-japanese text-3xl sm:text-4xl font-bold text-[#F5F6FF] group-hover:text-[#7857FF] transition-colors inline-block leading-none">
+        <span className="kanji-font text-3xl sm:text-4xl font-black text-white group-hover:text-[#A77DFF] transition-colors inline-block leading-none drop-shadow-sm">
           {item.char}
         </span>
       </div>
 
       {/* Romaji & Subtitle */}
       <div className="space-y-0.5 mt-1">
-        <div className="text-xs font-black font-mono text-[#7857FF] uppercase tracking-wide">
+        <div className="text-xs font-black font-mono text-[#A77DFF] uppercase tracking-wide">
           {item.romaji}
         </div>
-        <div className="text-[10px] font-semibold text-[#737FA8] truncate px-1">
+        <div className="text-[10px] font-semibold text-[#A5B2DC] truncate px-1">
           {item.example?.word || `${item.strokeCount} goresan`}
         </div>
       </div>
 
       {/* Subtle indicator bar */}
       <div className={`mt-2 h-1 w-full rounded-full transition-colors ${
-        isLearned ? 'bg-emerald-500' : 'bg-transparent group-hover:bg-[#7857FF]/40'
+        isLearned ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]' : 'bg-transparent group-hover:bg-[#7857FF]/50'
       }`} />
     </div>
   );

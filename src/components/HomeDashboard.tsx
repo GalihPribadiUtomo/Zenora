@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Brain, Target, BookX, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { HeroSection } from './homepage/HeroSection';
 import { QuickAccess } from './homepage/QuickAccess';
 import { RecommendationsSection } from './homepage/RecommendationsSection';
 import { LearningStatsWidget } from './homepage/LearningStatsWidget';
 import { MotivationalChibiCard } from './homepage/MotivationalChibiCard';
 import { MidnightFooter } from './homepage/MidnightFooter';
-import { KanjiItem } from '../types';
+import { SrsReviewModal } from './SrsReviewModal';
+import { MistakeNotebookModal } from './MistakeNotebookModal';
+import { getDueSrsItems } from '../utils/srsService';
+import { getSavedMistakes } from '../utils/exerciseGenerator';
+import { sound } from '../utils/audio';
+import { KanjiItem, UserStats } from '../types';
 import { KANJI_DATA } from '../data/kanjiData';
 import { KOTOBA_DATA } from '../data/kotobaData';
 
@@ -13,18 +19,20 @@ export interface HomeDashboardProps {
   onNavigate: (tab: 'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik') => void;
   onSelectKanji: (kanji: KanjiItem) => void;
   onSelectChapter: (bab: number) => void;
+  onRecordActivity?: (count: number) => void;
   learnedKotobaCount?: number;
   learnedKanjiCount?: number;
   streakDays?: number;
   learnedKanjiIds: number[];
   learnedKotobaIds: string[];
-  stats?: any;
+  stats?: UserStats;
 }
 
 export const HomeDashboard: React.FC<HomeDashboardProps> = ({
   onNavigate,
   onSelectKanji,
   onSelectChapter,
+  onRecordActivity,
   learnedKotobaCount = 0,
   learnedKanjiCount = 0,
   streakDays = 0,
@@ -32,8 +40,19 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
   learnedKotobaIds = [],
   stats
 }) => {
+  const [srsOpen, setSrsOpen] = useState(false);
+  const [mistakesOpen, setMistakesOpen] = useState(false);
+
   const totalKanji = KANJI_DATA.length; // 424
   const totalKotoba = KOTOBA_DATA.length; // 2910
+
+  const today = new Date().toISOString().split('T')[0];
+  const todayCount = stats?.dailyActivityMap?.[today] || 0;
+  const dailyGoal = stats?.dailyGoalTarget || 15;
+  const dailyPct = Math.min(100, Math.round((todayCount / dailyGoal) * 100));
+
+  const dueSrsCount = stats ? getDueSrsItems(stats).length : 0;
+  const savedMistakesCount = getSavedMistakes().length;
 
   const handleScrollToStats = () => {
     const el = document.getElementById('learning-stats-section');
@@ -62,6 +81,100 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
       <QuickAccess
         onNavigate={onNavigate}
         onScrollToStats={handleScrollToStats}
+      />
+
+      {/* SECTION 2.5: SMART STUDY HUB (DAILY GOAL, SRS REVIEW, MISTAKE NOTEBOOK) */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* 1. Target Harian */}
+        <div className="p-5 rounded-3xl bg-[#0D1238] border border-[#7857FF]/30 shadow-lg flex flex-col justify-between space-y-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <div className="p-2 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+                <Target className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-xs font-black text-white">Target Belajar Harian</div>
+                <div className="text-[11px] text-[#A5B2DC]">{todayCount} / {dailyGoal} aktivitas hari ini</div>
+              </div>
+            </div>
+            {dailyPct >= 100 && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">
+                <CheckCircle2 className="w-3 h-3" /> Tercapai
+              </span>
+            )}
+          </div>
+          <div className="w-full h-2.5 rounded-full bg-[#080D2B] border border-[#7857FF]/20 overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-[#00D6A3] to-[#329BFF] rounded-full transition-all duration-500"
+              style={{ width: `${dailyPct}%` }}
+            />
+          </div>
+        </div>
+
+        {/* 2. Waktunya Review SRS */}
+        <div className="p-5 rounded-3xl bg-gradient-to-br from-[#0D1238] to-[#141C58] border border-[#7857FF]/35 shadow-lg flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-2xl bg-[#7857FF]/20 border border-[#7857FF]/40 text-[#A77DFF]">
+              <Brain className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-black text-white">Review Spasi (SRS)</div>
+              <div className="text-[11px] text-[#A5B2DC]">
+                <strong className="text-[#50C8FF]">{dueSrsCount} kartu</strong> siap diulas
+              </div>
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              sound.playClick();
+              setSrsOpen(true);
+            }}
+            className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#329BFF] text-white text-xs font-bold shadow-md hover:brightness-110 transition-all"
+          >
+            <span>Mulai</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        {/* 3. Buku Catatan Kesalahan */}
+        <div className="p-5 rounded-3xl bg-[#0D1238] border border-rose-500/25 shadow-lg flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-300">
+              <BookX className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-black text-white">Catatan Kesalahan</div>
+              <div className="text-[11px] text-[#A5B2DC]">
+                <strong className="text-rose-300">{savedMistakesCount} soal</strong> perlu diulang
+              </div>
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              sound.playClick();
+              setMistakesOpen(true);
+            }}
+            className="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#12194A] hover:bg-[#171D50] text-white border border-rose-500/35 text-xs font-bold transition-all"
+          >
+            <span>Buka</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </section>
+
+      {/* Modals for SRS & Mistake Notebook */}
+      {stats && (
+        <SrsReviewModal
+          isOpen={srsOpen}
+          onClose={() => setSrsOpen(false)}
+          stats={stats}
+          onActivityComplete={(cnt) => onRecordActivity && onRecordActivity(cnt)}
+        />
+      )}
+      <MistakeNotebookModal
+        isOpen={mistakesOpen}
+        onClose={() => setMistakesOpen(false)}
+        onPracticeComplete={(cnt) => onRecordActivity && onRecordActivity(cnt)}
       />
 
       {/* SECTION 3: RECOMMENDATIONS GRID & STATS / CHIBI SIDEBAR */}

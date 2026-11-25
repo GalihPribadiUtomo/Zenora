@@ -1,0 +1,22 @@
+{
+  "name": "ZENORA · Learn • Practice • Master",
+  "short_name": "ZENORA",
+  "description": "Platform pembelajaran bahasa Jepang lengkap: Hiragana, Katakana, Kanji N5–N4, Minna no Nihongo Bab 1–50, SSW, dan Simulasi JLPT/JFT.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080D2B",
+  "theme_color": "#7857FF",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/zenora-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/zenora-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

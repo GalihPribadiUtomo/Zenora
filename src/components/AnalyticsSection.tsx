@@ -23,6 +23,7 @@ interface AnalyticsSectionProps {
     learnedKanjiIds: number[];
     learnedKanaChars?: string[];
     streakDays: number;
+    dailyActivityMap?: Record<string, number>;
     quizHistory?: Array<{
       date: string;
       score: number;
@@ -56,6 +57,33 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
   const avgScore = totalQuizzes > 0 
     ? Math.round(history.reduce((acc, q) => acc + (q.score / (q.total || 1)) * 100, 0) / totalQuizzes) 
     : 85;
+
+  // Build 84-day (12 weeks) activity heatmap
+  const activityMap = stats.dailyActivityMap || {};
+  const heatmapDays = Array.from({ length: 84 }, (_, idx) => {
+    const d = new Date();
+    d.setDate(d.getDate() - (83 - idx));
+    const key = d.toISOString().split('T')[0];
+    return { date: key, count: activityMap[key] || 0 };
+  });
+
+  // Exam Readiness Scores (JLPT N5, N4, JFT-Basic A2)
+  const n5Readiness = Math.min(100, Math.round(
+    (Math.min(1, learnedKotoba / 800) * 40) +
+    (Math.min(1, learnedKanji / 110) * 35) +
+    (Math.min(1, learnedKana / 92) * 15) +
+    ((avgScore / 100) * 10)
+  ));
+  const n4Readiness = Math.min(100, Math.round(
+    (Math.min(1, learnedKotoba / 1800) * 45) +
+    (Math.min(1, learnedKanji / 300) * 40) +
+    ((avgScore / 100) * 15)
+  ));
+  const jftReadiness = Math.min(100, Math.round(
+    (Math.min(1, learnedKotoba / 1200) * 45) +
+    (Math.min(1, learnedKanji / 150) * 30) +
+    ((avgScore / 100) * 25)
+  ));
 
   // Weekly data points
   const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
@@ -275,6 +303,81 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
           </div>
         </div>
 
+      </div>
+
+      {/* Peta Aktivitas Belajar (12-Week Heatmap) & Skor Kesiapan Ujian */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Heatmap */}
+        <div className="lg:col-span-7 rounded-3xl p-6 bg-[#0D1238] border border-[#7857FF]/25 shadow-[0_10px_30px_rgba(8,13,43,0.7)] space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-base font-black text-white font-['Manrope'] flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-[#00D6A3]" />
+              <span>Peta Aktivitas Belajar (12 Minggu Terakhir)</span>
+            </h3>
+            <span className="text-[11px] font-mono text-[#A5B2DC]">84 Hari</span>
+          </div>
+
+          <div className="grid grid-cols-12 gap-1.5">
+            {heatmapDays.map((day) => {
+              let colorClass = 'bg-[#080D2B] border-[#7857FF]/15';
+              if (day.count >= 15) colorClass = 'bg-[#00D6A3] border-[#00D6A3] shadow-[0_0_8px_rgba(0,214,163,0.5)]';
+              else if (day.count >= 8) colorClass = 'bg-[#00D6A3]/70 border-[#00D6A3]/60';
+              else if (day.count >= 3) colorClass = 'bg-[#7857FF]/70 border-[#7857FF]/60';
+              else if (day.count >= 1) colorClass = 'bg-[#7857FF]/35 border-[#7857FF]/30';
+              return (
+                <div
+                  key={day.date}
+                  title={`${day.date}: ${day.count} aktivitas`}
+                  className={`aspect-square rounded-md border transition-transform hover:scale-125 ${colorClass}`}
+                />
+              );
+            })}
+          </div>
+
+          <div className="flex items-center justify-between text-[11px] text-[#A5B2DC] pt-1">
+            <span>Konsistensi harian terekam otomatis saat belajar & latihan.</span>
+            <div className="flex items-center gap-1.5">
+              <span>Sedikit</span>
+              <span className="w-3 h-3 rounded bg-[#080D2B] border border-[#7857FF]/20" />
+              <span className="w-3 h-3 rounded bg-[#7857FF]/35" />
+              <span className="w-3 h-3 rounded bg-[#7857FF]/70" />
+              <span className="w-3 h-3 rounded bg-[#00D6A3]" />
+              <span>Banyak</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Exam Readiness Score */}
+        <div className="lg:col-span-5 rounded-3xl p-6 bg-[#0D1238] border border-[#7857FF]/25 shadow-[0_10px_30px_rgba(8,13,43,0.7)] space-y-4">
+          <h3 className="text-base font-black text-white font-['Manrope'] flex items-center gap-2">
+            <Trophy className="w-4 h-4 text-[#FFC857]" />
+            <span>Skor Kesiapan Ujian</span>
+          </h3>
+
+          <div className="space-y-3.5">
+            {[
+              { label: 'JLPT N5', pct: n5Readiness, color: 'from-[#00D6A3] to-[#329BFF]' },
+              { label: 'JFT-Basic A2 (SSW)', pct: jftReadiness, color: 'from-[#329BFF] to-[#7857FF]' },
+              { label: 'JLPT N4', pct: n4Readiness, color: 'from-[#7857FF] to-[#FF70C8]' }
+            ].map((exam) => (
+              <div key={exam.label} className="space-y-1.5">
+                <div className="flex items-center justify-between text-xs font-bold">
+                  <span className="text-white">{exam.label}</span>
+                  <span className="font-mono text-[#50C8FF]">{exam.pct}% Siap</span>
+                </div>
+                <div className="w-full h-2.5 rounded-full bg-[#080D2B] border border-[#7857FF]/20 overflow-hidden">
+                  <div
+                    className={`h-full rounded-full bg-gradient-to-r ${exam.color} transition-all duration-700`}
+                    style={{ width: `${exam.pct}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-[11px] text-[#737FA8]">
+            Dihitung dari penguasaan Kanji, Kosakata Bab 1–50, Kana, serta rata-rata akurasi kuis Anda.
+          </p>
+        </div>
       </div>
 
       {/* Riwayat Latihan Terakhir */}

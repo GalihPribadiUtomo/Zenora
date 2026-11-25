@@ -54,8 +54,9 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
   if (!kana) return null;
 
   // Navigation context: strictly within current Kana type (Hiragana or Katakana)
-  const activeTypeKanaList = (kanaList && kanaList.length > 0)
-    ? kanaList.filter(k => k.type === kana.type)
+  const filteredList = (kanaList && kanaList.length > 0) ? kanaList.filter(k => k.type === kana.type) : [];
+  const activeTypeKanaList = filteredList.length > 0
+    ? filteredList
     : (kana.type === 'hiragana' ? HIRAGANA_DATA : KATAKANA_DATA);
 
   const currentIndex = activeTypeKanaList.findIndex(k => k.char === kana.char);
@@ -65,7 +66,7 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
   const nextKana = hasNext ? activeTypeKanaList[currentIndex + 1] : null;
 
   // Find equivalent paired character (Hiragana <-> Katakana)
-  const pairedKana = ALL_KANA_DATA.find(k => k.char === kana.equivalentChar);
+  const pairedKana = ALL_KANA_DATA.find(k => k.char === kana.equivalentChar && k.type !== kana.type);
 
   return (
     <div 
@@ -304,6 +305,7 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
             {activeTab === 'goresan' && (
               <div className="p-6">
                 <KanaStrokePlayer
+                  key={`player-${kana.char}-${kana.type}`}
                   char={kana.char}
                   strokeCount={kana.strokeCount}
                   writingTips={kana.writingTips}
@@ -315,6 +317,7 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
             {activeTab === 'latihan' && (
               <div className="p-6">
                 <KanaCanvasPractice
+                  key={`canvas-${kana.char}-${kana.type}`}
                   char={kana.char}
                   strokeCount={kana.strokeCount}
                   writingTips={kana.writingTips}

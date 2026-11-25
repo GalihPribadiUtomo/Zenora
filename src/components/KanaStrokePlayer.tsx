@@ -6,7 +6,8 @@ import {
   SkipForward, 
   SkipBack, 
   Gauge, 
-  Sparkles
+  Sparkles,
+  Layers
 } from 'lucide-react';
 import { KANA_STROKE_DATA, KanaStrokeData } from '../data/kanaStrokeData';
 import { sound } from '../utils/audio';
@@ -23,25 +24,57 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
   writingTips
 }) => {
   const chars = Array.from(char);
-  const [selectedSubIndex, setSelectedSubIndex] = useState(0);
+  const isCompound = chars.length > 1;
 
-  const activeChar = chars.length > 1 ? chars[selectedSubIndex] : char;
-  const strokeData: KanaStrokeData | undefined = KANA_STROKE_DATA[activeChar] || KANA_STROKE_DATA[char];
+  // View mode for compound characters: 'compound' (both side-by-side) or specific sub-char (0 or 1)
+  const [viewMode, setViewMode] = useState<'compound' | 0 | 1>('compound');
 
-  const [visibleStrokes, setVisibleStrokes] = useState<number>(strokeData ? strokeData.paths.length : 0);
+  // Reset view mode whenever char changes
+  useEffect(() => {
+    setViewMode('compound');
+  }, [char]);
+
+  // Stroke data for component characters
+  const c1 = chars[0];
+  const c2 = chars[1] || '';
+  const d1 = KANA_STROKE_DATA[c1];
+  const d2 = isCompound ? KANA_STROKE_DATA[c2] : undefined;
+
+  // Determine active stroke sequence based on viewMode
+  let activePaths: string[] = [];
+  let activeStarts: { x: number; y: number }[] = [];
+  let char1StrokeCount = d1 ? d1.paths.length : 0;
+  let char2StrokeCount = d2 ? d2.paths.length : 0;
+
+  if (isCompound && viewMode === 'compound') {
+    activePaths = [...(d1?.paths || []), ...(d2?.paths || [])];
+    activeStarts = [...(d1?.starts || []), ...(d2?.starts || [])];
+  } else if (isCompound && viewMode === 1) {
+    activePaths = d2?.paths || [];
+    activeStarts = d2?.starts || [];
+  } else {
+    // Single char or viewMode === 0 (first char of compound)
+    const singleData = (isCompound && viewMode === 0) ? d1 : (KANA_STROKE_DATA[char] || d1);
+    activePaths = singleData?.paths || [];
+    activeStarts = singleData?.starts || [];
+  }
+
+  const totalStrokes = activePaths.length > 0 ? activePaths.length : strokeCount;
+
+  // Animation states
+  const [visibleStrokes, setVisibleStrokes] = useState<number>(totalStrokes);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [activeStroke, setActiveStroke] = useState<number | null>(null);
   const [speed, setSpeed] = useState<number>(1);
   const [animProgress, setAnimProgress] = useState<Record<number, number>>({});
-  
+
   const animRef = useRef<number | null>(null);
   const isPausedRef = useRef<boolean>(false);
   const isAnimatingRef = useRef<boolean>(false);
   const speedRef = useRef<number>(1);
   const currentStepRef = useRef<number>(0);
-
-  const totalStrokes = strokeData ? strokeData.paths.length : strokeCount;
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     isPausedRef.current = isPaused;
@@ -49,14 +82,25 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
     speedRef.current = speed;
   }, [isPaused, isAnimating, speed]);
 
+  // Reset animation state whenever char or viewMode changes
   useEffect(() => {
+    if (animRef.current) cancelAnimationFrame(animRef.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setVisibleStrokes(totalStrokes);
     setActiveStroke(null);
     setIsAnimating(false);
     setIsPaused(false);
     setAnimProgress({});
-    if (animRef.current) cancelAnimationFrame(animRef.current);
-  }, [char, activeChar, totalStrokes]);
+    currentStepRef.current = 0;
+  }, [char, viewMode, totalStrokes]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const getPathLength = useCallback((pathD: string): number => {
     try {
@@ -74,7 +118,7 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
   }, []);
 
   const playAnimation = useCallback(() => {
-    if (!strokeData || strokeData.paths.length === 0) return;
+    if (activePaths.length === 0) return;
 
     if (isPaused) {
       setIsPaused(false);
@@ -91,11 +135,11 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
     currentStepRef.current = 0;
 
     const drawStep = (idx: number) => {
-      if (idx >= strokeData.paths.length) {
+      if (idx >= activePaths.length) {
         setIsAnimating(false);
         setIsPaused(false);
         setActiveStroke(null);
-        setVisibleStrokes(strokeData.paths.length);
+        setVisibleStrokes(activePaths.length);
         sound.playCorrect();
         return;
       }
@@ -104,7 +148,7 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
       setActiveStroke(idx);
       setVisibleStrokes(idx);
 
-      const pathLen = getPathLength(strokeData.paths[idx]);
+      const pathLen = getPathLength(activePaths[idx]);
       const baseDuration = Math.min(600, Math.max(300, pathLen * 2.8));
       const duration = baseDuration / (speedRef.current || 1);
       const startTime = performance.now();
@@ -118,14 +162,14 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
 
         const elapsed = now - startTime;
         const progress = Math.min(1, elapsed / duration);
-        setAnimProgress(prev => ({ ...prev, [idx]: progress }));
+        setAnimProgress((prev) => ({ ...prev, [idx]: progress }));
 
         if (progress < 1) {
           animRef.current = requestAnimationFrame(animate);
         } else {
           setVisibleStrokes(idx + 1);
           const pauseBeforeNext = 140 / (speedRef.current || 1);
-          setTimeout(() => {
+          timeoutRef.current = setTimeout(() => {
             if (isAnimatingRef.current && !isPausedRef.current) {
               drawStep(idx + 1);
             }
@@ -137,7 +181,7 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
     };
 
     drawStep(0);
-  }, [strokeData, isPaused, getPathLength]);
+  }, [activePaths, isPaused, getPathLength]);
 
   const pauseAnimation = () => {
     sound.playClick();
@@ -147,6 +191,7 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
   const resetAnimation = () => {
     sound.playClick();
     if (animRef.current) cancelAnimationFrame(animRef.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setIsAnimating(false);
     setIsPaused(false);
     setActiveStroke(null);
@@ -157,187 +202,293 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
   const nextStroke = () => {
     sound.playClick();
     if (animRef.current) cancelAnimationFrame(animRef.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setIsAnimating(false);
     setIsPaused(false);
     setActiveStroke(null);
-    setVisibleStrokes(prev => Math.min(totalStrokes, prev + 1));
+    setVisibleStrokes((prev) => Math.min(totalStrokes, prev + 1));
   };
 
   const prevStroke = () => {
     sound.playClick();
     if (animRef.current) cancelAnimationFrame(animRef.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setIsAnimating(false);
     setIsPaused(false);
     setActiveStroke(null);
-    setVisibleStrokes(prev => Math.max(0, prev - 1));
+    setVisibleStrokes((prev) => Math.max(0, prev - 1));
   };
 
-  // Midnight Navy & Biru Perak (Palet 04) stroke colors:
+  // Modern Midnight Japan stroke colors
   const strokeColors = [
-    '#7857FF', // Biru Perak
-    '#F5F6FF', // Putih Teks
-    '#5B8AC9', // Soft Navy Blue
-    '#A2C2ED', // Bright Silver Blue
-    '#6E96CE', // Slate Blue
-    '#4A76B8', // Deep Silver Blue
+    '#7857FF', // Neon Purple Primary
+    '#329BFF', // Electric Blue
+    '#00D6A3', // Success Mint
+    '#FF70C8', // Sakura Pink
+    '#FFC857', // Achieve Gold
+    '#50C8FF', // Light Cyan
+    '#B46BFF', // Violet Glow
+    '#F5F6FF'  // Clean White
   ];
 
-  return (
-    <div className="space-y-5">
-      {/* Compound Character Component Selector */}
-      {chars.length > 1 && (
-        <div className="flex flex-wrap items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/25">
-          <span className="text-xs font-bold text-[#737FA8]">Karakter Komponen:</span>
-          {chars.map((c, idx) => (
-            <button
-              key={idx}
-              onClick={() => {
-                sound.playClick();
-                setSelectedSubIndex(idx);
-              }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-black transition-all ${
-                selectedSubIndex === idx
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                  : 'bg-[#080D2B] text-[#737FA8] hover:text-[#F5F6FF] border border-[#7857FF]/25'
-              }`}
-            >
-              <span className="font-japanese text-base">{c}</span>
-              <span className="text-[10px] font-normal opacity-80">
-                ({idx === 0 ? 'Induk' : 'Kecil'})
-              </span>
-            </button>
-          ))}
+  // Helper to render a single kana SVG box
+  const renderSvgBox = (
+    strokeData: KanaStrokeData | undefined,
+    strokeOffset: number,
+    totalCharStrokes: number,
+    label?: string
+  ) => {
+    if (!strokeData || strokeData.paths.length === 0) {
+      return (
+        <div className="w-full h-full flex items-center justify-center">
+          <span className="kanji-font text-7xl font-black text-[#F5F6FF]">
+            {label ? label.slice(-1) : char}
+          </span>
         </div>
-      )}
+      );
+    }
 
-      {/* Visual Canvas Area with Crosshair Guidelines */}
-      <div className="relative w-64 h-64 sm:w-72 sm:h-72 mx-auto rounded-3xl bg-[#080D2B] border border-[#7857FF]/25 shadow-md flex items-center justify-center overflow-hidden">
-        
-        {/* Delicate Crosshair Grid */}
-        <div className="absolute inset-0 pointer-events-none">
-          <svg className="w-full h-full" viewBox="0 0 109 109">
-            <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="#7857FF" strokeOpacity="0.25" strokeWidth="0.8" strokeDasharray="3 3" />
-            <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="#7857FF" strokeOpacity="0.25" strokeWidth="0.8" strokeDasharray="3 3" />
-            <circle cx="54.5" cy="54.5" r="50" stroke="#7857FF" strokeOpacity="0.15" strokeWidth="0.8" fill="none" />
-          </svg>
-        </div>
+    return (
+      <svg className="w-full h-full p-3 sm:p-4 relative z-10" viewBox="0 0 109 109">
+        {/* Ghost background guide */}
+        {strokeData.paths.map((d, i) => (
+          <path
+            key={`ghost-${i}`}
+            d={d}
+            fill="none"
+            stroke="#7857FF"
+            strokeOpacity="0.22"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        ))}
 
-        {/* Dynamic KanjiVG Stroke Render */}
-        {strokeData && strokeData.paths.length > 0 ? (
-          <svg 
-            className="w-full h-full p-4 relative z-10" 
-            viewBox="0 0 109 109"
-          >
-            {/* Background Faint Ghost Guide */}
-            {strokeData.paths.map((d, i) => (
-              <path
-                key={`ghost-${i}`}
-                d={d}
-                fill="none"
-                stroke="#7857FF"
-                strokeOpacity="0.2"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            ))}
+        {/* Completed strokes */}
+        {strokeData.paths.map((d, i) => {
+          const globalStrokeIndex = strokeOffset + i;
+          if (globalStrokeIndex >= visibleStrokes) return null;
+          const color = strokeColors[globalStrokeIndex % strokeColors.length];
 
-            {/* Completed Strokes */}
-            {strokeData.paths.map((d, i) => {
-              if (i >= visibleStrokes) return null;
-              const color = strokeColors[i % strokeColors.length];
+          return (
+            <path
+              key={`done-${i}`}
+              d={d}
+              fill="none"
+              stroke={color}
+              strokeWidth="6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          );
+        })}
+
+        {/* Currently Animating Active Stroke */}
+        {isAnimating &&
+          activeStroke !== null &&
+          activeStroke >= strokeOffset &&
+          activeStroke < strokeOffset + totalCharStrokes && (
+            (() => {
+              const localIndex = activeStroke - strokeOffset;
+              const d = strokeData.paths[localIndex];
+              if (!d) return null;
+              const pathLen = getPathLength(d);
+              const progress = animProgress[activeStroke] ?? 0;
+              const dashOffset = pathLen * (1 - progress);
+              const color = strokeColors[activeStroke % strokeColors.length];
 
               return (
                 <path
-                  key={`done-${i}`}
+                  key={`active-${activeStroke}`}
                   d={d}
                   fill="none"
                   stroke={color}
-                  strokeWidth="6"
+                  strokeWidth="7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  strokeDasharray={pathLen}
+                  strokeDashoffset={dashOffset}
                 />
               );
-            })}
+            })()
+          )}
 
-            {/* Currently Animating Active Stroke */}
-            {isAnimating && activeStroke !== null && strokeData.paths[activeStroke] && (
-              (() => {
-                const d = strokeData.paths[activeStroke];
-                const pathLen = getPathLength(d);
-                const progress = animProgress[activeStroke] ?? 0;
-                const dashOffset = pathLen * (1 - progress);
-                const color = strokeColors[activeStroke % strokeColors.length];
+        {/* Number Markers at Stroke Start Positions */}
+        {strokeData.starts &&
+          strokeData.starts.map((start, i) => {
+            const globalStrokeIndex = strokeOffset + i;
+            if (globalStrokeIndex >= visibleStrokes && globalStrokeIndex !== activeStroke) return null;
+            const color = strokeColors[globalStrokeIndex % strokeColors.length];
 
-                return (
-                  <path
-                    key={`active-${activeStroke}`}
-                    d={d}
-                    fill="none"
-                    stroke={color}
-                    strokeWidth="7"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeDasharray={pathLen}
-                    strokeDashoffset={dashOffset}
-                  />
-                );
-              })()
-            )}
+            return (
+              <g key={`num-${i}`} className="animate-in fade-in duration-150">
+                <circle
+                  cx={start.x}
+                  cy={start.y}
+                  r="4.4"
+                  fill={color}
+                  stroke="#080D2B"
+                  strokeWidth="1.2"
+                  className="shadow-2xs"
+                />
+                <text
+                  x={start.x}
+                  y={start.y + 1.6}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill="#080D2B"
+                  fontSize="4.2"
+                  fontWeight="900"
+                  fontFamily="monospace"
+                >
+                  {globalStrokeIndex + 1}
+                </text>
+              </g>
+            );
+          })}
+      </svg>
+    );
+  };
 
-            {/* Number Markers at Stroke Start Positions */}
-            {strokeData.starts && strokeData.starts.map((start, i) => {
-              if (i >= visibleStrokes && i !== activeStroke) return null;
-              const color = strokeColors[i % strokeColors.length];
+  return (
+    <div className="space-y-5">
+      {/* Compound Character View Selector */}
+      {isCompound && (
+        <div className="flex flex-wrap items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/30">
+          <div className="flex items-center gap-1.5 text-xs font-bold text-[#AAB3D5] mr-1">
+            <Layers className="w-3.5 h-3.5 text-[#329BFF]" />
+            <span>Mode Tampilan:</span>
+          </div>
 
-              return (
-                <g key={`num-${i}`} className="animate-in fade-in duration-150">
-                  <circle
-                    cx={start.x}
-                    cy={start.y}
-                    r="4.2"
-                    fill={color}
-                    stroke="#0D1238"
-                    strokeWidth="1"
-                    className="shadow-2xs"
-                  />
-                  <text
-                    x={start.x}
-                    y={start.y + 1.6}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="#080D2B"
-                    fontSize="3.8"
-                    fontWeight="bold"
-                    fontFamily="monospace"
-                  >
-                    {i + 1}
-                  </text>
-                </g>
-              );
-            })}
-          </svg>
-        ) : (
-          /* Fallback large static char */
-          <span className="kanji-font text-8xl font-black text-[#F5F6FF]">
-            {char}
-          </span>
-        )}
+          <button
+            onClick={() => {
+              sound.playClick();
+              setViewMode('compound');
+            }}
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-mono text-xs font-black transition-all ${
+              viewMode === 'compound'
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#329BFF] text-white border border-[#7857FF]/50 shadow-md shadow-[#7857FF]/20'
+                : 'bg-[#0D1238] text-[#737FA8] hover:text-white border border-[#7857FF]/25'
+            }`}
+          >
+            <span className="font-japanese text-sm">{char}</span>
+            <span className="text-[11px] font-normal opacity-90">
+              ✦ Gabungan ({char1StrokeCount + char2StrokeCount} Goresan)
+            </span>
+          </button>
 
-        {/* Current Step Pill Overlay */}
-        <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-xl bg-[#0D1238]/95 backdrop-blur-xs border border-[#7857FF]/25 shadow-xs text-[11px] font-bold font-mono text-[#F5F6FF]">
-          Goresan: {visibleStrokes} / {totalStrokes}
+          <button
+            onClick={() => {
+              sound.playClick();
+              setViewMode(0);
+            }}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-black transition-all ${
+              viewMode === 0
+                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white border border-[#7857FF]/50 shadow-xs'
+                : 'bg-[#0D1238] text-[#737FA8] hover:text-white border border-[#7857FF]/25'
+            }`}
+          >
+            <span className="font-japanese text-sm">{c1}</span>
+            <span className="text-[10px] font-normal opacity-80">
+              1. Induk ({char1StrokeCount} Goresan)
+            </span>
+          </button>
+
+          <button
+            onClick={() => {
+              sound.playClick();
+              setViewMode(1);
+            }}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-black transition-all ${
+              viewMode === 1
+                ? 'bg-gradient-to-r from-[#329BFF] to-[#50C8FF] text-white border border-[#329BFF]/50 shadow-xs'
+                : 'bg-[#0D1238] text-[#737FA8] hover:text-white border border-[#7857FF]/25'
+            }`}
+          >
+            <span className="font-japanese text-sm">{c2}</span>
+            <span className="text-[10px] font-normal opacity-80">
+              2. Kecil ({char2StrokeCount} Goresan)
+            </span>
+          </button>
+        </div>
+      )}
+
+      {/* Visual Canvas Area */}
+      {isCompound && viewMode === 'compound' ? (
+        /* Dual Canvas Box for Compound Kana (Side-by-Side: Main + Small) */
+        <div className="w-full max-w-xl mx-auto grid grid-cols-2 gap-3 sm:gap-4">
+          {/* Box 1: Induk Character */}
+          <div className="relative aspect-square rounded-3xl bg-[#080D2B] border border-[#7857FF]/30 shadow-lg flex flex-col items-center justify-center overflow-hidden">
+            {/* Delicate Crosshair Grid */}
+            <div className="absolute inset-0 pointer-events-none">
+              <svg className="w-full h-full" viewBox="0 0 109 109">
+                <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="#7857FF" strokeOpacity="0.25" strokeWidth="0.8" strokeDasharray="3 3" />
+                <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="#7857FF" strokeOpacity="0.25" strokeWidth="0.8" strokeDasharray="3 3" />
+                <circle cx="54.5" cy="54.5" r="50" stroke="#7857FF" strokeOpacity="0.15" strokeWidth="0.8" fill="none" />
+              </svg>
+            </div>
+
+            {renderSvgBox(d1, 0, char1StrokeCount, c1)}
+
+            <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-lg bg-[#0D1238]/90 border border-[#7857FF]/30 text-[10px] font-black text-[#AAB3D5]">
+              1. Induk: {c1} ({char1StrokeCount})
+            </div>
+          </div>
+
+          {/* Box 2: Kecil / Pengikut Character */}
+          <div className="relative aspect-square rounded-3xl bg-[#080D2B] border border-[#329BFF]/30 shadow-lg flex flex-col items-center justify-center overflow-hidden">
+            {/* Delicate Crosshair Grid */}
+            <div className="absolute inset-0 pointer-events-none">
+              <svg className="w-full h-full" viewBox="0 0 109 109">
+                <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="#329BFF" strokeOpacity="0.25" strokeWidth="0.8" strokeDasharray="3 3" />
+                <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="#329BFF" strokeOpacity="0.25" strokeWidth="0.8" strokeDasharray="3 3" />
+                <circle cx="54.5" cy="54.5" r="50" stroke="#329BFF" strokeOpacity="0.15" strokeWidth="0.8" fill="none" />
+              </svg>
+            </div>
+
+            {renderSvgBox(d2, char1StrokeCount, char2StrokeCount, c2)}
+
+            <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-lg bg-[#0D1238]/90 border border-[#329BFF]/30 text-[10px] font-black text-[#50C8FF]">
+              2. Kecil: {c2} ({char2StrokeCount})
+            </div>
+          </div>
+        </div>
+      ) : (
+        /* Single Canvas Box (for Single Kana or Single Sub-Character view) */
+        <div className="relative w-64 h-64 sm:w-72 sm:h-72 mx-auto rounded-3xl bg-[#080D2B] border border-[#7857FF]/30 shadow-lg flex items-center justify-center overflow-hidden">
+          {/* Delicate Crosshair Grid */}
+          <div className="absolute inset-0 pointer-events-none">
+            <svg className="w-full h-full" viewBox="0 0 109 109">
+              <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="#7857FF" strokeOpacity="0.25" strokeWidth="0.8" strokeDasharray="3 3" />
+              <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="#7857FF" strokeOpacity="0.25" strokeWidth="0.8" strokeDasharray="3 3" />
+              <circle cx="54.5" cy="54.5" r="50" stroke="#7857FF" strokeOpacity="0.15" strokeWidth="0.8" fill="none" />
+            </svg>
+          </div>
+
+          {renderSvgBox(
+            (isCompound && viewMode === 1) ? d2 : ((isCompound && viewMode === 0) ? d1 : (KANA_STROKE_DATA[char] || d1)),
+            0,
+            totalStrokes,
+            (isCompound && viewMode === 1) ? c2 : ((isCompound && viewMode === 0) ? c1 : char)
+          )}
+        </div>
+      )}
+
+      {/* Current Step Pill Overlay */}
+      <div className="flex items-center justify-center">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#0D1238] border border-[#7857FF]/30 shadow-md text-xs font-bold font-mono text-[#F5F6FF]">
+          <span className="w-2 h-2 rounded-full bg-[#00D6A3] animate-pulse" />
+          <span>Goresan Selesai: <span className="text-[#329BFF] font-black">{visibleStrokes}</span> / {totalStrokes}</span>
         </div>
       </div>
 
       {/* Control Buttons Bar */}
-      <div className="flex flex-wrap items-center justify-center gap-2 p-3 rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/25">
-        
+      <div className="flex flex-wrap items-center justify-center gap-2 p-3 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/30 shadow-md">
         {/* Step backward */}
         <button
           onClick={prevStroke}
           disabled={visibleStrokes <= 0 || isAnimating}
-          className="p-2.5 rounded-xl bg-[#080D2B] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/25 disabled:opacity-40 transition-colors shadow-2xs"
+          className="p-2.5 rounded-xl bg-[#0D1238] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/30 disabled:opacity-35 transition-all shadow-xs cursor-pointer active:scale-95"
           title="Goresan Sebelumnya"
           aria-label="Previous stroke"
         >
@@ -348,7 +499,7 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
         {isAnimating && !isPaused ? (
           <button
             onClick={pauseAnimation}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-600 text-white font-bold text-xs shadow-xs transition-all active:scale-95"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:brightness-110 text-white font-bold text-xs shadow-md transition-all active:scale-95 cursor-pointer"
             title="Jeda Animasi"
           >
             <Pause className="w-4 h-4" />
@@ -357,11 +508,11 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
         ) : (
           <button
             onClick={playAnimation}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] border border-[#7857FF]/40 hover:brightness-110 text-[#F5F6FF] font-bold text-xs shadow-xs transition-all active:scale-95"
+            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#329BFF] border border-[#7857FF]/40 hover:brightness-115 text-white font-black text-xs shadow-lg shadow-[#7857FF]/25 transition-all active:scale-95 cursor-pointer"
             title="Putar Animasi Goresan"
           >
-            <Play className="w-4 h-4 text-[#7857FF]" />
-            <span>{isPaused ? 'Lanjutkan' : 'Putar Animasi'}</span>
+            <Play className="w-4 h-4 fill-white" />
+            <span>{isPaused ? 'Lanjutkan Animasi' : 'Putar Animasi'}</span>
           </button>
         )}
 
@@ -369,7 +520,7 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
         <button
           onClick={nextStroke}
           disabled={visibleStrokes >= totalStrokes || isAnimating}
-          className="p-2.5 rounded-xl bg-[#080D2B] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/25 disabled:opacity-40 transition-colors shadow-2xs"
+          className="p-2.5 rounded-xl bg-[#0D1238] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/30 disabled:opacity-35 transition-all shadow-xs cursor-pointer active:scale-95"
           title="Goresan Berikutnya"
           aria-label="Next stroke"
         >
@@ -379,17 +530,17 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
         {/* Reset / Replay */}
         <button
           onClick={resetAnimation}
-          className="p-2.5 rounded-xl bg-[#080D2B] hover:bg-[#12194A] text-[#737FA8] hover:text-[#F5F6FF] border border-[#7857FF]/25 transition-colors shadow-2xs"
+          className="p-2.5 rounded-xl bg-[#0D1238] hover:bg-[#12194A] text-[#AAB3D5] hover:text-white border border-[#7857FF]/30 transition-all shadow-xs cursor-pointer active:scale-95"
           title="Tampilkan Utuh / Reset"
           aria-label="Reset strokes"
         >
           <RotateCcw className="w-4 h-4" />
         </button>
 
-        <div className="h-5 w-px bg-[#7857FF]/20 mx-1"></div>
+        <div className="h-5 w-px bg-[#7857FF]/30 mx-1"></div>
 
         {/* Speed Selector Pill */}
-        <div className="flex items-center gap-1 bg-[#080D2B] p-1 rounded-xl border border-[#7857FF]/25">
+        <div className="flex items-center gap-1 bg-[#0D1238] p-1 rounded-xl border border-[#7857FF]/30">
           <Gauge className="w-3.5 h-3.5 text-[#737FA8] ml-1.5" />
           {[0.5, 1, 1.5, 2].map((s) => (
             <button
@@ -398,9 +549,9 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
                 sound.playClick();
                 setSpeed(s);
               }}
-              className={`px-2 py-0.5 rounded-lg text-[10px] font-black font-mono transition-colors ${
+              className={`px-2 py-0.5 rounded-lg text-[10px] font-black font-mono transition-colors cursor-pointer ${
                 speed === s
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
+                  ? 'bg-gradient-to-r from-[#7857FF] to-[#329BFF] text-white shadow-xs'
                   : 'text-[#737FA8] hover:text-[#F5F6FF]'
               }`}
             >
@@ -408,22 +559,20 @@ export const KanaStrokePlayer: React.FC<KanaStrokePlayerProps> = ({
             </button>
           ))}
         </div>
-
       </div>
 
       {/* Writing Tips Banner */}
       {writingTips && (
-        <div className="p-4 rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/25 text-left text-xs leading-relaxed">
+        <div className="p-4 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/30 text-left text-xs leading-relaxed shadow-sm">
           <div className="flex items-center gap-1.5 font-black text-[#F5F6FF] uppercase tracking-wider text-[11px] mb-1">
             <Sparkles className="w-3.5 h-3.5 text-[#7857FF]" />
             <span>Kaidah & Arah Penulisan:</span>
           </div>
-          <p className="text-[#F5F6FF] font-medium">
+          <p className="text-[#AAB3D5] font-medium">
             {writingTips}
           </p>
         </div>
       )}
-
     </div>
   );
 };

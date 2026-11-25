@@ -4,20 +4,22 @@ const STORAGE_KEY = 'zenora_user_stats_v1';
 const LEGACY_STORAGE_KEY = 'kanjihub_user_stats_v1';
 
 export const getInitialStats = (): UserStats => {
+  const today = new Date().toISOString().split('T')[0];
   try {
     const data = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
     if (data) {
       const parsed = JSON.parse(data);
       return {
         ...parsed,
-        learnedKanaChars: parsed.learnedKanaChars || []
+        learnedKanaChars: parsed.learnedKanaChars || [],
+        dailyGoalTarget: parsed.dailyGoalTarget || 15,
+        dailyActivityMap: parsed.dailyActivityMap || { [today]: 0 }
       };
     }
   } catch (e) {
     console.error('Failed to load stats from localStorage', e);
   }
 
-  const today = new Date().toISOString().split('T')[0];
   return {
     learnedKotobaIds: [],
     learnedKanjiIds: [],
@@ -27,6 +29,18 @@ export const getInitialStats = (): UserStats => {
     quizHistory: [],
     streakDays: 1,
     lastActiveDate: today,
+    dailyGoalTarget: 15,
+    dailyActivityMap: { [today]: 0 }
+  };
+};
+
+export const incrementDailyActivity = (stats: UserStats, amount = 1): UserStats => {
+  const today = new Date().toISOString().split('T')[0];
+  const map = { ...(stats.dailyActivityMap || {}) };
+  map[today] = (map[today] || 0) + amount;
+  return {
+    ...stats,
+    dailyActivityMap: map
   };
 };
 

@@ -178,6 +178,18 @@ export interface KanaItem {
   additionalExample?: KanaExampleWord;
 }
 
+export interface SrsItem {
+  id: string;
+  type: 'kana' | 'kanji' | 'kotoba';
+  front: string;
+  reading: string;
+  meaning: string;
+  level: number; // 0 to 5
+  nextReviewAt: number; // timestamp ms
+  lastReviewedAt?: number;
+  correctStreak: number;
+}
+
 export interface UserStats {
   learnedKotobaIds: string[];
   learnedKanjiIds: number[];
@@ -193,6 +205,8 @@ export interface UserStats {
   }[];
   streakDays: number;
   lastActiveDate: string;
+  dailyGoalTarget?: number;
+  dailyActivityMap?: Record<string, number>;
 }
 
 export interface PolaKalimatItem {

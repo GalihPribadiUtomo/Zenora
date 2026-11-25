@@ -378,14 +378,12 @@ canvas {
 /* 1. Core Keyframes */
 @keyframes pageEntrance {
   0% {
-    opacity: 0;
-    transform: translateY(14px);
-    filter: blur(4px);
+    opacity: 0.85;
+    transform: translateY(6px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0px);
   }
 }
 
@@ -500,8 +498,9 @@ canvas {
 
 /* 2. Global Transition & Utility Classes */
 .page-transition {
-  animation: pageEntrance 0.38s var(--ease-smooth) forwards;
-  will-change: transform, opacity, filter;
+  opacity: 1;
+  transform: none;
+  animation: pageEntrance 0.18s var(--ease-smooth) ease-out;
 }
 
 .animate-slide-up {
@@ -745,4 +744,10 @@ tr:hover td {
   outline: 2px solid rgba(143, 180, 227, 0.6);
   outline-offset: 2px;
   border-radius: 8px;
+}
+
+/* ========== GLOBAL FURIGANA VISIBILITY TOGGLE ========== */
+html.hide-furigana rt.ruby-rt,
+html.hide-furigana ruby rt {
+  display: none !important;
 }

@@ -16,7 +16,7 @@ import { AdminSection } from './components/admin/AdminSection';
 import { AdminAuthModal } from './components/admin/AdminAuthModal';
 import { isAdminAuthenticated, setAdminAuthenticated, isUserAdminRole } from './utils/adminAuth';
 import { KanjiItem, QuizMode, QuizSubject } from './types';
-import { getInitialStats, saveStats } from './utils/storage';
+import { getInitialStats, saveStats, incrementDailyActivity } from './utils/storage';
 import { supabase, isSupabaseConfigured } from './lib/supabase';
 import { syncAllToCloud, pullAndMergeFromCloud } from './services/syncService';
 import { X, Lock } from 'lucide-react';
@@ -144,12 +144,13 @@ export function App() {
   const handleToggleLearnedKotoba = (id: string) => {
     setStats(prev => {
       const exists = prev.learnedKotobaIds.includes(id);
-      return {
+      const next = {
         ...prev,
         learnedKotobaIds: exists 
           ? prev.learnedKotobaIds.filter(i => i !== id)
           : [...prev.learnedKotobaIds, id]
       };
+      return exists ? next : incrementDailyActivity(next, 1);
     });
   };
 
@@ -168,12 +169,13 @@ export function App() {
   const handleToggleLearnedKanji = (id: number) => {
     setStats(prev => {
       const exists = prev.learnedKanjiIds.includes(id);
-      return {
+      const next = {
         ...prev,
         learnedKanjiIds: exists 
           ? prev.learnedKanjiIds.filter(i => i !== id)
           : [...prev.learnedKanjiIds, id]
       };
+      return exists ? next : incrementDailyActivity(next, 1);
     });
   };
 
@@ -181,17 +183,18 @@ export function App() {
     setStats(prev => {
       const current = prev.learnedKanaChars || [];
       const exists = current.includes(char);
-      return {
+      const next = {
         ...prev,
         learnedKanaChars: exists
           ? current.filter(c => c !== char)
           : [...current, char]
       };
+      return exists ? next : incrementDailyActivity(next, 1);
     });
   };
 
   const handleRecordQuizResult = (score: number, total: number, mode: QuizMode, subject: QuizSubject) => {
-    setStats(prev => ({
+    setStats(prev => incrementDailyActivity({
       ...prev,
       quizHistory: [
         ...prev.quizHistory,
@@ -203,7 +206,11 @@ export function App() {
           subject
         }
       ]
-    }));
+    }, Math.max(1, score)));
+  };
+
+  const handleRecordActivityCount = (count: number) => {
+    setStats(prev => incrementDailyActivity(prev, count));
   };
 
   const handleSelectKanji = (kanji: KanjiItem, list?: KanjiItem[]) => {
@@ -348,6 +355,7 @@ export function App() {
               streakDays={stats.streakDays}
               stats={stats}
               onSelectKanji={handleSelectKanji}
+              onRecordActivity={handleRecordActivityCount}
               onSelectChapter={(bab) => {
                 setSelectedBab(bab);
                 setActiveTab('kotoba');

@@ -14,6 +14,7 @@ import {
 import { KanaItem, KanaType } from '../types';
 import { HIRAGANA_DATA, KATAKANA_DATA } from '../data/kanaData';
 import { speakJapanese, sound } from '../utils/audio';
+import { recordMistake, resolveMistake } from '../utils/exerciseGenerator';
 import { KanaCanvasPractice } from './KanaCanvasPractice';
 import { KanaStrokePlayer } from './KanaStrokePlayer';
 
@@ -42,7 +43,9 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
   const [isFinished, setIsFinished] = useState(false);
   const [showWritingAnswer, setShowWritingAnswer] = useState(false);
 
-  const pool = kanaType === 'hiragana' ? HIRAGANA_DATA : KATAKANA_DATA;
+  const rawPool = kanaType === 'hiragana' ? HIRAGANA_DATA : KATAKANA_DATA;
+  // Filter out non-syllable punctuation/small markers so every quiz item has a clean phonetic reading
+  const pool = rawPool.filter(k => k.group !== 'special' && k.group !== 'small');
   const TOTAL_QUESTIONS = 10;
 
   // Initialize randomized quiz
@@ -71,18 +74,18 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
     const currentQ = questions[currentIndex];
 
     if (mode === 'recognition') {
-      // Options are romajis
-      const wrongRomajis = pool
-        .filter(k => k.romaji !== currentQ.romaji)
+      // Options are unique romajis
+      const uniqueWrongRomajis = Array.from(
+        new Set(pool.filter(k => k.romaji !== currentQ.romaji).map(k => k.romaji))
+      )
         .sort(() => 0.5 - Math.random())
-        .slice(0, 3)
-        .map(k => k.romaji);
-      const allOpts = [...wrongRomajis, currentQ.romaji].sort(() => 0.5 - Math.random());
+        .slice(0, 3);
+      const allOpts = [...uniqueWrongRomajis, currentQ.romaji].sort(() => 0.5 - Math.random());
       setOptions(allOpts);
     } else if (mode === 'listening') {
-      // Options are characters
+      // Options are characters with unique romajis to avoid ambiguous sound-alikes
       const wrongChars = pool
-        .filter(k => k.char !== currentQ.char)
+        .filter(k => k.char !== currentQ.char && k.romaji !== currentQ.romaji)
         .sort(() => 0.5 - Math.random())
         .slice(0, 3)
         .map(k => k.char);
@@ -109,11 +112,28 @@ export const KanaPracticeModal: React.FC<KanaPracticeModalProps> = ({
         ? opt === currentKana.romaji 
         : opt === currentKana.char;
 
+    const mistakeId = `kana_${kanaType}_${mode}_${currentKana.id}`;
+
     if (isCorrect) {
       sound.playCorrect();
       setScore(prev => prev + 1);
+      resolveMistake(mistakeId);
     } else {
       sound.playIncorrect();
+      recordMistake({
+        id: mistakeId,
+        bab: 0,
+        mode: 'multiple-choice',
+        title: `Latihan ${kanaType === 'hiragana' ? 'Hiragana' : 'Katakana'}`,
+        instruction: mode === 'recognition' ? 'Pilih romaji yang sesuai untuk karakter berikut:' : 'Pilih karakter yang sesuai dengan pelafalan:',
+        question: mode === 'recognition' ? currentKana.char : `Bunyi "${currentKana.romaji}"`,
+        japaneseText: currentKana.char,
+        reading: currentKana.romaji,
+        audioText: currentKana.char,
+        options,
+        correctAnswer: mode === 'recognition' ? currentKana.romaji : currentKana.char,
+        explanation: `${currentKana.char} dibaca "${currentKana.romaji}" (${currentKana.rowLabel}). Contoh: ${currentKana.example?.word || '-'}`
+      });
     }
   };
 

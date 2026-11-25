@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
   Volume2, 
+  VolumeX,
   CheckCircle2, 
   Star, 
   Layers, 
@@ -30,6 +31,7 @@ import { KotobaEditModal } from './KotobaEditModal';
 import { KotobaDeleteModal } from './KotobaDeleteModal';
 import { ChapterExerciseSection } from './ChapterExerciseSection';
 import { FuriganaText } from './FuriganaText';
+import { ShadowingMicButton } from './ShadowingMicButton';
 import { persistKotobaEdit, persistKotobaDelete, applyCustomKotoba } from '../utils/kotobaStorage';
 
 interface ChapterDetailProps {
@@ -64,6 +66,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   // Lesson data loaded lazily
   const [lesson, setLesson] = useState<ChapterLesson | null>(null);
   const [isLoadingLesson, setIsLoadingLesson] = useState(true);
+  const [mutedSpeaker, setMutedSpeaker] = useState<string | null>(null);
 
   // Kotoba State
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
@@ -388,24 +391,55 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               )}
             </div>
 
-            <button
-              onClick={() => {
-                const fullText = lesson.percakapan.dialogs.map(d => `${d.speaker}、${d.japanese}`).join('。 ');
-                speakJapanese(fullText);
-              }}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#12194A] to-[#1D245E] border border-[#7857FF]/40 text-[#F5F6FF] text-xs font-bold hover:brightness-110 shadow-xs transition-all shrink-0 cursor-pointer"
-            >
-              <Volume2 className="w-4 h-4 text-[#7857FF]" />
-              <span>Putar Seluruh Dialog</span>
-            </button>
+            <div className="flex flex-wrap items-center gap-2 shrink-0">
+              {/* Roleplay Mute Selector */}
+              {Array.from(new Set(lesson.percakapan.dialogs.map(d => d.speaker))).length > 1 && (
+                <div className="flex items-center gap-1.5 bg-[#080D2B] px-3 py-1.5 rounded-2xl border border-[#7857FF]/25">
+                  <VolumeX className="w-3.5 h-3.5 text-[#A77DFF]" />
+                  <select
+                    value={mutedSpeaker || ''}
+                    onChange={(e) => setMutedSpeaker(e.target.value || null)}
+                    className="bg-transparent text-xs font-bold text-[#AAB3D5] focus:outline-none cursor-pointer"
+                    title="Mute peran tokoh tertentu untuk latihan roleplay"
+                  >
+                    <option value="" className="bg-[#080D2B]">Semua Tokoh (Normal)</option>
+                    {Array.from(new Set(lesson.percakapan.dialogs.map(d => d.speaker))).map((sp) => (
+                      <option key={sp} value={sp} className="bg-[#080D2B]">
+                        Bisukan: {sp} (Peran Anda)
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              <button
+                onClick={() => {
+                  const fullText = lesson.percakapan.dialogs
+                    .filter(d => d.speaker !== mutedSpeaker)
+                    .map(d => `${d.speaker}、${d.japanese}`)
+                    .join('。 ');
+                  if (fullText) speakJapanese(fullText);
+                }}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#12194A] to-[#1D245E] border border-[#7857FF]/40 text-[#F5F6FF] text-xs font-bold hover:brightness-110 shadow-xs transition-all shrink-0 cursor-pointer"
+              >
+                <Volume2 className="w-4 h-4 text-[#7857FF]" />
+                <span>{mutedSpeaker ? 'Putar Mode Roleplay' : 'Putar Seluruh Dialog'}</span>
+              </button>
+            </div>
           </div>
 
           {/* Dialog Lines */}
           <div className="space-y-4">
-            {lesson.percakapan.dialogs.map((dialog, idx) => (
+            {lesson.percakapan.dialogs.map((dialog, idx) => {
+              const isMuted = mutedSpeaker === dialog.speaker;
+              return (
               <div
                 key={idx}
-                className="p-4 sm:p-5 rounded-2xl bg-[#080D2B]/70 border border-[#7857FF]/20 hover:border-[#7857FF]/45 transition-all flex items-start gap-4"
+                className={`p-4 sm:p-5 rounded-2xl border transition-all flex flex-col sm:flex-row sm:items-start gap-4 ${
+                  isMuted
+                    ? 'bg-[#7857FF]/10 border-[#7857FF]/50 shadow-[0_0_20px_rgba(120,87,255,0.15)]'
+                    : 'bg-[#080D2B]/70 border-[#7857FF]/20 hover:border-[#7857FF]/45'
+                }`}
               >
                 {/* Speaker Avatar Badge */}
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0D1238] to-[#12194A] border border-[#7857FF]/35 text-[#7857FF] font-black text-sm flex items-center justify-center shrink-0 shadow-sm font-['Manrope']">
@@ -413,13 +447,18 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                 </div>
 
                 <div className="flex-1 space-y-2">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-sm sm:text-base font-bold text-[#F5F6FF]">
                       <FuriganaText text={dialog.speaker} />
                     </span>
                     {dialog.role && (
                       <span className="text-xs font-medium text-[#7857FF]">
                         ({dialog.role})
+                      </span>
+                    )}
+                    {isMuted && (
+                      <span className="px-2 py-0.5 rounded-full bg-[#7857FF]/25 text-[#D8B4FE] text-[10px] font-bold">
+                        Giliran Anda Bicara
                       </span>
                     )}
                   </div>
@@ -434,15 +473,19 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                   </p>
                 </div>
 
-                <button
-                  onClick={() => speakJapanese(dialog.japanese)}
-                  className="p-2.5 rounded-xl bg-[#0D1238] hover:bg-[#12194A] text-[#7857FF] border border-[#7857FF]/20 transition-colors shrink-0 cursor-pointer"
-                  title="Dengarkan kalimat ini"
-                >
-                  <Volume2 className="w-4 h-4" />
-                </button>
+                <div className="flex sm:flex-col items-end gap-2 shrink-0">
+                  <button
+                    onClick={() => speakJapanese(dialog.japanese)}
+                    className="p-2.5 rounded-xl bg-[#0D1238] hover:bg-[#12194A] text-[#7857FF] border border-[#7857FF]/20 transition-colors shrink-0 cursor-pointer"
+                    title="Dengarkan kalimat ini"
+                  >
+                    <Volume2 className="w-4 h-4" />
+                  </button>
+                  <ShadowingMicButton targetJapanese={dialog.japanese} />
+                </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       ) : (
