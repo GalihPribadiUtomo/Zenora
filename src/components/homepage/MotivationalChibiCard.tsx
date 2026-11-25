@@ -3,7 +3,7 @@ import { Trophy, Sparkles } from 'lucide-react';
 
 export const MotivationalChibiCard: React.FC = () => {
   return (
-    <div className="relative rounded-3xl p-4 bg-gradient-to-r from-[#111F38] via-[#172945] to-[#102447] border border-[#263D60] shadow-[0_10px_30px_rgba(8,21,47,0.7)] overflow-hidden text-left flex items-center justify-between group">
+    <div className="relative rounded-3xl p-4 bg-gradient-to-r from-[var(--bg-surface)] via-[var(--bg-elevated)] to-[var(--bg-elevated)] border border-[var(--border)] shadow-[0_10px_30px_rgba(8,21,47,0.7)] overflow-hidden text-left flex items-center justify-between group">
       
       {/* Background Soft Glow */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-[#69C9DF]/10 rounded-full blur-2xl pointer-events-none" />
@@ -17,11 +17,11 @@ export const MotivationalChibiCard: React.FC = () => {
           </span>
         </div>
         
-        <p className="text-xs sm:text-sm font-black text-[#F2F6FC] leading-snug font-['Manrope']">
+        <p className="text-xs sm:text-sm font-black text-[var(--text-primary)] leading-snug font-['Manrope']">
           Terus pertahankan semangat belajarmu!
         </p>
 
-        <p className="text-[11px] text-[#A9BBD3] leading-tight">
+        <p className="text-[11px] text-[var(--text-secondary)] leading-tight">
           Konsistensi 15 menit sehari membawamu lolos JLPT.
         </p>
       </div>
@@ -34,7 +34,7 @@ export const MotivationalChibiCard: React.FC = () => {
           alt="Zenora Chibi Student"
           className="relative w-full h-full object-cover rounded-2xl border border-[#3978D6]/40 shadow-[0_0_15px_rgba(36,86,166,0.4)] group-hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute -top-1 -right-1 text-[#69C9DF] animate-bounce">
+        <div className="absolute -top-1 -right-1 text-[var(--secondary-accent)] animate-bounce">
           <Sparkles className="w-3.5 h-3.5" />
         </div>
       </div>

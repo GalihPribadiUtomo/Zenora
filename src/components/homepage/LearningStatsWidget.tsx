@@ -47,13 +47,13 @@ export const LearningStatsWidget: React.FC<LearningStatsWidgetProps> = ({
   const areaD = `${pathD} L ${chartWidth} ${chartHeight + 10} L 0 ${chartHeight + 10} Z`;
 
   return (
-    <div id="learning-stats-section" className="rounded-3xl p-5 bg-[#111F38] border border-[#263D60] shadow-[0_10px_30px_rgba(8,21,47,0.7)] text-left space-y-4">
+    <div id="learning-stats-section" className="rounded-3xl p-5 bg-[var(--bg-surface)] border border-[var(--border)] shadow-[0_10px_30px_rgba(8,21,47,0.7)] text-left space-y-4">
       
       {/* Widget Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <BarChart2 className="w-4 h-4 text-[#3978D6]" />
-          <h4 className="font-black text-sm text-[#F2F6FC] font-['Manrope']">
+          <h4 className="font-black text-sm text-[var(--text-primary)] font-['Manrope']">
             Statistik Belajar
           </h4>
         </div>
@@ -115,12 +115,12 @@ export const LearningStatsWidget: React.FC<LearningStatsWidgetProps> = ({
         </div>
 
         {/* Day Labels */}
-        <div className="flex justify-between text-[11px] font-medium text-[#7186A5] pt-2 border-t border-[#263D60]">
+        <div className="flex justify-between text-[11px] font-medium text-[var(--text-muted)] pt-2 border-t border-[var(--border)]">
           {days.map((day, idx) => (
             <span 
               key={day}
               onClick={() => setActiveDayIndex(idx)}
-              className={`cursor-pointer transition-colors ${activeDayIndex === idx ? 'text-[#83B7EE] font-bold' : 'hover:text-[#F2F6FC]'}`}
+              className={`cursor-pointer transition-colors ${activeDayIndex === idx ? 'text-[var(--soft-sky)] font-bold' : 'hover:text-[var(--text-primary)]'}`}
             >
               {day}
             </span>
@@ -131,13 +131,13 @@ export const LearningStatsWidget: React.FC<LearningStatsWidgetProps> = ({
 
       {/* Mini Stats Summary */}
       <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
-        <div className="p-2 rounded-xl bg-[#172945]/70 border border-[#263D60]">
-          <span className="text-[10px] text-[#7186A5] block">Total Kosakata</span>
-          <span className="font-black text-[#F2F6FC] text-sm">{learnedKotobaCount} / 2.910</span>
+        <div className="p-2 rounded-xl bg-[var(--bg-elevated)]/70 border border-[var(--border)]">
+          <span className="text-[10px] text-[var(--text-muted)] block">Total Kosakata</span>
+          <span className="font-black text-[var(--text-primary)] text-sm">{learnedKotobaCount} / 2.910</span>
         </div>
-        <div className="p-2 rounded-xl bg-[#172945]/70 border border-[#263D60]">
-          <span className="text-[10px] text-[#7186A5] block">Total Kanji</span>
-          <span className="font-black text-[#69C9DF] text-sm">{learnedKanjiCount} / 424</span>
+        <div className="p-2 rounded-xl bg-[var(--bg-elevated)]/70 border border-[var(--border)]">
+          <span className="text-[10px] text-[var(--text-muted)] block">Total Kanji</span>
+          <span className="font-black text-[var(--secondary-accent)] text-sm">{learnedKanjiCount} / 424</span>
         </div>
       </div>
 

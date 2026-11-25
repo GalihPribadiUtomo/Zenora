@@ -283,25 +283,25 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-[#08152F]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-[var(--bg-sidebar)]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
       onClick={onClose}
     >
       {/* Modal Container */}
       <div 
-        className="relative w-full max-w-4xl my-auto rounded-3xl bg-[#111F38] shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.95)] border border-[#3978D6]/35 text-[#F2F6FC] overflow-hidden text-left animate-modal-pop"
+        className="relative w-full max-w-4xl my-auto rounded-3xl bg-[var(--bg-surface)] shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.95)] border border-[#3978D6]/35 text-[var(--text-primary)] overflow-hidden text-left animate-modal-pop"
         onClick={(e) => e.stopPropagation()}
       >
         
         {/* Top Gradient Header Accent Bar */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#08152F] via-[#172945] to-[#3978D6]"></div>
+        <div className="h-1.5 w-full bg-gradient-to-r from-[var(--bg-sidebar)] via-[var(--bg-elevated)] to-[#3978D6]"></div>
 
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#3978D6]/20 bg-[#08152F]/80">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#3978D6]/20 bg-[var(--bg-sidebar)]/80">
           <div className="flex items-center gap-3">
-            <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/30 text-xs font-black uppercase tracking-wider shadow-xs font-mono">
+            <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/30 text-xs font-black uppercase tracking-wider shadow-xs font-mono">
               {kanji.jlpt} · #{kanji.id}
             </span>
-            <span className="text-xs font-bold text-[#7186A5]">
+            <span className="text-xs font-bold text-[var(--text-muted)]">
               Kategori: {kanji.category}
             </span>
           </div>
@@ -315,7 +315,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                 isLearned 
                   ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shadow-xs' 
-                  : 'bg-[#111F38] hover:bg-emerald-500/15 hover:text-emerald-400 text-[#F2F6FC] border border-[#3978D6]/25'
+                  : 'bg-[var(--bg-surface)] hover:bg-emerald-500/15 hover:text-emerald-400 text-[var(--text-primary)] border border-[#3978D6]/25'
               }`}
             >
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
@@ -324,7 +324,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-xl hover:bg-[#172945] text-[#7186A5] hover:text-[#F2F6FC] transition-colors"
+              className="p-1.5 rounded-xl hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -338,16 +338,16 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
             
             {/* Left: Big Kanji Display with Furigana & Meaning */}
-            <div className="md:col-span-5 flex flex-col justify-between p-6 rounded-3xl bg-gradient-to-b from-[#08152F] via-[#111F38] to-[#172945] border border-[#3978D6]/30 text-[#F2F6FC] shadow-md relative overflow-hidden">
+            <div className="md:col-span-5 flex flex-col justify-between p-6 rounded-3xl bg-gradient-to-b from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] border border-[#3978D6]/30 text-[var(--text-primary)] shadow-md relative overflow-hidden">
               
               {/* Subtle decorative watermark */}
-              <div className="absolute -right-6 -bottom-6 text-[180px] font-black kanji-font text-white/5 pointer-events-none select-none">
+              <div className="absolute -right-6 -bottom-6 text-[180px] font-black kanji-font text-[var(--text-primary)]/5 pointer-events-none select-none">
                 {kanji.kanji}
               </div>
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#F2F6FC] bg-[#08152F]/80 border border-[#3978D6]/20 px-2.5 py-1 rounded-lg">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--text-primary)] bg-[var(--bg-sidebar)]/80 border border-[#3978D6]/20 px-2.5 py-1 rounded-lg">
                     JLPT {kanji.jlpt}
                   </span>
                   <span className="text-xs font-mono font-bold text-[#3978D6]">
@@ -360,7 +360,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                   <span className="text-sm font-bold text-[#3978D6] tracking-wider block mb-1">
                     {kanji.reading}
                   </span>
-                  <h1 className="kanji-font text-8xl font-black text-[#F2F6FC] select-none drop-shadow-sm">
+                  <h1 className="kanji-font text-8xl font-black text-[var(--text-primary)] select-none drop-shadow-sm">
                     {kanji.kanji}
                   </h1>
                 </div>
@@ -369,18 +369,18 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
               <div className="pt-4 border-t border-[#3978D6]/20">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-xs text-[#7186A5] font-medium block">Arti Bahasa Indonesia:</span>
-                    <h3 className="text-2xl font-black text-[#F2F6FC] tracking-tight font-['Manrope']">
+                    <span className="text-xs text-[var(--text-muted)] font-medium block">Arti Bahasa Indonesia:</span>
+                    <h3 className="text-2xl font-black text-[var(--text-primary)] tracking-tight font-['Manrope']">
                       {kanji.meaning}
                     </h3>
-                    <p className="text-xs text-[#7186A5] font-medium mt-0.5">
+                    <p className="text-xs text-[var(--text-muted)] font-medium mt-0.5">
                       English: {kanji.meaningEn}
                     </p>
                   </div>
 
                   <button
                     onClick={() => speakJapanese(kanji.reading)}
-                    className="p-3 rounded-2xl bg-[#08152F]/80 hover:bg-[#172945] text-[#3978D6] border border-[#3978D6]/25 transition-all shadow-xs"
+                    className="p-3 rounded-2xl bg-[var(--bg-sidebar)]/80 hover:bg-[var(--bg-elevated)] text-[#3978D6] border border-[#3978D6]/25 transition-all shadow-xs"
                     title="Dengarkan pelafalan"
                   >
                     <Volume2 className="w-5 h-5" />
@@ -393,28 +393,28 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
             {/* Right: Comprehensive Reading Breakdown & Writing Keys */}
             <div className="md:col-span-7 flex flex-col justify-between space-y-4">
               
-              <div className="p-5 rounded-3xl space-y-4 border border-[#3978D6]/20 bg-[#08152F]/60 flex-1 shadow-[0_4px_16px_rgba(8, 21, 47,0.4)]">
+              <div className="p-5 rounded-3xl space-y-4 border border-[#3978D6]/20 bg-[var(--bg-sidebar)]/60 flex-1 shadow-[0_4px_16px_rgba(8, 21, 47,0.4)]">
                 
                 <div className="flex items-center justify-between border-b border-[#3978D6]/15 pb-3">
                   <div className="flex items-center gap-2">
                     <BookOpen className="w-4 h-4 text-[#3978D6]" />
-                    <h4 className="text-xs font-bold text-[#F2F6FC] uppercase tracking-wider">
+                    <h4 className="text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider">
                       Sistem Pelafalan Huruf (Onyomi & Kunyomi)
                     </h4>
                   </div>
-                  <span className="text-[11px] font-bold text-[#7186A5]">
+                  <span className="text-[11px] font-bold text-[var(--text-muted)]">
                     Kaidah Standar Minna no Nihongo
                   </span>
                 </div>
 
                 {/* ONYOMI */}
-                <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#3978D6]/20 flex items-center justify-between">
+                <div className="p-3.5 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/20 flex items-center justify-between">
                   <div>
                     <span className="inline-flex items-center gap-1.5 text-xs font-black text-[#3978D6]">
-                      <span className="px-1.5 py-0.5 rounded bg-[#08152F] text-[#3978D6] border border-[#3978D6]/25 text-[10px]">音 ON</span>
+                      <span className="px-1.5 py-0.5 rounded bg-[var(--bg-sidebar)] text-[#3978D6] border border-[#3978D6]/25 text-[10px]">音 ON</span>
                       Onyomi (Bacaan Serapan Han / Katakana)
                     </span>
-                    <p className="font-mono text-lg font-black text-[#F2F6FC] tracking-wider mt-0.5">
+                    <p className="font-mono text-lg font-black text-[var(--text-primary)] tracking-wider mt-0.5">
                       {kanji.onyomi || '—'}
                     </p>
                   </div>
@@ -422,7 +422,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                   {kanji.onyomi && kanji.onyomi !== '—' && (
                     <button
                       onClick={() => speakJapanese(kanji.onyomi)}
-                      className="text-[#3978D6] hover:text-[#F2F6FC] p-2 rounded-xl bg-[#08152F]/80 hover:bg-[#172945] border border-[#3978D6]/25 transition-colors"
+                      className="text-[#3978D6] hover:text-[var(--text-primary)] p-2 rounded-xl bg-[var(--bg-sidebar)]/80 hover:bg-[var(--bg-elevated)] border border-[#3978D6]/25 transition-colors"
                       title="Dengarkan Onyomi"
                     >
                       <Volume2 className="w-4 h-4" />
@@ -431,13 +431,13 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                 </div>
 
                 {/* KUNYOMI */}
-                <div className="p-3.5 rounded-2xl bg-[#172945]/60 border border-[#3978D6]/25 flex items-center justify-between">
+                <div className="p-3.5 rounded-2xl bg-[var(--bg-elevated)]/60 border border-[#3978D6]/25 flex items-center justify-between">
                   <div>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-black text-[#A9BBD3]">
-                      <span className="px-1.5 py-0.5 rounded bg-[#08152F] text-[#A9BBD3] border border-[#3978D6]/25 text-[10px]">訓 KUN</span>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-black text-[var(--text-secondary)]">
+                      <span className="px-1.5 py-0.5 rounded bg-[var(--bg-sidebar)] text-[var(--text-secondary)] border border-[#3978D6]/25 text-[10px]">訓 KUN</span>
                       Kunyomi (Bacaan Asli Jepang / Hiragana)
                     </span>
-                    <p className="font-mono text-lg font-black text-[#F2F6FC] tracking-wider mt-0.5">
+                    <p className="font-mono text-lg font-black text-[var(--text-primary)] tracking-wider mt-0.5">
                       {kanji.kunyomi || '—'}
                     </p>
                   </div>
@@ -445,7 +445,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                   {kanji.kunyomi && kanji.kunyomi !== '—' && (
                     <button
                       onClick={() => speakJapanese(kanji.kunyomi)}
-                      className="text-[#A9BBD3] hover:text-[#F2F6FC] p-2 rounded-xl bg-[#08152F]/80 hover:bg-[#172945] border border-[#3978D6]/25 transition-colors"
+                      className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] p-2 rounded-xl bg-[var(--bg-sidebar)]/80 hover:bg-[var(--bg-elevated)] border border-[#3978D6]/25 transition-colors"
                       title="Dengarkan Kunyomi"
                     >
                       <Volume2 className="w-4 h-4" />
@@ -455,12 +455,12 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
 
                 {/* Stroke Rules & Writing Key */}
                 {kanji.strokeRules && (
-                  <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#3978D6]/20">
+                  <div className="p-3.5 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/20">
                     <div className="flex items-center gap-1.5 text-xs font-black text-[#3978D6] mb-1">
                       <HelpCircle className="w-4 h-4 text-[#3978D6]" />
                       Kaidah & Kunci Urutan Penulisan:
                     </div>
-                    <p className="text-xs text-[#7186A5] font-medium leading-relaxed">
+                    <p className="text-xs text-[var(--text-muted)] font-medium leading-relaxed">
                       {kanji.strokeRules}
                     </p>
                   </div>
@@ -473,18 +473,18 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
           </div>
 
           {/* LOWER SECTION: INTERACTIVE EDUCATIONAL TABS */}
-          <div className="rounded-3xl overflow-hidden border border-[#3978D6]/25 bg-[#08152F]/70 shadow-[0_4px_24px_rgba(8, 21, 47,0.5)]">
+          <div className="rounded-3xl overflow-hidden border border-[#3978D6]/25 bg-[var(--bg-sidebar)]/70 shadow-[0_4px_24px_rgba(8, 21, 47,0.5)]">
             
             {/* Tab Switcher */}
-            <div className="flex items-center border-b border-[#3978D6]/20 bg-[#111F38] px-4 py-2 gap-2 overflow-x-auto">
+            <div className="flex items-center border-b border-[#3978D6]/20 bg-[var(--bg-surface)] px-4 py-2 gap-2 overflow-x-auto">
               
               {/* Tab 1: Stroke Order */}
               <button
                 onClick={() => setActiveTab('goresan')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap ${
                   activeTab === 'goresan'
-                    ? 'bg-[#172945] shadow-xs text-[#F2F6FC] border border-[#3978D6]/40'
-                    : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                    ? 'bg-[var(--bg-elevated)] shadow-xs text-[var(--text-primary)] border border-[#3978D6]/40'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 <ListOrdered className="w-3.5 h-3.5 text-[#3978D6]" />
@@ -496,8 +496,8 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                 onClick={() => setActiveTab('kalimat')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap ${
                   activeTab === 'kalimat'
-                    ? 'bg-[#172945] shadow-xs text-[#F2F6FC] border border-[#3978D6]/40'
-                    : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                    ? 'bg-[var(--bg-elevated)] shadow-xs text-[var(--text-primary)] border border-[#3978D6]/40'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 <BookOpen className="w-3.5 h-3.5 text-[#3978D6]" />
@@ -509,8 +509,8 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                 onClick={() => setActiveTab('menulis')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap ${
                   activeTab === 'menulis'
-                    ? 'bg-[#172945] shadow-xs text-[#F2F6FC] border border-[#3978D6]/40'
-                    : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                    ? 'bg-[var(--bg-elevated)] shadow-xs text-[var(--text-primary)] border border-[#3978D6]/40'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 <PenTool className="w-3.5 h-3.5 text-[#3978D6]" />
@@ -523,8 +523,8 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                   onClick={() => setActiveTab('jukugo')}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-extrabold transition-all whitespace-nowrap ${
                     activeTab === 'jukugo'
-                      ? 'bg-[#172945] shadow-xs text-[#F2F6FC] border border-[#3978D6]/40'
-                      : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                      ? 'bg-[var(--bg-elevated)] shadow-xs text-[var(--text-primary)] border border-[#3978D6]/40'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                   }`}
                 >
                   <Sparkles className="w-3.5 h-3.5 text-[#3978D6]" />
@@ -542,21 +542,21 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                 {/* Stroke step descriptions below */}
                 {kanji.strokeOrderGuide && kanji.strokeOrderGuide.length > 0 && (
                   <div className="mt-6 pt-5 border-t border-[#3978D6]/15">
-                    <h5 className="text-xs font-bold text-[#7186A5] uppercase tracking-wider mb-3">
+                    <h5 className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider mb-3">
                       Deskripsi Kaidah Langkah Goresan:
                     </h5>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {kanji.strokeOrderGuide.map((stepDesc, idx) => (
                         <div 
                           key={idx}
-                          className="flex items-start gap-3 p-3.5 rounded-2xl bg-[#111F38] border border-[#3978D6]/20 hover:border-[#3978D6]/40 transition-colors"
+                          className="flex items-start gap-3 p-3.5 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/20 hover:border-[#3978D6]/40 transition-colors"
                         >
                           <span 
-                            className="w-5 h-5 rounded-full flex items-center justify-center text-[#F2F6FC] text-[10px] font-black shrink-0 mt-0.5 bg-gradient-to-r from-[#2456A6] to-[#3978D6] border border-[#3978D6]/30 shadow-xs"
+                            className="w-5 h-5 rounded-full flex items-center justify-center text-[var(--text-primary)] text-[10px] font-black shrink-0 mt-0.5 bg-gradient-to-r from-[#2456A6] to-[#3978D6] border border-[#3978D6]/30 shadow-xs"
                           >
                             {idx + 1}
                           </span>
-                          <p className="text-xs font-medium text-[#F2F6FC] leading-relaxed">
+                          <p className="text-xs font-medium text-[var(--text-primary)] leading-relaxed">
                             {stepDesc}
                           </p>
                         </div>
@@ -572,15 +572,15 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
               <div className="p-6 space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#3978D6]/15 pb-4">
                   <div>
-                    <h4 className="text-sm font-extrabold text-[#F2F6FC] flex items-center gap-2">
+                    <h4 className="text-sm font-extrabold text-[var(--text-primary)] flex items-center gap-2">
                       <BookOpen className="w-4 h-4 text-[#3978D6]" />
                       <span>4 Contoh Kalimat Kanji 「{kanji.kanji}」</span>
                     </h4>
-                    <p className="text-xs text-[#7186A5] mt-0.5">
+                    <p className="text-xs text-[var(--text-muted)] mt-0.5">
                       Empat variasi kalimat alami untuk memahami makna, cara baca, dan konteks penggunaan kanji ini dalam 3 bahasa (日本語, English, Indonesia).
                     </p>
                   </div>
-                  <span className="self-start sm:self-auto px-3 py-1 rounded-full bg-[#111F38] border border-[#3978D6]/30 text-[#3978D6] text-xs font-black font-mono">
+                  <span className="self-start sm:self-auto px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[#3978D6]/30 text-[#3978D6] text-xs font-black font-mono">
                     4 Kalimat Lengkap
                   </span>
                 </div>
@@ -611,17 +611,17 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                 {/* Header & Modes Bar */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#3978D6]/15">
                   <div>
-                    <h4 className="text-sm font-extrabold text-[#F2F6FC] font-['Manrope'] flex items-center gap-2">
+                    <h4 className="text-sm font-extrabold text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2">
                       <PenTool className="w-4 h-4 text-[#3978D6]" />
                       <span>Digital Handwriting Learning Canvas</span>
                     </h4>
-                    <p className="text-xs text-[#7186A5] mt-0.5">
+                    <p className="text-xs text-[var(--text-muted)] mt-0.5">
                       Latih memori otot tulisan tangan Anda. Didukung mouse, stylus, dan layar sentuh.
                     </p>
                   </div>
 
                   {/* Mode Selector Pill: Guided vs Freehand */}
-                  <div className="flex items-center gap-1 bg-[#08152F] p-1 rounded-2xl border border-[#3978D6]/25">
+                  <div className="flex items-center gap-1 bg-[var(--bg-sidebar)] p-1 rounded-2xl border border-[#3978D6]/25">
                     <button
                       onClick={() => {
                         setIsGuidedMode(true);
@@ -629,8 +629,8 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                         isGuidedMode
-                          ? 'bg-[#172945] shadow-xs text-[#F2F6FC] border border-[#3978D6]/30'
-                          : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                          ? 'bg-[var(--bg-elevated)] shadow-xs text-[var(--text-primary)] border border-[#3978D6]/30'
+                          : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                       }`}
                     >
                       Mode Berpanduan
@@ -642,8 +642,8 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                         !isGuidedMode
-                          ? 'bg-[#172945] shadow-xs text-[#F2F6FC] border border-[#3978D6]/30'
-                          : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                          ? 'bg-[var(--bg-elevated)] shadow-xs text-[var(--text-primary)] border border-[#3978D6]/30'
+                          : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                       }`}
                     >
                       Mode Mandiri (Ujian)
@@ -652,14 +652,14 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                 </div>
 
                 {/* Canvas Toolbar Controls */}
-                <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-[#111F38] border border-[#3978D6]/20">
+                <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/20">
                   
                   {/* Colors & Pen Sizes */}
                   <div className="flex items-center gap-4">
                     
                     {/* Color Swatches */}
                     <div className="flex items-center gap-1.5">
-                      <span className="text-[11px] font-bold text-[#7186A5] mr-1">Tinta:</span>
+                      <span className="text-[11px] font-bold text-[var(--text-muted)] mr-1">Tinta:</span>
                       {[
                         { color: '#F2F6FC', label: 'Perak Terang' },
                         { color: '#3978D6', label: 'Biru Perak' },
@@ -685,7 +685,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
 
                     {/* Pen Size Buttons */}
                     <div className="flex items-center gap-1">
-                      <span className="text-[11px] font-bold text-[#7186A5] mr-1">Tebal:</span>
+                      <span className="text-[11px] font-bold text-[var(--text-muted)] mr-1">Tebal:</span>
                       {[
                         { size: 7, label: 'Tipis' },
                         { size: 12, label: 'Sedang' },
@@ -696,8 +696,8 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                           onClick={() => setBrushSize(item.size)}
                           className={`px-2 py-1 rounded-lg text-xs font-bold transition-colors ${
                             brushSize === item.size
-                              ? 'bg-[#172945] text-[#F2F6FC] shadow-xs border border-[#3978D6]/30'
-                              : 'text-[#7186A5] hover:bg-[#08152F]'
+                              ? 'bg-[var(--bg-elevated)] text-[var(--text-primary)] shadow-xs border border-[#3978D6]/30'
+                              : 'text-[var(--text-muted)] hover:bg-[var(--bg-sidebar)]'
                           }`}
                         >
                           {item.label}
@@ -713,7 +713,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                     <button
                       onClick={handleUndo}
                       disabled={strokes.length === 0}
-                      className="p-2 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#F2F6FC] border border-[#3978D6]/20 disabled:opacity-30 transition-colors"
+                      className="p-2 rounded-xl bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/20 disabled:opacity-30 transition-colors"
                       title="Undo (Batalkan goresan)"
                     >
                       <Undo2 className="w-3.5 h-3.5 text-[#3978D6]" />
@@ -722,7 +722,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                     <button
                       onClick={handleRedo}
                       disabled={redoStack.length === 0}
-                      className="p-2 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#F2F6FC] border border-[#3978D6]/20 disabled:opacity-30 transition-colors"
+                      className="p-2 rounded-xl bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/20 disabled:opacity-30 transition-colors"
                       title="Redo (Ulangi goresan)"
                     >
                       <Redo2 className="w-3.5 h-3.5 text-[#3978D6]" />
@@ -732,8 +732,8 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                       onClick={() => setShowGhost(!showGhost)}
                       className={`px-3 py-1.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-colors ${
                         showGhost 
-                          ? 'bg-[#172945] border-[#3978D6]/40 text-[#F2F6FC]' 
-                          : 'bg-[#08152F] text-[#7186A5] border-[#3978D6]/20'
+                          ? 'bg-[var(--bg-elevated)] border-[#3978D6]/40 text-[var(--text-primary)]' 
+                          : 'bg-[var(--bg-sidebar)] text-[var(--text-muted)] border-[#3978D6]/20'
                       }`}
                     >
                       {showGhost ? <Eye className="w-3.5 h-3.5 text-[#3978D6]" /> : <EyeOff className="w-3.5 h-3.5" />}
@@ -744,8 +744,8 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                       onClick={() => setShowHint(!showHint)}
                       className={`px-3 py-1.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-colors ${
                         showHint 
-                          ? 'bg-[#172945] border-[#3978D6]/40 text-[#3978D6]' 
-                          : 'bg-[#08152F] text-[#7186A5] border-[#3978D6]/20'
+                          ? 'bg-[var(--bg-elevated)] border-[#3978D6]/40 text-[#3978D6]' 
+                          : 'bg-[var(--bg-sidebar)] text-[var(--text-muted)] border-[#3978D6]/20'
                       }`}
                     >
                       <HelpCircle className="w-3.5 h-3.5 text-[#3978D6]" />
@@ -754,7 +754,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
 
                     <button
                       onClick={handleClear}
-                      className="p-2 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#7186A5] hover:text-[#F2F6FC] border border-[#3978D6]/20 transition-colors"
+                      className="p-2 rounded-xl bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-[#3978D6]/20 transition-colors"
                       title="Bersihkan Kanvas"
                     >
                       <RotateCcw className="w-3.5 h-3.5" />
@@ -766,14 +766,14 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
 
                 {/* Educational Hint Banner if triggered */}
                 {showHint && kanji.strokeRules && (
-                  <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#3978D6]/30 text-xs text-[#F2F6FC] font-medium leading-relaxed flex items-center gap-2">
+                  <div className="p-3.5 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/30 text-xs text-[var(--text-primary)] font-medium leading-relaxed flex items-center gap-2">
                     <span className="font-bold text-[#3978D6] shrink-0">💡 Kunci:</span>
                     <span>{kanji.strokeRules}</span>
                   </div>
                 )}
 
                 {/* Centered Large Canvas Area */}
-                <div className="relative mx-auto w-[320px] h-[320px] rounded-3xl bg-[#08152F] border-2 border-[#3978D6]/30 shadow-inner overflow-hidden select-none touch-none flex items-center justify-center">
+                <div className="relative mx-auto w-[320px] h-[320px] rounded-3xl bg-[var(--bg-sidebar)] border-2 border-[#3978D6]/30 shadow-inner overflow-hidden select-none touch-none flex items-center justify-center">
                   
                   {/* Ghost Kanji Reference */}
                   {showGhost && (
@@ -800,7 +800,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                   />
 
                   {/* Stroke counter floating badge */}
-                  <div className="absolute bottom-3 left-3 z-20 px-2.5 py-1 rounded-xl bg-[#111F38]/90 backdrop-blur-xs border border-[#3978D6]/25 text-[11px] font-mono font-bold text-[#F2F6FC] shadow-xs">
+                  <div className="absolute bottom-3 left-3 z-20 px-2.5 py-1 rounded-xl bg-[var(--bg-surface)]/90 backdrop-blur-xs border border-[#3978D6]/25 text-[11px] font-mono font-bold text-[var(--text-primary)] shadow-xs">
                     {strokes.length} / {kanji.strokeCount} Goresan
                   </div>
                 </div>
@@ -830,13 +830,13 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
 
                 {/* Bottom Canvas Footer Action */}
                 <div className="flex items-center justify-between pt-2">
-                  <p className="text-xs text-[#7186A5] font-medium">
+                  <p className="text-xs text-[var(--text-muted)] font-medium">
                     Tarik goresan dari atas ke bawah, kiri ke kanan sesuai urutan.
                   </p>
 
                   <button
                     onClick={handleCheckWriting}
-                    className="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[#F2F6FC] border border-[#3978D6]/40 font-bold text-xs shadow-xs transition-all flex items-center gap-2"
+                    className="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-xs shadow-xs transition-all flex items-center gap-2"
                   >
                     <Check className="w-4 h-4 text-[#3978D6]" />
                     <span>Periksa Tulisan</span>
@@ -850,11 +850,11 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
             {activeTab === 'jukugo' && kanji.examples && (
               <div className="p-6 space-y-4">
                 <div>
-                  <h4 className="text-sm font-extrabold text-[#F2F6FC] font-['Manrope'] flex items-center gap-2">
+                  <h4 className="text-sm font-extrabold text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-[#3978D6]" />
                     <span>Contoh Penggunaan Kata Majemuk (Jukugo)</span>
                   </h4>
-                  <p className="text-xs text-[#7186A5] mt-0.5">
+                  <p className="text-xs text-[var(--text-muted)] mt-0.5">
                     Kombinasi kanji 「{kanji.kanji}」 dengan kanji lain yang membentuk kosakata baru.
                   </p>
                 </div>
@@ -863,17 +863,17 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
                   {kanji.examples.map((ex, idx) => (
                     <div 
                       key={idx}
-                      className="p-4 rounded-2xl bg-[#111F38] border border-[#3978D6]/20 hover:border-[#3978D6]/40 flex items-center justify-between transition-colors shadow-xs"
+                      className="p-4 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/20 hover:border-[#3978D6]/40 flex items-center justify-between transition-colors shadow-xs"
                     >
                       <div>
-                        <div className="text-lg font-black text-[#F2F6FC] mb-1">
+                        <div className="text-lg font-black text-[var(--text-primary)] mb-1">
                           <FuriganaText text={ex.word} reading={ex.reading} />
                         </div>
-                        <p className="text-xs text-[#7186A5] font-medium">{ex.meaning}</p>
+                        <p className="text-xs text-[var(--text-muted)] font-medium">{ex.meaning}</p>
                       </div>
                       <button
                         onClick={() => speakJapanese(ex.word)}
-                        className="p-2 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#3978D6] border border-[#3978D6]/20 transition-colors shadow-2xs"
+                        className="p-2 rounded-xl bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-[#3978D6] border border-[#3978D6]/20 transition-colors shadow-2xs"
                         title="Dengarkan kata"
                       >
                         <Volume2 className="w-4 h-4" />

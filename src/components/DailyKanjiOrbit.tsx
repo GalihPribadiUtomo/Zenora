@@ -47,7 +47,7 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
       <div className="hidden sm:flex relative w-full max-w-[440px] md:max-w-[480px] lg:max-w-[520px] aspect-square items-center justify-center orbit-container">
         
         {/* Midnight Navy & Biru Perak Ambient Celestial Glow */}
-        <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-[#111F38]/40 via-[#3978D6]/15 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-[var(--bg-surface)]/40 via-[#3978D6]/15 to-transparent blur-3xl pointer-events-none" />
 
         {/* Orbit Track Guide Line */}
         <div className="absolute w-[82%] h-[82%] rounded-full border border-dashed border-[#3978D6]/30 shadow-[0_0_30px_rgba(57, 120, 214,0.15)] pointer-events-none" />
@@ -70,21 +70,21 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
                         sound.playClick();
                         setPreviewKanji(k);
                       }}
-                      className="group relative p-3 sm:p-3.5 rounded-2xl sm:rounded-3xl bg-[#111F38] backdrop-blur-md shadow-[0_4px_20px_rgba(8, 21, 47,0.6)] border border-[#3978D6]/30 hover:border-[#3978D6] hover:shadow-[0_0_25px_rgba(57, 120, 214,0.4)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer flex flex-col items-center min-w-[70px] sm:min-w-[80px]"
+                      className="group relative p-3 sm:p-3.5 rounded-2xl sm:rounded-3xl bg-[var(--bg-surface)] backdrop-blur-md shadow-[0_4px_20px_rgba(8, 21, 47,0.6)] border border-[#3978D6]/30 hover:border-[#3978D6] hover:shadow-[0_0_25px_rgba(57, 120, 214,0.4)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer flex flex-col items-center min-w-[70px] sm:min-w-[80px]"
                       title={`Kanji Hari Ini: ${k.kanji} (${k.meaning}) · Klik untuk detail`}
                     >
                       {/* Daily Badge Tag */}
-                      <span className="absolute -top-2 px-1.5 py-0.5 rounded-full bg-gradient-to-r from-[#172945] to-[#3978D6] text-[#08152F] text-[8px] font-black uppercase tracking-wider font-mono shadow-[0_0_8px_rgba(57, 120, 214,0.4)]">
+                      <span className="absolute -top-2 px-1.5 py-0.5 rounded-full bg-gradient-to-r from-[var(--bg-elevated)] to-[#3978D6] text-[#08152F] text-[8px] font-black uppercase tracking-wider font-mono shadow-[0_0_8px_rgba(57, 120, 214,0.4)]">
                         #{idx + 1}
                       </span>
 
                       {/* Kanji Character */}
-                      <span className="font-japanese text-2xl sm:text-3xl font-black text-[#F2F6FC] group-hover:text-[#3978D6] transition-colors leading-none my-1 drop-shadow-sm">
+                      <span className="font-japanese text-2xl sm:text-3xl font-black text-[var(--text-primary)] group-hover:text-[#3978D6] transition-colors leading-none my-1 drop-shadow-sm">
                         {k.kanji}
                       </span>
 
                       {/* Reading or Onyomi Subtitle */}
-                      <span className="text-[9px] sm:text-[10px] font-mono font-bold text-[#3978D6] group-hover:text-white transition-colors truncate max-w-[60px] sm:max-w-[72px] text-center">
+                      <span className="text-[9px] sm:text-[10px] font-mono font-bold text-[#3978D6] group-hover:text-[var(--text-primary)] transition-colors truncate max-w-[60px] sm:max-w-[72px] text-center">
                         {k.reading || k.onyomi?.split('・')[0] || ''}
                       </span>
                     </div>
@@ -96,16 +96,16 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
         </div>
 
         {/* Central Circle Plate (Holographic Star Core) */}
-        <div className="relative z-10 w-48 h-48 sm:w-52 sm:h-52 lg:w-56 lg:h-56 rounded-full bg-gradient-to-b from-[#111F38] to-[#08152F] shadow-[0_0_40px_rgba(8, 21, 47,0.8)] border border-[#3978D6]/35 flex flex-col items-center justify-center p-3 sm:p-4 text-center">
+        <div className="relative z-10 w-48 h-48 sm:w-52 sm:h-52 lg:w-56 lg:h-56 rounded-full bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-sidebar)] shadow-[0_0_40px_rgba(8, 21, 47,0.8)] border border-[#3978D6]/35 flex flex-col items-center justify-center p-3 sm:p-4 text-center">
           
           {/* Daily Date Badge Pill */}
-          <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#08152F] border border-[#3978D6]/30 text-[#3978D6] text-[10px] font-black uppercase tracking-wider font-mono mb-1.5">
+          <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[#3978D6] text-[10px] font-black uppercase tracking-wider font-mono mb-1.5">
             <Calendar className="w-3 h-3 text-[#3978D6]" />
             <span>{displayDate.split(',')[0]}</span>
           </div>
 
           {/* Zenora Logo Icon */}
-          <div className="w-14 h-14 sm:w-16 sm:h-16 mb-1 rounded-2xl bg-[#08152F]/80 flex items-center justify-center shadow-xs border border-[#3978D6]/25 p-2">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 mb-1 rounded-2xl bg-[var(--bg-sidebar)]/80 flex items-center justify-center shadow-xs border border-[#3978D6]/25 p-2">
             <img
               src="/zenora-icon.png"
               alt="ZENORA"
@@ -113,13 +113,13 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
             />
           </div>
 
-          <div className="text-sm sm:text-base font-black text-[#F2F6FC] font-['Manrope'] tracking-wider leading-none">
+          <div className="text-sm sm:text-base font-black text-[var(--text-primary)] font-['Manrope'] tracking-wider leading-none">
             ZENORA
           </div>
           <div className="text-[9px] sm:text-[10px] text-[#3978D6] font-bold font-mono tracking-wider uppercase mt-1">
             Midnight Navy & Biru Perak
           </div>
-          <div className="text-[10px] sm:text-[11px] text-[#7186A5] mt-0.5 font-medium">
+          <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)] mt-0.5 font-medium">
             4 Kanji Dinamis Setiap Hari
           </div>
 
@@ -129,7 +129,7 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
               sound.playClick();
               speakJapanese('日本語の勉強はとても楽しいです');
             }}
-            className="mt-2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#111F38] hover:bg-[#172945] text-[#F2F6FC] text-[10px] sm:text-[11px] font-bold transition-all border border-[#3978D6]/25 shadow-xs active:scale-95"
+            className="mt-2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] text-[10px] sm:text-[11px] font-bold transition-all border border-[#3978D6]/25 shadow-xs active:scale-95"
             title="Dengarkan Contoh Kalimat Bahasa Jepang"
           >
             <Volume2 className="w-3 h-3 text-[#3978D6]" />
@@ -141,13 +141,13 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
 
       {/* MOBILE VIEW: CLEAN 2x2 GRID (< sm) */}
       <div className="flex sm:hidden flex-col items-center w-full max-w-sm py-2">
-        <div className="w-44 h-44 rounded-full bg-gradient-to-b from-[#111F38] to-[#08152F] shadow-[0_0_30px_rgba(8, 21, 47,0.8)] border border-[#3978D6]/35 flex flex-col items-center justify-center p-3 text-center mb-4">
-          <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#08152F] border border-[#3978D6]/30 text-[#3978D6] text-[9px] font-black uppercase tracking-wider font-mono mb-1">
+        <div className="w-44 h-44 rounded-full bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-sidebar)] shadow-[0_0_30px_rgba(8, 21, 47,0.8)] border border-[#3978D6]/35 flex flex-col items-center justify-center p-3 text-center mb-4">
+          <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[#3978D6] text-[9px] font-black uppercase tracking-wider font-mono mb-1">
             <Calendar className="w-2.5 h-2.5 text-[#3978D6]" />
             <span>{displayDate.split(',')[0]}</span>
           </div>
 
-          <div className="w-12 h-12 mb-1 rounded-xl bg-[#08152F]/80 flex items-center justify-center shadow-xs border border-[#3978D6]/25 p-1.5">
+          <div className="w-12 h-12 mb-1 rounded-xl bg-[var(--bg-sidebar)]/80 flex items-center justify-center shadow-xs border border-[#3978D6]/25 p-1.5">
             <img
               src="/zenora-icon.png"
               alt="ZENORA"
@@ -155,7 +155,7 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
             />
           </div>
 
-          <div className="text-sm font-black text-[#F2F6FC] font-['Manrope'] tracking-wider leading-none">
+          <div className="text-sm font-black text-[var(--text-primary)] font-['Manrope'] tracking-wider leading-none">
             ZENORA
           </div>
           <div className="text-[9px] text-[#3978D6] font-bold font-mono tracking-wider uppercase mt-0.5">
@@ -167,7 +167,7 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
               sound.playClick();
               speakJapanese('日本語の勉強はとても楽しいです');
             }}
-            className="mt-2 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#111F38] hover:bg-[#172945] text-[#F2F6FC] text-[10px] font-bold transition-all border border-[#3978D6]/25"
+            className="mt-2 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] text-[10px] font-bold transition-all border border-[#3978D6]/25"
           >
             <Volume2 className="w-2.5 h-2.5 text-[#3978D6]" />
             <span>Dengarkan</span>
@@ -183,10 +183,10 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
                 sound.playClick();
                 setPreviewKanji(k);
               }}
-              className="p-3 rounded-2xl bg-[#111F38] shadow-md border border-[#3978D6]/25 hover:border-[#3978D6] active:scale-95 transition-all cursor-pointer flex items-center gap-2.5"
+              className="p-3 rounded-2xl bg-[var(--bg-surface)] shadow-md border border-[#3978D6]/25 hover:border-[#3978D6] active:scale-95 transition-all cursor-pointer flex items-center gap-2.5"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#08152F] border border-[#3978D6]/30 flex items-center justify-center shrink-0">
-                <span className="font-japanese text-2xl font-black text-[#F2F6FC]">
+              <div className="w-11 h-11 rounded-xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 flex items-center justify-center shrink-0">
+                <span className="font-japanese text-2xl font-black text-[var(--text-primary)]">
                   {k.kanji}
                 </span>
               </div>
@@ -194,10 +194,10 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
                 <div className="text-[9px] font-mono font-bold text-[#3978D6] truncate">
                   {k.reading || k.onyomi?.split('・')[0] || ''}
                 </div>
-                <div className="text-xs font-bold text-[#F2F6FC] truncate">
+                <div className="text-xs font-bold text-[var(--text-primary)] truncate">
                   {k.meaning}
                 </div>
-                <div className="text-[9px] text-[#7186A5] font-mono">
+                <div className="text-[9px] text-[var(--text-muted)] font-mono">
                   {k.jlpt} · {k.strokeCount} Goresan
                 </div>
               </div>

@@ -165,20 +165,20 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 sm:pt-20 bg-[#08152F]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 sm:pt-20 bg-[var(--bg-sidebar)]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
       onClick={onClose}
     >
       {/* Modal Dialog */}
       <div 
-        className="relative w-full max-w-3xl rounded-3xl bg-[#111F38] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#263D60] text-[#F2F6FC] overflow-hidden flex flex-col max-h-[85vh] text-left animate-modal-pop"
+        className="relative w-full max-w-3xl rounded-3xl bg-[var(--bg-surface)] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[var(--border)] text-[var(--text-primary)] overflow-hidden flex flex-col max-h-[85vh] text-left animate-modal-pop"
         onClick={(e) => e.stopPropagation()}
       >
         
         {/* Top Gradient Header Accent */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#08152F] via-[#2456A6] to-[#69C9DF]"></div>
+        <div className="h-1.5 w-full bg-gradient-to-r from-[var(--bg-sidebar)] via-[#2456A6] to-[#69C9DF]"></div>
 
         {/* Search Bar Input Row */}
-        <div className="flex items-center gap-3 px-5 sm:px-6 py-4 border-b border-[#263D60] bg-[#111F38]/90">
+        <div className="flex items-center gap-3 px-5 sm:px-6 py-4 border-b border-[var(--border)] bg-[var(--bg-surface)]/90">
           <Search className="w-5 h-5 text-[#3978D6] shrink-0" />
           
           <input
@@ -192,7 +192,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               }
             }}
             placeholder="Cari kata, kanji, kana, romaji, arti, bab (contoh: tabemasu, 日, あ, Bab 3)..."
-            className="w-full text-sm sm:text-base font-semibold focus:outline-hidden text-[#F2F6FC] placeholder-[#7186A5] font-['Manrope'] bg-transparent"
+            className="w-full text-sm sm:text-base font-semibold focus:outline-hidden text-[var(--text-primary)] placeholder-[var(--text-muted)] font-['Manrope'] bg-transparent"
             autoFocus
           />
 
@@ -202,13 +202,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                 setQuery('');
                 inputRef.current?.focus();
               }}
-              className="p-1.5 text-[#7186A5] hover:text-[#F2F6FC] hover:bg-[#08152F] rounded-xl transition-colors cursor-pointer"
+              className="p-1.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-sidebar)] rounded-xl transition-colors cursor-pointer"
               title="Bersihkan input pencarian"
             >
               <X className="w-4 h-4" />
             </button>
           ) : (
-            <kbd className="hidden sm:inline-flex items-center text-[10px] font-mono bg-[#08152F] text-[#7186A5] px-2 py-1 rounded-lg border border-[#263D60] shadow-2xs">
+            <kbd className="hidden sm:inline-flex items-center text-[10px] font-mono bg-[var(--bg-sidebar)] text-[var(--text-muted)] px-2 py-1 rounded-lg border border-[var(--border)] shadow-2xs">
               ESC
             </kbd>
           )}
@@ -216,18 +216,18 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
         {/* Filter Category Tabs (Active only when searching) */}
         {q && (
-          <div className="flex items-center gap-1.5 px-4 sm:px-6 py-2.5 bg-[#08152F]/60 border-b border-[#263D60] overflow-x-auto text-xs font-bold">
+          <div className="flex items-center gap-1.5 px-4 sm:px-6 py-2.5 bg-[var(--bg-sidebar)]/60 border-b border-[var(--border)] overflow-x-auto text-xs font-bold">
             <button
               onClick={() => setActiveTab('semua')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                 activeTab === 'semua'
-                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
-                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
               <span>Semua</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                activeTab === 'semua' ? 'bg-[#08152F]/70 text-[#83B7EE]' : 'bg-[#08152F] text-[#7186A5]'
+                activeTab === 'semua' ? 'bg-[var(--bg-sidebar)]/70 text-[var(--soft-sky)]' : 'bg-[var(--bg-sidebar)] text-[var(--text-muted)]'
               }`}>
                 {totalResults}
               </span>
@@ -237,14 +237,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               onClick={() => setActiveTab('kanji')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                 activeTab === 'kanji'
-                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
-                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
               <PenTool className="w-3.5 h-3.5" />
               <span>Kanji</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                activeTab === 'kanji' ? 'bg-[#08152F]/70 text-[#83B7EE]' : 'bg-[#08152F] text-[#7186A5]'
+                activeTab === 'kanji' ? 'bg-[var(--bg-sidebar)]/70 text-[var(--soft-sky)]' : 'bg-[var(--bg-sidebar)] text-[var(--text-muted)]'
               }`}>
                 {kanjiMatches.length}
               </span>
@@ -254,14 +254,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               onClick={() => setActiveTab('kotoba')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                 activeTab === 'kotoba'
-                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
-                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>Kosakata</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                activeTab === 'kotoba' ? 'bg-[#08152F]/70 text-[#83B7EE]' : 'bg-[#08152F] text-[#7186A5]'
+                activeTab === 'kotoba' ? 'bg-[var(--bg-sidebar)]/70 text-[var(--soft-sky)]' : 'bg-[var(--bg-sidebar)] text-[var(--text-muted)]'
               }`}>
                 {kotobaMatches.length}
               </span>
@@ -271,14 +271,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               onClick={() => setActiveTab('kana')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                 activeTab === 'kana'
-                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
-                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
               <Languages className="w-3.5 h-3.5" />
               <span>Kana (Aksara)</span>
               <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                activeTab === 'kana' ? 'bg-[#08152F]/70 text-[#83B7EE]' : 'bg-[#08152F] text-[#7186A5]'
+                activeTab === 'kana' ? 'bg-[var(--bg-sidebar)]/70 text-[var(--soft-sky)]' : 'bg-[var(--bg-sidebar)] text-[var(--text-muted)]'
               }`}>
                 {kanaMatches.length}
               </span>
@@ -295,14 +295,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               {/* Recent Searches */}
               {recentSearches.length > 0 && (
                 <div className="space-y-2.5">
-                  <div className="flex items-center justify-between text-xs font-bold text-[#7186A5] uppercase tracking-wider">
+                  <div className="flex items-center justify-between text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
                     <span className="flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5 text-[#3978D6]" />
                       <span>Pencarian Terakhir</span>
                     </span>
                     <button
                       onClick={clearRecentSearches}
-                      className="text-[#7186A5] hover:text-red-400 font-semibold lowercase transition-colors text-[11px]"
+                      className="text-[var(--text-muted)] hover:text-red-400 font-semibold lowercase transition-colors text-[11px]"
                     >
                       hapus riwayat
                     </button>
@@ -315,7 +315,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                           setQuery(term);
                           saveRecentSearch(term);
                         }}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#08152F] hover:bg-[#172945] text-xs font-semibold text-[#F2F6FC] border border-[#3978D6]/25 transition-colors"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-xs font-semibold text-[var(--text-primary)] border border-[#3978D6]/25 transition-colors"
                       >
                         <Clock className="w-3 h-3 text-[#3978D6]" />
                         <span>{term}</span>
@@ -327,7 +327,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
               {/* Popular Tags / Quick Suggestions */}
               <div className="space-y-2.5">
-                <span className="text-xs font-bold text-[#7186A5] uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-[#3978D6]" />
                   <span>Kategori & Pencarian Populer</span>
                 </span>
@@ -339,7 +339,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         setQuery(tag.query);
                         saveRecentSearch(tag.query);
                       }}
-                      className="px-3.5 py-1.5 rounded-xl bg-[#08152F] hover:bg-[#172945] text-xs font-bold text-[#F2F6FC] border border-[#3978D6]/25 hover:border-[#3978D6] shadow-2xs transition-all active:scale-95"
+                      className="px-3.5 py-1.5 rounded-xl bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-xs font-bold text-[var(--text-primary)] border border-[#3978D6]/25 hover:border-[#3978D6] shadow-2xs transition-all active:scale-95"
                     >
                       {tag.label}
                     </button>
@@ -348,12 +348,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               </div>
 
               {/* Database Overview Information */}
-              <div className="p-4 rounded-2xl bg-[#08152F]/60 border border-[#3978D6]/25 flex items-center justify-between text-xs text-[#7186A5]">
+              <div className="p-4 rounded-2xl bg-[var(--bg-sidebar)]/60 border border-[#3978D6]/25 flex items-center justify-between text-xs text-[var(--text-muted)]">
                 <div>
-                  <span className="font-bold text-[#F2F6FC] block">Cakupan Database Pencarian ZENORA:</span>
+                  <span className="font-bold text-[var(--text-primary)] block">Cakupan Database Pencarian ZENORA:</span>
                   <span>{allKotoba.length} Kosakata · {KANJI_DATA.length} Kanji N5 & N4 · {ALL_KANA_DATA.length} Aksara Kana</span>
                 </div>
-                <kbd className="hidden sm:inline font-mono bg-[#08152F] px-2 py-1 rounded border border-[#3978D6]/25 text-[10px] text-[#F2F6FC]">
+                <kbd className="hidden sm:inline font-mono bg-[var(--bg-sidebar)] px-2 py-1 rounded border border-[#3978D6]/25 text-[10px] text-[var(--text-primary)]">
                   Ketik apa saja untuk mulai
                 </kbd>
               </div>
@@ -364,7 +364,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           {(activeTab === 'semua' || activeTab === 'kanji') && kanjiMatches.length > 0 && (
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#F2F6FC] uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider flex items-center gap-1.5">
                   <PenTool className="w-3.5 h-3.5 text-[#3978D6]" />
                   <span>Kanji Terkait ({kanjiMatches.length})</span>
                 </span>
@@ -387,22 +387,22 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       onSelectKanji(k);
                       onClose();
                     }}
-                    className="p-3.5 rounded-2xl border border-[#3978D6]/20 hover:border-[#3978D6]/50 bg-[#08152F]/70 hover:bg-[#172945] cursor-pointer flex items-center justify-between gap-3 transition-all group shadow-2xs"
+                    className="p-3.5 rounded-2xl border border-[#3978D6]/20 hover:border-[#3978D6]/50 bg-[var(--bg-sidebar)]/70 hover:bg-[var(--bg-elevated)] cursor-pointer flex items-center justify-between gap-3 transition-all group shadow-2xs"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] border border-[#3978D6]/30 text-[#F2F6FC] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] border border-[#3978D6]/30 text-[var(--text-primary)] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                         <span className="kanji-font text-2xl font-black">{k.kanji}</span>
                       </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-xs font-black text-[#F2F6FC] font-['Manrope'] truncate">
+                          <span className="text-xs font-black text-[var(--text-primary)] font-['Manrope'] truncate">
                             {k.reading}
                           </span>
-                          <span className="text-[9px] bg-[#08152F] text-[#3978D6] font-black px-1.5 py-0.5 rounded border border-[#3978D6]/30 shrink-0">
+                          <span className="text-[9px] bg-[var(--bg-sidebar)] text-[#3978D6] font-black px-1.5 py-0.5 rounded border border-[#3978D6]/30 shrink-0">
                             {k.jlpt}
                           </span>
                         </div>
-                        <span className="text-xs text-[#7186A5] block truncate font-medium">
+                        <span className="text-xs text-[var(--text-muted)] block truncate font-medium">
                           {k.meaning}
                         </span>
                         <span className="text-[10px] text-[#3978D6] font-mono block truncate">
@@ -413,7 +413,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
                     <button
                       onClick={(e) => handlePlayAudio(e, k.reading)}
-                      className="p-2 rounded-xl hover:bg-[#08152F] text-[#7186A5] hover:text-[#F2F6FC] transition-colors border border-transparent hover:border-[#3978D6]/25"
+                      className="p-2 rounded-xl hover:bg-[var(--bg-sidebar)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors border border-transparent hover:border-[#3978D6]/25"
                       title="Dengarkan pengucapan"
                     >
                       <Volume2 className="w-4 h-4" />
@@ -428,7 +428,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           {(activeTab === 'semua' || activeTab === 'kotoba') && kotobaMatches.length > 0 && (
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#F2F6FC] uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider flex items-center gap-1.5">
                   <BookOpen className="w-3.5 h-3.5 text-[#3978D6]" />
                   <span>Kosakata Minna no Nihongo ({kotobaMatches.length})</span>
                 </span>
@@ -451,12 +451,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       onSelectBab(w.bab);
                       onClose();
                     }}
-                    className="p-3.5 rounded-2xl border border-[#3978D6]/20 hover:border-[#3978D6]/50 bg-[#08152F]/70 hover:bg-[#172945] cursor-pointer flex items-center justify-between gap-3 transition-all group shadow-2xs"
+                    className="p-3.5 rounded-2xl border border-[#3978D6]/20 hover:border-[#3978D6]/50 bg-[var(--bg-sidebar)]/70 hover:bg-[var(--bg-elevated)] cursor-pointer flex items-center justify-between gap-3 transition-all group shadow-2xs"
                   >
                     <div className="flex items-center gap-3.5 min-w-0">
                       <button
                         onClick={(e) => handlePlayAudio(e, w.kana || w.kanji)}
-                        className="p-2 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#7186A5] hover:text-[#F2F6FC] transition-colors border border-[#3978D6]/25 shrink-0"
+                        className="p-2 rounded-xl bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors border border-[#3978D6]/25 shrink-0"
                         title="Dengarkan audio"
                       >
                         <Volume2 className="w-4 h-4" />
@@ -464,30 +464,30 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
                       <div className="min-w-0">
                         <div className="flex items-baseline gap-2">
-                          <span className="kanji-font text-lg sm:text-xl font-black text-[#F2F6FC]">
+                          <span className="kanji-font text-lg sm:text-xl font-black text-[var(--text-primary)]">
                             {w.kanji}
                           </span>
                           <span className="text-xs font-bold text-[#3978D6]">
                             {w.kana}
                           </span>
-                          <span className="text-[11px] font-mono text-[#7186A5] hidden sm:inline">
+                          <span className="text-[11px] font-mono text-[var(--text-muted)] hidden sm:inline">
                             ({w.romaji})
                           </span>
                         </div>
-                        <p className="text-xs font-semibold text-[#F2F6FC] truncate">
+                        <p className="text-xs font-semibold text-[var(--text-primary)] truncate">
                           {w.arti}
                         </p>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2 shrink-0">
-                      <span className="text-[10px] font-bold bg-[#08152F] text-[#F2F6FC] border border-[#3978D6]/30 px-2 py-0.5 rounded-lg">
+                      <span className="text-[10px] font-bold bg-[var(--bg-sidebar)] text-[var(--text-primary)] border border-[#3978D6]/30 px-2 py-0.5 rounded-lg">
                         Bab {w.bab}
                       </span>
-                      <span className="text-[10px] font-medium text-[#7186A5] hidden md:inline">
+                      <span className="text-[10px] font-medium text-[var(--text-muted)] hidden md:inline">
                         {w.kategori}
                       </span>
-                      <ArrowRight className="w-4 h-4 text-[#7186A5] group-hover:text-[#F2F6FC] group-hover:translate-x-0.5 transition-all" />
+                      <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-0.5 transition-all" />
                     </div>
                   </div>
                 ))}
@@ -499,7 +499,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           {(activeTab === 'semua' || activeTab === 'kana') && kanaMatches.length > 0 && (
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#F2F6FC] uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider flex items-center gap-1.5">
                   <Languages className="w-3.5 h-3.5 text-[#3978D6]" />
                   <span>Aksara Kana (Hiragana & Katakana) ({kanaMatches.length})</span>
                 </span>
@@ -522,23 +522,23 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       onNavigate?.('kana');
                       onClose();
                     }}
-                    className="p-3.5 rounded-2xl border border-[#3978D6]/20 hover:border-[#3978D6]/50 bg-[#08152F]/70 hover:bg-[#172945] cursor-pointer flex items-center justify-between gap-3 transition-all group shadow-2xs"
+                    className="p-3.5 rounded-2xl border border-[#3978D6]/20 hover:border-[#3978D6]/50 bg-[var(--bg-sidebar)]/70 hover:bg-[var(--bg-elevated)] cursor-pointer flex items-center justify-between gap-3 transition-all group shadow-2xs"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] border border-[#3978D6]/30 text-[#F2F6FC] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] border border-[#3978D6]/30 text-[var(--text-primary)] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                         <span className="kanji-font text-2xl font-black">{item.char}</span>
                       </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-xs font-mono font-bold text-[#F2F6FC] uppercase">
+                          <span className="text-xs font-mono font-bold text-[var(--text-primary)] uppercase">
                             /{item.romaji}/
                           </span>
-                          <span className="text-[9px] bg-[#08152F] text-[#3978D6] font-bold px-1.5 py-0.5 rounded border border-[#3978D6]/30 uppercase">
+                          <span className="text-[9px] bg-[var(--bg-sidebar)] text-[#3978D6] font-bold px-1.5 py-0.5 rounded border border-[#3978D6]/30 uppercase">
                             {item.type}
                           </span>
                         </div>
                         {item.example && (
-                          <span className="text-[11px] text-[#7186A5] block truncate">
+                          <span className="text-[11px] text-[var(--text-muted)] block truncate">
                             {item.example.word} ({item.example.meaningId})
                           </span>
                         )}
@@ -547,7 +547,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
                     <button
                       onClick={(e) => handlePlayAudio(e, item.char)}
-                      className="p-2 rounded-xl hover:bg-[#08152F] text-[#7186A5] hover:text-[#F2F6FC] transition-colors border border-transparent hover:border-[#3978D6]/25"
+                      className="p-2 rounded-xl hover:bg-[var(--bg-sidebar)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors border border-transparent hover:border-[#3978D6]/25"
                       title="Dengarkan pengucapan"
                     >
                       <Volume2 className="w-4 h-4" />
@@ -561,13 +561,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           {/* NO RESULTS FOUND */}
           {q && totalResults === 0 && (
             <div className="py-12 text-center space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#08152F] text-[#3978D6] mx-auto flex items-center justify-center border border-[#3978D6]/25">
+              <div className="w-12 h-12 rounded-2xl bg-[var(--bg-sidebar)] text-[#3978D6] mx-auto flex items-center justify-center border border-[#3978D6]/25">
                 <Search className="w-6 h-6" />
               </div>
-              <h4 className="font-black text-base text-[#F2F6FC] font-['Manrope']">
+              <h4 className="font-black text-base text-[var(--text-primary)] font-['Manrope']">
                 Tidak Ditemukan Hasil
               </h4>
-              <p className="text-xs text-[#7186A5] max-w-sm mx-auto leading-relaxed">
+              <p className="text-xs text-[var(--text-muted)] max-w-sm mx-auto leading-relaxed">
                 Tidak ada Kanji, Kosakata, atau Kana yang cocok dengan kata pencarian <strong>"{query}"</strong>. Coba periksa ejaan romaji atau gunakan kata kunci umum lainnya.
               </p>
             </div>
@@ -576,14 +576,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         </div>
 
         {/* Modal Footer Bar with Keyboard Hints */}
-        <div className="px-6 py-3 border-t border-[#3978D6]/20 bg-[#08152F]/60 flex items-center justify-between text-[11px] text-[#7186A5] font-medium">
+        <div className="px-6 py-3 border-t border-[#3978D6]/20 bg-[var(--bg-sidebar)]/60 flex items-center justify-between text-[11px] text-[var(--text-muted)] font-medium">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1">
-              <kbd className="font-mono bg-[#08152F] px-1.5 py-0.5 rounded border border-[#3978D6]/25 text-[10px] text-[#F2F6FC]">↵</kbd>
+              <kbd className="font-mono bg-[var(--bg-sidebar)] px-1.5 py-0.5 rounded border border-[#3978D6]/25 text-[10px] text-[var(--text-primary)]">↵</kbd>
               <span>Simpan Riwayat</span>
             </span>
             <span className="inline-flex items-center gap-1">
-              <kbd className="font-mono bg-[#08152F] px-1.5 py-0.5 rounded border border-[#3978D6]/25 text-[10px] text-[#F2F6FC]">ESC</kbd>
+              <kbd className="font-mono bg-[var(--bg-sidebar)] px-1.5 py-0.5 rounded border border-[#3978D6]/25 text-[10px] text-[var(--text-primary)]">ESC</kbd>
               <span>Tutup</span>
             </span>
           </div>

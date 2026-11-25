@@ -93,7 +93,7 @@ const getCategoryMeta = (category: string) => {
         badgeBg: 'bg-gradient-to-br from-[#2456A6] to-[#3978D6]',
         badgeShadow: 'shadow-[0_0_18px_rgba(57, 120, 214,0.4)]',
         badgeBorder: 'border-[#83B7EE]/35',
-        pillBg: 'bg-[#3978D6]/15 text-[#DCEBFA] border-[#3978D6]/30',
+        pillBg: 'bg-[#3978D6]/15 text-[var(--text-primary)] border-[#3978D6]/30',
         pillIcon: BookOpen,
         hoverBorder: 'hover:border-[#3978D6]/60'
       };
@@ -374,9 +374,9 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
     const isPassed = pct >= 70;
 
     return (
-      <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#172945] border border-[#3978D6]/30 text-center text-[#F2F6FC] space-y-6 shadow-2xl">
-        <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-[#172945] to-[#3978D6] border border-[#3978D6]/40 p-0.5 shadow-[0_0_30px_rgba(57, 120, 214,0.35)] flex items-center justify-center">
-          <Award className="w-10 h-10 text-[#F2F6FC] animate-bounce" />
+      <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] border border-[#3978D6]/30 text-center text-[var(--text-primary)] space-y-6 shadow-2xl">
+        <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-[var(--bg-elevated)] to-[#3978D6] border border-[#3978D6]/40 p-0.5 shadow-[0_0_30px_rgba(57, 120, 214,0.35)] flex items-center justify-center">
+          <Award className="w-10 h-10 text-[var(--text-primary)] animate-bounce" />
         </div>
 
         <div>
@@ -386,18 +386,18 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
           <h2 className="text-3xl sm:text-4xl font-black mt-1 font-['Manrope']">
             {isPassed ? 'Luar Biasa! お疲れ様でした！' : 'Tetap Semangat! 頑張ってください！'}
           </h2>
-          <p className="text-sm text-[#7186A5] max-w-md mx-auto mt-2">
+          <p className="text-sm text-[var(--text-muted)] max-w-md mx-auto mt-2">
             Anda telah menyelesaikan latihan <span className="text-[#3978D6] font-bold">{activeMode}</span> untuk materi Bab {bab}.
           </p>
         </div>
 
         {/* Score Ring / Card */}
-        <div className="inline-block p-6 rounded-3xl bg-[#08152F]/70 border border-[#3978D6]/25 backdrop-blur-md">
+        <div className="inline-block p-6 rounded-3xl bg-[var(--bg-sidebar)]/70 border border-[#3978D6]/25 backdrop-blur-md">
           <span className="text-5xl sm:text-6xl font-black font-['Manrope'] bg-gradient-to-r from-white via-[#F2F6FC] to-[#3978D6] bg-clip-text text-transparent">
             {pct}%
           </span>
-          <div className="text-xs font-semibold text-[#7186A5] mt-2">
-            Benar <span className="text-[#3978D6] font-bold">{score}</span> dari <span className="text-[#F2F6FC] font-bold">{questions.length}</span> soal
+          <div className="text-xs font-semibold text-[var(--text-muted)] mt-2">
+            Benar <span className="text-[#3978D6] font-bold">{score}</span> dari <span className="text-[var(--text-primary)] font-bold">{questions.length}</span> soal
           </div>
         </div>
 
@@ -405,7 +405,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
           <button
             onClick={() => handleStartMode(activeMode!)}
-            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[#F2F6FC] font-bold text-sm border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.3)] transition-all active:scale-95"
+            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] font-bold text-sm border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.3)] transition-all active:scale-95"
           >
             <RotateCcw className="w-4 h-4 text-[#3978D6]" />
             <span>Ulangi Mode Ini</span>
@@ -416,7 +416,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
               sound.playClick();
               setActiveMode(null);
             }}
-            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#111F38] hover:bg-[#172945] text-[#F2F6FC] font-bold text-sm border border-[#3978D6]/25 transition-all active:scale-95"
+            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] font-bold text-sm border border-[#3978D6]/25 transition-all active:scale-95"
           >
             <Layers className="w-4 h-4 text-[#3978D6]" />
             <span>Pilih Mode Latihan Lain</span>
@@ -433,13 +433,13 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
     return (
       <div className="space-y-6 text-left">
         {/* Top Bar Navigation */}
-        <div className="flex items-center justify-between gap-4 p-4 rounded-2xl bg-[#111F38] border border-[#3978D6]/25 shadow-xs">
+        <div className="flex items-center justify-between gap-4 p-4 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-xs">
           <button
             onClick={() => {
               sound.playClick();
               setActiveMode(null);
             }}
-            className="flex items-center gap-2 text-xs font-bold text-[#7186A5] hover:text-[#F2F6FC] transition-colors"
+            className="flex items-center gap-2 text-xs font-bold text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
           >
             <ChevronLeft className="w-4 h-4 text-[#3978D6]" />
             <span>Keluar Latihan</span>
@@ -450,9 +450,9 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
             <span className="text-xs font-mono font-bold text-[#3978D6]">
               Soal {currentIdx + 1} / {questions.length}
             </span>
-            <div className="w-24 sm:w-36 h-2 rounded-full bg-[#08152F] border border-[#3978D6]/20 overflow-hidden">
+            <div className="w-24 sm:w-36 h-2 rounded-full bg-[var(--bg-sidebar)] border border-[#3978D6]/20 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-[#172945] to-[#3978D6] rounded-full transition-all duration-300"
+                className="h-full bg-gradient-to-r from-[var(--bg-elevated)] to-[#3978D6] rounded-full transition-all duration-300"
                 style={{ width: `${((currentIdx + 1) / questions.length) * 100}%` }}
               />
             </div>
@@ -463,23 +463,23 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
             <div className={`flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-mono font-bold border ${
               timeLeft <= 5 
                 ? 'bg-rose-500/20 text-rose-300 border-rose-500/40 animate-pulse' 
-                : 'bg-[#08152F] text-[#3978D6] border-[#3978D6]/30'
+                : 'bg-[var(--bg-sidebar)] text-[#3978D6] border-[#3978D6]/30'
             }`}>
               <Clock className="w-3.5 h-3.5" />
               <span>{timeLeft}s</span>
             </div>
           ) : (
-            <div className="text-xs font-semibold text-[#7186A5]">
+            <div className="text-xs font-semibold text-[var(--text-muted)]">
               Skor: <span className="text-[#3978D6] font-bold">{score}</span>
             </div>
           )}
         </div>
 
         {/* Question Card Box */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#172945] border border-[#3978D6]/25 shadow-xl space-y-6">
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] border border-[#3978D6]/25 shadow-xl space-y-6">
           {/* Header Info */}
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111F38] border border-[#3978D6]/30 text-[#3978D6] text-xs font-bold font-mono">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[#3978D6]/30 text-[#3978D6] text-xs font-bold font-mono">
               <Sparkles className="w-3.5 h-3.5 text-[#3978D6]" />
               <span>{currentQ.title}</span>
             </div>
@@ -490,7 +490,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                   sound.playClick();
                   speakJapanese(currentQ.audioText!);
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#08152F]/80 hover:bg-[#172945] text-[#3978D6] text-xs font-bold border border-[#3978D6]/30 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--bg-sidebar)]/80 hover:bg-[var(--bg-elevated)] text-[#3978D6] text-xs font-bold border border-[#3978D6]/30 transition-colors"
                 title="Dengarkan Audio"
               >
                 <Volume2 className="w-4 h-4" />
@@ -500,20 +500,20 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
           </div>
 
           {/* Instruction */}
-          <p className="text-sm font-semibold text-[#7186A5]">
+          <p className="text-sm font-semibold text-[var(--text-muted)]">
             {currentQ.instruction}
           </p>
 
           {/* Reading Passage if Dokkai */}
           {currentQ.readingPassage && (
-            <div className="p-4 rounded-2xl bg-[#08152F]/90 border border-[#3978D6]/20 whitespace-pre-line text-sm text-[#F2F6FC] leading-relaxed font-sans">
+            <div className="p-4 rounded-2xl bg-[var(--bg-sidebar)]/90 border border-[#3978D6]/20 whitespace-pre-line text-sm text-[var(--text-primary)] leading-relaxed font-sans">
               <FuriganaText text={currentQ.readingPassage} />
             </div>
           )}
 
           {/* Question Main Highlight */}
           <div className="text-center py-4 px-2">
-            <h3 className="text-2xl sm:text-3xl font-black text-[#F2F6FC] font-['Manrope'] tracking-wide leading-loose">
+            <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] font-['Manrope'] tracking-wide leading-loose">
               <FuriganaText text={currentQ.question} reading={currentQ.reading} />
             </h3>
             {currentQ.reading && (
@@ -529,9 +529,9 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
           {currentQ.mode === 'sentence-arrange' && (
             <div className="space-y-4">
               {/* Target Drop Zone */}
-              <div className="min-h-[56px] p-3 rounded-2xl bg-[#08152F]/60 border-2 border-dashed border-[#3978D6]/30 flex flex-wrap items-center gap-2">
+              <div className="min-h-[56px] p-3 rounded-2xl bg-[var(--bg-sidebar)]/60 border-2 border-dashed border-[#3978D6]/30 flex flex-wrap items-center gap-2">
                 {userArrangedTokens.length === 0 ? (
-                  <span className="text-xs text-[#7186A5] italic px-2">
+                  <span className="text-xs text-[var(--text-muted)] italic px-2">
                     Klik potongan kata di bawah untuk menyusun kalimat...
                   </span>
                 ) : (
@@ -539,7 +539,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                     <button
                       key={i}
                       onClick={() => handleTokenClick(tok, true)}
-                      className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 text-sm font-bold shadow-xs hover:opacity-80 transition-opacity"
+                      className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 text-sm font-bold shadow-xs hover:opacity-80 transition-opacity"
                     >
                       {tok} ✕
                     </button>
@@ -553,7 +553,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                   <button
                     key={i}
                     onClick={() => handleTokenClick(tok, false)}
-                    className="px-4 py-2 rounded-xl bg-[#111F38] hover:bg-[#172945] text-[#F2F6FC] border border-[#3978D6]/25 text-sm font-bold transition-all shadow-xs"
+                    className="px-4 py-2 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/25 text-sm font-bold transition-all shadow-xs"
                   >
                     {tok}
                   </button>
@@ -565,7 +565,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                   <button
                     onClick={handleCheckArrangement}
                     disabled={userArrangedTokens.length === 0}
-                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 disabled:opacity-50 text-[#F2F6FC] border border-[#3978D6]/40 font-bold text-xs shadow-md transition-all"
+                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 disabled:opacity-50 text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-xs shadow-md transition-all"
                   >
                     Periksa Susunan
                   </button>
@@ -594,8 +594,8 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                         isMatched
                           ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-400 opacity-60'
                           : isSelected
-                          ? 'bg-[#172945] border-[#3978D6] text-[#F2F6FC] shadow-[0_0_15px_rgba(57, 120, 214,0.3)]'
-                          : 'bg-[#111F38] hover:bg-[#172945] text-[#F2F6FC] border border-[#3978D6]/20'
+                          ? 'bg-[var(--bg-elevated)] border-[#3978D6] text-[var(--text-primary)] shadow-[0_0_15px_rgba(57, 120, 214,0.3)]'
+                          : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/20'
                       }`}
                     >
                       {p.left}
@@ -622,7 +622,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                         className={`w-full p-3 rounded-xl text-xs sm:text-sm font-bold text-left transition-all ${
                           isMatched
                             ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-400 opacity-60'
-                            : 'bg-[#111F38] hover:bg-[#172945] text-[#F2F6FC] border border-[#3978D6]/20'
+                            : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/20'
                         }`}
                       >
                         {p.right}
@@ -636,9 +636,9 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
           {/* C. WRITING PRACTICE CANVAS */}
           {currentQ.mode === 'writing-practice' && (
             <div className="space-y-4 flex flex-col items-center">
-              <div className="relative w-64 h-64 rounded-2xl bg-[#08152F] border-2 border-[#3978D6]/30 shadow-inner overflow-hidden">
+              <div className="relative w-64 h-64 rounded-2xl bg-[var(--bg-sidebar)] border-2 border-[#3978D6]/30 shadow-inner overflow-hidden">
                 {/* Background watermark of the character */}
-                <div className="absolute inset-0 flex items-center justify-center text-7xl font-black text-white/5 pointer-events-none select-none font-sans">
+                <div className="absolute inset-0 flex items-center justify-center text-7xl font-black text-[var(--text-primary)]/5 pointer-events-none select-none font-sans">
                   {currentQ.targetWritingChar}
                 </div>
                 {/* Center cross guide lines */}
@@ -664,7 +664,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
               <div className="flex items-center gap-2">
                 <button
                   onClick={clearCanvas}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#111F38] hover:bg-[#172945] text-[#F2F6FC] text-xs font-bold border border-[#3978D6]/25"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] text-xs font-bold border border-[#3978D6]/25"
                 >
                   <Eraser className="w-3.5 h-3.5 text-[#3978D6]" />
                   <span>Hapus Kanvas</span>
@@ -676,7 +676,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                     setScore((prev) => prev + 1);
                   }}
                   disabled={isAnswerSubmitted}
-                  className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 text-xs font-bold shadow-md hover:brightness-110"
+                  className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 text-xs font-bold shadow-md hover:brightness-110"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#3978D6]" />
                   <span>Selesai Menulis</span>
@@ -688,11 +688,11 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
           {/* D. SPEAKING / KAIWA INTERACTIVE PRACTICE */}
           {currentQ.mode === 'speaking' && (
             <div className="space-y-4 text-center">
-              <div className="p-4 rounded-2xl bg-[#08152F]/80 border border-[#3978D6]/25">
+              <div className="p-4 rounded-2xl bg-[var(--bg-sidebar)]/80 border border-[#3978D6]/25">
                 <span className="text-xs font-mono text-[#3978D6] block mb-1">
                   Tokoh: {currentQ.speaker || 'Penutur'}
                 </span>
-                <p className="text-xl sm:text-2xl font-black text-[#F2F6FC]">
+                <p className="text-xl sm:text-2xl font-black text-[var(--text-primary)]">
                   {currentQ.question}
                 </p>
               </div>
@@ -703,7 +703,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                     sound.playClick();
                     speakJapanese(currentQ.question);
                   }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#111F38] text-[#3978D6] text-xs font-bold border border-[#3978D6]/30 hover:bg-[#172945]"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--bg-surface)] text-[#3978D6] text-xs font-bold border border-[#3978D6]/30 hover:bg-[var(--bg-elevated)]"
                 >
                   <Volume2 className="w-4 h-4" />
                   <span>Dengarkan Intonasi Asli</span>
@@ -724,7 +724,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                   className={`flex items-center gap-2 px-5 py-2 rounded-xl text-xs font-bold transition-all ${
                     isSpeakingActive
                       ? 'bg-rose-500 text-white animate-pulse'
-                      : 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-md'
+                      : 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-md'
                   }`}
                 >
                   <Mic className="w-4 h-4 text-[#3978D6]" />
@@ -740,7 +740,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
               {currentQ.options.map((opt, i) => {
                 const isSelected = selectedOption === opt;
                 const isCorrect = opt === currentQ.correctAnswer;
-                let btnStyle = 'bg-[#111F38] hover:bg-[#172945] text-[#F2F6FC] border-[#3978D6]/20 hover:border-[#3978D6]/50';
+                let btnStyle = 'bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border-[#3978D6]/20 hover:border-[#3978D6]/50';
 
                 if (isAnswerSubmitted) {
                   if (isCorrect) {
@@ -748,7 +748,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                   } else if (isSelected) {
                     btnStyle = 'bg-rose-500/20 text-rose-300 border-rose-500';
                   } else {
-                    btnStyle = 'bg-[#111F38]/40 text-[#7186A5]/40 border-transparent';
+                    btnStyle = 'bg-[var(--bg-surface)]/40 text-[var(--text-muted)]/40 border-transparent';
                   }
                 }
 
@@ -776,7 +776,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
 
           {/* Explanation Box on Submit */}
           {isAnswerSubmitted && currentQ.explanation && (
-            <div className="p-4 rounded-2xl bg-[#08152F]/90 border border-[#3978D6]/25 text-xs sm:text-sm text-[#F2F6FC]/90 space-y-1">
+            <div className="p-4 rounded-2xl bg-[var(--bg-sidebar)]/90 border border-[#3978D6]/25 text-xs sm:text-sm text-[var(--text-primary)]/90 space-y-1">
               <span className="font-bold text-[#3978D6] block">Pembahasan:</span>
               <div className="leading-relaxed">
                 <FuriganaText text={currentQ.explanation} />
@@ -789,7 +789,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
             <div className="flex justify-end pt-2">
               <button
                 onClick={handleNextQuestion}
-                className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[#F2F6FC] border border-[#3978D6]/40 font-black text-sm shadow-[0_0_20px_rgba(57, 120, 214,0.3)] transition-all active:scale-95"
+                className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-black text-sm shadow-[0_0_20px_rgba(57, 120, 214,0.3)] transition-all active:scale-95"
               >
                 <span>{currentIdx + 1 === questions.length ? 'Lihat Hasil Akhir' : 'Soal Selanjutnya'}</span>
                 <ArrowRight className="w-4 h-4 text-[#3978D6]" />
@@ -807,23 +807,23 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
   return (
     <div className="space-y-6 text-left">
       {/* Hero Header */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#172945] border border-[#3978D6]/25 shadow-xl">
+      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] border border-[#3978D6]/25 shadow-xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111F38] border border-[#3978D6]/30 text-[#3978D6] text-xs font-black uppercase font-mono mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[#3978D6]/30 text-[#3978D6] text-xs font-black uppercase font-mono mb-2">
               <Sparkles className="w-3.5 h-3.5 text-[#3978D6]" />
               <span>Pusat Latihan Interaktif · 第{bab}課</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#F2F6FC] font-['Manrope']">
+            <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] font-['Manrope']">
               18 Mode Latihan & Ujian Bab {bab}
             </h2>
-            <p className="text-xs sm:text-sm text-[#7186A5] max-w-xl mt-1 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[var(--text-muted)] max-w-xl mt-1 leading-relaxed">
               Uji dan kuasai kosakata, pola kalimat, kanji, pendengaran, terjemahan, dan percakapan Bab {bab} dengan 18 format latihan interaktif.
             </p>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <span className="px-3.5 py-2 rounded-2xl bg-[#111F38] border border-[#3978D6]/30 text-[#3978D6] text-xs font-bold font-mono">
+            <span className="px-3.5 py-2 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/30 text-[#3978D6] text-xs font-bold font-mono">
               18 Mode Lengkap
             </span>
           </div>
@@ -849,8 +849,8 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                 }}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                   selectedCategory === cat
-                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-md'
-                    : 'bg-[#111F38] hover:bg-[#172945] text-[#7186A5] hover:text-white border border-[#3978D6]/20'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-md'
+                    : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
                 }`}
               >
                 <FilterIcon className="w-3.5 h-3.5" />
@@ -872,7 +872,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
             <div
               key={meta.id}
               onClick={() => handleStartMode(meta.id)}
-              className={`group relative overflow-hidden rounded-3xl bg-[#111F38] hover:bg-[#172945] border border-[#3978D6]/25 ${catMeta.hoverBorder} p-5 sm:p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(8, 21, 47,0.7)] flex flex-col justify-between`}
+              className={`group relative overflow-hidden rounded-3xl bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] border border-[#3978D6]/25 ${catMeta.hoverBorder} p-5 sm:p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(8, 21, 47,0.7)] flex flex-col justify-between`}
             >
               {/* Top ambient glow on hover */}
               <div className={`absolute top-0 right-0 w-36 h-36 ${catMeta.badgeBg} opacity-5 blur-2xl pointer-events-none group-hover:opacity-20 transition-opacity`} />
@@ -880,8 +880,8 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
               <div>
                 <div className="flex items-center justify-between mb-4">
                   {/* High-contrast crisp icon badge */}
-                  <div className={`w-12 h-12 rounded-2xl ${catMeta.badgeBg} ${catMeta.badgeShadow} border ${catMeta.badgeBorder} flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200`}>
-                    <IconComp className="w-6 h-6 text-white stroke-[2.2] drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]" />
+                  <div className={`w-12 h-12 rounded-2xl ${catMeta.badgeBg} ${catMeta.badgeShadow} border ${catMeta.badgeBorder} flex items-center justify-center text-[var(--text-primary)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200`}>
+                    <IconComp className="w-6 h-6 text-[var(--text-primary)] stroke-[2.2] drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]" />
                   </div>
 
                   {/* Category Pill with Icon */}
@@ -897,24 +897,24 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                 </div>
 
                 {/* Mode name */}
-                <h3 className="text-base sm:text-lg font-black text-[#F2F6FC] group-hover:text-white transition-colors font-['Manrope']">
+                <h3 className="text-base sm:text-lg font-black text-[var(--text-primary)] group-hover:text-[var(--text-primary)] transition-colors font-['Manrope']">
                   {meta.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-[#A9BBD3] mt-2 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-2 leading-relaxed">
                   {meta.description}
                 </p>
               </div>
 
               {/* Action Footer with Icons */}
               <div className="mt-5 pt-3.5 border-t border-[#3978D6]/15 flex items-center justify-between">
-                <span className="text-xs font-black text-[#DCEBFA] group-hover:text-white group-hover:translate-x-1 transition-all flex items-center gap-1.5">
-                  <Play className="w-3.5 h-3.5 fill-current text-[#3978D6] group-hover:text-white transition-colors" />
+                <span className="text-xs font-black text-[var(--text-primary)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all flex items-center gap-1.5">
+                  <Play className="w-3.5 h-3.5 fill-current text-[#3978D6] group-hover:text-[var(--text-primary)] transition-colors" />
                   <span>Mulai Latihan</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#3978D6] group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#3978D6] group-hover:text-[var(--text-primary)] group-hover:translate-x-0.5 transition-all" />
                 </span>
-                <span className="text-[11px] font-mono text-[#7186A5] flex items-center gap-1">
+                <span className="text-[11px] font-mono text-[var(--text-muted)] flex items-center gap-1">
                   <HelpCircle className="w-3 h-3 text-[#3978D6]/70" />
                   <span>10 Soal</span>
                 </span>

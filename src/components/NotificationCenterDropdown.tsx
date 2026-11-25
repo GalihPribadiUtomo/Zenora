@@ -119,7 +119,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
   const getCategoryIcon = (category: NotificationCategory) => {
     switch (category) {
       case 'reminder':
-        return <Clock className="w-4 h-4 text-[#69C9DF]" />;
+        return <Clock className="w-4 h-4 text-[var(--secondary-accent)]" />;
       case 'progress':
         return <Award className="w-4 h-4 text-[#45C6A5]" />;
       case 'material':
@@ -127,9 +127,9 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
       case 'announcement':
         return <Megaphone className="w-4 h-4 text-[#E9BD72]" />;
       case 'account':
-        return <ShieldCheck className="w-4 h-4 text-[#DCEBFA]" />;
+        return <ShieldCheck className="w-4 h-4 text-[var(--text-primary)]" />;
       default:
-        return <Bell className="w-4 h-4 text-[#83B7EE]" />;
+        return <Bell className="w-4 h-4 text-[var(--soft-sky)]" />;
     }
   };
 
@@ -157,27 +157,27 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
   return (
     <div 
       ref={dropdownRef}
-      className="absolute right-0 top-full mt-2 w-[92vw] sm:w-[420px] max-w-[440px] rounded-2xl bg-[#08152F]/95 backdrop-blur-2xl border border-[#263D60] shadow-[0_20px_50px_-10px_rgba(8,21,47,0.95)] z-50 overflow-hidden animate-modal-pop"
+      className="absolute right-0 top-full mt-2 w-[92vw] sm:w-[420px] max-w-[440px] rounded-2xl bg-[var(--bg-sidebar)]/95 backdrop-blur-2xl border border-[var(--border)] shadow-[0_20px_50px_-10px_rgba(8,21,47,0.95)] z-50 overflow-hidden animate-modal-pop"
       style={{
         boxShadow: '0 20px 45px -10px rgba(8, 21, 47, 0.95), 0 0 20px rgba(36, 86, 166, 0.25)'
       }}
     >
       {/* 1. Header */}
-      <div className="px-4 py-3.5 bg-gradient-to-r from-[#08152F] via-[#102447] to-[#172945] border-b border-[#263D60] flex items-center justify-between">
+      <div className="px-4 py-3.5 bg-gradient-to-r from-[var(--bg-sidebar)] via-[#102447] to-[var(--bg-elevated)] border-b border-[var(--border)] flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-[#2456A6]/30 border border-[#3978D6]/40 text-[#83B7EE]">
+          <div className="p-2 rounded-xl bg-[#2456A6]/30 border border-[#3978D6]/40 text-[var(--soft-sky)]">
             <Bell className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="text-sm font-bold text-[#F2F6FC]">Pusat Notifikasi</h3>
+              <h3 className="text-sm font-bold text-[var(--text-primary)]">Pusat Notifikasi</h3>
               {unreadCount > 0 && (
-                <span className="px-2 py-0.5 rounded-full bg-[#3978D6] text-[#F2F6FC] text-[10px] font-black shadow-[0_0_10px_rgba(57,120,214,0.6)]">
+                <span className="px-2 py-0.5 rounded-full bg-[#3978D6] text-[var(--text-primary)] text-[10px] font-black shadow-[0_0_10px_rgba(57,120,214,0.6)]">
                   {unreadCount} baru
                 </span>
               )}
             </div>
-            <p className="text-[11px] text-[#7186A5]">Pengingat, progres & pengumuman belajar</p>
+            <p className="text-[11px] text-[var(--text-muted)]">Pengingat, progres & pengumuman belajar</p>
           </div>
         </div>
 
@@ -189,7 +189,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
                 markAllNotificationsAsRead(userId);
               }}
               title="Tandai semua sudah dibaca"
-              className="p-1.5 rounded-lg text-[#A9BBD3] hover:text-[#F2F6FC] hover:bg-[#172945] transition-colors"
+              className="p-1.5 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-colors"
             >
               <CheckCheck className="w-4 h-4" />
             </button>
@@ -203,7 +203,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
                 onClose();
               }}
               title="Pengaturan Notifikasi"
-              className="p-1.5 rounded-lg text-[#A9BBD3] hover:text-[#F2F6FC] hover:bg-[#172945] transition-colors"
+              className="p-1.5 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-colors"
             >
               <Settings className="w-4 h-4" />
             </button>
@@ -215,7 +215,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
               onClose();
             }}
             title="Tutup"
-            className="p-1.5 rounded-lg text-[#7186A5] hover:text-[#F2F6FC] hover:bg-[#172945] transition-colors"
+            className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -224,11 +224,11 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
 
       {/* 2. Web Notification Permission Banner (polite opt-in) */}
       {browserPerm === 'default' && (
-        <div className="mx-3 mt-3 p-3 rounded-xl bg-gradient-to-r from-[#102447] to-[#172945] border border-[#3978D6]/35 flex items-start gap-2.5">
-          <Sparkles className="w-4 h-4 text-[#69C9DF] shrink-0 mt-0.5" />
+        <div className="mx-3 mt-3 p-3 rounded-xl bg-gradient-to-r from-[var(--bg-elevated)] to-[var(--bg-elevated)] border border-[#3978D6]/35 flex items-start gap-2.5">
+          <Sparkles className="w-4 h-4 text-[var(--secondary-accent)] shrink-0 mt-0.5" />
           <div className="flex-1 text-xs">
-            <p className="font-semibold text-[#F2F6FC]">Aktifkan Pengingat Browser</p>
-            <p className="text-[11px] text-[#A9BBD3] mt-0.5">
+            <p className="font-semibold text-[var(--text-primary)]">Aktifkan Pengingat Browser</p>
+            <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
               Dapatkan notifikasi target harian tepat waktu tanpa harus membuka tab setiap saat.
             </p>
             <div className="mt-2 flex items-center gap-2">
@@ -245,13 +245,13 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
       )}
 
       {/* 3. Filter Tabs */}
-      <div className="px-3 pt-3 pb-2 flex items-center gap-1.5 border-b border-[#263D60]/60 overflow-x-auto text-[11px] font-semibold">
+      <div className="px-3 pt-3 pb-2 flex items-center gap-1.5 border-b border-[var(--border)]/60 overflow-x-auto text-[11px] font-semibold">
         <button
           onClick={() => { sound.playClick(); setFilter('all'); }}
           className={`px-3 py-1.5 rounded-xl transition-all whitespace-nowrap cursor-pointer ${
             filter === 'all'
               ? 'bg-[#2456A6] text-white shadow-[0_0_12px_rgba(36,86,166,0.5)] font-bold'
-              : 'text-[#A9BBD3] hover:text-white hover:bg-[#111F38]'
+              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
           }`}
         >
           Semua ({notifications.length})
@@ -261,7 +261,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
           className={`px-3 py-1.5 rounded-xl transition-all whitespace-nowrap cursor-pointer ${
             filter === 'unread'
               ? 'bg-[#2456A6] text-white shadow-[0_0_12px_rgba(36,86,166,0.5)] font-bold'
-              : 'text-[#A9BBD3] hover:text-white hover:bg-[#111F38]'
+              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
           }`}
         >
           Belum Dibaca ({unreadCount})
@@ -271,7 +271,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
           className={`px-3 py-1.5 rounded-xl transition-all whitespace-nowrap cursor-pointer ${
             filter === 'reminder'
               ? 'bg-[#2456A6] text-white shadow-[0_0_12px_rgba(36,86,166,0.5)] font-bold'
-              : 'text-[#A9BBD3] hover:text-white hover:bg-[#111F38]'
+              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
           }`}
         >
           Pengingat
@@ -281,7 +281,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
           className={`px-3 py-1.5 rounded-xl transition-all whitespace-nowrap cursor-pointer ${
             filter === 'announcement'
               ? 'bg-[#2456A6] text-white shadow-[0_0_12px_rgba(36,86,166,0.5)] font-bold'
-              : 'text-[#A9BBD3] hover:text-white hover:bg-[#111F38]'
+              : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
           }`}
         >
           Pengumuman
@@ -289,14 +289,14 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
       </div>
 
       {/* 4. Notification List */}
-      <div className="max-h-[380px] overflow-y-auto divide-y divide-[#263D60]/40 p-2 space-y-1.5">
+      <div className="max-h-[380px] overflow-y-auto divide-y divide-[var(--border)]/40 p-2 space-y-1.5">
         {filteredNotifications.length === 0 ? (
           <div className="py-12 px-4 text-center">
-            <div className="w-12 h-12 mx-auto rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-center text-[#7186A5] mb-3">
+            <div className="w-12 h-12 mx-auto rounded-2xl bg-[var(--bg-surface)] border border-[var(--border)] flex items-center justify-center text-[var(--text-muted)] mb-3">
               <Bell className="w-6 h-6 opacity-60" />
             </div>
-            <p className="text-sm font-bold text-[#F2F6FC]">Belum ada notifikasi</p>
-            <p className="text-xs text-[#7186A5] mt-1 max-w-[240px] mx-auto">
+            <p className="text-sm font-bold text-[var(--text-primary)]">Belum ada notifikasi</p>
+            <p className="text-xs text-[var(--text-muted)] mt-1 max-w-[240px] mx-auto">
               {filter === 'unread' 
                 ? 'Semua notifikasi telah Anda baca.' 
                 : 'Pemberitahuan target belajar dan pengumuman baru akan tampil di sini.'}
@@ -309,16 +309,16 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
               onClick={() => handleNotificationClick(item)}
               className={`group relative p-3 rounded-xl transition-all cursor-pointer border ${
                 item.read 
-                  ? 'bg-[#111F38]/60 hover:bg-[#172945]/70 border-transparent hover:border-[#263D60]' 
-                  : 'bg-gradient-to-r from-[#111F38] to-[#172945] border-[#3978D6]/40 shadow-[0_2px_12px_rgba(8,21,47,0.5)]'
+                  ? 'bg-[var(--bg-surface)]/60 hover:bg-[var(--bg-elevated)]/70 border-transparent hover:border-[var(--border)]' 
+                  : 'bg-gradient-to-r from-[var(--bg-surface)] to-[var(--bg-elevated)] border-[#3978D6]/40 shadow-[0_2px_12px_rgba(8,21,47,0.5)]'
               }`}
             >
               <div className="flex items-start gap-3">
                 {/* Category Icon */}
                 <div className={`p-2 rounded-xl shrink-0 border ${
                   item.read
-                    ? 'bg-[#102447] border-[#263D60]'
-                    : 'bg-[#172945] border-[#3978D6]/50 shadow-[0_0_10px_rgba(57,120,214,0.2)]'
+                    ? 'bg-[var(--bg-elevated)] border-[var(--border)]'
+                    : 'bg-[var(--bg-elevated)] border-[#3978D6]/50 shadow-[0_0_10px_rgba(57,120,214,0.2)]'
                 }`}>
                   {getCategoryIcon(item.category)}
                 </div>
@@ -327,7 +327,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
                 <div className="flex-1 min-w-0 pr-6">
                   <div className="flex items-center gap-2">
                     <h4 className={`text-xs font-bold truncate ${
-                      item.read ? 'text-[#A9BBD3]' : 'text-[#F2F6FC]'
+                      item.read ? 'text-[var(--text-secondary)]' : 'text-[var(--text-primary)]'
                     }`}>
                       {item.title}
                     </h4>
@@ -337,15 +337,15 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
                   </div>
 
                   <p className={`text-[11px] leading-relaxed mt-1 line-clamp-2 ${
-                    item.read ? 'text-[#7186A5]' : 'text-[#A9BBD3]'
+                    item.read ? 'text-[var(--text-muted)]' : 'text-[var(--text-secondary)]'
                   }`}>
                     {item.message}
                   </p>
 
-                  <div className="mt-2 flex items-center justify-between text-[10px] text-[#7186A5]">
+                  <div className="mt-2 flex items-center justify-between text-[10px] text-[var(--text-muted)]">
                     <span>{formatTimeAgo(item.timestamp)}</span>
                     {item.linkAction && (
-                      <span className="flex items-center gap-1 text-[#83B7EE] font-medium group-hover:underline">
+                      <span className="flex items-center gap-1 text-[var(--soft-sky)] font-medium group-hover:underline">
                         Buka Materi <ExternalLink className="w-2.5 h-2.5" />
                       </span>
                     )}
@@ -361,7 +361,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
                   deleteNotification(item.id);
                 }}
                 title="Hapus notifikasi"
-                className="absolute right-2.5 top-2.5 p-1 rounded-lg text-[#7186A5] hover:text-[#F2F6FC] hover:bg-[#102447] opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute right-2.5 top-2.5 p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] opacity-0 group-hover:opacity-100 transition-opacity"
               >
                 <Trash2 className="w-3.5 h-3.5" />
               </button>
@@ -372,8 +372,8 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
 
       {/* 5. Footer */}
       {notifications.length > 0 && (
-        <div className="px-4 py-2.5 bg-[#08152F] border-t border-[#263D60]/60 flex items-center justify-between text-[11px]">
-          <span className="text-[#7186A5]">{notifications.length} notifikasi total</span>
+        <div className="px-4 py-2.5 bg-[var(--bg-sidebar)] border-t border-[var(--border)]/60 flex items-center justify-between text-[11px]">
+          <span className="text-[var(--text-muted)]">{notifications.length} notifikasi total</span>
           <button
             onClick={() => {
               if (window.confirm('Bersihkan seluruh daftar notifikasi?')) {
@@ -381,7 +381,7 @@ export const NotificationCenterDropdown: React.FC<NotificationCenterDropdownProp
                 clearAllNotifications(userId);
               }
             }}
-            className="text-[#7186A5] hover:text-[#69C9DF] transition-colors cursor-pointer"
+            className="text-[var(--text-muted)] hover:text-[var(--secondary-accent)] transition-colors cursor-pointer"
           >
             Bersihkan Riwayat
           </button>

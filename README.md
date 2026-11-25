@@ -24,9 +24,8 @@ Aplikasi ini mengusung identitas visual **Luxury Midnight Ocean Blue** dengan nu
 - **Animasi Panduan Penulisan (*Stroke Order Player*)**: Dilengkapi kontrol **Play**, **Pause**, **Replay**, dan navigasi langkah demi langkah dengan urutan serta arah goresan yang akurat.
 - **Kanvas Latihan Menulis**: Pengguna dapat langsung berlatih menulis karakter pada kanvas interaktif dan menandai karakter yang sudah dikuasai.
 
-### 4. Kanji N5 & N4 + Daily Kanji Orbit
+### 4. Kanji N5 & N4
 - Daftar kanji terstruktur lengkap dengan arti, bacaan *Onyomi* dan *Kunyomi*, contoh kata, serta penampil urutan goresan berbasis data **KanjiVG**.
-- Fitur **Daily Kanji Orbit** untuk mempelajari kanji pilihan setiap hari.
 
 ### 5. Persiapan SSW (*Tokutei Ginou*)
 - Modul khusus persiapan kosakata dan materi bidang kerja **SSW** (seperti *Hospitality* dan bidang terkait) untuk kebutuhan kerja di Jepang.

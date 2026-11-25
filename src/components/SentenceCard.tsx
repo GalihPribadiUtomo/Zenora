@@ -43,7 +43,7 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
         return (
           <span
             key={i}
-            className="px-2 py-0.5 mx-0.5 rounded-lg bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] inline-block shadow-2xs font-black border border-[#3978D6]/40"
+            className="px-2 py-0.5 mx-0.5 rounded-lg bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] inline-block shadow-2xs font-black border border-[#3978D6]/40"
           >
             {part}
           </span>
@@ -57,17 +57,17 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
     <div
       className={`relative p-5 sm:p-6 rounded-3xl border transition-all ${
         isPlaceholder
-          ? 'bg-[#111F38]/60 border-dashed border-[#3978D6]/25'
-          : 'bg-[#111F38] hover:bg-[#172945]/40 border-[#3978D6]/20 hover:border-[#3978D6]/40 shadow-xs hover:shadow-md'
+          ? 'bg-[var(--bg-surface)]/60 border-dashed border-[#3978D6]/25'
+          : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)]/40 border-[#3978D6]/20 hover:border-[#3978D6]/40 shadow-xs hover:shadow-md'
       }`}
     >
       {/* Top Bar: Number Badge + Status / Audio */}
       <div className="flex items-center justify-between mb-3.5">
         <div className="flex items-center gap-2.5">
-          <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/30 font-mono font-black text-xs shadow-xs tracking-wider">
+          <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/30 font-mono font-black text-xs shadow-xs tracking-wider">
             {numberStr}
           </span>
-          <span className="text-xs font-bold text-[#7186A5] uppercase tracking-wider font-mono">
+          <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider font-mono">
             {isPlaceholder ? `Slot Contoh ${numberStr}` : `Contoh Kalimat ${numberStr}`}
           </span>
         </div>
@@ -80,7 +80,7 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
         ) : (
           <button
             onClick={() => speakJapanese(sentence)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#F2F6FC] border border-[#3978D6]/25 hover:border-[#3978D6]/50 shadow-2xs transition-all active:scale-95"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/25 hover:border-[#3978D6]/50 shadow-2xs transition-all active:scale-95"
             title="Dengarkan pelafalan kalimat bahasa Jepang"
             aria-label="Putar audio kalimat"
           >
@@ -100,7 +100,7 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
       ) : (
         <div className="my-2.5 space-y-1">
           {/* Japanese Sentence with Furigana directly on top of Kanji */}
-          <div className="text-xl sm:text-2xl font-black text-[#F2F6FC] kanji-font leading-loose tracking-wide">
+          <div className="text-xl sm:text-2xl font-black text-[var(--text-primary)] kanji-font leading-loose tracking-wide">
             <FuriganaText text={sentence} />
           </div>
 
@@ -120,10 +120,10 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
       <div className="space-y-2.5">
         {/* English */}
         <div className="flex items-start gap-2.5">
-          <span className="px-2 py-0.5 rounded-md bg-[#08152F] text-[#3978D6] text-[10px] font-black uppercase tracking-wider font-mono shrink-0 mt-0.5 border border-[#3978D6]/25">
+          <span className="px-2 py-0.5 rounded-md bg-[var(--bg-sidebar)] text-[#3978D6] text-[10px] font-black uppercase tracking-wider font-mono shrink-0 mt-0.5 border border-[#3978D6]/25">
             EN
           </span>
-          <p className="text-xs sm:text-sm font-semibold text-[#F2F6FC] leading-relaxed">
+          <p className="text-xs sm:text-sm font-semibold text-[var(--text-primary)] leading-relaxed">
             {english || (isPlaceholder ? 'Example sentence slot 0' + (index + 1) + ' — curated translation coming soon' : '—')}
           </p>
         </div>
@@ -133,7 +133,7 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
           <span className="px-2 py-0.5 rounded-md bg-emerald-950/40 text-emerald-300 text-[10px] font-black uppercase tracking-wider font-mono shrink-0 mt-0.5 border border-emerald-500/30">
             ID
           </span>
-          <p className="text-xs sm:text-sm font-bold text-[#F2F6FC] leading-relaxed">
+          <p className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-relaxed">
             {indonesian || (isPlaceholder ? 'Slot contoh kalimat 0' + (index + 1) + ' — terjemahan kurasi akan segera hadir' : '—')}
           </p>
         </div>
@@ -141,13 +141,13 @@ export const SentenceCard: React.FC<SentenceCardProps> = ({
 
       {/* Optional Grammar Note */}
       {grammarNote && !isPlaceholder && (
-        <div className="mt-3.5 p-3 rounded-2xl bg-[#08152F]/60 border border-[#3978D6]/20 flex items-start gap-2.5">
+        <div className="mt-3.5 p-3 rounded-2xl bg-[var(--bg-sidebar)]/60 border border-[#3978D6]/20 flex items-start gap-2.5">
           <Info className="w-4 h-4 text-[#3978D6] shrink-0 mt-0.5" />
           <div className="text-xs">
-            <span className="font-black text-[#F2F6FC] uppercase tracking-wider block text-[10px] mb-0.5">
+            <span className="font-black text-[var(--text-primary)] uppercase tracking-wider block text-[10px] mb-0.5">
               Catatan Tata Bahasa:
             </span>
-            <p className="text-[#7186A5] font-medium leading-relaxed">
+            <p className="text-[var(--text-muted)] font-medium leading-relaxed">
               {grammarNote}
             </p>
           </div>

@@ -18,6 +18,7 @@ import {
   Settings,
   Moon,
   Sun,
+  Monitor,
   Cloud,
   CloudCheck,
   LogOut,
@@ -44,6 +45,7 @@ import {
   saveNotificationPreferences, 
   requestBrowserNotificationPermission 
 } from '../utils/notificationService';
+import { ThemePreference } from '../utils/themeService';
 
 interface ProfileSectionProps {
   stats: UserStats;
@@ -55,6 +57,8 @@ interface ProfileSectionProps {
   onNavigate: (tab: string) => void;
   darkMode: boolean;
   onToggleDarkMode: () => void;
+  themePreference?: ThemePreference;
+  onChangeThemePreference?: (pref: ThemePreference) => void;
   isAdminMode?: boolean;
   onOpenAdminAuth?: () => void;
   onExitAdminMode?: () => void;
@@ -82,6 +86,8 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
   onNavigate,
   darkMode,
   onToggleDarkMode,
+  themePreference = darkMode ? 'dark' : 'light',
+  onChangeThemePreference,
   isAdminMode = false,
   onOpenAdminAuth,
   onExitAdminMode
@@ -356,7 +362,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           1. PROFILE HERO SECTION (Personal Japanese Learning Dashboard)
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/30 shadow-[0_24px_70px_-15px_rgba(8, 21, 47,0.95),0_0_50px_rgba(57, 120, 214,0.2)] bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#111F38] p-6 sm:p-10">
+      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/30 shadow-[0_24px_70px_-15px_rgba(8, 21, 47,0.95),0_0_50px_rgba(57, 120, 214,0.2)] bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-surface)] p-6 sm:p-10">
         
         {/* Ambient atmospheric lighting */}
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#3978D6]/20 blur-3xl pointer-events-none" />
@@ -371,7 +377,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
             {/* Glowing Avatar */}
             <div className="relative group shrink-0">
               <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-[#3978D6] via-[#2456A6] to-[#69C9DF] p-1 shadow-[0_0_30px_rgba(57, 120, 214,0.5)] group-hover:scale-105 transition-transform duration-300">
-                <div className="w-full h-full rounded-[22px] bg-[#08152F] flex flex-col items-center justify-center text-center overflow-hidden border border-white/20">
+                <div className="w-full h-full rounded-[22px] bg-[var(--bg-sidebar)] flex flex-col items-center justify-center text-center overflow-hidden border border-white/20">
                   {user?.user_metadata?.avatar_url ? (
                     <img 
                       src={user.user_metadata.avatar_url} 
@@ -396,7 +402,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
             {/* User Title & Credentials */}
             <div className="space-y-2">
               <div className="flex items-center gap-2.5 flex-wrap">
-                <span className="px-3 py-1 rounded-full bg-[#172945] border border-[#3978D6]/40 text-[#DCEBFA] text-xs font-bold font-mono">
+                <span className="px-3 py-1 rounded-full bg-[var(--bg-elevated)] border border-[#3978D6]/40 text-[var(--text-primary)] text-xs font-bold font-mono">
                   {levelName}
                 </span>
                 {user ? (
@@ -410,17 +416,17 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                 )}
               </div>
 
-              <h1 className="text-2xl sm:text-4xl font-black text-white font-['Manrope'] tracking-tight">
+              <h1 className="text-2xl sm:text-4xl font-black text-[var(--text-primary)] font-['Manrope'] tracking-tight">
                 {user?.user_metadata?.full_name || (user?.email ? user.email.split('@')[0] : 'Pelajar ZENORA')}
               </h1>
 
-              <div className="flex items-center gap-4 text-xs text-[#A9BBD3]">
+              <div className="flex items-center gap-4 text-xs text-[var(--text-secondary)]">
                 <span className="flex items-center gap-1.5">
                   <Mail className="w-3.5 h-3.5 text-[#3978D6]" />
                   {user?.email || 'Belum tersinkron ke cloud'}
                 </span>
                 <span className="flex items-center gap-1.5 font-mono">
-                  <Calendar className="w-3.5 h-3.5 text-[#69C9DF]" />
+                  <Calendar className="w-3.5 h-3.5 text-[var(--secondary-accent)]" />
                   Bergabung {user?.created_at ? new Date(user.created_at).toLocaleDateString('id-ID', { month: 'short', year: 'numeric' }) : '2026'}
                 </span>
               </div>
@@ -428,14 +434,14 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               {/* XP Progress Bar */}
               <div className="pt-2 max-w-md">
                 <div className="flex items-center justify-between text-xs mb-1.5 font-mono">
-                  <span className="text-[#A9BBD3] flex items-center gap-1 font-bold">
+                  <span className="text-[var(--text-secondary)] flex items-center gap-1 font-bold">
                     <Zap className="w-3.5 h-3.5 text-[#E9BD72]" /> {totalXp.toLocaleString()} XP
                   </span>
                   <span className="text-[#2456A6] font-bold">
                     Target Lv.{level + 1} ({levelProgress}%)
                   </span>
                 </div>
-                <div className="w-full h-2.5 rounded-full bg-[#08152F] border border-[#3978D6]/30 overflow-hidden p-0.5">
+                <div className="w-full h-2.5 rounded-full bg-[var(--bg-sidebar)] border border-[#3978D6]/30 overflow-hidden p-0.5">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-[#3978D6] via-[#2456A6] to-[#69C9DF] shadow-[0_0_10px_rgba(57, 120, 214,0.7)] transition-all duration-700"
                     style={{ width: `${levelProgress}%` }}
@@ -452,14 +458,14 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                 <button
                   onClick={() => { sound.playClick(); onSync(); }}
                   disabled={isSyncing}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#172945] hover:bg-[#172945] border border-[#3978D6]/40 text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[var(--bg-elevated)] hover:bg-[var(--bg-elevated)] border border-[#3978D6]/40 text-[var(--text-primary)] text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
                 >
                   <RefreshCw className={`w-4 h-4 text-[#3978D6] ${isSyncing ? 'animate-spin' : ''}`} />
                   <span>{isSyncing ? 'Menyinkronkan...' : 'Sinkron Cloud'}</span>
                 </button>
                 <button
                   onClick={() => { sound.playClick(); onSignOut(); }}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#08152F]/80 hover:bg-rose-500/20 border border-rose-500/30 text-rose-300 text-xs sm:text-sm font-bold transition-all active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[var(--bg-sidebar)]/80 hover:bg-rose-500/20 border border-rose-500/30 text-rose-300 text-xs sm:text-sm font-bold transition-all active:scale-95 cursor-pointer"
                 >
                   <LogOut className="w-4 h-4" />
                   <span>Keluar Akun</span>
@@ -484,11 +490,11 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope'] flex items-center gap-2.5">
+            <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2.5">
               <BarChart3 className="w-6 h-6 text-[#3978D6]" />
               Statistik Pembelajaran
             </h2>
-            <p className="text-xs sm:text-sm text-[#A9BBD3]">
+            <p className="text-xs sm:text-sm text-[var(--text-secondary)]">
               Perkembangan belajar bahasa Jepang nyata Anda berdasarkan aktivitas & latihan
             </p>
           </div>
@@ -505,9 +511,9 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           
           {/* Card 1: Kotoba */}
-          <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
             <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-2xl bg-[#08152F] border border-[#3978D6]/30 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 flex items-center justify-center">
                 <BookOpen className="w-5 h-5 text-[#3978D6]" />
               </div>
               <span className="text-[11px] font-mono font-bold text-[#2456A6]">
@@ -515,45 +521,45 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               </span>
             </div>
             <div>
-              <span className="text-2xl sm:text-3xl font-black text-white font-['Manrope'] block">
+              <span className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] font-['Manrope'] block">
                 {totalKotobaLearned}
               </span>
-              <p className="text-xs text-[#A9BBD3] font-semibold mt-0.5">
+              <p className="text-xs text-[var(--text-secondary)] font-semibold mt-0.5">
                 Kosakata Dikuasai
               </p>
-              <p className="text-[10px] text-[#7186A5] mt-1">
+              <p className="text-[10px] text-[var(--text-muted)] mt-1">
                 dari {KOTOBA_DATA.length} kosakata Minna
               </p>
             </div>
           </div>
 
           {/* Card 2: Kanji */}
-          <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
             <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-2xl bg-[#08152F] border border-[#69C9DF]/30 flex items-center justify-center">
-                <PenTool className="w-5 h-5 text-[#69C9DF]" />
+              <div className="w-10 h-10 rounded-2xl bg-[var(--bg-sidebar)] border border-[#69C9DF]/30 flex items-center justify-center">
+                <PenTool className="w-5 h-5 text-[var(--secondary-accent)]" />
               </div>
-              <span className="text-[11px] font-mono font-bold text-[#69C9DF]">
+              <span className="text-[11px] font-mono font-bold text-[var(--secondary-accent)]">
                 {Math.round((totalKanjiLearned / KANJI_DATA.length) * 100)}%
               </span>
             </div>
             <div>
-              <span className="text-2xl sm:text-3xl font-black text-white font-['Manrope'] block">
+              <span className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] font-['Manrope'] block">
                 {totalKanjiLearned}
               </span>
-              <p className="text-xs text-[#A9BBD3] font-semibold mt-0.5">
+              <p className="text-xs text-[var(--text-secondary)] font-semibold mt-0.5">
                 Kanji N5 & N4
               </p>
-              <p className="text-[10px] text-[#7186A5] mt-1">
+              <p className="text-[10px] text-[var(--text-muted)] mt-1">
                 dari {KANJI_DATA.length} huruf target
               </p>
             </div>
           </div>
 
           {/* Card 3: Kana */}
-          <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
             <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-2xl bg-[#08152F] border border-[#FF70C8]/30 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-2xl bg-[var(--bg-sidebar)] border border-[#FF70C8]/30 flex items-center justify-center">
                 <Languages className="w-5 h-5 text-[#FF70C8]" />
               </div>
               <span className="text-[11px] font-mono font-bold text-[#FF70C8]">
@@ -561,22 +567,22 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               </span>
             </div>
             <div>
-              <span className="text-2xl sm:text-3xl font-black text-white font-['Manrope'] block">
+              <span className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] font-['Manrope'] block">
                 {totalKanaLearned}
               </span>
-              <p className="text-xs text-[#A9BBD3] font-semibold mt-0.5">
+              <p className="text-xs text-[var(--text-secondary)] font-semibold mt-0.5">
                 Aksara Kana
               </p>
-              <p className="text-[10px] text-[#7186A5] mt-1">
+              <p className="text-[10px] text-[var(--text-muted)] mt-1">
                 Hiragana & Katakana
               </p>
             </div>
           </div>
 
           {/* Card 4: Streak Belajar */}
-          <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
             <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-2xl bg-[#08152F] border border-[#E9BD72]/30 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-2xl bg-[var(--bg-sidebar)] border border-[#E9BD72]/30 flex items-center justify-center">
                 <Flame className="w-5 h-5 text-[#E9BD72]" />
               </div>
               <span className="text-[11px] font-mono font-bold text-[#E9BD72]">
@@ -584,13 +590,13 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               </span>
             </div>
             <div>
-              <span className="text-2xl sm:text-3xl font-black text-white font-['Manrope'] flex items-center gap-1.5">
-                {stats.streakDays} <span className="text-base font-bold text-[#A9BBD3]">Hari</span>
+              <span className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-1.5">
+                {stats.streakDays} <span className="text-base font-bold text-[var(--text-secondary)]">Hari</span>
               </span>
-              <p className="text-xs text-[#A9BBD3] font-semibold mt-0.5">
+              <p className="text-xs text-[var(--text-secondary)] font-semibold mt-0.5">
                 Streak Belajar
               </p>
-              <p className="text-[10px] text-[#7186A5] mt-1">
+              <p className="text-[10px] text-[var(--text-muted)] mt-1">
                 Terus pertahankan setiap hari!
               </p>
             </div>
@@ -601,28 +607,28 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
         {/* 4 Cards Grid - Row 2: Performance */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           
-          <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 p-5 space-y-2">
-            <span className="text-[11px] font-mono text-[#7186A5] uppercase font-bold block">Total Latihan</span>
-            <span className="text-2xl font-black text-white font-['Manrope']">{totalQuizzes}</span>
-            <p className="text-xs text-[#A9BBD3]">Sesi latihan diselesaikan</p>
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-2">
+            <span className="text-[11px] font-mono text-[var(--text-muted)] uppercase font-bold block">Total Latihan</span>
+            <span className="text-2xl font-black text-[var(--text-primary)] font-['Manrope']">{totalQuizzes}</span>
+            <p className="text-xs text-[var(--text-secondary)]">Sesi latihan diselesaikan</p>
           </div>
 
-          <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 p-5 space-y-2">
-            <span className="text-[11px] font-mono text-[#7186A5] uppercase font-bold block">Akurasi Rata-rata</span>
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-2">
+            <span className="text-[11px] font-mono text-[var(--text-muted)] uppercase font-bold block">Akurasi Rata-rata</span>
             <span className="text-2xl font-black text-[#45C6A5] font-['Manrope']">{averageQuizScore}%</span>
-            <p className="text-xs text-[#A9BBD3]">Rata-rata skor evaluasi kuis</p>
+            <p className="text-xs text-[var(--text-secondary)]">Rata-rata skor evaluasi kuis</p>
           </div>
 
-          <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 p-5 space-y-2">
-            <span className="text-[11px] font-mono text-[#7186A5] uppercase font-bold block">Disimpan</span>
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-2">
+            <span className="text-[11px] font-mono text-[var(--text-muted)] uppercase font-bold block">Disimpan</span>
             <span className="text-2xl font-black text-[#E9BD72] font-['Manrope']">{totalBookmarks}</span>
-            <p className="text-xs text-[#A9BBD3]">Kosakata & kanji ditandai</p>
+            <p className="text-xs text-[var(--text-secondary)]">Kosakata & kanji ditandai</p>
           </div>
 
-          <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 p-5 space-y-2">
-            <span className="text-[11px] font-mono text-[#7186A5] uppercase font-bold block">Target Harian</span>
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-2">
+            <span className="text-[11px] font-mono text-[var(--text-muted)] uppercase font-bold block">Target Harian</span>
             <span className="text-2xl font-black text-[#3978D6] font-['Manrope']">{dailyGoalMinutes} Menit</span>
-            <p className="text-xs text-[#A9BBD3]">Target konsistensi belajar</p>
+            <p className="text-xs text-[var(--text-secondary)]">Target konsistensi belajar</p>
           </div>
 
         </div>
@@ -634,15 +640,15 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope'] flex items-center gap-2.5">
+            <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2.5">
               <Trophy className="w-6 h-6 text-[#E9BD72]" />
               Koleksi Pencapaian (Achievements)
             </h2>
-            <p className="text-xs sm:text-sm text-[#A9BBD3]">
+            <p className="text-xs sm:text-sm text-[var(--text-secondary)]">
               {unlockedCount} dari {achievements.length} lencana kehormatan telah terbuka
             </p>
           </div>
-          <span className="px-3 py-1.5 rounded-full bg-[#172945] border border-[#3978D6]/40 text-[#DCEBFA] text-xs font-black font-mono">
+          <span className="px-3 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[#3978D6]/40 text-[var(--text-primary)] text-xs font-black font-mono">
             {unlockedCount} / {achievements.length} Terbuka
           </span>
         </div>
@@ -653,31 +659,31 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               key={ach.id}
               className={`p-4 rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
                 ach.unlocked
-                  ? 'bg-gradient-to-br from-[#111F38] to-[#172945] border-[#3978D6]/50 shadow-[0_4px_20px_rgba(57, 120, 214,0.2)] hover:scale-[1.02]'
-                  : 'bg-[#08152F]/80 border-[#3978D6]/15 opacity-60'
+                  ? 'bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-elevated)] border-[#3978D6]/50 shadow-[0_4px_20px_rgba(57, 120, 214,0.2)] hover:scale-[1.02]'
+                  : 'bg-[var(--bg-sidebar)]/80 border-[#3978D6]/15 opacity-60'
               }`}
             >
               <div className="space-y-2.5">
                 <div className="flex items-start justify-between">
                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl ${
-                    ach.unlocked ? 'bg-[#08152F] border border-[#3978D6]/40 shadow-inner' : 'bg-[#111F38] grayscale'
+                    ach.unlocked ? 'bg-[var(--bg-sidebar)] border border-[#3978D6]/40 shadow-inner' : 'bg-[var(--bg-surface)] grayscale'
                   }`}>
                     {ach.icon}
                   </div>
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full font-mono ${
                     ach.unlocked
-                      ? 'bg-[#3978D6]/20 text-[#DCEBFA] border border-[#3978D6]/30'
-                      : 'bg-white/5 text-[#7186A5] border border-white/10'
+                      ? 'bg-[#3978D6]/20 text-[var(--text-primary)] border border-[#3978D6]/30'
+                      : 'bg-white/5 text-[var(--text-muted)] border border-white/10'
                   }`}>
                     +{ach.xp} XP
                   </span>
                 </div>
 
                 <div>
-                  <h3 className={`text-sm font-black font-['Manrope'] ${ach.unlocked ? 'text-white' : 'text-[#7186A5]'}`}>
+                  <h3 className={`text-sm font-black font-['Manrope'] ${ach.unlocked ? 'text-[var(--text-primary)]' : 'text-[var(--text-muted)]'}`}>
                     {ach.title}
                   </h3>
-                  <p className="text-[11px] text-[#A9BBD3] leading-relaxed mt-1">
+                  <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed mt-1">
                     {ach.description}
                   </p>
                 </div>
@@ -689,11 +695,11 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                     <CheckCircle2 className="w-3.5 h-3.5" /> Terbuka
                   </span>
                 ) : (
-                  <span className="text-[#7186A5] flex items-center gap-1">
+                  <span className="text-[var(--text-muted)] flex items-center gap-1">
                     <Lock className="w-3 h-3" /> {ach.progress}/{ach.maxProgress}
                   </span>
                 )}
-                <span className="text-[#7186A5] uppercase font-bold">{ach.category}</span>
+                <span className="text-[var(--text-muted)] uppercase font-bold">{ach.category}</span>
               </div>
             </div>
           ))}
@@ -705,16 +711,16 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <div className="space-y-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope'] flex items-center gap-2.5">
-            <Calendar className="w-6 h-6 text-[#69C9DF]" />
+          <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2.5">
+            <Calendar className="w-6 h-6 text-[var(--secondary-accent)]" />
             Aktivitas Belajar (28 Hari Terakhir)
           </h2>
-          <p className="text-xs sm:text-sm text-[#A9BBD3]">
+          <p className="text-xs sm:text-sm text-[var(--text-secondary)]">
             Jejak konsistensi latihan dan sesi belajar harian Anda
           </p>
         </div>
 
-        <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 p-6 space-y-6">
+        <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-6 space-y-6">
           
           {/* Heatmap Grid */}
           <div>
@@ -728,8 +734,8 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                       : d.intensity === 2
                       ? 'bg-[#3978D6]/60 border-[#3978D6] text-white'
                       : d.intensity === 1
-                      ? 'bg-[#3978D6]/25 border-[#3978D6]/40 text-[#DCEBFA]'
-                      : 'bg-[#08152F] border-[#3978D6]/15 text-[#7186A5]/40'
+                      ? 'bg-[#3978D6]/25 border-[#3978D6]/40 text-[var(--text-primary)]'
+                      : 'bg-[var(--bg-sidebar)] border-[#3978D6]/15 text-[var(--text-muted)]/40'
                   }`}
                   title={`${d.date}: ${d.quizCount} aktivitas`}
                 >
@@ -738,10 +744,10 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               ))}
             </div>
 
-            <div className="flex items-center justify-between text-xs text-[#7186A5] mt-4 pt-3 border-t border-[#3978D6]/15">
+            <div className="flex items-center justify-between text-xs text-[var(--text-muted)] mt-4 pt-3 border-t border-[#3978D6]/15">
               <span>Kurang aktif</span>
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-md bg-[#08152F] border border-[#3978D6]/20" />
+                <span className="w-3 h-3 rounded-md bg-[var(--bg-sidebar)] border border-[#3978D6]/20" />
                 <span className="w-3 h-3 rounded-md bg-[#3978D6]/25 border border-[#3978D6]/40" />
                 <span className="w-3 h-3 rounded-md bg-[#3978D6]/60" />
                 <span className="w-3 h-3 rounded-md bg-gradient-to-br from-[#2456A6] to-[#3978D6]" />
@@ -763,17 +769,17 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                   return (
                     <div
                       key={idx}
-                      className="p-3.5 rounded-2xl bg-[#08152F]/80 border border-[#3978D6]/20 flex items-center justify-between gap-4"
+                      className="p-3.5 rounded-2xl bg-[var(--bg-sidebar)]/80 border border-[#3978D6]/20 flex items-center justify-between gap-4"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-xl bg-[#172945] text-[#3978D6] flex items-center justify-center font-bold text-xs">
+                        <div className="w-8 h-8 rounded-xl bg-[var(--bg-elevated)] text-[#3978D6] flex items-center justify-center font-bold text-xs">
                           {idx + 1}
                         </div>
                         <div>
-                          <p className="text-xs font-bold text-white capitalize">
+                          <p className="text-xs font-bold text-[var(--text-primary)] capitalize">
                             Latihan {qh.subject} ({qh.mode})
                           </p>
-                          <p className="text-[10px] text-[#7186A5]">
+                          <p className="text-[10px] text-[var(--text-muted)]">
                             {new Date(qh.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}
                           </p>
                         </div>
@@ -789,7 +795,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                 })}
               </div>
             ) : (
-              <p className="text-xs text-[#7186A5] italic">
+              <p className="text-xs text-[var(--text-muted)] italic">
                 Belum ada riwayat kuis yang tersimpan. Mulai latihan pertama Anda di menu Latihan!
               </p>
             )}
@@ -803,24 +809,24 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <div className="space-y-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope'] flex items-center gap-2.5">
+          <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2.5">
             <Settings className="w-6 h-6 text-[#3978D6]" />
             Pengaturan Akun & Preferensi
           </h2>
-          <p className="text-xs sm:text-sm text-[#A9BBD3]">
+          <p className="text-xs sm:text-sm text-[var(--text-secondary)]">
             Kelola data diri, target belajar, keamanan, dan preferensi tampilan ZENORA
           </p>
         </div>
 
-        <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 divide-y divide-[#3978D6]/15 overflow-hidden">
+        <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 divide-y divide-[#3978D6]/15 overflow-hidden">
           
           {/* Group A: Preferensi Belajar */}
           <div className="p-6 space-y-4">
             <div className="flex items-center gap-3">
               <Target className="w-5 h-5 text-[#3978D6]" />
               <div>
-                <h3 className="text-sm font-black text-white font-['Manrope']">Target Belajar Harian</h3>
-                <p className="text-xs text-[#A9BBD3]">Tentukan berapa lama Anda ingin berlatih setiap hari</p>
+                <h3 className="text-sm font-black text-[var(--text-primary)] font-['Manrope']">Target Belajar Harian</h3>
+                <p className="text-xs text-[var(--text-secondary)]">Tentukan berapa lama Anda ingin berlatih setiap hari</p>
               </div>
             </div>
 
@@ -832,7 +838,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                   className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all ${
                     dailyGoalMinutes === mins
                       ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
-                      : 'bg-[#08152F] text-[#A9BBD3] border border-[#3978D6]/20 hover:text-white'
+                      : 'bg-[var(--bg-sidebar)] text-[var(--text-secondary)] border border-[#3978D6]/20 hover:text-[var(--text-primary)]'
                   }`}
                 >
                   {mins} Menit
@@ -842,7 +848,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
 
             {/* Target JLPT */}
             <div className="pt-4 border-t border-[#3978D6]/15">
-              <label className="text-xs font-bold text-[#A9BBD3] block mb-2">
+              <label className="text-xs font-bold text-[var(--text-secondary)] block mb-2">
                 Target Ujian JLPT / Karier:
               </label>
               <div className="flex items-center gap-2">
@@ -853,7 +859,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                     className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                       targetJlpt === lvl
                         ? 'bg-[#3978D6] text-white shadow-md'
-                        : 'bg-[#08152F] text-[#7186A5] hover:text-white border border-[#3978D6]/15'
+                        : 'bg-[var(--bg-sidebar)] text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-[#3978D6]/15'
                     }`}
                   >
                     {lvl}
@@ -864,32 +870,86 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
           </div>
 
           {/* Group B: Tampilan & Audio */}
-          <div className="p-6 flex items-center justify-between">
+          <div className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <Moon className="w-5 h-5 text-[#2456A6]" />
+              {darkMode ? (
+                <Moon className="w-5 h-5 text-[var(--primary)]" />
+              ) : (
+                <Sun className="w-5 h-5 text-[var(--primary)]" />
+              )}
               <div>
-                <h3 className="text-sm font-black text-white font-['Manrope']">Mode Tampilan</h3>
-                <p className="text-xs text-[#A9BBD3]">Tema visual Midnight Japan (Gelap)</p>
+                <h3 className="text-sm font-black text-[var(--text-primary)] font-['Manrope']">Mode Tampilan</h3>
+                <p className="text-xs text-[var(--text-secondary)]">
+                  {themePreference === 'system'
+                    ? `Mengikuti Sistem (${darkMode ? 'Luxury Midnight Ocean Blue' : 'Luxury Arctic Blue'})`
+                    : darkMode
+                      ? 'Dark Mode — Luxury Midnight Ocean Blue'
+                      : 'Light Mode — Luxury Arctic Blue'}
+                </p>
               </div>
             </div>
 
-            <button
-              onClick={() => { sound.playClick(); onToggleDarkMode(); }}
-              className="px-4 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white text-xs font-bold flex items-center gap-2 hover:bg-[#172945] transition-colors"
-            >
-              <Moon className="w-4 h-4 text-[#3978D6]" />
-              <span>{darkMode ? 'Mode Gelap Aktif' : 'Mode Terang'}</span>
-            </button>
+            <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border)]">
+              <button
+                type="button"
+                onClick={() => {
+                  sound.playClick();
+                  if (onChangeThemePreference) onChangeThemePreference('light');
+                  else if (darkMode) onToggleDarkMode();
+                }}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  themePreference === 'light'
+                    ? 'bg-gradient-to-r from-[#2866B5] to-[#4389D4] text-white shadow-sm'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <Sun className="w-3.5 h-3.5" />
+                <span>Terang</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  sound.playClick();
+                  if (onChangeThemePreference) onChangeThemePreference('dark');
+                  else if (!darkMode) onToggleDarkMode();
+                }}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  themePreference === 'dark'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-sm'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <Moon className="w-3.5 h-3.5" />
+                <span>Gelap</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  sound.playClick();
+                  if (onChangeThemePreference) onChangeThemePreference('system');
+                }}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  themePreference === 'system'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-sm'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <Monitor className="w-3.5 h-3.5" />
+                <span>Ikuti Sistem</span>
+              </button>
+            </div>
           </div>
 
           {/* Group C: Sinkronisasi Cloud & Keamanan */}
           <div className="p-6 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Cloud className="w-5 h-5 text-[#69C9DF]" />
+                <Cloud className="w-5 h-5 text-[var(--secondary-accent)]" />
                 <div>
-                  <h3 className="text-sm font-black text-white font-['Manrope']">Sinkronisasi Cloud Supabase</h3>
-                  <p className="text-xs text-[#A9BBD3]">
+                  <h3 className="text-sm font-black text-[var(--text-primary)] font-['Manrope']">Sinkronisasi Cloud Supabase</h3>
+                  <p className="text-xs text-[var(--text-secondary)]">
                     {user ? `Terhubung sebagai ${user.email}` : 'Masuk untuk mencadangkan progres hafalan Anda'}
                   </p>
                 </div>
@@ -916,30 +976,30 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
           </div>
 
           {/* Group D: Pengaturan Notifikasi & Pengingat */}
-          <div className="p-6 space-y-5 border-t border-[#263D60]">
+          <div className="p-6 space-y-5 border-t border-[var(--border)]">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-[#2456A6]/20 border border-[#3978D6]/40 text-[#83B7EE]">
+                <div className="p-2.5 rounded-xl bg-[#2456A6]/20 border border-[#3978D6]/40 text-[var(--soft-sky)]">
                   <Bell className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-black text-[#F2F6FC] font-['Manrope']">Pengaturan Notifikasi & Pengingat</h3>
-                  <p className="text-xs text-[#A9BBD3]">Atur pengingat belajar harian, pencapaian milestone, dan preferensi suara</p>
+                  <h3 className="text-sm font-black text-[var(--text-primary)] font-['Manrope']">Pengaturan Notifikasi & Pengingat</h3>
+                  <p className="text-xs text-[var(--text-secondary)]">Atur pengingat belajar harian, pencapaian milestone, dan preferensi suara</p>
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
               {/* 1. Pengingat Belajar */}
-              <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border)] flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-bold text-[#F2F6FC]">Pengingat Belajar Harian</p>
-                  <p className="text-[11px] text-[#7186A5]">Notifikasi jika target belajar belum terpenuhi</p>
+                  <p className="text-xs font-bold text-[var(--text-primary)]">Pengingat Belajar Harian</p>
+                  <p className="text-[11px] text-[var(--text-muted)]">Notifikasi jika target belajar belum terpenuhi</p>
                 </div>
                 <button
                   onClick={() => handleUpdateNotifPref('studyReminders', !notifPrefs.studyReminders)}
                   className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
-                    notifPrefs.studyReminders ? 'bg-[#3978D6]' : 'bg-[#172945]'
+                    notifPrefs.studyReminders ? 'bg-[#3978D6]' : 'bg-[var(--bg-elevated)]'
                   }`}
                 >
                   <span className={`block w-4 h-4 rounded-full bg-white transition-transform ${
@@ -949,15 +1009,15 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               </div>
 
               {/* 2. Progres Belajar */}
-              <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border)] flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-bold text-[#F2F6FC]">Pemberitahuan Progres & Streak</p>
-                  <p className="text-[11px] text-[#7186A5]">Pencapaian milestone, streak hari, dan ujian</p>
+                  <p className="text-xs font-bold text-[var(--text-primary)]">Pemberitahuan Progres & Streak</p>
+                  <p className="text-[11px] text-[var(--text-muted)]">Pencapaian milestone, streak hari, dan ujian</p>
                 </div>
                 <button
                   onClick={() => handleUpdateNotifPref('progressUpdates', !notifPrefs.progressUpdates)}
                   className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
-                    notifPrefs.progressUpdates ? 'bg-[#3978D6]' : 'bg-[#172945]'
+                    notifPrefs.progressUpdates ? 'bg-[#3978D6]' : 'bg-[var(--bg-elevated)]'
                   }`}
                 >
                   <span className={`block w-4 h-4 rounded-full bg-white transition-transform ${
@@ -967,15 +1027,15 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               </div>
 
               {/* 3. Materi Baru */}
-              <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border)] flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-bold text-[#F2F6FC]">Pembaruan Materi</p>
-                  <p className="text-[11px] text-[#7186A5]">Info penambahan bab baru atau soal latihan</p>
+                  <p className="text-xs font-bold text-[var(--text-primary)]">Pembaruan Materi</p>
+                  <p className="text-[11px] text-[var(--text-muted)]">Info penambahan bab baru atau soal latihan</p>
                 </div>
                 <button
                   onClick={() => handleUpdateNotifPref('newMaterials', !notifPrefs.newMaterials)}
                   className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
-                    notifPrefs.newMaterials ? 'bg-[#3978D6]' : 'bg-[#172945]'
+                    notifPrefs.newMaterials ? 'bg-[#3978D6]' : 'bg-[var(--bg-elevated)]'
                   }`}
                 >
                   <span className={`block w-4 h-4 rounded-full bg-white transition-transform ${
@@ -985,15 +1045,15 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               </div>
 
               {/* 4. Pengumuman Sistem */}
-              <div className="p-3.5 rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border)] flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-bold text-[#F2F6FC]">Pengumuman Admin & Komunitas</p>
-                  <p className="text-[11px] text-[#7186A5]">Informasi jadwal ujian, tips belajar, dan server</p>
+                  <p className="text-xs font-bold text-[var(--text-primary)]">Pengumuman Admin & Komunitas</p>
+                  <p className="text-[11px] text-[var(--text-muted)]">Informasi jadwal ujian, tips belajar, dan server</p>
                 </div>
                 <button
                   onClick={() => handleUpdateNotifPref('announcements', !notifPrefs.announcements)}
                   className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
-                    notifPrefs.announcements ? 'bg-[#3978D6]' : 'bg-[#172945]'
+                    notifPrefs.announcements ? 'bg-[#3978D6]' : 'bg-[var(--bg-elevated)]'
                   }`}
                 >
                   <span className={`block w-4 h-4 rounded-full bg-white transition-transform ${
@@ -1004,12 +1064,12 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
             </div>
 
             {/* Jam Pengingat & Izin Browser */}
-            <div className="p-4 rounded-2xl bg-[#111F38] border border-[#263D60] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <Clock className="w-5 h-5 text-[#83B7EE]" />
+                <Clock className="w-5 h-5 text-[var(--soft-sky)]" />
                 <div>
-                  <p className="text-xs font-bold text-[#F2F6FC]">Waktu Pengingat Belajar</p>
-                  <p className="text-[11px] text-[#7186A5]">Pilih waktu harian yang paling nyaman untuk Anda</p>
+                  <p className="text-xs font-bold text-[var(--text-primary)]">Waktu Pengingat Belajar</p>
+                  <p className="text-[11px] text-[var(--text-muted)]">Pilih waktu harian yang paling nyaman untuk Anda</p>
                 </div>
               </div>
               <div className="flex items-center gap-1.5 flex-wrap">
@@ -1020,7 +1080,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                     className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                       notifPrefs.reminderTime === timeStr
                         ? 'bg-[#2456A6] text-white shadow-[0_0_10px_rgba(36,86,166,0.6)]'
-                        : 'bg-[#172945] text-[#A9BBD3] hover:text-white border border-[#263D60]'
+                        : 'bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border)]'
                     }`}
                   >
                     {timeStr}
@@ -1030,11 +1090,11 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
             </div>
 
             {/* Web Browser Notification API Status & Button */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-[#102447] to-[#172945] border border-[#3978D6]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-[var(--bg-elevated)] to-[var(--bg-elevated)] border border-[#3978D6]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#69C9DF]" />
-                  <p className="text-xs font-bold text-[#F2F6FC]">Izin Browser (Web Notification API)</p>
+                  <Sparkles className="w-4 h-4 text-[var(--secondary-accent)]" />
+                  <p className="text-xs font-bold text-[var(--text-primary)]">Izin Browser (Web Notification API)</p>
                   <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                     browserPermStatus === 'granted'
                       ? 'bg-[#45C6A5]/20 text-[#45C6A5] border border-[#45C6A5]/40'
@@ -1045,7 +1105,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                     {browserPermStatus === 'granted' ? 'Diizinkan' : browserPermStatus === 'denied' ? 'Diblokir' : 'Belum Diatur'}
                   </span>
                 </div>
-                <p className="text-[11px] text-[#A9BBD3] mt-1">
+                <p className="text-[11px] text-[var(--text-secondary)] mt-1">
                   Memungkinkan notifikasi langsung muncul di desktop/laptop Anda bahkan saat ZENORA tidak sedang dibuka di tab aktif.
                 </p>
               </div>
@@ -1064,19 +1124,19 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
           {/* Group D: Hak Akses Role (Siswa vs Admin) */}
           <div className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-[#3978D6]/15 bg-gradient-to-r from-[#3978D6]/10 via-transparent to-[#69C9DF]/10">
             <div className="flex items-center gap-3">
-              <Shield className="w-5 h-5 text-[#69C9DF] shrink-0" />
+              <Shield className="w-5 h-5 text-[var(--secondary-accent)] shrink-0" />
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-black text-white font-['Manrope']">Hak Akses & Konsol Admin</h3>
+                  <h3 className="text-sm font-black text-[var(--text-primary)] font-['Manrope']">Hak Akses & Konsol Admin</h3>
                   <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${
                     isAdminMode
                       ? 'bg-[#00C99A]/20 text-[#00C99A] border-[#00C99A]/40'
-                      : 'bg-[#3978D6]/25 text-[#83B7EE] border-[#3978D6]/40'
+                      : 'bg-[#3978D6]/25 text-[var(--soft-sky)] border-[#3978D6]/40'
                   }`}>
                     {isAdminMode ? 'Role: Administrator' : 'Role: Siswa'}
                   </span>
                 </div>
-                <p className="text-xs text-[#A9BBD3]">
+                <p className="text-xs text-[var(--text-secondary)]">
                   {isAdminMode 
                     ? 'Sesi admin aktif. Anda memiliki akses penuh ke CMS kosakata, SSW, dan CBT.'
                     : 'Akses CMS dan pengelola sistem dibatasi untuk staf pengajar & administrator.'}
@@ -1102,7 +1162,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                       sound.playClick();
                       if (onExitAdminMode) onExitAdminMode();
                     }}
-                    className="px-3 py-2 rounded-xl bg-[#08152F] hover:bg-[#172945] border border-[#3978D6]/30 text-[#A9BBD3] hover:text-white text-xs font-bold transition-all cursor-pointer"
+                    className="px-3 py-2 rounded-xl bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] border border-[#3978D6]/30 text-[var(--text-secondary)] hover:text-[var(--text-primary)] text-xs font-bold transition-all cursor-pointer"
                     title="Keluar dari sesi Admin dan kembali ke Mode Siswa"
                   >
                     Mode Siswa
@@ -1114,9 +1174,9 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                     sound.playClick();
                     if (onOpenAdminAuth) onOpenAdminAuth();
                   }}
-                  className="px-4 py-2 rounded-xl bg-[#172945] hover:bg-[#111F38] border border-[#3978D6]/40 hover:border-[#3978D6] text-[#F2F6FC] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
+                  className="px-4 py-2 rounded-xl bg-[var(--bg-elevated)] hover:bg-[var(--bg-surface)] border border-[#3978D6]/40 hover:border-[#3978D6] text-[var(--text-primary)] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
                 >
-                  <Lock className="w-3.5 h-3.5 text-[#69C9DF]" />
+                  <Lock className="w-3.5 h-3.5 text-[var(--secondary-accent)]" />
                   <span>Verifikasi Akses Admin</span>
                 </button>
               )}

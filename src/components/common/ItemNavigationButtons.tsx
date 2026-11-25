@@ -85,8 +85,8 @@ export const ItemNavigationButtons: React.FC<ItemNavigationButtonsProps> = ({
         aria-label="Materi Sebelumnya"
         className={`w-full sm:w-auto px-5 py-2.5 rounded-2xl flex items-center justify-center gap-2.5 text-xs sm:text-sm font-bold transition-all duration-200 select-none ${
           hasPrev
-            ? 'bg-[#08152F] hover:bg-[#172945] text-[#F2F6FC] border border-[#3978D6]/35 hover:border-[#3978D6]/70 hover:shadow-[0_0_15px_rgba(57, 120, 214,0.25)] active:scale-95 cursor-pointer group'
-            : 'bg-[#08152F]/50 text-[#7186A5]/40 border border-white/5 opacity-40 cursor-not-allowed pointer-events-none'
+            ? 'bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/35 hover:border-[#3978D6]/70 hover:shadow-[0_0_15px_rgba(57, 120, 214,0.25)] active:scale-95 cursor-pointer group'
+            : 'bg-[var(--bg-sidebar)]/50 text-[var(--text-muted)]/40 border border-white/5 opacity-40 cursor-not-allowed pointer-events-none'
         }`}
       >
         <ChevronLeft className={`w-4 h-4 transition-transform ${hasPrev ? 'group-hover:-translate-x-1 text-[#3978D6]' : 'text-current'}`} />
@@ -102,17 +102,17 @@ export const ItemNavigationButtons: React.FC<ItemNavigationButtonsProps> = ({
 
       {/* 2. CENTER: POSITION & PROGRESS INDICATOR */}
       <div className="flex flex-col items-center gap-1.5 order-first sm:order-none">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#08152F] border border-[#3978D6]/25 text-xs font-mono font-bold text-[#F2F6FC] shadow-xs">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-sidebar)] border border-[#3978D6]/25 text-xs font-mono font-bold text-[var(--text-primary)] shadow-xs">
           <span className="text-[#3978D6] font-black">{currentIndex + 1}</span>
-          <span className="text-[#7186A5]">/</span>
-          <span className="text-[#A9BBD3]">{totalCount}</span>
-          <span className="text-[10px] text-[#7186A5] font-sans font-normal uppercase tracking-wider pl-1">
+          <span className="text-[var(--text-muted)]">/</span>
+          <span className="text-[var(--text-secondary)]">{totalCount}</span>
+          <span className="text-[10px] text-[var(--text-muted)] font-sans font-normal uppercase tracking-wider pl-1">
             {itemTypeLabel}
           </span>
         </div>
 
         {/* Mini progress bar */}
-        <div className="w-28 sm:w-36 h-1 bg-[#08152F] rounded-full overflow-hidden border border-[#3978D6]/20">
+        <div className="w-28 sm:w-36 h-1 bg-[var(--bg-sidebar)] rounded-full overflow-hidden border border-[#3978D6]/20">
           <div 
             className="h-full bg-gradient-to-r from-[#2456A6] to-[#3978D6] rounded-full transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
@@ -129,18 +129,18 @@ export const ItemNavigationButtons: React.FC<ItemNavigationButtonsProps> = ({
         className={`w-full sm:w-auto px-5 py-2.5 rounded-2xl flex items-center justify-center gap-2.5 text-xs sm:text-sm font-bold transition-all duration-200 select-none ${
           hasNext
             ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.35)] active:scale-95 cursor-pointer group'
-            : 'bg-[#08152F]/50 text-[#7186A5]/40 border border-white/5 opacity-40 cursor-not-allowed pointer-events-none'
+            : 'bg-[var(--bg-sidebar)]/50 text-[var(--text-muted)]/40 border border-white/5 opacity-40 cursor-not-allowed pointer-events-none'
         }`}
       >
         <div className="flex flex-col text-right">
           <span className="leading-tight">Berikutnya</span>
           {nextLabel && hasNext && (
-            <span className="text-[10px] font-mono text-[#DCEBFA] truncate max-w-[100px]">
+            <span className="text-[10px] font-mono text-[var(--text-primary)] truncate max-w-[100px]">
               {nextLabel}
             </span>
           )}
         </div>
-        <ChevronRight className={`w-4 h-4 transition-transform ${hasNext ? 'group-hover:translate-x-1 text-white' : 'text-current'}`} />
+        <ChevronRight className={`w-4 h-4 transition-transform ${hasNext ? 'group-hover:translate-x-1 text-[var(--text-primary)]' : 'text-current'}`} />
       </button>
     </div>
   );

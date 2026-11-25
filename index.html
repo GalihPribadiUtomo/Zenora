@@ -1,19 +1,36 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" data-theme="dark" class="theme-dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/zenora-icon.png" />
     <link rel="apple-touch-icon" href="/zenora-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <meta name="theme-color" content="#7857FF" />
+    <meta name="theme-color" content="#08152F" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ZENORA · Learn • Practice • Master | Platform Belajar Bahasa Jepang & Kanji</title>
     <meta name="description" content="ZENORA — Learn • Practice • Master. Platform pembelajaran bahasa Jepang Minna no Nihongo Bab 1–50 dan 424 Kanji N5 & N4 interaktif dengan 4 contoh kalimat, audio, dan kanvas menulis." />
+    <script>
+      (function () {
+        try {
+          var pref = localStorage.getItem('zenora_theme_preference_v1') || 'dark';
+          var resolved = pref === 'system'
+            ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+            : (pref === 'light' ? 'light' : 'dark');
+          var root = document.documentElement;
+          root.setAttribute('data-theme', resolved);
+          root.classList.remove('theme-dark', 'theme-light');
+          root.classList.add('theme-' + resolved);
+          root.style.colorScheme = resolved;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', resolved === 'light' ? '#F1F6FC' : '#08152F');
+        } catch (e) {}
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Manrope:wght@600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-[#0C1B33] text-[#EEF1F6] antialiased selection:bg-[#8FB4E3] selection:text-[#0C1B33]">
+  <body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

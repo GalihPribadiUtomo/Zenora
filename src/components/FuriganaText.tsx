@@ -576,7 +576,7 @@ export function parseFuriganaElements(
                 }
               : undefined
           }
-          className={`ruby-furigana ${meaning && onLookup ? 'cursor-pointer hover:text-[#69C9DF] transition-colors' : ''}`}
+          className={`ruby-furigana ${meaning && onLookup ? 'cursor-pointer hover:text-[var(--secondary-accent)] transition-colors' : ''}`}
           title={meaning ? `${text} (${directReading}): ${meaning}` : undefined}
         >
           {p.text}
@@ -618,7 +618,7 @@ export function parseFuriganaElements(
                       }
                     : undefined
                 }
-                className={`ruby-furigana ${meaning && onLookup ? 'cursor-pointer hover:text-[#69C9DF] underline decoration-[#3978D6]/30 decoration-dotted underline-offset-4 transition-colors' : ''}`}
+                className={`ruby-furigana ${meaning && onLookup ? 'cursor-pointer hover:text-[var(--secondary-accent)] underline decoration-[#3978D6]/30 decoration-dotted underline-offset-4 transition-colors' : ''}`}
                 title={meaning ? `Klik untuk arti: ${key} (${kana})` : undefined}
               >
                 {p.text}
@@ -654,7 +654,7 @@ export function parseFuriganaElements(
                   }
                 : undefined
             }
-            className={`ruby-furigana ${meaning && onLookup ? 'cursor-pointer hover:text-[#69C9DF] transition-colors' : ''}`}
+            className={`ruby-furigana ${meaning && onLookup ? 'cursor-pointer hover:text-[var(--secondary-accent)] transition-colors' : ''}`}
           >
             {char}
             <rt className="ruby-rt">{fallbackReading}</rt>
@@ -713,37 +713,37 @@ export const FuriganaText: React.FC<FuriganaTextProps> = ({
       <span className={`japanese-text inline leading-relaxed ${className}`}>{renderedElements}</span>
       {lookupInfo && (
         <span
-          className="fixed bottom-5 right-5 z-50 w-72 p-4 rounded-2xl bg-[#111F38] border border-[#3978D6]/50 shadow-[0_15px_40px_rgba(8, 21, 47,0.95)] text-left animate-fade-in block"
+          className="fixed bottom-5 right-5 z-50 w-72 p-4 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/50 shadow-[0_15px_40px_rgba(8, 21, 47,0.95)] text-left animate-fade-in block"
           onClick={(e) => e.stopPropagation()}
         >
           <span className="flex items-start justify-between gap-2 mb-2">
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-[#83B7EE] uppercase">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-[var(--soft-sky)] uppercase">
               <BookOpen className="w-3 h-3" />
               <span>Kamus Cepat</span>
             </span>
             <button
               type="button"
               onClick={() => setLookupInfo(null)}
-              className="p-0.5 rounded-lg text-[#7186A5] hover:text-white"
+              className="p-0.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)]"
             >
               <X className="w-3.5 h-3.5" />
             </button>
           </span>
           <span className="flex items-center justify-between gap-2">
             <span>
-              <span className="block text-xl font-black text-white kanji-font">{lookupInfo.word}</span>
-              <span className="block text-xs font-mono text-[#69C9DF]">{lookupInfo.reading}</span>
+              <span className="block text-xl font-black text-[var(--text-primary)] kanji-font">{lookupInfo.word}</span>
+              <span className="block text-xs font-mono text-[var(--secondary-accent)]">{lookupInfo.reading}</span>
             </span>
             <button
               type="button"
               onClick={() => speakJapanese(lookupInfo.word)}
-              className="p-2 rounded-xl bg-[#172945] text-[#83B7EE] hover:text-white border border-[#3978D6]/30"
+              className="p-2 rounded-xl bg-[var(--bg-elevated)] text-[var(--soft-sky)] hover:text-[var(--text-primary)] border border-[#3978D6]/30"
               title="Dengarkan"
             >
               <Volume2 className="w-4 h-4" />
             </button>
           </span>
-          <span className="block mt-2 pt-2 border-t border-[#3978D6]/20 text-xs font-semibold text-[#F2F6FC]">
+          <span className="block mt-2 pt-2 border-t border-[#3978D6]/20 text-xs font-semibold text-[var(--text-primary)]">
             {lookupInfo.meaning}
           </span>
         </span>

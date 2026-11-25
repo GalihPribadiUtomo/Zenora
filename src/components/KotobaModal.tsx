@@ -45,23 +45,23 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-[#08152F]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-[var(--bg-sidebar)]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl my-auto rounded-3xl bg-[#111F38] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#3978D6]/25 text-[#F2F6FC] overflow-hidden text-left"
+        className="relative w-full max-w-3xl my-auto rounded-3xl bg-[var(--bg-surface)] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-[#3978D6]/25 text-[var(--text-primary)] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Accent Bar */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#08152F] via-[#3978D6] to-[#F2F6FC]" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-[var(--bg-sidebar)] via-[#3978D6] to-[#F2F6FC]" />
 
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#3978D6]/20 bg-[#111F38]/90">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#3978D6]/20 bg-[var(--bg-surface)]/90">
           <div className="flex items-center gap-2.5">
-            <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/30 text-xs font-black uppercase tracking-wider font-mono shadow-xs">
+            <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/30 text-xs font-black uppercase tracking-wider font-mono shadow-xs">
               Bab {word.bab} · #{word.no}
             </span>
-            <span className="inline-flex items-center gap-1 text-xs font-bold text-[#7186A5] bg-[#08152F] px-2.5 py-1 rounded-xl border border-[#3978D6]/25">
+            <span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--text-muted)] bg-[var(--bg-sidebar)] px-2.5 py-1 rounded-xl border border-[#3978D6]/25">
               <Tag className="w-3 h-3 text-[#3978D6]" />
               {word.kategori}
             </span>
@@ -76,7 +76,7 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
               className={`p-2 rounded-xl border transition-all ${
                 isBookmarked
                   ? 'bg-amber-500/20 text-amber-400 fill-amber-400 border-amber-500/40 shadow-2xs'
-                  : 'bg-[#08152F] hover:bg-amber-500/20 text-[#7186A5] hover:text-amber-400 border-[#3978D6]/25'
+                  : 'bg-[var(--bg-sidebar)] hover:bg-amber-500/20 text-[var(--text-muted)] hover:text-amber-400 border-[#3978D6]/25'
               }`}
               title={isBookmarked ? 'Hapus dari favorit' : 'Simpan ke favorit'}
             >
@@ -91,7 +91,7 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                 isLearned
                   ? 'bg-emerald-950/40 text-emerald-300 border border-emerald-500/40 shadow-xs'
-                  : 'bg-[#08152F] hover:bg-emerald-950/30 hover:text-emerald-300 text-[#F2F6FC] border border-[#3978D6]/25'
+                  : 'bg-[var(--bg-sidebar)] hover:bg-emerald-950/30 hover:text-emerald-300 text-[var(--text-primary)] border border-[#3978D6]/25'
               }`}
             >
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
@@ -100,7 +100,7 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-xl hover:bg-[#08152F] text-[#7186A5] hover:text-[#F2F6FC] transition-colors"
+              className="p-1.5 rounded-xl hover:bg-[var(--bg-sidebar)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
               aria-label="Tutup jendela"
             >
               <X className="w-5 h-5" />
@@ -111,9 +111,9 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
         {/* Modal Content Scroll Area */}
         <div className="p-6 sm:p-8 space-y-6 max-h-[82vh] overflow-y-auto">
           {/* Main Word Hero Card */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#172945] via-[#223F6D] to-[#172945] text-[#F2F6FC] border border-[#3978D6]/35 shadow-md relative overflow-hidden">
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-[var(--bg-elevated)] via-[#223F6D] to-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/35 shadow-md relative overflow-hidden">
             {/* Watermark Kanji Background */}
-            <div className="absolute -right-4 -bottom-6 text-[120px] font-black kanji-font text-white/5 pointer-events-none select-none">
+            <div className="absolute -right-4 -bottom-6 text-[120px] font-black kanji-font text-[var(--text-primary)]/5 pointer-events-none select-none">
               {word.kanji || word.kana}
             </div>
 
@@ -122,7 +122,7 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
                 <span className="text-sm font-bold text-[#A8CEFF] japanese-text tracking-wide block mb-1">
                   {word.kana}
                 </span>
-                <h1 className="kanji-font text-4xl sm:text-5xl font-black text-[#F2F6FC] tracking-tight drop-shadow-sm leading-relaxed">
+                <h1 className="kanji-font text-4xl sm:text-5xl font-black text-[var(--text-primary)] tracking-tight drop-shadow-sm leading-relaxed">
                   <FuriganaText text={word.kanji || word.kana} reading={word.kana} />
                 </h1>
                 <p className="text-sm font-semibold text-[#3978D6] mt-1">
@@ -133,7 +133,7 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => speakJapanese(word.kana || word.kanji)}
-                  className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-[#08152F]/80 hover:bg-[#08152F] text-[#F2F6FC] transition-all shadow-xs border border-[#3978D6]/30 active:scale-95"
+                  className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-[var(--bg-sidebar)]/80 hover:bg-[var(--bg-sidebar)] text-[var(--text-primary)] transition-all shadow-xs border border-[#3978D6]/30 active:scale-95"
                   title="Dengarkan pelafalan kosakata"
                 >
                   <Volume2 className="w-5 h-5 text-[#3978D6]" />
@@ -144,7 +144,7 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
 
             <div className="mt-4 pt-4 border-t border-[#3978D6]/20 relative z-10">
               <span className="text-xs text-[#3978D6] font-medium block">Arti Bahasa Indonesia:</span>
-              <p className="text-xl sm:text-2xl font-black text-[#F2F6FC] font-['Manrope'] mt-0.5">
+              <p className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-['Manrope'] mt-0.5">
                 {word.arti}
               </p>
             </div>
@@ -154,16 +154,16 @@ export const KotobaModal: React.FC<KotobaModalProps> = ({
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#3978D6]/20 pb-3">
               <div>
-                <h3 className="text-base font-extrabold text-[#F2F6FC] flex items-center gap-2 font-['Manrope']">
+                <h3 className="text-base font-extrabold text-[var(--text-primary)] flex items-center gap-2 font-['Manrope']">
                   <BookOpen className="w-4 h-4 text-[#3978D6]" />
                   <span>4 Contoh Kalimat Kosakata 「{word.kanji || word.kana}」</span>
                 </h3>
-                <p className="text-xs text-[#7186A5] mt-0.5">
+                <p className="text-xs text-[var(--text-muted)] mt-0.5">
                   Tersusun dalam 4 kartu (01, 02, 03, 04) dengan furigana, romaji, terjemahan EN & ID, serta audio pelafalan.
                 </p>
               </div>
 
-              <span className="self-start sm:self-auto px-3 py-1 rounded-full bg-[#08152F] border border-[#3978D6]/25 text-[#3978D6] text-xs font-black font-mono">
+              <span className="self-start sm:self-auto px-3 py-1 rounded-full bg-[var(--bg-sidebar)] border border-[#3978D6]/25 text-[#3978D6] text-xs font-black font-mono">
                 4 Contoh Kalimat
               </span>
             </div>

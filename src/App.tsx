@@ -20,6 +20,15 @@ import { getInitialStats, saveStats, incrementDailyActivity } from './utils/stor
 import { supabase, isSupabaseConfigured } from './lib/supabase';
 import { syncAllToCloud, pullAndMergeFromCloud } from './services/syncService';
 import { checkAndGenerateStudyNotifications } from './utils/notificationService';
+import {
+  ThemePreference,
+  ResolvedTheme,
+  getStoredThemePreference,
+  saveThemePreference,
+  resolveTheme,
+  applyThemeToDocument,
+  syncThemeToSupabase
+} from './utils/themeService';
 import { X, Lock } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
 
@@ -27,7 +36,43 @@ export function App() {
   const [activeTab, setActiveTab] = useState<'beranda' | 'kana' | 'kotoba' | 'kanji' | 'ssw' | 'latihan' | 'analitik' | 'profil' | 'admin'>('beranda');
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
+  const [themePreference, setThemePreference] = useState<ThemePreference>(() => getStoredThemePreference());
+  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() => resolveTheme(getStoredThemePreference()));
+  const darkMode = resolvedTheme === 'dark';
+
+  const handleChangeThemePreference = useCallback((nextPref: ThemePreference) => {
+    setThemePreference(nextPref);
+    saveThemePreference(nextPref);
+    const nextResolved = resolveTheme(nextPref);
+    setResolvedTheme(nextResolved);
+    applyThemeToDocument(nextResolved);
+    syncThemeToSupabase(nextPref);
+  }, []);
+
+  const handleToggleDarkMode = useCallback(() => {
+    handleChangeThemePreference(resolvedTheme === 'dark' ? 'light' : 'dark');
+  }, [resolvedTheme, handleChangeThemePreference]);
+
+  // Apply theme immediately and listen for OS system theme changes when preference === 'system'
+  useEffect(() => {
+    const nextResolved = resolveTheme(themePreference);
+    setResolvedTheme(nextResolved);
+    applyThemeToDocument(nextResolved);
+
+    if (themePreference !== 'system' || typeof window === 'undefined' || !window.matchMedia) {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const onSystemChange = () => {
+      const updated = resolveTheme('system');
+      setResolvedTheme(updated);
+      applyThemeToDocument(updated);
+    };
+
+    mediaQuery.addEventListener('change', onSystemChange);
+    return () => mediaQuery.removeEventListener('change', onSystemChange);
+  }, [themePreference]);
   
   // Modals state
   const [searchOpen, setSearchOpen] = useState(false);
@@ -86,6 +131,14 @@ export function App() {
   useEffect(() => {
     if (user) {
       handleCloudSync(user);
+      const cloudTheme = user.user_metadata?.zenora_theme;
+      if (cloudTheme === 'dark' || cloudTheme === 'light' || cloudTheme === 'system') {
+        const localStored = localStorage.getItem('zenora_theme_preference_v1');
+        if (!localStored) {
+          setThemePreference(cloudTheme);
+          saveThemePreference(cloudTheme);
+        }
+      }
       if (isUserAdminRole(user)) {
         setIsAdminMode(true);
         setAdminAuthenticated(true);
@@ -262,7 +315,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#08152F] text-[#F2F6FC] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#3978D6] selection:text-white antialiased">
+    <div className="min-h-screen flex bg-[var(--bg-base)] text-[var(--text-primary)] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[var(--primary)] selection:text-white antialiased transition-colors duration-200">
       
       {/* 1. DESKTOP SIDEBAR (Persistent Across All Tabs) */}
       <div className="hidden lg:block shrink-0">
@@ -275,7 +328,9 @@ export function App() {
           onOpenAuth={() => setAuthOpen(true)}
           user={user}
           darkMode={darkMode}
-          onToggleDarkMode={() => setDarkMode(!darkMode)}
+          onToggleDarkMode={handleToggleDarkMode}
+          themePreference={themePreference}
+          onChangeThemePreference={handleChangeThemePreference}
           isAdminMode={isAdminMode}
           onOpenAdminAuth={handleOpenAdminAuth}
           onExitAdminMode={handleExitAdminMode}
@@ -288,15 +343,15 @@ export function App() {
           {/* Backdrop */}
           <div 
             onClick={() => setMobileDrawerOpen(false)}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 modal-backdrop"
           />
 
           {/* Drawer Sidebar */}
-          <div className="relative w-72 max-w-[85vw] h-full bg-[#08152F] z-10 flex flex-col shadow-2xl animate-drawer-slide">
+          <div className="relative w-72 max-w-[85vw] h-full bg-[var(--bg-sidebar)] z-10 flex flex-col shadow-2xl animate-drawer-slide">
             <div className="p-4 flex justify-end">
               <button
                 onClick={() => setMobileDrawerOpen(false)}
-                className="p-2 rounded-xl bg-[#111F38] border border-[#3978D6]/30 text-[#A9BBD3]"
+                className="p-2 rounded-xl bg-[var(--bg-surface)] border border-[var(--border)] text-[var(--text-secondary)]"
                 aria-label="Tutup Menu"
               >
                 <X className="w-5 h-5" />
@@ -316,7 +371,9 @@ export function App() {
                 }}
                 user={user}
                 darkMode={darkMode}
-                onToggleDarkMode={() => setDarkMode(!darkMode)}
+                onToggleDarkMode={handleToggleDarkMode}
+                themePreference={themePreference}
+                onChangeThemePreference={handleChangeThemePreference}
                 isAdminMode={isAdminMode}
                 onOpenAdminAuth={handleOpenAdminAuth}
                 onExitAdminMode={handleExitAdminMode}
@@ -364,6 +421,7 @@ export function App() {
               learnedKanjiCount={stats.learnedKanjiIds.length}
               streakDays={stats.streakDays}
               stats={stats}
+              darkMode={darkMode}
               onSelectKanji={handleSelectKanji}
               onRecordActivity={handleRecordActivityCount}
               onSelectChapter={(bab) => {
@@ -450,7 +508,9 @@ export function App() {
                 setActiveTab(tab as any);
               }}
               darkMode={darkMode}
-              onToggleDarkMode={() => setDarkMode(!darkMode)}
+              onToggleDarkMode={handleToggleDarkMode}
+              themePreference={themePreference}
+              onChangeThemePreference={handleChangeThemePreference}
               isAdminMode={isAdminMode}
               onOpenAdminAuth={handleOpenAdminAuth}
               onExitAdminMode={handleExitAdminMode}

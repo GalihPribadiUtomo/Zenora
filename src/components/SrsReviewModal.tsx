@@ -77,26 +77,26 @@ export const SrsReviewModal: React.FC<SrsReviewModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-3 sm:p-5 py-6 sm:py-8 bg-[#08152F]/90 backdrop-blur-md overflow-y-auto animate-fade-in"
+      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-3 sm:p-5 py-6 sm:py-8 bg-[var(--bg-sidebar)]/90 backdrop-blur-md overflow-y-auto animate-fade-in"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-xl my-auto rounded-3xl bg-[#111F38] border border-[#3978D6]/35 shadow-[0_25px_70px_rgba(8, 21, 47,0.95)] text-[#F2F6FC] overflow-hidden text-left"
+        className="relative w-full max-w-xl my-auto rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/35 shadow-[0_25px_70px_rgba(8, 21, 47,0.95)] text-[var(--text-primary)] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="h-1.5 w-full bg-gradient-to-r from-[#3978D6] via-[#69C9DF] to-[#45C6A5]" />
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#3978D6]/20 bg-[#08152F]/80">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#3978D6]/20 bg-[var(--bg-sidebar)]/80">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-[#3978D6]/20 border border-[#3978D6]/40 text-[#83B7EE]">
+            <div className="p-2 rounded-xl bg-[#3978D6]/20 border border-[#3978D6]/40 text-[var(--soft-sky)]">
               <Brain className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-sm font-black text-white font-['Manrope']">
+              <h3 className="text-sm font-black text-[var(--text-primary)] font-['Manrope']">
                 Sistem Review Spasi (SRS)
               </h3>
-              <p className="text-[11px] text-[#A9BBD3]">
+              <p className="text-[11px] text-[var(--text-secondary)]">
                 {isFinished
                   ? 'Semua jadwal review hari ini selesai'
                   : `Kartu ${currentIndex + 1} dari ${dueQueue.length} · Antrean Aktif`}
@@ -106,7 +106,7 @@ export const SrsReviewModal: React.FC<SrsReviewModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl hover:bg-[#172945] text-[#A9BBD3] hover:text-white transition-colors"
+            className="p-1.5 rounded-xl hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             aria-label="Tutup SRS"
           >
             <X className="w-5 h-5" />
@@ -121,10 +121,10 @@ export const SrsReviewModal: React.FC<SrsReviewModalProps> = ({
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <div>
-                <h4 className="text-2xl font-black text-white font-['Manrope']">
+                <h4 className="text-2xl font-black text-[var(--text-primary)] font-['Manrope']">
                   {reviewedCount > 0 ? 'Review SRS Selesai!' : 'Tidak Ada Antrean Jatuh Tempo'}
                 </h4>
-                <p className="text-xs sm:text-sm text-[#A9BBD3] mt-1.5 max-w-sm mx-auto">
+                <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1.5 max-w-sm mx-auto">
                   {reviewedCount > 0
                     ? `Anda berhasil mengulas ${reviewedCount} kartu (${rememberedCount} diingat dengan baik). Jadwal review berikutnya sudah disesuaikan otomatis.`
                     : 'Semua kartu yang Anda pelajari masih dalam masa retensi optimal. Tandai lebih banyak materi atau kembali lagi nanti!'}
@@ -141,39 +141,39 @@ export const SrsReviewModal: React.FC<SrsReviewModalProps> = ({
             <div className="space-y-6">
               {/* Type & Level Meta */}
               <div className="flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded-lg bg-[#172945] border border-[#3978D6]/30 text-[11px] font-bold uppercase font-mono text-[#83B7EE]">
+                <span className="px-2.5 py-1 rounded-lg bg-[var(--bg-elevated)] border border-[#3978D6]/30 text-[11px] font-bold uppercase font-mono text-[var(--soft-sky)]">
                   {currentItem.type === 'kana' ? 'Kana' : currentItem.type === 'kanji' ? 'Kanji' : 'Kosakata'}
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#A9BBD3]">
-                  <Clock className="w-3.5 h-3.5 text-[#69C9DF]" />
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[var(--text-secondary)]">
+                  <Clock className="w-3.5 h-3.5 text-[var(--secondary-accent)]" />
                   <span>{SRS_LEVEL_LABELS[currentItem.level] || 'Baru'}</span>
                 </span>
               </div>
 
               {/* Front Card */}
-              <div className="relative p-8 rounded-3xl bg-[#08152F] border border-[#3978D6]/30 text-center shadow-inner">
+              <div className="relative p-8 rounded-3xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-center shadow-inner">
                 <button
                   onClick={() => speakJapanese(currentItem.front)}
-                  className="absolute top-4 right-4 p-2 rounded-xl bg-[#172945] hover:bg-[#111F38] text-[#83B7EE] border border-[#3978D6]/30 transition-colors"
+                  className="absolute top-4 right-4 p-2 rounded-xl bg-[var(--bg-elevated)] hover:bg-[var(--bg-surface)] text-[var(--soft-sky)] border border-[#3978D6]/30 transition-colors"
                   title="Putar Audio"
                 >
                   <Volume2 className="w-4 h-4" />
                 </button>
 
-                <div className="kanji-font text-5xl sm:text-6xl font-black text-white select-none">
+                <div className="kanji-font text-5xl sm:text-6xl font-black text-[var(--text-primary)] select-none">
                   {currentItem.front}
                 </div>
 
                 {!isRevealed ? (
-                  <p className="text-xs text-[#7186A5] mt-4">
+                  <p className="text-xs text-[var(--text-muted)] mt-4">
                     Ingat cara baca & artinya dalam hati, lalu buka jawaban.
                   </p>
                 ) : (
                   <div className="mt-5 pt-5 border-t border-[#3978D6]/20 space-y-2 animate-fade-in">
-                    <div className="text-base font-bold text-[#69C9DF] font-mono">
+                    <div className="text-base font-bold text-[var(--secondary-accent)] font-mono">
                       {currentItem.reading}
                     </div>
-                    <div className="text-sm font-semibold text-white">
+                    <div className="text-sm font-semibold text-[var(--text-primary)]">
                       {currentItem.meaning}
                     </div>
                     <div className="inline-flex items-center gap-1 text-[10px] font-mono text-[#45C6A5] bg-[#45C6A5]/10 px-2.5 py-0.5 rounded-full">
@@ -199,7 +199,7 @@ export const SrsReviewModal: React.FC<SrsReviewModalProps> = ({
                 </button>
               ) : (
                 <div className="space-y-2">
-                  <p className="text-[11px] font-bold text-center text-[#A9BBD3] uppercase tracking-wider">
+                  <p className="text-[11px] font-bold text-center text-[var(--text-secondary)] uppercase tracking-wider">
                     Seberapa mudah Anda mengingat kartu ini?
                   </p>
                   <div className="grid grid-cols-4 gap-2">
