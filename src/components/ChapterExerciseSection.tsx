@@ -25,7 +25,9 @@ import {
   Sparkles,
   ChevronLeft,
   Flame,
-  Eraser
+  Eraser,
+  Play,
+  HelpCircle
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { 
@@ -73,6 +75,48 @@ const ICON_COMPONENTS: Record<string, React.FC<{ className?: string }>> = {
   Clock,
   RotateCcw,
   Award
+};
+
+const getCategoryMeta = (category: string) => {
+  switch (category) {
+    case 'Dasar':
+      return {
+        badgeBg: 'bg-gradient-to-br from-cyan-500 to-blue-600',
+        badgeShadow: 'shadow-[0_0_18px_rgba(6,182,212,0.4)]',
+        badgeBorder: 'border-cyan-300/30',
+        pillBg: 'bg-cyan-500/15 text-cyan-300 border-cyan-400/30',
+        pillIcon: Sparkles,
+        hoverBorder: 'hover:border-cyan-400/60'
+      };
+    case 'Tata Bahasa':
+      return {
+        badgeBg: 'bg-gradient-to-br from-[#7857FF] to-[#945CFF]',
+        badgeShadow: 'shadow-[0_0_18px_rgba(120,87,255,0.4)]',
+        badgeBorder: 'border-purple-300/30',
+        pillBg: 'bg-[#7857FF]/15 text-[#D8B4FE] border-[#7857FF]/30',
+        pillIcon: BookOpen,
+        hoverBorder: 'hover:border-[#7857FF]/60'
+      };
+    case 'Keterampilan':
+      return {
+        badgeBg: 'bg-gradient-to-br from-emerald-500 to-teal-600',
+        badgeShadow: 'shadow-[0_0_18px_rgba(16,185,129,0.4)]',
+        badgeBorder: 'border-emerald-300/30',
+        pillBg: 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30',
+        pillIcon: PenTool,
+        hoverBorder: 'hover:border-emerald-400/60'
+      };
+    case 'Ujian & Review':
+    default:
+      return {
+        badgeBg: 'bg-gradient-to-br from-amber-500 to-rose-600',
+        badgeShadow: 'shadow-[0_0_18px_rgba(245,158,11,0.4)]',
+        badgeBorder: 'border-amber-300/30',
+        pillBg: 'bg-amber-500/15 text-amber-300 border-amber-400/30',
+        pillIcon: Award,
+        hoverBorder: 'hover:border-amber-400/60'
+      };
+  }
 };
 
 export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
@@ -787,22 +831,33 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
 
         {/* Category Filter Pills */}
         <div className="flex flex-wrap items-center gap-2 mt-6 pt-4 border-t border-[#7857FF]/20">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                sound.playClick();
-                setSelectedCategory(cat);
-              }}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                selectedCategory === cat
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-md'
-                  : 'bg-[#0D1238] hover:bg-[#12194A] text-[#737FA8] border border-[#7857FF]/20'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {categories.map((cat) => {
+            const getFilterIcon = () => {
+              if (cat === 'Semua') return Layers;
+              if (cat === 'Dasar') return Sparkles;
+              if (cat === 'Tata Bahasa') return BookOpen;
+              if (cat === 'Keterampilan') return PenTool;
+              return Award;
+            };
+            const FilterIcon = getFilterIcon();
+            return (
+              <button
+                key={cat}
+                onClick={() => {
+                  sound.playClick();
+                  setSelectedCategory(cat);
+                }}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                  selectedCategory === cat
+                    ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-md'
+                    : 'bg-[#0D1238] hover:bg-[#12194A] text-[#737FA8] hover:text-white border border-[#7857FF]/20'
+                }`}
+              >
+                <FilterIcon className="w-3.5 h-3.5" />
+                <span>{cat}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -810,38 +865,59 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredModes.map((meta) => {
           const IconComp = ICON_COMPONENTS[meta.icon] || Sparkles;
+          const catMeta = getCategoryMeta(meta.category);
+          const CatIcon = catMeta.pillIcon;
+
           return (
             <div
               key={meta.id}
               onClick={() => handleStartMode(meta.id)}
-              className="group relative overflow-hidden rounded-2xl bg-[#0D1238] hover:bg-[#12194A] border border-[#7857FF]/20 hover:border-[#7857FF]/50 p-5 cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(8,13,43,0.5)] flex flex-col justify-between"
+              className={`group relative overflow-hidden rounded-3xl bg-[#0D1238] hover:bg-[#12194A] border border-[#7857FF]/25 ${catMeta.hoverBorder} p-5 sm:p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(8,13,43,0.7)] flex flex-col justify-between`}
             >
+              {/* Top ambient glow on hover */}
+              <div className={`absolute top-0 right-0 w-36 h-36 ${catMeta.badgeBg} opacity-5 blur-2xl pointer-events-none group-hover:opacity-20 transition-opacity`} />
+
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] border border-[#7857FF]/30 flex items-center justify-center text-[#7857FF] shadow-xs group-hover:scale-105 transition-transform`}>
-                    <IconComp className="w-5 h-5" />
+                <div className="flex items-center justify-between mb-4">
+                  {/* High-contrast crisp icon badge */}
+                  <div className={`w-12 h-12 rounded-2xl ${catMeta.badgeBg} ${catMeta.badgeShadow} border ${catMeta.badgeBorder} flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200`}>
+                    <IconComp className="w-6 h-6 text-white stroke-[2.2] drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]" />
                   </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#080D2B] text-[#737FA8] border border-[#7857FF]/20">
-                    {meta.category}
+
+                  {/* Category Pill with Icon */}
+                  <span className={`text-[11px] font-mono font-bold px-2.5 py-1 rounded-full border flex items-center gap-1.5 ${catMeta.pillBg}`}>
+                    <CatIcon className="w-3 h-3" />
+                    <span>{meta.category}</span>
                   </span>
                 </div>
 
-                <div className="text-[11px] font-mono text-[#7857FF] font-bold">
+                {/* Japanese title tag */}
+                <div className="text-xs font-mono font-black text-[#945CFF] tracking-wider uppercase mb-1">
                   {meta.jpName}
                 </div>
-                <h3 className="text-base font-bold text-[#F5F6FF] group-hover:text-[#7857FF] transition-colors mt-0.5">
+
+                {/* Mode name */}
+                <h3 className="text-base sm:text-lg font-black text-[#F5F6FF] group-hover:text-white transition-colors font-['Manrope']">
                   {meta.name}
                 </h3>
-                <p className="text-xs text-[#737FA8] mt-2 leading-relaxed">
+
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-[#AAB3D5] mt-2 leading-relaxed">
                   {meta.description}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#7857FF]/15 flex items-center justify-between">
-                <span className="text-[11px] font-bold text-[#7857FF] group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                  Mulai Latihan &rarr;
+              {/* Action Footer with Icons */}
+              <div className="mt-5 pt-3.5 border-t border-[#7857FF]/15 flex items-center justify-between">
+                <span className="text-xs font-black text-[#D8B4FE] group-hover:text-white group-hover:translate-x-1 transition-all flex items-center gap-1.5">
+                  <Play className="w-3.5 h-3.5 fill-current text-[#7857FF] group-hover:text-white transition-colors" />
+                  <span>Mulai Latihan</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#7857FF] group-hover:text-white group-hover:translate-x-0.5 transition-all" />
                 </span>
-                <span className="text-[10px] text-[#737FA8]">10 Soal</span>
+                <span className="text-[11px] font-mono text-[#737FA8] flex items-center gap-1">
+                  <HelpCircle className="w-3 h-3 text-[#7857FF]/70" />
+                  <span>10 Soal</span>
+                </span>
               </div>
             </div>
           );

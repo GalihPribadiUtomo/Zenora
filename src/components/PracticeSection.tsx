@@ -10,7 +10,9 @@ import {
   RotateCcw, 
   Volume2, 
   Sparkles,
-  BookOpen
+  BookOpen,
+  CheckSquare,
+  Play
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { KOTOBA_DATA } from '../data/kotobaData';
@@ -463,22 +465,22 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('multiple-choice');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.4)] ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.4)] group hover:-translate-y-1 ${
                 mode === 'multiple-choice'
-                  ? 'border-[#7857FF] ring-2 ring-[#7857FF]/30 bg-[#12194A] shadow-[0_0_20px_rgba(120,87,255,0.2)]'
-                  : 'border-[#7857FF]/20 bg-[#0D1238] hover:border-[#7857FF]/50'
+                  ? 'border-sky-400 ring-2 ring-sky-400/30 bg-[#12194A] shadow-[0_0_25px_rgba(14,165,233,0.3)]'
+                  : 'border-[#7857FF]/20 bg-[#0D1238] hover:border-sky-400/50'
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#080D2B] border border-[#7857FF]/30 flex items-center justify-center text-[#7857FF] mb-3">
-                  <Award className="w-6 h-6 text-[#7857FF]" />
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 border border-cyan-300/30 flex items-center justify-center text-white shadow-[0_0_18px_rgba(6,182,212,0.4)] mb-3 group-hover:scale-110 transition-transform">
+                  <CheckSquare className="w-6 h-6 text-white stroke-[2.2] drop-shadow-sm" />
                 </div>
-                <h3 className="font-extrabold text-base text-[#F5F6FF] mb-1 font-['Manrope']">Pilihan Ganda</h3>
+                <h3 className="font-extrabold text-base text-[#F5F6FF] group-hover:text-white mb-1 font-['Manrope']">Pilihan Ganda</h3>
                 <p className="text-xs text-[#737FA8] leading-relaxed">
                   Pilih arti yang tepat dari 4 pilihan yang disajikan.
                 </p>
               </div>
-              <span className={`text-[11px] font-bold mt-4 ${mode === 'multiple-choice' ? 'text-[#7857FF]' : 'text-[#737FA8]/60'}`}>
+              <span className={`text-[11px] font-bold mt-4 flex items-center gap-1 ${mode === 'multiple-choice' ? 'text-sky-400' : 'text-[#737FA8]/60'}`}>
                 {mode === 'multiple-choice' ? '✓ Terpilih' : 'Pilih mode'}
               </span>
             </div>
@@ -489,22 +491,22 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('flashcard');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.4)] ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.4)] group hover:-translate-y-1 ${
                 mode === 'flashcard'
-                  ? 'border-[#7857FF] ring-2 ring-[#7857FF]/30 bg-[#12194A] shadow-[0_0_20px_rgba(120,87,255,0.2)]'
+                  ? 'border-[#7857FF] ring-2 ring-[#7857FF]/30 bg-[#12194A] shadow-[0_0_25px_rgba(120,87,255,0.3)]'
                   : 'border-[#7857FF]/20 bg-[#0D1238] hover:border-[#7857FF]/50'
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#080D2B] border border-[#7857FF]/30 flex items-center justify-center text-[#7857FF] mb-3">
-                  <Layers className="w-6 h-6 text-[#7857FF]" />
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#7857FF] to-[#945CFF] border border-purple-300/30 flex items-center justify-center text-white shadow-[0_0_18px_rgba(120,87,255,0.4)] mb-3 group-hover:scale-110 transition-transform">
+                  <Layers className="w-6 h-6 text-white stroke-[2.2] drop-shadow-sm" />
                 </div>
-                <h3 className="font-extrabold text-base text-[#F5F6FF] mb-1 font-['Manrope']">Kartu Hafalan</h3>
+                <h3 className="font-extrabold text-base text-[#F5F6FF] group-hover:text-white mb-1 font-['Manrope']">Kartu Hafalan</h3>
                 <p className="text-xs text-[#737FA8] leading-relaxed">
                   Balik kartu, lalu tandai hafal atau belum untuk spaced repetition.
                 </p>
               </div>
-              <span className={`text-[11px] font-bold mt-4 ${mode === 'flashcard' ? 'text-[#7857FF]' : 'text-[#737FA8]/60'}`}>
+              <span className={`text-[11px] font-bold mt-4 flex items-center gap-1 ${mode === 'flashcard' ? 'text-[#D8B4FE]' : 'text-[#737FA8]/60'}`}>
                 {mode === 'flashcard' ? '✓ Terpilih' : 'Pilih mode'}
               </span>
             </div>
@@ -515,22 +517,22 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('matching');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.4)] ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.4)] group hover:-translate-y-1 ${
                 mode === 'matching'
-                  ? 'border-[#7857FF] ring-2 ring-[#7857FF]/30 bg-[#12194A] shadow-[0_0_20px_rgba(120,87,255,0.2)]'
-                  : 'border-[#7857FF]/20 bg-[#0D1238] hover:border-[#7857FF]/50'
+                  ? 'border-fuchsia-500 ring-2 ring-fuchsia-500/30 bg-[#12194A] shadow-[0_0_25px_rgba(217,70,239,0.3)]'
+                  : 'border-[#7857FF]/20 bg-[#0D1238] hover:border-fuchsia-500/50'
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#080D2B] border border-[#7857FF]/30 flex items-center justify-center text-[#7857FF] mb-3">
-                  <Shuffle className="w-6 h-6 text-[#7857FF]" />
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-pink-600 border border-pink-300/30 flex items-center justify-center text-white shadow-[0_0_18px_rgba(217,70,239,0.4)] mb-3 group-hover:scale-110 transition-transform">
+                  <Shuffle className="w-6 h-6 text-white stroke-[2.2] drop-shadow-sm" />
                 </div>
-                <h3 className="font-extrabold text-base text-[#F5F6FF] mb-1 font-['Manrope']">Menjodohkan</h3>
+                <h3 className="font-extrabold text-base text-[#F5F6FF] group-hover:text-white mb-1 font-['Manrope']">Menjodohkan</h3>
                 <p className="text-xs text-[#737FA8] leading-relaxed">
                   Pasangkan kata Jepang dengan terjemahan artinya secara langsung.
                 </p>
               </div>
-              <span className={`text-[11px] font-bold mt-4 ${mode === 'matching' ? 'text-[#7857FF]' : 'text-[#737FA8]/60'}`}>
+              <span className={`text-[11px] font-bold mt-4 flex items-center gap-1 ${mode === 'matching' ? 'text-fuchsia-400' : 'text-[#737FA8]/60'}`}>
                 {mode === 'matching' ? '✓ Terpilih' : 'Pilih mode'}
               </span>
             </div>
@@ -541,22 +543,22 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('typing');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.4)] ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,13,43,0.4)] group hover:-translate-y-1 ${
                 mode === 'typing'
-                  ? 'border-emerald-500 ring-2 ring-emerald-500/30 bg-[#12194A] shadow-[0_0_20px_rgba(16,185,129,0.2)]'
+                  ? 'border-emerald-500 ring-2 ring-emerald-500/30 bg-[#12194A] shadow-[0_0_25px_rgba(16,185,129,0.3)]'
                   : 'border-[#7857FF]/20 bg-[#0D1238] hover:border-emerald-500/40'
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-3">
-                  <Keyboard className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 border border-emerald-300/30 flex items-center justify-center text-white shadow-[0_0_18px_rgba(16,185,129,0.4)] mb-3 group-hover:scale-110 transition-transform">
+                  <Keyboard className="w-6 h-6 text-white stroke-[2.2] drop-shadow-sm" />
                 </div>
-                <h3 className="font-extrabold text-base text-[#F5F6FF] mb-1 font-['Manrope']">Ketik Romaji</h3>
+                <h3 className="font-extrabold text-base text-[#F5F6FF] group-hover:text-white mb-1 font-['Manrope']">Ketik Romaji</h3>
                 <p className="text-xs text-[#737FA8] leading-relaxed">
                   Baca kata Jepang, lalu ketik romajinya untuk melatih kecepatan.
                 </p>
               </div>
-              <span className={`text-[11px] font-bold mt-4 ${mode === 'typing' ? 'text-emerald-400' : 'text-[#737FA8]/60'}`}>
+              <span className={`text-[11px] font-bold mt-4 flex items-center gap-1 ${mode === 'typing' ? 'text-emerald-400' : 'text-[#737FA8]/60'}`}>
                 {mode === 'typing' ? '✓ Terpilih' : 'Pilih mode'}
               </span>
             </div>
