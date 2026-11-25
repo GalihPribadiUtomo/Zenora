@@ -31,36 +31,36 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
       level: 'N5', 
       name: 'Pemula', 
       count: KANJI_DATA.filter(k => k.jlpt === 'N5').length, 
-      color: 'from-[#0D1238] to-[#12194A]', 
-      bg: 'bg-[#12194A] text-[#7857FF]' 
+      color: 'from-[#111F38] to-[#172945]', 
+      bg: 'bg-[#172945] text-[#3978D6]' 
     },
     { 
       level: 'N4', 
       name: 'Dasar', 
       count: KANJI_DATA.filter(k => k.jlpt === 'N4').length, 
-      color: 'from-[#7857FF] to-[#945CFF]', 
-      bg: 'bg-[#0D1238] text-[#7857FF]' 
+      color: 'from-[#2456A6] to-[#3978D6]', 
+      bg: 'bg-[#111F38] text-[#3978D6]' 
     },
     { 
       level: 'N3', 
       name: 'Menengah', 
       count: KANJI_DATA.filter(k => k.jlpt === 'N3').length, 
-      color: 'from-[#12194A] to-[#7857FF]', 
-      bg: 'bg-[#0D1238] text-[#AAB3D5]' 
+      color: 'from-[#172945] to-[#3978D6]', 
+      bg: 'bg-[#111F38] text-[#A9BBD3]' 
     },
     { 
       level: 'N2', 
       name: 'Menengah Atas', 
       count: KANJI_DATA.filter(k => k.jlpt === 'N2').length, 
-      color: 'from-[#0D1238] to-[#1D245E]', 
-      bg: 'bg-[#080D2B] text-[#F5F6FF]' 
+      color: 'from-[#111F38] to-[#1D245E]', 
+      bg: 'bg-[#08152F] text-[#F2F6FC]' 
     },
     { 
       level: 'N1', 
       name: 'Mahir', 
       count: KANJI_DATA.filter(k => k.jlpt === 'N1').length, 
-      color: 'from-[#0D1238] via-[#12194A] to-[#7857FF]', 
-      bg: 'bg-[#12194A] text-[#7857FF]' 
+      color: 'from-[#111F38] via-[#172945] to-[#3978D6]', 
+      bg: 'bg-[#172945] text-[#3978D6]' 
     },
   ];
 
@@ -99,16 +99,16 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
     <div className="space-y-8 text-left pb-16">
       
       {/* Hero Header */}
-      <div className="bg-gradient-to-br from-[#080D2B] via-[#0D1238] to-[#12194A] rounded-3xl border border-[#7857FF]/25 shadow-[0_20px_60px_-15px_rgba(8,13,43,0.9)] p-6 sm:p-8">
+      <div className="bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#172945] rounded-3xl border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.9)] p-6 sm:p-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0D1238] border border-[#7857FF]/30 text-[#7857FF] text-xs font-black uppercase tracking-wider mb-2 font-mono">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#111F38] border border-[#3978D6]/30 text-[#3978D6] text-xs font-black uppercase tracking-wider mb-2 font-mono">
               Kanji Hub · {KANJI_DATA.length} Kanji Lengkap N5 & N4
             </div>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#F5F6FF] tracking-tight flex items-center gap-3 font-['Manrope']">
+            <h1 className="text-3xl sm:text-4xl font-black text-[#F2F6FC] tracking-tight flex items-center gap-3 font-['Manrope']">
               Kanji · 漢字
             </h1>
-            <p className="text-[#737FA8] text-sm mt-1">
+            <p className="text-[#7186A5] text-sm mt-1">
               Pelajari {KANJI_DATA.length} Kanji dengan panduan cara nulis berurutan, sistem bacaan lengkap Onyomi & Kunyomi, dan kanvas jiplak interaktif.
             </p>
           </div>
@@ -116,13 +116,13 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
           {/* Search */}
           <div className="flex items-center gap-3">
             <div className="relative w-full md:w-80">
-              <Search className="w-4 h-4 text-[#737FA8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#7186A5] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Cari Kanji (karakter, On, Kun, arti)..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-sm text-[#F5F6FF] placeholder-[#737FA8] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/30 focus:border-[#7857FF] transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[#08152F]/80 border border-[#3978D6]/25 text-sm text-[#F2F6FC] placeholder-[#7186A5] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/30 focus:border-[#3978D6] transition-all"
               />
             </div>
           </div>
@@ -132,13 +132,13 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
       {/* JLPT LEVEL CARDS */}
       <div>
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xs font-bold text-[#737FA8] uppercase tracking-wider">
+          <h3 className="text-xs font-bold text-[#7186A5] uppercase tracking-wider">
             Pilih Level JLPT
           </h3>
           {selectedLevel !== 'ALL' && (
             <button
               onClick={() => setSelectedLevel('ALL')}
-              className="text-xs font-bold text-[#7857FF] hover:text-[#F5F6FF] transition-colors"
+              className="text-xs font-bold text-[#3978D6] hover:text-[#F2F6FC] transition-colors"
             >
               Lihat Semua Level ({KANJI_DATA.length} Kanji)
             </button>
@@ -158,34 +158,34 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                   sound.playClick();
                   setSelectedLevel(isSelected ? 'ALL' : (lvl.level as JLPTLevel));
                 }}
-                className={`p-4 rounded-3xl cursor-pointer border transition-all text-left relative overflow-hidden group shadow-[0_4px_16px_rgba(8,13,43,0.4)] ${
+                className={`p-4 rounded-3xl cursor-pointer border transition-all text-left relative overflow-hidden group shadow-[0_4px_16px_rgba(8, 21, 47,0.4)] ${
                   isSelected 
-                    ? 'border-[#7857FF] ring-2 ring-[#7857FF]/30 bg-[#12194A]' 
-                    : 'border-[#7857FF]/20 bg-[#0D1238] hover:border-[#7857FF]/50'
+                    ? 'border-[#3978D6] ring-2 ring-[#3978D6]/30 bg-[#172945]' 
+                    : 'border-[#3978D6]/20 bg-[#111F38] hover:border-[#3978D6]/50'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className={`px-2.5 py-1 rounded-xl text-xs font-black bg-gradient-to-r ${lvl.color} text-[#F5F6FF] border border-[#7857FF]/30 shadow-xs`}>
+                  <span className={`px-2.5 py-1 rounded-xl text-xs font-black bg-gradient-to-r ${lvl.color} text-[#F2F6FC] border border-[#3978D6]/30 shadow-xs`}>
                     {lvl.level}
                   </span>
-                  <span className="text-[11px] font-bold text-[#737FA8]">
+                  <span className="text-[11px] font-bold text-[#7186A5]">
                     {lvl.name}
                   </span>
                 </div>
 
                 <div className="mt-2">
-                  <div className="text-2xl font-black text-[#F5F6FF] font-['Manrope']">
-                    {totalInLevel} <span className="text-xs font-bold text-[#737FA8]">Kanji</span>
+                  <div className="text-2xl font-black text-[#F2F6FC] font-['Manrope']">
+                    {totalInLevel} <span className="text-xs font-bold text-[#7186A5]">Kanji</span>
                   </div>
                   
                   {/* Progress bar */}
-                  <div className="mt-2 w-full bg-[#080D2B] border border-[#7857FF]/15 rounded-full h-1.5 overflow-hidden">
+                  <div className="mt-2 w-full bg-[#08152F] border border-[#3978D6]/15 rounded-full h-1.5 overflow-hidden">
                     <div 
                       className="bg-emerald-500 h-1.5 rounded-full transition-all duration-500"
                       style={{ width: `${totalInLevel > 0 ? (learnedInLevel / totalInLevel) * 100 : 0}%` }}
                     />
                   </div>
-                  <span className="text-[10px] font-medium text-[#737FA8] mt-1 block">
+                  <span className="text-[10px] font-medium text-[#7186A5] mt-1 block">
                     {learnedInLevel} dihafal
                   </span>
                 </div>
@@ -198,13 +198,13 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
       {/* KATEGORI FILTER */}
       <div>
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xs font-bold text-[#737FA8] uppercase tracking-wider">
+          <h3 className="text-xs font-bold text-[#7186A5] uppercase tracking-wider">
             Filter Kategori Tema
           </h3>
           {selectedCategory !== 'Semua' && (
             <button
               onClick={() => setSelectedCategory('Semua')}
-              className="text-xs font-bold text-[#7857FF] hover:text-[#F5F6FF] transition-colors"
+              className="text-xs font-bold text-[#3978D6] hover:text-[#F2F6FC] transition-colors"
             >
               Semua Kategori
             </button>
@@ -219,8 +219,8 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
             }}
             className={`px-3.5 py-1.5 rounded-2xl text-xs font-bold transition-all ${
               selectedCategory === 'Semua'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                : 'bg-[#0D1238] hover:bg-[#12194A] text-[#737FA8] border border-[#7857FF]/20'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                : 'bg-[#111F38] hover:bg-[#172945] text-[#7186A5] border border-[#3978D6]/20'
             }`}
           >
             Semua ({KANJI_DATA.length})
@@ -239,8 +239,8 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                 }}
                 className={`px-3.5 py-1.5 rounded-2xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                   selectedCategory === cat
-                    ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                    : 'bg-[#0D1238] hover:bg-[#12194A] text-[#737FA8] border border-[#7857FF]/20'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                    : 'bg-[#111F38] hover:bg-[#172945] text-[#7186A5] border border-[#3978D6]/20'
                 }`}
               >
                 <span>{cat}</span>
@@ -252,18 +252,18 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
       </div>
 
       {/* FILTER BAB MINNA NO NIHONGO (BAB 1–50) */}
-      <div className="p-4 rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 shadow-xs">
+      <div className="p-4 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#7857FF]" />
-            <h3 className="text-xs font-bold text-[#F5F6FF] uppercase tracking-wider font-['Manrope']">
+            <span className="w-2 h-2 rounded-full bg-[#3978D6]" />
+            <h3 className="text-xs font-bold text-[#F2F6FC] uppercase tracking-wider font-['Manrope']">
               Filter Bab Minna no Nihongo (Bab 1–50)
             </h3>
           </div>
           {selectedBab !== 'ALL' && (
             <button
               onClick={() => setSelectedBab('ALL')}
-              className="text-xs font-bold text-[#7857FF] hover:text-[#F5F6FF] transition-colors text-left"
+              className="text-xs font-bold text-[#3978D6] hover:text-[#F2F6FC] transition-colors text-left"
             >
               Reset Filter Bab (Tampilkan Semua)
             </button>
@@ -278,8 +278,8 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
             }}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
               selectedBab === 'ALL'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                : 'bg-[#080D2B]/60 hover:bg-[#12194A] text-[#737FA8] border border-[#7857FF]/15'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                : 'bg-[#08152F]/60 hover:bg-[#172945] text-[#7186A5] border border-[#3978D6]/15'
             }`}
           >
             Semua Bab
@@ -296,8 +296,8 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                 }}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
                   isSelected
-                    ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                    : 'bg-[#080D2B]/60 hover:bg-[#12194A] text-[#737FA8] border border-[#7857FF]/15'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                    : 'bg-[#08152F]/60 hover:bg-[#172945] text-[#7186A5] border border-[#3978D6]/15'
                 }`}
               >
                 <span>Bab {b}</span>
@@ -312,16 +312,16 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
 
       {/* KANJI CARDS GRID */}
       <div className="space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-bold text-[#737FA8]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-bold text-[#7186A5]">
           <div className="flex items-center gap-2">
-            <span className="text-[#F5F6FF]">Menampilkan {filteredKanji.length} Kanji</span>
-            <span className="text-[#737FA8]/60">•</span>
-            <span className="text-[#7857FF]">Klik kartu untuk panduan cara nulis & kanvas latihan</span>
+            <span className="text-[#F2F6FC]">Menampilkan {filteredKanji.length} Kanji</span>
+            <span className="text-[#7186A5]/60">•</span>
+            <span className="text-[#3978D6]">Klik kartu untuk panduan cara nulis & kanvas latihan</span>
           </div>
 
           {/* SAKELAR GAYA FONT KANJI */}
-          <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[#0D1238] border border-[#7857FF]/25 self-start sm:self-auto shadow-xs">
-            <span className="text-[10px] uppercase font-mono text-[#7857FF] px-2 font-black">Font:</span>
+          <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[#111F38] border border-[#3978D6]/25 self-start sm:self-auto shadow-xs">
+            <span className="text-[10px] uppercase font-mono text-[#3978D6] px-2 font-black">Font:</span>
             <button
               onClick={() => {
                 sound.playClick();
@@ -329,8 +329,8 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
               }}
               className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all ${
                 kanjiFontStyle === 'klee'
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                  : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
               }`}
               title="Font Buku Teks Edukasi Jepang (Goresan tangan sangat jelas, presisi dan alami)"
             >
@@ -343,8 +343,8 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
               }}
               className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all ${
                 kanjiFontStyle === 'serif'
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                  : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
               }`}
               title="Font Kaligrafi Tradisional Mincho (Tajam, bersudut elegan dan kontras)"
             >
@@ -357,8 +357,8 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
               }}
               className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all ${
                 kanjiFontStyle === 'sans'
-                  ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-[#F5F6FF] border border-[#7857FF]/40 shadow-xs'
-                  : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[#F2F6FC] border border-[#3978D6]/40 shadow-xs'
+                  : 'text-[#7186A5] hover:text-[#F2F6FC]'
               }`}
               title="Font Cetak Modern Gothic (Sans-serif tebal)"
             >
@@ -378,21 +378,21 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                   sound.playClick();
                   onSelectKanji(kanji, filteredKanji);
                 }}
-                className={`p-4 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between group shadow-[0_4px_16px_rgba(8,13,43,0.5)] ${
-                  isLearned ? 'border-emerald-500/40 bg-[#0F3025]' : 'border-[#7857FF]/25 bg-[#0D1238] hover:border-[#7857FF]/60 hover:shadow-[0_0_24px_rgba(120,87,255,0.18)]'
+                className={`p-4 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between group shadow-[0_4px_16px_rgba(8, 21, 47,0.5)] ${
+                  isLearned ? 'border-emerald-500/40 bg-[#0F3025]' : 'border-[#3978D6]/25 bg-[#111F38] hover:border-[#3978D6]/60 hover:shadow-[0_0_24px_rgba(57, 120, 214,0.18)]'
                 }`}
               >
                 <div>
                   {/* Top: ID, Bab & Strokes */}
-                  <div className="flex items-center justify-between text-[#737FA8] text-xs mb-1">
-                    <span className="font-mono text-[11px] font-bold text-[#7857FF]">#{kanji.id}</span>
+                  <div className="flex items-center justify-between text-[#7186A5] text-xs mb-1">
+                    <span className="font-mono text-[11px] font-bold text-[#3978D6]">#{kanji.id}</span>
                     <div className="flex items-center gap-1">
                       {kanji.bab && (
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#080D2B] text-[#AAB3D5] border border-[#7857FF]/25">
+                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#08152F] text-[#A9BBD3] border border-[#3978D6]/25">
                           Bab {kanji.bab}
                         </span>
                       )}
-                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#080D2B] text-[#7857FF] border border-[#7857FF]/25 font-mono">
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#08152F] text-[#3978D6] border border-[#3978D6]/25 font-mono">
                         {kanji.strokeCount}画
                       </span>
                     </div>
@@ -404,7 +404,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                       kanjiFontStyle === 'klee' ? 'kanji-font-klee font-semibold' :
                       kanjiFontStyle === 'serif' ? 'kanji-font-serif font-bold' :
                       'kanji-font-sans font-bold'
-                    } text-[#FFFFFF] drop-shadow-[0_2px_14px_rgba(120,87,255,0.3)] group-hover:scale-110 group-hover:text-[#7857FF] transition-all inline-block select-none leading-none`}>
+                    } text-[#FFFFFF] drop-shadow-[0_2px_14px_rgba(57, 120, 214,0.3)] group-hover:scale-110 group-hover:text-[#3978D6] transition-all inline-block select-none leading-none`}>
                       {kanji.kanji}
                     </span>
                   </div>
@@ -414,22 +414,22 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                     <p className="text-base font-extrabold text-[#FFFFFF] font-['Manrope'] tracking-wide">
                       {kanji.reading}
                     </p>
-                    <p className="text-xs font-bold text-[#7857FF] truncate mt-0.5">
+                    <p className="text-xs font-bold text-[#3978D6] truncate mt-0.5">
                       {kanji.meaning}
                     </p>
                   </div>
 
                   {/* ONYOMI & KUNYOMI MINI BADGES (Ditingkatkan kontras & keterbacaannya) */}
-                  <div className="mt-3 pt-2.5 border-t border-[#7857FF]/20 space-y-1.5">
+                  <div className="mt-3 pt-2.5 border-t border-[#3978D6]/20 space-y-1.5">
                     {kanji.onyomi && kanji.onyomi !== '—' && (
-                      <div className="flex items-center gap-1.5 text-xs text-[#F1F5F9] bg-[#080D2B]/90 px-2 py-1 rounded-xl border border-[#7857FF]/30 shadow-xs" title={`Onyomi: ${kanji.onyomi}`}>
-                        <span className="font-black text-[10px] px-1 py-0.2 rounded bg-[#12194A] text-[#7857FF] border border-[#7857FF]/35 shrink-0">音</span>
+                      <div className="flex items-center gap-1.5 text-xs text-[#F1F5F9] bg-[#08152F]/90 px-2 py-1 rounded-xl border border-[#3978D6]/30 shadow-xs" title={`Onyomi: ${kanji.onyomi}`}>
+                        <span className="font-black text-[10px] px-1 py-0.2 rounded bg-[#172945] text-[#3978D6] border border-[#3978D6]/35 shrink-0">音</span>
                         <span className="font-bold font-['Noto_Sans_JP'] tracking-wider truncate text-[#F1F5F9]">{kanji.onyomi}</span>
                       </div>
                     )}
                     {kanji.kunyomi && kanji.kunyomi !== '—' && (
-                      <div className="flex items-center gap-1.5 text-xs text-[#F1F5F9] bg-[#12194A]/80 px-2 py-1 rounded-xl border border-[#7857FF]/30 shadow-xs" title={`Kunyomi: ${kanji.kunyomi}`}>
-                        <span className="font-black text-[10px] px-1 py-0.2 rounded bg-[#1D245E] text-[#A8CEFF] border border-[#7857FF]/35 shrink-0">訓</span>
+                      <div className="flex items-center gap-1.5 text-xs text-[#F1F5F9] bg-[#172945]/80 px-2 py-1 rounded-xl border border-[#3978D6]/30 shadow-xs" title={`Kunyomi: ${kanji.kunyomi}`}>
+                        <span className="font-black text-[10px] px-1 py-0.2 rounded bg-[#1D245E] text-[#A8CEFF] border border-[#3978D6]/35 shrink-0">訓</span>
                         <span className="font-bold font-['Noto_Sans_JP'] tracking-wider truncate text-[#F1F5F9]">{kanji.kunyomi}</span>
                       </div>
                     )}
@@ -437,9 +437,9 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                 </div>
 
                 {/* Bottom: Cara Nulis Pill & Checkmark */}
-                <div className="mt-3 pt-2.5 border-t border-[#7857FF]/15 flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-[11px] font-bold text-[#7857FF] group-hover:text-[#F5F6FF] transition-colors">
-                    <PenTool className="w-3 h-3 text-[#7857FF]" />
+                <div className="mt-3 pt-2.5 border-t border-[#3978D6]/15 flex items-center justify-between">
+                  <div className="flex items-center gap-1 text-[11px] font-bold text-[#3978D6] group-hover:text-[#F2F6FC] transition-colors">
+                    <PenTool className="w-3 h-3 text-[#3978D6]" />
                     <span>Cara Nulis</span>
                   </div>
 
@@ -450,7 +450,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                       if (!isLearned) sound.playCorrect();
                     }}
                     className={`p-1 rounded-md transition-colors ${
-                      isLearned ? 'text-emerald-400' : 'text-[#737FA8]/40 hover:text-emerald-400'
+                      isLearned ? 'text-emerald-400' : 'text-[#7186A5]/40 hover:text-emerald-400'
                     }`}
                     title={isLearned ? 'Sudah hafal' : 'Tandai sudah hafal'}
                   >

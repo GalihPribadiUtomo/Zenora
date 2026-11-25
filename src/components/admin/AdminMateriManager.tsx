@@ -269,31 +269,31 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
     <div className="space-y-6 text-left font-['Plus_Jakarta_Sans',sans-serif]">
       
       {/* ── Header Controls ── */}
-      <div className="p-6 rounded-3xl bg-[#0D1238] border border-[#7857FF]/30 space-y-5">
+      <div className="p-6 rounded-3xl bg-[#111F38] border border-[#3978D6]/30 space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#00D6A3] animate-pulse" />
-              <span className="text-xs font-mono font-bold text-[#7857FF] uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#45C6A5] animate-pulse" />
+              <span className="text-xs font-mono font-bold text-[#3978D6] uppercase tracking-wider">
                 Sistem Manajemen Materi (CMS PRO)
               </span>
             </div>
             <h2 className="text-2xl font-black text-white font-['Manrope'] mt-1">
               Pengelolaan Bab 1–50: Bunpou, Bunkei, Reibun & Kaiwa
             </h2>
-            <p className="text-xs text-[#AAB3D5]">
+            <p className="text-xs text-[#A9BBD3]">
               Tambah, edit, sesuaikan pola kalimat, dialog tokoh, dan penjelasan tata bahasa secara terpusat.
             </p>
           </div>
 
           {/* Chapter Selector & Reset */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-[#080D2B] p-2 rounded-2xl border border-[#7857FF]/30">
-              <span className="text-xs font-bold text-[#7857FF] pl-2 font-mono">Pilih Bab:</span>
+            <div className="flex items-center gap-2 bg-[#08152F] p-2 rounded-2xl border border-[#3978D6]/30">
+              <span className="text-xs font-bold text-[#3978D6] pl-2 font-mono">Pilih Bab:</span>
               <select
                 value={selectedBab}
                 onChange={(e) => setSelectedBab(parseInt(e.target.value, 10))}
-                className="px-3 py-1.5 rounded-xl bg-[#12194A] text-white font-bold text-xs border border-[#7857FF]/40 focus:outline-hidden cursor-pointer"
+                className="px-3 py-1.5 rounded-xl bg-[#172945] text-white font-bold text-xs border border-[#3978D6]/40 focus:outline-hidden cursor-pointer"
               >
                 {Array.from({ length: 50 }, (_, i) => i + 1).map((b) => (
                   <option key={b} value={b}>第{b}課 · Bab {b}</option>
@@ -313,17 +313,17 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
         </div>
 
         {/* ── 4 Category Subtabs with Required Lucide Icons ── */}
-        <div className="flex flex-wrap gap-2 pt-3 border-t border-[#7857FF]/20">
+        <div className="flex flex-wrap gap-2 pt-3 border-t border-[#3978D6]/20">
           
           <button
             onClick={() => { sound.playClick(); setActiveCategory('bunpou'); }}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeCategory === 'bunpou'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white border border-[#7857FF]/40 shadow-[0_0_15px_rgba(120,87,255,0.4)]'
-                : 'bg-[#080D2B] text-[#AAB3D5] hover:text-white border border-[#7857FF]/20'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
+                : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
             }`}
           >
-            <BookOpen className={`w-4 h-4 ${activeCategory === 'bunpou' ? 'text-white' : 'text-[#7857FF]'}`} />
+            <BookOpen className={`w-4 h-4 ${activeCategory === 'bunpou' ? 'text-white' : 'text-[#3978D6]'}`} />
             <span>Bunpou (文法) — Tata Bahasa ({lesson?.tataBahasa?.length || 0})</span>
           </button>
 
@@ -331,11 +331,11 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             onClick={() => { sound.playClick(); setActiveCategory('bunkei'); }}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeCategory === 'bunkei'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white border border-[#7857FF]/40 shadow-[0_0_15px_rgba(120,87,255,0.4)]'
-                : 'bg-[#080D2B] text-[#AAB3D5] hover:text-white border border-[#7857FF]/20'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
+                : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
             }`}
           >
-            <Braces className={`w-4 h-4 ${activeCategory === 'bunkei' ? 'text-white' : 'text-[#7857FF]'}`} />
+            <Braces className={`w-4 h-4 ${activeCategory === 'bunkei' ? 'text-white' : 'text-[#3978D6]'}`} />
             <span>Bunkei (文型) — Pola Kalimat ({lesson?.polaKalimat?.length || 0})</span>
           </button>
 
@@ -343,11 +343,11 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             onClick={() => { sound.playClick(); setActiveCategory('reibun'); }}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeCategory === 'reibun'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white border border-[#7857FF]/40 shadow-[0_0_15px_rgba(120,87,255,0.4)]'
-                : 'bg-[#080D2B] text-[#AAB3D5] hover:text-white border border-[#7857FF]/20'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
+                : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
             }`}
           >
-            <MessageSquareText className={`w-4 h-4 ${activeCategory === 'reibun' ? 'text-white' : 'text-[#329BFF]'}`} />
+            <MessageSquareText className={`w-4 h-4 ${activeCategory === 'reibun' ? 'text-white' : 'text-[#69C9DF]'}`} />
             <span>Reibun (例文) — Contoh Kalimat ({lesson?.contohKalimat?.length || 0})</span>
           </button>
 
@@ -355,11 +355,11 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             onClick={() => { sound.playClick(); setActiveCategory('kaiwa'); }}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeCategory === 'kaiwa'
-                ? 'bg-gradient-to-r from-[#7857FF] to-[#945CFF] text-white border border-[#7857FF]/40 shadow-[0_0_15px_rgba(120,87,255,0.4)]'
-                : 'bg-[#080D2B] text-[#AAB3D5] hover:text-white border border-[#7857FF]/20'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
+                : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
             }`}
           >
-            <MessagesSquare className={`w-4 h-4 ${activeCategory === 'kaiwa' ? 'text-white' : 'text-[#7857FF]'}`} />
+            <MessagesSquare className={`w-4 h-4 ${activeCategory === 'kaiwa' ? 'text-white' : 'text-[#3978D6]'}`} />
             <span>Kaiwa (会話) — Percakapan ({lesson?.percakapan?.dialogs?.length || 0})</span>
           </button>
 
@@ -368,8 +368,8 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
 
       {/* ── Content View ── */}
       {isLoading ? (
-        <div className="p-12 text-center text-[#737FA8]">
-          <div className="w-8 h-8 border-2 border-[#7857FF] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+        <div className="p-12 text-center text-[#7186A5]">
+          <div className="w-8 h-8 border-2 border-[#3978D6] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
           <p className="text-xs">Memuat materi Bab {selectedBab}...</p>
         </div>
       ) : (
@@ -382,7 +382,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <BookOpen className="w-5 h-5 text-[#7857FF]" />
+                  <BookOpen className="w-5 h-5 text-[#3978D6]" />
                   <h3 className="text-lg font-bold text-white">Daftar Poin Tata Bahasa (Bunpou) · Bab {selectedBab}</h3>
                 </div>
                 <button
@@ -409,11 +409,11 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                   {lesson.tataBahasa.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-5 rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 hover:border-[#7857FF]/50 transition-all space-y-3"
+                      className="p-5 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 hover:border-[#3978D6]/50 transition-all space-y-3"
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex items-center gap-2.5">
-                          <span className="w-7 h-7 rounded-lg bg-[#7857FF] text-white text-xs font-black flex items-center justify-center font-mono">
+                          <span className="w-7 h-7 rounded-lg bg-[#3978D6] text-white text-xs font-black flex items-center justify-center font-mono">
                             {item.point}
                           </span>
                           <h4 className="text-base font-bold text-white"><FuriganaText text={item.title} /></h4>
@@ -425,14 +425,14 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                               setBunpouForm({ ...item });
                               setIsBunpouModalOpen(true);
                             }}
-                            className="p-1.5 rounded-lg bg-[#080D2B] hover:bg-[#7857FF] text-[#AAB3D5] hover:text-white transition-colors"
+                            className="p-1.5 rounded-lg bg-[#08152F] hover:bg-[#3978D6] text-[#A9BBD3] hover:text-white transition-colors"
                             title="Edit Tata Bahasa"
                           >
                             <Edit3 className="w-4 h-4" />
                           </button>
                           <button
                             onClick={() => handleDeleteBunpou(idx)}
-                            className="p-1.5 rounded-lg bg-[#080D2B] hover:bg-rose-500 text-[#AAB3D5] hover:text-white transition-colors"
+                            className="p-1.5 rounded-lg bg-[#08152F] hover:bg-rose-500 text-[#A9BBD3] hover:text-white transition-colors"
                             title="Hapus Tata Bahasa"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -441,29 +441,29 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                       </div>
 
                       {item.polaFormat && (
-                        <div className="px-3 py-1.5 rounded-xl bg-[#080D2B] text-xs font-bold text-[#D8B4FE] inline-block border border-[#7857FF]/25 font-mono">
+                        <div className="px-3 py-1.5 rounded-xl bg-[#08152F] text-xs font-bold text-[#DCEBFA] inline-block border border-[#3978D6]/25 font-mono">
                           Rumus: {item.polaFormat}
                         </div>
                       )}
 
-                      <p className="text-xs sm:text-sm text-[#AAB3D5] whitespace-pre-line leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[#A9BBD3] whitespace-pre-line leading-relaxed">
                         {item.explanation}
                       </p>
 
                       {/* Examples */}
                       {item.examples && item.examples.length > 0 && (
-                        <div className="space-y-2 pt-2 border-t border-[#7857FF]/15">
-                          <span className="text-[10px] font-bold text-[#7857FF] uppercase">Contoh Kalimat:</span>
+                        <div className="space-y-2 pt-2 border-t border-[#3978D6]/15">
+                          <span className="text-[10px] font-bold text-[#3978D6] uppercase">Contoh Kalimat:</span>
                           {item.examples.map((ex, exIdx) => (
-                            <div key={exIdx} className="p-3 rounded-xl bg-[#080D2B] text-xs flex items-center justify-between gap-3">
+                            <div key={exIdx} className="p-3 rounded-xl bg-[#08152F] text-xs flex items-center justify-between gap-3">
                               <div className="space-y-0.5">
                                 <p className="font-bold text-white japanese-text"><FuriganaText text={ex.japanese} /></p>
-                                <p className="text-[#329BFF] text-[11px] font-mono">{ex.romaji}</p>
-                                <p className="text-[#AAB3D5] text-[11px]">{ex.indonesian}</p>
+                                <p className="text-[#69C9DF] text-[11px] font-mono">{ex.romaji}</p>
+                                <p className="text-[#A9BBD3] text-[11px]">{ex.indonesian}</p>
                               </div>
                               <button
                                 onClick={() => speakJapanese(ex.japanese)}
-                                className="p-1.5 rounded-lg bg-[#12194A] text-[#7857FF] hover:text-white cursor-pointer"
+                                className="p-1.5 rounded-lg bg-[#172945] text-[#3978D6] hover:text-white cursor-pointer"
                               >
                                 <Volume2 className="w-3.5 h-3.5" />
                               </button>
@@ -475,7 +475,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                   ))}
                 </div>
               ) : (
-                <div className="p-8 text-center text-[#737FA8] bg-[#0D1238] rounded-3xl border border-[#7857FF]/20">
+                <div className="p-8 text-center text-[#7186A5] bg-[#111F38] rounded-3xl border border-[#3978D6]/20">
                   Belum ada poin tata bahasa terdaftar. Klik tombol Tambah di atas.
                 </div>
               )}
@@ -489,7 +489,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Braces className="w-5 h-5 text-[#7857FF]" />
+                  <Braces className="w-5 h-5 text-[#3978D6]" />
                   <h3 className="text-lg font-bold text-white">Daftar Pola Kalimat Inti (Bunkei) · Bab {selectedBab}</h3>
                 </div>
                 <button
@@ -515,17 +515,17 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                   {lesson.polaKalimat.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-5 rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 space-y-3 flex flex-col justify-between"
+                      className="p-5 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 space-y-3 flex flex-col justify-between"
                     >
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="px-2.5 py-0.5 rounded-md bg-[#080D2B] text-[#7857FF] text-xs font-mono font-bold">
+                          <span className="px-2.5 py-0.5 rounded-md bg-[#08152F] text-[#3978D6] text-xs font-mono font-bold">
                             Pola #{item.id}
                           </span>
                           <div className="flex items-center gap-1">
                             <button
                               onClick={() => speakJapanese(item.japanese)}
-                              className="p-1.5 rounded-lg bg-[#080D2B] text-[#7857FF] hover:text-white"
+                              className="p-1.5 rounded-lg bg-[#08152F] text-[#3978D6] hover:text-white"
                             >
                               <Volume2 className="w-3.5 h-3.5" />
                             </button>
@@ -535,13 +535,13 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                                 setBunkeiForm({ ...item });
                                 setIsBunkeiModalOpen(true);
                               }}
-                              className="p-1.5 rounded-lg bg-[#080D2B] hover:bg-[#7857FF] text-[#AAB3D5] hover:text-white"
+                              className="p-1.5 rounded-lg bg-[#08152F] hover:bg-[#3978D6] text-[#A9BBD3] hover:text-white"
                             >
                               <Edit3 className="w-3.5 h-3.5" />
                             </button>
                             <button
                               onClick={() => handleDeleteBunkei(idx)}
-                              className="p-1.5 rounded-lg bg-[#080D2B] hover:bg-rose-500 text-[#AAB3D5] hover:text-white"
+                              className="p-1.5 rounded-lg bg-[#08152F] hover:bg-rose-500 text-[#A9BBD3] hover:text-white"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
                             </button>
@@ -549,17 +549,17 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                         </div>
 
                         <p className="text-xl font-bold text-white japanese-text"><FuriganaText text={item.japanese} /></p>
-                        <p className="text-xs text-[#329BFF] font-mono">{item.romaji}</p>
+                        <p className="text-xs text-[#69C9DF] font-mono">{item.romaji}</p>
                       </div>
 
-                      <p className="text-xs text-[#AAB3D5] pt-2 border-t border-[#7857FF]/15">
+                      <p className="text-xs text-[#A9BBD3] pt-2 border-t border-[#3978D6]/15">
                         {item.indonesian}
                       </p>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="p-8 text-center text-[#737FA8] bg-[#0D1238] rounded-3xl border border-[#7857FF]/20">
+                <div className="p-8 text-center text-[#7186A5] bg-[#111F38] rounded-3xl border border-[#3978D6]/20">
                   Belum ada pola kalimat terdaftar.
                 </div>
               )}
@@ -573,7 +573,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <MessageSquareText className="w-5 h-5 text-[#329BFF]" />
+                  <MessageSquareText className="w-5 h-5 text-[#69C9DF]" />
                   <h3 className="text-lg font-bold text-white">Daftar Contoh Kalimat Tanya-Jawab (Reibun) · Bab {selectedBab}</h3>
                 </div>
                 <button
@@ -600,15 +600,15 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                   {lesson.contohKalimat.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-5 rounded-3xl bg-[#0D1238] border border-[#7857FF]/25 flex items-start justify-between gap-4"
+                      className="p-5 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 flex items-start justify-between gap-4"
                     >
                       <div className="space-y-2 flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="text-xs font-mono font-bold text-[#7857FF]">Reibun #{item.id}</span>
+                          <span className="text-xs font-mono font-bold text-[#3978D6]">Reibun #{item.id}</span>
                         </div>
                         {item.question && (
                           <div className="flex items-start gap-2">
-                            <span className="text-xs font-bold text-[#7857FF] font-mono mt-0.5">Q:</span>
+                            <span className="text-xs font-bold text-[#3978D6] font-mono mt-0.5">Q:</span>
                             <p className="text-base font-bold text-white japanese-text"><FuriganaText text={item.question} /></p>
                           </div>
                         )}
@@ -616,14 +616,14 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                           <span className="text-xs font-bold text-emerald-400 font-mono mt-0.5">A:</span>
                           <p className="text-base font-bold text-white japanese-text"><FuriganaText text={item.answer} /></p>
                         </div>
-                        <p className="text-xs text-[#329BFF] font-mono pl-4">{item.romaji}</p>
-                        <p className="text-xs text-[#AAB3D5] pl-4">{item.indonesian}</p>
+                        <p className="text-xs text-[#69C9DF] font-mono pl-4">{item.romaji}</p>
+                        <p className="text-xs text-[#A9BBD3] pl-4">{item.indonesian}</p>
                       </div>
 
                       <div className="flex items-center gap-1.5 shrink-0">
                         <button
                           onClick={() => speakJapanese(`${item.question || ''} ${item.answer}`)}
-                          className="p-2 rounded-xl bg-[#080D2B] text-[#7857FF] hover:text-white"
+                          className="p-2 rounded-xl bg-[#08152F] text-[#3978D6] hover:text-white"
                         >
                           <Volume2 className="w-4 h-4" />
                         </button>
@@ -633,13 +633,13 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                             setReibunForm({ ...item });
                             setIsReibunModalOpen(true);
                           }}
-                          className="p-2 rounded-xl bg-[#080D2B] hover:bg-[#7857FF] text-[#AAB3D5] hover:text-white"
+                          className="p-2 rounded-xl bg-[#08152F] hover:bg-[#3978D6] text-[#A9BBD3] hover:text-white"
                         >
                           <Edit3 className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => handleDeleteReibun(idx)}
-                          className="p-2 rounded-xl bg-[#080D2B] hover:bg-rose-500 text-[#AAB3D5] hover:text-white"
+                          className="p-2 rounded-xl bg-[#08152F] hover:bg-rose-500 text-[#A9BBD3] hover:text-white"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -648,7 +648,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                   ))}
                 </div>
               ) : (
-                <div className="p-8 text-center text-[#737FA8] bg-[#0D1238] rounded-3xl border border-[#7857FF]/20">
+                <div className="p-8 text-center text-[#7186A5] bg-[#111F38] rounded-3xl border border-[#3978D6]/20">
                   Belum ada contoh kalimat terdaftar.
                 </div>
               )}
@@ -662,17 +662,17 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             <div className="space-y-6">
               
               {/* Kaiwa Header Card */}
-              <div className="p-6 rounded-3xl bg-[#0D1238] border border-[#7857FF]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-6 rounded-3xl bg-[#111F38] border border-[#3978D6]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-[#7857FF] uppercase">Info Judul & Situasi Dialog</span>
+                  <span className="text-[10px] font-mono font-bold text-[#3978D6] uppercase">Info Judul & Situasi Dialog</span>
                   <h3 className="text-xl font-black text-white font-['Manrope']">
                     {lesson?.percakapan?.title || `Percakapan Bab ${selectedBab}`}
                   </h3>
                   {lesson?.percakapan?.situasi && (
-                    <p className="text-xs text-[#AAB3D5] italic">Situasi: {lesson.percakapan.situasi}</p>
+                    <p className="text-xs text-[#A9BBD3] italic">Situasi: {lesson.percakapan.situasi}</p>
                   )}
                   {lesson?.percakapan?.tokoh && (
-                    <p className="text-[11px] text-[#7857FF] font-bold">Tokoh: {lesson.percakapan.tokoh.join(', ')}</p>
+                    <p className="text-[11px] text-[#3978D6] font-bold">Tokoh: {lesson.percakapan.tokoh.join(', ')}</p>
                   )}
                 </div>
 
@@ -686,9 +686,9 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                       });
                       setIsKaiwaHeaderModalOpen(true);
                     }}
-                    className="px-3.5 py-2 rounded-xl bg-[#080D2B] hover:bg-[#12194A] border border-[#7857FF]/30 text-white text-xs font-bold transition-all flex items-center gap-1.5"
+                    className="px-3.5 py-2 rounded-xl bg-[#08152F] hover:bg-[#172945] border border-[#3978D6]/30 text-white text-xs font-bold transition-all flex items-center gap-1.5"
                   >
-                    <Edit3 className="w-3.5 h-3.5 text-[#7857FF]" />
+                    <Edit3 className="w-3.5 h-3.5 text-[#3978D6]" />
                     <span>Edit Info Percakapan</span>
                   </button>
 
@@ -712,26 +712,26 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                   {lesson.percakapan.dialogs.map((d, idx) => (
                     <div
                       key={idx}
-                      className="p-4 sm:p-5 rounded-2xl bg-[#080D2B] border border-[#7857FF]/20 flex items-start gap-4"
+                      className="p-4 sm:p-5 rounded-2xl bg-[#08152F] border border-[#3978D6]/20 flex items-start gap-4"
                     >
-                      <div className="w-10 h-10 rounded-xl bg-[#12194A] border border-[#7857FF]/30 text-[#7857FF] font-bold text-xs flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-[#172945] border border-[#3978D6]/30 text-[#3978D6] font-bold text-xs flex items-center justify-center shrink-0">
                         {d.speaker.slice(0, 2)}
                       </div>
 
                       <div className="flex-1 space-y-1">
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-bold text-white">{d.speaker}</span>
-                          {d.role && <span className="text-[10px] text-[#7857FF]">({d.role})</span>}
+                          {d.role && <span className="text-[10px] text-[#3978D6]">({d.role})</span>}
                         </div>
                         <p className="text-base font-bold text-white japanese-text"><FuriganaText text={d.japanese} /></p>
-                        <p className="text-xs text-[#329BFF] font-mono">{d.romaji}</p>
-                        <p className="text-xs text-[#AAB3D5]">{d.indonesian}</p>
+                        <p className="text-xs text-[#69C9DF] font-mono">{d.romaji}</p>
+                        <p className="text-xs text-[#A9BBD3]">{d.indonesian}</p>
                       </div>
 
                       <div className="flex items-center gap-1.5 shrink-0">
                         <button
                           onClick={() => speakJapanese(d.japanese)}
-                          className="p-1.5 rounded-lg bg-[#0D1238] text-[#7857FF] hover:text-white"
+                          className="p-1.5 rounded-lg bg-[#111F38] text-[#3978D6] hover:text-white"
                         >
                           <Volume2 className="w-3.5 h-3.5" />
                         </button>
@@ -741,13 +741,13 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                             setKaiwaDialogForm({ ...d });
                             setIsKaiwaDialogModalOpen(true);
                           }}
-                          className="p-1.5 rounded-lg bg-[#0D1238] hover:bg-[#7857FF] text-[#AAB3D5] hover:text-white"
+                          className="p-1.5 rounded-lg bg-[#111F38] hover:bg-[#3978D6] text-[#A9BBD3] hover:text-white"
                         >
                           <Edit3 className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDeleteKaiwaDialog(idx)}
-                          className="p-1.5 rounded-lg bg-[#0D1238] hover:bg-rose-500 text-[#AAB3D5] hover:text-white"
+                          className="p-1.5 rounded-lg bg-[#111F38] hover:bg-rose-500 text-[#A9BBD3] hover:text-white"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
@@ -756,7 +756,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                   ))}
                 </div>
               ) : (
-                <div className="p-8 text-center text-[#737FA8] bg-[#0D1238] rounded-3xl border border-[#7857FF]/20">
+                <div className="p-8 text-center text-[#7186A5] bg-[#111F38] rounded-3xl border border-[#3978D6]/20">
                   Belum ada baris percakapan terdaftar.
                 </div>
               )}
@@ -771,63 +771,63 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {isBunpouModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={() => setIsBunpouModalOpen(false)}>
-          <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#0D1238] border border-[#7857FF]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
-            <div className="flex items-center justify-between pb-3 border-b border-[#7857FF]/20">
+          <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#111F38] border border-[#3978D6]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between pb-3 border-b border-[#3978D6]/20">
               <h3 className="text-lg font-black text-white font-['Manrope']">
                 {editingBunpouIndex !== null ? 'Edit Poin Tata Bahasa' : 'Tambah Poin Tata Bahasa Baru'}
               </h3>
-              <button onClick={() => setIsBunpouModalOpen(false)} className="p-1.5 rounded-xl text-[#737FA8] hover:text-white"><X className="w-5 h-5" /></button>
+              <button onClick={() => setIsBunpouModalOpen(false)} className="p-1.5 rounded-xl text-[#7186A5] hover:text-white"><X className="w-5 h-5" /></button>
             </div>
 
             <form onSubmit={handleSaveBunpou} className="space-y-4 text-xs">
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <label className="block text-[#AAB3D5] font-bold mb-1">Nomor Poin</label>
+                  <label className="block text-[#A9BBD3] font-bold mb-1">Nomor Poin</label>
                   <input
                     type="number"
                     value={bunpouForm.point}
                     onChange={e => setBunpouForm({ ...bunpouForm, point: parseInt(e.target.value, 10) || 1 })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white font-mono"
+                    className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white font-mono"
                   />
                 </div>
                 <div className="col-span-2">
-                  <label className="block text-[#AAB3D5] font-bold mb-1">Judul Tata Bahasa *</label>
+                  <label className="block text-[#A9BBD3] font-bold mb-1">Judul Tata Bahasa *</label>
                   <input
                     type="text"
                     required
                     placeholder="Contoh: Partikel を: Objek Penderita"
                     value={bunpouForm.title}
                     onChange={e => setBunpouForm({ ...bunpouForm, title: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Rumus / Pola Struktur</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Rumus / Pola Struktur</label>
                 <input
                   type="text"
                   placeholder="Contoh: Kata Benda + を + Kata Kerja Transitif"
                   value={bunpouForm.polaFormat || ''}
                   onChange={e => setBunpouForm({ ...bunpouForm, polaFormat: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white font-mono"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Penjelasan Kaidah *</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Penjelasan Kaidah *</label>
                 <textarea
                   required
                   rows={4}
                   placeholder="Jelaskan kaidah penggunaan, syarat gramatikal, dan konteks penggunaannya..."
                   value={bunpouForm.explanation}
                   onChange={e => setBunpouForm({ ...bunpouForm, explanation: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white"
                 />
               </div>
 
               {/* Examples editor */}
-              <div className="space-y-2 pt-2 border-t border-[#7857FF]/15">
+              <div className="space-y-2 pt-2 border-t border-[#3978D6]/15">
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-white">Contoh Kalimat Bunpou</span>
                   <button
@@ -836,16 +836,16 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                       ...bunpouForm,
                       examples: [...bunpouForm.examples, { japanese: '', romaji: '', indonesian: '' }]
                     })}
-                    className="px-2.5 py-1 rounded-lg bg-[#080D2B] text-[#7857FF] hover:text-white font-bold text-[11px]"
+                    className="px-2.5 py-1 rounded-lg bg-[#08152F] text-[#3978D6] hover:text-white font-bold text-[11px]"
                   >
                     + Tambah Contoh
                   </button>
                 </div>
 
                 {bunpouForm.examples.map((ex, exI) => (
-                  <div key={exI} className="p-3 rounded-2xl bg-[#080D2B] border border-[#7857FF]/20 space-y-2">
+                  <div key={exI} className="p-3 rounded-2xl bg-[#08152F] border border-[#3978D6]/20 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] text-[#7857FF] font-mono">Contoh #{exI + 1}</span>
+                      <span className="text-[10px] text-[#3978D6] font-mono">Contoh #{exI + 1}</span>
                       {bunpouForm.examples.length > 1 && (
                         <button
                           type="button"
@@ -868,7 +868,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                         newEx[exI].japanese = e.target.value;
                         setBunpouForm({ ...bunpouForm, examples: newEx });
                       }}
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#12194A] border border-[#7857FF]/20 text-white"
+                      className="w-full px-3 py-1.5 rounded-lg bg-[#172945] border border-[#3978D6]/20 text-white"
                     />
                     <input
                       type="text"
@@ -879,7 +879,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                         newEx[exI].romaji = e.target.value;
                         setBunpouForm({ ...bunpouForm, examples: newEx });
                       }}
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#12194A] border border-[#7857FF]/20 text-white font-mono"
+                      className="w-full px-3 py-1.5 rounded-lg bg-[#172945] border border-[#3978D6]/20 text-white font-mono"
                     />
                     <input
                       type="text"
@@ -890,14 +890,14 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
                         newEx[exI].indonesian = e.target.value;
                         setBunpouForm({ ...bunpouForm, examples: newEx });
                       }}
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#12194A] border border-[#7857FF]/20 text-white"
+                      className="w-full px-3 py-1.5 rounded-lg bg-[#172945] border border-[#3978D6]/20 text-white"
                     />
                   </div>
                 ))}
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#7857FF]/20">
-                <button type="button" onClick={() => setIsBunpouModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#080D2B] text-[#AAB3D5]">Batal</button>
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#3978D6]/20">
+                <button type="button" onClick={() => setIsBunpouModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#08152F] text-[#A9BBD3]">Batal</button>
                 <button type="submit" className="px-5 py-2 rounded-xl neon-btn-primary text-white font-bold">Simpan Poin Tata Bahasa</button>
               </div>
             </form>
@@ -910,62 +910,62 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {isBunkeiModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={() => setIsBunkeiModalOpen(false)}>
-          <div className="relative w-full max-w-md rounded-3xl bg-[#0D1238] border border-[#7857FF]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
-            <div className="flex items-center justify-between pb-3 border-b border-[#7857FF]/20">
+          <div className="relative w-full max-w-md rounded-3xl bg-[#111F38] border border-[#3978D6]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between pb-3 border-b border-[#3978D6]/20">
               <h3 className="text-lg font-black text-white font-['Manrope']">
                 {editingBunkeiIndex !== null ? 'Edit Pola Kalimat' : 'Tambah Pola Kalimat Baru'}
               </h3>
-              <button onClick={() => setIsBunkeiModalOpen(false)} className="p-1.5 rounded-xl text-[#737FA8] hover:text-white"><X className="w-5 h-5" /></button>
+              <button onClick={() => setIsBunkeiModalOpen(false)} className="p-1.5 rounded-xl text-[#7186A5] hover:text-white"><X className="w-5 h-5" /></button>
             </div>
 
             <form onSubmit={handleSaveBunkei} className="space-y-4 text-xs">
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Nomor Pola</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Nomor Pola</label>
                 <input
                   type="number"
                   value={bunkeiForm.id}
                   onChange={e => setBunkeiForm({ ...bunkeiForm, id: parseInt(e.target.value, 10) || 1 })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white font-mono"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Kalimat Jepang (Kanji & Kana) *</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Kalimat Jepang (Kanji & Kana) *</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: わたしは ジュースを 飲みます。"
                   value={bunkeiForm.japanese}
                   onChange={e => setBunkeiForm({ ...bunkeiForm, japanese: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white japanese-text text-base"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white japanese-text text-base"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Romaji</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Romaji</label>
                 <input
                   type="text"
                   placeholder="Contoh: Watashi wa juusu o nomimasu."
                   value={bunkeiForm.romaji}
                   onChange={e => setBunkeiForm({ ...bunkeiForm, romaji: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white font-mono"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Arti Bahasa Indonesia *</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Arti Bahasa Indonesia *</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: Saya minum jus."
                   value={bunkeiForm.indonesian}
                   onChange={e => setBunkeiForm({ ...bunkeiForm, indonesian: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#7857FF]/20">
-                <button type="button" onClick={() => setIsBunkeiModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#080D2B] text-[#AAB3D5]">Batal</button>
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#3978D6]/20">
+                <button type="button" onClick={() => setIsBunkeiModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#08152F] text-[#A9BBD3]">Batal</button>
                 <button type="submit" className="px-5 py-2 rounded-xl neon-btn-primary text-white font-bold">Simpan Pola Kalimat</button>
               </div>
             </form>
@@ -978,73 +978,73 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {isReibunModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={() => setIsReibunModalOpen(false)}>
-          <div className="relative w-full max-w-md rounded-3xl bg-[#0D1238] border border-[#7857FF]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
-            <div className="flex items-center justify-between pb-3 border-b border-[#7857FF]/20">
+          <div className="relative w-full max-w-md rounded-3xl bg-[#111F38] border border-[#3978D6]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between pb-3 border-b border-[#3978D6]/20">
               <h3 className="text-lg font-black text-white font-['Manrope']">
                 {editingReibunIndex !== null ? 'Edit Contoh Kalimat (Reibun)' : 'Tambah Contoh Kalimat Baru'}
               </h3>
-              <button onClick={() => setIsReibunModalOpen(false)} className="p-1.5 rounded-xl text-[#737FA8] hover:text-white"><X className="w-5 h-5" /></button>
+              <button onClick={() => setIsReibunModalOpen(false)} className="p-1.5 rounded-xl text-[#7186A5] hover:text-white"><X className="w-5 h-5" /></button>
             </div>
 
             <form onSubmit={handleSaveReibun} className="space-y-4 text-xs">
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Nomor Urut</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Nomor Urut</label>
                 <input
                   type="number"
                   value={reibunForm.id}
                   onChange={e => setReibunForm({ ...reibunForm, id: parseInt(e.target.value, 10) || 1 })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white font-mono"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Pertanyaan (Tanya / Q - Opsional)</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Pertanyaan (Tanya / Q - Opsional)</label>
                 <input
                   type="text"
                   placeholder="Contoh: お酒を 飲みますか。"
                   value={reibunForm.question || ''}
                   onChange={e => setReibunForm({ ...reibunForm, question: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white japanese-text"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white japanese-text"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Jawaban / Kalimat Inti (A) *</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Jawaban / Kalimat Inti (A) *</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: ……いいえ、飲みません。"
                   value={reibunForm.answer}
                   onChange={e => setReibunForm({ ...reibunForm, answer: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white japanese-text text-base"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white japanese-text text-base"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Romaji</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Romaji</label>
                 <input
                   type="text"
                   placeholder="Contoh: Osake o nomimasu ka? ... Iie, nomimasen."
                   value={reibunForm.romaji}
                   onChange={e => setReibunForm({ ...reibunForm, romaji: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white font-mono"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Arti Bahasa Indonesia *</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Arti Bahasa Indonesia *</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: Apakah Anda minum sake? ... Tidak, saya tidak minum."
                   value={reibunForm.indonesian}
                   onChange={e => setReibunForm({ ...reibunForm, indonesian: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#7857FF]/20">
-                <button type="button" onClick={() => setIsReibunModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#080D2B] text-[#AAB3D5]">Batal</button>
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#3978D6]/20">
+                <button type="button" onClick={() => setIsReibunModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#08152F] text-[#A9BBD3]">Batal</button>
                 <button type="submit" className="px-5 py-2 rounded-xl neon-btn-primary text-white font-bold">Simpan Contoh Kalimat</button>
               </div>
             </form>
@@ -1057,49 +1057,49 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {isKaiwaHeaderModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={() => setIsKaiwaHeaderModalOpen(false)}>
-          <div className="relative w-full max-w-md rounded-3xl bg-[#0D1238] border border-[#7857FF]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
-            <div className="flex items-center justify-between pb-3 border-b border-[#7857FF]/20">
+          <div className="relative w-full max-w-md rounded-3xl bg-[#111F38] border border-[#3978D6]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between pb-3 border-b border-[#3978D6]/20">
               <h3 className="text-lg font-black text-white font-['Manrope']">Edit Info Percakapan</h3>
-              <button onClick={() => setIsKaiwaHeaderModalOpen(false)} className="p-1.5 rounded-xl text-[#737FA8] hover:text-white"><X className="w-5 h-5" /></button>
+              <button onClick={() => setIsKaiwaHeaderModalOpen(false)} className="p-1.5 rounded-xl text-[#7186A5] hover:text-white"><X className="w-5 h-5" /></button>
             </div>
 
             <form onSubmit={handleSaveKaiwaHeader} className="space-y-4 text-xs">
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Judul Percakapan</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Judul Percakapan</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: いっしょに 行きませんか"
                   value={kaiwaHeaderForm.title}
                   onChange={e => setKaiwaHeaderForm({ ...kaiwaHeaderForm, title: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Situasi Dialog</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Situasi Dialog</label>
                 <input
                   type="text"
                   placeholder="Contoh: Miller-san mengajak Sato-san melihat sakura bersama."
                   value={kaiwaHeaderForm.situasi}
                   onChange={e => setKaiwaHeaderForm({ ...kaiwaHeaderForm, situasi: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Tokoh Pembicara (Pisahkan dengan koma)</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Tokoh Pembicara (Pisahkan dengan koma)</label>
                 <input
                   type="text"
                   placeholder="Contoh: 佐藤, ミラー"
                   value={kaiwaHeaderForm.tokoh}
                   onChange={e => setKaiwaHeaderForm({ ...kaiwaHeaderForm, tokoh: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white font-mono"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white font-mono"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#7857FF]/20">
-                <button type="button" onClick={() => setIsKaiwaHeaderModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#080D2B] text-[#AAB3D5]">Batal</button>
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#3978D6]/20">
+                <button type="button" onClick={() => setIsKaiwaHeaderModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#08152F] text-[#A9BBD3]">Batal</button>
                 <button type="submit" className="px-5 py-2 rounded-xl neon-btn-primary text-white font-bold">Simpan Info</button>
               </div>
             </form>
@@ -1112,76 +1112,76 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {isKaiwaDialogModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={() => setIsKaiwaDialogModalOpen(false)}>
-          <div className="relative w-full max-w-md rounded-3xl bg-[#0D1238] border border-[#7857FF]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
-            <div className="flex items-center justify-between pb-3 border-b border-[#7857FF]/20">
+          <div className="relative w-full max-w-md rounded-3xl bg-[#111F38] border border-[#3978D6]/40 p-6 space-y-4 shadow-2xl animate-modal-pop" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between pb-3 border-b border-[#3978D6]/20">
               <h3 className="text-lg font-black text-white font-['Manrope']">
                 {editingKaiwaDialogIndex !== null ? 'Edit Baris Dialog' : 'Tambah Baris Dialog Baru'}
               </h3>
-              <button onClick={() => setIsKaiwaDialogModalOpen(false)} className="p-1.5 rounded-xl text-[#737FA8] hover:text-white"><X className="w-5 h-5" /></button>
+              <button onClick={() => setIsKaiwaDialogModalOpen(false)} className="p-1.5 rounded-xl text-[#7186A5] hover:text-white"><X className="w-5 h-5" /></button>
             </div>
 
             <form onSubmit={handleSaveKaiwaDialog} className="space-y-4 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#AAB3D5] font-bold mb-1">Nama Tokoh *</label>
+                  <label className="block text-[#A9BBD3] font-bold mb-1">Nama Tokoh *</label>
                   <input
                     type="text"
                     required
                     placeholder="Contoh: ミラー"
                     value={kaiwaDialogForm.speaker}
                     onChange={e => setKaiwaDialogForm({ ...kaiwaDialogForm, speaker: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-[#AAB3D5] font-bold mb-1">Peran / Hubungan</label>
+                  <label className="block text-[#A9BBD3] font-bold mb-1">Peran / Hubungan</label>
                   <input
                     type="text"
                     placeholder="Contoh: Rekan Kerja"
                     value={kaiwaDialogForm.role || ''}
                     onChange={e => setKaiwaDialogForm({ ...kaiwaDialogForm, role: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Kalimat Dialog (Jepang) *</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Kalimat Dialog (Jepang) *</label>
                 <textarea
                   required
                   rows={2}
                   placeholder="Contoh: すみません。桜が もう 咲きましたよ。"
                   value={kaiwaDialogForm.japanese}
                   onChange={e => setKaiwaDialogForm({ ...kaiwaDialogForm, japanese: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white japanese-text text-base"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white japanese-text text-base"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Romaji</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Romaji</label>
                 <input
                   type="text"
                   placeholder="Contoh: Sumimasen. Sakura ga mou sakimashita yo."
                   value={kaiwaDialogForm.romaji}
                   onChange={e => setKaiwaDialogForm({ ...kaiwaDialogForm, romaji: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white font-mono"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-[#AAB3D5] font-bold mb-1">Arti Bahasa Indonesia *</label>
+                <label className="block text-[#A9BBD3] font-bold mb-1">Arti Bahasa Indonesia *</label>
                 <textarea
                   required
                   rows={2}
                   placeholder="Contoh: Permisi. Bunga sakura sudah mekar lho."
                   value={kaiwaDialogForm.indonesian}
                   onChange={e => setKaiwaDialogForm({ ...kaiwaDialogForm, indonesian: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#7857FF]/20">
-                <button type="button" onClick={() => setIsKaiwaDialogModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#080D2B] text-[#AAB3D5]">Batal</button>
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#3978D6]/20">
+                <button type="button" onClick={() => setIsKaiwaDialogModalOpen(false)} className="px-4 py-2 rounded-xl bg-[#08152F] text-[#A9BBD3]">Batal</button>
                 <button type="submit" className="px-5 py-2 rounded-xl neon-btn-primary text-white font-bold">Simpan Baris Dialog</button>
               </div>
             </form>

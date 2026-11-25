@@ -515,7 +515,7 @@ export const JLPT_EXAM_PACKAGES: ExamPackage[] = [
     totalQuestions: 25,
     maxScore: 250,
     passingScore: 200,
-    badgeColor: '#8B5CF6',
+    badgeColor: '#3978D6',
     sections: [
       {
         id: 'jft_sec_1',

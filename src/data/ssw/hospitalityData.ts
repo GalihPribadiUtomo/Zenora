@@ -8,7 +8,7 @@ export const HOSPITALITY_SECTOR_DATA: SswSectorData = {
   iconName: 'Hotel',
   tagline: 'Mewujudkan seni keramahan Jepang (Omotenashi) berstandar dunia di Hotel Bisnis, Resort Mewah, dan Ryokan Tradisional.',
   badge: 'Interaksi Bahasa',
-  badgeColor: 'text-purple-400 bg-purple-500/15 border-purple-500/30',
+  badgeColor: 'text-[#83B7EE] bg-[#3978D6]/15 border-[#3978D6]/30',
   overview: {
     workEnvironment: 'Bekerja di berbagai lini akomodasi Jepang meliputi Business Hotel (hotel efisien di pusat kota untuk perjalanan dinas), City Hotel berbintang (layanan komprehensif, jamuan, dan concierge), Resort Hotel (destinasi wisata alam atau pantai), serta Ryokan tradisional (penginapan khas Jepang berlantai tatami, onsen air panas alami, dan jamuan hidangan Kaiseki musiman).',
     mainDuties: [

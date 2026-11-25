@@ -35,7 +35,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 1,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       }
     ]
   },
@@ -144,7 +144,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 1,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       }
     ]
   },
@@ -182,7 +182,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 1,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       },
       {
         "name": "Tubuh & Kesehatan",
@@ -230,7 +230,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 1,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       },
       {
         "name": "Orang & Keluarga",
@@ -278,7 +278,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 1,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       }
     ]
   },
@@ -291,7 +291,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 26,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       },
       {
         "name": "Umum & Ungkapan",
@@ -408,7 +408,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 5,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       },
       {
         "name": "Umum & Ungkapan",
@@ -446,7 +446,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 2,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       }
     ]
   },
@@ -510,7 +510,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 2,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       },
       {
         "name": "Tubuh & Kesehatan",
@@ -574,7 +574,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 2,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       }
     ]
   },
@@ -725,7 +725,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 1,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       },
       {
         "name": "Tempat & Arah",
@@ -1187,7 +1187,7 @@ export const CHAPTERS_DATA: ChapterInfo[] = [
       {
         "name": "Kata Sifat",
         "count": 2,
-        "color": "#8b5cf6"
+        "color": "#3978D6"
       }
     ]
   }

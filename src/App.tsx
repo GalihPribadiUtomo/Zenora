@@ -262,7 +262,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#080D2B] text-[#F5F6FF] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#7857FF] selection:text-white antialiased">
+    <div className="min-h-screen flex bg-[#08152F] text-[#F2F6FC] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#3978D6] selection:text-white antialiased">
       
       {/* 1. DESKTOP SIDEBAR (Persistent Across All Tabs) */}
       <div className="hidden lg:block shrink-0">
@@ -292,11 +292,11 @@ export function App() {
           />
 
           {/* Drawer Sidebar */}
-          <div className="relative w-72 max-w-[85vw] h-full bg-[#080D2B] z-10 flex flex-col shadow-2xl animate-drawer-slide">
+          <div className="relative w-72 max-w-[85vw] h-full bg-[#08152F] z-10 flex flex-col shadow-2xl animate-drawer-slide">
             <div className="p-4 flex justify-end">
               <button
                 onClick={() => setMobileDrawerOpen(false)}
-                className="p-2 rounded-xl bg-[#0D1238] border border-[#7857FF]/30 text-[#AAB3D5]"
+                className="p-2 rounded-xl bg-[#111F38] border border-[#3978D6]/30 text-[#A9BBD3]"
                 aria-label="Tutup Menu"
               >
                 <X className="w-5 h-5" />
@@ -473,19 +473,19 @@ export function App() {
                   <Lock className="w-8 h-8 text-red-400" />
                 </div>
                 <h2 className="text-2xl font-black text-white font-['Manrope'] mb-2">Akses Dibatasi</h2>
-                <p className="text-sm text-[#AAB3D5] max-w-md mb-6 leading-relaxed">
-                  Anda saat ini berada dalam <span className="text-[#329BFF] font-bold">Mode Siswa</span>. Untuk membuka konsol manajemen kurikulum, kosakata, dan CBT, silakan verifikasi hak akses administrator.
+                <p className="text-sm text-[#A9BBD3] max-w-md mb-6 leading-relaxed">
+                  Anda saat ini berada dalam <span className="text-[#69C9DF] font-bold">Mode Siswa</span>. Untuk membuka konsol manajemen kurikulum, kosakata, dan CBT, silakan verifikasi hak akses administrator.
                 </p>
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => setActiveTab('beranda')}
-                    className="px-5 py-2.5 rounded-xl bg-[#080D2B] border border-[#7857FF]/30 text-white text-xs font-bold hover:bg-[#12194A] transition-all cursor-pointer"
+                    className="px-5 py-2.5 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white text-xs font-bold hover:bg-[#172945] transition-all cursor-pointer"
                   >
                     Kembali ke Beranda
                   </button>
                   <button
                     onClick={handleOpenAdminAuth}
-                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#329BFF] text-white text-xs font-bold shadow-lg hover:brightness-110 transition-all cursor-pointer"
+                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#3978D6] to-[#69C9DF] text-white text-xs font-bold shadow-lg hover:brightness-110 transition-all cursor-pointer"
                   >
                     Verifikasi Akses Admin
                   </button>

@@ -489,10 +489,10 @@ canvas {
 
 @keyframes glowBadge {
   0%, 100% {
-    box-shadow: 0 0 8px rgba(120, 87, 255, 0.25);
+    box-shadow: 0 0 8px rgba(57, 120, 214, 0.25);
   }
   50% {
-    box-shadow: 0 0 20px rgba(120, 87, 255, 0.55), 0 0 10px rgba(50, 155, 255, 0.35);
+    box-shadow: 0 0 20px rgba(57, 120, 214, 0.55), 0 0 10px rgba(50, 155, 255, 0.35);
   }
 }
 
@@ -566,8 +566,8 @@ canvas {
 
 .card-interactive:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px -6px rgba(8, 13, 43, 0.9), 0 0 25px rgba(120, 87, 255, 0.25);
-  border-color: rgba(148, 92, 255, 0.6);
+  box-shadow: 0 16px 36px -6px rgba(8, 21, 47, 0.9), 0 0 25px rgba(57, 120, 214, 0.25);
+  border-color: rgba(36, 86, 166, 0.6);
 }
 
 .card-interactive:active {
@@ -598,8 +598,8 @@ canvas {
 }
 
 .input-interactive:focus {
-  border-color: #7857FF !important;
-  box-shadow: 0 0 0 3px rgba(120, 87, 255, 0.25), 0 0 15px rgba(120, 87, 255, 0.15) !important;
+  border-color: #3978D6 !important;
+  box-shadow: 0 0 0 3px rgba(57, 120, 214, 0.25), 0 0 15px rgba(57, 120, 214, 0.15) !important;
 }
 
 .tab-interactive {
@@ -607,13 +607,13 @@ canvas {
 }
 
 .tab-interactive:hover:not(.active) {
-  background-color: rgba(18, 25, 74, 0.8);
+  background-color: rgba(23, 41, 69, 0.8);
   color: #FFFFFF;
 }
 
 /* Skeleton Loading Shimmer */
 .skeleton-shimmer {
-  background: linear-gradient(90deg, rgba(13, 18, 56, 0.8) 25%, rgba(29, 36, 94, 0.9) 50%, rgba(13, 18, 56, 0.8) 75%);
+  background: linear-gradient(90deg, rgba(17, 31, 56, 0.8) 25%, rgba(29, 36, 94, 0.9) 50%, rgba(17, 31, 56, 0.8) 75%);
   background-size: 200% 100%;
   animation: skeletonShimmer 1.8s infinite linear;
 }
@@ -649,8 +649,8 @@ canvas {
   100% { background-position: 200% 0; }
 }
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 10px rgba(120, 87, 255, 0.25); }
-  50% { box-shadow: 0 0 25px rgba(120, 87, 255, 0.5), 0 0 50px rgba(18, 25, 74, 0.4); }
+  0%, 100% { box-shadow: 0 0 10px rgba(57, 120, 214, 0.25); }
+  50% { box-shadow: 0 0 25px rgba(57, 120, 214, 0.5), 0 0 50px rgba(23, 41, 69, 0.4); }
 }
 @keyframes float-up {
   0%, 100% { transform: translateY(0px); }

@@ -44,7 +44,7 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
   const [isDrawing, setIsDrawing] = useState(false);
   const [showGhost, setShowGhost] = useState(true);
   const [showHint, setShowHint] = useState(false);
-  const [brushColor, setBrushColor] = useState('#7857FF');
+  const [brushColor, setBrushColor] = useState('#3978D6');
   const [brushSize, setBrushSize] = useState(12);
   const [strokes, setStrokes] = useState<CanvasStroke[]>([]);
   const [redoStack, setRedoStack] = useState<CanvasStroke[]>([]);
@@ -103,7 +103,7 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
 
   const drawGrid = (ctx: CanvasRenderingContext2D) => {
     ctx.save();
-    ctx.strokeStyle = '#7857FF';
+    ctx.strokeStyle = '#3978D6';
     ctx.globalAlpha = 0.2;
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
@@ -258,16 +258,16 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
     <div className="space-y-4 text-left">
       
       {/* Canvas Toolbar: Colors, Pen Sizes, & Tools */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/25">
+      <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-[#08152F]/60 border border-[#3978D6]/25">
         
         {/* Color Palette */}
         <div className="flex items-center gap-1.5">
-          <span className="text-[11px] font-bold text-[#737FA8] mr-1">Tinta:</span>
+          <span className="text-[11px] font-bold text-[#7186A5] mr-1">Tinta:</span>
           {[
-            { color: '#7857FF', label: 'Biru Perak (Aksen)' },
-            { color: '#F5F6FF', label: 'Putih Teks' },
-            { color: '#12194A', label: 'Deep Surface' },
-            { color: '#737FA8', label: 'Redup' },
+            { color: '#3978D6', label: 'Biru Perak (Aksen)' },
+            { color: '#F2F6FC', label: 'Putih Teks' },
+            { color: '#172945', label: 'Deep Surface' },
+            { color: '#7186A5', label: 'Redup' },
             { color: '#EF4444', label: 'Merah Koreksi' }
           ].map((swatch) => (
             <button
@@ -275,7 +275,7 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
               onClick={() => setBrushColor(swatch.color)}
               className={`w-5 h-5 rounded-lg transition-transform ${
                 brushColor === swatch.color 
-                  ? 'ring-2 ring-[#7857FF] scale-110 shadow-xs' 
+                  ? 'ring-2 ring-[#3978D6] scale-110 shadow-xs' 
                   : 'opacity-80 hover:opacity-100'
               }`}
               style={{ backgroundColor: swatch.color }}
@@ -283,7 +283,7 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
             />
           ))}
 
-          <div className="h-4 w-px bg-[#7857FF]/20 mx-1"></div>
+          <div className="h-4 w-px bg-[#3978D6]/20 mx-1"></div>
 
           {/* Pen Size */}
           <div className="flex items-center gap-1">
@@ -297,8 +297,8 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
                 onClick={() => setBrushSize(item.size)}
                 className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition-colors ${
                   brushSize === item.size
-                    ? 'bg-[#12194A] text-[#F5F6FF] shadow-xs border border-[#7857FF]/30'
-                    : 'text-[#737FA8] hover:text-[#F5F6FF]'
+                    ? 'bg-[#172945] text-[#F2F6FC] shadow-xs border border-[#3978D6]/30'
+                    : 'text-[#7186A5] hover:text-[#F2F6FC]'
                 }`}
               >
                 {item.label}
@@ -312,7 +312,7 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
           <button
             onClick={handleUndo}
             disabled={strokes.length === 0}
-            className="p-1.5 rounded-xl bg-[#080D2B] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/25 disabled:opacity-30 transition-colors shadow-2xs"
+            className="p-1.5 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#F2F6FC] border border-[#3978D6]/25 disabled:opacity-30 transition-colors shadow-2xs"
             title="Undo"
           >
             <Undo2 className="w-3.5 h-3.5" />
@@ -321,7 +321,7 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
           <button
             onClick={handleRedo}
             disabled={redoStack.length === 0}
-            className="p-1.5 rounded-xl bg-[#080D2B] hover:bg-[#12194A] text-[#F5F6FF] border border-[#7857FF]/25 disabled:opacity-30 transition-colors shadow-2xs"
+            className="p-1.5 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#F2F6FC] border border-[#3978D6]/25 disabled:opacity-30 transition-colors shadow-2xs"
             title="Redo"
           >
             <Redo2 className="w-3.5 h-3.5" />
@@ -331,11 +331,11 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
             onClick={() => setShowGhost(!showGhost)}
             className={`px-2.5 py-1 rounded-xl text-xs font-bold border flex items-center gap-1 transition-colors ${
               showGhost 
-                ? 'bg-[#12194A] border-[#7857FF]/40 text-[#F5F6FF]' 
-                : 'bg-[#080D2B] text-[#737FA8] border-[#7857FF]/25'
+                ? 'bg-[#172945] border-[#3978D6]/40 text-[#F2F6FC]' 
+                : 'bg-[#08152F] text-[#7186A5] border-[#3978D6]/25'
             }`}
           >
-            {showGhost ? <Eye className="w-3 h-3 text-[#7857FF]" /> : <EyeOff className="w-3 h-3 text-[#737FA8]" />}
+            {showGhost ? <Eye className="w-3 h-3 text-[#3978D6]" /> : <EyeOff className="w-3 h-3 text-[#7186A5]" />}
             <span className="text-[11px]">Bayangan</span>
           </button>
 
@@ -344,7 +344,7 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
             className={`px-2.5 py-1 rounded-xl text-xs font-bold border flex items-center gap-1 transition-colors ${
               showHint 
                 ? 'bg-amber-950/40 border-amber-500/40 text-amber-300' 
-                : 'bg-[#080D2B] text-[#737FA8] border-[#7857FF]/25'
+                : 'bg-[#08152F] text-[#7186A5] border-[#3978D6]/25'
             }`}
           >
             <HelpCircle className="w-3 h-3 text-amber-400" />
@@ -353,7 +353,7 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
 
           <button
             onClick={handleClear}
-            className="p-1.5 rounded-xl bg-[#080D2B] hover:bg-[#12194A] text-[#737FA8] hover:text-[#F5F6FF] border border-[#7857FF]/25 transition-colors shadow-2xs"
+            className="p-1.5 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#7186A5] hover:text-[#F2F6FC] border border-[#3978D6]/25 transition-colors shadow-2xs"
             title="Bersihkan Kanvas"
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -364,8 +364,8 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
 
       {/* Sub-character selector if compound */}
       {chars.length > 1 && (
-        <div className="flex flex-wrap items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#080D2B]/80 border border-[#7857FF]/30">
-          <span className="text-xs font-bold text-[#AAB3D5]">Pilih Karakter untuk Ditulis:</span>
+        <div className="flex flex-wrap items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#08152F]/80 border border-[#3978D6]/30">
+          <span className="text-xs font-bold text-[#A9BBD3]">Pilih Karakter untuk Ditulis:</span>
           {chars.map((c, idx) => {
             const cStrokes = KANA_STROKE_DATA[c]?.paths.length || '?';
             return (
@@ -377,8 +377,8 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
                 }}
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-mono text-xs font-black transition-all cursor-pointer ${
                   selectedSubIndex === idx
-                    ? 'bg-gradient-to-r from-[#7857FF] to-[#329BFF] text-white border border-[#7857FF]/50 shadow-md'
-                    : 'bg-[#0D1238] text-[#737FA8] hover:text-white border border-[#7857FF]/25'
+                    ? 'bg-gradient-to-r from-[#3978D6] to-[#69C9DF] text-white border border-[#3978D6]/50 shadow-md'
+                    : 'bg-[#111F38] text-[#7186A5] hover:text-white border border-[#3978D6]/25'
                 }`}
               >
                 <span className="font-japanese text-base">{c}</span>
@@ -392,12 +392,12 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
       )}
 
       {/* Interactive Canvas Box */}
-      <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto rounded-3xl bg-[#080D2B] border border-[#7857FF]/25 shadow-md overflow-hidden flex items-center justify-center select-none touch-none">
+      <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto rounded-3xl bg-[#08152F] border border-[#3978D6]/25 shadow-md overflow-hidden flex items-center justify-center select-none touch-none">
         
         {/* Ghost Template Character underneath */}
         {showGhost && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="kanji-font text-[170px] sm:text-[190px] font-black text-[#7857FF]/20 leading-none transition-opacity">
+            <span className="kanji-font text-[170px] sm:text-[190px] font-black text-[#3978D6]/20 leading-none transition-opacity">
               {activeChar}
             </span>
           </div>
@@ -419,7 +419,7 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
         />
 
         {/* Live Stroke Counter */}
-        <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-xl bg-[#0D1238]/95 backdrop-blur-xs border border-[#7857FF]/25 shadow-xs text-[11px] font-bold font-mono text-[#F5F6FF] z-20">
+        <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-xl bg-[#111F38]/95 backdrop-blur-xs border border-[#3978D6]/25 shadow-xs text-[11px] font-bold font-mono text-[#F2F6FC] z-20">
           Tarikan: {strokes.length} / {strokeCount}
         </div>
       </div>
@@ -428,9 +428,9 @@ export const KanaCanvasPractice: React.FC<KanaCanvasPracticeProps> = ({
       <div className="flex items-center justify-center pt-1">
         <button
           onClick={handleCheckWriting}
-          className="flex items-center gap-2 px-6 py-2.5 rounded-2xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] border border-[#7857FF]/40 hover:brightness-110 text-[#F5F6FF] font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95"
+          className="flex items-center gap-2 px-6 py-2.5 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] border border-[#3978D6]/40 hover:brightness-110 text-[#F2F6FC] font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95"
         >
-          <CheckCircle2 className="w-4 h-4 text-[#7857FF]" />
+          <CheckCircle2 className="w-4 h-4 text-[#3978D6]" />
           <span>Periksa Hasil Tulisan</span>
         </button>
       </div>

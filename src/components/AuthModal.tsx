@@ -280,35 +280,35 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {tab === 'signin' && (
           <form onSubmit={handleSignIn} className="p-6 pt-3 space-y-4">
             <div>
-              <label className="block text-xs font-bold text-[#F5F6FF] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#F2F6FC] uppercase tracking-wider mb-1.5">
                 Alamat Email
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-[#737FA8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-[#7186A5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="nama@email.com"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-sm font-semibold text-[#F5F6FF] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/30 focus:border-[#7857FF]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#08152F]/80 border border-[#3978D6]/25 text-sm font-semibold text-[#F2F6FC] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/30 focus:border-[#3978D6]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#F5F6FF] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#F2F6FC] uppercase tracking-wider mb-1.5">
                 Kata Sandi
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-[#737FA8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-[#7186A5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-sm font-semibold text-[#F5F6FF] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/30 focus:border-[#7857FF]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#08152F]/80 border border-[#3978D6]/25 text-sm font-semibold text-[#F2F6FC] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/30 focus:border-[#3978D6]"
                 />
               </div>
             </div>
@@ -316,30 +316,30 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] border border-[#7857FF]/40 hover:brightness-110 text-[#F5F6FF] font-bold text-sm shadow-md transition-all active:scale-95 disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] border border-[#3978D6]/40 hover:brightness-110 text-[#F2F6FC] font-bold text-sm shadow-md transition-all active:scale-95 disabled:opacity-50"
             >
               {loading ? (
                 <RefreshCw className="w-4 h-4 animate-spin" />
               ) : (
-                <LogIn className="w-4 h-4 text-[#7857FF]" />
+                <LogIn className="w-4 h-4 text-[#3978D6]" />
               )}
               <span>Masuk & Sinkronkan Progres</span>
             </button>
 
             {/* Google OAuth Login */}
             <div className="relative flex py-1 items-center">
-              <div className="grow border-t border-[#7857FF]/20"></div>
-              <span className="shrink mx-3 text-[10px] text-[#737FA8] font-bold uppercase tracking-wider">
+              <div className="grow border-t border-[#3978D6]/20"></div>
+              <span className="shrink mx-3 text-[10px] text-[#7186A5] font-bold uppercase tracking-wider">
                 atau
               </span>
-              <div className="grow border-t border-[#7857FF]/20"></div>
+              <div className="grow border-t border-[#3978D6]/20"></div>
             </div>
 
             <button
               type="button"
               onClick={handleGoogleLogin}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#080D2B] hover:bg-[#12194A] text-[#F5F6FF] font-bold text-xs border border-[#7857FF]/25 shadow-2xs transition-all active:scale-95"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#08152F] hover:bg-[#172945] text-[#F2F6FC] font-bold text-xs border border-[#3978D6]/25 shadow-2xs transition-all active:scale-95"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24">
                 <path
@@ -368,52 +368,52 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {tab === 'signup' && (
           <form onSubmit={handleSignUp} className="p-6 pt-3 space-y-4">
             <div>
-              <label className="block text-xs font-bold text-[#F5F6FF] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#F2F6FC] uppercase tracking-wider mb-1.5">
                 Nama Lengkap / Panggilan
               </label>
               <div className="relative">
-                <UserIcon className="w-4 h-4 text-[#737FA8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <UserIcon className="w-4 h-4 text-[#7186A5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Contoh: Kenji"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-sm font-semibold text-[#F5F6FF] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/30 focus:border-[#7857FF]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#08152F]/80 border border-[#3978D6]/25 text-sm font-semibold text-[#F2F6FC] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/30 focus:border-[#3978D6]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#F5F6FF] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#F2F6FC] uppercase tracking-wider mb-1.5">
                 Alamat Email
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-[#737FA8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-[#7186A5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="nama@email.com"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-sm font-semibold text-[#F5F6FF] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/30 focus:border-[#7857FF]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#08152F]/80 border border-[#3978D6]/25 text-sm font-semibold text-[#F2F6FC] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/30 focus:border-[#3978D6]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#F5F6FF] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#F2F6FC] uppercase tracking-wider mb-1.5">
                 Kata Sandi
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-[#737FA8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-[#7186A5] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Minimal 6 karakter"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-sm font-semibold text-[#F5F6FF] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/30 focus:border-[#7857FF]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#08152F]/80 border border-[#3978D6]/25 text-sm font-semibold text-[#F2F6FC] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/30 focus:border-[#3978D6]"
                 />
               </div>
             </div>
@@ -421,12 +421,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] border border-[#7857FF]/40 hover:brightness-110 text-[#F5F6FF] font-bold text-sm shadow-md transition-all active:scale-95 disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] border border-[#3978D6]/40 hover:brightness-110 text-[#F2F6FC] font-bold text-sm shadow-md transition-all active:scale-95 disabled:opacity-50"
             >
               {loading ? (
                 <RefreshCw className="w-4 h-4 animate-spin" />
               ) : (
-                <UserPlus className="w-4 h-4 text-[#7857FF]" />
+                <UserPlus className="w-4 h-4 text-[#3978D6]" />
               )}
               <span>Daftar Akun Baru</span>
             </button>
@@ -436,18 +436,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* TAB 3: CONFIGURATION (SUPABASE URL & ANON KEY) */}
         {tab === 'config' && (
           <form onSubmit={handleSaveConfig} className="p-6 pt-3 space-y-4">
-            <div className="p-3.5 rounded-2xl bg-[#080D2B]/60 border border-[#7857FF]/25 text-[#F5F6FF] text-xs leading-relaxed space-y-1">
-              <div className="font-black flex items-center gap-1.5 text-[#7857FF]">
+            <div className="p-3.5 rounded-2xl bg-[#08152F]/60 border border-[#3978D6]/25 text-[#F2F6FC] text-xs leading-relaxed space-y-1">
+              <div className="font-black flex items-center gap-1.5 text-[#3978D6]">
                 <ShieldCheck className="w-4 h-4" />
                 <span>Pengaturan Database Supabase</span>
               </div>
-              <p className="text-[11px] text-[#737FA8]">
+              <p className="text-[11px] text-[#7186A5]">
                 Salin Project URL dan anon public key dari Project Settings → API, lalu simpan di bawah:
               </p>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#F5F6FF] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#F2F6FC] uppercase tracking-wider mb-1.5">
                 Supabase Project URL
               </label>
               <input
@@ -456,12 +456,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 value={inputUrl}
                 onChange={(e) => setInputUrl(e.target.value)}
                 placeholder="https://your-project.supabase.co"
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-sm font-mono text-[#F5F6FF] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/30 focus:border-[#7857FF]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#08152F]/80 border border-[#3978D6]/25 text-sm font-mono text-[#F2F6FC] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/30 focus:border-[#3978D6]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#F5F6FF] uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#F2F6FC] uppercase tracking-wider mb-1.5">
                 Supabase Anon Public Key
               </label>
               <textarea
@@ -470,7 +470,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 value={inputKey}
                 onChange={(e) => setInputKey(e.target.value)}
                 placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..."
-                className="w-full px-3.5 py-2 rounded-xl bg-[#080D2B]/80 border border-[#7857FF]/25 text-xs font-mono text-[#F5F6FF] focus:outline-hidden focus:ring-2 focus:ring-[#7857FF]/30 focus:border-[#7857FF]"
+                className="w-full px-3.5 py-2 rounded-xl bg-[#08152F]/80 border border-[#3978D6]/25 text-xs font-mono text-[#F2F6FC] focus:outline-hidden focus:ring-2 focus:ring-[#3978D6]/30 focus:border-[#3978D6]"
               />
             </div>
 
@@ -486,14 +486,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               )}
               <button
                 type="submit"
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#7857FF] to-[#945CFF] border border-[#7857FF]/40 hover:brightness-110 text-[#F5F6FF] font-bold text-xs shadow-md transition-all active:scale-95"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] border border-[#3978D6]/40 hover:brightness-110 text-[#F2F6FC] font-bold text-xs shadow-md transition-all active:scale-95"
               >
-                <KeyRound className="w-4 h-4 text-[#7857FF]" />
+                <KeyRound className="w-4 h-4 text-[#3978D6]" />
                 <span>Simpan & Terapkan Kunci</span>
               </button>
             </div>
 
-            <div className="text-[10px] text-[#737FA8] bg-[#080D2B]/60 p-2.5 rounded-xl border border-[#7857FF]/25">
+            <div className="text-[10px] text-[#7186A5] bg-[#08152F]/60 p-2.5 rounded-xl border border-[#3978D6]/25">
               Tabel database telah diverifikasi dan siap digunakan untuk sinkronisasi progres Anda.
             </div>
           </form>
