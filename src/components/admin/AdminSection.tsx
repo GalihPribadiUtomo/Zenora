@@ -28,7 +28,8 @@ import {
   TrendingUp,
   HardDrive,
   Megaphone,
-  Bell
+  Bell,
+  BarChart3
 } from 'lucide-react';
 import { KOTOBA_DATA } from '../../data/kotobaData';
 import { KANJI_DATA } from '../../data/kanjiData';
@@ -45,6 +46,7 @@ import {
 import { loadAllCustomMateri, resetChapterMateri } from '../../utils/materiStorage';
 import { clearLessonCache } from '../../data/materi';
 import { AdminMateriManager } from './AdminMateriManager';
+import { AdminAnalyticsDashboard } from './AdminAnalyticsDashboard';
 import { sound } from '../../utils/audio';
 import type { KotobaItem, KotobaCategory, AdminAnnouncement } from '../../types';
 import { 
@@ -66,7 +68,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
   onSyncCloud,
   isSyncing = false
 }) => {
-  const [activeAdminTab, setActiveAdminTab] = useState<'overview' | 'materi' | 'kotoba' | 'ssw' | 'cbt' | 'announcements' | 'database'>('overview');
+  const [activeAdminTab, setActiveAdminTab] = useState<'overview' | 'analytics' | 'materi' | 'kotoba' | 'ssw' | 'cbt' | 'announcements' | 'database'>('overview');
 
   // Admin Announcements State
   const [announcements, setAnnouncements] = useState<AdminAnnouncement[]>(() => getAdminAnnouncements());
@@ -240,30 +242,30 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           1. EXECUTIVE ADMIN HEADER
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/35 shadow-[0_20px_60px_-15px_rgba(8,21,47,0.95)] bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#172945] p-6 sm:p-8">
+      <div className="relative overflow-hidden rounded-3xl border border-[var(--border)] shadow-[var(--card-shadow)] bg-[var(--bg-card)] p-6 sm:p-8">
         
         {/* Ambient Glow */}
-        <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#3978D6]/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-[#69C9DF]/15 blur-3xl pointer-events-none" />
+        <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[var(--primary)]/12 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-[var(--secondary-accent)]/10 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div className="flex items-center gap-2.5">
-              <span className="px-3 py-1 rounded-full bg-[#3978D6]/20 border border-[#3978D6]/40 text-[#DCEBFA] text-xs font-black uppercase tracking-wider font-mono flex items-center gap-1.5 shadow-[0_0_12px_rgba(57,120,214,0.3)]">
-                <ShieldCheck className="w-4 h-4 text-[#3978D6]" />
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="px-3 py-1 rounded-full bg-[var(--primary)]/12 border border-[var(--primary)]/25 text-[var(--primary)] text-xs font-black uppercase tracking-wider font-mono flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[var(--primary)]" />
                 ZENORA Executive CMS · Console Administrator
               </span>
-              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-[#27B99A]/15 border border-[#27B99A]/30 text-[#27B99A] text-xs font-bold">
                 Live Production
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-4xl font-black text-white font-['Manrope'] tracking-tight flex items-center gap-3">
+            <h1 className="text-2xl sm:text-4xl font-black text-[var(--text-primary)] font-['Manrope'] tracking-tight flex items-center gap-3">
               Panel Pengelola Sistem & Konten
             </h1>
 
-            <p className="text-xs sm:text-sm text-[#A9BBD3] max-w-2xl leading-relaxed">
-              Pusat kontrol terpadu materi Minna no Nihongo, 6 Sektor Tokutei Ginou SSW, bank soal ujian CBT, dan cadangan database.
+            <p className="text-xs sm:text-sm text-[var(--text-secondary)] max-w-2xl leading-relaxed">
+              Pusat kontrol terpadu materi Minna no Nihongo, 6 Sektor Tokutei Ginou SSW, analitik platform, bank soal ujian CBT, dan cadangan database.
             </p>
           </div>
 
@@ -271,18 +273,19 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
           <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={() => { sound.playClick(); onBackToApp(); }}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#08152F] hover:bg-[#172945] border border-[#3978D6]/30 text-[#A9BBD3] hover:text-white text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[var(--bg-elevated)] hover:bg-[var(--primary)]/12 border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] text-xs sm:text-sm font-bold shadow-xs transition-all active:scale-95 cursor-pointer"
             >
-              <ArrowLeft className="w-4 h-4 text-[#3978D6]" />
+              <ArrowLeft className="w-4 h-4 text-[var(--primary)]" />
               <span>Kembali ke Mode Siswa</span>
             </button>
           </div>
         </div>
 
         {/* Admin Navigation Tabs */}
-        <div className="mt-8 pt-4 border-t border-[#3978D6]/20 flex flex-wrap gap-2">
+        <div className="mt-8 pt-4 border-t border-[var(--border)] flex flex-wrap gap-2">
           {[
             { id: 'overview', label: 'Ringkasan & Metrik', icon: LayoutDashboard },
+            { id: 'analytics', label: 'Analitik Platform', icon: BarChart3 },
             { id: 'materi', label: 'Kelola Materi (Bunpou, Bunkei, Reibun, Kaiwa)', icon: BookOpen },
             { id: 'kotoba', label: 'Kelola Kosakata (Kotoba)', icon: Layers },
             { id: 'ssw', label: 'Kurikulum SSW (6 Sektor)', icon: Briefcase },
@@ -298,11 +301,11 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                 onClick={() => { sound.playClick(); setActiveAdminTab(tab.id as any); }}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
-                    : 'bg-[#111F38] hover:bg-[#172945] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
+                    ? 'bg-gradient-to-r from-[#2866B5] to-[#4389D4] text-white shadow-md'
+                    : 'bg-[var(--bg-elevated)] hover:bg-[var(--primary)]/10 text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border)]'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#3978D6]'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[var(--primary)]'}`} />
                 <span>{tab.label}</span>
               </button>
             );
@@ -313,10 +316,20 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
 
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 p-4 rounded-2xl bg-[#111F38] border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm font-bold shadow-2xl flex items-center gap-2 animate-slide-up">
-          <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+        <div className="fixed bottom-6 right-6 z-50 p-4 rounded-2xl bg-[var(--bg-card)] border border-[#27B99A]/40 text-[#27B99A] text-xs sm:text-sm font-bold shadow-2xl flex items-center gap-2 animate-slide-up">
+          <CheckCircle2 className="w-5 h-5 text-[#27B99A]" />
           <span>{toastMessage}</span>
         </div>
+      )}
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          TAB ANALITIK PLATFORM (9-SECTION SAAS ADMIN ANALYTICS)
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {activeAdminTab === 'analytics' && (
+        <AdminAnalyticsDashboard
+          currentUser={user}
+          onNavigateAdminTab={(t) => setActiveAdminTab(t)}
+        />
       )}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -328,36 +341,36 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
           {/* Key Metric Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             
-            <div className="p-5 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 space-y-2 card-interactive">
-              <span className="text-[11px] font-mono font-bold text-[#7186A5] uppercase">Total Kosakata</span>
-              <span className="text-3xl font-black text-white font-['Manrope'] block">
+            <div className="p-5 rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25 space-y-2 card-interactive">
+              <span className="text-[11px] font-mono font-bold text-[var(--text-muted)] uppercase">Total Kosakata</span>
+              <span className="text-3xl font-black text-[var(--text-primary)] font-['Manrope'] block">
                 {kotobaList.length.toLocaleString()}
               </span>
-              <p className="text-xs text-[#A9BBD3]">Minna no Nihongo Bab 1–50</p>
+              <p className="text-xs text-[var(--text-secondary)]">Minna no Nihongo Bab 1–50</p>
             </div>
 
-            <div className="p-5 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 space-y-2 card-interactive">
-              <span className="text-[11px] font-mono font-bold text-[#7186A5] uppercase">Total Kanji Interaktif</span>
+            <div className="p-5 rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25 space-y-2 card-interactive">
+              <span className="text-[11px] font-mono font-bold text-[var(--text-muted)] uppercase">Total Kanji Interaktif</span>
               <span className="text-3xl font-black text-[#69C9DF] font-['Manrope'] block">
                 {KANJI_DATA.length}
               </span>
-              <p className="text-xs text-[#A9BBD3]">Kanji N5 & N4 dengan coretan</p>
+              <p className="text-xs text-[var(--text-secondary)]">Kanji N5 & N4 dengan coretan</p>
             </div>
 
-            <div className="p-5 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 space-y-2 card-interactive">
-              <span className="text-[11px] font-mono font-bold text-[#7186A5] uppercase">Sektor Industri SSW</span>
+            <div className="p-5 rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25 space-y-2 card-interactive">
+              <span className="text-[11px] font-mono font-bold text-[var(--text-muted)] uppercase">Sektor Industri SSW</span>
               <span className="text-3xl font-black text-[#45C6A5] font-['Manrope'] block">
                 {SSW_ALL_SECTORS.length} Sektor
               </span>
-              <p className="text-xs text-[#A9BBD3]">30 Bab Kurikulum Terakreditasi</p>
+              <p className="text-xs text-[var(--text-secondary)]">30 Bab Kurikulum Terakreditasi</p>
             </div>
 
-            <div className="p-5 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 space-y-2 card-interactive">
-              <span className="text-[11px] font-mono font-bold text-[#7186A5] uppercase">Status Cloud Supabase</span>
+            <div className="p-5 rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25 space-y-2 card-interactive">
+              <span className="text-[11px] font-mono font-bold text-[var(--text-muted)] uppercase">Status Cloud Supabase</span>
               <span className="text-xl font-black text-[#E9BD72] font-['Manrope'] block pt-1">
                 {user ? 'Tersambung' : 'Mode Offline'}
               </span>
-              <p className="text-xs text-[#A9BBD3]">
+              <p className="text-xs text-[var(--text-secondary)]">
                 {user ? user.email : 'Belum login admin cloud'}
               </p>
             </div>
@@ -372,11 +385,11 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
               className="p-6 rounded-3xl bg-gradient-to-br from-[#111F38] to-[#172945] border border-[#3978D6]/40 cursor-pointer card-interactive flex flex-col justify-between shadow-[0_0_20px_rgba(57,120,214,0.15)]"
             >
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#08152F] border border-[#3978D6]/40 flex items-center justify-center text-[#3978D6]">
+                <div className="w-12 h-12 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/40 flex items-center justify-center text-[#3978D6]">
                   <BookOpen className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-black text-white font-['Manrope']">Kelola Materi Bab 1–50</h3>
-                <p className="text-xs text-[#A9BBD3] leading-relaxed">
+                <h3 className="text-lg font-black text-[var(--text-primary)] font-['Manrope']">Kelola Materi Bab 1–50</h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                   Kelola Bunpou (Tata Bahasa), Bunkei (Pola Kalimat), Reibun (Contoh), dan Kaiwa (Percakapan).
                 </p>
               </div>
@@ -388,11 +401,11 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
               className="p-6 rounded-3xl bg-gradient-to-br from-[#111F38] to-[#172945] border border-[#3978D6]/30 cursor-pointer card-interactive flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#08152F] border border-[#3978D6]/30 flex items-center justify-center text-[#3978D6]">
+                <div className="w-12 h-12 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 flex items-center justify-center text-[#3978D6]">
                   <Plus className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-black text-white font-['Manrope']">Tambah Kosakata Baru</h3>
-                <p className="text-xs text-[#A9BBD3] leading-relaxed">
+                <h3 className="text-lg font-black text-[var(--text-primary)] font-['Manrope']">Tambah Kosakata Baru</h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                   Tambahkan entri kosakata Minna baru lengkap dengan kanji, furigana, romaji, dan terjemahan Indonesia.
                 </p>
               </div>
@@ -404,11 +417,11 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
               className="p-6 rounded-3xl bg-gradient-to-br from-[#111F38] to-[#172945] border border-[#69C9DF]/30 cursor-pointer card-interactive flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#08152F] border border-[#69C9DF]/30 flex items-center justify-center text-[#69C9DF]">
+                <div className="w-12 h-12 rounded-2xl bg-[var(--bg-sidebar)] border border-[#69C9DF]/30 flex items-center justify-center text-[#69C9DF]">
                   <FileCheck className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-black text-white font-['Manrope']">Kelola Bank Soal CBT</h3>
-                <p className="text-xs text-[#A9BBD3] leading-relaxed">
+                <h3 className="text-lg font-black text-[var(--text-primary)] font-['Manrope']">Kelola Bank Soal CBT</h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                   Kelola paket latihan soal JLPT N5, JLPT N4, JFT-Basic A2, dan Ujian Keahlian Tokutei Ginou.
                 </p>
               </div>
@@ -420,11 +433,11 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
               className="p-6 rounded-3xl bg-gradient-to-br from-[#111F38] to-[#172945] border border-emerald-500/30 cursor-pointer card-interactive flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#08152F] border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                <div className="w-12 h-12 rounded-2xl bg-[var(--bg-sidebar)] border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                   <Download className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-black text-white font-['Manrope']">Cadangkan Database</h3>
-                <p className="text-xs text-[#A9BBD3] leading-relaxed">
+                <h3 className="text-lg font-black text-[var(--text-primary)] font-['Manrope']">Cadangkan Database</h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                   Unduh seluruh snapshot kosakata kustom, progres materi, dan riwayat belajar ke dalam berkas JSON.
                 </p>
               </div>
@@ -450,7 +463,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
         <div className="space-y-6">
           
           {/* Controls Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-3xl bg-[#111F38] border border-[#3978D6]/25">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25">
             
             <div className="flex flex-wrap items-center gap-3 flex-1">
               {/* Search input */}
@@ -461,7 +474,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                   value={searchKotoba}
                   onChange={(e) => setSearchKotoba(e.target.value)}
                   placeholder="Cari kanji, kana, romaji, arti..."
-                  className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[#08152F] border border-[#3978D6]/25 text-xs sm:text-sm text-white placeholder-[#7186A5] focus:outline-hidden focus:border-[#3978D6]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/25 text-xs sm:text-sm text-[var(--text-primary)] placeholder-[#7186A5] focus:outline-hidden focus:border-[#3978D6]"
                 />
               </div>
 
@@ -469,7 +482,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
               <select
                 value={filterBab}
                 onChange={(e) => setFilterBab(e.target.value === 'all' ? 'all' : parseInt(e.target.value, 10))}
-                className="px-3.5 py-2.5 rounded-2xl bg-[#08152F] border border-[#3978D6]/25 text-xs text-white focus:outline-hidden"
+                className="px-3.5 py-2.5 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/25 text-xs text-[var(--text-primary)] focus:outline-hidden"
               >
                 <option value="all">Semua Bab (1–50)</option>
                 {Array.from({ length: 50 }, (_, i) => i + 1).map((b) => (
@@ -484,7 +497,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                 setFormData({ bab: typeof filterBab === 'number' ? filterBab : 1, kanji: '', kana: '', romaji: '', arti: '', kategori: 'Umum & Ungkapan' });
                 setIsAddModalOpen(true);
               }}
-              className="px-5 py-2.5 rounded-2xl neon-btn-primary text-white text-xs font-black shadow-md flex items-center justify-center gap-2 cursor-pointer shrink-0"
+              className="px-5 py-2.5 rounded-2xl neon-btn-primary text-[var(--text-primary)] text-xs font-black shadow-md flex items-center justify-center gap-2 cursor-pointer shrink-0"
             >
               <Plus className="w-4 h-4" />
               <span>Tambah Kata</span>
@@ -493,15 +506,15 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
           </div>
 
           {/* Kotoba Table */}
-          <div className="rounded-3xl bg-[#111F38] border border-[#3978D6]/25 overflow-hidden shadow-lg">
-            <div className="p-4 bg-[#08152F] border-b border-[#3978D6]/20 flex items-center justify-between text-xs font-bold text-[#A9BBD3]">
+          <div className="rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25 overflow-hidden shadow-lg">
+            <div className="p-4 bg-[var(--bg-sidebar)] border-b border-[#3978D6]/20 flex items-center justify-between text-xs font-bold text-[var(--text-secondary)]">
               <span>Menampilkan {filteredKotoba.length} kata</span>
               <span>Total kosakata terdaftar: {kotobaList.length}</span>
             </div>
 
             <div className="overflow-x-auto max-h-[600px] overflow-y-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-[#08152F]/90 text-[#3978D6] uppercase font-mono tracking-wider sticky top-0 z-10 border-b border-[#3978D6]/20">
+                <thead className="bg-[var(--bg-sidebar)]/90 text-[#3978D6] uppercase font-mono tracking-wider sticky top-0 z-10 border-b border-[#3978D6]/20">
                   <tr>
                     <th className="p-4">Bab</th>
                     <th className="p-4">Kanji</th>
@@ -513,16 +526,16 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                 </thead>
                 <tbody className="divide-y divide-[#3978D6]/15">
                   {filteredKotoba.slice(0, 100).map((item) => (
-                    <tr key={item.id} className="hover:bg-[#172945]/50 transition-colors">
+                    <tr key={item.id} className="hover:bg-[var(--bg-elevated)]/50 transition-colors">
                       <td className="p-4 font-mono font-bold text-[#DCEBFA]">#{item.bab}</td>
-                      <td className="p-4 font-bold text-white text-lg japanese-text">{item.kanji}</td>
-                      <td className="p-4 text-[#A9BBD3]">
-                        <span className="block text-white font-medium">{item.kana}</span>
-                        <span className="font-mono text-[10px] text-[#7186A5]">{item.romaji}</span>
+                      <td className="p-4 font-bold text-[var(--text-primary)] text-lg japanese-text">{item.kanji}</td>
+                      <td className="p-4 text-[var(--text-secondary)]">
+                        <span className="block text-[var(--text-primary)] font-medium">{item.kana}</span>
+                        <span className="font-mono text-[10px] text-[var(--text-muted)]">{item.romaji}</span>
                       </td>
-                      <td className="p-4 text-[#F2F6FC] font-medium max-w-xs">{item.arti}</td>
+                      <td className="p-4 text-[var(--text-primary)] font-medium max-w-xs">{item.arti}</td>
                       <td className="p-4">
-                        <span className="px-2.5 py-1 rounded-md bg-[#08152F] border border-[#3978D6]/25 text-[10px] font-bold text-[#69C9DF]">
+                        <span className="px-2.5 py-1 rounded-md bg-[var(--bg-sidebar)] border border-[#3978D6]/25 text-[10px] font-bold text-[#69C9DF]">
                           {item.kategori}
                         </span>
                       </td>
@@ -534,14 +547,14 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                               setFormData(item);
                               setIsAddModalOpen(true);
                             }}
-                            className="p-1.5 rounded-lg bg-[#08152F] hover:bg-[#3978D6] text-[#A9BBD3] hover:text-white transition-colors"
+                            className="p-1.5 rounded-lg bg-[var(--bg-sidebar)] hover:bg-[#3978D6] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                             title="Edit Kata"
                           >
                             <Edit3 className="w-3.5 h-3.5" />
                           </button>
                           <button
                             onClick={() => handleDeleteWord(item)}
-                            className="p-1.5 rounded-lg bg-[#08152F] hover:bg-rose-500 text-[#A9BBD3] hover:text-white transition-colors"
+                            className="p-1.5 rounded-lg bg-[var(--bg-sidebar)] hover:bg-rose-500 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                             title="Hapus Kata"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -565,7 +578,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
         <div className="space-y-6">
           
           {/* Sector Selector Pills */}
-          <div className="flex flex-wrap gap-2.5 p-4 rounded-3xl bg-[#111F38] border border-[#3978D6]/25">
+          <div className="flex flex-wrap gap-2.5 p-4 rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25">
             {SSW_ALL_SECTORS.map((sec) => (
               <button
                 key={sec.id}
@@ -573,7 +586,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                 className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
                   selectedSswSector === sec.id
                     ? 'bg-[#3978D6] text-white shadow-md'
-                    : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
+                    : 'bg-[var(--bg-sidebar)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
                 }`}
               >
                 {sec.japaneseName} · {sec.name}
@@ -586,13 +599,13 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
             const sec = SSW_ALL_SECTORS.find(s => s.id === selectedSswSector) || SSW_ALL_SECTORS[0];
             return (
               <div className="space-y-6">
-                <div className="p-6 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 space-y-4">
+                <div className="p-6 rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25 space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="text-2xl font-black text-white font-['Manrope']">{sec.japaneseName} ({sec.name})</h2>
-                      <p className="text-xs text-[#A9BBD3] mt-1">{sec.overview.workEnvironment}</p>
+                      <h2 className="text-2xl font-black text-[var(--text-primary)] font-['Manrope']">{sec.japaneseName} ({sec.name})</h2>
+                      <p className="text-xs text-[var(--text-secondary)] mt-1">{sec.overview.workEnvironment}</p>
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-[#172945] border border-[#3978D6]/30 text-xs font-bold text-[#DCEBFA]">
+                    <span className="px-3 py-1 rounded-full bg-[var(--bg-elevated)] border border-[#3978D6]/30 text-xs font-bold text-[#DCEBFA]">
                       {sec.chapters.length} Bab Kurikulum
                     </span>
                   </div>
@@ -600,14 +613,14 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                   {/* Chapters List */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-[#3978D6]/15">
                     {sec.chapters.map((ch) => (
-                      <div key={ch.id} className="p-4 rounded-2xl bg-[#08152F] border border-[#3978D6]/20 space-y-2">
+                      <div key={ch.id} className="p-4 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/20 space-y-2">
                         <div className="flex items-center justify-between">
                           <span className="text-[10px] font-mono font-bold text-[#3978D6] uppercase">Bab {ch.chapterNumber} · {ch.category}</span>
-                          <span className="text-[10px] text-[#7186A5]">~{ch.estimatedMinutes} menit</span>
+                          <span className="text-[10px] text-[var(--text-muted)]">~{ch.estimatedMinutes} menit</span>
                         </div>
-                        <h4 className="text-sm font-bold text-white">{ch.title}</h4>
-                        <p className="text-xs text-[#7186A5] japanese-text font-mono">{ch.japaneseTitle}</p>
-                        <p className="text-xs text-[#A9BBD3] line-clamp-2 pt-1">{ch.summary}</p>
+                        <h4 className="text-sm font-bold text-[var(--text-primary)]">{ch.title}</h4>
+                        <p className="text-xs text-[var(--text-muted)] japanese-text font-mono">{ch.japaneseTitle}</p>
+                        <p className="text-xs text-[var(--text-secondary)] line-clamp-2 pt-1">{ch.summary}</p>
                       </div>
                     ))}
                   </div>
@@ -624,11 +637,11 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {activeAdminTab === 'cbt' && (
         <div className="space-y-6">
-          <div className="p-6 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 space-y-4">
+          <div className="p-6 rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25 space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-black text-white font-['Manrope']">Manajemen Bank Soal Ujian Komputer (CBT)</h3>
-                <p className="text-xs text-[#A9BBD3]">Kelola pertanyaan simulasi JFT-Basic A2, JLPT N4, dan Skill Test Sektor SSW</p>
+                <h3 className="text-lg font-black text-[var(--text-primary)] font-['Manrope']">Manajemen Bank Soal Ujian Komputer (CBT)</h3>
+                <p className="text-xs text-[var(--text-secondary)]">Kelola pertanyaan simulasi JFT-Basic A2, JLPT N4, dan Skill Test Sektor SSW</p>
               </div>
               <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
                 Status CBT: Aktif
@@ -636,21 +649,21 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-              <div className="p-4 rounded-2xl bg-[#08152F] border border-[#3978D6]/20 space-y-2">
-                <span className="text-xs font-bold text-white block">Paket JFT-Basic A2</span>
-                <p className="text-xs text-[#7186A5]">Standar bahasa kerja The Japan Foundation (Passing score 200/250).</p>
+              <div className="p-4 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/20 space-y-2">
+                <span className="text-xs font-bold text-[var(--text-primary)] block">Paket JFT-Basic A2</span>
+                <p className="text-xs text-[var(--text-muted)]">Standar bahasa kerja The Japan Foundation (Passing score 200/250).</p>
                 <span className="text-[10px] font-mono text-[#45C6A5] font-bold block pt-2">✓ 60 Soal Tersedia</span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#08152F] border border-[#3978D6]/20 space-y-2">
-                <span className="text-xs font-bold text-white block">Paket JLPT N4</span>
-                <p className="text-xs text-[#7186A5]">Soal Moji-Goi, Bunpou-Dokkai, dan Choukai terstandarisasi.</p>
+              <div className="p-4 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/20 space-y-2">
+                <span className="text-xs font-bold text-[var(--text-primary)] block">Paket JLPT N4</span>
+                <p className="text-xs text-[var(--text-muted)]">Soal Moji-Goi, Bunpou-Dokkai, dan Choukai terstandarisasi.</p>
                 <span className="text-[10px] font-mono text-[#45C6A5] font-bold block pt-2">✓ 45 Soal Tersedia</span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#08152F] border border-[#3978D6]/20 space-y-2">
-                <span className="text-xs font-bold text-white block">Skill Test Sektor SSW</span>
-                <p className="text-xs text-[#7186A5]">Soal bergambar evaluasi keahlian teknis (OTAFF & Prometric).</p>
+              <div className="p-4 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/20 space-y-2">
+                <span className="text-xs font-bold text-[var(--text-primary)] block">Skill Test Sektor SSW</span>
+                <p className="text-xs text-[var(--text-muted)]">Soal bergambar evaluasi keahlian teknis (OTAFF & Prometric).</p>
                 <span className="text-[10px] font-mono text-[#45C6A5] font-bold block pt-2">✓ 6 Sektor Terintegrasi</span>
               </div>
             </div>
@@ -663,15 +676,15 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {activeAdminTab === 'announcements' && (
         <div className="space-y-6">
-          <div className="p-6 rounded-3xl bg-[#111F38] border border-[#263D60] space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#263D60]">
+          <div className="p-6 rounded-3xl bg-[var(--bg-card)] border border-[var(--border)] space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border)]">
               <div className="flex items-center gap-3">
                 <div className="p-3 rounded-2xl bg-[#2456A6]/20 border border-[#3978D6]/40 text-[#83B7EE]">
                   <Megaphone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-black text-[#F2F6FC] font-['Manrope']">Kelola Pengumuman & Notifikasi Pengguna</h3>
-                  <p className="text-xs text-[#A9BBD3]">
+                  <h3 className="text-lg font-black text-[var(--text-primary)] font-['Manrope']">Kelola Pengumuman & Notifikasi Pengguna</h3>
+                  <p className="text-xs text-[var(--text-secondary)]">
                     Publikasikan pengumuman resmi yang akan langsung dikirimkan ke lonceng notifikasi seluruh pengguna
                   </p>
                 </div>
@@ -682,31 +695,31 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
             </div>
 
             {/* Create Announcement Form */}
-            <form onSubmit={handleCreateAnnouncement} className="p-5 rounded-2xl bg-[#08152F] border border-[#263D60] space-y-4">
-              <h4 className="text-sm font-bold text-[#F2F6FC] flex items-center gap-2">
+            <form onSubmit={handleCreateAnnouncement} className="p-5 rounded-2xl bg-[var(--bg-sidebar)] border border-[var(--border)] space-y-4">
+              <h4 className="text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
                 <Plus className="w-4 h-4 text-[#3978D6]" />
                 Buat Pengumuman Baru
               </h4>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="md:col-span-2 space-y-1.5">
-                  <label className="text-xs font-bold text-[#A9BBD3]">Judul Pengumuman</label>
+                  <label className="text-xs font-bold text-[var(--text-secondary)]">Judul Pengumuman</label>
                   <input
                     type="text"
                     value={newAnnTitle}
                     onChange={(e) => setNewAnnTitle(e.target.value)}
                     placeholder="Contoh: Jadwal Ujian Tryout JLPT & Update Materi Bab 26"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#111F38] border border-[#263D60] text-sm text-[#F2F6FC] focus:border-[#3978D6]"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] text-sm text-[var(--text-primary)] focus:border-[#3978D6]"
                     required
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-[#A9BBD3]">Target Penerima</label>
+                  <label className="text-xs font-bold text-[var(--text-secondary)]">Target Penerima</label>
                   <select
                     value={newAnnTarget}
                     onChange={(e) => setNewAnnTarget(e.target.value as any)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#111F38] border border-[#263D60] text-sm text-[#F2F6FC] focus:border-[#3978D6]"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] text-sm text-[var(--text-primary)] focus:border-[#3978D6]"
                   >
                     <option value="all">Semua Pengguna & Tamu</option>
                     <option value="user">Pengguna Terdaftar</option>
@@ -716,24 +729,24 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-[#A9BBD3]">Isi Pengumuman / Pesan</label>
+                <label className="text-xs font-bold text-[var(--text-secondary)]">Isi Pengumuman / Pesan</label>
                 <textarea
                   value={newAnnContent}
                   onChange={(e) => setNewAnnContent(e.target.value)}
                   placeholder="Tuliskan isi pengumuman lengkap di sini. Pesan akan tampil di pusat notifikasi pengguna..."
                   rows={3}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#111F38] border border-[#263D60] text-sm text-[#F2F6FC] focus:border-[#3978D6]"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] text-sm text-[var(--text-primary)] focus:border-[#3978D6]"
                   required
                 />
               </div>
 
               <div className="flex items-center justify-between pt-2">
-                <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#A9BBD3]">
+                <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[var(--text-secondary)]">
                   <input
                     type="checkbox"
                     checked={newAnnPublish}
                     onChange={(e) => setNewAnnPublish(e.target.checked)}
-                    className="rounded border-[#263D60] text-[#3978D6]"
+                    className="rounded border-[var(--border)] text-[#3978D6]"
                   />
                   <span>Kirim dan publikasikan seketika (Broadcast Live)</span>
                 </label>
@@ -750,45 +763,45 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
 
             {/* Existing Announcements List */}
             <div className="space-y-3 pt-2">
-              <h4 className="text-sm font-bold text-[#F2F6FC] flex items-center gap-2">
+              <h4 className="text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
                 <Bell className="w-4 h-4 text-[#83B7EE]" />
                 Daftar Riwayat Pengumuman
               </h4>
 
               {announcements.length === 0 ? (
-                <div className="py-8 text-center bg-[#08152F] rounded-2xl border border-[#263D60]">
-                  <p className="text-xs text-[#7186A5]">Belum ada pengumuman yang dibuat oleh Admin.</p>
+                <div className="py-8 text-center bg-[var(--bg-sidebar)] rounded-2xl border border-[var(--border)]">
+                  <p className="text-xs text-[var(--text-muted)]">Belum ada pengumuman yang dibuat oleh Admin.</p>
                 </div>
               ) : (
                 <div className="space-y-2.5">
                   {announcements.map((ann) => (
                     <div
                       key={ann.id}
-                      className="p-4 rounded-2xl bg-[#08152F] border border-[#263D60] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-[#3978D6]/40 transition-colors"
+                      className="p-4 rounded-2xl bg-[var(--bg-sidebar)] border border-[var(--border)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-[#3978D6]/40 transition-colors"
                     >
                       <div className="space-y-1">
                         <div className="flex items-center gap-2.5">
-                          <span className="text-xs font-bold text-[#F2F6FC]">{ann.title}</span>
+                          <span className="text-xs font-bold text-[var(--text-primary)]">{ann.title}</span>
                           <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                             ann.published
                               ? 'bg-[#45C6A5]/15 text-[#45C6A5] border border-[#45C6A5]/30'
-                              : 'bg-[#7186A5]/15 text-[#7186A5]'
+                              : 'bg-[#7186A5]/15 text-[var(--text-muted)]'
                           }`}>
                             {ann.published ? 'Dipublikasikan' : 'Draf'}
                           </span>
-                          <span className="text-[10px] text-[#7186A5] font-mono">
+                          <span className="text-[10px] text-[var(--text-muted)] font-mono">
                             Target: {ann.targetRole}
                           </span>
                         </div>
-                        <p className="text-xs text-[#A9BBD3] line-clamp-2">{ann.content}</p>
-                        <p className="text-[10px] text-[#7186A5]">
+                        <p className="text-xs text-[var(--text-secondary)] line-clamp-2">{ann.content}</p>
+                        <p className="text-[10px] text-[var(--text-muted)]">
                           Oleh {ann.author} · {new Date(ann.createdAt).toLocaleString('id-ID')}
                         </p>
                       </div>
 
                       <button
                         onClick={() => handleDeleteAnnouncement(ann.id)}
-                        className="p-2 rounded-xl text-[#7186A5] hover:text-rose-400 hover:bg-[#111F38] transition-colors self-end sm:self-center cursor-pointer"
+                        className="p-2 rounded-xl text-[var(--text-muted)] hover:text-rose-400 hover:bg-[var(--bg-card)] transition-colors self-end sm:self-center cursor-pointer"
                         title="Hapus pengumuman"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -807,20 +820,20 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {activeAdminTab === 'database' && (
         <div className="space-y-6">
-          <div className="p-6 rounded-3xl bg-[#111F38] border border-[#3978D6]/25 space-y-6">
+          <div className="p-6 rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/25 space-y-6">
             <div>
-              <h3 className="text-lg font-black text-white font-['Manrope']">Pusat Cadangan & Pemulihan Sistem</h3>
-              <p className="text-xs text-[#A9BBD3]">Kelola arsip data kustom dan pembersihan cache lokal</p>
+              <h3 className="text-lg font-black text-[var(--text-primary)] font-['Manrope']">Pusat Cadangan & Pemulihan Sistem</h3>
+              <p className="text-xs text-[var(--text-secondary)]">Kelola arsip data kustom dan pembersihan cache lokal</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               
-              <div className="p-5 rounded-2xl bg-[#08152F] border border-[#3978D6]/20 space-y-3">
-                <h4 className="text-sm font-bold text-white flex items-center gap-2">
+              <div className="p-5 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/20 space-y-3">
+                <h4 className="text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
                   <Download className="w-4 h-4 text-[#3978D6]" />
                   Unduh Salinan Cadangan (Export Backup)
                 </h4>
-                <p className="text-xs text-[#A9BBD3] leading-relaxed">
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                   Simpan seluruh kosakata kustom, perubahan materi, dan riwayat belajar ke dalam satu berkas format JSON untuk diarsipkan.
                 </p>
                 <button
@@ -831,12 +844,12 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                 </button>
               </div>
 
-              <div className="p-5 rounded-2xl bg-[#08152F] border border-rose-500/20 space-y-3">
+              <div className="p-5 rounded-2xl bg-[var(--bg-sidebar)] border border-rose-500/20 space-y-3">
                 <h4 className="text-sm font-bold text-rose-300 flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4 text-rose-400" />
                   Reset Kustomisasi ke Data Bawaan
                 </h4>
-                <p className="text-xs text-[#A9BBD3] leading-relaxed">
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                   Menghapus semua kustomisasi materi (Bunpou, Bunkei, Reibun, Kaiwa) dan kosakata yang ditambahkan atau diedit oleh admin lokal, mengembalikan daftar data murni Minna no Nihongo.
                 </p>
                 <button
@@ -849,7 +862,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                       showToast('Database kustom (Materi & Kosakata) berhasil direset ke setelan awal.');
                     }
                   }}
-                  className="px-4 py-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 hover:bg-rose-500 text-white text-xs font-bold transition-all cursor-pointer"
+                  className="px-4 py-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 hover:bg-rose-500 text-[var(--text-primary)] text-xs font-bold transition-all cursor-pointer"
                 >
                   Reset Data Kustom
                 </button>
@@ -869,16 +882,16 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
           onClick={() => setIsAddModalOpen(false)}
         >
           <div 
-            className="relative w-full max-w-lg rounded-3xl bg-[#111F38] border border-[#3978D6]/40 p-6 sm:p-8 space-y-5 shadow-2xl animate-modal-pop"
+            className="relative w-full max-w-lg rounded-3xl bg-[var(--bg-card)] border border-[#3978D6]/40 p-6 sm:p-8 space-y-5 shadow-2xl animate-modal-pop"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#3978D6]/20">
-              <h3 className="text-lg font-black text-white font-['Manrope']">
+              <h3 className="text-lg font-black text-[var(--text-primary)] font-['Manrope']">
                 {editingWord ? 'Edit Kosakata' : 'Tambah Kosakata Baru'}
               </h3>
               <button 
                 onClick={() => setIsAddModalOpen(false)}
-                className="p-1.5 rounded-xl text-[#7186A5] hover:text-white hover:bg-[#08152F]"
+                className="p-1.5 rounded-xl text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-sidebar)]"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -888,11 +901,11 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
               
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#A9BBD3] font-bold mb-1">Bab Minna no Nihongo</label>
+                  <label className="block text-[var(--text-secondary)] font-bold mb-1">Bab Minna no Nihongo</label>
                   <select
                     value={formData.bab}
                     onChange={(e) => setFormData({ ...formData, bab: parseInt(e.target.value, 10) })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white focus:outline-hidden"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[var(--text-primary)] focus:outline-hidden"
                   >
                     {Array.from({ length: 50 }, (_, i) => i + 1).map((b) => (
                       <option key={b} value={b}>Bab {b}</option>
@@ -901,11 +914,11 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-[#A9BBD3] font-bold mb-1">Kategori Kata</label>
+                  <label className="block text-[var(--text-secondary)] font-bold mb-1">Kategori Kata</label>
                   <select
                     value={formData.kategori}
                     onChange={(e) => setFormData({ ...formData, kategori: e.target.value as KotobaCategory })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white focus:outline-hidden"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[var(--text-primary)] focus:outline-hidden"
                   >
                     {[
                       'Kata Kerja', 'Kata Sifat', 'Waktu & Angka', 
@@ -919,51 +932,51 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
               </div>
 
               <div>
-                <label className="block text-[#A9BBD3] font-bold mb-1">Kanji (atau Kana jika tanpa kanji) *</label>
+                <label className="block text-[var(--text-secondary)] font-bold mb-1">Kanji (atau Kana jika tanpa kanji) *</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: 食べる, 日本語, 本"
                   value={formData.kanji || ''}
                   onChange={(e) => setFormData({ ...formData, kanji: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white text-base japanese-text focus:outline-hidden focus:border-[#3978D6]"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[var(--text-primary)] text-base japanese-text focus:outline-hidden focus:border-[#3978D6]"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#A9BBD3] font-bold mb-1">Bacaan Kana (Hiragana/Katakana) *</label>
+                  <label className="block text-[var(--text-secondary)] font-bold mb-1">Bacaan Kana (Hiragana/Katakana) *</label>
                   <input
                     type="text"
                     required
                     placeholder="Contoh: たべる"
                     value={formData.kana || ''}
                     onChange={(e) => setFormData({ ...formData, kana: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white focus:outline-hidden focus:border-[#3978D6]"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[var(--text-primary)] focus:outline-hidden focus:border-[#3978D6]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[#A9BBD3] font-bold mb-1">Romaji</label>
+                  <label className="block text-[var(--text-secondary)] font-bold mb-1">Romaji</label>
                   <input
                     type="text"
                     placeholder="Contoh: taberu"
                     value={formData.romaji || ''}
                     onChange={(e) => setFormData({ ...formData, romaji: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white focus:outline-hidden focus:border-[#3978D6]"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[var(--text-primary)] focus:outline-hidden focus:border-[#3978D6]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[#A9BBD3] font-bold mb-1">Arti Bahasa Indonesia *</label>
+                <label className="block text-[var(--text-secondary)] font-bold mb-1">Arti Bahasa Indonesia *</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: Makan, mengonsumsi makanan"
                   value={formData.arti || ''}
                   onChange={(e) => setFormData({ ...formData, arti: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#08152F] border border-[#3978D6]/30 text-white focus:outline-hidden focus:border-[#3978D6]"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[var(--text-primary)] focus:outline-hidden focus:border-[#3978D6]"
                 />
               </div>
 
@@ -971,13 +984,13 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-[#08152F] text-[#A9BBD3] hover:text-white"
+                  className="px-4 py-2 rounded-xl bg-[var(--bg-sidebar)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 >
                   Batal
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl neon-btn-primary text-white font-bold shadow-md cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl neon-btn-primary text-[var(--text-primary)] font-bold shadow-md cursor-pointer"
                 >
                   Simpan Kosakata
                 </button>
