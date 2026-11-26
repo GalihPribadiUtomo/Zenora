@@ -1,11 +1,12 @@
 import React from 'react';
-import { Lock, LogIn, ShieldAlert, RefreshCw, Sparkles } from 'lucide-react';
+import { Lock, LogIn, ShieldAlert, RefreshCw, Sparkles, UserCheck } from 'lucide-react';
 
 interface InviteGateScreenProps {
   isChecking: boolean;
   deniedEmail?: string;
   deniedReason?: string;
   onOpenAuth: () => void;
+  onGuestLogin?: () => void;
 }
 
 export const InviteGateScreen: React.FC<InviteGateScreenProps> = ({
@@ -13,6 +14,7 @@ export const InviteGateScreen: React.FC<InviteGateScreenProps> = ({
   deniedEmail,
   deniedReason,
   onOpenAuth,
+  onGuestLogin,
 }) => {
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6 bg-[var(--bg-canvas)] text-[var(--text-primary)] relative overflow-hidden">
@@ -62,14 +64,27 @@ export const InviteGateScreen: React.FC<InviteGateScreenProps> = ({
           )}
 
           {!isChecking && (
-            <button
-              type="button"
-              onClick={onOpenAuth}
-              className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-gradient-to-r from-[#2463B9] to-[#3978D8] hover:brightness-110 text-white font-bold text-sm shadow-lg transition-all active:scale-95 cursor-pointer"
-            >
-              <LogIn className="w-4 h-4" />
-              <span>Masuk / Daftar Sekarang</span>
-            </button>
+            <div className="space-y-2.5">
+              <button
+                type="button"
+                onClick={onOpenAuth}
+                className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-gradient-to-r from-[#2463B9] to-[#3978D8] hover:brightness-110 text-white font-bold text-sm shadow-lg transition-all active:scale-95 cursor-pointer"
+              >
+                <LogIn className="w-4 h-4" />
+                <span>Masuk / Daftar Sekarang</span>
+              </button>
+
+              {onGuestLogin && (
+                <button
+                  type="button"
+                  onClick={onGuestLogin}
+                  className="w-full flex items-center justify-center gap-2 py-2.5 px-5 rounded-2xl bg-[var(--bg-elevated)] hover:bg-[#3978D6]/15 border border-[#3978D6]/30 text-[var(--text-primary)] font-bold text-xs sm:text-sm transition-all active:scale-95 cursor-pointer"
+                >
+                  <UserCheck className="w-4 h-4 text-[#3978D6]" />
+                  <span>Masuk sebagai Tamu</span>
+                </button>
+              )}
+            </div>
           )}
         </div>
       </div>

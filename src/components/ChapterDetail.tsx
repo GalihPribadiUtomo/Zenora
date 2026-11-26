@@ -24,7 +24,8 @@ import {
   Play,
   Pause,
   Square,
-  SkipForward
+  SkipForward,
+  Video
 } from 'lucide-react';
 import { KotobaItem, KanjiItem, ChapterLesson } from '../types';
 import { KANJI_DATA } from '../data/kanjiData';
@@ -34,6 +35,7 @@ import { KotobaModal } from './KotobaModal';
 import { KotobaEditModal } from './KotobaEditModal';
 import { KotobaDeleteModal } from './KotobaDeleteModal';
 import { ChapterExerciseSection } from './ChapterExerciseSection';
+import { ChapterVideoSection } from './ChapterVideoSection';
 import { FuriganaText } from './FuriganaText';
 import { ShadowingMicButton } from './ShadowingMicButton';
 import { persistKotobaEdit, persistKotobaDelete, applyCustomKotoba } from '../utils/kotobaStorage';
@@ -65,7 +67,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   isAdminMode = false
 }) => {
   // Main Chapter Detail Tabs: 'all' displays full comprehensive lesson on 1 page!
-  const [sectionTab, setSectionTab] = useState<'all' | 'bunpou' | 'bunkei' | 'kaiwa' | 'kotoba' | 'kanji' | 'latihan'>('all');
+  const [sectionTab, setSectionTab] = useState<'all' | 'video' | 'bunpou' | 'bunkei' | 'kaiwa' | 'kotoba' | 'kanji' | 'latihan'>('all');
 
   // Lesson data loaded lazily
   const [lesson, setLesson] = useState<ChapterLesson | null>(null);
@@ -1168,6 +1170,23 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           <span>漢字 Kanji Bab Ini ({chapterKanji.length})</span>
         </button>
 
+        {/* TAB VIDEO PEMBELAJARAN */}
+        <button
+          onClick={() => {
+            sound.playClick();
+            setSectionTab('video');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+            sectionTab === 'video'
+              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
+              : 'bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
+          }`}
+        >
+          <Video className={`w-4 h-4 ${sectionTab === 'video' ? 'text-[var(--text-primary)]' : 'text-[#3978D6]'}`} />
+          <span>Video Pembelajaran</span>
+        </button>
+
         {/* TAB 6: LATIHAN BAB */}
         <button
           onClick={() => {
@@ -1272,6 +1291,11 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
             {renderKanjiSection()}
           </section>
 
+          {/* Section 5.5: Video Pembelajaran */}
+          <section id="section-video" className="space-y-4 scroll-mt-24">
+            <ChapterVideoSection bab={bab} />
+          </section>
+
           {/* Section 6: Latihan CTA Banner */}
           <div className="p-8 rounded-3xl bg-gradient-to-r from-[#3978D6]/20 via-[var(--bg-elevated)] to-[#69C9DF]/20 border border-[#3978D6]/40 text-center space-y-4 shadow-[0_0_30px_rgba(57,120,214,0.25)]">
             <Award className="w-12 h-12 text-[#2456A6] mx-auto animate-bounce" />
@@ -1297,6 +1321,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
       )}
 
       {/* INDIVIDUAL TABS */}
+      {sectionTab === 'video' && <ChapterVideoSection bab={bab} />}
       {sectionTab === 'bunpou' && renderBunpouSection()}
       {sectionTab === 'bunkei' && renderBunkeiSection()}
       {sectionTab === 'kaiwa' && renderKaiwaSection()}

@@ -96,11 +96,20 @@ export function App() {
   const [stats, setStats] = useState(getInitialStats());
 
   // Supabase Auth & Cloud Sync State
+  const GUEST_SESSION_KEY = 'zenora_guest_session_v1';
   const [user, setUser] = useState<User | null>(null);
+  const [isGuest, setIsGuest] = useState<boolean>(
+    () => typeof window !== 'undefined' && sessionStorage.getItem(GUEST_SESSION_KEY) === 'true'
+  );
   const [isSyncing, setIsSyncing] = useState(false);
   const [authCallbackError, setAuthCallbackError] = useState<string>('');
   const [accessState, setAccessState] = useState<'unauthenticated' | 'checking' | 'allowed' | 'denied'>(
-    isSupabaseConfigured ? 'checking' : 'unauthenticated'
+    () => {
+      if (typeof window !== 'undefined' && sessionStorage.getItem(GUEST_SESSION_KEY) === 'true') {
+        return 'allowed';
+      }
+      return isSupabaseConfigured ? 'checking' : 'unauthenticated';
+    }
   );
   const [deniedInfo, setDeniedInfo] = useState<{ email: string; reason: string } | null>(null);
 
@@ -198,6 +207,10 @@ export function App() {
       }
 
       setDeniedInfo(null);
+      setIsGuest(false);
+      if (typeof window !== 'undefined') {
+        sessionStorage.removeItem(GUEST_SESSION_KEY);
+      }
       setAccessState('allowed');
       handleCloudSync(currentUser);
 
@@ -241,7 +254,27 @@ export function App() {
     syncCloudAnnouncements(user?.id);
   }, [stats.streakDays, stats.learnedKotobaIds.length, user]);
 
+  const handleGuestLogin = () => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem(GUEST_SESSION_KEY, 'true');
+    }
+    setIsGuest(true);
+    setIsAdminMode(false);
+    setAdminAuthenticated(false);
+    setDeniedInfo(null);
+    setAuthCallbackError('');
+    setAccessState('allowed');
+    setAuthOpen(false);
+    if (activeTab === 'admin') {
+      setActiveTab('beranda');
+    }
+  };
+
   const handleOpenAdminAuth = () => {
+    if (isGuest) {
+      setAuthOpen(true);
+      return;
+    }
     setAdminAuthModalOpen(true);
   };
 
@@ -272,7 +305,17 @@ export function App() {
   }, [stats, user]);
 
   const handleSignOut = async () => {
-    if (supabase) {
+    if (typeof window !== 'undefined') {
+      sessionStorage.removeItem(GUEST_SESSION_KEY);
+    }
+    setIsGuest(false);
+    setIsAdminMode(false);
+    setAdminAuthenticated(false);
+    setAccessState('unauthenticated');
+    if (activeTab === 'admin') {
+      setActiveTab('beranda');
+    }
+    if (supabase && user) {
       await supabase.auth.signOut();
       setUser(null);
     }
@@ -404,8 +447,8 @@ export function App() {
     }
   };
 
-  // Enforce Invite-Only Gate: unauthenticated or uninvited users cannot access ZENORA pages or data
-  if (accessState !== 'allowed') {
+  // Enforce Gate: unauthenticated users cannot access ZENORA pages or data unless Guest mode is active
+  if (accessState !== 'allowed' && !isGuest) {
     return (
       <>
         <InviteGateScreen
@@ -413,6 +456,7 @@ export function App() {
           deniedEmail={deniedInfo?.email}
           deniedReason={deniedInfo?.reason}
           onOpenAuth={() => setAuthOpen(true)}
+          onGuestLogin={handleGuestLogin}
         />
         <AuthModal
           isOpen={authOpen}
@@ -424,6 +468,7 @@ export function App() {
           onAuthSuccess={() => {
             setAuthCallbackError('');
           }}
+          onGuestLogin={handleGuestLogin}
         />
       </>
     );
@@ -447,6 +492,7 @@ export function App() {
           themePreference={themePreference}
           onChangeThemePreference={handleChangeThemePreference}
           isAdminMode={isAdminMode}
+          isGuest={isGuest}
           onOpenAdminAuth={handleOpenAdminAuth}
           onExitAdminMode={handleExitAdminMode}
         />
@@ -490,6 +536,7 @@ export function App() {
                 themePreference={themePreference}
                 onChangeThemePreference={handleChangeThemePreference}
                 isAdminMode={isAdminMode}
+                isGuest={isGuest}
                 onOpenAdminAuth={handleOpenAdminAuth}
                 onExitAdminMode={handleExitAdminMode}
               />
@@ -710,6 +757,7 @@ export function App() {
           setAuthCallbackError('');
           if (user) handleCloudSync(user);
         }}
+        onGuestLogin={handleGuestLogin}
       />
 
       {/* Admin Security Access Verification Modal */}

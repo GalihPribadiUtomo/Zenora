@@ -34,6 +34,7 @@ interface SidebarProps {
   themePreference?: ThemePreference;
   onChangeThemePreference?: (pref: ThemePreference) => void;
   isAdminMode?: boolean;
+  isGuest?: boolean;
   onOpenAdminAuth?: () => void;
   onExitAdminMode?: () => void;
 }
@@ -48,6 +49,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   themePreference = darkMode ? 'dark' : 'light',
   onChangeThemePreference,
   isAdminMode = false,
+  isGuest = false,
   onOpenAdminAuth,
   onExitAdminMode
 }) => {
@@ -328,8 +330,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
 
-        {/* Discrete Portal Administrator for Teachers/Staff */}
-        {!isAdminMode && (
+        {/* Discrete Portal Administrator for Teachers/Staff (Hidden for Guest mode) */}
+        {!isAdminMode && !isGuest && (
           <button
             onClick={() => {
               sound.playClick();

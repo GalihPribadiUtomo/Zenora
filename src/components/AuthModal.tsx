@@ -28,6 +28,7 @@ interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
   onAuthSuccess?: () => void;
+  onGuestLogin?: () => void;
   initialError?: string;
 }
 
@@ -35,6 +36,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   isOpen,
   onClose,
   onAuthSuccess,
+  onGuestLogin,
   initialError = '',
 }) => {
   const [tab, setTab] = useState<'signin' | 'signup' | 'config'>('signin');
@@ -248,6 +250,22 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         )}
         <span>{googleLoading ? 'Menghubungkan ke Google...' : 'Masuk dengan Google'}</span>
       </button>
+
+      {onGuestLogin && (
+        <button
+          type="button"
+          onClick={() => {
+            sound.playClick();
+            onGuestLogin();
+            onClose();
+          }}
+          disabled={isBusy}
+          className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[var(--bg-elevated)]/70 hover:bg-[#3978D6]/15 text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-bold text-xs border border-[#3978D6]/20 transition-all active:scale-95 disabled:opacity-60 cursor-pointer"
+        >
+          <UserIcon className="w-3.5 h-3.5 text-[#3978D6]" />
+          <span>Masuk sebagai Tamu</span>
+        </button>
+      )}
     </>
   );
 

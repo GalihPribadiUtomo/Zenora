@@ -474,13 +474,22 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                 </button>
               </>
             ) : (
-              <button
-                onClick={() => { sound.playClick(); onOpenAuth(); }}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl neon-btn-primary text-white text-xs sm:text-sm font-black shadow-lg transition-all active:scale-95 cursor-pointer"
-              >
-                <LogIn className="w-4 h-4" />
-                <span>Masuk / Daftar Akun Cloud</span>
-              </button>
+              <>
+                <button
+                  onClick={() => { sound.playClick(); onOpenAuth(); }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl neon-btn-primary text-white text-xs sm:text-sm font-black shadow-lg transition-all active:scale-95 cursor-pointer"
+                >
+                  <LogIn className="w-4 h-4" />
+                  <span>Masuk / Daftar Akun Cloud</span>
+                </button>
+                <button
+                  onClick={() => { sound.playClick(); onSignOut(); }}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[var(--bg-sidebar)]/80 hover:bg-rose-500/20 border border-rose-500/30 text-rose-300 text-xs sm:text-sm font-bold transition-all active:scale-95 cursor-pointer"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span>Keluar Mode Tamu</span>
+                </button>
+              </>
             )}
           </div>
         </div>
