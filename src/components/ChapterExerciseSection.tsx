@@ -77,44 +77,44 @@ const ICON_COMPONENTS: Record<string, React.FC<{ className?: string }>> = {
   Award
 };
 
-const getCategoryMeta = (category: string) => {
+  const getCategoryMeta = (category: string) => {
   switch (category) {
     case 'Dasar':
       return {
-        badgeBg: 'bg-gradient-to-br from-cyan-500 to-blue-600',
-        badgeShadow: 'shadow-[0_0_18px_rgba(6,182,212,0.4)]',
-        badgeBorder: 'border-cyan-300/30',
-        pillBg: 'bg-cyan-500/15 text-cyan-300 border-cyan-400/30',
+        badgeBg: 'bg-gradient-to-br from-[#2866B5] to-[#55BDD2]',
+        badgeShadow: 'shadow-[0_4px_14px_rgba(85,189,210,0.3)]',
+        badgeBorder: 'border-[#83B7EE]/35',
+        pillBg: 'bg-[#55BDD2]/15 text-[#2866B5] border-[#55BDD2]/35',
         pillIcon: Sparkles,
-        hoverBorder: 'hover:border-cyan-400/60'
+        hoverBorder: 'hover:border-[#55BDD2]/60'
       };
     case 'Tata Bahasa':
       return {
         badgeBg: 'bg-gradient-to-br from-[#2456A6] to-[#3978D6]',
-        badgeShadow: 'shadow-[0_0_18px_rgba(57,120,214,0.4)]',
+        badgeShadow: 'shadow-[0_4px_14px_rgba(57,120,214,0.3)]',
         badgeBorder: 'border-[#83B7EE]/35',
-        pillBg: 'bg-[#3978D6]/15 text-[var(--text-primary)] border-[#3978D6]/30',
+        pillBg: 'bg-[#3978D6]/15 text-[var(--primary)] border-[#3978D6]/30',
         pillIcon: BookOpen,
         hoverBorder: 'hover:border-[#3978D6]/60'
       };
     case 'Keterampilan':
       return {
-        badgeBg: 'bg-gradient-to-br from-emerald-500 to-teal-600',
-        badgeShadow: 'shadow-[0_0_18px_rgba(16,185,129,0.4)]',
-        badgeBorder: 'border-emerald-300/30',
-        pillBg: 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30',
+        badgeBg: 'bg-gradient-to-br from-[#27B99A] to-[#4389D4]',
+        badgeShadow: 'shadow-[0_4px_14px_rgba(39,185,154,0.3)]',
+        badgeBorder: 'border-[#27B99A]/35',
+        pillBg: 'bg-[#27B99A]/15 text-[#27B99A] border-[#27B99A]/30',
         pillIcon: PenTool,
-        hoverBorder: 'hover:border-emerald-400/60'
+        hoverBorder: 'hover:border-[#27B99A]/60'
       };
     case 'Ujian & Review':
     default:
       return {
-        badgeBg: 'bg-gradient-to-br from-amber-500 to-rose-600',
-        badgeShadow: 'shadow-[0_0_18px_rgba(245,158,11,0.4)]',
-        badgeBorder: 'border-amber-300/30',
-        pillBg: 'bg-amber-500/15 text-amber-300 border-amber-400/30',
+        badgeBg: 'bg-gradient-to-br from-[#E9B45E] to-[#E56B78]',
+        badgeShadow: 'shadow-[0_4px_14px_rgba(233,180,94,0.3)]',
+        badgeBorder: 'border-[#E9B45E]/35',
+        pillBg: 'bg-[#E9B45E]/15 text-[#C48B28] border-[#E9B45E]/35',
         pillIcon: Award,
-        hoverBorder: 'hover:border-amber-400/60'
+        hoverBorder: 'hover:border-[#E9B45E]/60'
       };
   }
 };
@@ -174,6 +174,19 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
     if (generated[0]?.timeLimitSeconds) {
       setTimeLeft(generated[0].timeLimitSeconds);
     }
+  };
+
+  // Return cleanly to the 18-mode selection grid without losing saved results
+  const handleExitToModeSelector = () => {
+    sound.playClick();
+    if (timerRef.current) clearInterval(timerRef.current);
+    setIsFinished(false);
+    setActiveMode(null);
+    setSelectedOption(null);
+    setIsAnswerSubmitted(false);
+    setUserArrangedTokens([]);
+    setMatchedPairs([]);
+    setSelectedLeft(null);
   };
 
   // Timer countdown for timed-exam & final-exam
@@ -363,8 +376,9 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
     return m.category === selectedCategory;
   });
 
-  // Current question helper
+  // Current question & mode metadata helper
   const currentQ = questions[currentIdx];
+  const activeModeMeta = EXERCISE_MODES_LIST.find((m) => m.id === activeMode);
 
   // ─────────────────────────────────────────────────────────────
   // RENDER: FINISHED RESULTS SCREEN
@@ -374,51 +388,50 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
     const isPassed = pct >= 70;
 
     return (
-      <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] border border-[#3978D6]/30 text-center text-[var(--text-primary)] space-y-6 shadow-2xl">
-        <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-[var(--bg-elevated)] to-[#3978D6] border border-[#3978D6]/40 p-0.5 shadow-[0_0_30px_rgba(57,120,214,0.35)] flex items-center justify-center">
-          <Award className="w-10 h-10 text-[var(--text-primary)] animate-bounce" />
+      <div className="p-6 sm:p-10 rounded-3xl bg-[var(--bg-card)] border border-[var(--border)] text-center text-[var(--text-primary)] space-y-6 shadow-[var(--card-shadow)]">
+        <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-[#2866B5] to-[#55BDD2] p-0.5 shadow-[0_8px_24px_rgba(40,102,181,0.28)] flex items-center justify-center">
+          <Award className="w-10 h-10 text-white animate-bounce" />
         </div>
 
         <div>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#3978D6] font-black">
+          <span className="text-xs font-mono uppercase tracking-widest text-[var(--primary)] font-black">
             Latihan Selesai · Bab {bab}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black mt-1 font-['Manrope']">
+          <h2 className="text-3xl sm:text-4xl font-black mt-1 font-['Manrope'] text-[var(--text-primary)]">
             {isPassed ? 'Luar Biasa! お疲れ様でした！' : 'Tetap Semangat! 頑張ってください！'}
           </h2>
-          <p className="text-sm text-[var(--text-muted)] max-w-md mx-auto mt-2">
-            Anda telah menyelesaikan latihan <span className="text-[#3978D6] font-bold">{activeMode}</span> untuk materi Bab {bab}.
+          <p className="text-sm text-[var(--text-secondary)] max-w-md mx-auto mt-2">
+            Anda telah menyelesaikan latihan <span className="text-[var(--primary)] font-bold">{activeModeMeta?.name || activeMode}</span> untuk materi Bab {bab}.
           </p>
         </div>
 
         {/* Score Ring / Card */}
-        <div className="inline-block p-6 rounded-3xl bg-[var(--bg-sidebar)]/70 border border-[#3978D6]/25 backdrop-blur-md">
-          <span className="text-5xl sm:text-6xl font-black font-['Manrope'] bg-gradient-to-r from-white via-[#F2F6FC] to-[#3978D6] bg-clip-text text-transparent">
+        <div className="inline-block p-6 rounded-3xl bg-[var(--bg-elevated)] border border-[var(--border)]">
+          <span className="text-5xl sm:text-6xl font-black font-['Manrope'] bg-gradient-to-r from-[var(--primary-deep)] via-[var(--primary)] to-[var(--secondary-accent)] bg-clip-text text-transparent">
             {pct}%
           </span>
           <div className="text-xs font-semibold text-[var(--text-muted)] mt-2">
-            Benar <span className="text-[#3978D6] font-bold">{score}</span> dari <span className="text-[var(--text-primary)] font-bold">{questions.length}</span> soal
+            Benar <span className="text-[var(--primary)] font-bold">{score}</span> dari <span className="text-[var(--text-primary)] font-bold">{questions.length}</span> soal
           </div>
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
           <button
+            type="button"
             onClick={() => handleStartMode(activeMode!)}
-            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] font-bold text-sm border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.3)] transition-all active:scale-95"
+            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2866B5] to-[#4389D4] hover:brightness-110 text-white font-bold text-sm shadow-md transition-all active:scale-95 cursor-pointer"
           >
-            <RotateCcw className="w-4 h-4 text-[#3978D6]" />
+            <RotateCcw className="w-4 h-4 text-white" />
             <span>Ulangi Mode Ini</span>
           </button>
 
           <button
-            onClick={() => {
-              sound.playClick();
-              setActiveMode(null);
-            }}
-            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] font-bold text-sm border border-[#3978D6]/25 transition-all active:scale-95"
+            type="button"
+            onClick={handleExitToModeSelector}
+            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-[var(--bg-elevated)] hover:bg-[var(--primary)]/10 text-[var(--text-primary)] font-bold text-sm border border-[var(--border)] hover:border-[var(--primary)]/45 transition-all active:scale-95 cursor-pointer"
           >
-            <Layers className="w-4 h-4 text-[#3978D6]" />
+            <Layers className="w-4 h-4 text-[var(--primary)]" />
             <span>Pilih Mode Latihan Lain</span>
           </button>
         </div>
@@ -435,11 +448,9 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
         {/* Top Bar Navigation */}
         <div className="flex items-center justify-between gap-4 p-4 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-xs">
           <button
-            onClick={() => {
-              sound.playClick();
-              setActiveMode(null);
-            }}
-            className="flex items-center gap-2 text-xs font-bold text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+            type="button"
+            onClick={handleExitToModeSelector}
+            className="flex items-center gap-2 text-xs font-bold text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4 text-[#3978D6]" />
             <span>Keluar Latihan</span>
@@ -847,10 +858,10 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                   sound.playClick();
                   setSelectedCategory(cat);
                 }}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-md'
-                    : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
+                    ? 'bg-gradient-to-r from-[#2866B5] to-[#4389D4] text-white shadow-md'
+                    : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-[var(--border)]'
                 }`}
               >
                 <FilterIcon className="w-3.5 h-3.5" />
@@ -880,8 +891,8 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
               <div>
                 <div className="flex items-center justify-between mb-4">
                   {/* High-contrast crisp icon badge */}
-                  <div className={`w-12 h-12 rounded-2xl ${catMeta.badgeBg} ${catMeta.badgeShadow} border ${catMeta.badgeBorder} flex items-center justify-center text-[var(--text-primary)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200`}>
-                    <IconComp className="w-6 h-6 text-[var(--text-primary)] stroke-[2.2] drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]" />
+                  <div className={`w-12 h-12 rounded-2xl ${catMeta.badgeBg} ${catMeta.badgeShadow} border ${catMeta.badgeBorder} flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200`}>
+                    <IconComp className="w-6 h-6 text-white stroke-[2.2]" />
                   </div>
 
                   {/* Category Pill with Icon */}

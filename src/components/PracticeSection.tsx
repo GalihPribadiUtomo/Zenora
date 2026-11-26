@@ -450,6 +450,11 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             lesson={exerciseLesson}
             chapterWords={KOTOBA_DATA.filter((k) => k.bab === activeExerciseBab)}
             chapterKanji={KANJI_DATA.filter((k) => k.bab === activeExerciseBab)}
+            onFinishExercise={(score, total, mode) => {
+              if (onRecordResult) {
+                onRecordResult(score, total, 'multiple-choice', 'kotoba');
+              }
+            }}
           />
         </div>
       )}
