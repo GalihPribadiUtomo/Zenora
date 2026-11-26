@@ -59,9 +59,9 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
   const totalKanji = KANJI_DATA.length;
   const totalKana = ALL_KANA_DATA.length;
 
-  const learnedKotoba = stats.learnedKotobaIds?.length || 0;
-  const learnedKanji = stats.learnedKanjiIds?.length || 0;
-  const learnedKana = stats.learnedKanaChars?.length || 0;
+  const learnedKotoba = new Set(stats.learnedKotobaIds || []).size;
+  const learnedKanji = new Set(stats.learnedKanjiIds || []).size;
+  const learnedKana = new Set(stats.learnedKanaChars || []).size;
   const streak = stats.streakDays || 0;
 
   const kotobaPct = totalKotoba > 0 ? Math.round((learnedKotoba / totalKotoba) * 100) : 0;

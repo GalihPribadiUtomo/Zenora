@@ -97,9 +97,9 @@
     --bg-base:             #F1F5FB;
     --bg-sidebar:          #E7EFF9;
     --bg-header:           #F8FAFE;
-    --bg-surface:          #F7F9FD;
+    --bg-surface:          #F7FAFE;
     --bg-card:             #FFFFFF;
-    --bg-elevated:         #F8FAFE;
+    --bg-elevated:         #F7FAFE;
     --border:              #DCE6F2;
     --border-subtle:       #D7E3F1;
     --border-glow:         rgba(40, 102, 181, 0.35);
@@ -110,7 +110,7 @@
     --primary:             #2866B5;
     --primary-hover:       #1E559B;
     --primary-deep:        #214F91;
-    --secondary-accent:    #4A9DBD;
+    --secondary-accent:    #55BDD2;
 
     /* Typography */
     --text-primary:        #172B46;
@@ -120,9 +120,10 @@
     --furigana-color:      #2866B5;
 
     /* Accent */
-    --accent-cyan:         #4A9DBD;
-    --accent-emerald:      #1F9D7E;
-    --accent-gold:         #C48B28;
+    --accent-cyan:         #55BDD2;
+    --accent-emerald:      #27B99A;
+    --accent-gold:         #E9B45E;
+    --accent-danger:       #E56B78;
 
     /* Glass & Elevation (Soft Blue Shadows, No Harsh Black) */
     --glass-bg:            rgba(248, 250, 254, 0.88);

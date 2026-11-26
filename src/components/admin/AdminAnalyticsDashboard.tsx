@@ -29,6 +29,7 @@ import { loadChapterLesson } from '../../data/materi';
 import { getInitialStats } from '../../utils/storage';
 import { loadAllCustomMateri } from '../../utils/materiStorage';
 import { applyCustomKotoba } from '../../utils/kotobaStorage';
+import { getSavedMistakes } from '../../utils/exerciseGenerator';
 import { sound } from '../../utils/audio';
 import {
   StatCard,
@@ -41,7 +42,7 @@ import {
   LineChartPoint
 } from '../analytics/AnalyticsPrimitives';
 
-type AdminPeriod = 'today' | '7d' | '30d' | '90d';
+type AdminPeriod = 'today' | '7d' | '30d' | '90d' | 'custom';
 
 interface SafeUserRow {
   id: string;
@@ -74,6 +75,12 @@ export const AdminAnalyticsDashboard: React.FC<AdminAnalyticsDashboardProps> = (
   onNavigateAdminTab,
 }) => {
   const [period, setPeriod] = useState<AdminPeriod>('30d');
+  const [customStart, setCustomStart] = useState<string>(() => {
+    const d = new Date();
+    d.setDate(d.getDate() - 14);
+    return d.toISOString().split('T')[0];
+  });
+  const [customEnd, setCustomEnd] = useState<string>(() => new Date().toISOString().split('T')[0]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<string>(() => new Date().toLocaleTimeString('id-ID'));
@@ -271,7 +278,18 @@ export const AdminAnalyticsDashboard: React.FC<AdminAnalyticsDashboardProps> = (
   }, [fetchPlatformAnalytics, runContentAudit]);
 
   // Period window calculations
-  const periodDaysCount = period === 'today' ? 1 : period === '7d' ? 7 : period === '30d' ? 30 : 90;
+  const periodDaysCount = useMemo(() => {
+    if (period === 'today') return 1;
+    if (period === '7d') return 7;
+    if (period === '30d') return 30;
+    if (period === '90d') return 90;
+    const s = new Date(customStart).getTime();
+    const e = new Date(customEnd).getTime();
+    if (!Number.isNaN(s) && !Number.isNaN(e) && e >= s) {
+      return Math.max(1, Math.min(180, Math.round((e - s) / 86400000) + 1));
+    }
+    return 14;
+  }, [period, customStart, customEnd]);
 
   // Derived Platform Metrics
   const totalUsers = profilesList.length;
@@ -316,7 +334,25 @@ export const AdminAnalyticsDashboard: React.FC<AdminAnalyticsDashboardProps> = (
     return Math.round((passed / periodQuizzes.length) * 100);
   }, [periodQuizzes]);
 
-  // Chart Series (Real Activity & User Active Trend)
+  // Chart Series 1: User Growth & Active Users
+  const userGrowthSeries: LineChartPoint[] = useMemo(() => {
+    const pointsCount = period === 'today' ? 1 : Math.min(periodDaysCount, 30);
+    return Array.from({ length: pointsCount }, (_, idx) => {
+      const d = new Date();
+      d.setDate(d.getDate() - (pointsCount - 1 - idx));
+      const key = d.toISOString().split('T')[0];
+      const activeOnDay = profilesList.filter((u) => u.lastActive === key).length;
+      const cumulative = profilesList.filter((u) => u.lastActive !== '-' && u.lastActive <= key).length;
+      return {
+        label: d.toLocaleDateString('id-ID', { day: '2-digit', month: 'short' }),
+        fullLabel: d.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' }),
+        value: cumulative,
+        secondaryValue: activeOnDay,
+      };
+    });
+  }, [period, periodDaysCount, profilesList]);
+
+  // Chart Series 2: Global Learning Activity & Quizzes
   const globalActivitySeries: LineChartPoint[] = useMemo(() => {
     const map = localStats.dailyActivityMap || {};
     const pointsCount = period === 'today' ? 1 : Math.min(periodDaysCount, 30);
@@ -324,15 +360,36 @@ export const AdminAnalyticsDashboard: React.FC<AdminAnalyticsDashboardProps> = (
       const d = new Date();
       d.setDate(d.getDate() - (pointsCount - 1 - idx));
       const key = d.toISOString().split('T')[0];
-      const activeOnDay = profilesList.filter((u) => u.lastActive === key).length;
+      const quizzesOnDay = quizHistory.filter((q) => (q.date || '').split('T')[0] === key).length;
       return {
         label: d.toLocaleDateString('id-ID', { day: '2-digit', month: 'short' }),
         fullLabel: d.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' }),
         value: map[key] || 0,
-        secondaryValue: activeOnDay,
+        secondaryValue: quizzesOnDay,
       };
     });
-  }, [localStats.dailyActivityMap, period, periodDaysCount, profilesList]);
+  }, [localStats.dailyActivityMap, period, periodDaysCount, quizHistory]);
+
+  // Mistake Hotspots from saved mistakes
+  const mistakeCount = useMemo(() => {
+    try {
+      return getSavedMistakes().length;
+    } catch {
+      return 0;
+    }
+  }, []);
+
+  // Exam Score Trend
+  const examTrendSeries: LineChartPoint[] = useMemo(() => {
+    return periodQuizzes.slice(-10).map((q, idx) => {
+      const pct = Math.round((q.score / (q.total || 1)) * 100);
+      return {
+        label: `#${idx + 1}`,
+        fullLabel: `${q.subject} (${new Date(q.date).toLocaleDateString('id-ID')})`,
+        value: pct,
+      };
+    });
+  }, [periodQuizzes]);
 
   // Category Mastery Breakdown (6 categories)
   const categoryMastery = useMemo(() => {
@@ -473,31 +530,51 @@ export const AdminAnalyticsDashboard: React.FC<AdminAnalyticsDashboardProps> = (
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
           {/* Period Filter */}
-          <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border)] text-xs">
-            {(
-              [
-                { id: 'today', label: 'Hari Ini' },
-                { id: '7d', label: '7 Hari' },
-                { id: '30d', label: '30 Hari' },
-                { id: '90d', label: '90 Hari' },
-              ] as const
-            ).map((opt) => (
-              <button
-                key={opt.id}
-                type="button"
-                onClick={() => {
-                  sound.playClick();
-                  setPeriod(opt.id);
-                }}
-                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
-                  period === opt.id
-                    ? 'bg-[var(--primary)] text-white shadow-xs'
-                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border)] text-xs">
+              {(
+                [
+                  { id: 'today', label: 'Hari Ini' },
+                  { id: '7d', label: '7 Hari' },
+                  { id: '30d', label: '30 Hari' },
+                  { id: '90d', label: '90 Hari' },
+                  { id: 'custom', label: 'Kustom' },
+                ] as const
+              ).map((opt) => (
+                <button
+                  key={opt.id}
+                  type="button"
+                  onClick={() => {
+                    sound.playClick();
+                    setPeriod(opt.id);
+                  }}
+                  className={`px-2.5 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                    period === opt.id
+                      ? 'bg-[var(--primary)] text-white shadow-xs'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+            {period === 'custom' && (
+              <div className="flex items-center gap-1.5 text-xs">
+                <input
+                  type="date"
+                  value={customStart}
+                  onChange={(e) => setCustomStart(e.target.value)}
+                  className="px-2 py-1 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border)] text-[var(--text-primary)] text-xs"
+                />
+                <span className="text-[var(--text-muted)]">-</span>
+                <input
+                  type="date"
+                  value={customEnd}
+                  onChange={(e) => setCustomEnd(e.target.value)}
+                  className="px-2 py-1 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border)] text-[var(--text-primary)] text-xs"
+                />
+              </div>
+            )}
           </div>
 
           <button
@@ -564,18 +641,34 @@ export const AdminAnalyticsDashboard: React.FC<AdminAnalyticsDashboardProps> = (
         </div>
       )}
 
-      {/* 3 & 4. GRAFIK AKTIVITAS BELAJAR GLOBAL & PERTUMBUHAN */}
-      <ChartCard
-        title="Grafik Aktivitas Global & Pengguna Aktif"
-        subtitle="Tren harian sesi belajar dan jumlah pengguna aktif pada periode terpilih."
-        icon={TrendingUp}
-      >
-        <SmoothLineChart
-          data={globalActivitySeries}
-          primaryLabel="Aktivitas Pembelajaran"
-          secondaryLabel="Pengguna Aktif"
-        />
-      </ChartCard>
+      {/* 3 & 4. GRAFIK PERTUMBUHAN PENGGUNA & AKTIVITAS BELAJAR GLOBAL */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <ChartCard
+          title="Grafik Pertumbuhan Pengguna"
+          subtitle="Akumulasi akun terdaftar dan pengguna aktif harian pada periode terpilih."
+          icon={Users}
+        >
+          <SmoothLineChart
+            data={userGrowthSeries}
+            primaryLabel="Akun Tercatat"
+            secondaryLabel="Pengguna Aktif"
+            height={145}
+          />
+        </ChartCard>
+
+        <ChartCard
+          title="Grafik Aktivitas Belajar Global"
+          subtitle="Total sesi aktivitas harian dan jumlah kuis yang diselesaikan."
+          icon={TrendingUp}
+        >
+          <SmoothLineChart
+            data={globalActivitySeries}
+            primaryLabel="Aktivitas Belajar"
+            secondaryLabel="Kuis Selesai"
+            height={145}
+          />
+        </ChartCard>
+      </div>
 
       {/* 5 & 6. ANALITIK PENGUASAAN MATERI & ANALITIK KUIS */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -613,6 +706,10 @@ export const AdminAnalyticsDashboard: React.FC<AdminAnalyticsDashboardProps> = (
                 <ProgressBar pct={cat.pct} tone="sapphire" heightClass="h-2" />
               </div>
             ))}
+            <div className="p-3 rounded-2xl bg-[var(--bg-elevated)] border border-[var(--border)] flex items-center justify-between text-xs">
+              <span className="text-[var(--text-secondary)] font-semibold">Item Masuk Catatan Kesalahan (Perlu Penguatan)</span>
+              <span className="font-black font-mono text-[var(--accent-gold)]">{mistakeCount} item</span>
+            </div>
           </div>
         </ChartCard>
 
@@ -640,6 +737,16 @@ export const AdminAnalyticsDashboard: React.FC<AdminAnalyticsDashboardProps> = (
               <span className="text-sm font-black text-[var(--text-primary)] capitalize block mt-1 truncate">{topQuizSubject}</span>
             </div>
           </div>
+          {examTrendSeries.length > 0 && (
+            <div className="pt-2">
+              <SmoothLineChart
+                data={examTrendSeries}
+                primaryLabel="Tren Skor Ujian (%)"
+                unitSuffix="%"
+                height={110}
+              />
+            </div>
+          )}
           <p className="text-[11px] text-[var(--text-muted)] leading-relaxed">
             Metrik dihitung langsung dari riwayat ujian/latihan yang tersimpan tanpa data simulasi.
           </p>
