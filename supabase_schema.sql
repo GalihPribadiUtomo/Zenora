@@ -33,6 +33,110 @@ returns boolean as $$
   );
 $$ language sql security definer stable;
 
+-- ==============================================================================
+-- SISTEM AKSES TERBATAS (INVITE-ONLY / ALLOWLIST)
+-- ==============================================================================
+create table if not exists public.allowed_emails (
+  email text primary key,
+  role text not null default 'user' check (role in ('user')),
+  note text default '',
+  added_by uuid references auth.users on delete set null,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+alter table public.allowed_emails enable row level security;
+
+create or replace function public.normalize_allowed_email()
+returns trigger as $$
+begin
+  new.email = lower(trim(new.email));
+  new.role = 'user';
+  return new;
+end;
+$$ language plpgsql;
+
+drop trigger if exists trg_normalize_allowed_email on public.allowed_emails;
+create trigger trg_normalize_allowed_email
+  before insert or update on public.allowed_emails
+  for each row execute procedure public.normalize_allowed_email();
+
+drop policy if exists "Only admins can manage allowed_emails" on public.allowed_emails;
+create policy "Only admins can manage allowed_emails" on public.allowed_emails
+  for all using (public.is_admin()) with check (public.is_admin());
+
+-- Cek apakah sebuah email valid untuk login/registrasi (akses otomatis terautentikasi)
+create or replace function public.is_email_allowed(target_email text)
+returns boolean as $$
+begin
+  return lower(trim(coalesce(target_email, ''))) <> '';
+end;
+$$ language plpgsql security definer stable;
+
+-- Cek apakah user sudah terautentikasi (digunakan di RLS pemilik data)
+create or replace function public.is_allowed_user()
+returns boolean as $$
+begin
+  return auth.uid() is not null;
+end;
+$$ language plpgsql security definer stable;
+
+-- RPC untuk memeriksa email sebelum registrasi email/password
+create or replace function public.can_email_register(check_email text)
+returns boolean as $$
+begin
+  return public.is_email_allowed(check_email);
+end;
+$$ language plpgsql security definer stable;
+
+-- RPC otoritatif pasca-login (Google / Email):
+-- Mengizinkan semua user terautentikasi, otomatis mencatat email ke allowed_emails (role='user')
+-- dan membuat profil di profiles (role='user') tanpa duplikat dan tanpa pernah memberi role admin.
+create or replace function public.check_my_access()
+returns jsonb as $$
+declare
+  v_uid uuid := auth.uid();
+  v_email text := lower(trim(coalesce(auth.jwt()->>'email', '')));
+  v_is_admin boolean := false;
+  v_meta jsonb;
+  v_auth_email text;
+begin
+  if v_uid is null then
+    return jsonb_build_object('allowed', false, 'role', null, 'email', v_email);
+  end if;
+
+  select email, raw_user_meta_data into v_auth_email, v_meta
+  from auth.users
+  where id = v_uid;
+
+  if v_email = '' then
+    v_email := lower(trim(coalesce(v_auth_email, '')));
+  end if;
+
+  if v_email <> '' then
+    insert into public.allowed_emails (email, role, note)
+    values (v_email, 'user', 'Auto-registered')
+    on conflict (email) do nothing;
+  end if;
+
+  insert into public.profiles (id, display_name, avatar_url, role)
+  values (
+    v_uid,
+    coalesce(v_meta->>'full_name', v_meta->>'name', nullif(split_part(v_email, '@', 1), ''), 'Pembelajar'),
+    coalesce(v_meta->>'avatar_url', v_meta->>'picture', ''),
+    'user'
+  )
+  on conflict (id) do nothing;
+
+  v_is_admin := public.is_admin();
+
+  return jsonb_build_object(
+    'allowed', true,
+    'role', case when v_is_admin then 'admin' else 'user' end,
+    'email', v_email
+  );
+end;
+$$ language plpgsql security definer;
+
 -- Trigger keamanan: Cegah user mengubah kolom role miliknya sendiri lewat frontend
 create or replace function public.prevent_self_role_escalation()
 returns trigger as $$
@@ -121,76 +225,87 @@ alter table public.user_bookmarks enable row level security;
 alter table public.user_custom_kotoba enable row level security;
 alter table public.user_quiz_history enable row level security;
 
--- Policies Profiles (User lihat/ubah miliknya, Admin dapat memantau daftar profil)
+-- Policies Profiles (User lihat/ubah miliknya jika lolos allowlist, Admin dapat memantau daftar profil)
 drop policy if exists "Users can view their own profile" on public.profiles;
 drop policy if exists "Users or Admins can view profiles" on public.profiles;
 create policy "Users or Admins can view profiles" on public.profiles
-  for select using (auth.uid() = id or public.is_admin());
+  for select using ((auth.uid() = id and public.is_allowed_user()) or public.is_admin());
 
 drop policy if exists "Users can update their own profile" on public.profiles;
 create policy "Users can update their own profile" on public.profiles
-  for update using (auth.uid() = id);
+  for update using ((auth.uid() = id and public.is_allowed_user()) or public.is_admin());
 
 drop policy if exists "Users can insert their own profile" on public.profiles;
 create policy "Users can insert their own profile" on public.profiles
-  for insert with check (auth.uid() = id);
+  for insert with check (auth.uid() = id and public.is_allowed_user());
 
 -- Policies Learned Items
 drop policy if exists "Users can view their own learned items" on public.user_learned_items;
 create policy "Users can view their own learned items" on public.user_learned_items
-  for select using (auth.uid() = user_id);
+  for select using (auth.uid() = user_id and public.is_allowed_user());
 
 drop policy if exists "Users can insert their own learned items" on public.user_learned_items;
 create policy "Users can insert their own learned items" on public.user_learned_items
-  for insert with check (auth.uid() = user_id);
+  for insert with check (auth.uid() = user_id and public.is_allowed_user());
 
 drop policy if exists "Users can delete their own learned items" on public.user_learned_items;
 create policy "Users can delete their own learned items" on public.user_learned_items
-  for delete using (auth.uid() = user_id);
+  for delete using (auth.uid() = user_id and public.is_allowed_user());
 
 -- Policies Bookmarks
 drop policy if exists "Users can view their own bookmarks" on public.user_bookmarks;
 create policy "Users can view their own bookmarks" on public.user_bookmarks
-  for select using (auth.uid() = user_id);
+  for select using (auth.uid() = user_id and public.is_allowed_user());
 
 drop policy if exists "Users can insert their own bookmarks" on public.user_bookmarks;
 create policy "Users can insert their own bookmarks" on public.user_bookmarks
-  for insert with check (auth.uid() = user_id);
+  for insert with check (auth.uid() = user_id and public.is_allowed_user());
 
 drop policy if exists "Users can delete their own bookmarks" on public.user_bookmarks;
 create policy "Users can delete their own bookmarks" on public.user_bookmarks
-  for delete using (auth.uid() = user_id);
+  for delete using (auth.uid() = user_id and public.is_allowed_user());
 
 -- Policies Custom Kotoba
 drop policy if exists "Users can view their own custom kotoba" on public.user_custom_kotoba;
 create policy "Users can view their own custom kotoba" on public.user_custom_kotoba
-  for select using (auth.uid() = user_id);
+  for select using (auth.uid() = user_id and public.is_allowed_user());
 
 drop policy if exists "Users can insert/update their own custom kotoba" on public.user_custom_kotoba;
 create policy "Users can insert/update their own custom kotoba" on public.user_custom_kotoba
-  for all using (auth.uid() = user_id);
+  for all using (auth.uid() = user_id and public.is_allowed_user())
+  with check (auth.uid() = user_id and public.is_allowed_user());
 
 -- Policies Quiz History
 drop policy if exists "Users can view their own quiz history" on public.user_quiz_history;
 create policy "Users can view their own quiz history" on public.user_quiz_history
-  for select using (auth.uid() = user_id);
+  for select using (auth.uid() = user_id and public.is_allowed_user());
 
 drop policy if exists "Users can insert their own quiz history" on public.user_quiz_history;
 create policy "Users can insert their own quiz history" on public.user_quiz_history
-  for insert with check (auth.uid() = user_id);
+  for insert with check (auth.uid() = user_id and public.is_allowed_user());
 
 -- ==============================================================================
 -- OTOMATISASI: TRIGGER PROFILE OTOMATIS SAAT USER BARU DAFTAR (SIGN-UP)
 -- ==============================================================================
 create or replace function public.handle_new_user()
 returns trigger as $$
+declare
+  v_email text := lower(trim(coalesce(new.email, '')));
 begin
-  insert into public.profiles (id, display_name, avatar_url)
+  if v_email <> '' then
+    insert into public.allowed_emails (email, role, note)
+    values (v_email, 'user', 'Auto-registered')
+    on conflict (email) do nothing;
+  end if;
+
+  insert into public.profiles (id, display_name, avatar_url, role)
   values (
     new.id,
-    coalesce(new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'name', split_part(new.email, '@', 1)),
-    coalesce(new.raw_user_meta_data->>'avatar_url', new.raw_user_meta_data->>'picture', '')
-  );
+    coalesce(new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'name', nullif(split_part(v_email, '@', 1), ''), 'Pembelajar'),
+    coalesce(new.raw_user_meta_data->>'avatar_url', new.raw_user_meta_data->>'picture', ''),
+    'user'
+  )
+  on conflict (id) do nothing;
   return new;
 end;
 $$ language plpgsql security definer;
@@ -218,7 +333,7 @@ alter table public.admin_announcements enable row level security;
 
 drop policy if exists "Anyone can view published announcements" on public.admin_announcements;
 create policy "Anyone can view published announcements" on public.admin_announcements
-  for select using (published = true or public.is_admin());
+  for select using ((published = true and public.is_allowed_user()) or public.is_admin());
 
 drop policy if exists "Only admins can manage announcements" on public.admin_announcements;
 create policy "Only admins can manage announcements" on public.admin_announcements
@@ -240,8 +355,29 @@ alter table public.user_custom_materi enable row level security;
 
 drop policy if exists "Users can view their own custom materi" on public.user_custom_materi;
 create policy "Users can view their own custom materi" on public.user_custom_materi
-  for select using (auth.uid() = user_id or public.is_admin());
+  for select using ((auth.uid() = user_id and public.is_allowed_user()) or public.is_admin());
 
 drop policy if exists "Users can manage their own custom materi" on public.user_custom_materi;
 create policy "Users can manage their own custom materi" on public.user_custom_materi
-  for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+  for all using (auth.uid() = user_id and public.is_allowed_user())
+  with check (auth.uid() = user_id and public.is_allowed_user());
+
+-- ==============================================================================
+-- BACKFILL AMAN PENGGUNA LAMA & REFRESH SCHEMA CACHE POSTGREST
+-- ==============================================================================
+insert into public.allowed_emails (email, role, note)
+select lower(trim(email)), 'user', 'Auto-synced existing user'
+from auth.users
+where email is not null and trim(email) <> ''
+on conflict (email) do nothing;
+
+insert into public.profiles (id, display_name, avatar_url, role)
+select
+  u.id,
+  coalesce(u.raw_user_meta_data->>'full_name', u.raw_user_meta_data->>'name', split_part(u.email, '@', 1)),
+  coalesce(u.raw_user_meta_data->>'avatar_url', u.raw_user_meta_data->>'picture', ''),
+  'user'
+from auth.users u
+on conflict (id) do nothing;
+
+notify pgrst, 'reload schema';

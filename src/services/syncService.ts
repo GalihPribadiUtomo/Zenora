@@ -1,3 +1,4 @@
+import type { User } from '@supabase/supabase-js';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { UserStats } from '../types';
 import { loadKotobaCustomData, saveKotobaCustomData } from '../utils/kotobaStorage';
@@ -8,6 +9,55 @@ export interface CloudSyncResult {
   message?: string;
   mergedStats?: UserStats;
 }
+
+/**
+ * Ensures a user's profile row exists in public.profiles without duplicating rows
+ * and without ever assigning or escalating to 'admin'.
+ */
+export const ensureUserProfile = async (authUser: User): Promise<void> => {
+  if (!supabase || !isSupabaseConfigured || !authUser?.id) return;
+
+  try {
+    const { data: existing, error: selectError } = await supabase
+      .from('profiles')
+      .select('id, display_name, avatar_url')
+      .eq('id', authUser.id)
+      .maybeSingle();
+
+    if (selectError) return;
+
+    const meta = authUser.user_metadata || {};
+    const resolvedName =
+      meta.full_name ||
+      meta.name ||
+      (authUser.email ? authUser.email.split('@')[0] : 'Pembelajar');
+    const resolvedAvatar = meta.avatar_url || meta.picture || '';
+
+    if (!existing) {
+      // Explicitly omit role or set 'user' so new Google/Email users never become admin
+      await supabase.from('profiles').upsert(
+        {
+          id: authUser.id,
+          display_name: resolvedName,
+          avatar_url: resolvedAvatar,
+          role: 'user',
+        },
+        { onConflict: 'id', ignoreDuplicates: true }
+      );
+    } else if (!existing.display_name || (!existing.avatar_url && resolvedAvatar)) {
+      await supabase
+        .from('profiles')
+        .update({
+          display_name: existing.display_name || resolvedName,
+          avatar_url: existing.avatar_url || resolvedAvatar,
+          updated_at: new Date().toISOString(),
+        })
+        .eq('id', authUser.id);
+    }
+  } catch (err) {
+    console.error('Failed to ensure user profile:', err);
+  }
+};
 
 /**
  * Sync all local user stats up to Supabase cloud
@@ -88,7 +138,7 @@ export const pullAndMergeFromCloud = async (userId: string, localStats: UserStat
       .from('profiles')
       .select('streak_days, last_active_date')
       .eq('id', userId)
-      .single();
+      .maybeSingle();
 
     // 2. Fetch Learned Items
     const { data: learnedItems } = await supabase

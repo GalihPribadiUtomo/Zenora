@@ -10,6 +10,7 @@ import { ProfileSection } from './components/ProfileSection';
 import { KanjiModal } from './components/KanjiModal';
 import { SearchModal } from './components/SearchModal';
 import { AuthModal } from './components/AuthModal';
+import { InviteGateScreen } from './components/InviteGateScreen';
 import { KanaSection } from './components/KanaSection';
 import { SswSection } from './components/SswSection';
 import { AdminSection } from './components/admin/AdminSection';
@@ -18,7 +19,8 @@ import { isAdminAuthenticated, setAdminAuthenticated, verifyAdminRoleWithBackend
 import { KanjiItem, QuizMode, QuizSubject } from './types';
 import { getInitialStats, saveStats, incrementDailyActivity } from './utils/storage';
 import { supabase, isSupabaseConfigured } from './lib/supabase';
-import { syncAllToCloud, pullAndMergeFromCloud } from './services/syncService';
+import { syncAllToCloud, pullAndMergeFromCloud, ensureUserProfile } from './services/syncService';
+import { checkCurrentUserAccess } from './services/inviteService';
 import { checkAndGenerateStudyNotifications, syncCloudAnnouncements } from './utils/notificationService';
 import {
   ThemePreference,
@@ -96,26 +98,65 @@ export function App() {
   // Supabase Auth & Cloud Sync State
   const [user, setUser] = useState<User | null>(null);
   const [isSyncing, setIsSyncing] = useState(false);
+  const [authCallbackError, setAuthCallbackError] = useState<string>('');
+  const [accessState, setAccessState] = useState<'unauthenticated' | 'checking' | 'allowed' | 'denied'>(
+    isSupabaseConfigured ? 'checking' : 'unauthenticated'
+  );
+  const [deniedInfo, setDeniedInfo] = useState<{ email: string; reason: string } | null>(null);
 
-  // Check auth session on load
+  // Check auth session & handle Google OAuth callback / errors on load
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      const hashRaw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
+      const hashParams = new URLSearchParams(hashRaw.includes('=') ? hashRaw : '');
+
+      const oauthError = searchParams.get('error') || hashParams.get('error');
+      const oauthErrorDesc = searchParams.get('error_description') || hashParams.get('error_description');
+
+      if (oauthError || oauthErrorDesc) {
+        const friendlyMsg =
+          oauthError === 'access_denied'
+            ? 'Login dengan Google dibatalkan. Silakan coba lagi jika ingin masuk.'
+            : `Autentikasi Google gagal: ${oauthErrorDesc || oauthError}`;
+        setAuthCallbackError(friendlyMsg);
+        setAuthOpen(true);
+
+        const cleanUrl = window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+    }
+
     if (supabase && isSupabaseConfigured) {
-      supabase.auth.getSession().then(({ data: { session } }) => {
+      supabase.auth.getSession().then(({ data: { session }, error }) => {
+        if (error) {
+          setAuthCallbackError(error.message || 'Gagal memulihkan sesi login.');
+        }
         setUser(session?.user ?? null);
       });
 
-      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
         setUser(session?.user ?? null);
+        if (event === 'SIGNED_IN' && typeof window !== 'undefined') {
+          setAuthCallbackError('');
+          const hasAuthParams =
+            window.location.search.includes('code=') ||
+            window.location.hash.includes('access_token=');
+          if (hasAuthParams) {
+            window.history.replaceState({}, document.title, window.location.pathname);
+          }
+        }
       });
 
       return () => subscription.unsubscribe();
     }
   }, []);
 
-  // When user logs in, pull and merge data from cloud
+  // When user logs in, ensure profile exists (default role: 'user'), pull and merge data from cloud
   const handleCloudSync = useCallback(async (currentUser: User) => {
     setIsSyncing(true);
     try {
+      await ensureUserProfile(currentUser);
       const merged = await pullAndMergeFromCloud(currentUser.id, stats);
       setStats(merged);
       saveStats(merged);
@@ -130,9 +171,37 @@ export function App() {
 
   useEffect(() => {
     let active = true;
-    if (user) {
-      handleCloudSync(user);
-      const cloudTheme = user.user_metadata?.zenora_theme;
+
+    const verifyAndInitializeUser = async (currentUser: User) => {
+      setAccessState('checking');
+      const access = await checkCurrentUserAccess(currentUser.email || '');
+      if (!active) return;
+
+      if (!access.allowed) {
+        if (supabase) {
+          await supabase.auth.signOut();
+        }
+        if (!active) return;
+        setUser(null);
+        setIsAdminMode(false);
+        setAdminAuthenticated(false);
+        setAccessState('denied');
+        const reason =
+          access.reason ||
+          'Gagal memverifikasi sesi login Anda. Silakan masuk kembali.';
+        setDeniedInfo({ email: access.email || currentUser.email || '', reason });
+        setAuthCallbackError(reason);
+        if (activeTab === 'admin') {
+          setActiveTab('beranda');
+        }
+        return;
+      }
+
+      setDeniedInfo(null);
+      setAccessState('allowed');
+      handleCloudSync(currentUser);
+
+      const cloudTheme = currentUser.user_metadata?.zenora_theme;
       if (cloudTheme === 'dark' || cloudTheme === 'light' || cloudTheme === 'system') {
         const localStored = localStorage.getItem('zenora_theme_preference_v1');
         if (!localStored) {
@@ -140,21 +209,27 @@ export function App() {
           saveThemePreference(cloudTheme);
         }
       }
-      verifyAdminRoleWithBackend(user).then((isAdmin) => {
-        if (active) {
-          setIsAdminMode(isAdmin);
-          if (!isAdmin && activeTab === 'admin') {
-            setActiveTab('beranda');
-          }
+
+      const isAdmin = await verifyAdminRoleWithBackend(currentUser);
+      if (active) {
+        setIsAdminMode(isAdmin);
+        if (!isAdmin && activeTab === 'admin') {
+          setActiveTab('beranda');
         }
-      });
+      }
+    };
+
+    if (user) {
+      verifyAndInitializeUser(user);
     } else {
       setIsAdminMode(false);
       setAdminAuthenticated(false);
+      setAccessState((prev) => (prev === 'denied' ? 'denied' : 'unauthenticated'));
       if (activeTab === 'admin') {
         setActiveTab('beranda');
       }
     }
+
     return () => {
       active = false;
     };
@@ -328,6 +403,31 @@ export function App() {
       setActiveTab('latihan');
     }
   };
+
+  // Enforce Invite-Only Gate: unauthenticated or uninvited users cannot access ZENORA pages or data
+  if (accessState !== 'allowed') {
+    return (
+      <>
+        <InviteGateScreen
+          isChecking={accessState === 'checking'}
+          deniedEmail={deniedInfo?.email}
+          deniedReason={deniedInfo?.reason}
+          onOpenAuth={() => setAuthOpen(true)}
+        />
+        <AuthModal
+          isOpen={authOpen}
+          initialError={authCallbackError}
+          onClose={() => {
+            setAuthOpen(false);
+            setAuthCallbackError('');
+          }}
+          onAuthSuccess={() => {
+            setAuthCallbackError('');
+          }}
+        />
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen flex bg-[var(--bg-base)] text-[var(--text-primary)] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[var(--primary)] selection:text-white antialiased transition-colors duration-200">
@@ -601,8 +701,13 @@ export function App() {
       {/* Supabase Authentication & Cloud Database Modal */}
       <AuthModal
         isOpen={authOpen}
-        onClose={() => setAuthOpen(false)}
+        initialError={authCallbackError}
+        onClose={() => {
+          setAuthOpen(false);
+          setAuthCallbackError('');
+        }}
         onAuthSuccess={() => {
+          setAuthCallbackError('');
           if (user) handleCloudSync(user);
         }}
       />

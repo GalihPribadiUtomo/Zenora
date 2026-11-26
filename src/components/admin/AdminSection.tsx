@@ -47,6 +47,7 @@ import { loadAllCustomMateri, resetChapterMateri } from '../../utils/materiStora
 import { clearLessonCache } from '../../data/materi';
 import { AdminMateriManager } from './AdminMateriManager';
 import { AdminAnalyticsDashboard } from './AdminAnalyticsDashboard';
+import { AdminAllowlistManager } from './AdminAllowlistManager';
 import { sound } from '../../utils/audio';
 import type { KotobaItem, KotobaCategory, AdminAnnouncement } from '../../types';
 import { 
@@ -68,7 +69,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
   onSyncCloud,
   isSyncing = false
 }) => {
-  const [activeAdminTab, setActiveAdminTab] = useState<'overview' | 'analytics' | 'materi' | 'kotoba' | 'ssw' | 'cbt' | 'announcements' | 'database'>('overview');
+  const [activeAdminTab, setActiveAdminTab] = useState<'overview' | 'analytics' | 'allowlist' | 'materi' | 'kotoba' | 'ssw' | 'cbt' | 'announcements' | 'database'>('overview');
 
   // Admin Announcements State
   const [announcements, setAnnouncements] = useState<AdminAnnouncement[]>(() => getAdminAnnouncements());
@@ -286,6 +287,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
           {[
             { id: 'overview', label: 'Ringkasan & Metrik', icon: LayoutDashboard },
             { id: 'analytics', label: 'Analitik Platform', icon: BarChart3 },
+            { id: 'allowlist', label: 'Daftar Izin (Invite-Only)', icon: Users },
             { id: 'materi', label: 'Kelola Materi (Bunpou, Bunkei, Reibun, Kaiwa)', icon: BookOpen },
             { id: 'kotoba', label: 'Kelola Kosakata (Kotoba)', icon: Layers },
             { id: 'ssw', label: 'Kurikulum SSW (6 Sektor)', icon: Briefcase },
@@ -329,6 +331,13 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
         <AdminAnalyticsDashboard
           currentUser={user}
           onNavigateAdminTab={(t) => setActiveAdminTab(t)}
+        />
+      )}
+
+      {activeAdminTab === 'allowlist' && (
+        <AdminAllowlistManager
+          currentUserId={user?.id}
+          onShowToast={showToast}
         />
       )}
 
