@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  ShieldCheck, 
-  Lock, 
-  KeyRound, 
-  X, 
-  AlertCircle, 
-  CheckCircle2, 
+import {
+  ShieldCheck,
+  Lock,
+  Mail,
+  X,
+  AlertCircle,
+  CheckCircle2,
   ArrowRight,
   Eye,
-  EyeOff,
-  Sparkles
+  EyeOff
 } from 'lucide-react';
-import { verifyAdminPasscode, setAdminAuthenticated, isUserAdminRole } from '../../utils/adminAuth';
+import {
+  signInAdminWithSupabase,
+  verifyAdminRoleWithBackend
+} from '../../utils/adminAuth';
+import { isSupabaseConfigured } from '../../lib/supabase';
 import { sound } from '../../utils/audio';
 
 interface AdminAuthModalProps {
@@ -27,206 +30,194 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
   onSuccess,
   user
 }) => {
-  const [passcode, setPasscode] = useState('');
-  const [showPasscode, setShowPasscode] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isShake, setIsShake] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
-      setPasscode('');
+      setEmail(user?.email || '');
+      setPassword('');
       setErrorMessage('');
       setIsSuccess(false);
+      setIsSubmitting(false);
       setIsShake(false);
     }
-  }, [isOpen]);
+  }, [isOpen, user]);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
+  const triggerError = (msg: string) => {
+    setErrorMessage(msg);
+    setIsShake(true);
+    sound.playIncorrect();
+    setTimeout(() => setIsShake(false), 500);
+  };
+
+  const handleVerifyExistingSession = async () => {
+    if (!user) return;
+    setIsSubmitting(true);
     setErrorMessage('');
-
-    // If user account is already verified admin
-    if (user && isUserAdminRole(user)) {
-      setAdminAuthenticated(true);
+    const ok = await verifyAdminRoleWithBackend(user);
+    setIsSubmitting(false);
+    if (ok) {
       setIsSuccess(true);
       sound.playCorrect();
       setTimeout(() => {
         onSuccess();
         onClose();
-      }, 700);
-      return;
-    }
-
-    if (!passcode.trim()) {
-      setErrorMessage('Silakan masukkan kunci akses admin.');
-      setIsShake(true);
-      sound.playIncorrect();
-      setTimeout(() => setIsShake(false), 500);
-      return;
-    }
-
-    const isValid = verifyAdminPasscode(passcode);
-    if (isValid) {
-      setAdminAuthenticated(true);
-      setIsSuccess(true);
-      sound.playCorrect();
-      setTimeout(() => {
-        onSuccess();
-        onClose();
-      }, 700);
+      }, 600);
     } else {
-      setErrorMessage('Kunci akses salah. Periksa kembali passcode Anda.');
-      setIsShake(true);
-      sound.playIncorrect();
-      setTimeout(() => setIsShake(false), 500);
+      triggerError('Akun yang sedang login tidak memiliki role Admin pada tabel profiles.');
     }
   };
 
-  const handleQuickFill = () => {
-    sound.playClick();
-    setPasscode('zenora-admin');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage('');
+
+    if (!isSupabaseConfigured) {
+      triggerError('Supabase belum dikonfigurasi. Atur VITE_SUPABASE_URL & VITE_SUPABASE_ANON_KEY terlebih dahulu.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    const res = await signInAdminWithSupabase(email, password);
+    setIsSubmitting(false);
+
+    if (res.ok) {
+      setIsSuccess(true);
+      sound.playCorrect();
+      setTimeout(() => {
+        onSuccess();
+        onClose();
+      }, 600);
+    } else {
+      triggerError(res.error || 'Autentikasi Admin gagal.');
+    }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#08152F]/85 backdrop-blur-md animate-fade-in">
-      <div 
-        className={`relative w-full max-w-md rounded-3xl bg-gradient-to-b from-[#172945] to-[#08152F] border border-[#263D60] p-6 sm:p-8 shadow-[0_0_50px_rgba(36,86,166,0.3)] text-white overflow-hidden ${
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop animate-fade-in">
+      <div
+        className={`relative w-full max-w-md rounded-3xl bg-[var(--bg-card)] border border-[var(--border)] p-6 sm:p-8 shadow-2xl text-[var(--text-primary)] overflow-hidden ${
           isShake ? 'animate-shake-soft' : 'animate-modal-pop'
         }`}
       >
-        {/* Subtle Background Glow */}
-        <div className="absolute top-0 right-0 w-48 h-48 bg-[#2456A6]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#69C9DF]/10 rounded-full blur-3xl pointer-events-none" />
-
-        {/* Close Button */}
         <button
+          type="button"
           onClick={() => {
             sound.playClick();
             onClose();
           }}
-          className="absolute top-5 right-5 p-2 rounded-xl text-[#7186A5] hover:text-white hover:bg-[#111F38] transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-xl text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)] transition-colors cursor-pointer"
           aria-label="Tutup"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {/* Header Icon & Title */}
+        {/* Header */}
         <div className="flex flex-col items-center text-center mb-6">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#2456A6] to-[#3978D6] p-0.5 shadow-[0_0_25px_rgba(36,86,166,0.45)] mb-4 flex items-center justify-center">
-            <div className="w-full h-full bg-[#08152F] rounded-[14px] flex items-center justify-center">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#2866B5] to-[#4389D4] p-0.5 shadow-lg mb-4 flex items-center justify-center">
+            <div className="w-full h-full bg-[var(--bg-card)] rounded-[14px] flex items-center justify-center">
               {isSuccess ? (
-                <CheckCircle2 className="w-8 h-8 text-[#45C6A5] animate-pulse" />
+                <CheckCircle2 className="w-8 h-8 text-[#27B99A]" />
               ) : (
-                <ShieldCheck className="w-8 h-8 text-[#3978D6]" />
+                <ShieldCheck className="w-8 h-8 text-[var(--primary)]" />
               )}
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2456A6]/20 border border-[#3978D6]/40 text-[#83B7EE] text-xs font-black uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--primary)]/12 border border-[var(--primary)]/25 text-[var(--primary)] text-xs font-black uppercase tracking-wider mb-2">
             <Lock className="w-3.5 h-3.5" />
-            <span>Area Terbatas</span>
+            <span>Autentikasi RBAC Backend</span>
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-black text-white font-['Manrope']">
-            Verifikasi Akses Admin
+          <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-['Manrope']">
+            Login Portal Administrator
           </h2>
-          <p className="text-xs sm:text-sm text-[#A9BBD3] mt-1.5 max-w-xs">
-            Hanya instruktur dan administrator ZENORA yang dapat mengelola materi dan sistem.
+          <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1.5 max-w-xs">
+            Masuk dengan akun Administrator yang terverifikasi pada database Supabase (`profiles.role = admin`).
           </p>
         </div>
 
-        {/* User Account Role Info (if logged in) */}
+        {/* Active session quick verification */}
         {user && (
-          <div className="mb-5 p-3 rounded-2xl bg-[#111F38] border border-[#263D60] flex items-center justify-between text-xs">
-            <div>
-              <p className="text-[#7186A5]">Login sebagai:</p>
-              <p className="text-white font-bold truncate max-w-[200px]">{user.email}</p>
+          <div className="mb-4 p-3 rounded-2xl bg-[var(--bg-elevated)] border border-[var(--border)] flex items-center justify-between gap-2 text-xs">
+            <div className="min-w-0">
+              <p className="text-[var(--text-muted)]">Sesi aktif:</p>
+              <p className="text-[var(--text-primary)] font-bold truncate">{user.email}</p>
             </div>
-            <span className={`px-2 py-0.5 rounded-lg text-[10px] font-extrabold uppercase ${
-              isUserAdminRole(user) 
-                ? 'bg-[#45C6A5]/20 text-[#45C6A5] border border-[#45C6A5]/40' 
-                : 'bg-[#2456A6]/20 text-[#83B7EE] border border-[#3978D6]/30'
-            }`}>
-              {isUserAdminRole(user) ? 'Role: Admin' : 'Role: Siswa'}
-            </span>
+            <button
+              type="button"
+              disabled={isSubmitting}
+              onClick={handleVerifyExistingSession}
+              className="px-3 py-1.5 rounded-xl bg-[var(--primary)] text-white text-[11px] font-bold shrink-0 cursor-pointer disabled:opacity-50"
+            >
+              Verifikasi Role
+            </button>
           </div>
         )}
 
-        {/* Form Input Passcode */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-xs font-bold text-[#A9BBD3] mb-1.5">
-              Kunci Akses / Master Passcode:
-            </label>
+          <div className="space-y-1.5 text-left">
+            <label className="text-xs font-bold text-[var(--text-secondary)]">Email Administrator</label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#7186A5]">
-                <KeyRound className="w-4 h-4" />
-              </div>
+              <Mail className="w-4 h-4 text-[var(--text-muted)] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
-                type={showPasscode ? 'text' : 'password'}
-                value={passcode}
-                onChange={(e) => setPasscode(e.target.value)}
-                placeholder="Masukkan passcode admin..."
-                autoFocus
-                className="w-full pl-10 pr-10 py-3 rounded-2xl bg-[#08152F] border border-[#263D60] focus:border-[#3978D6] focus:outline-none focus:ring-2 focus:ring-[#3978D6]/30 text-white text-sm placeholder-[#7186A5] transition-all"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="admin@domain.com"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border)] text-sm text-[var(--text-primary)]"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="space-y-1.5 text-left">
+            <label className="text-xs font-bold text-[var(--text-secondary)]">Password</label>
+            <div className="relative">
+              <Lock className="w-4 h-4 text-[var(--text-muted)] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Masukkan password akun..."
+                className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border)] text-sm text-[var(--text-primary)]"
+                required
               />
               <button
                 type="button"
-                onClick={() => setShowPasscode(!showPasscode)}
-                className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#7186A5] hover:text-white transition-colors cursor-pointer"
-                tabIndex={-1}
+                onClick={() => setShowPassword((v) => !v)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
+                aria-label="Toggle password"
               >
-                {showPasscode ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
           </div>
 
-          {/* Error Message */}
           {errorMessage && (
-            <div className="p-3 rounded-xl bg-red-500/15 border border-red-500/30 text-red-300 text-xs flex items-center gap-2 animate-fade-in">
-              <AlertCircle className="w-4 h-4 shrink-0" />
+            <div className="p-3 rounded-xl bg-[#E56B78]/12 border border-[#E56B78]/30 text-[#E56B78] text-xs font-semibold flex items-start gap-2 text-left">
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
               <span>{errorMessage}</span>
             </div>
           )}
 
-          {/* Success Message */}
-          {isSuccess && (
-            <div className="p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs flex items-center gap-2 animate-fade-in">
-              <CheckCircle2 className="w-4 h-4 shrink-0" />
-              <span>Akses berhasil diverifikasi! Membuka Mode Admin...</span>
-            </div>
-          )}
-
-          {/* Submit Button */}
           <button
             type="submit"
-            disabled={isSuccess}
-            className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#2456A6] via-[#3978D6] to-[#69C9DF] hover:brightness-110 active:scale-[0.98] text-white font-black text-sm tracking-wide shadow-[0_0_20px_rgba(36,86,166,0.4)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            disabled={isSubmitting || isSuccess}
+            className="w-full py-3 rounded-2xl neon-btn-primary text-white text-sm font-black flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
           >
-            <span>{isSuccess ? 'Memverifikasi...' : 'Verifikasi & Masuk Mode Admin'}</span>
+            <span>{isSubmitting ? 'Memverifikasi...' : 'Masuk Sebagai Admin'}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
-
-        {/* Quick Hint for Administrator / Tester */}
-        <div className="mt-5 pt-4 border-t border-[#263D60] flex items-center justify-between text-xs text-[#7186A5]">
-          <div className="flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-[#83B7EE]" />
-            <span>Kunci bawaan:</span>
-          </div>
-          <button
-            type="button"
-            onClick={handleQuickFill}
-            className="font-mono text-[#3978D6] hover:text-[#83B7EE] underline hover:no-underline font-bold transition-colors cursor-pointer"
-            title="Klik untuk otomatis mengisi passcode"
-          >
-            zenora-admin
-          </button>
-        </div>
-
       </div>
     </div>
   );

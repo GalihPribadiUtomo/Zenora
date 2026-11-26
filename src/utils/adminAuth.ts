@@ -1,66 +1,102 @@
-// Utility to manage Administrator Role and Security Authentication for ZENORA
+import type { User } from '@supabase/supabase-js';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 const ADMIN_STORAGE_KEY = 'zenora_admin_authenticated';
-const ADMIN_MASTER_PASSCODES = ['zenora-admin', 'admin888', 'zenora2026', 'admin'];
-
-// Recognized Admin emails (if Supabase user is logged in)
-const ADMIN_EMAIL_WHITELIST = [
-  'admin@zenora.jp',
-  'admin@zenora.ac.jp',
-  'sensei@zenora.ac.jp',
-  'galih@zenora.ac.jp'
-];
 
 /**
- * Check if the current session has admin privileges
+ * Legacy helper kept for UI state cleanup only.
+ * Never grants admin access without backend verification.
  */
 export function isAdminAuthenticated(): boolean {
+  return false;
+}
+
+export function setAdminAuthenticated(status: boolean): void {
   try {
-    return localStorage.getItem(ADMIN_STORAGE_KEY) === 'true';
+    if (!status) {
+      localStorage.removeItem(ADMIN_STORAGE_KEY);
+    }
+  } catch {
+    // ignore storage errors
+  }
+}
+
+/**
+ * Synchronous check strictly for server-controlled app_metadata.role.
+ * Never trusts user_metadata or frontend email lists.
+ */
+export function isUserAdminRole(user: User | null | undefined): boolean {
+  if (!user) return false;
+  return user.app_metadata?.role === 'admin';
+}
+
+/**
+ * Authoritative backend RBAC verification against Supabase Auth app_metadata & profiles.role.
+ */
+export async function verifyAdminRoleWithBackend(user: User | null | undefined): Promise<boolean> {
+  if (!user || !supabase || !isSupabaseConfigured) {
+    return false;
+  }
+
+  if (user.app_metadata?.role === 'admin') {
+    return true;
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .maybeSingle();
+
+    if (error || !data) {
+      return false;
+    }
+
+    return data.role === 'admin';
   } catch {
     return false;
   }
 }
 
 /**
- * Set admin session authentication status
+ * Authenticates an Administrator via Supabase Auth (email + password) and verifies backend role.
  */
-export function setAdminAuthenticated(status: boolean): void {
-  try {
-    if (status) {
-      localStorage.setItem(ADMIN_STORAGE_KEY, 'true');
-    } else {
-      localStorage.removeItem(ADMIN_STORAGE_KEY);
-    }
-  } catch (e) {
-    console.error('Failed to update admin authentication status:', e);
-  }
-}
-
-/**
- * Verify passcode entered by user
- */
-export function verifyAdminPasscode(input: string): boolean {
-  if (!input) return false;
-  const cleanInput = input.trim().toLowerCase();
-  return ADMIN_MASTER_PASSCODES.some(code => code.toLowerCase() === cleanInput);
-}
-
-/**
- * Check if a logged-in Supabase user has admin role
- */
-export function isUserAdminRole(user: any): boolean {
-  if (!user) return false;
-  
-  // Check user metadata
-  if (user.user_metadata?.role === 'admin' || user.app_metadata?.role === 'admin') {
-    return true;
+export async function signInAdminWithSupabase(
+  email: string,
+  password: string
+): Promise<{ ok: boolean; error?: string }> {
+  if (!supabase || !isSupabaseConfigured) {
+    return {
+      ok: false,
+      error: 'Autentikasi Admin memerlukan koneksi Supabase yang aktif.',
+    };
   }
 
-  // Check email whitelist
-  if (user.email && ADMIN_EMAIL_WHITELIST.some(em => em.toLowerCase() === user.email.toLowerCase())) {
-    return true;
+  const cleanEmail = email.trim();
+  if (!cleanEmail || !password) {
+    return { ok: false, error: 'Email dan password wajib diisi.' };
   }
 
-  return false;
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: cleanEmail,
+    password,
+  });
+
+  if (error || !data.user) {
+    return {
+      ok: false,
+      error: error?.message || 'Gagal masuk. Periksa kembali email dan password Anda.',
+    };
+  }
+
+  const isAdmin = await verifyAdminRoleWithBackend(data.user);
+  if (!isAdmin) {
+    return {
+      ok: false,
+      error: 'Akun ini terdaftar sebagai Siswa dan tidak memiliki izin Administrator di database.',
+    };
+  }
+
+  return { ok: true };
 }

@@ -13,12 +13,43 @@ create table if not exists public.profiles (
   id uuid references auth.users on delete cascade primary key,
   display_name text,
   avatar_url text,
+  role text not null default 'user' check (role in ('user', 'admin')),
   target_level text default 'N5',
   streak_days integer default 1,
   last_active_date date default current_date,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null,
   updated_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
+
+-- Pastikan kolom role tersedia jika tabel sudah dibuat sebelumnya
+alter table public.profiles add column if not exists role text not null default 'user';
+
+-- Helper function RBAC untuk memeriksa apakah user yang login adalah admin di database
+create or replace function public.is_admin()
+returns boolean as $$
+  select exists (
+    select 1 from public.profiles
+    where id = auth.uid() and role = 'admin'
+  );
+$$ language sql security definer stable;
+
+-- Trigger keamanan: Cegah user mengubah kolom role miliknya sendiri lewat frontend
+create or replace function public.prevent_self_role_escalation()
+returns trigger as $$
+begin
+  if new.role is distinct from old.role and auth.role() = 'authenticated' then
+    if not public.is_admin() then
+      raise exception 'Forbidden: Only backend/service_role or existing admin can modify user roles';
+    end if;
+  end if;
+  return new;
+end;
+$$ language plpgsql security definer;
+
+drop trigger if exists trg_prevent_self_role_escalation on public.profiles;
+create trigger trg_prevent_self_role_escalation
+  before update on public.profiles
+  for each row execute procedure public.prevent_self_role_escalation();
 
 -- 2. TABEL PROGRES HAFALAN (USER_LEARNED_ITEMS)
 -- Menyimpan ID kosakata (kotoba), kanji, atau aksara kana yang telah dihafal
@@ -90,9 +121,9 @@ alter table public.user_bookmarks enable row level security;
 alter table public.user_custom_kotoba enable row level security;
 alter table public.user_quiz_history enable row level security;
 
--- Policies Profiles
-create policy "Users can view their own profile" on public.profiles
-  for select using (auth.uid() = id);
+-- Policies Profiles (User lihat/ubah miliknya, Admin dapat memantau daftar profil)
+create policy "Users or Admins can view profiles" on public.profiles
+  for select using (auth.uid() = id or public.is_admin());
 
 create policy "Users can update their own profile" on public.profiles
   for update using (auth.uid() = id);
@@ -172,7 +203,27 @@ create table if not exists public.admin_announcements (
 alter table public.admin_announcements enable row level security;
 
 create policy "Anyone can view published announcements" on public.admin_announcements
-  for select using (published = true);
+  for select using (published = true or public.is_admin());
 
-create policy "Authenticated users can manage announcements" on public.admin_announcements
-  for all using (auth.role() = 'authenticated');
+create policy "Only admins can manage announcements" on public.admin_announcements
+  for all using (public.is_admin()) with check (public.is_admin());
+
+-- ==============================================================================
+-- TABEL 7: USER_CUSTOM_MATERI (Kustomisasi Materi Bab 1-50 per User / Admin)
+-- ==============================================================================
+create table if not exists public.user_custom_materi (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references auth.users on delete cascade not null,
+  bab integer not null check (bab >= 1 and bab <= 50),
+  lesson_data jsonb not null default '{}'::jsonb,
+  updated_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  unique(user_id, bab)
+);
+
+alter table public.user_custom_materi enable row level security;
+
+create policy "Users can view their own custom materi" on public.user_custom_materi
+  for select using (auth.uid() = user_id or public.is_admin());
+
+create policy "Users can manage their own custom materi" on public.user_custom_materi
+  for all using (auth.uid() = user_id) with check (auth.uid() = user_id);

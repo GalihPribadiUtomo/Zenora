@@ -14,7 +14,7 @@ import { KanaSection } from './components/KanaSection';
 import { SswSection } from './components/SswSection';
 import { AdminSection } from './components/admin/AdminSection';
 import { AdminAuthModal } from './components/admin/AdminAuthModal';
-import { isAdminAuthenticated, setAdminAuthenticated, isUserAdminRole } from './utils/adminAuth';
+import { isAdminAuthenticated, setAdminAuthenticated, verifyAdminRoleWithBackend } from './utils/adminAuth';
 import { KanjiItem, QuizMode, QuizSubject } from './types';
 import { getInitialStats, saveStats, incrementDailyActivity } from './utils/storage';
 import { supabase, isSupabaseConfigured } from './lib/supabase';
@@ -81,8 +81,8 @@ export function App() {
   const [activeKanjiList, setActiveKanjiList] = useState<KanjiItem[] | null>(null);
   const [adminAuthModalOpen, setAdminAuthModalOpen] = useState(false);
 
-  // Role-Based Access Control (RBAC) - Admin Mode
-  const [isAdminMode, setIsAdminMode] = useState<boolean>(() => isAdminAuthenticated());
+  // Role-Based Access Control (RBAC) - Admin Mode (Always verified against backend)
+  const [isAdminMode, setIsAdminMode] = useState<boolean>(false);
 
   // Selected Bab in Kotoba section
   const [selectedBab, setSelectedBab] = useState<number | null>(null);
@@ -129,6 +129,7 @@ export function App() {
   }, [stats]);
 
   useEffect(() => {
+    let active = true;
     if (user) {
       handleCloudSync(user);
       const cloudTheme = user.user_metadata?.zenora_theme;
@@ -139,11 +140,24 @@ export function App() {
           saveThemePreference(cloudTheme);
         }
       }
-      if (isUserAdminRole(user)) {
-        setIsAdminMode(true);
-        setAdminAuthenticated(true);
+      verifyAdminRoleWithBackend(user).then((isAdmin) => {
+        if (active) {
+          setIsAdminMode(isAdmin);
+          if (!isAdmin && activeTab === 'admin') {
+            setActiveTab('beranda');
+          }
+        }
+      });
+    } else {
+      setIsAdminMode(false);
+      setAdminAuthenticated(false);
+      if (activeTab === 'admin') {
+        setActiveTab('beranda');
       }
     }
+    return () => {
+      active = false;
+    };
   }, [user?.id]);
 
   // Check and generate relevant real study & progress notifications + sync cloud announcements

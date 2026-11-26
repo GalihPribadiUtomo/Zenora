@@ -76,42 +76,42 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
   }, [showFurigana]);
 
   return (
-    <header className="sticky top-0 z-30 w-full px-4 sm:px-6 lg:px-8 py-3 bg-[var(--bg-header)]/90 backdrop-blur-xl border-b border-[var(--border)] transition-colors duration-200">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-30 w-full px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3 bg-[var(--bg-header)]/90 backdrop-blur-xl border-b border-[var(--border)] transition-colors duration-200">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
         
         {/* Left: Mobile Menu Trigger (hidden on lg) */}
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden shrink-0">
           <button
             onClick={() => {
               sound.playClick();
               if (onOpenMobileMenu) onOpenMobileMenu();
             }}
-            className="p-2.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--primary)]/40 transition-colors"
+            className="p-2 rounded-xl sm:rounded-2xl bg-[var(--bg-base)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--primary)]/40 transition-colors cursor-pointer"
             aria-label="Buka Menu"
           >
             <Menu className="w-5 h-5" />
           </button>
           
-          <div className="flex items-center gap-2">
-            <span className="text-lg font-black tracking-wider text-[var(--text-primary)] font-['Manrope']">
+          <div className="hidden min-[380px]:flex items-center gap-2">
+            <span className="text-base sm:text-lg font-black tracking-wider text-[var(--text-primary)] font-['Manrope']">
               ZENORA
             </span>
           </div>
         </div>
 
         {/* Center: Search Bar with Ctrl+K */}
-        <div className="flex-1 max-w-xl mx-auto">
+        <div className="flex-1 min-w-0 max-w-xl mx-auto">
           <div 
             onClick={() => {
               sound.playClick();
               onOpenSearch();
             }}
-            className="group cursor-pointer flex items-center justify-between px-4 py-2 rounded-2xl bg-[var(--bg-base)] hover:bg-[var(--bg-elevated)] border border-[var(--border)] hover:border-[var(--primary)]/50 transition-all duration-200"
+            className="group cursor-pointer flex items-center justify-between px-2.5 sm:px-4 py-2 rounded-xl sm:rounded-2xl bg-[var(--bg-base)] hover:bg-[var(--bg-elevated)] border border-[var(--border)] hover:border-[var(--primary)]/50 transition-all duration-200"
           >
-            <div className="flex items-center gap-3 text-sm text-[var(--text-muted)] group-hover:text-[var(--text-secondary)]">
-              <Search className="w-4 h-4 text-[var(--primary)] group-hover:scale-105 transition-transform" />
-              <span className="hidden sm:inline">Cari materi, kosakata, atau latihan...</span>
-              <span className="sm:hidden">Cari materi...</span>
+            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] min-w-0">
+              <Search className="w-4 h-4 text-[var(--primary)] shrink-0 group-hover:scale-105 transition-transform" />
+              <span className="hidden sm:inline truncate">Cari materi, kosakata, atau latihan...</span>
+              <span className="sm:hidden truncate">Cari...</span>
             </div>
 
             <div className="flex items-center gap-1.5">
@@ -123,7 +123,7 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
         </div>
 
         {/* Right Section: Sound, Cloud Sync, Notification & User Avatar */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           
           {/* Cloud Sync Status */}
           {isSyncing && (
@@ -139,7 +139,7 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
               sound.playClick();
               setShowFurigana(!showFurigana);
             }}
-            className={`px-3 py-2 rounded-2xl border text-xs font-black transition-all shadow-xs flex items-center gap-1.5 ${
+            className={`px-2 sm:px-3 py-2 rounded-xl sm:rounded-2xl border text-xs font-black transition-all shadow-xs flex items-center gap-1.5 cursor-pointer ${
               showFurigana
                 ? 'bg-[var(--bg-elevated)] border-[#3978D6]/50 text-[var(--text-primary)]'
                 : 'bg-[var(--bg-surface)] border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--text-primary)]'
