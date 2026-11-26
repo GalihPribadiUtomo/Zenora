@@ -156,6 +156,14 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
   // Speaking state
   const [isSpeakingActive, setIsSpeakingActive] = useState(false);
 
+  // Answer Review state (Pembahasan Soal setelah selesai)
+  const [answerHistory, setAnswerHistory] = useState<Array<{
+    question: ExerciseQuestion;
+    userAnswer: string;
+    isCorrect: boolean;
+  }>>([]);
+  const [showAnswerReview, setShowAnswerReview] = useState(false);
+
   // Start selected mode
   const handleStartMode = (mode: ExerciseMode) => {
     sound.playClick();
@@ -170,6 +178,8 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
     setUserArrangedTokens([]);
     setMatchedPairs([]);
     setSelectedLeft(null);
+    setAnswerHistory([]);
+    setShowAnswerReview(false);
 
     if (generated[0]?.timeLimitSeconds) {
       setTimeLeft(generated[0].timeLimitSeconds);
@@ -216,7 +226,10 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
     sound.playIncorrect();
     setIsAnswerSubmitted(true);
     const currentQ = questions[currentIdx];
-    if (currentQ) recordMistake(currentQ);
+    if (currentQ) {
+      recordMistake(currentQ);
+      setAnswerHistory((prev) => [...prev, { question: currentQ, userAnswer: '(Waktu habis)', isCorrect: false }]);
+    }
   };
 
   // Check Multiple Choice / Test Answer
@@ -236,6 +249,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
       sound.playIncorrect();
       recordMistake(currentQ);
     }
+    setAnswerHistory((prev) => [...prev, { question: currentQ, userAnswer: option, isCorrect }]);
   };
 
   // Sentence Arrangement: click token
@@ -256,7 +270,8 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
     const userString = userArrangedTokens.join(' ').trim();
     const correctString = currentQ.correctAnswer.trim();
 
-    if (userString === correctString) {
+    const isCorrect = userString === correctString;
+    if (isCorrect) {
       sound.playCorrect();
       setScore((prev) => prev + 1);
       resolveMistake(currentQ.id);
@@ -264,6 +279,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
       sound.playIncorrect();
       recordMistake(currentQ);
     }
+    setAnswerHistory((prev) => [...prev, { question: currentQ, userAnswer: userString || '(Kosong)', isCorrect }]);
   };
 
   // Matching: match click
@@ -282,6 +298,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
         if (currentQ.matchingPairs && matchedPairs.length + 1 >= currentQ.matchingPairs.length) {
           setIsAnswerSubmitted(true);
           setScore((prev) => prev + 1);
+          setAnswerHistory((prev) => [...prev, { question: currentQ, userAnswer: 'Semua pasangan cocok', isCorrect: true }]);
         }
       } else {
         // Wrong pair
@@ -434,7 +451,86 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
             <Layers className="w-4 h-4 text-[var(--primary)]" />
             <span>Pilih Mode Latihan Lain</span>
           </button>
+
+          {answerHistory.length > 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                sound.playClick();
+                setShowAnswerReview((prev) => !prev);
+              }}
+              className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-[var(--bg-elevated)] hover:bg-[var(--primary)]/10 text-[var(--primary)] font-bold text-sm border border-[var(--border)] transition-all active:scale-95 cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>{showAnswerReview ? 'Tutup Pembahasan' : `Lihat Pembahasan (${answerHistory.length})`}</span>
+            </button>
+          )}
         </div>
+
+        {/* Pembahasan Soal Panel */}
+        {showAnswerReview && answerHistory.length > 0 && (
+          <div className="mt-6 pt-6 border-t border-[var(--border)] text-left space-y-3 max-h-[420px] overflow-y-auto pr-1">
+            <h3 className="text-sm font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-[var(--primary)]" />
+              <span>Pembahasan Jawaban ({answerHistory.filter((a) => a.isCorrect).length}/{answerHistory.length} Benar)</span>
+            </h3>
+            {answerHistory.map((item, idx) => (
+              <div
+                key={idx}
+                className={`p-4 rounded-2xl border space-y-2 ${
+                  item.isCorrect
+                    ? 'bg-[#27B99A]/10 border-[#27B99A]/30'
+                    : 'bg-[#E56B78]/10 border-[#E56B78]/30'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="space-y-1 flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-mono font-bold text-[var(--text-muted)]">Soal #{idx + 1}</span>
+                      <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
+                        item.isCorrect ? 'bg-[#27B99A]/20 text-[#27B99A]' : 'bg-[#E56B78]/20 text-[#E56B78]'
+                      }`}>
+                        {item.isCorrect ? 'Benar' : 'Salah'}
+                      </span>
+                    </div>
+                    <p className="text-sm font-bold text-[var(--text-primary)] japanese-text">
+                      <FuriganaText text={item.question.japaneseText || item.question.question} />
+                    </p>
+                  </div>
+                  {(item.question.audioText || item.question.japaneseText || item.question.correctAnswer) && (
+                    <button
+                      type="button"
+                      onClick={() => speakJapanese(item.question.audioText || item.question.japaneseText || item.question.correctAnswer)}
+                      className="p-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] text-[var(--primary)] shrink-0 cursor-pointer"
+                      title="Dengarkan audio"
+                    >
+                      <Volume2 className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  <div className="p-2.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)]">
+                    <span className="text-[10px] text-[var(--text-muted)] block">Jawaban Anda</span>
+                    <span className={`font-bold ${item.isCorrect ? 'text-[#27B99A]' : 'text-[#E56B78]'}`}>
+                      {item.userAnswer}
+                    </span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border)]">
+                    <span className="text-[10px] text-[var(--text-muted)] block">Jawaban Benar</span>
+                    <span className="font-bold text-[#27B99A]">{item.question.correctAnswer}</span>
+                  </div>
+                </div>
+
+                {item.question.explanation && (
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                    {item.question.explanation}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   }

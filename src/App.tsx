@@ -19,7 +19,7 @@ import { KanjiItem, QuizMode, QuizSubject } from './types';
 import { getInitialStats, saveStats, incrementDailyActivity } from './utils/storage';
 import { supabase, isSupabaseConfigured } from './lib/supabase';
 import { syncAllToCloud, pullAndMergeFromCloud } from './services/syncService';
-import { checkAndGenerateStudyNotifications } from './utils/notificationService';
+import { checkAndGenerateStudyNotifications, syncCloudAnnouncements } from './utils/notificationService';
 import {
   ThemePreference,
   ResolvedTheme,
@@ -146,9 +146,10 @@ export function App() {
     }
   }, [user?.id]);
 
-  // Check and generate relevant real study & progress notifications
+  // Check and generate relevant real study & progress notifications + sync cloud announcements
   useEffect(() => {
     checkAndGenerateStudyNotifications(stats, user);
+    syncCloudAnnouncements(user?.id);
   }, [stats.streakDays, stats.learnedKotobaIds.length, user]);
 
   const handleOpenAdminAuth = () => {

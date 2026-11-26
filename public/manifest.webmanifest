@@ -4,8 +4,8 @@
   "description": "Platform pembelajaran bahasa Jepang lengkap: Hiragana, Katakana, Kanji N5–N4, Minna no Nihongo Bab 1–50, SSW, dan Simulasi JLPT/JFT.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#080D2B",
-  "theme_color": "#7857FF",
+  "background_color": "#08152F",
+  "theme_color": "#2866B5",
   "orientation": "any",
   "icons": [
     {

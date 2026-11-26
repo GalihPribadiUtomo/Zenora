@@ -34,7 +34,8 @@ import {
   ArrowRight,
   TrendingUp,
   RefreshCw,
-  ExternalLink
+  ExternalLink,
+  Download
 } from 'lucide-react';
 import { KOTOBA_DATA } from '../data/kotobaData';
 import { KANJI_DATA } from '../data/kanjiData';
@@ -46,6 +47,7 @@ import {
   requestBrowserNotificationPermission 
 } from '../utils/notificationService';
 import { ThemePreference } from '../utils/themeService';
+import { downloadMilestoneCertificate } from '../utils/certificateGenerator';
 
 interface ProfileSectionProps {
   stats: UserStats;
@@ -801,6 +803,109 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
             )}
           </div>
 
+        </div>
+      </div>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          4.5. SERTIFIKAT DIGITAL & MILESTONE
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <div className="rounded-3xl bg-[var(--bg-card)] border border-[var(--border)] shadow-[var(--card-shadow)] p-6 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 className="text-lg font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2">
+              <Award className="w-5 h-5 text-[var(--accent-gold)]" />
+              <span>Sertifikat Digital & Milestone</span>
+            </h2>
+            <p className="text-xs text-[var(--text-secondary)]">
+              Unduh sertifikat PNG resmi ZENORA saat mencapai target pembelajaran.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {[
+            {
+              id: 'kana',
+              title: 'Master Hiragana & Katakana',
+              subtitle: 'Penguasaan Aksara Dasar & Serapan Jepang',
+              current: stats.learnedKanaChars?.length || 0,
+              target: 312,
+              unlockAt: 92,
+            },
+            {
+              id: 'minna1',
+              title: 'Minna no Nihongo I',
+              subtitle: 'Penyelesaian Kosakata & Tata Bahasa Dasar',
+              current: stats.learnedKotobaIds.length,
+              target: 360,
+              unlockAt: 150,
+            },
+            {
+              id: 'kanji_n5',
+              title: 'Kanji JLPT N5',
+              subtitle: 'Penguasaan 110 Karakter Kanji Dasar',
+              current: stats.learnedKanjiIds.length,
+              target: 110,
+              unlockAt: 50,
+            },
+            {
+              id: 'streak',
+              title: 'Konsistensi Belajar',
+              subtitle: 'Komitmen Harian Pembelajaran Bahasa Jepang',
+              current: stats.streakDays,
+              target: 7,
+              unlockAt: 3,
+            },
+          ].map((cert) => {
+            const unlocked = cert.current >= cert.unlockAt;
+            const pct = Math.min(100, Math.round((cert.current / cert.unlockAt) * 100));
+            return (
+              <div
+                key={cert.id}
+                className="p-4 rounded-2xl bg-[var(--bg-elevated)] border border-[var(--border)] flex flex-col justify-between gap-3"
+              >
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between gap-1">
+                    <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full ${
+                      unlocked
+                        ? 'bg-[#27B99A]/15 text-[#27B99A]'
+                        : 'bg-[var(--bg-card)] text-[var(--text-muted)]'
+                    }`}>
+                      {unlocked ? 'Terbuka' : `${pct}%`}
+                    </span>
+                  </div>
+                  <h4 className="text-xs sm:text-sm font-black text-[var(--text-primary)] font-['Manrope']">
+                    {cert.title}
+                  </h4>
+                  <p className="text-[11px] text-[var(--text-secondary)] leading-snug">
+                    {cert.subtitle}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  disabled={!unlocked}
+                  onClick={() => {
+                    sound.playClick();
+                    downloadMilestoneCertificate({
+                      recipientName: user?.email?.split('@')[0] || 'Pelajar ZENORA',
+                      milestoneTitle: cert.title,
+                      milestoneSubtitle: cert.subtitle,
+                      completionText: `Pencapaian terverifikasi: ${cert.current} / ${cert.target}`,
+                    });
+                  }}
+                  className={`w-full py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
+                    unlocked
+                      ? 'bg-gradient-to-r from-[#2866B5] to-[#4389D4] text-white hover:brightness-110 cursor-pointer'
+                      : 'bg-[var(--bg-card)] text-[var(--text-muted)] border border-[var(--border)] cursor-not-allowed opacity-70'
+                  }`}
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>{unlocked ? 'Unduh Sertifikat' : `Butuh ${cert.unlockAt}`}</span>
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
 

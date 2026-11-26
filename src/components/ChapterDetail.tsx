@@ -20,7 +20,11 @@ import {
   MessageSquare,
   Sparkles,
   Info,
-  ExternalLink
+  ExternalLink,
+  Play,
+  Pause,
+  Square,
+  SkipForward
 } from 'lucide-react';
 import { KotobaItem, KanjiItem, ChapterLesson } from '../types';
 import { KANJI_DATA } from '../data/kanjiData';
@@ -166,6 +170,34 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
     setIsFlipped(false);
     setFlashcardIndex(prev => (prev - 1 + filteredWords.length) % filteredWords.length);
   };
+
+  // Auto-Play Audio Playlist state (Kotoba hands-free listening)
+  const [isPlaylistPlaying, setIsPlaylistPlaying] = useState(false);
+  const [playlistIndex, setPlaylistIndex] = useState(0);
+
+  useEffect(() => {
+    setIsPlaylistPlaying(false);
+    setPlaylistIndex(0);
+  }, [bab]);
+
+  useEffect(() => {
+    if (!isPlaylistPlaying || filteredWords.length === 0) return;
+    const item = filteredWords[playlistIndex];
+    if (!item) {
+      setIsPlaylistPlaying(false);
+      return;
+    }
+    speakJapanese(item.kana || item.kanji);
+    const timer = setTimeout(() => {
+      if (playlistIndex + 1 < filteredWords.length) {
+        setPlaylistIndex((prev) => prev + 1);
+      } else {
+        setIsPlaylistPlaying(false);
+        setPlaylistIndex(0);
+      }
+    }, 2600);
+    return () => clearTimeout(timer);
+  }, [isPlaylistPlaying, playlistIndex, filteredWords]);
 
   /* ─────────────────────────────────────────────────────────────
      RENDER SECTION 1: BUNPOU (TATA BAHASA)
@@ -546,8 +578,53 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           />
         </div>
 
-        {/* View Mode Toggle */}
-        <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/25 self-start sm:self-auto">
+        {/* View Mode Toggle & Auto-Play Playlist */}
+        <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+          {filteredWords.length > 0 && (
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border)]">
+              <button
+                type="button"
+                onClick={() => {
+                  sound.playClick();
+                  setIsPlaylistPlaying((prev) => !prev);
+                }}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-[#2866B5] to-[#4389D4] text-white text-xs font-bold cursor-pointer"
+                title="Putar otomatis kosakata bab ini"
+              >
+                {isPlaylistPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-white" />}
+                <span>{isPlaylistPlaying ? `Jeda (${playlistIndex + 1}/${filteredWords.length})` : 'Auto-Play Audio'}</span>
+              </button>
+              {isPlaylistPlaying && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      sound.playClick();
+                      setPlaylistIndex((prev) => (prev + 1) % filteredWords.length);
+                    }}
+                    className="p-1.5 rounded-lg bg-[var(--bg-elevated)] text-[var(--primary)] cursor-pointer"
+                    title="Kata berikutnya"
+                  >
+                    <SkipForward className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      sound.playClick();
+                      setIsPlaylistPlaying(false);
+                      setPlaylistIndex(0);
+                    }}
+                    className="p-1.5 rounded-lg bg-[var(--bg-elevated)] text-[#E56B78] cursor-pointer"
+                    title="Hentikan playlist"
+                  >
+                    <Square className="w-3.5 h-3.5" />
+                  </button>
+                </>
+              )}
+            </div>
+          )}
+
+          <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/25">
           <button
             onClick={() => setViewMode('card')}
             className={`p-2 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
@@ -581,6 +658,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           >
             <Layers className="w-4 h-4" />
           </button>
+        </div>
         </div>
       </div>
 

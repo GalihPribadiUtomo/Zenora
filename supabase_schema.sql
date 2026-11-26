@@ -155,3 +155,24 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
+
+-- ==============================================================================
+-- TABEL 6: ADMIN_ANNOUNCEMENTS (Pengumuman & Notifikasi Global)
+-- ==============================================================================
+create table if not exists public.admin_announcements (
+  id text primary key,
+  title text not null,
+  content text not null,
+  target_role text default 'all',
+  published boolean default true,
+  author text,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+alter table public.admin_announcements enable row level security;
+
+create policy "Anyone can view published announcements" on public.admin_announcements
+  for select using (published = true);
+
+create policy "Authenticated users can manage announcements" on public.admin_announcements
+  for all using (auth.role() = 'authenticated');

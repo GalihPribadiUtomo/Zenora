@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zenora-offline-v1';
+const CACHE_NAME = 'zenora-offline-v2';
 const STATIC_ASSETS = ['/', '/index.html', '/manifest.webmanifest', '/zenora-icon.png'];
 
 self.addEventListener('install', (event) => {

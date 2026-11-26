@@ -1,4 +1,5 @@
 import { AppNotification, NotificationCategory, NotificationPreferences, AdminAnnouncement, UserStats } from '../types';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 const NOTIFICATIONS_STORAGE_KEY = 'zenora_notifications_v1';
 const PREFERENCES_STORAGE_KEY = 'zenora_notif_prefs_v1';
@@ -313,7 +314,57 @@ export const publishAdminAnnouncement = (
     });
   }
 
+  // Non-blocking cloud sync if Supabase is configured
+  if (supabase && isSupabaseConfigured && newAnnouncement.published) {
+    supabase
+      .from('admin_announcements')
+      .insert({
+        id: newAnnouncement.id,
+        title: newAnnouncement.title,
+        content: newAnnouncement.content,
+        target_role: newAnnouncement.targetRole,
+        published: newAnnouncement.published,
+        author: newAnnouncement.author,
+        created_at: newAnnouncement.createdAt,
+      })
+      .then(() => {}, () => {});
+  }
+
   return newAnnouncement;
+};
+
+/**
+ * Pull global published announcements from Supabase without duplicating local notifications
+ */
+export const syncCloudAnnouncements = async (userId?: string): Promise<void> => {
+  if (!supabase || !isSupabaseConfigured) return;
+  try {
+    const { data, error } = await supabase
+      .from('admin_announcements')
+      .select('id, title, content, target_role, published, created_at')
+      .eq('published', true)
+      .order('created_at', { ascending: false })
+      .limit(20);
+
+    if (error || !data) return;
+
+    const existingNotifs = getNotifications(userId);
+    const existingKeys = new Set(existingNotifs.map((n) => `${n.title}::${n.message}`));
+    data.forEach((row: any) => {
+      const title = `📢 ${row.title}`;
+      if (!existingKeys.has(`${title}::${row.content}`)) {
+        addNotification({
+          userId: row.target_role === 'all' ? 'all' : userId,
+          title,
+          message: row.content,
+          category: 'announcement',
+          linkAction: { tab: 'beranda' },
+        });
+      }
+    });
+  } catch {
+    // non-fatal if table not yet migrated
+  }
 };
 
 export const deleteAdminAnnouncement = (id: string): void => {
