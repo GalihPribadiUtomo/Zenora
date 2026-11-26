@@ -50,7 +50,7 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
         <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-[var(--bg-surface)]/40 via-[#3978D6]/15 to-transparent blur-3xl pointer-events-none" />
 
         {/* Orbit Track Guide Line */}
-        <div className="absolute w-[82%] h-[82%] rounded-full border border-dashed border-[#3978D6]/30 shadow-[0_0_30px_rgba(57, 120, 214,0.15)] pointer-events-none" />
+        <div className="absolute w-[82%] h-[82%] rounded-full border border-dashed border-[#3978D6]/30 shadow-[0_0_30px_rgba(57,120,214,0.15)] pointer-events-none" />
 
         {/* Daily Kanji Rotating Orbit Ring */}
         <div className="absolute inset-0 flex items-center justify-center animate-zenora-orbit pointer-events-auto">
@@ -70,11 +70,11 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
                         sound.playClick();
                         setPreviewKanji(k);
                       }}
-                      className="group relative p-3 sm:p-3.5 rounded-2xl sm:rounded-3xl bg-[var(--bg-surface)] backdrop-blur-md shadow-[0_4px_20px_rgba(8, 21, 47,0.6)] border border-[#3978D6]/30 hover:border-[#3978D6] hover:shadow-[0_0_25px_rgba(57, 120, 214,0.4)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer flex flex-col items-center min-w-[70px] sm:min-w-[80px]"
+                      className="group relative p-3 sm:p-3.5 rounded-2xl sm:rounded-3xl bg-[var(--bg-surface)] backdrop-blur-md shadow-[0_4px_20px_rgba(8,21,47,0.6)] border border-[#3978D6]/30 hover:border-[#3978D6] hover:shadow-[0_0_25px_rgba(57,120,214,0.4)] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer flex flex-col items-center min-w-[70px] sm:min-w-[80px]"
                       title={`Kanji Hari Ini: ${k.kanji} (${k.meaning}) · Klik untuk detail`}
                     >
                       {/* Daily Badge Tag */}
-                      <span className="absolute -top-2 px-1.5 py-0.5 rounded-full bg-gradient-to-r from-[var(--bg-elevated)] to-[#3978D6] text-[#08152F] text-[8px] font-black uppercase tracking-wider font-mono shadow-[0_0_8px_rgba(57, 120, 214,0.4)]">
+                      <span className="absolute -top-2 px-1.5 py-0.5 rounded-full bg-gradient-to-r from-[var(--bg-elevated)] to-[#3978D6] text-[#08152F] text-[8px] font-black uppercase tracking-wider font-mono shadow-[0_0_8px_rgba(57,120,214,0.4)]">
                         #{idx + 1}
                       </span>
 
@@ -96,7 +96,7 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
         </div>
 
         {/* Central Circle Plate (Holographic Star Core) */}
-        <div className="relative z-10 w-48 h-48 sm:w-52 sm:h-52 lg:w-56 lg:h-56 rounded-full bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-sidebar)] shadow-[0_0_40px_rgba(8, 21, 47,0.8)] border border-[#3978D6]/35 flex flex-col items-center justify-center p-3 sm:p-4 text-center">
+        <div className="relative z-10 w-48 h-48 sm:w-52 sm:h-52 lg:w-56 lg:h-56 rounded-full bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-sidebar)] shadow-[0_0_40px_rgba(8,21,47,0.8)] border border-[#3978D6]/35 flex flex-col items-center justify-center p-3 sm:p-4 text-center">
           
           {/* Daily Date Badge Pill */}
           <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[#3978D6] text-[10px] font-black uppercase tracking-wider font-mono mb-1.5">
@@ -109,7 +109,7 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
             <img
               src="/zenora-icon.png"
               alt="ZENORA"
-              className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(57, 120, 214,0.35)] hover:scale-105 transition-transform"
+              className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(57,120,214,0.35)] hover:scale-105 transition-transform"
             />
           </div>
 
@@ -141,7 +141,7 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
 
       {/* MOBILE VIEW: CLEAN 2x2 GRID (< sm) */}
       <div className="flex sm:hidden flex-col items-center w-full max-w-sm py-2">
-        <div className="w-44 h-44 rounded-full bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-sidebar)] shadow-[0_0_30px_rgba(8, 21, 47,0.8)] border border-[#3978D6]/35 flex flex-col items-center justify-center p-3 text-center mb-4">
+        <div className="w-44 h-44 rounded-full bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-sidebar)] shadow-[0_0_30px_rgba(8,21,47,0.8)] border border-[#3978D6]/35 flex flex-col items-center justify-center p-3 text-center mb-4">
           <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[var(--bg-sidebar)] border border-[#3978D6]/30 text-[#3978D6] text-[9px] font-black uppercase tracking-wider font-mono mb-1">
             <Calendar className="w-2.5 h-2.5 text-[#3978D6]" />
             <span>{displayDate.split(',')[0]}</span>
@@ -151,7 +151,7 @@ export const DailyKanjiOrbit: React.FC<DailyKanjiOrbitProps> = ({
             <img
               src="/zenora-icon.png"
               alt="ZENORA"
-              className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(57, 120, 214,0.35)]"
+              className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(57,120,214,0.35)]"
             />
           </div>
 

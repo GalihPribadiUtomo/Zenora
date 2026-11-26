@@ -110,7 +110,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
     <div className="space-y-8 text-left animate-fade-in">
       
       {/* Header Banner */}
-      <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-[var(--bg-surface)] via-[var(--bg-elevated)] to-[var(--bg-surface)] border border-[#3978D6]/30 shadow-[0_15px_40px_rgba(8, 21, 47,0.8)] overflow-hidden">
+      <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-[var(--bg-surface)] via-[var(--bg-elevated)] to-[var(--bg-surface)] border border-[#3978D6]/30 shadow-[0_15px_40px_rgba(8,21,47,0.8)] overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#3978D6]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
@@ -145,7 +145,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
         {/* 1. Kotoba Card */}
         <div 
           onClick={() => { sound.playClick(); onNavigate('kotoba'); }}
-          className="group cursor-pointer rounded-2xl p-5 bg-[var(--bg-surface)] border border-[#3978D6]/20 hover:border-[#3978D6]/60 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(8, 21, 47,0.6)]"
+          className="group cursor-pointer rounded-2xl p-5 bg-[var(--bg-surface)] border border-[#3978D6]/20 hover:border-[#3978D6]/60 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(8,21,47,0.6)]"
         >
           <div className="flex items-center justify-between mb-3">
             <div className="w-10 h-10 rounded-xl bg-[#3978D6]/20 border border-[#3978D6]/40 flex items-center justify-center text-[#3978D6]">
@@ -167,7 +167,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
         {/* 2. Kanji Card */}
         <div 
           onClick={() => { sound.playClick(); onNavigate('kanji'); }}
-          className="group cursor-pointer rounded-2xl p-5 bg-[var(--bg-surface)] border border-[#69C9DF]/20 hover:border-[#69C9DF]/60 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(8, 21, 47,0.6)]"
+          className="group cursor-pointer rounded-2xl p-5 bg-[var(--bg-surface)] border border-[#69C9DF]/20 hover:border-[#69C9DF]/60 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(8,21,47,0.6)]"
         >
           <div className="flex items-center justify-between mb-3">
             <div className="w-10 h-10 rounded-xl bg-[#69C9DF]/20 border border-[#69C9DF]/40 flex items-center justify-center text-[var(--secondary-accent)]">
@@ -189,7 +189,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
         {/* 3. Kana Card */}
         <div 
           onClick={() => { sound.playClick(); onNavigate('kana'); }}
-          className="group cursor-pointer rounded-2xl p-5 bg-[var(--bg-surface)] border border-[#FF70C8]/20 hover:border-[#FF70C8]/60 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(8, 21, 47,0.6)]"
+          className="group cursor-pointer rounded-2xl p-5 bg-[var(--bg-surface)] border border-[#FF70C8]/20 hover:border-[#FF70C8]/60 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(8,21,47,0.6)]"
         >
           <div className="flex items-center justify-between mb-3">
             <div className="w-10 h-10 rounded-xl bg-[#FF70C8]/20 border border-[#FF70C8]/40 flex items-center justify-center text-[#FF70C8]">
@@ -211,7 +211,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
         {/* 4. Rata-rata Skor Kuis */}
         <div 
           onClick={() => { sound.playClick(); onNavigate('latihan'); }}
-          className="group cursor-pointer rounded-2xl p-5 bg-[var(--bg-surface)] border border-[#45C6A5]/20 hover:border-[#45C6A5]/60 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(8, 21, 47,0.6)]"
+          className="group cursor-pointer rounded-2xl p-5 bg-[var(--bg-surface)] border border-[#45C6A5]/20 hover:border-[#45C6A5]/60 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(8,21,47,0.6)]"
         >
           <div className="flex items-center justify-between mb-3">
             <div className="w-10 h-10 rounded-xl bg-[#45C6A5]/20 border border-[#45C6A5]/40 flex items-center justify-center text-[#45C6A5]">
@@ -233,7 +233,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
       </div>
 
       {/* Main Chart Section: Tren Aktivitas Mingguan */}
-      <div className="rounded-3xl p-6 sm:p-8 bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-[0_15px_40px_rgba(8, 21, 47,0.8)] space-y-6">
+      <div className="rounded-3xl p-6 sm:p-8 bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-[0_15px_40px_rgba(8,21,47,0.8)] space-y-6">
         
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
@@ -281,7 +281,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
                 stroke="#2456A6"
                 strokeWidth="3.5"
                 strokeLinecap="round"
-                className="drop-shadow-[0_0_12px_rgba(36, 86, 166,0.8)]"
+                className="drop-shadow-[0_0_12px_rgba(36,86,166,0.8)]"
               />
 
               {points.map((p, idx) => (
@@ -308,7 +308,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
       {/* Peta Aktivitas Belajar (12-Week Heatmap) & Skor Kesiapan Ujian */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Heatmap */}
-        <div className="lg:col-span-7 rounded-3xl p-6 bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-[0_10px_30px_rgba(8, 21, 47,0.7)] space-y-4">
+        <div className="lg:col-span-7 rounded-3xl p-6 bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-[0_10px_30px_rgba(8,21,47,0.7)] space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-base font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#45C6A5]" />
@@ -348,7 +348,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
         </div>
 
         {/* Exam Readiness Score */}
-        <div className="lg:col-span-5 rounded-3xl p-6 bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-[0_10px_30px_rgba(8, 21, 47,0.7)] space-y-4">
+        <div className="lg:col-span-5 rounded-3xl p-6 bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-[0_10px_30px_rgba(8,21,47,0.7)] space-y-4">
           <h3 className="text-base font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2">
             <Trophy className="w-4 h-4 text-[#E9BD72]" />
             <span>Skor Kesiapan Ujian</span>
@@ -381,7 +381,7 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ stats, onNav
       </div>
 
       {/* Riwayat Latihan Terakhir */}
-      <div className="rounded-3xl p-6 bg-[var(--bg-surface)] border border-[#3978D6]/20 shadow-[0_10px_30px_rgba(8, 21, 47,0.7)] space-y-4">
+      <div className="rounded-3xl p-6 bg-[var(--bg-surface)] border border-[#3978D6]/20 shadow-[0_10px_30px_rgba(8,21,47,0.7)] space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="text-base font-black text-[var(--text-primary)] font-['Manrope'] flex items-center gap-2">
             <Clock className="w-4 h-4 text-[#3978D6]" />

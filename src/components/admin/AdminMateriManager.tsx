@@ -319,7 +319,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             onClick={() => { sound.playClick(); setActiveCategory('bunpou'); }}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeCategory === 'bunpou'
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57,120,214,0.4)]'
                 : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
             }`}
           >
@@ -331,7 +331,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             onClick={() => { sound.playClick(); setActiveCategory('bunkei'); }}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeCategory === 'bunkei'
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57,120,214,0.4)]'
                 : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
             }`}
           >
@@ -343,7 +343,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             onClick={() => { sound.playClick(); setActiveCategory('reibun'); }}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeCategory === 'reibun'
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57,120,214,0.4)]'
                 : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
             }`}
           >
@@ -355,7 +355,7 @@ export const AdminMateriManager: React.FC<AdminMateriManagerProps> = ({ onShowTo
             onClick={() => { sound.playClick(); setActiveCategory('kaiwa'); }}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               activeCategory === 'kaiwa'
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57,120,214,0.4)]'
                 : 'bg-[#08152F] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
             }`}
           >

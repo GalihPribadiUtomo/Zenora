@@ -63,7 +63,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
     <div className="space-y-8 text-left pb-16">
 
       {/* ── Dark Hero Header ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.9),0_0_40px_rgba(57, 120, 214,0.15)] bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)]">
+      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8,21,47,0.9),0_0_40px_rgba(57, 120, 214,0.15)] bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)]">
         {/* Glow blobs */}
         <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#3978D6]/15 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-[#69C9DF]/15 blur-3xl pointer-events-none" />
@@ -72,7 +72,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3">
               {/* Pill badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)]/80 border border-[#3978D6]/35 text-[var(--text-primary)] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(57, 120, 214,0.25)]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)]/80 border border-[#3978D6]/35 text-[var(--text-primary)] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(57,120,214,0.25)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#3978D6] animate-pulse" />
                 Minna no Nihongo I & II · Materi Lengkap Bab 1–50
               </div>
@@ -96,7 +96,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
                 </div>
                 <div className="h-2 bg-[var(--bg-sidebar)] rounded-full overflow-hidden border border-[#3978D6]/20">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-[#3978D6] to-[#69C9DF] shadow-[0_0_8px_rgba(57, 120, 214,0.5)] transition-all duration-700"
+                    className="h-full rounded-full bg-gradient-to-r from-[#3978D6] to-[#69C9DF] shadow-[0_0_8px_rgba(57,120,214,0.5)] transition-all duration-700"
                     style={{ width: `${Math.max(1, Math.round((totalLearned / totalWords) * 100))}%` }}
                   />
                 </div>
@@ -119,14 +119,14 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
       </div>
 
       {/* ── Book Tabs ── */}
-      <div className="flex items-center gap-2 p-1.5 bg-[var(--bg-surface)] rounded-2xl border border-[#3978D6]/25 max-w-lg shadow-[0_4px_20px_rgba(8, 21, 47,0.6)]">
+      <div className="flex items-center gap-2 p-1.5 bg-[var(--bg-surface)] rounded-2xl border border-[#3978D6]/25 max-w-lg shadow-[0_4px_20px_rgba(8,21,47,0.6)]">
         {(['I', 'II'] as const).map((book) => (
           <button
             key={book}
             onClick={() => { sound.playClick(); setActiveBook(book); }}
             className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all text-center ${
               activeBook === book
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.45)]'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]/60'
             }`}
           >
@@ -147,10 +147,10 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
             <div
               key={chapter.bab}
               onClick={() => { sound.playClick(); setSelectedBab(chapter.bab); }}
-              className={`group relative overflow-hidden rounded-2xl cursor-pointer border transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_30px_-6px_rgba(57, 120, 214,0.3)] p-4 flex flex-col justify-between ${
+              className={`group relative overflow-hidden rounded-2xl cursor-pointer border transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_30px_-6px_rgba(57,120,214,0.3)] p-4 flex flex-col justify-between ${
                 isDone
-                  ? 'bg-gradient-to-br from-[var(--bg-elevated)] to-[var(--bg-surface)] border-[#3978D6]/60 shadow-[0_0_20px_rgba(57, 120, 214,0.3)]'
-                  : 'bg-[var(--bg-surface)] border-[#3978D6]/20 hover:border-[#3978D6]/60 shadow-[0_4px_16px_rgba(8, 21, 47,0.7)]'
+                  ? 'bg-gradient-to-br from-[var(--bg-elevated)] to-[var(--bg-surface)] border-[#3978D6]/60 shadow-[0_0_20px_rgba(57,120,214,0.3)]'
+                  : 'bg-[var(--bg-surface)] border-[#3978D6]/20 hover:border-[#3978D6]/60 shadow-[0_4px_16px_rgba(8,21,47,0.7)]'
               }`}
             >
               {/* Hover glow overlay */}
@@ -164,7 +164,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
                   {learnedCount > 0 && (
                     <span className={`text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 ${
                       isDone
-                        ? 'text-white bg-[#3978D6] border border-[#2456A6] shadow-[0_0_8px_rgba(57, 120, 214,0.6)]'
+                        ? 'text-white bg-[#3978D6] border border-[#2456A6] shadow-[0_0_8px_rgba(57,120,214,0.6)]'
                         : 'text-[#2456A6] bg-[#3978D6]/15 border border-[#3978D6]/30'
                     }`}>
                       <CheckCircle2 className="w-2.5 h-2.5" />
@@ -208,7 +208,7 @@ export const KotobaSection: React.FC<KotobaSectionProps> = ({
                     ))
                   ) : (
                     <div
-                      className="h-full bg-gradient-to-r from-[#3978D6] to-[#69C9DF] rounded-full shadow-[0_0_6px_rgba(57, 120, 214,0.4)]"
+                      className="h-full bg-gradient-to-r from-[#3978D6] to-[#69C9DF] rounded-full shadow-[0_0_6px_rgba(57,120,214,0.4)]"
                       style={{ width: `${Math.max(4, pct)}%` }}
                     />
                   )}

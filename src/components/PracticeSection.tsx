@@ -299,7 +299,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
       {/* Main Mode Switcher: 18 Modes vs Partikel & Konjugasi vs JLPT/JFT vs Classic */}
       <div className="flex justify-center">
-        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[var(--bg-surface)] rounded-2xl border border-[#3978D6]/25 max-w-4xl w-full shadow-[0_4px_20px_rgba(8, 21, 47,0.6)]">
+        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[var(--bg-surface)] rounded-2xl border border-[#3978D6]/25 max-w-4xl w-full shadow-[0_4px_20px_rgba(8,21,47,0.6)]">
           <button
             onClick={() => {
               sound.playClick();
@@ -308,7 +308,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-1.5 ${
               practiceType === '18-modes'
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_20px_rgba(57, 120, 214,0.45)] border border-[#3978D6]/40'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_20px_rgba(57,120,214,0.45)] border border-[#3978D6]/40'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]/60'
             }`}
           >
@@ -324,7 +324,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-1.5 ${
               practiceType === 'particle-conj'
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_20px_rgba(57, 120, 214,0.45)] border border-[#3978D6]/40'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_20px_rgba(57,120,214,0.45)] border border-[#3978D6]/40'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]/60'
             }`}
           >
@@ -340,7 +340,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-1.5 ${
               practiceType === 'jlpt-jft'
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_20px_rgba(57, 120, 214,0.45)] border border-[#3978D6]/40'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_20px_rgba(57,120,214,0.45)] border border-[#3978D6]/40'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]/60'
             }`}
           >
@@ -364,7 +364,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             }}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 ${
               practiceType === 'classic'
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_20px_rgba(57, 120, 214,0.45)] border border-[#3978D6]/40'
+                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_20px_rgba(57,120,214,0.45)] border border-[#3978D6]/40'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]/60'
             }`}
           >
@@ -481,7 +481,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 }}
                 className={`flex-1 py-2 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all text-center ${
                   subject === 'kotoba'
-                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.3)]'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57,120,214,0.3)]'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -494,7 +494,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 }}
                 className={`flex-1 py-2 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all text-center ${
                   subject === 'kanji'
-                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.3)]'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57,120,214,0.3)]'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -512,7 +512,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('multiple-choice');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8, 21, 47,0.4)] group hover:-translate-y-1 ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,21,47,0.4)] group hover:-translate-y-1 ${
                 mode === 'multiple-choice'
                   ? 'border-sky-400 ring-2 ring-sky-400/30 bg-[var(--bg-elevated)] shadow-[0_0_25px_rgba(14,165,233,0.3)]'
                   : 'border-[#3978D6]/20 bg-[var(--bg-surface)] hover:border-sky-400/50'
@@ -538,14 +538,14 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('flashcard');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8, 21, 47,0.4)] group hover:-translate-y-1 ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,21,47,0.4)] group hover:-translate-y-1 ${
                 mode === 'flashcard'
-                  ? 'border-[#3978D6] ring-2 ring-[#3978D6]/30 bg-[var(--bg-elevated)] shadow-[0_0_25px_rgba(57, 120, 214,0.3)]'
+                  ? 'border-[#3978D6] ring-2 ring-[#3978D6]/30 bg-[var(--bg-elevated)] shadow-[0_0_25px_rgba(57,120,214,0.3)]'
                   : 'border-[#3978D6]/20 bg-[var(--bg-surface)] hover:border-[#3978D6]/50'
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] border border-[#83B7EE]/35 flex items-center justify-center text-white shadow-[0_0_18px_rgba(57, 120, 214,0.4)] mb-3 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] border border-[#83B7EE]/35 flex items-center justify-center text-white shadow-[0_0_18px_rgba(57,120,214,0.4)] mb-3 group-hover:scale-110 transition-transform">
                   <Layers className="w-6 h-6 text-[var(--text-primary)] stroke-[2.2] drop-shadow-sm" />
                 </div>
                 <h3 className="font-extrabold text-base text-[var(--text-primary)] group-hover:text-[var(--text-primary)] mb-1 font-['Manrope']">Kartu Hafalan</h3>
@@ -564,14 +564,14 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('matching');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8, 21, 47,0.4)] group hover:-translate-y-1 ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,21,47,0.4)] group hover:-translate-y-1 ${
                 mode === 'matching'
-                  ? 'border-[#69C9DF] ring-2 ring-[#69C9DF]/30 bg-[var(--bg-elevated)] shadow-[0_0_25px_rgba(105, 201, 223,0.3)]'
+                  ? 'border-[#69C9DF] ring-2 ring-[#69C9DF]/30 bg-[var(--bg-elevated)] shadow-[0_0_25px_rgba(105,201,223,0.3)]'
                   : 'border-[#3978D6]/20 bg-[var(--bg-surface)] hover:border-[#69C9DF]/50'
               }`}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#3978D6] to-[#69C9DF] border border-[#83B7EE]/35 flex items-center justify-center text-white shadow-[0_0_18px_rgba(105, 201, 223,0.4)] mb-3 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#3978D6] to-[#69C9DF] border border-[#83B7EE]/35 flex items-center justify-center text-white shadow-[0_0_18px_rgba(105,201,223,0.4)] mb-3 group-hover:scale-110 transition-transform">
                   <Shuffle className="w-6 h-6 text-[var(--text-primary)] stroke-[2.2] drop-shadow-sm" />
                 </div>
                 <h3 className="font-extrabold text-base text-[var(--text-primary)] group-hover:text-[var(--text-primary)] mb-1 font-['Manrope']">Menjodohkan</h3>
@@ -590,7 +590,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                 sound.playClick();
                 setMode('typing');
               }}
-              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8, 21, 47,0.4)] group hover:-translate-y-1 ${
+              className={`p-5 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,21,47,0.4)] group hover:-translate-y-1 ${
                 mode === 'typing'
                   ? 'border-emerald-500 ring-2 ring-emerald-500/30 bg-[var(--bg-elevated)] shadow-[0_0_25px_rgba(16,185,129,0.3)]'
                   : 'border-[#3978D6]/20 bg-[var(--bg-surface)] hover:border-emerald-500/40'
@@ -613,7 +613,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
           </div>
 
           {/* Filter Selection Panel */}
-          <div className="p-6 sm:p-7 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] shadow-[0_4px_24px_rgba(8, 21, 47,0.5)]">
+          <div className="p-6 sm:p-7 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] shadow-[0_4px_24px_rgba(8,21,47,0.5)]">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               
               {/* Bab Selector */}
@@ -696,7 +696,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
               </span>
               <button
                 onClick={generateQuestions}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-extrabold text-sm sm:text-base shadow-[0_8px_30px_-5px_rgba(57, 120, 214,0.3)] transition-all flex items-center justify-center gap-2 active:scale-95"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-extrabold text-sm sm:text-base shadow-[0_8px_30px_-5px_rgba(57,120,214,0.3)] transition-all flex items-center justify-center gap-2 active:scale-95"
               >
                 <span>Mulai Latihan</span>
                 <ArrowRight className="w-5 h-5 text-[#3978D6]" />
@@ -740,7 +740,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
           {/* 1. MULTIPLE CHOICE MODE */}
           {mode === 'multiple-choice' && (
-            <div key={currentIdx} className="p-6 sm:p-8 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] space-y-6 shadow-[0_4px_24px_rgba(8, 21, 47,0.5)] animate-slide-up">
+            <div key={currentIdx} className="p-6 sm:p-8 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] space-y-6 shadow-[0_4px_24px_rgba(8,21,47,0.5)] animate-slide-up">
               
               {/* Question Header */}
               <div className="text-center py-4 space-y-2">
@@ -803,7 +803,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                   </span>
                   <button
                     onClick={handleNextQuestion}
-                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-xs sm:text-sm shadow-[0_4px_15px_rgba(57, 120, 214,0.3)] transition-colors"
+                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-xs sm:text-sm shadow-[0_4px_15px_rgba(57,120,214,0.3)] transition-colors"
                   >
                     Lanjut →
                   </button>
@@ -815,7 +815,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
           {/* 2. TYPING ROMAJI MODE */}
           {mode === 'typing' && (
-            <div className="p-6 sm:p-8 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] space-y-6 shadow-[0_4px_24px_rgba(8, 21, 47,0.5)]">
+            <div className="p-6 sm:p-8 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] space-y-6 shadow-[0_4px_24px_rgba(8,21,47,0.5)]">
               <div className="text-center py-4 space-y-2">
                 <div className="flex items-center justify-center gap-2">
                   <h2 className="kanji-font text-5xl sm:text-6xl font-black text-[var(--text-primary)]">
@@ -848,7 +848,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                   {!isAnswerSubmitted && (
                     <button
                       type="submit"
-                      className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-sm shadow-[0_4px_15px_rgba(57, 120, 214,0.3)] hover:brightness-110 transition-colors"
+                      className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-sm shadow-[0_4px_15px_rgba(57,120,214,0.3)] hover:brightness-110 transition-colors"
                     >
                       Cek
                     </button>
@@ -866,7 +866,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                   </div>
                   <button
                     onClick={handleNextQuestion}
-                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-xs sm:text-sm shadow-[0_4px_15px_rgba(57, 120, 214,0.3)]"
+                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-xs sm:text-sm shadow-[0_4px_15px_rgba(57,120,214,0.3)]"
                   >
                     Lanjut →
                   </button>
@@ -880,7 +880,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
             <div className="space-y-6">
               <div
                 onClick={() => setIsCardFlipped(!isCardFlipped)}
-                className="w-full h-80 rounded-3xl cursor-pointer p-8 flex flex-col justify-between text-center bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.9)]"
+                className="w-full h-80 rounded-3xl cursor-pointer p-8 flex flex-col justify-between text-center bg-[var(--bg-surface)] border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8,21,47,0.9)]"
               >
                 <span className="text-xs text-[var(--text-muted)] font-bold uppercase tracking-wider">
                   Klik untuk melihat jawaban
@@ -947,7 +947,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
           {/* 4. MATCHING GAME VIEW */}
           {mode === 'matching' && (
-            <div className="p-6 sm:p-8 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] space-y-4 shadow-[0_4px_24px_rgba(8, 21, 47,0.5)]">
+            <div className="p-6 sm:p-8 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] space-y-4 shadow-[0_4px_24px_rgba(8,21,47,0.5)]">
               <p className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider text-center">
                 Klik kartu kata Jepang di kiri/atas, lalu klik pasangannya artinya
               </p>
@@ -960,7 +960,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
                   if (card.matched) {
                     style = 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400 opacity-60 pointer-events-none line-through';
                   } else if (isSelected) {
-                    style = 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] border-[#3978D6] text-[var(--text-primary)] shadow-[0_0_20px_rgba(57, 120, 214,0.3)] scale-102';
+                    style = 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] border-[#3978D6] text-[var(--text-primary)] shadow-[0_0_20px_rgba(57,120,214,0.3)] scale-102';
                   }
 
                   return (
@@ -982,8 +982,8 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
       {/* Finished Result Screen */}
       {isFinished && (
-        <div className="p-8 sm:p-12 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] text-center max-w-xl mx-auto space-y-6 shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.9)]">
-          <div className="w-20 h-20 mx-auto rounded-3xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 flex items-center justify-center text-[#3978D6] shadow-[0_0_30px_rgba(57, 120, 214,0.2)]">
+        <div className="p-8 sm:p-12 rounded-3xl border border-[#3978D6]/25 bg-[var(--bg-surface)] text-center max-w-xl mx-auto space-y-6 shadow-[0_20px_60px_-15px_rgba(8,21,47,0.9)]">
+          <div className="w-20 h-20 mx-auto rounded-3xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 flex items-center justify-center text-[#3978D6] shadow-[0_0_30px_rgba(57,120,214,0.2)]">
             <Sparkles className="w-10 h-10 text-[#3978D6]" />
           </div>
 
@@ -1025,7 +1025,7 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({
 
             <button
               onClick={generateQuestions}
-              className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-sm shadow-[0_4px_15px_rgba(57, 120, 214,0.3)] transition-all flex items-center gap-2"
+              className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-bold text-sm shadow-[0_4px_15px_rgba(57,120,214,0.3)] transition-all flex items-center gap-2"
             >
               <RotateCcw className="w-4 h-4 text-[#3978D6]" />
               Ulangi Latihan

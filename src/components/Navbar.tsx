@@ -174,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const isMateriActive = ['kana', 'kotoba', 'kanji'].includes(activeTab);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[var(--bg-sidebar)]/95 backdrop-blur-xl border-b border-[#3978D6]/20 shadow-[0_4px_30px_rgba(8, 21, 47,0.6)]">
+    <header className="sticky top-0 z-40 w-full bg-[var(--bg-sidebar)]/95 backdrop-blur-xl border-b border-[#3978D6]/20 shadow-[0_4px_30px_rgba(8,21,47,0.6)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Desktop & Tablet Row */}
@@ -190,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <img
                 src="/zenora-icon.png"
                 alt="ZENORA"
-                className="relative w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_2px_8px_rgba(57, 120, 214,0.35)] group-hover:scale-105 transition-transform"
+                className="relative w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-[0_2px_8px_rgba(57,120,214,0.35)] group-hover:scale-105 transition-transform"
               />
             </div>
             <div className="flex items-center gap-2">
@@ -211,7 +211,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNav('beranda')}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
                 activeTab === 'beranda'
-                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] shadow-[0_2px_12px_rgba(57, 120, 214,0.25)] border border-[#3978D6]/40'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] shadow-[0_2px_12px_rgba(57,120,214,0.25)] border border-[#3978D6]/40'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/5'
               }`}
             >
@@ -229,7 +229,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
                   isMateriActive || materiDropdownOpen
-                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] shadow-[0_2px_12px_rgba(57, 120, 214,0.25)] border border-[#3978D6]/40'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] shadow-[0_2px_12px_rgba(57,120,214,0.25)] border border-[#3978D6]/40'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/5'
                 }`}
               >
@@ -288,7 +288,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNav('ssw')}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
                 activeTab === 'ssw'
-                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] shadow-[0_2px_12px_rgba(57, 120, 214,0.25)] border border-[#3978D6]/40'
+                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] shadow-[0_2px_12px_rgba(57,120,214,0.25)] border border-[#3978D6]/40'
                   : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/5'
               }`}
             >
@@ -309,7 +309,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 ${
                   activeTab === 'latihan' || latihanDropdownOpen
-                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] shadow-[0_2px_12px_rgba(57, 120, 214,0.25)] border border-[#3978D6]/40'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-[var(--text-primary)] shadow-[0_2px_12px_rgba(57,120,214,0.25)] border border-[#3978D6]/40'
                     : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/5'
                 }`}
               >

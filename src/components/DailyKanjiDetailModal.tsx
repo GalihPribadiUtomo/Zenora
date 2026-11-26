@@ -32,7 +32,7 @@ export const DailyKanjiDetailModal: React.FC<DailyKanjiDetailModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg rounded-3xl bg-[var(--bg-surface)] shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.9)] border border-[#3978D6]/25 text-[var(--text-primary)] overflow-hidden text-left"
+        className="relative w-full max-w-lg rounded-3xl bg-[var(--bg-surface)] shadow-[0_20px_60px_-15px_rgba(8,21,47,0.9)] border border-[#3978D6]/25 text-[var(--text-primary)] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Accent Bar */}

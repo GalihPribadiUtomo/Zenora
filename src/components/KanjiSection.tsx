@@ -99,7 +99,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
     <div className="space-y-8 text-left pb-16">
       
       {/* Hero Header */}
-      <div className="bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] rounded-3xl border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.9)] p-6 sm:p-8">
+      <div className="bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] rounded-3xl border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8,21,47,0.9)] p-6 sm:p-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[#3978D6]/30 text-[#3978D6] text-xs font-black uppercase tracking-wider mb-2 font-mono">
@@ -158,7 +158,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                   sound.playClick();
                   setSelectedLevel(isSelected ? 'ALL' : (lvl.level as JLPTLevel));
                 }}
-                className={`p-4 rounded-3xl cursor-pointer border transition-all text-left relative overflow-hidden group shadow-[0_4px_16px_rgba(8, 21, 47,0.4)] ${
+                className={`p-4 rounded-3xl cursor-pointer border transition-all text-left relative overflow-hidden group shadow-[0_4px_16px_rgba(8,21,47,0.4)] ${
                   isSelected 
                     ? 'border-[#3978D6] ring-2 ring-[#3978D6]/30 bg-[var(--bg-elevated)]' 
                     : 'border-[#3978D6]/20 bg-[var(--bg-surface)] hover:border-[#3978D6]/50'
@@ -378,8 +378,8 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                   sound.playClick();
                   onSelectKanji(kanji, filteredKanji);
                 }}
-                className={`p-4 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between group shadow-[0_4px_16px_rgba(8, 21, 47,0.5)] ${
-                  isLearned ? 'border-emerald-500/40 bg-[#0F3025]' : 'border-[#3978D6]/25 bg-[var(--bg-surface)] hover:border-[#3978D6]/60 hover:shadow-[0_0_24px_rgba(57, 120, 214,0.18)]'
+                className={`p-4 rounded-3xl cursor-pointer border transition-all flex flex-col justify-between group shadow-[0_4px_16px_rgba(8,21,47,0.5)] ${
+                  isLearned ? 'border-emerald-500/40 bg-[#0F3025]' : 'border-[#3978D6]/25 bg-[var(--bg-surface)] hover:border-[#3978D6]/60 hover:shadow-[0_0_24px_rgba(57,120,214,0.18)]'
                 }`}
               >
                 <div>
@@ -404,7 +404,7 @@ export const KanjiSection: React.FC<KanjiSectionProps> = ({
                       kanjiFontStyle === 'klee' ? 'kanji-font-klee font-semibold' :
                       kanjiFontStyle === 'serif' ? 'kanji-font-serif font-bold' :
                       'kanji-font-sans font-bold'
-                    } text-[#FFFFFF] drop-shadow-[0_2px_14px_rgba(57, 120, 214,0.3)] group-hover:scale-110 group-hover:text-[#3978D6] transition-all inline-block select-none leading-none`}>
+                    } text-[#FFFFFF] drop-shadow-[0_2px_14px_rgba(57,120,214,0.3)] group-hover:scale-110 group-hover:text-[#3978D6] transition-all inline-block select-none leading-none`}>
                       {kanji.kanji}
                     </span>
                   </div>

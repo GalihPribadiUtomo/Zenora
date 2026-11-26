@@ -91,7 +91,7 @@ const getCategoryMeta = (category: string) => {
     case 'Tata Bahasa':
       return {
         badgeBg: 'bg-gradient-to-br from-[#2456A6] to-[#3978D6]',
-        badgeShadow: 'shadow-[0_0_18px_rgba(57, 120, 214,0.4)]',
+        badgeShadow: 'shadow-[0_0_18px_rgba(57,120,214,0.4)]',
         badgeBorder: 'border-[#83B7EE]/35',
         pillBg: 'bg-[#3978D6]/15 text-[var(--text-primary)] border-[#3978D6]/30',
         pillIcon: BookOpen,
@@ -375,7 +375,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
 
     return (
       <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] border border-[#3978D6]/30 text-center text-[var(--text-primary)] space-y-6 shadow-2xl">
-        <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-[var(--bg-elevated)] to-[#3978D6] border border-[#3978D6]/40 p-0.5 shadow-[0_0_30px_rgba(57, 120, 214,0.35)] flex items-center justify-center">
+        <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-[var(--bg-elevated)] to-[#3978D6] border border-[#3978D6]/40 p-0.5 shadow-[0_0_30px_rgba(57,120,214,0.35)] flex items-center justify-center">
           <Award className="w-10 h-10 text-[var(--text-primary)] animate-bounce" />
         </div>
 
@@ -405,7 +405,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
           <button
             onClick={() => handleStartMode(activeMode!)}
-            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] font-bold text-sm border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.3)] transition-all active:scale-95"
+            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] font-bold text-sm border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.3)] transition-all active:scale-95"
           >
             <RotateCcw className="w-4 h-4 text-[#3978D6]" />
             <span>Ulangi Mode Ini</span>
@@ -594,7 +594,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
                         isMatched
                           ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-400 opacity-60'
                           : isSelected
-                          ? 'bg-[var(--bg-elevated)] border-[#3978D6] text-[var(--text-primary)] shadow-[0_0_15px_rgba(57, 120, 214,0.3)]'
+                          ? 'bg-[var(--bg-elevated)] border-[#3978D6] text-[var(--text-primary)] shadow-[0_0_15px_rgba(57,120,214,0.3)]'
                           : 'bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/20'
                       }`}
                     >
@@ -789,7 +789,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
             <div className="flex justify-end pt-2">
               <button
                 onClick={handleNextQuestion}
-                className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-black text-sm shadow-[0_0_20px_rgba(57, 120, 214,0.3)] transition-all active:scale-95"
+                className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-[var(--text-primary)] border border-[#3978D6]/40 font-black text-sm shadow-[0_0_20px_rgba(57,120,214,0.3)] transition-all active:scale-95"
               >
                 <span>{currentIdx + 1 === questions.length ? 'Lihat Hasil Akhir' : 'Soal Selanjutnya'}</span>
                 <ArrowRight className="w-4 h-4 text-[#3978D6]" />
@@ -872,7 +872,7 @@ export const ChapterExerciseSection: React.FC<ChapterExerciseSectionProps> = ({
             <div
               key={meta.id}
               onClick={() => handleStartMode(meta.id)}
-              className={`group relative overflow-hidden rounded-3xl bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] border border-[#3978D6]/25 ${catMeta.hoverBorder} p-5 sm:p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(8, 21, 47,0.7)] flex flex-col justify-between`}
+              className={`group relative overflow-hidden rounded-3xl bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] border border-[#3978D6]/25 ${catMeta.hoverBorder} p-5 sm:p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(8,21,47,0.7)] flex flex-col justify-between`}
             >
               {/* Top ambient glow on hover */}
               <div className={`absolute top-0 right-0 w-36 h-36 ${catMeta.badgeBg} opacity-5 blur-2xl pointer-events-none group-hover:opacity-20 transition-opacity`} />

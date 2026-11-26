@@ -260,7 +260,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
       <div className="space-y-10 text-left pb-20 animate-fade-in font-['Plus_Jakarta_Sans',sans-serif]">
         
         {/* ── 1. CINEMATIC HERO SECTION ── */}
-        <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/30 shadow-[0_24px_70px_-15px_rgba(8, 21, 47,0.95),0_0_50px_rgba(57, 120, 214,0.2)] bg-[var(--bg-sidebar)] min-h-[420px] flex items-center">
+        <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/30 shadow-[0_24px_70px_-15px_rgba(8,21,47,0.95),0_0_50px_rgba(57, 120, 214,0.2)] bg-[var(--bg-sidebar)] min-h-[420px] flex items-center">
           
           {/* Background image & deep gradients */}
           <div 
@@ -276,7 +276,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
               
               {/* Left Column: 8 cols */}
               <div className="lg:col-span-8 space-y-5">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)]/90 border border-[#3978D6]/40 text-[var(--text-primary)] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_15px_rgba(57, 120, 214,0.3)]">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-elevated)]/90 border border-[#3978D6]/40 text-[var(--text-primary)] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_15px_rgba(57,120,214,0.3)]">
                   <Sparkles className="w-4 h-4 text-[#E9BD72]" />
                   Specified Skilled Worker · 特定技能 (Tokutei Ginou)
                 </div>
@@ -494,7 +494,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
           {/* Featured Sector Card (Large Asymmetric Display) */}
           <div 
             onClick={() => openSector(featuredSector.id)}
-            className="group relative overflow-hidden rounded-3xl border border-[#3978D6]/40 bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] p-6 sm:p-10 shadow-[0_20px_50px_rgba(8, 21, 47,0.8)] cursor-pointer hover:border-[#3978D6] transition-all duration-300"
+            className="group relative overflow-hidden rounded-3xl border border-[#3978D6]/40 bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] p-6 sm:p-10 shadow-[0_20px_50px_rgba(8,21,47,0.8)] cursor-pointer hover:border-[#3978D6] transition-all duration-300"
           >
             <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               
@@ -578,7 +578,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
                 <div
                   key={sector.id}
                   onClick={() => openSector(sector.id)}
-                  className={`group rounded-3xl bg-gradient-to-br ${accent.gradient} border ${accent.border} p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(8, 21, 47,0.9)]`}
+                  className={`group rounded-3xl bg-gradient-to-br ${accent.gradient} border ${accent.border} p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(8,21,47,0.9)]`}
                 >
                   <div className="space-y-4">
                     <div className="flex items-start justify-between">
@@ -792,7 +792,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
                   className={`relative pl-14 p-5 rounded-3xl border transition-all duration-300 cursor-pointer flex items-center justify-between gap-4 group ${
                     isCompleted
                       ? 'bg-[var(--bg-surface)] border-emerald-500/35 hover:border-emerald-500/60 shadow-md'
-                      : 'bg-[var(--bg-surface)] border-[#3978D6]/25 hover:border-[#3978D6]/60 hover:shadow-[0_8px_24px_rgba(57, 120, 214,0.2)]'
+                      : 'bg-[var(--bg-surface)] border-[#3978D6]/25 hover:border-[#3978D6]/60 hover:shadow-[0_8px_24px_rgba(57,120,214,0.2)]'
                   }`}
                 >
                   {/* Timeline Badge Node */}
@@ -1378,7 +1378,7 @@ export const SswSection: React.FC<SswSectionProps> = ({
                   }}
                   className={`w-full p-4 rounded-2xl text-left text-xs sm:text-sm transition-all flex items-start gap-3.5 cursor-pointer ${
                     isSelected
-                      ? 'bg-[var(--bg-elevated)] border-2 border-[#3978D6] text-[var(--text-primary)] shadow-[0_0_20px_rgba(57, 120, 214,0.3)]'
+                      ? 'bg-[var(--bg-elevated)] border-2 border-[#3978D6] text-[var(--text-primary)] shadow-[0_0_20px_rgba(57,120,214,0.3)]'
                       : 'bg-[var(--bg-sidebar)]/80 border border-[#3978D6]/20 text-[var(--text-secondary)] hover:border-[#3978D6]/50 hover:text-[var(--text-primary)]'
                   }`}
                 >

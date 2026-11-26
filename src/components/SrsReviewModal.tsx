@@ -81,7 +81,7 @@ export const SrsReviewModal: React.FC<SrsReviewModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-xl my-auto rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/35 shadow-[0_25px_70px_rgba(8, 21, 47,0.95)] text-[var(--text-primary)] overflow-hidden text-left"
+        className="relative w-full max-w-xl my-auto rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/35 shadow-[0_25px_70px_rgba(8,21,47,0.95)] text-[var(--text-primary)] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="h-1.5 w-full bg-gradient-to-r from-[#3978D6] via-[#69C9DF] to-[#45C6A5]" />
@@ -192,7 +192,7 @@ export const SrsReviewModal: React.FC<SrsReviewModalProps> = ({
                     setIsRevealed(true);
                     speakJapanese(currentItem.front);
                   }}
-                  className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-white font-black text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(57, 120, 214,0.35)] transition-all active:scale-98"
+                  className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-white font-black text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(57,120,214,0.35)] transition-all active:scale-98"
                 >
                   <Eye className="w-4 h-4" />
                   <span>Tampilkan Jawaban</span>

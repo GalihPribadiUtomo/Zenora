@@ -108,7 +108,7 @@ export const MistakeNotebookModal: React.FC<MistakeNotebookModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl my-auto rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/35 shadow-[0_25px_70px_rgba(8, 21, 47,0.95)] text-[var(--text-primary)] overflow-hidden text-left"
+        className="relative w-full max-w-3xl my-auto rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/35 shadow-[0_25px_70px_rgba(8,21,47,0.95)] text-[var(--text-primary)] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="h-1.5 w-full bg-gradient-to-r from-rose-500 via-[#3978D6] to-[#69C9DF]" />

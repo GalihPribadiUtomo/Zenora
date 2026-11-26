@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "verify:materi": "node scripts/verifyMateriIntegrity.mjs"
   },
   "dependencies": {
     "@madcat/kanjivg": "^5.0.0",

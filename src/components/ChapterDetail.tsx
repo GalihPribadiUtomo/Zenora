@@ -66,6 +66,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   // Lesson data loaded lazily
   const [lesson, setLesson] = useState<ChapterLesson | null>(null);
   const [isLoadingLesson, setIsLoadingLesson] = useState(true);
+  const [lessonError, setLessonError] = useState<string | null>(null);
   const [mutedSpeaker, setMutedSpeaker] = useState<string | null>(null);
 
   // Kotoba State
@@ -86,12 +87,24 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
     let isMounted = true;
     const fetchLesson = () => {
       setIsLoadingLesson(true);
-      loadChapterLesson(bab).then((data) => {
-        if (isMounted) {
-          setLesson(data);
-          setIsLoadingLesson(false);
-        }
-      });
+      setLessonError(null);
+      loadChapterLesson(bab)
+        .then((data) => {
+          if (isMounted) {
+            if (!data) {
+              setLessonError(`Gagal memuat data materi Bab ${bab}. Silakan coba muat ulang.`);
+            }
+            setLesson(data);
+            setIsLoadingLesson(false);
+          }
+        })
+        .catch((err) => {
+          console.error(`Failed loading chapter ${bab}:`, err);
+          if (isMounted) {
+            setLessonError(`Terjadi kesalahan saat memuat materi Bab ${bab}.`);
+            setIsLoadingLesson(false);
+          }
+        });
     };
     fetchLesson();
 
@@ -164,16 +177,34 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           <div className="w-8 h-8 border-2 border-[#3978D6] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
           <p className="text-sm font-semibold">Memuat materi tata bahasa Bab {bab}...</p>
         </div>
+      ) : lessonError ? (
+        <div className="p-8 text-center bg-red-500/10 rounded-3xl border border-red-500/30 space-y-3">
+          <p className="text-sm font-bold text-red-400">{lessonError}</p>
+          <button
+            onClick={() => {
+              setIsLoadingLesson(true);
+              setLessonError(null);
+              loadChapterLesson(bab).then((d) => {
+                setLesson(d);
+                if (!d) setLessonError(`Gagal memuat data materi Bab ${bab}.`);
+                setIsLoadingLesson(false);
+              });
+            }}
+            className="px-4 py-2 rounded-xl bg-[#2866B5] text-white text-xs font-bold hover:brightness-110 transition-all cursor-pointer"
+          >
+            Muat Ulang Bab {bab}
+          </button>
+        </div>
       ) : lesson?.tataBahasa && lesson.tataBahasa.length > 0 ? (
         <div className="space-y-6">
           {lesson.tataBahasa.map((item) => (
             <div
               key={item.point}
-              className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-6 sm:p-8 space-y-4 shadow-[0_4px_20px_rgba(8, 21, 47,0.7)] hover:border-[#3978D6]/60 transition-all"
+              className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-6 sm:p-8 space-y-4 shadow-[0_4px_20px_rgba(8,21,47,0.7)] hover:border-[#3978D6]/60 transition-all"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] border border-[#3978D6]/40 text-white text-sm font-black flex items-center justify-center font-['Manrope'] shadow-[0_0_10px_rgba(57, 120, 214,0.4)]">
+                  <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#2456A6] to-[#3978D6] border border-[#3978D6]/40 text-white text-sm font-black flex items-center justify-center font-['Manrope'] shadow-[0_0_10px_rgba(57,120,214,0.4)]">
                     {item.point}
                   </span>
                   <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)] font-['Manrope']">
@@ -185,7 +216,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               {/* Formula / Format Box */}
               {item.polaFormat && (
                 <div className="p-4 rounded-2xl bg-[var(--bg-sidebar)]/90 border border-[#3978D6]/35 text-[var(--text-primary)] text-sm sm:text-base font-bold flex flex-wrap items-center gap-2.5">
-                  <span className="px-2.5 py-1 rounded-md bg-[#3978D6] text-white text-xs uppercase tracking-wider border border-[#3978D6]/40 shrink-0 font-bold shadow-[0_0_8px_rgba(57, 120, 214,0.5)]">
+                  <span className="px-2.5 py-1 rounded-md bg-[#3978D6] text-white text-xs uppercase tracking-wider border border-[#3978D6]/40 shrink-0 font-bold shadow-[0_0_8px_rgba(57,120,214,0.5)]">
                     Pola
                   </span>
                   <span className="japanese-text leading-relaxed text-[var(--text-primary)]"><FuriganaText text={item.polaFormat} /></span>
@@ -237,7 +268,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
 
           {/* Referensi & Budaya Card */}
           {lesson.referensiInfo && (
-            <div className="rounded-3xl bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-elevated)] border border-[#3978D6]/35 p-6 sm:p-8 space-y-4 shadow-[0_4px_20px_rgba(8, 21, 47,0.7)]">
+            <div className="rounded-3xl bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-elevated)] border border-[#3978D6]/35 p-6 sm:p-8 space-y-4 shadow-[0_4px_20px_rgba(8,21,47,0.7)]">
               <div className="flex items-center gap-2.5 text-[#2456A6]">
                 <Info className="w-5 h-5 text-[#3978D6]" />
                 <h3 className="text-xl font-black text-[var(--text-primary)] font-['Manrope']">
@@ -285,7 +316,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           {lesson?.polaKalimat.map((pola) => (
             <div
               key={pola.id}
-              className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/20 p-5 space-y-2 hover:border-[#3978D6]/40 transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8, 21, 47,0.4)]"
+              className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/20 p-5 space-y-2 hover:border-[#3978D6]/40 transition-all flex flex-col justify-between shadow-[0_4px_16px_rgba(8,21,47,0.4)]"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
@@ -328,7 +359,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           {lesson?.contohKalimat.map((ex) => (
             <div
               key={ex.id}
-              className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/20 p-5 sm:p-6 space-y-3 hover:border-[#3978D6]/40 transition-all shadow-[0_4px_16px_rgba(8, 21, 47,0.4)]"
+              className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/20 p-5 sm:p-6 space-y-3 hover:border-[#3978D6]/40 transition-all shadow-[0_4px_16px_rgba(8,21,47,0.4)]"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-2 flex-1">
@@ -375,7 +406,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
   const renderKaiwaSection = () => (
     <div className="space-y-6">
       {lesson?.percakapan ? (
-        <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-6 sm:p-8 space-y-6 shadow-[0_4px_24px_rgba(8, 21, 47,0.5)]">
+        <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-6 sm:p-8 space-y-6 shadow-[0_4px_24px_rgba(8,21,47,0.5)]">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#3978D6]/15">
             <div>
               <span className="text-xs font-mono font-bold text-[#3978D6] uppercase tracking-wider block mb-1">
@@ -437,7 +468,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                 key={idx}
                 className={`p-4 sm:p-5 rounded-2xl border transition-all flex flex-col sm:flex-row sm:items-start gap-4 ${
                   isMuted
-                    ? 'bg-[#3978D6]/10 border-[#3978D6]/50 shadow-[0_0_20px_rgba(57, 120, 214,0.15)]'
+                    ? 'bg-[#3978D6]/10 border-[#3978D6]/50 shadow-[0_0_20px_rgba(57,120,214,0.15)]'
                     : 'bg-[var(--bg-sidebar)]/70 border-[#3978D6]/20 hover:border-[#3978D6]/45'
                 }`}
               >
@@ -595,7 +626,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               <div
                 key={word.id}
                 onClick={() => setSelectedKotobaModal(word)}
-                className={`rounded-3xl border p-5 flex flex-col justify-between cursor-pointer transition-all hover:scale-[1.01] shadow-[0_4px_16px_rgba(8, 21, 47,0.4)] ${
+                className={`rounded-3xl border p-5 flex flex-col justify-between cursor-pointer transition-all hover:scale-[1.01] shadow-[0_4px_16px_rgba(8,21,47,0.4)] ${
                   isLearned
                     ? 'border-emerald-500/30 bg-[#0F3025]'
                     : 'border-[#3978D6]/20 bg-[var(--bg-surface)] hover:border-[#3978D6]/50'
@@ -696,7 +727,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
       )}
 
       {viewMode === 'table' && (
-        <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 overflow-hidden shadow-[0_4px_24px_rgba(8, 21, 47,0.5)]">
+        <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 overflow-hidden shadow-[0_4px_24px_rgba(8,21,47,0.5)]">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead className="bg-[var(--bg-sidebar)] text-[#3978D6] text-xs font-black uppercase tracking-wider border-b border-[#3978D6]/20">
@@ -829,7 +860,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                 sound.playClick();
                 if (onSelectKanji) onSelectKanji(kanji);
               }}
-              className="p-4 rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/20 hover:border-[#3978D6] cursor-pointer transition-all hover:scale-[1.02] flex flex-col justify-between text-center group shadow-[0_4px_16px_rgba(8, 21, 47,0.4)]"
+              className="p-4 rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/20 hover:border-[#3978D6] cursor-pointer transition-all hover:scale-[1.02] flex flex-col justify-between text-center group shadow-[0_4px_16px_rgba(8,21,47,0.4)]"
             >
               <div>
                 <div className="flex items-center justify-between text-[10px] text-[var(--text-muted)] mb-1 font-mono">
@@ -898,7 +929,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               setSectionTab('latihan');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl neon-btn-primary text-white text-xs sm:text-sm font-bold shadow-[0_4px_15px_rgba(57, 120, 214,0.4)] transition-all active:scale-95 cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl neon-btn-primary text-white text-xs sm:text-sm font-bold shadow-[0_4px_15px_rgba(57,120,214,0.4)] transition-all active:scale-95 cursor-pointer"
           >
             <Award className="w-4 h-4 text-[var(--text-primary)]" />
             <span>Latihan Bab {bab} (18 Mode)</span>
@@ -919,7 +950,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
       </div>
 
       {/* ── Chapter Hero Banner ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.9),0_0_40px_rgba(57, 120, 214,0.15)] bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] p-6 sm:p-8 text-[var(--text-primary)]">
+      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8,21,47,0.9),0_0_40px_rgba(57, 120, 214,0.15)] bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] p-6 sm:p-8 text-[var(--text-primary)]">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2.5">
@@ -961,7 +992,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
       </div>
 
       {/* ── STICKY TAB NAVIGATION: SEMUA MATERI (1 HALAMAN) + 6 TAB SPESIFIK ── */}
-      <div className="sticky top-[72px] z-30 bg-[var(--bg-sidebar)]/95 backdrop-blur-md py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 border-b border-[#3978D6]/25 flex flex-wrap items-center gap-2 shadow-[0_10px_30px_rgba(8, 21, 47,0.8)]">
+      <div className="sticky top-[72px] z-30 bg-[var(--bg-sidebar)]/95 backdrop-blur-md py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 border-b border-[#3978D6]/25 flex flex-wrap items-center gap-2 shadow-[0_10px_30px_rgba(8,21,47,0.8)]">
         
         {/* TAB 0: SEMUA MATERI DALAM 1 HALAMAN */}
         <button
@@ -971,7 +1002,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           }}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             sectionTab === 'all'
-              ? 'bg-gradient-to-r from-[#3978D6] to-[#69C9DF] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.45)]'
+              ? 'bg-gradient-to-r from-[#3978D6] to-[#69C9DF] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
               : 'bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
           }`}
         >
@@ -987,7 +1018,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           }}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             sectionTab === 'bunpou'
-              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.45)]'
+              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
               : 'bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
           }`}
         >
@@ -1003,7 +1034,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           }}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             sectionTab === 'bunkei'
-              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.45)]'
+              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
               : 'bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
           }`}
         >
@@ -1019,7 +1050,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           }}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             sectionTab === 'kaiwa'
-              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.45)]'
+              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
               : 'bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
           }`}
         >
@@ -1035,7 +1066,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           }}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             sectionTab === 'kotoba'
-              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.45)]'
+              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
               : 'bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
           }`}
         >
@@ -1051,7 +1082,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           }}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             sectionTab === 'kanji'
-              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.45)]'
+              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
               : 'bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
           }`}
         >
@@ -1068,7 +1099,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           }}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             sectionTab === 'latihan'
-              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.45)]'
+              ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
               : 'bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[#3978D6]/20'
           }`}
         >
@@ -1164,7 +1195,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
           </section>
 
           {/* Section 6: Latihan CTA Banner */}
-          <div className="p-8 rounded-3xl bg-gradient-to-r from-[#3978D6]/20 via-[var(--bg-elevated)] to-[#69C9DF]/20 border border-[#3978D6]/40 text-center space-y-4 shadow-[0_0_30px_rgba(57, 120, 214,0.25)]">
+          <div className="p-8 rounded-3xl bg-gradient-to-r from-[#3978D6]/20 via-[var(--bg-elevated)] to-[#69C9DF]/20 border border-[#3978D6]/40 text-center space-y-4 shadow-[0_0_30px_rgba(57,120,214,0.25)]">
             <Award className="w-12 h-12 text-[#2456A6] mx-auto animate-bounce" />
             <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] font-['Manrope']">
               Uji Penguasaan Bab {bab} Sekarang!
@@ -1178,7 +1209,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
                 setSectionTab('latihan');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="px-6 py-3 rounded-2xl neon-btn-primary text-white font-bold text-base shadow-[0_4px_20px_rgba(57, 120, 214,0.4)] transition-all active:scale-95 cursor-pointer"
+              className="px-6 py-3 rounded-2xl neon-btn-primary text-white font-bold text-base shadow-[0_4px_20px_rgba(57,120,214,0.4)] transition-all active:scale-95 cursor-pointer"
             >
               Buka Latihan Bab {bab} (18 Mode) →
             </button>

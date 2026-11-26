@@ -48,20 +48,33 @@ export const getCustomMateri = (bab: number): Partial<ChapterLesson> | null => {
 };
 
 /**
- * Merges base chapter lesson with any admin custom modifications
+ * Merges base chapter lesson with any admin custom modifications.
+ * Guarded so empty arrays/objects in localStorage or cloud sync never wipe out base material.
  */
 export const applyCustomMateri = (baseLesson: ChapterLesson): ChapterLesson => {
   if (!baseLesson || !baseLesson.bab) return baseLesson;
   const custom = getCustomMateri(baseLesson.bab);
-  if (!custom) return baseLesson;
+  if (!custom || typeof custom !== 'object') return baseLesson;
+
+  const hasValidBunpou = Array.isArray(custom.tataBahasa) && custom.tataBahasa.length > 0;
+  const hasValidBunkei = Array.isArray(custom.polaKalimat) && custom.polaKalimat.length > 0;
+  const hasValidReibun = Array.isArray(custom.contohKalimat) && custom.contohKalimat.length > 0;
+  const hasValidKaiwa = Boolean(
+    custom.percakapan &&
+    Array.isArray(custom.percakapan.dialogs) &&
+    custom.percakapan.dialogs.length > 0
+  );
 
   return {
     ...baseLesson,
-    ...custom,
-    tataBahasa: custom.tataBahasa || baseLesson.tataBahasa,
-    polaKalimat: custom.polaKalimat || baseLesson.polaKalimat,
-    contohKalimat: custom.contohKalimat || baseLesson.contohKalimat,
-    percakapan: custom.percakapan || baseLesson.percakapan,
+    title: custom.title && custom.title.trim() ? custom.title : baseLesson.title,
+    subTitle: custom.subTitle && custom.subTitle.trim() ? custom.subTitle : baseLesson.subTitle,
+    summary: custom.summary && custom.summary.trim() ? custom.summary : baseLesson.summary,
+    tataBahasa: hasValidBunpou ? custom.tataBahasa! : baseLesson.tataBahasa,
+    polaKalimat: hasValidBunkei ? custom.polaKalimat! : baseLesson.polaKalimat,
+    contohKalimat: hasValidReibun ? custom.contohKalimat! : baseLesson.contohKalimat,
+    percakapan: hasValidKaiwa ? custom.percakapan! : baseLesson.percakapan,
+    referensiInfo: custom.referensiInfo || baseLesson.referensiInfo,
   };
 };
 

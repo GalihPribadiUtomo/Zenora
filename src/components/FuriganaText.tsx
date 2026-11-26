@@ -713,7 +713,7 @@ export const FuriganaText: React.FC<FuriganaTextProps> = ({
       <span className={`japanese-text inline leading-relaxed ${className}`}>{renderedElements}</span>
       {lookupInfo && (
         <span
-          className="fixed bottom-5 right-5 z-50 w-72 p-4 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/50 shadow-[0_15px_40px_rgba(8, 21, 47,0.95)] text-left animate-fade-in block"
+          className="fixed bottom-5 right-5 z-50 w-72 p-4 rounded-2xl bg-[var(--bg-surface)] border border-[#3978D6]/50 shadow-[0_15px_40px_rgba(8,21,47,0.95)] text-left animate-fade-in block"
           onClick={(e) => e.stopPropagation()}
         >
           <span className="flex items-start justify-between gap-2 mb-2">

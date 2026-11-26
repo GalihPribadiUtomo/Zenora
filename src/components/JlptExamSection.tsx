@@ -319,10 +319,10 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
       <div className="space-y-8 text-left pb-16">
         
         {/* Banner Hero */}
-        <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.9),0_0_40px_rgba(57, 120, 214,0.12)] bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] p-6 sm:p-10">
+        <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/25 shadow-[0_20px_60px_-15px_rgba(8,21,47,0.9),0_0_40px_rgba(57, 120, 214,0.12)] bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-elevated)] p-6 sm:p-10">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-surface)]/80 border border-[#3978D6]/30 text-[#3978D6] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(57, 120, 214,0.2)]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-surface)]/80 border border-[#3978D6]/30 text-[#3978D6] text-xs font-black tracking-wider uppercase font-mono shadow-[0_0_12px_rgba(57,120,214,0.2)]">
                 <ShieldCheck className="w-4 h-4 text-[#3978D6]" />
                 Simulasi Ujian Otentik 1:1 Sesuai Lembar Asli
               </div>
@@ -354,7 +354,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
           {JLPT_EXAM_PACKAGES.map((pkg) => (
             <div
               key={pkg.id}
-              className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 hover:border-[#3978D6]/60 transition-all p-6 sm:p-7 flex flex-col justify-between shadow-[0_4px_24px_rgba(8, 21, 47,0.5)] group hover:-translate-y-1"
+              className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 hover:border-[#3978D6]/60 transition-all p-6 sm:p-7 flex flex-col justify-between shadow-[0_4px_24px_rgba(8,21,47,0.5)] group hover:-translate-y-1"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -1260,7 +1260,7 @@ export const JlptExamSection: React.FC<JlptExamSectionProps> = ({ onBackToPracti
                   return (
                     <div
                       key={q.id}
-                      className={`rounded-3xl border p-6 space-y-4 shadow-[0_4px_16px_rgba(8, 21, 47,0.4)] ${
+                      className={`rounded-3xl border p-6 space-y-4 shadow-[0_4px_16px_rgba(8,21,47,0.4)] ${
                         isCorrect 
                           ? 'bg-[var(--bg-surface)] border-emerald-500/30'
                           : 'bg-[var(--bg-surface)] border-rose-500/30'

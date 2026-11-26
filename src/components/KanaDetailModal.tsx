@@ -74,7 +74,7 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-4xl my-auto rounded-3xl bg-[var(--bg-surface)] shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.95)] border border-[#3978D6]/25 text-[var(--text-primary)] overflow-hidden text-left"
+        className="relative w-full max-w-4xl my-auto rounded-3xl bg-[var(--bg-surface)] shadow-[0_20px_60px_-15px_rgba(8,21,47,0.95)] border border-[#3978D6]/25 text-[var(--text-primary)] overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Accent Gradient Bar */}
@@ -182,7 +182,7 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
             {/* Right Column: Contoh Kata Sederhana & Detail Edukasi */}
             <div className="md:col-span-7 flex flex-col justify-between space-y-4">
               
-              <div className="p-5 rounded-3xl space-y-4 border border-[#3978D6]/20 bg-[var(--bg-sidebar)]/60 flex-1 shadow-[0_4px_16px_rgba(8, 21, 47,0.4)]">
+              <div className="p-5 rounded-3xl space-y-4 border border-[#3978D6]/20 bg-[var(--bg-sidebar)]/60 flex-1 shadow-[0_4px_16px_rgba(8,21,47,0.4)]">
                 
                 <div className="flex items-center justify-between border-b border-[#3978D6]/15 pb-3">
                   <div className="flex items-center gap-2">
@@ -272,7 +272,7 @@ export const KanaDetailModal: React.FC<KanaDetailModalProps> = ({
           </div>
 
           {/* LOWER INTERACTIVE TABS: CARA MENULIS VS LATIHAN KANVAS */}
-          <div className="rounded-3xl overflow-hidden border border-[#3978D6]/25 bg-[var(--bg-sidebar)]/70 shadow-[0_4px_24px_rgba(8, 21, 47,0.5)]">
+          <div className="rounded-3xl overflow-hidden border border-[#3978D6]/25 bg-[var(--bg-sidebar)]/70 shadow-[0_4px_24px_rgba(8,21,47,0.5)]">
             
             {/* Tab Buttons */}
             <div className="flex items-center border-b border-[#3978D6]/20 bg-[var(--bg-surface)] px-4 py-2 gap-2">

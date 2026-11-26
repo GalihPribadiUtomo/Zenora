@@ -240,7 +240,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           1. EXECUTIVE ADMIN HEADER
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/35 shadow-[0_20px_60px_-15px_rgba(8, 21, 47,0.95)] bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#172945] p-6 sm:p-8">
+      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/35 shadow-[0_20px_60px_-15px_rgba(8,21,47,0.95)] bg-gradient-to-br from-[#08152F] via-[#111F38] to-[#172945] p-6 sm:p-8">
         
         {/* Ambient Glow */}
         <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#3978D6]/20 blur-3xl pointer-events-none" />
@@ -249,7 +249,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2.5">
-              <span className="px-3 py-1 rounded-full bg-[#3978D6]/20 border border-[#3978D6]/40 text-[#DCEBFA] text-xs font-black uppercase tracking-wider font-mono flex items-center gap-1.5 shadow-[0_0_12px_rgba(57, 120, 214,0.3)]">
+              <span className="px-3 py-1 rounded-full bg-[#3978D6]/20 border border-[#3978D6]/40 text-[#DCEBFA] text-xs font-black uppercase tracking-wider font-mono flex items-center gap-1.5 shadow-[0_0_12px_rgba(57,120,214,0.3)]">
                 <ShieldCheck className="w-4 h-4 text-[#3978D6]" />
                 ZENORA Executive CMS · Console Administrator
               </span>
@@ -298,7 +298,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
                 onClick={() => { sound.playClick(); setActiveAdminTab(tab.id as any); }}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.45)]'
+                    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.45)]'
                     : 'bg-[#111F38] hover:bg-[#172945] text-[#A9BBD3] hover:text-white border border-[#3978D6]/20'
                 }`}
               >
@@ -369,7 +369,7 @@ export const AdminSection: React.FC<AdminSectionProps> = ({
             
             <div 
               onClick={() => { sound.playClick(); setActiveAdminTab('materi'); }}
-              className="p-6 rounded-3xl bg-gradient-to-br from-[#111F38] to-[#172945] border border-[#3978D6]/40 cursor-pointer card-interactive flex flex-col justify-between shadow-[0_0_20px_rgba(57, 120, 214,0.15)]"
+              className="p-6 rounded-3xl bg-gradient-to-br from-[#111F38] to-[#172945] border border-[#3978D6]/40 cursor-pointer card-interactive flex flex-col justify-between shadow-[0_0_20px_rgba(57,120,214,0.15)]"
             >
               <div className="space-y-3">
                 <div className="w-12 h-12 rounded-2xl bg-[#08152F] border border-[#3978D6]/40 flex items-center justify-center text-[#3978D6]">

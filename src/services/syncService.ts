@@ -277,10 +277,17 @@ export const pullCustomMateriFromCloud = async (userId: string): Promise<void> =
     if (data && data.length > 0) {
       const current = loadAllCustomMateri();
       data.forEach((row) => {
-        if (row.bab && row.lesson_data) {
+        if (row.bab && row.lesson_data && typeof row.lesson_data === 'object') {
+          const prev = current[row.bab] || {};
+          const incoming = row.lesson_data;
           current[row.bab] = {
-            ...(current[row.bab] || {}),
-            ...row.lesson_data,
+            ...prev,
+            ...incoming,
+            // Never overwrite non-empty sections with empty arrays from stale cloud rows
+            tataBahasa: Array.isArray(incoming.tataBahasa) && incoming.tataBahasa.length > 0 ? incoming.tataBahasa : prev.tataBahasa,
+            polaKalimat: Array.isArray(incoming.polaKalimat) && incoming.polaKalimat.length > 0 ? incoming.polaKalimat : prev.polaKalimat,
+            contohKalimat: Array.isArray(incoming.contohKalimat) && incoming.contohKalimat.length > 0 ? incoming.contohKalimat : prev.contohKalimat,
+            percakapan: incoming.percakapan?.dialogs?.length > 0 ? incoming.percakapan : prev.percakapan,
           };
         }
       });

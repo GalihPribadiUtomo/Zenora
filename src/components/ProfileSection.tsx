@@ -362,7 +362,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           1. PROFILE HERO SECTION (Personal Japanese Learning Dashboard)
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/30 shadow-[0_24px_70px_-15px_rgba(8, 21, 47,0.95),0_0_50px_rgba(57, 120, 214,0.2)] bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-surface)] p-6 sm:p-10">
+      <div className="relative overflow-hidden rounded-3xl border border-[#3978D6]/30 shadow-[0_24px_70px_-15px_rgba(8,21,47,0.95),0_0_50px_rgba(57, 120, 214,0.2)] bg-gradient-to-br from-[var(--bg-sidebar)] via-[var(--bg-surface)] to-[var(--bg-surface)] p-6 sm:p-10">
         
         {/* Ambient atmospheric lighting */}
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#3978D6]/20 blur-3xl pointer-events-none" />
@@ -376,7 +376,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
             
             {/* Glowing Avatar */}
             <div className="relative group shrink-0">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-[#3978D6] via-[#2456A6] to-[#69C9DF] p-1 shadow-[0_0_30px_rgba(57, 120, 214,0.5)] group-hover:scale-105 transition-transform duration-300">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-[#3978D6] via-[#2456A6] to-[#69C9DF] p-1 shadow-[0_0_30px_rgba(57,120,214,0.5)] group-hover:scale-105 transition-transform duration-300">
                 <div className="w-full h-full rounded-[22px] bg-[var(--bg-sidebar)] flex flex-col items-center justify-center text-center overflow-hidden border border-white/20">
                   {user?.user_metadata?.avatar_url ? (
                     <img 
@@ -443,7 +443,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                 </div>
                 <div className="w-full h-2.5 rounded-full bg-[var(--bg-sidebar)] border border-[#3978D6]/30 overflow-hidden p-0.5">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-[#3978D6] via-[#2456A6] to-[#69C9DF] shadow-[0_0_10px_rgba(57, 120, 214,0.7)] transition-all duration-700"
+                    className="h-full rounded-full bg-gradient-to-r from-[#3978D6] via-[#2456A6] to-[#69C9DF] shadow-[0_0_10px_rgba(57,120,214,0.7)] transition-all duration-700"
                     style={{ width: `${levelProgress}%` }}
                   />
                 </div>
@@ -511,7 +511,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           
           {/* Card 1: Kotoba */}
-          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57,120,214,0.15)] transition-all">
             <div className="flex items-center justify-between">
               <div className="w-10 h-10 rounded-2xl bg-[var(--bg-sidebar)] border border-[#3978D6]/30 flex items-center justify-center">
                 <BookOpen className="w-5 h-5 text-[#3978D6]" />
@@ -534,7 +534,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
           </div>
 
           {/* Card 2: Kanji */}
-          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57,120,214,0.15)] transition-all">
             <div className="flex items-center justify-between">
               <div className="w-10 h-10 rounded-2xl bg-[var(--bg-sidebar)] border border-[#69C9DF]/30 flex items-center justify-center">
                 <PenTool className="w-5 h-5 text-[var(--secondary-accent)]" />
@@ -557,7 +557,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
           </div>
 
           {/* Card 3: Kana */}
-          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57,120,214,0.15)] transition-all">
             <div className="flex items-center justify-between">
               <div className="w-10 h-10 rounded-2xl bg-[var(--bg-sidebar)] border border-[#FF70C8]/30 flex items-center justify-center">
                 <Languages className="w-5 h-5 text-[#FF70C8]" />
@@ -580,7 +580,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
           </div>
 
           {/* Card 4: Streak Belajar */}
-          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57, 120, 214,0.15)] transition-all">
+          <div className="rounded-3xl bg-[var(--bg-surface)] border border-[#3978D6]/25 p-5 space-y-3 hover:border-[#3978D6]/60 hover:shadow-[0_10px_30px_rgba(57,120,214,0.15)] transition-all">
             <div className="flex items-center justify-between">
               <div className="w-10 h-10 rounded-2xl bg-[var(--bg-sidebar)] border border-[#E9BD72]/30 flex items-center justify-center">
                 <Flame className="w-5 h-5 text-[#E9BD72]" />
@@ -659,7 +659,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
               key={ach.id}
               className={`p-4 rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
                 ach.unlocked
-                  ? 'bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-elevated)] border-[#3978D6]/50 shadow-[0_4px_20px_rgba(57, 120, 214,0.2)] hover:scale-[1.02]'
+                  ? 'bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-elevated)] border-[#3978D6]/50 shadow-[0_4px_20px_rgba(57,120,214,0.2)] hover:scale-[1.02]'
                   : 'bg-[var(--bg-sidebar)]/80 border-[#3978D6]/15 opacity-60'
               }`}
             >
@@ -730,7 +730,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                   key={i}
                   className={`aspect-square rounded-xl flex flex-col items-center justify-center text-[10px] font-mono transition-transform hover:scale-110 cursor-default border ${
                     d.intensity === 3
-                      ? 'bg-gradient-to-br from-[#2456A6] to-[#3978D6] border-[#83B7EE] text-white shadow-[0_0_10px_rgba(57, 120, 214,0.6)]'
+                      ? 'bg-gradient-to-br from-[#2456A6] to-[#3978D6] border-[#83B7EE] text-white shadow-[0_0_10px_rgba(57,120,214,0.6)]'
                       : d.intensity === 2
                       ? 'bg-[#3978D6]/60 border-[#3978D6] text-white'
                       : d.intensity === 1
@@ -837,7 +837,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                   onClick={() => handleSetDailyGoal(mins)}
                   className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all ${
                     dailyGoalMinutes === mins
-                      ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57, 120, 214,0.4)]'
+                      ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white border border-[#3978D6]/40 shadow-[0_0_15px_rgba(57,120,214,0.4)]'
                       : 'bg-[var(--bg-sidebar)] text-[var(--text-secondary)] border border-[#3978D6]/20 hover:text-[var(--text-primary)]'
                   }`}
                 >
@@ -1152,7 +1152,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({
                       sound.playClick();
                       onNavigate('admin');
                     }}
-                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-white text-xs font-bold shadow-[0_0_15px_rgba(57, 120, 214,0.4)] transition-all flex items-center gap-2 cursor-pointer"
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-white text-xs font-bold shadow-[0_0_15px_rgba(57,120,214,0.4)] transition-all flex items-center gap-2 cursor-pointer"
                   >
                     <span>Buka CMS</span>
                     <ArrowRight className="w-4 h-4" />

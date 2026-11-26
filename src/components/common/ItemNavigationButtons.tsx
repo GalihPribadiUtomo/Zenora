@@ -85,7 +85,7 @@ export const ItemNavigationButtons: React.FC<ItemNavigationButtonsProps> = ({
         aria-label="Materi Sebelumnya"
         className={`w-full sm:w-auto px-5 py-2.5 rounded-2xl flex items-center justify-center gap-2.5 text-xs sm:text-sm font-bold transition-all duration-200 select-none ${
           hasPrev
-            ? 'bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/35 hover:border-[#3978D6]/70 hover:shadow-[0_0_15px_rgba(57, 120, 214,0.25)] active:scale-95 cursor-pointer group'
+            ? 'bg-[var(--bg-sidebar)] hover:bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[#3978D6]/35 hover:border-[#3978D6]/70 hover:shadow-[0_0_15px_rgba(57,120,214,0.25)] active:scale-95 cursor-pointer group'
             : 'bg-[var(--bg-sidebar)]/50 text-[var(--text-muted)]/40 border border-white/5 opacity-40 cursor-not-allowed pointer-events-none'
         }`}
       >
@@ -128,7 +128,7 @@ export const ItemNavigationButtons: React.FC<ItemNavigationButtonsProps> = ({
         aria-label="Materi Berikutnya"
         className={`w-full sm:w-auto px-5 py-2.5 rounded-2xl flex items-center justify-center gap-2.5 text-xs sm:text-sm font-bold transition-all duration-200 select-none ${
           hasNext
-            ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57, 120, 214,0.35)] active:scale-95 cursor-pointer group'
+            ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] hover:brightness-110 text-white border border-[#3978D6]/40 shadow-[0_0_20px_rgba(57,120,214,0.35)] active:scale-95 cursor-pointer group'
             : 'bg-[var(--bg-sidebar)]/50 text-[var(--text-muted)]/40 border border-white/5 opacity-40 cursor-not-allowed pointer-events-none'
         }`}
       >
