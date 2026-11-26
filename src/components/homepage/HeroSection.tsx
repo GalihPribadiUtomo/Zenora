@@ -94,10 +94,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </>
         ) : (
           <>
-            {/* Light Mode: Luxury Arctic Blue soft white-blue translucent overlay so Japanese scenery & dark text both read cleanly */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#F1F6FC]/95 via-[#E8F1FB]/80 via-48% to-[#E8F1FB]/20" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#F1F6FC]/65 via-transparent to-[#F8FBFF]/35" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_50%,rgba(40,102,181,0.10),transparent_58%)]" />
+            {/* Light Mode: Balanced soft blue-tinted translucent gradient so Mt. Fuji & sakura remain vivid while Deep Blue text stays crisp */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#EAF1F9]/88 via-[#E7EFF9]/52 via-42% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#F1F5FB]/45 via-transparent to-[#F8FAFE]/20" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_50%,rgba(241,245,251,0.55),transparent_52%)]" />
           </>
         )}
       </div>
@@ -125,7 +125,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="space-y-1">
               <h1
                 className={`text-3xl sm:text-4xl lg:text-5xl font-black font-['Manrope'] tracking-tight leading-[1.15] ${
-                  darkMode ? 'text-[#F2F6FC]' : 'text-[#172B46]'
+                  darkMode ? 'text-[#F2F6FC]' : 'text-[#214F91]'
                 }`}
               >
                 Kuasai Bahasa Jepang
@@ -134,7 +134,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className={`text-3xl sm:text-4xl lg:text-5xl font-black font-['Manrope'] tracking-tight leading-[1.15] text-transparent bg-clip-text ${
                   darkMode
                     ? 'bg-gradient-to-r from-[#83B7EE] via-[#3978D6] to-[#69C9DF] drop-shadow-[0_4px_25px_rgba(36,86,166,0.4)]'
-                    : 'bg-gradient-to-r from-[#2866B5] via-[#4389D4] to-[#4A9DBD]'
+                    : 'bg-gradient-to-r from-[#2866B5] to-[#4389D4]'
                 }`}
               >
                 Lebih Mudah & Terstruktur
@@ -200,22 +200,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       boxShadow: '0 22px 50px -12px rgba(8, 21, 47, 0.65), 0 0 28px rgba(57, 120, 214, 0.30), inset 0 1px 1px rgba(220, 235, 250, 0.55), inset 0 -1px 1px rgba(105, 201, 223, 0.25)'
                     }
                   : {
-                      background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.72) 0%, rgba(247, 250, 255, 0.68) 55%, rgba(232, 241, 251, 0.76) 100%)',
-                      backdropFilter: 'blur(10px) saturate(135%)',
-                      WebkitBackdropFilter: 'blur(10px) saturate(135%)',
-                      border: '1.5px solid rgba(40, 102, 181, 0.28)',
-                      boxShadow: '0 20px 45px -12px rgba(23, 43, 70, 0.16), 0 0 24px rgba(67, 137, 212, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.9)'
+                      background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.80) 0%, rgba(247, 249, 253, 0.74) 100%)',
+                      backdropFilter: 'blur(14px) saturate(125%)',
+                      WebkitBackdropFilter: 'blur(14px) saturate(125%)',
+                      border: '1px solid rgba(220, 230, 242, 0.95)',
+                      boxShadow: '0 18px 40px -12px rgba(33, 79, 145, 0.14), 0 4px 16px rgba(40, 102, 181, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.95)'
                     }
               }
             >
-              {/* Subtle Japanese Seigaiha wave watermark in glass */}
-              <div
-                className={`absolute inset-0 pointer-events-none ${darkMode ? 'opacity-[0.07]' : 'opacity-[0.09]'}`}
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cpath d='M0 30a30 30 0 0 1 60 0M10 30a20 20 0 0 1 40 0M20 30a10 10 0 0 1 20 0M-30 30a30 30 0 0 1 60 0M30 30a30 30 0 0 1 60 0' fill='none' stroke='${darkMode ? '%2383B7EE' : '%232866B5'}' stroke-width='1.2'/%3E%3C/svg%3E")`,
-                  backgroundSize: '60px 30px'
-                }}
-              />
+              {/* Subtle Japanese Seigaiha wave watermark only in Dark Mode; Light Mode stays clean & minimalist */}
+              {darkMode && (
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-[0.07]"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cpath d='M0 30a30 30 0 0 1 60 0M10 30a20 20 0 0 1 40 0M20 30a10 10 0 0 1 20 0M-30 30a30 30 0 0 1 60 0M30 30a30 30 0 0 1 60 0' fill='none' stroke='%2383B7EE' stroke-width='1.2'/%3E%3C/svg%3E")`,
+                    backgroundSize: '60px 30px'
+                  }}
+                />
+              )}
 
               {/* Top & bottom specular glass edge highlights */}
               <div
@@ -290,9 +292,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <svg className="w-44 h-44 sm:w-48 sm:h-48 transform -rotate-90" viewBox="0 0 170 170">
                   <defs>
                     <linearGradient id="luxuryProgressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor={darkMode ? '#69C9DF' : '#4389D4'} />
-                      <stop offset="50%" stopColor={darkMode ? '#3978D6' : '#2866B5'} />
-                      <stop offset="100%" stopColor={darkMode ? '#2456A6' : '#1E559B'} />
+                      <stop offset="0%" stopColor={darkMode ? '#69C9DF' : '#83B7EE'} />
+                      <stop offset="50%" stopColor={darkMode ? '#3978D6' : '#4389D4'} />
+                      <stop offset="100%" stopColor={darkMode ? '#2456A6' : '#2866B5'} />
                     </linearGradient>
                     <filter id="progressGlow" x="-25%" y="-25%" width="150%" height="150%">
                       <feDropShadow
@@ -421,9 +423,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <svg viewBox="0 0 110 32" className="w-full h-full overflow-visible">
                     <defs>
                       <linearGradient id="sparklineWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor={darkMode ? '#2456A6' : '#4389D4'} />
-                        <stop offset="60%" stopColor={darkMode ? '#3978D6' : '#2866B5'} />
-                        <stop offset="100%" stopColor={darkMode ? '#69C9DF' : '#4A9DBD'} />
+                        <stop offset="0%" stopColor={darkMode ? '#2456A6' : '#83B7EE'} />
+                        <stop offset="60%" stopColor={darkMode ? '#3978D6' : '#4389D4'} />
+                        <stop offset="100%" stopColor={darkMode ? '#69C9DF' : '#2866B5'} />
                       </linearGradient>
                       <linearGradient id="sparklineAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor={darkMode ? '#69C9DF' : '#4389D4'} stopOpacity="0.28" />

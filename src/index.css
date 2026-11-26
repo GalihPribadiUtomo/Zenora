@@ -23,6 +23,9 @@
     --border-subtle:       rgba(38, 61, 96, 0.45);
     --border-glow:         rgba(57, 120, 214, 0.55);
 
+    --sidebar-text:        #A9BBD3;
+    --sidebar-muted:       #7186A5;
+
     --primary:             #3978D6;
     --primary-hover:       #4B8DE8;
     --primary-deep:        #2456A6;
@@ -83,27 +86,30 @@
 
   /* ===== LIGHT MODE: LUXURY ARCTIC BLUE ===== */
   [data-theme="light"] {
-    --color-midnight-navy: #E7F0FA;
-    --color-deep-ocean:    #E8F1FB;
+    --color-midnight-navy: #E7EFF9;
+    --color-deep-ocean:    #EAF1F9;
     --color-royal-blue:    #2866B5;
     --color-sapphire-blue: #4389D4;
-    --color-soft-sky:      #4389D4;
-    --color-ice-blue:      #E8F1FB;
+    --color-soft-sky:      #83B7EE;
+    --color-ice-blue:      #DCEBFA;
 
     /* Core Dual-Theme Tokens */
-    --bg-base:             #F1F6FC;
-    --bg-sidebar:          #E7F0FA;
-    --bg-header:           #F8FBFF;
-    --bg-surface:          #FFFFFF;
+    --bg-base:             #F1F5FB;
+    --bg-sidebar:          #E7EFF9;
+    --bg-header:           #F8FAFE;
+    --bg-surface:          #F7F9FD;
     --bg-card:             #FFFFFF;
-    --bg-elevated:         #F7FAFF;
-    --border:              #D8E5F3;
-    --border-subtle:       rgba(216, 229, 243, 0.85);
-    --border-glow:         rgba(40, 102, 181, 0.45);
+    --bg-elevated:         #F8FAFE;
+    --border:              #DCE6F2;
+    --border-subtle:       #D7E3F1;
+    --border-glow:         rgba(40, 102, 181, 0.35);
+
+    --sidebar-text:        #29425F;
+    --sidebar-muted:       #7187A2;
 
     --primary:             #2866B5;
     --primary-hover:       #1E559B;
-    --primary-deep:        #1E559B;
+    --primary-deep:        #214F91;
     --secondary-accent:    #4A9DBD;
 
     /* Typography */
@@ -118,30 +124,30 @@
     --accent-emerald:      #1F9D7E;
     --accent-gold:         #C48B28;
 
-    /* Glass & Elevation */
-    --glass-bg:            rgba(255, 255, 255, 0.86);
-    --glass-card-bg:       linear-gradient(165deg, rgba(255, 255, 255, 0.96) 0%, rgba(247, 250, 255, 0.94) 100%);
-    --card-shadow:         0 8px 24px -6px rgba(23, 43, 70, 0.08), 0 2px 6px -1px rgba(40, 102, 181, 0.05);
-    --card-hover-shadow:   0 14px 32px -6px rgba(40, 102, 181, 0.14), 0 4px 12px -2px rgba(23, 43, 70, 0.06);
-    --modal-backdrop-bg:   rgba(23, 43, 70, 0.42);
-    --skeleton-base:       rgba(231, 240, 250, 0.85);
+    /* Glass & Elevation (Soft Blue Shadows, No Harsh Black) */
+    --glass-bg:            rgba(248, 250, 254, 0.88);
+    --glass-card-bg:       linear-gradient(165deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 254, 0.94) 100%);
+    --card-shadow:         0 6px 20px -6px rgba(33, 79, 145, 0.08), 0 2px 6px -1px rgba(40, 102, 181, 0.04);
+    --card-hover-shadow:   0 12px 28px -6px rgba(33, 79, 145, 0.14), 0 4px 12px -2px rgba(40, 102, 181, 0.07);
+    --modal-backdrop-bg:   rgba(23, 43, 70, 0.36);
+    --skeleton-base:       rgba(231, 239, 249, 0.85);
     --skeleton-highlight:  rgba(255, 255, 255, 0.95);
 
     /* Legacy Tokens Mapped */
-    --latar:               #F1F6FC;
+    --latar:               #F1F5FB;
     --permukaan:           #FFFFFF;
     --teks:                #172B46;
     --aksen:               #2866B5;
     --redup:               #8194AA;
 
-    --mj-bg-darkest:       #E7F0FA;
+    --mj-bg-darkest:       #E7EFF9;
     --mj-bg-card:          #FFFFFF;
-    --mj-bg-elevated:      #F7FAFF;
-    --mj-bg-surface:       #F8FBFF;
-    --mj-bg-surface-2:     #E8F1FB;
+    --mj-bg-elevated:      #F8FAFE;
+    --mj-bg-surface:       #F7F9FD;
+    --mj-bg-surface-2:     #EAF1F9;
     --mj-purple-primary:   #2866B5;
     --mj-purple-light:     #4389D4;
-    --mj-purple-glow:      #4A9DBD;
+    --mj-purple-glow:      #83B7EE;
     --mj-blue-accent:      #2866B5;
     --mj-blue-light:       #4389D4;
     --mj-sakura-pink:      #4A9DBD;
@@ -152,11 +158,11 @@
     --mj-text-muted:       #8194AA;
 
     /* Gradients */
-    --gradient-hero:       linear-gradient(135deg, #F1F6FC 0%, #E8F1FB 60%, #D8E5F3 100%);
-    --gradient-card:       linear-gradient(145deg, #FFFFFF 0%, #F7FAFF 100%);
+    --gradient-hero:       linear-gradient(135deg, #F1F5FB 0%, #EAF1F9 60%, #DCE6F2 100%);
+    --gradient-card:       linear-gradient(145deg, #FFFFFF 0%, #F8FAFE 100%);
     --gradient-btn:        linear-gradient(135deg, #2866B5 0%, #4389D4 100%);
     --gradient-accent:     linear-gradient(135deg, #2866B5 0%, #4389D4 100%);
-    --gradient-page:       linear-gradient(160deg, #F1F6FC 0%, #E8F1FB 100%);
+    --gradient-page:       linear-gradient(165deg, #F1F5FB 0%, #EAF1F9 100%);
   }
 }
 
@@ -724,6 +730,10 @@ tr:hover td { background: rgba(57, 120, 214, 0.06); }
   outline: 2px solid var(--primary);
   outline-offset: 2px;
   border-radius: 8px;
+}
+
+[data-theme="light"] .quick-access-title {
+  color: #214F91;
 }
 
 /* ========== GLOBAL FURIGANA VISIBILITY TOGGLE ========== */

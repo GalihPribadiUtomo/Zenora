@@ -29,15 +29,15 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({
     },
     {
       id: 'kana',
-      title: 'Hiragana &',
-      subtitle: 'Katakana',
+      title: 'Kana',
+      subtitle: 'Hiragana & Katakana',
       icon: Languages,
       action: () => onNavigate('kana')
     },
     {
       id: 'kanji',
       title: 'Kanji',
-      subtitle: 'Interaktif',
+      subtitle: 'N5 & N4 Interaktif',
       icon: PenTool,
       action: () => onNavigate('kanji')
     },
@@ -50,8 +50,8 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({
     },
     {
       id: 'analitik',
-      title: 'Lihat',
-      subtitle: 'Analitik',
+      title: 'Analitik',
+      subtitle: 'Statistik Belajar',
       icon: BarChart3,
       action: onScrollToStats
     }
@@ -62,31 +62,32 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({
       
       {/* Section Title */}
       <div className="flex items-center gap-2">
-        <Zap className="w-5 h-5 text-[#E9BD72] fill-[#E9BD72]" />
+        <Zap className="w-5 h-5 text-[var(--accent-gold)] fill-[var(--accent-gold)]" />
         <h3 className="text-lg font-black text-[var(--text-primary)] font-['Manrope'] tracking-wide">
           Akses Cepat
         </h3>
       </div>
 
-      {/* 5 Horizontal Cards - Luxury Midnight Ocean */}
+      {/* 5 Horizontal Cards - Consistent Luxury Arctic / Midnight Ocean */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
         {items.map((item) => {
           const Icon = item.icon;
           return (
-            <div
+            <button
               key={item.id}
+              type="button"
               onClick={() => {
                 sound.playClick();
                 item.action();
               }}
-              className="group cursor-pointer rounded-2xl p-4 bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] border border-[var(--border)] hover:border-[#3978D6]/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(36,86,166,0.35)] flex items-center justify-between gap-3"
+              className="group text-left cursor-pointer rounded-2xl p-4 bg-[var(--bg-card)] hover:bg-[var(--bg-elevated)] border border-[var(--border)] hover:border-[var(--primary)]/45 shadow-[var(--card-shadow)] hover:shadow-[var(--card-hover-shadow)] transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] flex items-center justify-between gap-2.5"
             >
               <div className="flex items-center gap-3 min-w-0">
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#2456A6]/25 to-[#3978D6]/25 border border-[#3978D6]/35 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[#2456A6]/35 transition-all">
-                  <Icon className="w-5 h-5 text-[var(--soft-sky)] group-hover:text-[var(--text-primary)] transition-colors" />
+                <div className="w-10 h-10 rounded-xl bg-[var(--primary)]/10 border border-[var(--primary)]/20 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-[var(--primary)]/16 transition-all">
+                  <Icon className="w-[18px] h-[18px] text-[var(--primary)] transition-colors" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-sm font-black text-[var(--text-primary)] group-hover:text-[var(--soft-sky)] truncate font-['Manrope'] transition-colors">
+                  <h4 className="quick-access-title text-xs sm:text-sm font-black text-[var(--text-primary)] truncate font-['Manrope'] transition-colors">
                     {item.title}
                   </h4>
                   <p className="text-[11px] text-[var(--text-secondary)] truncate font-medium">
@@ -95,10 +96,10 @@ export const QuickAccess: React.FC<QuickAccessProps> = ({
                 </div>
               </div>
 
-              <div className="w-7 h-7 rounded-full bg-[var(--bg-elevated)] border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] group-hover:bg-[#2456A6] group-hover:border-[#3978D6] group-hover:shadow-[0_0_10px_rgba(36,86,166,0.6)] transition-all shrink-0">
+              <div className="w-7 h-7 rounded-full bg-[var(--bg-elevated)] border border-[var(--border)] flex items-center justify-center text-[var(--primary)] group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#2866B5] group-hover:to-[#4389D4] group-hover:border-transparent transition-all shrink-0">
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
-            </div>
+            </button>
           );
         })}
       </div>

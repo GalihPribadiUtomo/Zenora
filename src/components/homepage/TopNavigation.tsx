@@ -76,7 +76,7 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
   }, [showFurigana]);
 
   return (
-    <header className="sticky top-0 z-30 w-full px-4 sm:px-6 lg:px-8 py-3.5 bg-[var(--bg-header)]/95 backdrop-blur-xl border-b border-[var(--border)] transition-colors duration-200">
+    <header className="sticky top-0 z-30 w-full px-4 sm:px-6 lg:px-8 py-3 bg-[var(--bg-header)]/90 backdrop-blur-xl border-b border-[var(--border)] transition-colors duration-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         
         {/* Left: Mobile Menu Trigger (hidden on lg) */}
@@ -86,7 +86,7 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
               sound.playClick();
               if (onOpenMobileMenu) onOpenMobileMenu();
             }}
-            className="p-2.5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+            className="p-2.5 rounded-2xl bg-[var(--bg-base)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--primary)]/40 transition-colors"
             aria-label="Buka Menu"
           >
             <Menu className="w-5 h-5" />
@@ -106,16 +106,16 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
               sound.playClick();
               onOpenSearch();
             }}
-            className="group cursor-pointer flex items-center justify-between px-4 py-2.5 rounded-2xl bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-elevated)] border border-[var(--border)] hover:border-[#3978D6]/60 shadow-inner transition-all duration-200"
+            className="group cursor-pointer flex items-center justify-between px-4 py-2 rounded-2xl bg-[var(--bg-base)] hover:bg-[var(--bg-elevated)] border border-[var(--border)] hover:border-[var(--primary)]/50 transition-all duration-200"
           >
             <div className="flex items-center gap-3 text-sm text-[var(--text-muted)] group-hover:text-[var(--text-secondary)]">
-              <Search className="w-4 h-4 text-[#3978D6] group-hover:scale-110 transition-transform" />
+              <Search className="w-4 h-4 text-[var(--primary)] group-hover:scale-105 transition-transform" />
               <span className="hidden sm:inline">Cari materi, kosakata, atau latihan...</span>
               <span className="sm:hidden">Cari materi...</span>
             </div>
 
             <div className="flex items-center gap-1.5">
-              <kbd className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-lg bg-[var(--bg-elevated)] text-[var(--text-secondary)] text-[11px] font-mono border border-[var(--border)]">
+              <kbd className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-lg bg-[var(--bg-card)] text-[var(--text-secondary)] text-[11px] font-mono border border-[var(--border)]">
                 Ctrl + K
               </kbd>
             </div>

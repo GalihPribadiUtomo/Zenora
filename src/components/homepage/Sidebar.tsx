@@ -61,8 +61,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   const [materiExpanded, setMateriExpanded] = useState(isMateri);
 
+  const activeNavClass = darkMode
+    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_8px_20px_-4px_rgba(36,86,166,0.45)]'
+    : 'bg-gradient-to-r from-[#2866B5] to-[#4389D4] text-white shadow-[0_8px_18px_-4px_rgba(40,102,181,0.35)]';
+  const inactiveNavClass = darkMode
+    ? 'text-[var(--sidebar-text)] hover:text-[#F2F6FC] hover:bg-[#111F38]'
+    : 'text-[var(--sidebar-text)] hover:text-[#172B46] hover:bg-[#DCE7F6]/70';
+  const activeSubNavClass = darkMode
+    ? 'bg-gradient-to-r from-[#2456A6]/30 to-[#3978D6]/30 text-white border border-[#3978D6]/50'
+    : 'bg-[#2866B5]/12 text-[#214F91] border border-[#2866B5]/30';
+  const inactiveSubNavClass = darkMode
+    ? 'text-[var(--sidebar-text)] hover:text-[#F2F6FC] hover:bg-[#111F38]'
+    : 'text-[var(--sidebar-text)] hover:text-[#172B46] hover:bg-[#DCE7F6]/60';
+
   return (
-    <aside className="w-60 xl:w-64 shrink-0 h-screen sticky top-0 flex flex-col justify-between bg-[var(--bg-sidebar)] border-r border-[var(--border)] p-4 z-40 select-none overflow-y-auto transition-colors duration-200">
+    <aside className="w-60 xl:w-64 shrink-0 h-screen sticky top-0 flex flex-col justify-between bg-[var(--bg-sidebar)] border-r border-[var(--border-subtle)] p-4 z-40 select-none overflow-y-auto transition-colors duration-200">
       
       {/* Top Section: Logo & Nav items */}
       <div className="space-y-6">
@@ -128,23 +141,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
               sound.playClick();
               onNavigateTab('beranda');
             }}
-            className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
-              isBeranda 
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_25px_rgba(36,86,166,0.45)]' 
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+            className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
+              isBeranda ? activeNavClass : inactiveNavClass
             }`}
           >
-            <Home className={`w-5 h-5 transition-transform group-hover:scale-110 ${isBeranda ? 'text-[var(--text-primary)]' : 'text-[#3978D6]'}`} />
+            <Home className={`w-[18px] h-[18px] shrink-0 transition-transform group-hover:scale-105 ${isBeranda ? 'text-white' : 'text-[var(--primary)]'}`} />
             <span>Beranda</span>
           </button>
 
           {/* 2. Materi (Accordion / Submenu) */}
           <div>
             <div
-              className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
-                isMateri 
-                  ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_25px_rgba(36,86,166,0.45)]' 
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+              className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
+                isMateri ? activeNavClass : inactiveNavClass
               }`}
               onClick={() => {
                 sound.playClick();
@@ -156,8 +165,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 }
               }}
             >
-              <div className="flex items-center gap-3.5">
-                <BookOpen className={`w-5 h-5 transition-transform group-hover:scale-110 ${isMateri ? 'text-[var(--text-primary)]' : 'text-[#3978D6]'}`} />
+              <div className="flex items-center gap-3">
+                <BookOpen className={`w-[18px] h-[18px] shrink-0 transition-transform group-hover:scale-105 ${isMateri ? 'text-white' : 'text-[var(--primary)]'}`} />
                 <span>Materi</span>
               </div>
               <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${materiExpanded ? 'rotate-180' : ''}`} />
@@ -165,19 +174,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
             {/* Sub-menu Materi with Midnight Ocean Styling */}
             {materiExpanded && (
-              <div className="pl-4 pr-1 py-1 space-y-1 mt-1 border-l-2 border-[var(--border)] ml-4 animate-fade-in">
+              <div className="pl-3.5 pr-1 py-1 space-y-1 mt-1 border-l-2 border-[var(--border-subtle)] ml-4 animate-fade-in">
                 <button
                   onClick={() => {
                     sound.playClick();
                     onNavigateTab('kotoba');
                   }}
                   className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                    activeTab === 'kotoba' 
-                      ? 'bg-gradient-to-r from-[#2456A6]/30 to-[#3978D6]/30 text-white border border-[#3978D6]/50 shadow-[0_0_12px_rgba(36,86,166,0.25)]' 
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+                    activeTab === 'kotoba' ? activeSubNavClass : inactiveSubNavClass
                   }`}
                 >
-                  <BookMarked className={`w-4 h-4 ${activeTab === 'kotoba' ? 'text-white' : 'text-[#3978D6]'}`} />
+                  <BookMarked className={`w-4 h-4 shrink-0 ${activeTab === 'kotoba' ? (darkMode ? 'text-white' : 'text-[#2866B5]') : 'text-[var(--primary)]'}`} />
                   <span>Bab 1–50 (Minna)</span>
                 </button>
 
@@ -187,12 +194,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     onNavigateTab('kana');
                   }}
                   className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                    activeTab === 'kana' 
-                      ? 'bg-gradient-to-r from-[#2456A6]/30 to-[#3978D6]/30 text-white border border-[#3978D6]/50 shadow-[0_0_12px_rgba(36,86,166,0.25)]' 
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+                    activeTab === 'kana' ? activeSubNavClass : inactiveSubNavClass
                   }`}
                 >
-                  <Languages className={`w-4 h-4 ${activeTab === 'kana' ? 'text-white' : 'text-[#3978D6]'}`} />
+                  <Languages className={`w-4 h-4 shrink-0 ${activeTab === 'kana' ? (darkMode ? 'text-white' : 'text-[#2866B5]') : 'text-[var(--primary)]'}`} />
                   <span>Hiragana & Katakana</span>
                 </button>
 
@@ -202,12 +207,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     onNavigateTab('kanji');
                   }}
                   className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                    activeTab === 'kanji' 
-                      ? 'bg-gradient-to-r from-[#2456A6]/30 to-[#3978D6]/30 text-white border border-[#3978D6]/50 shadow-[0_0_12px_rgba(36,86,166,0.25)]' 
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+                    activeTab === 'kanji' ? activeSubNavClass : inactiveSubNavClass
                   }`}
                 >
-                  <PenTool className={`w-4 h-4 ${activeTab === 'kanji' ? 'text-white' : 'text-[#3978D6]'}`} />
+                  <PenTool className={`w-4 h-4 shrink-0 ${activeTab === 'kanji' ? (darkMode ? 'text-white' : 'text-[#2866B5]') : 'text-[var(--primary)]'}`} />
                   <span>Kanji N5 & N4 (424)</span>
                 </button>
               </div>
@@ -220,20 +223,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
               sound.playClick();
               onNavigateTab('ssw');
             }}
-            className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
-              isSsw 
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_25px_rgba(36,86,166,0.45)]' 
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
+              isSsw ? activeNavClass : inactiveNavClass
             }`}
           >
-            <div className="flex items-center gap-3.5">
-              <Briefcase className={`w-5 h-5 transition-transform group-hover:scale-110 ${isSsw ? 'text-[var(--text-primary)]' : 'text-[#3978D6]'}`} />
+            <div className="flex items-center gap-3">
+              <Briefcase className={`w-[18px] h-[18px] shrink-0 transition-transform group-hover:scale-105 ${isSsw ? 'text-white' : 'text-[var(--primary)]'}`} />
               <span>SSW</span>
             </div>
             <span className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wide transition-all ${
               isSsw 
-                ? 'bg-white/20 text-[var(--text-primary)] border border-white/30' 
-                : 'bg-[#2456A6]/20 text-[var(--soft-sky)] border border-[#3978D6]/40 shadow-[0_0_10px_rgba(36,86,166,0.25)]'
+                ? 'bg-white/20 text-white border border-white/30' 
+                : 'bg-[var(--primary)]/12 text-[var(--primary)] border border-[var(--primary)]/30'
             }`}>
               Tokutei!
             </span>
@@ -245,13 +246,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
               sound.playClick();
               onNavigateTab('latihan');
             }}
-            className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
-              isLatihan 
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_25px_rgba(36,86,166,0.45)]' 
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+            className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
+              isLatihan ? activeNavClass : inactiveNavClass
             }`}
           >
-            <Play className={`w-5 h-5 transition-transform group-hover:scale-110 ${isLatihan ? 'text-[var(--text-primary)]' : 'text-[#3978D6]'}`} />
+            <Play className={`w-[18px] h-[18px] shrink-0 transition-transform group-hover:scale-105 ${isLatihan ? 'text-white' : 'text-[var(--primary)]'}`} />
             <span>Latihan</span>
           </button>
 
@@ -261,13 +260,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
               sound.playClick();
               onNavigateTab('analitik');
             }}
-            className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
-              isAnalitik 
-                ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_0_25px_rgba(36,86,166,0.45)]' 
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
+            className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl font-bold text-sm transition-all duration-200 group cursor-pointer ${
+              isAnalitik ? activeNavClass : inactiveNavClass
             }`}
           >
-            <BarChart3 className={`w-5 h-5 transition-transform group-hover:scale-110 ${isAnalitik ? 'text-[var(--text-primary)]' : 'text-[#3978D6]'}`} />
+            <BarChart3 className={`w-[18px] h-[18px] shrink-0 transition-transform group-hover:scale-105 ${isAnalitik ? 'text-white' : 'text-[var(--primary)]'}`} />
             <span>Analitik</span>
           </button>
 
