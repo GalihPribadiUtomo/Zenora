@@ -122,46 +122,60 @@ alter table public.user_custom_kotoba enable row level security;
 alter table public.user_quiz_history enable row level security;
 
 -- Policies Profiles (User lihat/ubah miliknya, Admin dapat memantau daftar profil)
+drop policy if exists "Users can view their own profile" on public.profiles;
+drop policy if exists "Users or Admins can view profiles" on public.profiles;
 create policy "Users or Admins can view profiles" on public.profiles
   for select using (auth.uid() = id or public.is_admin());
 
+drop policy if exists "Users can update their own profile" on public.profiles;
 create policy "Users can update their own profile" on public.profiles
   for update using (auth.uid() = id);
 
+drop policy if exists "Users can insert their own profile" on public.profiles;
 create policy "Users can insert their own profile" on public.profiles
   for insert with check (auth.uid() = id);
 
 -- Policies Learned Items
+drop policy if exists "Users can view their own learned items" on public.user_learned_items;
 create policy "Users can view their own learned items" on public.user_learned_items
   for select using (auth.uid() = user_id);
 
+drop policy if exists "Users can insert their own learned items" on public.user_learned_items;
 create policy "Users can insert their own learned items" on public.user_learned_items
   for insert with check (auth.uid() = user_id);
 
+drop policy if exists "Users can delete their own learned items" on public.user_learned_items;
 create policy "Users can delete their own learned items" on public.user_learned_items
   for delete using (auth.uid() = user_id);
 
 -- Policies Bookmarks
+drop policy if exists "Users can view their own bookmarks" on public.user_bookmarks;
 create policy "Users can view their own bookmarks" on public.user_bookmarks
   for select using (auth.uid() = user_id);
 
+drop policy if exists "Users can insert their own bookmarks" on public.user_bookmarks;
 create policy "Users can insert their own bookmarks" on public.user_bookmarks
   for insert with check (auth.uid() = user_id);
 
+drop policy if exists "Users can delete their own bookmarks" on public.user_bookmarks;
 create policy "Users can delete their own bookmarks" on public.user_bookmarks
   for delete using (auth.uid() = user_id);
 
 -- Policies Custom Kotoba
+drop policy if exists "Users can view their own custom kotoba" on public.user_custom_kotoba;
 create policy "Users can view their own custom kotoba" on public.user_custom_kotoba
   for select using (auth.uid() = user_id);
 
+drop policy if exists "Users can insert/update their own custom kotoba" on public.user_custom_kotoba;
 create policy "Users can insert/update their own custom kotoba" on public.user_custom_kotoba
   for all using (auth.uid() = user_id);
 
 -- Policies Quiz History
+drop policy if exists "Users can view their own quiz history" on public.user_quiz_history;
 create policy "Users can view their own quiz history" on public.user_quiz_history
   for select using (auth.uid() = user_id);
 
+drop policy if exists "Users can insert their own quiz history" on public.user_quiz_history;
 create policy "Users can insert their own quiz history" on public.user_quiz_history
   for insert with check (auth.uid() = user_id);
 
@@ -202,9 +216,11 @@ create table if not exists public.admin_announcements (
 
 alter table public.admin_announcements enable row level security;
 
+drop policy if exists "Anyone can view published announcements" on public.admin_announcements;
 create policy "Anyone can view published announcements" on public.admin_announcements
   for select using (published = true or public.is_admin());
 
+drop policy if exists "Only admins can manage announcements" on public.admin_announcements;
 create policy "Only admins can manage announcements" on public.admin_announcements
   for all using (public.is_admin()) with check (public.is_admin());
 
@@ -222,8 +238,10 @@ create table if not exists public.user_custom_materi (
 
 alter table public.user_custom_materi enable row level security;
 
+drop policy if exists "Users can view their own custom materi" on public.user_custom_materi;
 create policy "Users can view their own custom materi" on public.user_custom_materi
   for select using (auth.uid() = user_id or public.is_admin());
 
+drop policy if exists "Users can manage their own custom materi" on public.user_custom_materi;
 create policy "Users can manage their own custom materi" on public.user_custom_materi
   for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
