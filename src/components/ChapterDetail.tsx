@@ -706,10 +706,10 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
               <div
                 key={word.id}
                 onClick={() => setSelectedKotobaModal(word)}
-                className={`rounded-3xl border p-5 flex flex-col justify-between cursor-pointer transition-all hover:scale-[1.01] shadow-[0_4px_16px_rgba(8,21,47,0.4)] ${
+                className={`rounded-3xl border p-5 flex flex-col justify-between cursor-pointer transition-all hover:scale-[1.01] shadow-[var(--card-shadow)] ${
                   isLearned
-                    ? 'border-emerald-500/30 bg-[#0F3025]'
-                    : 'border-[#3978D6]/20 bg-[var(--bg-surface)] hover:border-[#3978D6]/50'
+                    ? 'border-[var(--success-border)] bg-[var(--success-bg)]'
+                    : 'border-[var(--border)] bg-[var(--bg-card)] hover:border-[var(--primary)]'
                 }`}
               >
                 <div>

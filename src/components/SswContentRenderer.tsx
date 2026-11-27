@@ -30,7 +30,7 @@ export const SswContentRenderer: React.FC<SswContentRendererProps> = ({ content 
         parts.push(
           <strong
             key={`b-${keyIdx++}`}
-            className="font-black text-[#FFFFFF] bg-[var(--bg-elevated)]/70 px-1.5 py-0.5 rounded-md border border-[#3978D6]/30 tracking-wide inline-block my-0.5"
+            className="font-black text-[var(--text-primary)] bg-[var(--bg-elevated)] px-1.5 py-0.5 rounded-md border border-[var(--border)] tracking-wide inline-block my-0.5"
           >
             {match[2]}
           </strong>

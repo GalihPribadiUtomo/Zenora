@@ -12,34 +12,34 @@
     --color-soft-sky:      #83B7EE;
     --color-ice-blue:      #DCEBFA;
 
-    /* Core Dual-Theme Tokens */
-    --bg-base:             #0B1428;
-    --bg-sidebar:          #08152F;
-    --bg-header:           #0D1932;
-    --bg-surface:          #12223E;
-    --bg-card:             #152847;
-    --bg-elevated:         #1B3256;
-    --border:              #2C466F;
-    --border-subtle:       rgba(57, 120, 214, 0.28);
-    --border-glow:         rgba(57, 120, 214, 0.60);
+    /* Core Dual-Theme Tokens (Midnight Ocean) */
+    --bg-base:             #071326;
+    --bg-sidebar:          #0A1930;
+    --bg-header:           #0A1930;
+    --bg-surface:          #112441;
+    --bg-card:             #112441;
+    --bg-elevated:         #192F50;
+    --border:              #29466F;
+    --border-subtle:       rgba(41, 70, 111, 0.55);
+    --border-glow:         rgba(77, 145, 247, 0.60);
 
-    --sidebar-text:        #C5D4E8;
-    --sidebar-muted:       #8FA4C2;
+    --sidebar-text:        #A9BEDB;
+    --sidebar-muted:       #8198B8;
 
-    --primary:             #3978D6;
-    --primary-hover:       #4B8DE8;
+    --primary:             #4D91F7;
+    --primary-hover:       #63A0FA;
     --primary-deep:        #2456A6;
     --secondary-accent:    #69C9DF;
 
     /* Standardized Semantic & UI Tokens */
-    --background:          #0B1428;
-    --surface:             #12223E;
-    --card:                #152847;
-    --foreground:          #F5F8FD;
-    --muted-foreground:    #8FA4C2;
-    --input:               #10203A;
-    --ring:                rgba(57, 120, 214, 0.55);
-    --accent:              #3978D6;
+    --background:          #071326;
+    --surface:             #112441;
+    --card:                #112441;
+    --foreground:          #F1F6FF;
+    --muted-foreground:    #8198B8;
+    --input:               #0A1930;
+    --ring:                rgba(77, 145, 247, 0.55);
+    --accent:              #4D91F7;
     --destructive:         #FCA5A5;
     --destructive-bg:      rgba(239, 68, 68, 0.16);
     --destructive-border:  rgba(248, 113, 113, 0.45);
@@ -49,13 +49,13 @@
     --warning:             #FCD34D;
     --warning-bg:          rgba(245, 158, 11, 0.16);
     --info:                #83B7EE;
-    --info-bg:             rgba(57, 120, 214, 0.18);
+    --info-bg:             rgba(77, 145, 247, 0.18);
 
     /* Typography */
-    --text-primary:        #F5F8FD;
-    --text-secondary:      #BDCCE0;
-    --text-muted:          #8FA4C2;
-    --text-dim:            #748AA8;
+    --text-primary:        #F1F6FF;
+    --text-secondary:      #A9BEDB;
+    --text-muted:          #8198B8;
+    --text-dim:            #6B84A6;
     --furigana-color:      #A8CEFF;
 
     /* Accent */
@@ -63,14 +63,14 @@
     --accent-emerald:      #45C6A5;
     --accent-gold:         #E9BD72;
 
-    /* Glass & Elevation */
-    --glass-bg:            rgba(21, 40, 71, 0.90);
-    --glass-card-bg:       linear-gradient(165deg, rgba(27, 50, 86, 0.94) 0%, rgba(21, 40, 71, 0.96) 100%);
-    --card-shadow:         0 12px 32px -8px rgba(8, 21, 47, 0.78);
-    --card-hover-shadow:   0 16px 40px -6px rgba(8, 21, 47, 0.9), 0 0 22px rgba(57, 120, 214, 0.25);
-    --modal-backdrop-bg:   rgba(8, 21, 47, 0.86);
-    --skeleton-base:       rgba(21, 40, 71, 0.85);
-    --skeleton-highlight:  rgba(27, 50, 86, 0.95);
+    /* Glass & Elevation (Crisp Midnight Ocean) */
+    --glass-bg:            rgba(17, 36, 65, 0.94);
+    --glass-card-bg:       linear-gradient(165deg, rgba(25, 47, 80, 0.96) 0%, rgba(17, 36, 65, 0.98) 100%);
+    --card-shadow:         0 8px 24px -6px rgba(4, 10, 22, 0.65);
+    --card-hover-shadow:   0 12px 32px -6px rgba(4, 10, 22, 0.8), 0 0 18px rgba(77, 145, 247, 0.22);
+    --modal-backdrop-bg:   rgba(7, 19, 38, 0.86);
+    --skeleton-base:       rgba(17, 36, 65, 0.9);
+    --skeleton-highlight:  rgba(25, 47, 80, 0.98);
 
     /* Legacy Tokens Mapped */
     --latar:               #0B1428;
@@ -113,34 +113,34 @@
     --color-soft-sky:      #83B7EE;
     --color-ice-blue:      #DCEBFA;
 
-    /* Core Dual-Theme Tokens */
-    --bg-base:             #EEF4FB;
-    --bg-sidebar:          #E3ECF8;
+    /* Core Dual-Theme Tokens (Luxury Arctic Blue) */
+    --bg-base:             #F2F6FC;
+    --bg-sidebar:          #E8F0FB;
     --bg-header:           #FFFFFF;
-    --bg-surface:          #F7FAFF;
+    --bg-surface:          #FFFFFF;
     --bg-card:             #FFFFFF;
-    --bg-elevated:         #EDF3FC;
-    --border:              #C8D7EC;
+    --bg-elevated:         #F7FAFF;
+    --border:              #C7D8EF;
     --border-subtle:       #D6E2F2;
-    --border-glow:         rgba(40, 102, 181, 0.42);
+    --border-glow:         rgba(36, 104, 200, 0.35);
 
-    --sidebar-text:        #1E3554;
-    --sidebar-muted:       #526A88;
+    --sidebar-text:        #14243D;
+    --sidebar-muted:       #7185A0;
 
-    --primary:             #2463B9;
-    --primary-hover:       #1B519C;
+    --primary:             #2468C8;
+    --primary-hover:       #1B55AA;
     --primary-deep:        #1A4688;
     --secondary-accent:    #2A8DA8;
 
     /* Standardized Semantic & UI Tokens */
-    --background:          #EEF4FB;
-    --surface:             #F7FAFF;
+    --background:          #F2F6FC;
+    --surface:             #FFFFFF;
     --card:                #FFFFFF;
-    --foreground:          #0F223D;
-    --muted-foreground:    #526A88;
+    --foreground:          #14243D;
+    --muted-foreground:    #7185A0;
     --input:               #FFFFFF;
-    --ring:                rgba(36, 99, 185, 0.35);
-    --accent:              #2463B9;
+    --ring:                rgba(36, 104, 200, 0.35);
+    --accent:              #2468C8;
     --destructive:         #B91C1C;
     --destructive-bg:      #FEF2F2;
     --destructive-border:  #FECACA;
@@ -153,11 +153,11 @@
     --info-bg:             #EFF6FF;
 
     /* Typography */
-    --text-primary:        #0F223D;
-    --text-secondary:      #334E6F;
-    --text-muted:          #526A88;
-    --text-dim:            #687F9C;
-    --furigana-color:      #2463B9;
+    --text-primary:        #14243D;
+    --text-secondary:      #526987;
+    --text-muted:          #7185A0;
+    --text-dim:            #7185A0;
+    --furigana-color:      #2468C8;
 
     /* Accent */
     --accent-cyan:         #2A8DA8;
@@ -165,13 +165,13 @@
     --accent-gold:         #C48B28;
     --accent-danger:       #DC2626;
 
-    /* Glass & Elevation (Crisp Arctic Shadows) */
-    --glass-bg:            rgba(255, 255, 255, 0.94);
-    --glass-card-bg:       linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 248, 255, 0.96) 100%);
-    --card-shadow:         0 6px 20px -6px rgba(15, 34, 61, 0.10), 0 2px 6px -1px rgba(36, 99, 185, 0.06);
-    --card-hover-shadow:   0 12px 28px -6px rgba(15, 34, 61, 0.16), 0 4px 12px -2px rgba(36, 99, 185, 0.10);
-    --modal-backdrop-bg:   rgba(15, 34, 61, 0.45);
-    --skeleton-base:       rgba(227, 236, 248, 0.92);
+    /* Glass & Elevation (Clean, Subtle Arctic Shadows) */
+    --glass-bg:            rgba(255, 255, 255, 0.96);
+    --glass-card-bg:       linear-gradient(165deg, #FFFFFF 0%, #F7FAFF 100%);
+    --card-shadow:         0 4px 14px -4px rgba(20, 36, 61, 0.06), 0 1px 4px rgba(36, 104, 200, 0.04);
+    --card-hover-shadow:   0 8px 20px -4px rgba(20, 36, 61, 0.10), 0 2px 8px rgba(36, 104, 200, 0.06);
+    --modal-backdrop-bg:   rgba(20, 36, 61, 0.42);
+    --skeleton-base:       rgba(232, 240, 251, 0.92);
     --skeleton-highlight:  rgba(255, 255, 255, 0.98);
 
     /* Legacy Tokens Mapped */
@@ -338,14 +338,14 @@ body::before {
 /* ========== GLASSMORPHISM PANELS ========== */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px) saturate(140%);
+  backdrop-filter: blur(6px);
   border: 1px solid var(--border);
   border-radius: 20px;
 }
 
 .glass-card {
   background: var(--glass-card-bg);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
   border: 1px solid var(--border);
   border-radius: 16px;
 }
