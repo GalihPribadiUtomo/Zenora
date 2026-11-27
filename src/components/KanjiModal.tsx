@@ -288,7 +288,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
     >
       {/* Modal Container */}
       <div 
-        className="relative w-full max-w-4xl my-auto rounded-3xl bg-[var(--bg-surface)] shadow-[0_20px_60px_-15px_rgba(8,21,47,0.95)] border border-[#3978D6]/35 text-[var(--text-primary)] overflow-hidden text-left animate-modal-pop"
+        className="relative w-full max-w-4xl my-auto rounded-3xl bg-[var(--bg-card)] shadow-2xl border border-[var(--border)] text-[var(--text-primary)] overflow-hidden text-left animate-modal-pop"
         onClick={(e) => e.stopPropagation()}
       >
         
@@ -393,7 +393,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
             {/* Right: Comprehensive Reading Breakdown & Writing Keys */}
             <div className="md:col-span-7 flex flex-col justify-between space-y-4">
               
-              <div className="p-5 rounded-3xl space-y-4 border border-[#3978D6]/20 bg-[var(--bg-sidebar)]/60 flex-1 shadow-[0_4px_16px_rgba(8,21,47,0.4)]">
+              <div className="p-5 rounded-3xl space-y-4 border border-[var(--border)] bg-[var(--bg-elevated)] flex-1 shadow-[var(--card-shadow)]">
                 
                 <div className="flex items-center justify-between border-b border-[#3978D6]/15 pb-3">
                   <div className="flex items-center gap-2">
@@ -473,7 +473,7 @@ export const KanjiModal: React.FC<KanjiModalProps> = ({
           </div>
 
           {/* LOWER SECTION: INTERACTIVE EDUCATIONAL TABS */}
-          <div className="rounded-3xl overflow-hidden border border-[#3978D6]/25 bg-[var(--bg-sidebar)]/70 shadow-[0_4px_24px_rgba(8,21,47,0.5)]">
+          <div className="rounded-3xl overflow-hidden border border-[var(--border)] bg-[var(--bg-elevated)] shadow-[var(--card-shadow)]">
             
             {/* Tab Switcher */}
             <div className="flex items-center border-b border-[#3978D6]/20 bg-[var(--bg-surface)] px-4 py-2 gap-2 overflow-x-auto">

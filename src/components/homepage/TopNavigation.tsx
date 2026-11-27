@@ -76,7 +76,7 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
   }, [showFurigana]);
 
   return (
-    <header className="sticky top-0 z-30 w-full px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3 bg-[var(--bg-header)]/90 backdrop-blur-xl border-b border-[var(--border)] transition-colors duration-200">
+    <header className="sticky top-0 z-30 w-full px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3 bg-[var(--bg-header)] border-b border-[var(--border)] transition-colors duration-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
         
         {/* Left: Mobile Menu Trigger (hidden on lg) */}

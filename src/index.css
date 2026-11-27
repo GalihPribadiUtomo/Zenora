@@ -13,33 +13,34 @@
     --color-ice-blue:      #DCEBFA;
 
     /* Core Dual-Theme Tokens (Midnight Ocean) */
-    --bg-base:             #071326;
-    --bg-sidebar:          #0A1930;
-    --bg-header:           #0A1930;
-    --bg-surface:          #112441;
-    --bg-card:             #112441;
-    --bg-elevated:         #192F50;
-    --border:              #29466F;
-    --border-subtle:       rgba(41, 70, 111, 0.55);
-    --border-glow:         rgba(77, 145, 247, 0.60);
+    --bg-base:             #07111F;
+    --bg-sidebar:          #0B1B30;
+    --bg-header:           #0B1B30;
+    --bg-surface:          #10243D;
+    --bg-card:             #10243D;
+    --bg-elevated:         #183451;
+    --border:              #29496B;
+    --border-subtle:       rgba(41, 73, 107, 0.65);
+    --border-glow:         rgba(75, 145, 241, 0.55);
 
-    --sidebar-text:        #A9BEDB;
-    --sidebar-muted:       #8198B8;
+    --sidebar-text:        #B7C9DF;
+    --sidebar-muted:       #91A8C2;
 
-    --primary:             #4D91F7;
-    --primary-hover:       #63A0FA;
-    --primary-deep:        #2456A6;
-    --secondary-accent:    #69C9DF;
+    --primary:             #4B91F1;
+    --primary-hover:       #70ACFF;
+    --primary-deep:        #205FB8;
+    --accent-soft:         #173B67;
+    --secondary-accent:    #70ACFF;
 
     /* Standardized Semantic & UI Tokens */
-    --background:          #071326;
-    --surface:             #112441;
-    --card:                #112441;
-    --foreground:          #F1F6FF;
-    --muted-foreground:    #8198B8;
-    --input:               #0A1930;
-    --ring:                rgba(77, 145, 247, 0.55);
-    --accent:              #4D91F7;
+    --background:          #07111F;
+    --surface:             #10243D;
+    --card:                #10243D;
+    --foreground:          #F4F8FF;
+    --muted-foreground:    #91A8C2;
+    --input:               #0D2038;
+    --ring:                rgba(75, 145, 241, 0.50);
+    --accent:              #4B91F1;
     --destructive:         #FCA5A5;
     --destructive-bg:      rgba(239, 68, 68, 0.16);
     --destructive-border:  rgba(248, 113, 113, 0.45);
@@ -48,15 +49,15 @@
     --success-border:      rgba(52, 211, 153, 0.45);
     --warning:             #FCD34D;
     --warning-bg:          rgba(245, 158, 11, 0.16);
-    --info:                #83B7EE;
-    --info-bg:             rgba(77, 145, 247, 0.18);
+    --info:                #70ACFF;
+    --info-bg:             #173B67;
 
     /* Typography */
-    --text-primary:        #F1F6FF;
-    --text-secondary:      #A9BEDB;
-    --text-muted:          #8198B8;
-    --text-dim:            #6B84A6;
-    --furigana-color:      #A8CEFF;
+    --text-primary:        #F4F8FF;
+    --text-secondary:      #B7C9DF;
+    --text-muted:          #91A8C2;
+    --text-dim:            #7892B0;
+    --furigana-color:      #B7C9DF;
 
     /* Accent */
     --accent-cyan:         #69C9DF;
@@ -64,44 +65,44 @@
     --accent-gold:         #E9BD72;
 
     /* Glass & Elevation (Crisp Midnight Ocean) */
-    --glass-bg:            rgba(17, 36, 65, 0.94);
-    --glass-card-bg:       linear-gradient(165deg, rgba(25, 47, 80, 0.96) 0%, rgba(17, 36, 65, 0.98) 100%);
-    --card-shadow:         0 8px 24px -6px rgba(4, 10, 22, 0.65);
-    --card-hover-shadow:   0 12px 32px -6px rgba(4, 10, 22, 0.8), 0 0 18px rgba(77, 145, 247, 0.22);
-    --modal-backdrop-bg:   rgba(7, 19, 38, 0.86);
-    --skeleton-base:       rgba(17, 36, 65, 0.9);
-    --skeleton-highlight:  rgba(25, 47, 80, 0.98);
+    --glass-bg:            #10243D;
+    --glass-card-bg:       linear-gradient(165deg, #183451 0%, #10243D 100%);
+    --card-shadow:         0 6px 20px -6px rgba(3, 8, 16, 0.55);
+    --card-hover-shadow:   0 10px 26px -6px rgba(3, 8, 16, 0.72);
+    --modal-backdrop-bg:   rgba(7, 17, 31, 0.82);
+    --skeleton-base:       #10243D;
+    --skeleton-highlight:  #183451;
 
     /* Legacy Tokens Mapped */
-    --latar:               #0B1428;
-    --permukaan:           #142641;
-    --teks:                #F2F6FC;
-    --aksen:               #3978D6;
-    --redup:               #7186A5;
+    --latar:               #07111F;
+    --permukaan:           #10243D;
+    --teks:                #F4F8FF;
+    --aksen:               #4B91F1;
+    --redup:               #91A8C2;
 
-    --mj-bg-darkest:       #08152F;
-    --mj-bg-card:          #142641;
-    --mj-bg-elevated:      #192E4D;
-    --mj-bg-surface:       #111F38;
-    --mj-bg-surface-2:     #192E4D;
-    --mj-purple-primary:   #2456A6;
-    --mj-purple-light:     #3978D6;
-    --mj-purple-glow:      #83B7EE;
-    --mj-blue-accent:      #3978D6;
-    --mj-blue-light:       #83B7EE;
-    --mj-sakura-pink:      #69C9DF;
+    --mj-bg-darkest:       #07111F;
+    --mj-bg-card:          #10243D;
+    --mj-bg-elevated:      #183451;
+    --mj-bg-surface:       #10243D;
+    --mj-bg-surface-2:     #183451;
+    --mj-purple-primary:   #205FB8;
+    --mj-purple-light:     #4B91F1;
+    --mj-purple-glow:      #70ACFF;
+    --mj-blue-accent:      #4B91F1;
+    --mj-blue-light:       #70ACFF;
+    --mj-sakura-pink:      #70ACFF;
     --mj-success-green:    #45C6A5;
     --mj-achieve-gold:     #E9BD72;
-    --mj-text-primary:     #F2F6FC;
-    --mj-text-secondary:   #A9BBD3;
-    --mj-text-muted:       #7186A5;
+    --mj-text-primary:     #F4F8FF;
+    --mj-text-secondary:   #B7C9DF;
+    --mj-text-muted:       #91A8C2;
 
     /* Gradients */
-    --gradient-hero:       linear-gradient(135deg, #08152F 0%, #102447 60%, #2456A6 100%);
-    --gradient-card:       linear-gradient(145deg, #102447 0%, #192E4D 100%);
-    --gradient-btn:        linear-gradient(135deg, #2456A6 0%, #3978D6 100%);
-    --gradient-accent:     linear-gradient(135deg, #2456A6 0%, #3978D6 100%);
-    --gradient-page:       linear-gradient(160deg, #08152F 0%, #0B1428 50%, #102447 100%);
+    --gradient-hero:       linear-gradient(135deg, #07111F 0%, #0B1B30 60%, #173B67 100%);
+    --gradient-card:       linear-gradient(145deg, #10243D 0%, #183451 100%);
+    --gradient-btn:        linear-gradient(135deg, #205FB8 0%, #4B91F1 100%);
+    --gradient-accent:     linear-gradient(135deg, #205FB8 0%, #4B91F1 100%);
+    --gradient-page:       #07111F;
   }
 
   /* ===== LIGHT MODE: LUXURY ARCTIC BLUE ===== */
@@ -114,33 +115,34 @@
     --color-ice-blue:      #DCEBFA;
 
     /* Core Dual-Theme Tokens (Luxury Arctic Blue) */
-    --bg-base:             #F2F6FC;
-    --bg-sidebar:          #E8F0FB;
+    --bg-base:             #F3F7FC;
+    --bg-sidebar:          #E3ECF8;
     --bg-header:           #FFFFFF;
     --bg-surface:          #FFFFFF;
     --bg-card:             #FFFFFF;
-    --bg-elevated:         #F7FAFF;
-    --border:              #C7D8EF;
-    --border-subtle:       #D6E2F2;
-    --border-glow:         rgba(36, 104, 200, 0.35);
+    --bg-elevated:         #F8FBFF;
+    --border:              #C5D5E8;
+    --border-subtle:       #D5E2F1;
+    --border-glow:         rgba(32, 95, 184, 0.30);
 
-    --sidebar-text:        #14243D;
-    --sidebar-muted:       #7185A0;
+    --sidebar-text:        #172A43;
+    --sidebar-muted:       #657C98;
 
-    --primary:             #2468C8;
-    --primary-hover:       #1B55AA;
-    --primary-deep:        #1A4688;
+    --primary:             #205FB8;
+    --primary-hover:       #164B96;
+    --primary-deep:        #164B96;
+    --accent-soft:         #DCEBFF;
     --secondary-accent:    #2A8DA8;
 
     /* Standardized Semantic & UI Tokens */
-    --background:          #F2F6FC;
+    --background:          #F3F7FC;
     --surface:             #FFFFFF;
     --card:                #FFFFFF;
-    --foreground:          #14243D;
-    --muted-foreground:    #7185A0;
+    --foreground:          #172A43;
+    --muted-foreground:    #657C98;
     --input:               #FFFFFF;
-    --ring:                rgba(36, 104, 200, 0.35);
-    --accent:              #2468C8;
+    --ring:                rgba(32, 95, 184, 0.35);
+    --accent:              #205FB8;
     --destructive:         #B91C1C;
     --destructive-bg:      #FEF2F2;
     --destructive-border:  #FECACA;
@@ -149,15 +151,15 @@
     --success-border:      #A7F3D0;
     --warning:             #B45309;
     --warning-bg:          #FFFBEB;
-    --info:                #1D4ED8;
-    --info-bg:             #EFF6FF;
+    --info:                #205FB8;
+    --info-bg:             #DCEBFF;
 
     /* Typography */
-    --text-primary:        #14243D;
-    --text-secondary:      #526987;
-    --text-muted:          #7185A0;
-    --text-dim:            #7185A0;
-    --furigana-color:      #2468C8;
+    --text-primary:        #172A43;
+    --text-secondary:      #4B617D;
+    --text-muted:          #657C98;
+    --text-dim:            #657C98;
+    --furigana-color:      #526987;
 
     /* Accent */
     --accent-cyan:         #2A8DA8;
@@ -166,44 +168,44 @@
     --accent-danger:       #DC2626;
 
     /* Glass & Elevation (Clean, Subtle Arctic Shadows) */
-    --glass-bg:            rgba(255, 255, 255, 0.96);
-    --glass-card-bg:       linear-gradient(165deg, #FFFFFF 0%, #F7FAFF 100%);
-    --card-shadow:         0 4px 14px -4px rgba(20, 36, 61, 0.06), 0 1px 4px rgba(36, 104, 200, 0.04);
-    --card-hover-shadow:   0 8px 20px -4px rgba(20, 36, 61, 0.10), 0 2px 8px rgba(36, 104, 200, 0.06);
-    --modal-backdrop-bg:   rgba(20, 36, 61, 0.42);
-    --skeleton-base:       rgba(232, 240, 251, 0.92);
-    --skeleton-highlight:  rgba(255, 255, 255, 0.98);
+    --glass-bg:            #FFFFFF;
+    --glass-card-bg:       linear-gradient(165deg, #FFFFFF 0%, #F8FBFF 100%);
+    --card-shadow:         0 2px 10px -2px rgba(23, 42, 67, 0.05), 0 1px 3px rgba(32, 95, 184, 0.04);
+    --card-hover-shadow:   0 6px 16px -4px rgba(23, 42, 67, 0.09), 0 2px 6px rgba(32, 95, 184, 0.05);
+    --modal-backdrop-bg:   rgba(23, 42, 67, 0.42);
+    --skeleton-base:       #E3ECF8;
+    --skeleton-highlight:  #FFFFFF;
 
     /* Legacy Tokens Mapped */
-    --latar:               #F1F5FB;
+    --latar:               #F3F7FC;
     --permukaan:           #FFFFFF;
-    --teks:                #172B46;
-    --aksen:               #2866B5;
-    --redup:               #8194AA;
+    --teks:                #172A43;
+    --aksen:               #205FB8;
+    --redup:               #657C98;
 
-    --mj-bg-darkest:       #E7EFF9;
+    --mj-bg-darkest:       #E3ECF8;
     --mj-bg-card:          #FFFFFF;
-    --mj-bg-elevated:      #F8FAFE;
-    --mj-bg-surface:       #F7F9FD;
-    --mj-bg-surface-2:     #EAF1F9;
-    --mj-purple-primary:   #2866B5;
-    --mj-purple-light:     #4389D4;
-    --mj-purple-glow:      #83B7EE;
-    --mj-blue-accent:      #2866B5;
-    --mj-blue-light:       #4389D4;
-    --mj-sakura-pink:      #4A9DBD;
-    --mj-success-green:    #1F9D7E;
+    --mj-bg-elevated:      #F8FBFF;
+    --mj-bg-surface:       #FFFFFF;
+    --mj-bg-surface-2:     #DCEBFF;
+    --mj-purple-primary:   #205FB8;
+    --mj-purple-light:     #4B91F1;
+    --mj-purple-glow:      #70ACFF;
+    --mj-blue-accent:      #205FB8;
+    --mj-blue-light:       #4B91F1;
+    --mj-sakura-pink:      #4B91F1;
+    --mj-success-green:    #059669;
     --mj-achieve-gold:     #C48B28;
-    --mj-text-primary:     #172B46;
-    --mj-text-secondary:   #526982;
-    --mj-text-muted:       #8194AA;
+    --mj-text-primary:     #172A43;
+    --mj-text-secondary:   #4B617D;
+    --mj-text-muted:       #657C98;
 
     /* Gradients */
-    --gradient-hero:       linear-gradient(135deg, #F1F5FB 0%, #EAF1F9 60%, #DCE6F2 100%);
-    --gradient-card:       linear-gradient(145deg, #FFFFFF 0%, #F8FAFE 100%);
-    --gradient-btn:        linear-gradient(135deg, #2866B5 0%, #4389D4 100%);
-    --gradient-accent:     linear-gradient(135deg, #2866B5 0%, #4389D4 100%);
-    --gradient-page:       linear-gradient(165deg, #F1F5FB 0%, #EAF1F9 100%);
+    --gradient-hero:       linear-gradient(135deg, #F3F7FC 0%, #E3ECF8 60%, #DCEBFF 100%);
+    --gradient-card:       linear-gradient(145deg, #FFFFFF 0%, #F8FBFF 100%);
+    --gradient-btn:        linear-gradient(135deg, #205FB8 0%, #4B91F1 100%);
+    --gradient-accent:     linear-gradient(135deg, #205FB8 0%, #4B91F1 100%);
+    --gradient-page:       #F3F7FC;
   }
 }
 
@@ -338,16 +340,21 @@ body::before {
 /* ========== GLASSMORPHISM PANELS ========== */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(6px);
   border: 1px solid var(--border);
   border-radius: 20px;
 }
 
 .glass-card {
   background: var(--glass-card-bg);
-  backdrop-filter: blur(4px);
   border: 1px solid var(--border);
   border-radius: 16px;
+}
+
+/* ========== FORM PLACEHOLDERS ========== */
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
 }
 
 /* ========== KANJI / KANA CHARACTER DISPLAY ========== */
@@ -355,13 +362,12 @@ body::before {
   font-family: 'Noto Serif JP', 'Noto Sans JP', serif;
   font-weight: 900;
   color: var(--text-primary);
-  text-shadow: 0 0 24px rgba(57, 120, 214, 0.25);
 }
 
 /* ========== PROGRESS BAR ========== */
 .progress-track {
   height: 6px;
-  background: rgba(113, 134, 165, 0.2);
+  background: var(--accent-soft);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -369,7 +375,6 @@ body::before {
   height: 100%;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--primary-deep), var(--primary), var(--secondary-accent));
-  box-shadow: 0 0 10px rgba(57, 120, 214, 0.4);
   transition: width 0.6s cubic-bezier(.4,0,.2,1);
 }
 
@@ -380,8 +385,8 @@ body::before {
   gap: 0.3rem;
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  background: rgba(57, 120, 214, 0.15);
-  border: 1px solid rgba(57, 120, 214, 0.32);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
   color: var(--primary);
   font-size: 0.72rem;
   font-weight: 700;
@@ -390,7 +395,7 @@ body::before {
 }
 [data-theme="dark"] .badge-electric,
 [data-theme="dark"] .badge-aksen {
-  color: #83B7EE;
+  color: var(--primary-hover);
 }
 
 .badge-redup {

@@ -64,17 +64,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const [materiExpanded, setMateriExpanded] = useState(isMateri);
 
   const activeNavClass = darkMode
-    ? 'bg-gradient-to-r from-[#2456A6] to-[#3978D6] text-white shadow-[0_8px_20px_-4px_rgba(36,86,166,0.45)]'
-    : 'bg-gradient-to-r from-[#2866B5] to-[#4389D4] text-white shadow-[0_8px_18px_-4px_rgba(40,102,181,0.35)]';
-  const inactiveNavClass = darkMode
-    ? 'text-[var(--sidebar-text)] hover:text-[#F2F6FC] hover:bg-[#111F38]'
-    : 'text-[var(--sidebar-text)] hover:text-[#172B46] hover:bg-[#DCE7F6]/70';
+    ? 'bg-gradient-to-r from-[#205FB8] to-[#4B91F1] text-white shadow-sm'
+    : 'bg-gradient-to-r from-[#205FB8] to-[#4B91F1] text-white shadow-sm';
+  const inactiveNavClass =
+    'text-[var(--sidebar-text)] hover:text-[var(--text-primary)] hover:bg-[var(--accent-soft)]/70';
   const activeSubNavClass = darkMode
-    ? 'bg-gradient-to-r from-[#2456A6]/30 to-[#3978D6]/30 text-white border border-[#3978D6]/50'
-    : 'bg-[#2866B5]/12 text-[#214F91] border border-[#2866B5]/30';
-  const inactiveSubNavClass = darkMode
-    ? 'text-[var(--sidebar-text)] hover:text-[#F2F6FC] hover:bg-[#111F38]'
-    : 'text-[var(--sidebar-text)] hover:text-[#172B46] hover:bg-[#DCE7F6]/60';
+    ? 'bg-[var(--accent-soft)] text-[var(--text-primary)] border border-[var(--primary)]/50'
+    : 'bg-[var(--accent-soft)] text-[var(--primary)] border border-[var(--primary)]/35';
+  const inactiveSubNavClass =
+    'text-[var(--sidebar-text)] hover:text-[var(--text-primary)] hover:bg-[var(--accent-soft)]/50';
 
   return (
     <aside className="w-60 xl:w-64 shrink-0 h-screen sticky top-0 flex flex-col justify-between bg-[var(--bg-sidebar)] border-r border-[var(--border-subtle)] p-4 z-40 select-none overflow-y-auto transition-colors duration-200">
@@ -113,7 +111,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         {/* Admin Mode Active Badge & Exit Switcher */}
         {isAdminMode && (
-          <div className="p-2.5 rounded-2xl bg-gradient-to-r from-[#2456A6]/20 via-[#102447] to-[#3978D6]/20 border border-[#3978D6]/40 shadow-[0_0_20px_rgba(36,86,166,0.25)] flex items-center justify-between animate-fade-in">
+          <div className="p-2.5 rounded-2xl bg-[var(--accent-soft)] border border-[var(--primary)]/40 flex items-center justify-between animate-fade-in">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#45C6A5] animate-pulse" />
               <span className="text-xs font-black tracking-wider text-[var(--text-primary)] font-['Manrope']">
