@@ -13,6 +13,7 @@ import {
   getVideosByChapter,
   getUncategorizedVideos,
   YOUTUBE_PLAYLIST_URL,
+  YOUTUBE_PLAYLIST_2_URL,
 } from '../data/chapterVideos';
 import { sound } from '../utils/audio';
 
@@ -52,12 +53,14 @@ export const ChapterVideoSection: React.FC<ChapterVideoSectionProps> = ({ bab })
                 Video Pembelajaran Bab {bab}
               </h3>
               <p className="text-xs sm:text-sm text-[var(--text-secondary)]">
-                Playlist sumber (Minna no Nihongo 1) saat ini mencakup materi Bab 1–25. Belum ada video khusus untuk Bab {bab}.
+                {bab <= 25
+                  ? `Playlist sumber (Minna no Nihongo 1) saat ini mencakup materi Bab 1–25. Belum ada video khusus untuk Bab ${bab}.`
+                  : `Playlist sumber (Minna no Nihongo 2) saat ini mencakup materi Bab 26–47. Belum ada video khusus untuk Bab ${bab}.`}
               </p>
             </div>
           </div>
           <a
-            href={YOUTUBE_PLAYLIST_URL}
+            href={bab <= 25 ? YOUTUBE_PLAYLIST_URL : YOUTUBE_PLAYLIST_2_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--bg-elevated)] hover:bg-[#3978D6]/15 border border-[#3978D6]/30 text-xs font-bold text-[var(--text-primary)] transition-colors shrink-0"

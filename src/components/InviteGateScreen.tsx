@@ -52,14 +52,14 @@ export const InviteGateScreen: React.FC<InviteGateScreenProps> = ({
           </div>
 
           {deniedReason && !isChecking && (
-            <div className="p-3.5 rounded-2xl bg-red-500/10 border border-red-500/35 text-left space-y-1">
-              <div className="text-xs font-black text-red-400">Verifikasi Gagal</div>
+            <div className="p-3.5 rounded-2xl bg-[var(--destructive-bg)] border border-[var(--destructive-border)] text-left space-y-1">
+              <div className="text-xs font-black text-[var(--destructive)]">Verifikasi Gagal</div>
               {deniedEmail && (
                 <div className="text-[11px] font-mono text-[var(--text-primary)] break-all">
                   {deniedEmail}
                 </div>
               )}
-              <p className="text-xs text-red-300 leading-relaxed">{deniedReason}</p>
+              <p className="text-xs text-[var(--destructive)] leading-relaxed">{deniedReason}</p>
             </div>
           )}
 

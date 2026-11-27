@@ -1072,7 +1072,7 @@ export const ChapterDetail: React.FC<ChapterDetailProps> = ({
       </div>
 
       {/* ── STICKY TAB NAVIGATION: SEMUA MATERI (1 HALAMAN) + 6 TAB SPESIFIK ── */}
-      <div className="sticky top-[72px] z-30 bg-[var(--bg-sidebar)]/95 backdrop-blur-md py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 border-b border-[#3978D6]/25 flex flex-wrap items-center gap-2 shadow-[0_10px_30px_rgba(8,21,47,0.8)]">
+      <div className="sticky top-[72px] z-30 bg-[var(--bg-header)]/95 backdrop-blur-sm py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 border-b border-[var(--border)] flex flex-wrap items-center gap-2 shadow-[var(--card-shadow)]">
         
         {/* TAB 0: SEMUA MATERI DALAM 1 HALAMAN */}
         <button

@@ -271,7 +271,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--bg-sidebar)]/85 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--modal-backdrop-bg)] backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
@@ -349,14 +349,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* Alerts */}
         <div className="px-6 pt-3 space-y-2">
           {errorMessage && (
-            <div className="flex items-center gap-2 p-3 rounded-xl bg-red-950/40 border border-red-500/40 text-red-300 text-xs font-semibold">
+            <div className="flex items-center gap-2 p-3 rounded-xl bg-[var(--destructive-bg)] border border-[var(--destructive-border)] text-[var(--destructive)] text-xs font-semibold">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{errorMessage}</span>
             </div>
           )}
 
           {successMessage && (
-            <div className="flex items-center gap-2 p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-xs font-semibold">
+            <div className="flex items-center gap-2 p-3 rounded-xl bg-[var(--success-bg)] border border-[var(--success-border)] text-[var(--success)] text-xs font-semibold">
               <CheckCircle2 className="w-4 h-4 shrink-0" />
               <span>{successMessage}</span>
             </div>
@@ -534,7 +534,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 <button
                   type="button"
                   onClick={clearSupabaseCredentials}
-                  className="px-3.5 py-2.5 rounded-xl border border-red-500/40 bg-red-950/40 hover:bg-red-900/50 text-red-300 text-xs font-bold transition-colors"
+                  className="px-3.5 py-2.5 rounded-xl border border-[var(--destructive-border)] bg-[var(--destructive-bg)] hover:brightness-95 text-[var(--destructive)] text-xs font-bold transition-colors"
                 >
                   Reset
                 </button>

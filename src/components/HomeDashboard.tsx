@@ -101,7 +101,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               </div>
             </div>
             {dailyPct >= 100 && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[var(--success-bg)] border border-[var(--success-border)] text-[var(--success)] text-[10px] font-bold">
                 <CheckCircle2 className="w-3 h-3" /> Tercapai
               </span>
             )}
